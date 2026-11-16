@@ -1,0 +1,369 @@
+{
+ "comandos": {
+  "norma": {
+   "funcion": "Recibe en palabras de la persona lo que necesita de Alexis y corre el comando que lo resuelve; no hace el trabajo por su cuenta ni escribe nada (decisión 0027).",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras de la persona por cada grupo del agente, uno que encaja en dos comandos y uno que es de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta con las dos etiquetas; en el ajeno da la entrada del otro agente; la tabla la comprueba scripts/familias.py --check"
+   }
+  },
+  "profile-build": {
+   "funcion": "Un borrador de perfil sobre un estándar.",
+   "entrada": {
+    "argumento": "[código de la ocupación o nombre del cargo]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "El borrador del perfil, con la fuente de cada requisito y lo que la persona tiene que decidir",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-profile-build.md",
+     "<estado>/corridas/salida-profile-build.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "occupation-standard",
+     "profile-record"
+    ],
+    "script": [
+     "corrida",
+     "ocupacion",
+     "terminos"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "profile-check": {
+   "funcion": "Cada perfil contra su estándar.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada perfil con su ocupación, su nivel, sus estudios, lo que le falta frente al estándar y su revisión; las señales con su cita",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-profile-check.md",
+     "<estado>/corridas/salida-profile-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "occupation-standard"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "profile-language": {
+   "funcion": "Los requisitos que piden lo que no se puede pedir.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada requisito que pide algo que no se puede pedir, con la norma o la política que lo dice",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-profile-language.md",
+     "<estado>/corridas/salida-profile-language.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "profile-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "profile-map": {
+   "funcion": "El mapa de los perfiles de la organización.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los perfiles por ocupación, los que se solapan con su porcentaje en común y las ocupaciones afines sin perfil",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-profile-map.md",
+     "<estado>/corridas/salida-profile-map.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "occupation-standard"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "roles-scan": {
+   "funcion": "La ficha del periodo al día.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que entró a la ficha; los perfiles que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-roles-scan.md",
+     "<estado>/corridas/salida-roles-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "profile-record",
+     "talent-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "roles-setup": {
+   "funcion": "La configuración, el inventario y el estándar reconocido.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; el estándar con sus ocupaciones; la primera ficha del periodo",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-roles-setup.md",
+     "<estado>/corridas/salida-roles-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "occupation-standard",
+     "profile-record",
+     "talent-intake"
+    ],
+    "script": [
+     "arranque",
+     "compute",
+     "convertir",
+     "corrida",
+     "dejar-listo",
+     "inventario",
+     "ocupacion",
+     "reporte"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "roles-wake": {
+   "funcion": "Lo que toca hoy en los perfiles.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que tocaba y lo que hizo, o una línea si no tocaba nada",
+    "escribe": [
+     "<estado>/perfiles/<AAAA-MM>/resultados.json",
+     "<estado>/perfiles/<AAAA-MM>/reporte-roles-wake.md",
+     "<estado>/corridas/salida-roles-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "profile-check",
+     "profile-language",
+     "profile-map",
+     "roles-scan"
+    ]
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "share-findings": {
+   "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     ".criterio/corridas/<área>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "enlace",
+     "resumen"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+    "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+   }
+  }
+ },
+ "skills": {
+  "occupation-standard": {
+   "escribe": [
+    "standard",
+    "education.levels"
+   ],
+   "alimenta": [
+    "essential_skill_missing",
+    "education_level_inconsistent",
+    "profiles_overlap"
+   ]
+  },
+  "profile-record": {
+   "escribe": [
+    "profiles[].occupation",
+    "profiles[].tasks",
+    "profiles[].requirements",
+    "profiles[].education",
+    "profiles[].not_applicable",
+    "profiles[].next_review"
+   ],
+   "alimenta": [
+    "profile_without_occupation",
+    "essential_skill_missing",
+    "requirement_without_task",
+    "requirement_not_allowed",
+    "profile_review_overdue"
+   ]
+  },
+  "talent-intake": {
+   "escribe": [],
+   "alimenta": [
+    "profile_without_occupation"
+   ]
+  }
+ }
+}

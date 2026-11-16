@@ -50,7 +50,8 @@ AGENTE = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
           "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria", "criterio-legal": "legal",
           "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
           "criterio-sales": "comercial", "criterio-revenue": "ingresos", "criterio-security": "seguridad",
-          "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia"}
+          "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia",
+          "criterio-roles": "perfiles", "criterio-talent": "seleccion"}
 NOMBRE = {"portafolio": "Vera", "proyecto": "Samuel", "producto": "Alba", "finanzas": "Clara",
           "presupuesto": "Tomás", "tesoreria": "Áurea", "legal": "Fidel", "cumplimiento": "Constanza",
           "direccion": "Ofelia", "comercial": "Augusto", "ingresos": "Valeria", "seguridad": "Alexis",

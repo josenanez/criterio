@@ -20,7 +20,8 @@ RAIZ = Path(__file__).resolve().parent.parent
 MOTOR = {"criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py", "criterio-treasury": "finanzas.py",
          "criterio-legal": "legal.py", "criterio-compliance": "legal.py", "criterio-assistant": "asistente.py",
          "criterio-sales": "ventas.py", "criterio-revenue": "ventas.py", "criterio-security": "seguridad.py",
-         "criterio-vulnerability": "seguridad.py", "criterio-resilience": "seguridad.py"}
+         "criterio-vulnerability": "seguridad.py", "criterio-resilience": "seguridad.py",
+         "criterio-roles": "talento.py", "criterio-talent": "talento.py"}
 FAMILIAS = ("cfo", "clo", "cco", "ciso", "ea")
 
 

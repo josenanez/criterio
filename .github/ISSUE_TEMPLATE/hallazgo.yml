@@ -21,6 +21,7 @@ body:
         - Criterio EA · Ofelia
         - Criterio CCO · Augusto, Valeria
         - Criterio CISO · Alexis, Guillermo, Amparo
+        - Criterio CHRO · Norma, Cándido
         - Rostrum
     validations:
       required: true

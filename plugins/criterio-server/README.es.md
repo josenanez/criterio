@@ -96,6 +96,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CISO** · La seguridad de la información | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · La seguridad de la información | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · La seguridad de la información | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CHRO** · El talento | Norma | `/criterio-roles:roles-setup` | `.criterio/perfiles/<instancia>/` | `_CRITERIO_TALENTO.txt` |
+| **Criterio CHRO** · El talento | Cándido | `/criterio-talent:talent-setup` | `.criterio/seleccion/<instancia>/` | `_CRITERIO_TALENTO.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

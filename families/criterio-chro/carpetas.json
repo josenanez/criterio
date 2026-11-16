@@ -1,0 +1,120 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CHRO: scripts/familias.py la escribe en DISENO.es.md, en el skill talent-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "talento/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, la política de selección y el estándar de ocupaciones, los perfiles de cargo, el registro de vacantes, una carpeta por candidato con su hoja de vida y sus soportes, las autorizaciones de tratamiento de datos y las exportaciones del ATS. Nunca la fotografía, la edad ni la salud de un candidato como requisito: el motor las excluye.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the selection policy and the occupational standard, the job profiles, the vacancy register, one folder per candidate with their CV and supporting documents, the data-processing authorisations and the ATS exports. Never a candidate's photograph, age or health as a requirement: the engine excludes them."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que la organización lleva para su selección y sus perfiles de cargo",
+      "en": "What the organisation keeps for its selection and its job profiles",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "norma",
+            "candido"
+          ],
+          "es": "La política de selección —el plazo de cobertura de una vacante, la conservación de los datos, quién aprueba— y la descarga oficial del estándar de ocupaciones: el Excel de los perfiles ocupacionales de la CUOC del DANE o la carpeta de O*NET",
+          "en": "The selection policy —the time to fill a vacancy, how long data is kept, who approves— and the official download of the occupational standard: the DANE CUOC occupational profiles workbook or the O*NET folder",
+          "patrones": [
+            "^politica",
+            "^estandar",
+            "^perfilesocupacionales",
+            "^cuoc",
+            "^onet",
+            "^occupation_data",
+            "^task_statements",
+            "^job_zones",
+            "^essential_skills",
+            "^transferable_skills",
+            "^knowledge"
+          ]
+        },
+        {
+          "carpeta": "10-perfiles",
+          "agentes": [
+            "norma"
+          ],
+          "es": "Los perfiles de cargo y el manual de funciones, uno por cargo, con su código o su nombre en el archivo",
+          "en": "The job profiles and the duties manual, one per role, with its code or name in the file",
+          "patrones": [
+            "^perfil",
+            "^pc_",
+            "^manual",
+            "^profile"
+          ]
+        },
+        {
+          "carpeta": "20-vacantes",
+          "agentes": [
+            "candido"
+          ],
+          "es": "El registro de vacantes: cada una con su perfil, su fecha de apertura y la de su cierre",
+          "en": "The vacancy register: each one with its profile, its opening date and its closing date",
+          "patrones": [
+            "^registro_vacantes",
+            "^vacantes",
+            "^requisiciones",
+            "^vacancies"
+          ]
+        },
+        {
+          "carpeta": "30-candidatos",
+          "agentes": [
+            "candido"
+          ],
+          "es": "Una carpeta por vacante y, dentro, una por candidato con su identificador: la hoja de vida y sus soportes —diplomas, actas de grado, certificaciones y certificados laborales—",
+          "en": "One folder per vacancy and, inside it, one per candidate with their identifier: the CV and its supporting documents —diplomas, degree certificates, certifications and employment certificates—",
+          "patrones": [
+            "^hoja_de_vida",
+            "^cv",
+            "^curriculum",
+            "^diploma",
+            "^acta",
+            "^certificado",
+            "^certificacion",
+            "^tarjeta"
+          ]
+        },
+        {
+          "carpeta": "40-autorizaciones",
+          "agentes": [
+            "candido"
+          ],
+          "es": "El registro de autorizaciones de tratamiento de datos de los candidatos, con su fecha",
+          "en": "The register of candidates' data-processing authorisations, with their date",
+          "patrones": [
+            "^registro_autorizaciones",
+            "^autorizaciones",
+            "^consentimientos",
+            "^consents"
+          ]
+        },
+        {
+          "carpeta": "50-ats",
+          "agentes": [
+            "candido"
+          ],
+          "es": "La exportación del sistema de selección (ATS) —cada candidato con su vacante, su postulación y su etapa— y la base de talento interna",
+          "en": "The export of the applicant tracking system (ATS) —each candidate with their vacancy, application and stage— and the internal talent base",
+          "patrones": [
+            "ats",
+            "^postulaciones",
+            "^applications",
+            "^base_interna",
+            "^base_de_talento"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-talento/",
+    "es": "Lo que escriben Norma y Cándido: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Norma and Cándido write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

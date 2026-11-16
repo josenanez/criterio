@@ -1,0 +1,547 @@
+{
+ "entidad": "Servicios Andinos Control Sintéticos",
+ "industria": "tecnologia",
+ "pais": "PE",
+ "estandar": "onet",
+ "ocupaciones": 2,
+ "hoy": "2026-11-16",
+ "periodo": "2026-11",
+ "siembra": false,
+ "config": {
+  "norma": {
+   "entity": {
+    "id": "20601234567",
+    "name": "Servicios Andinos Control Sintéticos",
+    "country": "PE",
+    "currency": "PEN"
+   },
+   "paths": {
+    "documents": "talento/20601234567-servicios-andinos-control-sinteticos",
+    "state": "estado-talento/20601234567-servicios-andinos-control-sinteticos"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "education": {
+    "levels": {}
+   },
+   "profiles": {
+    "review_months": 12
+   },
+   "overlap": {
+    "share": 0.5
+   },
+   "selection": {
+    "prohibited_requirements": [
+     "edad",
+     "sexo",
+     "estado civil",
+     "fotografía"
+    ]
+   }
+  },
+  "candido": {
+   "entity": {
+    "id": "20601234567",
+    "name": "Servicios Andinos Control Sintéticos",
+    "country": "PE",
+    "currency": "PEN"
+   },
+   "paths": {
+    "documents": "talento/20601234567-servicios-andinos-control-sinteticos",
+    "state": "estado-talento/20601234567-servicios-andinos-control-sinteticos"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "selection": {
+    "vacancy": {
+     "target_days": 40
+    },
+    "data": {
+     "retention_days": 150
+    },
+    "publish": false
+   }
+  }
+ },
+ "extraccion": {
+  "perfiles": {
+   "profiles": [
+    {
+     "id": "SA-01",
+     "title": "Analista de soporte",
+     "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-1232.00"
+     },
+     "education": {
+      "label": "Técnico",
+      "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Atender las consultas de los usuarios"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Escucha activa",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.b",
+       "type": "conocimiento",
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Resolución de fallas",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.5.a",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+      },
+      {
+       "id": "R3",
+       "text": "Computadores y electrónica",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.3.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+      }
+     ],
+     "next_review": "2027-02-01"
+    },
+    {
+     "id": "SA-02",
+     "title": "Cajero",
+     "source": "10-perfiles/SA-02_cajero.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "41-2011.00"
+     },
+     "education": {
+      "label": "Secundaria",
+      "source": "10-perfiles/SA-02_cajero.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Cobrar a los clientes en caja"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Escucha activa",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.b",
+       "type": "conocimiento",
+       "source": "10-perfiles/SA-02_cajero.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Matemáticas",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.e",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/SA-02_cajero.docx"
+      }
+     ],
+     "not_applicable": [
+      {
+       "element": "Customer and Personal Service",
+       "reason": "la caja no atiende reclamos: los atiende el área de servicio"
+      }
+     ],
+     "next_review": "2027-02-01"
+    }
+   ]
+  },
+  "seleccion": {
+   "candidates": [
+    {
+     "id": "CAN-501",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-501/",
+     "cv": "30-candidatos/VAC-41/CAN-501/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-501/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-501/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-501/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-501/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-501/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-502",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-502/",
+     "cv": "30-candidatos/VAC-41/CAN-502/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-502/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-502/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-502/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-502/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-502/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-503",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-503/",
+     "cv": "30-candidatos/VAC-41/CAN-503/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-503/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-503/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-503/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-503/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-20",
+       "support_to": "2022-08-05"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-503/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-504",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-504/",
+     "cv": "30-candidatos/VAC-41/CAN-504/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-504/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-504/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-504/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-504/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-504/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-505",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-505/",
+     "cv": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-505/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-505/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2020-12",
+       "support_from": "2019-03-01",
+       "support_to": "2020-12-31"
+      },
+      {
+       "id": "K4",
+       "type": "empleo",
+       "text": "Analista en Servicios del Norte Sintéticos",
+       "cv_source": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-505/certificado-laboral-2.pdf",
+       "from": "2022-06",
+       "to": "2026-08",
+       "support_from": "2022-06-01",
+       "support_to": "2026-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-506",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-506/",
+     "cv": "30-candidatos/VAC-41/CAN-506/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-506/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-506/diploma.jpg"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-506/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-506/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-506/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-507",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-507/",
+     "cv": "30-candidatos/VAC-41/CAN-507/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-507/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-507/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-507/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-507/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-507/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-508",
+     "vacancy": "VAC-41",
+     "folder": "30-candidatos/VAC-41/CAN-508/",
+     "cv": "30-candidatos/VAC-41/CAN-508/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-41/CAN-508/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-508/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-41/CAN-508/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-41/CAN-508/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-41/CAN-508/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "sexo",
+       "source": "30-candidatos/VAC-41/CAN-508/hoja-de-vida.pdf"
+      }
+     ]
+    },
+    {
+     "id": "CAN-509",
+     "vacancy": "VAC-42",
+     "folder": "30-candidatos/VAC-42/CAN-509/",
+     "cv": "30-candidatos/VAC-42/CAN-509/hoja-de-vida.pdf",
+     "received": "2026-05-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-42/CAN-509/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-42/CAN-509/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-42/CAN-509/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-42/CAN-509/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-42/CAN-509/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-510",
+     "vacancy": "VAC-43",
+     "folder": "30-candidatos/VAC-43/CAN-510/",
+     "cv": "30-candidatos/VAC-43/CAN-510/hoja-de-vida.pdf",
+     "received": "2026-11-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Técnico en computación",
+       "cv_source": "30-candidatos/VAC-43/CAN-510/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-43/CAN-510/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-43/CAN-510/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-43/CAN-510/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-43/CAN-510/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "pares": [
+  [
+   "CAN-507",
+   "CAN-508"
+  ]
+ ],
+ "esperado": [
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-508:sexo"
+  }
+ ]
+}

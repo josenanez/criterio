@@ -55,7 +55,8 @@ SCRIPTS = {
 # registrar la aceptación de los términos— y comparte entre sus dos plugins su propio motor.
 # La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
 for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
-           "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience"):
+           "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
+           "criterio-roles", "criterio-talent"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -79,7 +80,8 @@ for _p in AGENTES_COMPARTIR:
 COMANDO_COMPARTIR = RAIZ / "plugins" / "criterio-portfolio" / "commands" / "share-findings.md"
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
 HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
-         "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience")
+         "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
+           "criterio-roles", "criterio-talent")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
@@ -94,7 +96,7 @@ SCRIPTS_CFO = {
     },
 }
 for _p in ("criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-sales", "criterio-revenue",
-           "criterio-security", "criterio-vulnerability", "criterio-resilience"):
+           "criterio-security", "criterio-vulnerability", "criterio-resilience", "criterio-roles", "criterio-talent"):
     SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
                        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
 # Las reglas de compromiso viven en el núcleo común (ADR 0012): `portafolio.py` lo importa, así que
@@ -134,6 +136,18 @@ SKILLS_CISO = {
     p: {"security-intake": "los mismos documentos y la misma estructura"}
     for p in ("criterio-vulnerability", "criterio-resilience")
 }
+# La familia CHRO tiene su propio motor, con fuente en criterio-roles: Cándido toma de las fichas de
+# Norma los perfiles contra los que contrasta a cada candidato, y la misma lista de lo que no se trata.
+FUENTE_CHRO = RAIZ / "plugins" / "criterio-roles" / "scripts"
+SCRIPTS_CHRO = {
+    "criterio-talent": {
+        "talento.py": "el motor de los dos: Cándido contrasta cada candidato con los perfiles que procesó Norma",
+        "datos_sensibles.json": "lo que no se pide ni se trata, igual para los perfiles y para los candidatos",
+    },
+}
+SKILLS_CHRO = {
+    "criterio-talent": {"talent-intake": "los mismos documentos y la misma estructura"},
+}
 SKILLS_CLO = {
     "criterio-compliance": {
         "legal-intake": "los mismos documentos y la misma estructura",
@@ -159,7 +173,8 @@ RAIZ_A_PLUGINS = {
 }
 PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
                    "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-server",
-                   "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience")
+                   "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
+           "criterio-roles", "criterio-talent")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -250,7 +265,7 @@ def _comparar(copia: Path, esperado: str, etiqueta: str, porque: str,
 # Las plantillas de issue llevan la lista de familias con sus agentes. Sale de cada familia.json,
 # para que una familia nueva no se quede fuera del canal por el que se comparte un hallazgo.
 PLANTILLAS = RAIZ / ".github" / "ISSUE_TEMPLATE"
-ORDEN_FAMILIAS = ["pmo", "cfo", "clo", "ea", "cco", "ciso"]
+ORDEN_FAMILIAS = ["pmo", "cfo", "clo", "ea", "cco", "ciso", "chro"]
 
 
 def opciones_familias() -> list[str]:
@@ -286,7 +301,8 @@ def revisar(escribir: bool) -> int:
     for fuente_dir, origen_plugin, tabla in ((FUENTE_CFO, "criterio-finance", SCRIPTS_CFO),
                                              (FUENTE_CLO, "criterio-legal", SCRIPTS_CLO),
                                              (FUENTE_CCO, "criterio-sales", SCRIPTS_CCO),
-                                             (FUENTE_CISO, "criterio-security", SCRIPTS_CISO)):
+                                             (FUENTE_CISO, "criterio-security", SCRIPTS_CISO),
+                                             (FUENTE_CHRO, "criterio-roles", SCRIPTS_CHRO)):
         for plugin, archivos in sorted(tabla.items()):
             for nombre, porque in sorted(archivos.items()):
                 origen = fuente_dir / nombre
@@ -304,7 +320,8 @@ def revisar(escribir: bool) -> int:
                                              (FUENTE_CFO.parent, "criterio-finance", SKILLS_CFO),
                                              (FUENTE_CLO.parent, "criterio-legal", SKILLS_CLO),
                                              (FUENTE_CCO.parent, "criterio-sales", SKILLS_CCO),
-                                             (FUENTE_CISO.parent, "criterio-security", SKILLS_CISO)):
+                                             (FUENTE_CISO.parent, "criterio-security", SKILLS_CISO),
+                                             (FUENTE_CHRO.parent, "criterio-roles", SKILLS_CHRO)):
         for plugin, skills in sorted(tabla.items()):
             for nombre, porque in sorted(skills.items()):
                 carpeta = fuente_dir / "skills" / nombre

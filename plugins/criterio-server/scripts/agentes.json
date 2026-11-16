@@ -92,6 +92,21 @@
         "vulnerabilidades",
         "resiliencia"
       ]
+    },
+    {
+      "sigla": "chro",
+      "nombre": {
+        "es": "El talento",
+        "en": "Talent"
+      },
+      "estado": {
+        "es": "En construcción · motor probado",
+        "en": "Under construction · engine tested"
+      },
+      "agentes": [
+        "perfiles",
+        "seleccion"
+      ]
     }
   ],
   "agentes": [
@@ -1330,6 +1345,193 @@
           ]
         }
       ]
+    },
+    {
+      "id": "norma",
+      "nombre": "Norma",
+      "plugin": "criterio-roles",
+      "area": "perfiles",
+      "ambitos": [
+        "perfiles"
+      ],
+      "familia": "chro",
+      "rol": {
+        "es": "Los perfiles de cargo",
+        "en": "Job profiles"
+      },
+      "titulo": "los perfiles de cargo",
+      "origen": {
+        "es": "del latín *norma*, la escuadra del carpintero: cada perfil sobre un estándar",
+        "en": "from the Latin *norma*, the carpenter's square: every profile on a standard"
+      },
+      "privados": {},
+      "setup": "/criterio-roles:roles-setup",
+      "marca": "_CRITERIO_TALENTO.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "roles-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "norma",
+              "etiqueta": "Pídeselo a Norma"
+            },
+            {
+              "id": "roles-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Los perfiles de cargo",
+          "linea": "Cada perfil de cargo contra la ocupación de su estándar —la CUOC del DANE u O*NET—: las destrezas y los conocimientos que no recoge, los requisitos sin tarea, lo que la ley del país y la política no permiten pedir, el nivel de estudios contra el nivel de competencia, los perfiles que se solapan y los que pasaron su revisión",
+          "comandos": [
+            {
+              "id": "roles-scan",
+              "etiqueta": "Qué cambió en los perfiles"
+            },
+            {
+              "id": "profile-build",
+              "etiqueta": "Un perfil nuevo desde su ocupación"
+            },
+            {
+              "id": "profile-check",
+              "etiqueta": "Los perfiles contra su ocupación"
+            },
+            {
+              "id": "profile-language",
+              "etiqueta": "Lo que un perfil no puede pedir"
+            },
+            {
+              "id": "profile-map",
+              "etiqueta": "El mapa de los perfiles"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candido",
+      "nombre": "Cándido",
+      "plugin": "criterio-talent",
+      "area": "seleccion",
+      "ambitos": [
+        "seleccion"
+      ],
+      "familia": "chro",
+      "rol": {
+        "es": "La selección",
+        "en": "Selection"
+      },
+      "titulo": "la selección",
+      "origen": {
+        "es": "del latín *candidus*, «blanco»: de ahí *candidato*, el que en Roma vestía la toga blanca para pedir un cargo. Cada afirmación de la hoja de vida contra su soporte",
+        "en": "from the Latin *candidus*, “white”: hence *candidate*, the one who wore the white toga in Rome to seek office. Every claim in the CV against its supporting document"
+      },
+      "privados": {
+        "talent-search": {
+          "config": "selection.publish",
+          "senales": []
+        },
+        "cv-check": {
+          "config": "selection.publish",
+          "senales": [
+            "claim_without_support",
+            "certification_expired",
+            "employment_dates_differ"
+          ]
+        },
+        "candidate-fit": {
+          "config": "selection.publish",
+          "senales": [
+            "requirement_not_evidenced"
+          ]
+        },
+        "privacy-check": {
+          "config": "selection.publish",
+          "senales": [
+            "protected_data_received",
+            "consent_missing",
+            "retention_exceeded"
+          ]
+        }
+      },
+      "setup": "/criterio-talent:talent-setup",
+      "marca": "_CRITERIO_TALENTO.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "talent-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "candido",
+              "etiqueta": "Pídeselo a Cándido"
+            },
+            {
+              "id": "talent-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "La selección",
+          "linea": "Cada hoja de vida contra sus soportes y cada candidato contra el perfil, requisito por requisito y con la cita; la autorización y la conservación de sus datos; cada vacante contra su plazo, y la búsqueda que corre quien recluta",
+          "comandos": [
+            {
+              "id": "talent-scan",
+              "etiqueta": "Qué cambió en la selección"
+            },
+            {
+              "id": "talent-search",
+              "etiqueta": "La búsqueda de una vacante"
+            },
+            {
+              "id": "cv-check",
+              "etiqueta": "Las hojas de vida contra sus soportes"
+            },
+            {
+              "id": "candidate-fit",
+              "etiqueta": "Cada candidato contra el perfil"
+            },
+            {
+              "id": "privacy-check",
+              "etiqueta": "La autorización y la conservación de los datos"
+            },
+            {
+              "id": "vacancy-status",
+              "etiqueta": "Las vacantes contra su plazo"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -1379,6 +1581,8 @@
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
     "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
     "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
+    "certification_expired": "Una certificación que el perfil exige venció antes de la postulación",
+    "claim_without_support": "La hoja de vida afirma un título, una certificación o un empleo sin el documento que lo soporte",
     "close_date_slipped": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
@@ -1389,6 +1593,7 @@
     "compliance_done_without_evidence": "Una obligación figura cumplida y ninguna evidencia la sostiene",
     "compliance_evidence_stale": "La evidencia más reciente de una obligación periódica es de antes de su ventana",
     "compliance_obligation_overdue": "Una obligación de la matriz pasó su fecha límite sin evidencia",
+    "consent_missing": "No hay autorización de tratamiento de datos del candidato, o es posterior a recibir sus datos",
     "continuity_test_overdue": "La prueba del plan de continuidad o de recuperación pasó su fecha, o no hay ninguna",
     "contract_expired_active": "El registro reporta vigente un contrato cuya fecha de terminación ya pasó",
     "contract_expiring": "Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar",
@@ -1404,9 +1609,12 @@
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
     "discount_outside_policy": "Un descuento supera el tope de su nivel y no tiene la aprobación que pide la matriz, o ningún nivel lo cubre",
+    "education_level_inconsistent": "El nivel de estudios que pide el perfil no corresponde al nivel de competencia de su ocupación",
     "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
     "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
     "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
+    "employment_dates_differ": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
+    "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
     "forecast_over_approved": "La proyección al cierre del año supera lo aprobado",
     "forecast_stale": "La proyección del área no se actualizó en los días configurados",
     "forecast_unsupported": "Lo comprometido supera lo que suman las oportunidades con evidencia, ponderadas por su etapa, más de la tolerancia configurada",
@@ -1432,7 +1640,11 @@
     "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
     "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
     "policy_review_overdue": "Una política pasó su fecha de revisión",
+    "profile_review_overdue": "Un perfil pasó su fecha de revisión",
+    "profile_without_occupation": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
+    "profiles_overlap": "Dos perfiles comparten la ocupación y la mayor parte de sus requisitos",
     "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área",
+    "protected_data_received": "Llegó un dato que no se debe tratar —fotografía, edad, documento de identidad, salud—, y se excluye del análisis",
     "public_contract_not_published": "Un contrato de una entidad pública no se publicó en el sistema nacional dentro del plazo de la ley de su país",
     "public_guarantee_below_law": "La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país",
     "public_guarantee_late": "La garantía de cumplimiento de un contrato público se entregó después del plazo de la ley de su país",
@@ -1445,7 +1657,11 @@
     "regulatory_change_unassessed": "Una norma registrada lleva más días de los configurados sin evaluación de impacto",
     "renewal_notice_missed": "Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada",
     "report_case_overdue": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
+    "requirement_not_allowed": "Un requisito pide un dato sensible según la ley del país, o algo que la política de selección prohíbe pedir",
+    "requirement_not_evidenced": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
+    "requirement_without_task": "Un requisito del perfil no se apoya en ninguna de sus tareas",
     "restore_test_overdue": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna",
+    "retention_exceeded": "Los datos de un candidato pasaron el tiempo de conservación de la política y siguen en la carpeta",
     "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
     "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
@@ -1460,6 +1676,7 @@
     "trial_balance_unbalanced": "Los débitos y los créditos del balance de comprobación no suman lo mismo",
     "trip_not_in_agenda": "Un vuelo del itinerario no está en la agenda: ese tiempo se ve libre",
     "unsigned_contract": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
+    "vacancy_past_target": "Una vacante sigue abierta después del plazo de cobertura de la política",
     "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado",
     "vuln_closed_without_rescan": "Una vulnerabilidad figura cerrada y ningún escaneo posterior la da por corregida",
     "vuln_exception_expired": "Una excepción a la corrección pasó su vencimiento y la vulnerabilidad sigue abierta",

@@ -1,0 +1,341 @@
+{
+ "nota": "Fuente única de las fuentes de la familia CHRO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-roles; el portal la publica con scripts/criterio-familias.mjs.",
+ "secciones": [
+  {
+   "id": "rol",
+   "titulo": "Las ocupaciones y su estándar",
+   "fuentes": [
+    {
+     "id": "F-01",
+     "fuente": "OIT · Clasificación Internacional Uniforme de Ocupaciones, CIUO-08",
+     "version": "CIUO-08, publicada en 2008; en revisión según la OIT",
+     "enlaces": [
+      [
+       "ilostat.ilo.org",
+       "https://ilostat.ilo.org/methods/concepts-and-definitions/classification-occupation/"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Diez grandes grupos y el nivel de competencia de cada uno: 3 y 4 para directores, 4 para profesionales, 3 para técnicos, 2 para los grupos 4 a 8 y 1 para las ocupaciones elementales. La OIT la ofrece «free of charge» y sin autorización previa",
+     "uso": "El código de ocupación que conecta un perfil con el estándar del país, y el nivel de competencia que la CUOC adapta (F-03)"
+    },
+    {
+     "id": "F-02",
+     "fuente": "O*NET Resource Center · O*NET 31.0 Database (Departamento de Trabajo de los Estados Unidos, USDOL/ETA)",
+     "version": "O*NET 31.0, «August 2026 Release», descarga en Excel",
+     "enlaces": [
+      [
+       "onetcenter.org/database.html",
+       "https://www.onetcenter.org/database.html"
+      ],
+      [
+       "onetcenter.org/license_db.html",
+       "https://www.onetcenter.org/license_db.html"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Procesada desde la descarga oficial que trajo José Francisco Ñáñez: Occupation Data, Task Statements, Job Zones, Essential Skills, Transferable Skills y Knowledge, con la importancia de cada elemento en la escala IM de 1 a 5 y la marca «Recommend Suppress». Licencia CC BY 4.0: se atribuye como lo pide la página de licencia y se dice cuando se modifica. O*NET no marca una destreza como esencial: el umbral de importancia lo fija la organización",
+     "uso": "El estándar alternativo de Norma: la ocupación con sus tareas, sus destrezas y conocimientos desde el umbral de la organización y su zona de preparación"
+    },
+    {
+     "id": "F-03",
+     "fuente": "DANE · Clasificación Única de Ocupaciones para Colombia, CUOC 2026, y Resolución 1344 del 28 de octubre de 2026",
+     "version": "CUOC 2026: perfiles ocupacionales en Excel, estructura, índice y documento de la clasificación",
+     "enlaces": [
+      [
+       "dane.gov.co",
+       "https://www.dane.gov.co/index.php/sistema-estadistico-nacional-sen/normas-y-estandares/nomenclaturas-y-clasificaciones/clasificaciones/clasificacion-unica-de-ocupaciones-para-colombia-cuoc"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Procesada desde la descarga oficial que trajo José Francisco Ñáñez. La Resolución 1344 hace el mantenimiento anual sobre la CUOC 2025 (art. 1), la da como insumo para la gestión del talento humano y los manuales de funciones del empleo público y privado (art. 2, parágrafo 1) y fija un año para adoptarla (art. 3). Los perfiles ocupacionales traen, por cada una de sus 682 ocupaciones, su descripción, funciones, denominaciones, nivel de competencia, conocimientos, destrezas, ocupaciones afines y equivalencia con la CIUO-08. El documento de la CUOC 2026, numeral 3.2, ata el nivel de competencia a la CINE 2011: nivel 1, CINE 1; nivel 2, CINE 2 a 4; nivel 3, CINE 5; nivel 4, CINE 6 o superior, y dice que la experiencia puede reemplazar la enseñanza formal",
+     "uso": "El estándar de Norma por omisión: la ocupación con sus destrezas, conocimientos, funciones y nivel de competencia, y el nivel de estudios que ese nivel suele exigir. Con él, el Reglamento (UE) 2024/1689 (F-04) y el 2026/1744 (F-05) fijan lo que la familia no hace con un candidato: decidir, puntuar u ordenar"
+    }
+   ]
+  },
+  {
+   "id": "ia",
+   "titulo": "La regulación de la inteligencia artificial en el empleo",
+   "fuentes": [
+    {
+     "id": "F-04",
+     "fuente": "Reglamento (UE) 2024/1689, de Inteligencia Artificial",
+     "version": "Texto en español del DO L de 12.7.2024",
+     "enlaces": [
+      [
+       "eur-lex.europa.eu",
+       "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Anexo III, punto 4: son de alto riesgo los sistemas de IA destinados a la contratación o la selección de personas físicas —publicar anuncios de empleo específicos, analizar y filtrar solicitudes, evaluar candidatos— y los que deciden sobre la relación laboral. Art. 6(3): exceptúa la tarea procedimental acotada o preparatoria, salvo cuando el sistema elabora perfiles de personas físicas. Art. 26(7): el empleador informa antes a los trabajadores y a sus representantes",
+     "uso": "El diseño de la familia (decisión 0031): ningún agente decide sobre una persona, ninguno da un puntaje ni ordena candidatos, y lo que llega de una persona y no se debe tratar se excluye"
+    },
+    {
+     "id": "F-05",
+     "fuente": "Reglamento (UE) 2026/1744, el Digital Omnibus sobre IA",
+     "version": "DO L de 24.7.2026; en vigor a los tres días de su publicación",
+     "enlaces": [
+      [
+       "eur-lex.europa.eu",
+       "https://eur-lex.europa.eu/eli/reg/2026/1744/oj"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 1, numeral 40, que modifica el art. 113 del Reglamento 2024/1689: el capítulo III, secciones 1 a 3, se aplica a los sistemas de alto riesgo del anexo III desde el 2 de diciembre de 2027",
+     "uso": "La fecha desde la que rigen las obligaciones de alto riesgo para la selección de personal en la Unión Europea"
+    }
+   ]
+  },
+  {
+   "id": "datos",
+   "titulo": "Los datos personales de cada país",
+   "fuentes": [
+    {
+     "id": "F-10",
+     "fuente": "Colombia · Ley Estatutaria 1581 de 2012",
+     "version": "Texto vigente en la Secretaría del Senado",
+     "enlaces": [
+      [
+       "secretariasenado.gov.co",
+       "http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 5, los datos sensibles; art. 6, su tratamiento solo con autorización explícita y otras excepciones; art. 9, la autorización previa e informada del titular",
+     "uso": "Lo que un perfil no puede pedir en Colombia y la autorización de cada candidato"
+    },
+    {
+     "id": "F-11",
+     "fuente": "México · Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
+     "version": "Última reforma, DOF 14-11-2025",
+     "enlaces": [
+      [
+       "diputados.gob.mx",
+       "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 2, fr. VI, los datos personales sensibles; art. 7, el consentimiento; art. 8, el consentimiento expreso y por escrito para los sensibles; art. 26, fr. II, la oposición al tratamiento automatizado que evalúa aspectos personales sin intervención humana",
+     "uso": "Lo que un perfil no puede pedir en México y la autorización de cada candidato"
+    },
+    {
+     "id": "F-12",
+     "fuente": "Argentina · Ley 25.326 de Protección de los Datos Personales",
+     "version": "Texto actualizado en InfoLEG",
+     "enlaces": [
+      [
+       "infoleg.gob.ar",
+       "https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 2, los datos sensibles; art. 5, el consentimiento libre, expreso e informado; art. 7, los datos sensibles; art. 20, las decisiones que no pueden tener como único fundamento un tratamiento informatizado",
+     "uso": "Lo que un perfil no puede pedir en Argentina y la autorización de cada candidato"
+    },
+    {
+     "id": "F-13",
+     "fuente": "Chile · Ley 19.628, modificada por la Ley 21.719",
+     "version": "Ley 21.719, publicada en el Diario Oficial el 13-12-2024; rige desde el primer día del mes vigésimo cuarto posterior a su publicación (disposiciones transitorias, art. primero)",
+     "enlaces": [
+      [
+       "bcn.cl",
+       "https://www.bcn.cl/leychile/navegar?idNorma=1209272"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 2, letra g), los datos personales sensibles; art. 8 bis, el derecho a no ser objeto de decisiones basadas en el tratamiento automatizado; art. 12, el consentimiento; art. 16, el consentimiento expreso para los sensibles",
+     "uso": "Lo que un perfil no puede pedir en Chile y la autorización de cada candidato"
+    },
+    {
+     "id": "F-14",
+     "fuente": "Ecuador · Ley Orgánica de Protección de Datos Personales",
+     "version": "Registro Oficial Suplemento 459 de 26-5-2021, en la copia publicada por la Superintendencia de Economía Popular y Solidaria",
+     "enlaces": [
+      [
+       "finanzaspopulares.gob.ec",
+       "https://www.finanzaspopulares.gob.ec/wp-content/uploads/2021/07/ley_organica_de_proteccion_de_datos_personales.pdf"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 4, los datos sensibles; art. 8, el consentimiento; art. 20, el derecho a no ser sometido a una decisión basada única o parcialmente en valoraciones automatizadas; art. 26, el tratamiento de los datos sensibles",
+     "uso": "Lo que un perfil no puede pedir en Ecuador y la autorización de cada candidato"
+    },
+    {
+     "id": "F-15",
+     "fuente": "Perú · Ley 29733 de Protección de Datos Personales",
+     "version": "Publicación en El Peruano del 3-7-2011, en el texto que trajo José Francisco Ñáñez; por confirmar sus modificaciones posteriores",
+     "enlaces": [
+      [
+       "gob.pe",
+       "https://www.gob.pe/institucion/minjus/normas-legales/254108-29733"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 2, numeral 5, los datos sensibles; art. 13.5 y 13.6, el consentimiento previo, informado, expreso e inequívoco, por escrito para los sensibles; art. 23, el derecho al tratamiento objetivo",
+     "uso": "Lo que un perfil no puede pedir en Perú y la autorización de cada candidato"
+    },
+    {
+     "id": "F-16",
+     "fuente": "Panamá · Ley 81 de 26 de marzo de 2019 sobre Protección de Datos Personales",
+     "version": "Texto que trajo José Francisco Ñáñez",
+     "enlaces": [
+      [
+       "gacetaoficial.gob.pa",
+       "https://www.gacetaoficial.gob.pa/pdfTemp/28743_A/GacetaNo_28743a_20190329.pdf"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 4, numeral 11, el dato sensible; art. 6, el consentimiento como condición del tratamiento; art. 19, el derecho a no ser sujeto de una decisión basada únicamente en el tratamiento automatizado que evalúe, entre otros, el rendimiento laboral",
+     "uso": "Lo que un perfil no puede pedir en Panamá y la autorización de cada candidato"
+    },
+    {
+     "id": "F-17",
+     "fuente": "Costa Rica · Ley 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales",
+     "version": "Publicada en La Gaceta 170 del 5-9-2011, en la compilación del Tribunal Supremo de Elecciones que trajo José Francisco Ñáñez",
+     "enlaces": [
+      [
+       "pgrweb.go.cr",
+       "http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&nValor2=70975"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Art. 3, letra e), los datos sensibles; art. 5, el consentimiento informado; art. 9, las categorías particulares: nadie está obligado a suministrar datos sensibles",
+     "uso": "Lo que un perfil no puede pedir en Costa Rica y la autorización de cada candidato"
+    },
+    {
+     "id": "F-18",
+     "fuente": "Brasil · Lei 13.709/2018, Lei Geral de Proteção de Dados Pessoais",
+     "version": "Texto compilado de Planalto",
+     "enlaces": [
+      [
+       "planalto.gov.br",
+       "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "por verificar",
+     "nota": "El texto oficial no se pudo procesar: rechaza la consulta automática. Mientras tanto, en Brasil la familia no aplica una lista de datos sensibles de la ley; aplica la de la política de la organización",
+     "uso": "Lo que un perfil no puede pedir en Brasil, cuando se verifique"
+    }
+   ]
+  },
+  {
+   "id": "normas",
+   "titulo": "Las normas internacionales de gestión humana, citadas por su número",
+   "fuentes": [
+    {
+     "id": "F-20",
+     "fuente": "ISO 30414:2025, Human resource management — Requirements and recommendations for human capital reporting and disclosure",
+     "version": "Edición 2, 2025-08",
+     "enlaces": [
+      [
+       "iso.org",
+       "https://www.iso.org/standard/30414"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Norma de pago: se citan su número y sus áreas —entre ellas el reclutamiento, la movilidad y la rotación—, nunca su texto",
+     "uso": "El marco de las métricas del área, para la tercera agente que se decida (decisión 0031)"
+    },
+    {
+     "id": "F-21",
+     "fuente": "ISO 10667-2:2020, Assessment service delivery — Procedures and methods to assess people in work and organizational settings — Part 2: Requirements for service providers",
+     "version": "Edición 2, 2020-11, en revisión según iso.org",
+     "enlaces": [
+      [
+       "iso.org",
+       "https://www.iso.org/standard/74717.html"
+      ]
+     ],
+     "consultada": "2026-11-16",
+     "estado": "verificada",
+     "nota": "Norma de pago, citada por su número: lo que se espera de quien evalúa personas en el trabajo, incluido el manejo de los datos personales",
+     "uso": "El marco de lo que nunca hace la familia: evaluar a una persona"
+    }
+   ]
+  }
+ ],
+ "cifras": [
+  {
+   "id": "C-01",
+   "valor": {
+    "es": "72 %",
+    "en": "72%"
+   },
+   "cifra": {
+    "es": "de los empleadores dice que le cuesta cubrir sus vacantes, frente al 74 % del año anterior",
+    "en": "of employers say they struggle to fill their roles, down from 74% the year before"
+   },
+   "fuente": "ManpowerGroup, 2026 Global Talent Shortage Survey, comunicado del 26 de febrero de 2026",
+   "anio": "2026",
+   "enlace": "https://investor.manpowergroup.com/node/68796",
+   "muestra": {
+    "es": "39.063 empleadores de 41 países, entre ellos Argentina, Brasil, Chile, Colombia, Costa Rica, Guatemala, México, Panamá y Perú; trabajo de campo del 1 al 31 de octubre de 2025",
+    "en": "39,063 employers in 41 countries, among them Argentina, Brazil, Chile, Colombia, Costa Rica, Guatemala, Mexico, Panama and Peru; fieldwork from 1 to 31 October 2025"
+   },
+   "estado": "verificada",
+   "nota": "Verificada contra el comunicado de ManpowerGroup el 16 de noviembre de 2026; el comunicado no da la cifra de cada país de la región",
+   "barra": {
+    "tipo": "share",
+    "valor": 72,
+    "es": "72 de cada 100 empleadores",
+    "en": "72 of every 100 employers"
+   }
+  },
+  {
+   "id": "C-02",
+   "valor": {
+    "es": "Más de 3 de cada 4",
+    "en": "Over 3 in 4"
+   },
+   "cifra": {
+    "es": "responsables de selección encontraron discrepancias en lo que declaraban sus candidatos en los últimos doce meses",
+    "en": "hiring professionals found discrepancies in what their candidates declared in the past twelve months"
+   },
+   "fuente": "HireRight, 2025 Global Benchmark Report, comunicado en Business Wire",
+   "anio": "2025",
+   "enlace": "https://www.businesswire.com/news/home/20250915364914/en",
+   "muestra": {
+    "es": "Más de 1.000 profesionales de recursos humanos, riesgo y adquisición de talento en el mundo; el informe se publicó en junio de 2025",
+    "en": "Over 1,000 HR, risk and talent acquisition professionals worldwide; the report was released in June 2025"
+   },
+   "estado": "verificada",
+   "nota": "Verificada contra el comunicado el 16 de noviembre de 2026: «more than three-quarters of respondents globally uncovered candidate discrepancies in the past 12 months». El comunicado no da la cifra por país"
+  },
+  {
+   "id": "C-03",
+   "valor": {
+    "es": "39 días",
+    "en": "39 days"
+   },
+   "cifra": {
+    "es": "tarda, en la mediana, cubrir una vacante que no es de dirección",
+    "en": "is the median time to fill a non-executive vacancy"
+   },
+   "fuente": "SHRM, 2026 Recruiting Executives Benchmarking",
+   "anio": "2026",
+   "enlace": "https://www.shrm.org/topics-tools/research/2025-recruiting-benchmarking",
+   "muestra": {
+    "es": "Datos de más de 4.600 organizaciones; la página no dice el país ni las fechas de recolección",
+    "en": "Data from over 4,600 organisations; the page does not state the country or the collection dates"
+   },
+   "estado": "verificada",
+   "nota": "Verificada contra la página de SHRM el 16 de noviembre de 2026: «Time-to-fill has decreased to a median of 39 calendar days for nonexecutive positions»"
+  }
+ ]
+}

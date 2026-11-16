@@ -1019,7 +1019,8 @@ def dejar_listo(ruta: Path, aqui: Path, rol: str, subcarpetas: tuple, revisar_co
 AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria",
         "criterio-legal": "legal", "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
         "criterio-sales": "comercial", "criterio-revenue": "ingresos", "criterio-security": "seguridad",
-        "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia"}
+        "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia",
+        "criterio-roles": "perfiles", "criterio-talent": "seleccion"}
 
 
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,

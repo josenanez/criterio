@@ -1,0 +1,35 @@
+{
+  "version": "0.1",
+  "role": "seleccion",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "talento/900123456-entidad-de-ejemplo",
+    "state": "estado-talento/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-11",
+  "standard": {
+    "name": "cuoc",
+    "file": "00-referencia/estandar/PerfilesOcupacionales-Excel-CUOC-2026.xlsx"
+  },
+  "selection": {
+    "vacancy": {
+      "target_days": null
+    },
+    "data": {
+      "retention_days": null
+    },
+    "publish": false
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

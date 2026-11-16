@@ -1,0 +1,38 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-chro/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "profile_without_occupation": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
+    "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
+    "requirement_without_task": "Un requisito del perfil no se apoya en ninguna de sus tareas",
+    "requirement_not_allowed": "Un requisito pide un dato sensible según la ley del país, o algo que la política de selección prohíbe pedir",
+    "education_level_inconsistent": "El nivel de estudios que pide el perfil no corresponde al nivel de competencia de su ocupación",
+    "profiles_overlap": "Dos perfiles comparten la ocupación y la mayor parte de sus requisitos",
+    "profile_review_overdue": "Un perfil pasó su fecha de revisión",
+    "claim_without_support": "La hoja de vida afirma un título, una certificación o un empleo sin el documento que lo soporte",
+    "certification_expired": "Una certificación que el perfil exige venció antes de la postulación",
+    "employment_dates_differ": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
+    "requirement_not_evidenced": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
+    "protected_data_received": "Llegó un dato que no se debe tratar —fotografía, edad, documento de identidad, salud—, y se excluye del análisis",
+    "consent_missing": "No hay autorización de tratamiento de datos del candidato, o es posterior a recibir sus datos",
+    "retention_exceeded": "Los datos de un candidato pasaron el tiempo de conservación de la política y siguen en la carpeta",
+    "vacancy_past_target": "Una vacante sigue abierta después del plazo de cobertura de la política"
+  },
+  "comandos": {
+    "roles-setup": "Instalación",
+    "roles-scan": "Qué cambió en los perfiles",
+    "profile-build": "Un perfil nuevo desde su ocupación",
+    "profile-check": "Los perfiles contra su ocupación",
+    "profile-language": "Lo que un perfil no puede pedir",
+    "profile-map": "El mapa de los perfiles",
+    "roles-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
+    "talent-setup": "Instalación",
+    "talent-scan": "Qué cambió en la selección",
+    "talent-search": "La búsqueda de una vacante",
+    "cv-check": "Las hojas de vida contra sus soportes",
+    "candidate-fit": "Cada candidato contra el perfil",
+    "privacy-check": "La autorización y la conservación de los datos",
+    "vacancy-status": "Las vacantes contra su plazo",
+    "talent-wake": "Qué toca hoy"
+  }
+}

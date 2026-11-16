@@ -675,6 +675,9 @@ TERMINADO = ("no_seleccionado", "rechazado", "descartado", "retirado", "desistio
              "withdrawn", "closed", "declined")
 CONTRATADO = ("contratado", "seleccionado", "vinculado", "ingreso", "hired", "selected")
 IMAGEN = (".jpg", ".jpeg", ".png", ".heic", ".webp", ".gif", ".bmp")
+# Lo que llega de un candidato y no se trata: la ficha registra solo su tipo, de esta lista, y dónde.
+PROTEGIDOS = ("fotografia", "edad", "fecha_de_nacimiento", "sexo", "estado_civil", "origen", "religion", "salud",
+              "documento_de_identidad")
 
 
 def revisar_ficha_candido(f: dict) -> list[str]:
@@ -696,6 +699,8 @@ def revisar_ficha_candido(f: dict) -> list[str]:
         for j, x in enumerate(c.get("protected") or []):
             if set(x) - {"type", "source"}:
                 p.append(f"candidates[{i}].protected[{j}]: solo type y source; el dato no se copia a la ficha")
+            if norm(x.get("type")) not in PROTEGIDOS:
+                p.append(f"candidates[{i}].protected[{j}]: el tipo «{x.get('type')}» no es uno de {', '.join(PROTEGIDOS)}")
     for i, q in enumerate(f.get("questions") or []):
         if not (q.get("question") and q.get("answer")):
             p.append(f"questions[{i}]: lleva question y answer")
@@ -808,9 +813,14 @@ def candido(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         evid: dict[str, list] = {}
         for e in c.get("evidence") or []:
             evid.setdefault(e.get("requirement"), []).append(e)
+        # Una afirmación atada a un requisito es evidencia de la hoja de vida; con su soporte, evidencia soportada.
         for k in c.get("claims") or []:
-            if k.get("requirement") and k.get("support") and (docs / str(k["support"]).split(",")[0].strip()).is_file():
+            if not k.get("requirement"):
+                continue
+            if k.get("support") and (docs / str(k["support"]).split(",")[0].strip()).is_file():
                 evid.setdefault(k["requirement"], []).append({"requirement": k["requirement"], "source": k["support"], "soporte": True})
+            elif k.get("cv_source"):
+                evid.setdefault(k["requirement"], []).append({"requirement": k["requirement"], "source": k["cv_source"]})
         fit = []
         if p:
             for r in p.get("requirements") or []:
@@ -1139,7 +1149,13 @@ def escribir_xlsx_hojas(ruta: Path, hojas: dict[str, list[list]]) -> None:
             i, r = divmod(i - 1, 26)
             s = chr(65 + r) + s
         return s
-    with zipfile.ZipFile(ruta, "w", zipfile.ZIP_DEFLATED) as z:
+    class _Z(zipfile.ZipFile):
+        # La misma fecha en cada entrada: el mismo libro cada vez, byte a byte.
+        def writestr(self, nombre, datos, *a, **k):
+            info = zipfile.ZipInfo(nombre, date_time=(2026, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            return super().writestr(info, datos, *a, **k)
+    with _Z(ruta, "w", zipfile.ZIP_DEFLATED) as z:
         n = len(hojas)
         z.writestr("[Content_Types].xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
                    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>'

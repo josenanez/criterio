@@ -1,0 +1,818 @@
+{
+ "nota": "Fuente única de los agentes, los comandos y las señales de la familia CHRO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta que cita un comando está en carpetas.json y cada fuente, en fuentes.json.",
+ "sigla": "chro",
+ "orden": 70,
+ "categoria": "people",
+ "adr": "0031-la-familia-chro.md",
+ "nombre": {
+  "es": "El talento",
+  "en": "Talent"
+ },
+ "estado": {
+  "es": "En construcción · motor probado",
+  "en": "Under construction · engine tested"
+ },
+ "nivel_c": {
+  "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+  "portada": {
+   "rol": "Chief Human Resources Officer",
+   "cifras": [
+    {
+     "id": "C-01",
+     "es": "de los empleadores dice que le cuesta cubrir sus vacantes",
+     "en": "of employers say they struggle to fill their roles"
+    },
+    {
+     "id": "C-02",
+     "es": "responsables de selección encontró discrepancias en lo que declaraban sus candidatos",
+     "en": "hiring professionals found discrepancies in what candidates declared"
+    }
+   ],
+   "filas": [
+    {
+     "es": [
+      "Perfiles de cargo",
+      "Cada perfil contra la ocupación de su estándar",
+      "CUOC del DANE · O*NET 31.0 · CIUO-08"
+     ],
+     "en": [
+      "Job profiles",
+      "Every profile against the occupation in its standard",
+      "DANE CUOC · O*NET 31.0 · ISCO-08"
+     ],
+     "fuentes": [
+      "F-03",
+      "F-02",
+      "F-01"
+     ]
+    },
+    {
+     "es": [
+      "Lo que no se puede pedir",
+      "Cada requisito contra la ley de datos del país y la política",
+      "Leyes de datos personales de 8 países"
+     ],
+     "en": [
+      "What cannot be asked for",
+      "Every requirement against the country's data law and the policy",
+      "Personal data laws of 8 countries"
+     ],
+     "fuentes": [
+      "F-10",
+      "F-11",
+      "F-12",
+      "F-13",
+      "F-14",
+      "F-15",
+      "F-16",
+      "F-17"
+     ]
+    },
+    {
+     "es": [
+      "Hojas de vida",
+      "Cada afirmación contra su soporte, y cada candidato contra el perfil",
+      "Hojas de vida y soportes en PDF o Word"
+     ],
+     "en": [
+      "CVs",
+      "Every claim against its support, and every candidate against the profile",
+      "CVs and supporting documents in PDF or Word"
+     ],
+     "fuentes": []
+    },
+    {
+     "es": [
+      "Datos de candidatos",
+      "Autorización, conservación y lo que no se trata",
+      "Registro de autorizaciones · exportación del ATS en Excel o CSV"
+     ],
+     "en": [
+      "Candidate data",
+      "Authorisation, retention and what is not processed",
+      "Authorisation register · ATS export in Excel or CSV"
+     ],
+     "fuentes": []
+    },
+    {
+     "es": [
+      "Vacantes",
+      "Cada vacante contra su plazo de cobertura",
+      "Registro de vacantes en Excel o CSV"
+     ],
+     "en": [
+      "Vacancies",
+      "Every vacancy against its time to fill",
+      "Vacancy register in Excel or CSV"
+     ],
+     "fuentes": []
+    }
+   ]
+  },
+  "alcance": [
+   {
+    "es": [
+     "Perfiles",
+     "Perfiles sin ocupación, sin las destrezas de su estándar, con requisitos sin tarea, con estudios que no corresponden o con la revisión vencida"
+    ],
+    "en": [
+     "Profiles",
+     "Profiles with no occupation, without their standard's skills, with requirements with no task, with mismatched education or past their review"
+    ],
+    "senales": [
+     "profile_without_occupation",
+     "essential_skill_missing",
+     "requirement_without_task",
+     "education_level_inconsistent",
+     "profile_review_overdue"
+    ]
+   },
+   {
+    "es": [
+     "Lo que no se puede pedir",
+     "Requisitos que piden un dato sensible o lo que la política prohíbe"
+    ],
+    "en": [
+     "What cannot be asked for",
+     "Requirements that ask for sensitive data or what the policy forbids"
+    ],
+    "senales": [
+     "requirement_not_allowed"
+    ]
+   },
+   {
+    "es": [
+     "El mapa",
+     "Perfiles que se solapan"
+    ],
+    "en": [
+     "The map",
+     "Profiles that overlap"
+    ],
+    "senales": [
+     "profiles_overlap"
+    ]
+   },
+   {
+    "es": [
+     "Hojas de vida",
+     "Afirmaciones sin soporte, fechas que no coinciden, certificaciones vencidas y requisitos esenciales sin evidencia"
+    ],
+    "en": [
+     "CVs",
+     "Claims with no support, dates that do not match, expired certifications and essential requirements with no evidence"
+    ],
+    "senales": [
+     "claim_without_support",
+     "employment_dates_differ",
+     "certification_expired",
+     "requirement_not_evidenced"
+    ]
+   },
+   {
+    "es": [
+     "Datos de candidatos",
+     "Datos que no se tratan, autorizaciones que faltan y conservación vencida"
+    ],
+    "en": [
+     "Candidate data",
+     "Data that is not processed, missing authorisations and lapsed retention"
+    ],
+    "senales": [
+     "protected_data_received",
+     "consent_missing",
+     "retention_exceeded"
+    ]
+   },
+   {
+    "es": [
+     "Vacantes",
+     "Vacantes que pasaron su plazo de cobertura"
+    ],
+    "en": [
+     "Vacancies",
+     "Vacancies past their time to fill"
+    ],
+    "senales": [
+     "vacancy_past_target"
+    ]
+   }
+  ]
+ },
+ "generador": {
+  "cifras_en": "norma",
+  "intake": {
+   "skill": "criterio-roles/talent-intake",
+   "texto": "La referencia tiene un solo lugar, `00-referencia/`, y los dos agentes la usan: Norma procesa los perfiles contra el estándar de ocupaciones y Cándido la selección contra la política."
+  },
+  "estructuras": [
+   "criterio-roles",
+   "criterio-talent"
+  ],
+  "motor": "criterio-roles/scripts/talento.py"
+ },
+ "instancia": {
+  "es": "Una por entidad",
+  "en": "One per entity"
+ },
+ "agentes": [
+  {
+   "id": "norma",
+   "nombre": "Norma",
+   "plugin": "criterio-roles",
+   "rol": {
+    "es": "Los perfiles de cargo",
+    "en": "Job profiles"
+   },
+   "titulo": "los perfiles de cargo",
+   "origen": {
+    "es": "del latín *norma*, la escuadra del carpintero: cada perfil sobre un estándar",
+    "en": "from the Latin *norma*, the carpenter's square: every profile on a standard"
+   },
+   "hace": {
+    "es": "Cada perfil de cargo contra la ocupación de su estándar —la CUOC del DANE u O*NET—: las destrezas y los conocimientos que no recoge, los requisitos sin tarea, lo que la ley del país y la política no permiten pedir, el nivel de estudios contra el nivel de competencia, los perfiles que se solapan y los que pasaron su revisión",
+    "en": "Every job profile against the occupation in its standard —DANE's CUOC or O*NET—: the skills and knowledge it leaves out, the requirements with no task, what the country's law and the policy do not allow asking for, the level of education against the skill level, the profiles that overlap and the ones past their review"
+   },
+   "area": "perfiles",
+   "ambitos": [
+    "perfiles"
+   ],
+   "nunca": {
+    "es": "No aprueba un perfil, no fija un salario ni un cargo, no evalúa a una persona y no copia el texto de una norma de pago",
+    "en": "It does not approve a profile, set a salary or a position, assess a person or copy the text of a paid standard"
+   },
+   "marco": [
+    "F-03",
+    "F-02",
+    "F-01"
+   ],
+   "comandos": [
+    {
+     "id": "roles-setup",
+     "n": 0,
+     "es": {
+      "etiqueta": "Instalación",
+      "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, el estándar de ocupaciones —la CUOC o O*NET— y dónde está su descarga oficial en `00-referencia/`, con O*NET el umbral de importancia, la equivalencia de los niveles de estudio de la organización con la CINE, cada cuántos meses se revisa un perfil y lo que la política prohíbe pedir",
+      "proceso": "Inventario de lo que hay; lee la descarga del estándar y dice cuántas ocupaciones trae; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+      "reporte": "Configuración guardada; inventario por carpeta; el estándar con sus ocupaciones; la primera ficha del periodo",
+      "entrega": "La configuración, el inventario y el estándar reconocido"
+     },
+     "en": {
+      "etiqueta": "Setup",
+      "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the occupational standard —CUOC or O*NET— and where its official download is in `00-referencia/`, with O*NET the importance threshold, how the organisation's levels of education map to ISCED, how often a profile is reviewed and what the policy forbids asking for",
+      "proceso": "Inventory of what is there; reads the standard's download and says how many occupations it carries; compares the folder with the recommended structure; creates, moves or renames nothing",
+      "reporte": "Configuration saved; inventory by folder; the standard and its occupations; the period's first record",
+      "entrega": "The configuration, the inventory and the recognised standard"
+     }
+    },
+    {
+     "id": "roles-scan",
+     "n": 1,
+     "es": {
+      "etiqueta": "Qué cambió en los perfiles",
+      "entrada": "Los perfiles de `10-perfiles/` y la ficha del periodo",
+      "proceso": "Lleva a la ficha cada perfil nuevo o cambiado —su ocupación, sus tareas, sus requisitos con la tarea que los apoya, sus estudios y su revisión—, con la cita; recalcula las señales",
+      "reporte": "Lo que entró a la ficha; los perfiles que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+      "entrega": "La ficha del periodo al día"
+     },
+     "en": {
+      "etiqueta": "What changed in the profiles",
+      "entrada": "The profiles in `10-perfiles/` and the period's record",
+      "proceso": "Brings each new or changed profile into the record —its occupation, its tasks, its requirements with the task behind each, its education and its review—, with its citation; recalculates the signals",
+      "reporte": "What went into the record; the profiles not yet in it; the new signals; what could not be processed and why",
+      "entrega": "The period's record up to date"
+     }
+    },
+    {
+     "id": "profile-build",
+     "n": 2,
+     "es": {
+      "etiqueta": "Un perfil nuevo desde su ocupación",
+      "entrada": "El código de una ocupación de la CUOC u O*NET, o el nombre del cargo para buscarla",
+      "proceso": "El motor trae la ocupación del estándar —su descripción, sus funciones, sus destrezas, sus conocimientos y su nivel de competencia—; el agente propone el perfil con cada requisito atado a una tarea y a un elemento del estándar, y lo deja como borrador para que una persona lo apruebe",
+      "reporte": "El borrador del perfil, con la fuente de cada requisito y lo que la persona tiene que decidir",
+      "entrega": "Un borrador de perfil sobre un estándar"
+     },
+     "en": {
+      "etiqueta": "A new profile from its occupation",
+      "entrada": "The code of a CUOC or O*NET occupation, or the role's name to look it up",
+      "proceso": "The engine brings the occupation from the standard —its description, duties, skills, knowledge and skill level—; the agent proposes the profile with each requirement tied to a task and to an element of the standard, and leaves it as a draft for a person to approve",
+      "reporte": "The profile draft, with the source of each requirement and what the person has to decide",
+      "entrega": "A profile draft on a standard"
+     }
+    },
+    {
+     "id": "profile-check",
+     "n": 3,
+     "es": {
+      "etiqueta": "Los perfiles contra su ocupación",
+      "entrada": "La ficha del periodo y la descarga del estándar en `00-referencia/`",
+      "proceso": "Cada perfil contra su ocupación: si tiene código, qué destreza o conocimiento del estándar no recoge sin decir por qué, qué requisito no se apoya en una tarea, si el nivel de estudios corresponde al nivel de competencia (CUOC 2026, numeral 3.2, F-03) y si pasó su revisión",
+      "reporte": "Cada perfil con su ocupación, su nivel, sus estudios, lo que le falta frente al estándar y su revisión; las señales con su cita",
+      "entrega": "Cada perfil contra su estándar"
+     },
+     "en": {
+      "etiqueta": "Profiles against their occupation",
+      "entrada": "The period's record and the standard's download in `00-referencia/`",
+      "proceso": "Each profile against its occupation: whether it has a code, which skill or knowledge in the standard it leaves out without saying why, which requirement has no task behind it, whether the level of education matches the skill level (CUOC 2026, section 3.2, F-03) and whether it is past its review",
+      "reporte": "Each profile with its occupation, level, education, what it lacks against the standard and its review; the signals with their citation",
+      "entrega": "Each profile against its standard"
+     }
+    },
+    {
+     "id": "profile-language",
+     "n": 4,
+     "es": {
+      "etiqueta": "Lo que un perfil no puede pedir",
+      "entrada": "Los requisitos de la ficha del periodo, la ley de datos personales del país y la política de selección",
+      "proceso": "Cada requisito contra los datos sensibles de la ley del país —F-10 a F-17, con su artículo— y contra lo que la política de la organización prohíbe pedir, como la edad, el sexo o el estado civil",
+      "reporte": "Cada requisito que pide algo que no se puede pedir, con la norma o la política que lo dice",
+      "entrega": "Los requisitos que piden lo que no se puede pedir"
+     },
+     "en": {
+      "etiqueta": "What a profile cannot ask for",
+      "entrada": "The requirements in the period's record, the country's personal data law and the selection policy",
+      "proceso": "Each requirement against the sensitive data in the country's law —F-10 to F-17, with its article— and against what the organisation's policy forbids asking for, such as age, sex or marital status",
+      "reporte": "Each requirement that asks for something it cannot, with the law or policy that says so",
+      "entrega": "The requirements that ask for what cannot be asked"
+     }
+    },
+    {
+     "id": "profile-map",
+     "n": 5,
+     "es": {
+      "etiqueta": "El mapa de los perfiles",
+      "entrada": "La ficha del periodo y la descarga del estándar",
+      "proceso": "Agrupa los perfiles por ocupación; dice cuáles comparten la ocupación y la mayor parte de sus requisitos, y cuáles ocupaciones afines a las de la organización no tienen perfil",
+      "reporte": "Los perfiles por ocupación, los que se solapan con su porcentaje en común y las ocupaciones afines sin perfil",
+      "entrega": "El mapa de los perfiles de la organización"
+     },
+     "en": {
+      "etiqueta": "The profile map",
+      "entrada": "The period's record and the standard's download",
+      "proceso": "Groups the profiles by occupation; says which share the occupation and most of their requirements, and which occupations related to the organisation's have no profile",
+      "reporte": "The profiles by occupation, the ones that overlap with their share in common and the related occupations with no profile",
+      "entrega": "The map of the organisation's profiles"
+     }
+    },
+    {
+     "id": "roles-wake",
+     "n": 6,
+     "es": {
+      "etiqueta": "Qué toca hoy",
+      "entrada": "La configuración, el registro de corridas y lo que cambió en la carpeta",
+      "proceso": "Decide si toca procesar perfiles nuevos o un reporte con señales abiertas; si no toca nada, se calla",
+      "reporte": "Lo que tocaba y lo que hizo, o una línea si no tocaba nada",
+      "entrega": "Lo que toca hoy en los perfiles"
+     },
+     "en": {
+      "etiqueta": "What is due today",
+      "entrada": "The configuration, the run log and what changed in the folder",
+      "proceso": "Decides whether new profiles or a report with open signals are due; if nothing is due, it stays quiet",
+      "reporte": "What was due and what it did, or one line if nothing was due",
+      "entrega": "What is due today in the profiles"
+     }
+    },
+    {
+     "id": "share-findings",
+     "n": 7,
+     "es": {
+      "etiqueta": "Compartir hallazgos",
+      "entrada": "El rastro de las corridas de este agente en esta carpeta",
+      "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+      "reporte": "El resumen y la pregunta",
+      "entrega": "Un resumen sin datos, solo si se dice que sí"
+     },
+     "en": {
+      "etiqueta": "Share findings",
+      "entrada": "The trail of this agent's runs in this folder",
+      "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+      "reporte": "The summary and the question",
+      "entrega": "A summary with no data, only on a yes"
+     }
+    }
+   ],
+   "senales": [
+    {
+     "id": "profile_without_occupation",
+     "es": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
+     "en": "A profile has no occupation code tying it to a standard, or its code is not in the standard"
+    },
+    {
+     "id": "essential_skill_missing",
+     "es": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
+     "en": "A skill or knowledge of the occupation in the standard is not in the profile, and the profile does not say why it does not apply"
+    },
+    {
+     "id": "requirement_without_task",
+     "es": "Un requisito del perfil no se apoya en ninguna de sus tareas",
+     "en": "A requirement in the profile is not backed by any of its tasks"
+    },
+    {
+     "id": "requirement_not_allowed",
+     "es": "Un requisito pide un dato sensible según la ley del país, o algo que la política de selección prohíbe pedir",
+     "en": "A requirement asks for sensitive data under the country's law, or for something the selection policy forbids asking for"
+    },
+    {
+     "id": "education_level_inconsistent",
+     "es": "El nivel de estudios que pide el perfil no corresponde al nivel de competencia de su ocupación",
+     "en": "The level of education the profile asks for does not match its occupation's skill level"
+    },
+    {
+     "id": "profiles_overlap",
+     "es": "Dos perfiles comparten la ocupación y la mayor parte de sus requisitos",
+     "en": "Two profiles share the occupation and most of their requirements"
+    },
+    {
+     "id": "profile_review_overdue",
+     "es": "Un perfil pasó su fecha de revisión",
+     "en": "A profile is past its review date"
+    }
+   ]
+  },
+  {
+   "id": "candido",
+   "nombre": "Cándido",
+   "plugin": "criterio-talent",
+   "rol": {
+    "es": "La selección",
+    "en": "Selection"
+   },
+   "titulo": "la selección",
+   "origen": {
+    "es": "del latín *candidus*, «blanco»: de ahí *candidato*, el que en Roma vestía la toga blanca para pedir un cargo. Cada afirmación de la hoja de vida contra su soporte",
+    "en": "from the Latin *candidus*, “white”: hence *candidate*, the one who wore the white toga in Rome to seek office. Every claim in the CV against its supporting document"
+   },
+   "hace": {
+    "es": "Cada hoja de vida contra sus soportes y cada candidato contra el perfil, requisito por requisito y con la cita; la autorización y la conservación de sus datos; cada vacante contra su plazo, y la búsqueda que corre quien recluta",
+    "en": "Every CV against its supporting documents and every candidate against the profile, requirement by requirement and with its citation; the authorisation and retention of their data; every vacancy against its deadline, and the search the recruiter runs"
+   },
+   "area": "seleccion",
+   "ambitos": [
+    "seleccion"
+   ],
+   "nunca": {
+    "es": "No rechaza, no descarta, no da un puntaje ni ordena candidatos por un número; no usa la fotografía, la edad, el sexo, el origen ni la salud de nadie; no entra a redes ni busca personas fuera de lo que la organización entrega",
+    "en": "It does not reject, discard, score or rank candidates by a number; it does not use anyone's photograph, age, sex, origin or health; it does not go into networks or look for people beyond what the organisation provides"
+   },
+   "marco": [
+    "F-04",
+    "F-05"
+   ],
+   "comandos": [
+    {
+     "id": "talent-setup",
+     "n": 0,
+     "es": {
+      "etiqueta": "Instalación",
+      "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, el plazo de cobertura de una vacante y los días de conservación de los datos de la política de selección, el registro de vacantes de `20-vacantes/`, el de autorizaciones de `40-autorizaciones/` y la exportación del ATS de `50-ats/` con sus columnas",
+      "proceso": "Inventario de lo que hay; reconoce las columnas de cada tabla; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+      "reporte": "Configuración guardada; inventario por carpeta; las columnas que faltan; la primera ficha del periodo",
+      "entrega": "La configuración y el inventario"
+     },
+     "en": {
+      "etiqueta": "Setup",
+      "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the time to fill a vacancy and the days data is kept under the selection policy, the vacancy register in `20-vacantes/`, the authorisation register in `40-autorizaciones/` and the ATS export in `50-ats/` with its columns",
+      "proceso": "Inventory of what is there; recognises each table's columns; compares the folder with the recommended structure; creates, moves or renames nothing",
+      "reporte": "Configuration saved; inventory by folder; the missing columns; the period's first record",
+      "entrega": "The configuration and the inventory"
+     }
+    },
+    {
+     "id": "talent-scan",
+     "n": 1,
+     "es": {
+      "etiqueta": "Qué cambió en la selección",
+      "entrada": "Las carpetas de `30-candidatos/` y la ficha del periodo",
+      "proceso": "Lleva a la ficha cada hoja de vida nueva: cada título, certificación y empleo con su soporte y sus fechas, la evidencia de cada requisito del perfil y lo que llegó y no se debe tratar —solo el tipo de dato y dónde, nunca su valor—; recalcula las señales",
+      "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+      "entrega": "La ficha del periodo al día"
+     },
+     "en": {
+      "etiqueta": "What changed in selection",
+      "entrada": "The folders in `30-candidatos/` and the period's record",
+      "proceso": "Brings each new CV into the record: every degree, certification and job with its supporting document and dates, the evidence for each requirement of the profile and what arrived that must not be processed —only the kind of data and where, never its value—; recalculates the signals",
+      "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+      "entrega": "The period's record up to date"
+     }
+    },
+    {
+     "id": "talent-search",
+     "n": 2,
+     "es": {
+      "etiqueta": "La búsqueda de una vacante",
+      "entrada": "Una vacante del registro de `20-vacantes/`, su perfil de Norma, el estándar y la base interna de `50-ats/`",
+      "proceso": "Arma las cadenas para el buscador de quien recluta desde las denominaciones de la ocupación y los requisitos esenciales, y cruza la base interna por la misma ocupación o una afín, en el orden del identificador",
+      "reporte": "Las cadenas de búsqueda y las personas de la base interna con la ocupación, sin ningún orden por número",
+      "entrega": "La búsqueda que corre quien recluta"
+     },
+     "en": {
+      "etiqueta": "The search for a vacancy",
+      "entrada": "A vacancy in the register in `20-vacantes/`, its profile from Norma, the standard and the internal base in `50-ats/`",
+      "proceso": "Builds the strings for the recruiter's search engine from the occupation's job titles and the essential requirements, and matches the internal base on the same or a related occupation, in identifier order",
+      "reporte": "The search strings and the people in the internal base with the occupation, in no numerical order",
+      "entrega": "The search the recruiter runs"
+     },
+     "privado": {
+      "config": "selection.publish",
+      "senales": []
+     }
+    },
+    {
+     "id": "cv-check",
+     "n": 3,
+     "es": {
+      "etiqueta": "Las hojas de vida contra sus soportes",
+      "entrada": "La ficha del periodo y los soportes de `30-candidatos/`",
+      "proceso": "Cada título, certificación y empleo de la hoja de vida contra su soporte: el que no lo tiene, las fechas de un empleo que no son las de su certificado y la certificación que el perfil exige y venció antes de la postulación",
+      "reporte": "Cada afirmación sin soporte o que no coincide, con su cita; ninguna se da por falsa",
+      "entrega": "Cada afirmación de la hoja de vida contra su soporte"
+     },
+     "en": {
+      "etiqueta": "CVs against their supporting documents",
+      "entrada": "The period's record and the supporting documents in `30-candidatos/`",
+      "proceso": "Every degree, certification and job in the CV against its supporting document: the one without it, the dates of a job that are not those on its certificate and the certification the profile requires that expired before the application",
+      "reporte": "Every claim with no support or that does not match, with its citation; none is called false",
+      "entrega": "Every claim in the CV against its support"
+     },
+     "privado": {
+      "config": "selection.publish",
+      "senales": [
+       "claim_without_support",
+       "certification_expired",
+       "employment_dates_differ"
+      ]
+     }
+    },
+    {
+     "id": "candidate-fit",
+     "n": 4,
+     "es": {
+      "etiqueta": "Cada candidato contra el perfil",
+      "entrada": "La ficha del periodo y el perfil de la vacante, de Norma",
+      "proceso": "Cada requisito del perfil con la evidencia de cada candidato, de la hoja de vida o de un soporte, con la cita; el requisito esencial sin evidencia es una señal. Sin puntaje y sin orden por número: los candidatos van por su identificador",
+      "reporte": "Una tabla por candidato, requisito por requisito, con su evidencia y dónde está; quien selecciona decide",
+      "entrega": "Cada candidato contra el perfil, requisito por requisito"
+     },
+     "en": {
+      "etiqueta": "Each candidate against the profile",
+      "entrada": "The period's record and the vacancy's profile, from Norma",
+      "proceso": "Each requirement in the profile with each candidate's evidence, from the CV or a supporting document, with its citation; an essential requirement with no evidence is a signal. No score and no numerical order: candidates go by their identifier",
+      "reporte": "One table per candidate, requirement by requirement, with its evidence and where it is; the person selecting decides",
+      "entrega": "Each candidate against the profile, requirement by requirement"
+     },
+     "privado": {
+      "config": "selection.publish",
+      "senales": [
+       "requirement_not_evidenced"
+      ]
+     }
+    },
+    {
+     "id": "privacy-check",
+     "n": 5,
+     "es": {
+      "etiqueta": "La autorización y la conservación de los datos",
+      "entrada": "La ficha del periodo, el registro de `40-autorizaciones/`, la exportación de `50-ats/` y los días de conservación de la política",
+      "proceso": "Cada candidato contra su autorización de tratamiento de datos —que exista y sea anterior a recibir sus datos— y contra la conservación de la política cuando su proceso terminó; lo que llegó y no se debe tratar se dice y se excluye",
+      "reporte": "Cada candidato con su autorización, hasta cuándo se conservan sus datos y lo que se excluyó",
+      "entrega": "La autorización y la conservación de cada candidato"
+     },
+     "en": {
+      "etiqueta": "Data authorisation and retention",
+      "entrada": "The period's record, the register in `40-autorizaciones/`, the export in `50-ats/` and the policy's retention days",
+      "proceso": "Each candidate against their data-processing authorisation —that it exists and predates receiving their data— and against the policy's retention once their process ended; what arrived and must not be processed is stated and excluded",
+      "reporte": "Each candidate with their authorisation, how long their data is kept and what was excluded",
+      "entrega": "Each candidate's authorisation and retention"
+     },
+     "privado": {
+      "config": "selection.publish",
+      "senales": [
+       "protected_data_received",
+       "consent_missing",
+       "retention_exceeded"
+      ]
+     }
+    },
+    {
+     "id": "vacancy-status",
+     "n": 6,
+     "es": {
+      "etiqueta": "Las vacantes contra su plazo",
+      "entrada": "El registro de `20-vacantes/` y el plazo de cobertura de la política",
+      "proceso": "Cada vacante abierta contra el plazo de la política, o el suyo si el registro lo trae, contado desde su apertura",
+      "reporte": "Cada vacante con su perfil, su apertura, su plazo, su tope y los días que lleva; las que pasaron su plazo",
+      "entrega": "Cada vacante contra su plazo de cobertura"
+     },
+     "en": {
+      "etiqueta": "Vacancies against their deadline",
+      "entrada": "The register in `20-vacantes/` and the policy's time to fill",
+      "proceso": "Each open vacancy against the policy's deadline, or its own if the register has one, counted from its opening",
+      "reporte": "Each vacancy with its profile, opening, deadline, limit and days open; those past their deadline",
+      "entrega": "Each vacancy against its time to fill"
+     }
+    },
+    {
+     "id": "talent-wake",
+     "n": 7,
+     "es": {
+      "etiqueta": "Qué toca hoy",
+      "entrada": "La configuración, el registro de corridas y lo que cambió en la carpeta",
+      "proceso": "Decide si tocan hojas de vida nuevas, una vacante que vence o un reporte con señales abiertas; si no toca nada, se calla",
+      "reporte": "Lo que tocaba y lo que hizo, o una línea si no tocaba nada",
+      "entrega": "Lo que toca hoy en la selección"
+     },
+     "en": {
+      "etiqueta": "What is due today",
+      "entrada": "The configuration, the run log and what changed in the folder",
+      "proceso": "Decides whether new CVs, a vacancy falling due or a report with open signals are due; if nothing is due, it stays quiet",
+      "reporte": "What was due and what it did, or one line if nothing was due",
+      "entrega": "What is due today in selection"
+     }
+    },
+    {
+     "id": "share-findings",
+     "n": 8,
+     "es": {
+      "etiqueta": "Compartir hallazgos",
+      "entrada": "El rastro de las corridas de este agente en esta carpeta",
+      "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+      "reporte": "El resumen y la pregunta",
+      "entrega": "Un resumen sin datos, solo si se dice que sí"
+     },
+     "en": {
+      "etiqueta": "Share findings",
+      "entrada": "The trail of this agent's runs in this folder",
+      "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+      "reporte": "The summary and the question",
+      "entrega": "A summary with no data, only on a yes"
+     }
+    }
+   ],
+   "senales": [
+    {
+     "id": "claim_without_support",
+     "es": "La hoja de vida afirma un título, una certificación o un empleo sin el documento que lo soporte",
+     "en": "The CV claims a degree, certification or job without the document that supports it"
+    },
+    {
+     "id": "certification_expired",
+     "es": "Una certificación que el perfil exige venció antes de la postulación",
+     "en": "A certification the profile requires expired before the application"
+    },
+    {
+     "id": "employment_dates_differ",
+     "es": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
+     "en": "The dates of a job in the CV are not those on its employment certificate"
+    },
+    {
+     "id": "requirement_not_evidenced",
+     "es": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
+     "en": "An essential requirement of the profile has no evidence in the CV or its supporting documents"
+    },
+    {
+     "id": "protected_data_received",
+     "es": "Llegó un dato que no se debe tratar —fotografía, edad, documento de identidad, salud—, y se excluye del análisis",
+     "en": "Data that must not be processed arrived —photograph, age, ID document, health—, and it is excluded from the analysis"
+    },
+    {
+     "id": "consent_missing",
+     "es": "No hay autorización de tratamiento de datos del candidato, o es posterior a recibir sus datos",
+     "en": "There is no data-processing authorisation for the candidate, or it postdates receiving their data"
+    },
+    {
+     "id": "retention_exceeded",
+     "es": "Los datos de un candidato pasaron el tiempo de conservación de la política y siguen en la carpeta",
+     "en": "A candidate's data is past the policy's retention period and is still in the folder"
+    },
+    {
+     "id": "vacancy_past_target",
+     "es": "Una vacante sigue abierta después del plazo de cobertura de la política",
+     "en": "A vacancy is still open after the policy's time to fill"
+    }
+   ]
+  }
+ ],
+ "skills": {
+  "talent-intake": {
+   "es": "La estructura recomendada de la carpeta de talento, qué va en cada carpeta y qué agente la usa, cómo se nombran los perfiles, las carpetas de los candidatos y las exportaciones, y qué nunca se pide ni se trata",
+   "en": "The recommended structure of the talent folder, what goes in each folder and which agent uses it, how profiles, candidate folders and exports are named, and what is never asked for or processed"
+  },
+  "occupation-standard": {
+   "es": "El estándar de ocupaciones: la descarga oficial de la CUOC o de O*NET, el código de cada ocupación, el umbral de importancia de O*NET, el nivel de competencia y la equivalencia de los estudios de la organización con la CINE",
+   "en": "The occupational standard: the official CUOC or O*NET download, each occupation's code, the O*NET importance threshold, the skill level and how the organisation's education maps to ISCED"
+  },
+  "profile-record": {
+   "es": "Cómo se lleva un perfil de cargo a la ficha: su ocupación, sus tareas, cada requisito con la tarea y el elemento del estándar que lo apoyan, sus estudios, lo que no aplica con su motivo y su revisión",
+   "en": "How a job profile goes into the record: its occupation, its tasks, each requirement with the task and standard element behind it, its education, what does not apply with its reason, and its review"
+  },
+  "cv-record": {
+   "es": "Cómo se lleva una hoja de vida a la ficha: cada título, certificación y empleo con su soporte y sus fechas, la evidencia de cada requisito y lo que llegó y no se debe tratar, sin copiar su valor",
+   "en": "How a CV goes into the record: every degree, certification and job with its supporting document and dates, the evidence for each requirement, and what arrived that must not be processed, without copying its value"
+  },
+  "selection-policy": {
+   "es": "La política de selección: el plazo de cobertura, los días de conservación de los datos, el registro de autorizaciones, el de vacantes y la exportación del ATS con sus columnas",
+   "en": "The selection policy: the time to fill, how long data is kept, the authorisation register, the vacancy register and the ATS export with its columns"
+  }
+ },
+ "impresora": {
+  "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+  "bots": [
+   "norma",
+   "candido",
+   "rostrum"
+  ],
+  "es": {
+   "eyebrow": "Criterio · Familia CHRO",
+   "titulo": "Dos agentes para el talento",
+   "sub": "Procesan los perfiles de cargo, las hojas de vida con sus soportes y los registros de la selección, y dicen qué perfil no corresponde a su ocupación, qué afirmación no tiene soporte y qué vacante pasó su plazo. Ninguna decisión sobre una persona es suya.",
+   "ficha": "LAS FICHAS DE LA ENTIDAD",
+   "fichaNota": "Norma y Cándido comparten la carpeta y la referencia; cada uno escribe solo su ficha, con su cita.",
+   "roles": {
+    "norma": "Los perfiles",
+    "candido": "La selección",
+    "rostrum": "El portal"
+   },
+   "nota": "Estado de la familia: en construcción, hacia su versión 0.1.0. El motor, con su prueba determinista y la prueba de sesgo con pares de candidatos sobre material sintético; la ronda con los dos agentes es el paso siguiente.",
+   "guion": [
+    {
+     "cabeza": true,
+     "texto": "CRITERIO · FAMILIA CHRO"
+    },
+    {
+     "texto": "El talento con dos agentes, sobre los estándares de ocupaciones de la CUOC y de O*NET. Cada uno extiende a una persona del área; ninguno la reemplaza."
+    },
+    {
+     "quien": "norma",
+     "tag": "NORMA · LOS PERFILES",
+     "texto": "Pone cada perfil de cargo al lado de la ocupación de su estándar, y dice qué destreza no recoge, qué requisito no se apoya en una tarea y qué pide que la ley no permite pedir. No aprueba perfiles."
+    },
+    {
+     "quien": "candido",
+     "tag": "CÁNDIDO · LA SELECCIÓN",
+     "texto": "Pone cada afirmación de la hoja de vida al lado de su soporte y cada candidato al lado del perfil, requisito por requisito. No da puntajes, no ordena candidatos y no rechaza a nadie."
+    },
+    {
+     "quien": "rostrum",
+     "tag": "ROSTRUM · EL PORTAL",
+     "texto": "Publica los perfiles y el estado de las vacantes. Lo de los candidatos no sale ahí salvo que la configuración lo diga. No recalcula nada."
+    },
+    {
+     "quien": "ficha",
+     "tag": "LA REGLA",
+     "texto": "Los plazos y los requisitos son de la organización. La fotografía, la edad, el sexo, el origen y la salud de una persona no entran al cálculo."
+    },
+    {
+     "cabeza": true,
+     "texto": "FIN DE LA IMPRESIÓN."
+    }
+   ]
+  },
+  "en": {
+   "eyebrow": "Criterio · CHRO family",
+   "titulo": "Two agents for talent",
+   "sub": "They process the job profiles, the CVs with their supporting documents and the selection records, and tell you which profile does not match its occupation, which claim has no support and which vacancy is past its deadline. No decision about a person is theirs.",
+   "ficha": "THE ENTITY’S RECORDS",
+   "fichaNota": "Norma and Cándido share the folder and the reference; each writes only its own record, with its citation.",
+   "roles": {
+    "norma": "Profiles",
+    "candido": "Selection",
+    "rostrum": "The portal"
+   },
+   "nota": "Where the family stands: under construction, towards its version 0.1.0. The engine, with its deterministic test and the bias test with candidate pairs on synthetic material; the round with the two agents is the next step.",
+   "guion": [
+    {
+     "cabeza": true,
+     "texto": "CRITERIO · CHRO FAMILY"
+    },
+    {
+     "texto": "Talent with two agents, on the CUOC and O*NET occupational standards. Each extends a person in the area; none replaces them."
+    },
+    {
+     "quien": "norma",
+     "tag": "NORMA · PROFILES",
+     "texto": "Puts every job profile next to the occupation in its standard, and says which skill it leaves out, which requirement has no task behind it and what it asks for that the law does not allow. Approves no profiles."
+    },
+    {
+     "quien": "candido",
+     "tag": "CÁNDIDO · SELECTION",
+     "texto": "Puts every claim in the CV next to its supporting document and every candidate next to the profile, requirement by requirement. Gives no scores, ranks no candidates and rejects no one."
+    },
+    {
+     "quien": "rostrum",
+     "tag": "ROSTRUM · THE PORTAL",
+     "texto": "Publishes the profiles and the status of the vacancies. Candidates do not appear there unless the configuration says so. Recalculates nothing."
+    },
+    {
+     "quien": "ficha",
+     "tag": "THE RULE",
+     "texto": "Deadlines and requirements belong to the organisation. A person's photograph, age, sex, origin and health never enter the calculation."
+    },
+    {
+     "cabeza": true,
+     "texto": "END OF PRINT."
+    }
+   ]
+  }
+ }
+}

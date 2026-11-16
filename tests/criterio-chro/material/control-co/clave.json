@@ -1,0 +1,699 @@
+{
+ "entidad": "Cooperativa Control Sintética",
+ "industria": "banca",
+ "pais": "CO",
+ "estandar": "cuoc",
+ "ocupaciones": 3,
+ "hoy": "2026-11-16",
+ "periodo": "2026-11",
+ "siembra": false,
+ "config": {
+  "norma": {
+   "entity": {
+    "id": "900777888",
+    "name": "Cooperativa Control Sintética",
+    "country": "CO",
+    "currency": "COP"
+   },
+   "paths": {
+    "documents": "talento/900777888-cooperativa-control-sintetica",
+    "state": "estado-talento/900777888-cooperativa-control-sintetica"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "cuoc",
+    "file": "00-referencia/estandar/PerfilesOcupacionales-Excel-CUOC-2026-sintetico.xlsx"
+   },
+   "education": {
+    "levels": {
+     "Bachiller": 3,
+     "Técnico laboral": 4,
+     "Tecnólogo": 5,
+     "Profesional": 6
+    }
+   },
+   "profiles": {
+    "review_months": 12
+   },
+   "overlap": {
+    "share": 0.5
+   },
+   "selection": {
+    "prohibited_requirements": [
+     "edad",
+     "sexo",
+     "estado civil",
+     "fotografía"
+    ]
+   }
+  },
+  "candido": {
+   "entity": {
+    "id": "900777888",
+    "name": "Cooperativa Control Sintética",
+    "country": "CO",
+    "currency": "COP"
+   },
+   "paths": {
+    "documents": "talento/900777888-cooperativa-control-sintetica",
+    "state": "estado-talento/900777888-cooperativa-control-sintetica"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "cuoc",
+    "file": "00-referencia/estandar/PerfilesOcupacionales-Excel-CUOC-2026-sintetico.xlsx"
+   },
+   "selection": {
+    "vacancy": {
+     "target_days": 45
+    },
+    "data": {
+     "retention_days": 180
+    },
+    "publish": false
+   }
+  }
+ },
+ "extraccion": {
+  "perfiles": {
+   "profiles": [
+    {
+     "id": "PC-11",
+     "title": "Contador",
+     "source": "10-perfiles/PC-11_contador.docx",
+     "occupation": {
+      "standard": "cuoc",
+      "code": "24111"
+     },
+     "education": {
+      "label": "Profesional",
+      "source": "10-perfiles/PC-11_contador.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Preparar los estados financieros"
+      },
+      {
+       "id": "T2",
+       "text": "Revisar los registros contables"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Contabilidad bajo NIIF",
+       "tasks": [
+        "T1"
+       ],
+       "element": "C5",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-11_contador.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Análisis de procesos",
+       "tasks": [
+        "T2"
+       ],
+       "element": "D27",
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-11_contador.docx"
+      },
+      {
+       "id": "R3",
+       "text": "Evaluación y control de actividades",
+       "tasks": [
+        "T2"
+       ],
+       "element": "D9",
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-11_contador.docx"
+      },
+      {
+       "id": "R4",
+       "text": "Conocimiento del sistema de gestión de seguridad y salud en el trabajo",
+       "tasks": [
+        "T2"
+       ],
+       "type": "otro",
+       "source": "10-perfiles/PC-11_contador.docx"
+      },
+      {
+       "id": "R5",
+       "text": "Tarjeta profesional de contador vigente",
+       "tasks": [
+        "T1"
+       ],
+       "type": "certificacion",
+       "essential": true,
+       "source": "10-perfiles/PC-11_contador.docx"
+      }
+     ],
+     "not_applicable": [
+      {
+       "element": "Legislación tributaria",
+       "reason": "la lleva el área de impuestos"
+      }
+     ],
+     "next_review": "2026-11-17"
+    },
+    {
+     "id": "PC-12",
+     "title": "Auxiliar contable",
+     "source": "10-perfiles/PC-12_auxiliar-contable.docx",
+     "occupation": {
+      "standard": "cuoc",
+      "code": "43111"
+     },
+     "education": {
+      "label": "Técnico laboral",
+      "source": "10-perfiles/PC-12_auxiliar-contable.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Registrar las facturas y los comprobantes"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Comprensión de lectura",
+       "tasks": [
+        "T1"
+       ],
+       "element": "D1",
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-12_auxiliar-contable.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Contabilidad básica",
+       "tasks": [
+        "T1"
+       ],
+       "element": "C5",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-12_auxiliar-contable.docx"
+      }
+     ],
+     "next_review": "2027-01-01"
+    },
+    {
+     "id": "PC-13",
+     "title": "Desarrollador de software",
+     "source": "10-perfiles/PC-13_desarrollador-de-software.docx",
+     "occupation": {
+      "standard": "cuoc",
+      "code": "25120"
+     },
+     "education": {
+      "label": "Tecnólogo",
+      "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+     },
+     "experience_alternative": true,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Desarrollar y probar programas"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Programación",
+       "tasks": [
+        "T1"
+       ],
+       "element": "D21",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Diseño de tecnología",
+       "tasks": [
+        "T1"
+       ],
+       "element": "D18",
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+      },
+      {
+       "id": "R3",
+       "text": "Informática",
+       "tasks": [
+        "T1"
+       ],
+       "element": "C30",
+       "type": "conocimiento",
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+      }
+     ],
+     "next_review": "2027-01-01"
+    }
+   ]
+  },
+  "seleccion": {
+   "candidates": [
+    {
+     "id": "CAN-401",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-401/",
+     "cv": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-401/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-401/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-401/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-402",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-402/",
+     "cv": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-402/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-402/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-402/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-403",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-403/",
+     "cv": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-403/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-403/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-20",
+       "support_to": "2022-08-05"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-403/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-404",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-404/",
+     "cv": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-404/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-404/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-404/tarjeta-profesional.pdf",
+       "expires": "2026-11-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-405",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-405/",
+     "cv": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-405/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-405/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2020-12",
+       "support_from": "2019-03-01",
+       "support_to": "2020-12-31"
+      },
+      {
+       "id": "K4",
+       "type": "empleo",
+       "text": "Analista en Servicios del Norte Sintéticos",
+       "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-405/certificado-laboral-2.pdf",
+       "from": "2022-06",
+       "to": "2026-08",
+       "support_from": "2022-06-01",
+       "support_to": "2026-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-405/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-406",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-406/",
+     "cv": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-406/diploma.jpg"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-406/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-406/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-407",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-407/",
+     "cv": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-407/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-407/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-407/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-408",
+     "vacancy": "VAC-31",
+     "folder": "30-candidatos/VAC-31/CAN-408/",
+     "cv": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-408/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-408/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      },
+      {
+       "id": "K3",
+       "type": "certificacion",
+       "text": "Tarjeta profesional de contador vigente",
+       "cv_source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-31/CAN-408/tarjeta-profesional.pdf",
+       "expires": "2027-06-30",
+       "requirement": "R5"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "sexo",
+       "source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf"
+      }
+     ]
+    },
+    {
+     "id": "CAN-409",
+     "vacancy": "VAC-33",
+     "folder": "30-candidatos/VAC-33/CAN-409/",
+     "cv": "30-candidatos/VAC-33/CAN-409/hoja-de-vida.pdf",
+     "received": "2026-04-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-33/CAN-409/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-33/CAN-409/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-33/CAN-409/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-33/CAN-409/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-33/CAN-409/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-410",
+     "vacancy": "VAC-32",
+     "folder": "30-candidatos/VAC-32/CAN-410/",
+     "cv": "30-candidatos/VAC-32/CAN-410/hoja-de-vida.pdf",
+     "received": "2026-11-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Contador público",
+       "cv_source": "30-candidatos/VAC-32/CAN-410/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-32/CAN-410/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-32/CAN-410/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-32/CAN-410/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-32/CAN-410/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "pares": [
+  [
+   "CAN-407",
+   "CAN-408"
+  ]
+ ],
+ "esperado": [
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-408:sexo"
+  }
+ ]
+}

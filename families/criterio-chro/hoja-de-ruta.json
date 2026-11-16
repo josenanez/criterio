@@ -1,0 +1,107 @@
+{
+ "nota": "Fuente única de la hoja de ruta de la familia CHRO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. El estándar de ocupaciones es el que elige la organización; el país de cada entidad de prueba fija su identificación fiscal y la ley de datos personales contra la que se revisan los perfiles.",
+ "incrementos": [
+  {
+   "incremento": 1,
+   "version": "0.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Norma y Cándido, construidos, con el motor probado y la prueba de sesgo",
+    "entra": [
+     "Los comandos, sus cinco skills y el motor, con las quince señales: los perfiles contra su ocupación, lo que no se puede pedir y el mapa de Norma; las hojas de vida contra sus soportes, cada candidato contra el perfil, los datos de los candidatos y las vacantes de Cándido",
+     "La CUOC 2026 del DANE (F-03) y O*NET 31.0 (F-02), procesadas desde su descarga oficial",
+     "Los datos sensibles de la ley de ocho países, cada uno con su artículo (F-10 a F-17)",
+     "La prueba de sesgo: pares de candidatos iguales salvo en un dato protegido tienen que dar exactamente lo mismo",
+     "Material de banca, retail y tecnología, con dos entidades de control"
+    ],
+    "prueba": "El motor contra la clave de todo el material, y cada par de la prueba de sesgo sin una sola diferencia"
+   },
+   "en": {
+    "titulo": "Norma and Cándido, built, with the engine tested and the bias test",
+    "entra": [
+     "The commands, their five skills and the engine, with the fifteen signals: Norma's profiles against their occupation, what cannot be asked for and the map; Cándido's CVs against their supporting documents, each candidate against the profile, candidate data and vacancies",
+     "DANE's CUOC 2026 (F-03) and O*NET 31.0 (F-02), processed from their official download",
+     "The sensitive data in the law of eight countries, each with its article (F-10 to F-17)",
+     "The bias test: pairs of candidates identical except for one protected attribute must give exactly the same result",
+     "Banking, retail and technology material, with two control entities"
+    ],
+    "prueba": "The engine against the key for all the material, and every pair in the bias test with not a single difference"
+   }
+  },
+  {
+   "incremento": 2,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [],
+   "es": {
+    "titulo": "La ronda con Norma y Cándido",
+    "entra": [
+     "La ronda con los dos agentes sobre todo el material, con su clave y los pares de la prueba de sesgo, que tienen que dar lo mismo también con el agente"
+    ],
+    "prueba": "La ronda 1, con su análisis"
+   },
+   "en": {
+    "titulo": "The round with Norma and Cándido",
+    "entra": [
+     "The round with the two agents on all the material, with its key and the bias-test pairs, which must give the same result with the agent too"
+    ],
+    "prueba": "Round 1, with its analysis"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [],
+   "es": {
+    "titulo": "ESCO y las exportaciones de los ATS",
+    "entra": [
+     "ESCO como tercer estándar, cuando se verifiquen su descarga en español y portugués y sus términos de reutilización",
+     "Las exportaciones de los ATS más usados en la región, cada una desde su fuente verificada o desde una exportación real"
+    ],
+    "prueba": "Una entidad con ESCO y una exportación real de un ATS, con su clave"
+   },
+   "en": {
+    "titulo": "ESCO and ATS exports",
+    "entra": [
+     "ESCO as a third standard, once its Spanish and Portuguese download and its reuse terms are verified",
+     "The exports of the most used ATS in the region, each from its verified source or from a real export"
+    ],
+    "prueba": "An entity with ESCO and a real ATS export, with its key"
+   }
+  }
+ ]
+}

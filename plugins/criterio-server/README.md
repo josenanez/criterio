@@ -95,6 +95,8 @@ running `server-setup` again.
 | **Criterio CISO** · Information security | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · Information security | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · Information security | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CHRO** · Talent | Norma | `/criterio-roles:roles-setup` | `.criterio/perfiles/<instance>/` | `_CRITERIO_TALENTO.txt` |
+| **Criterio CHRO** · Talent | Cándido | `/criterio-talent:talent-setup` | `.criterio/seleccion/<instance>/` | `_CRITERIO_TALENTO.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

@@ -64,6 +64,10 @@ DUENIOS = [
     ("evaluar.py --agente guillermo", "Guillermo"),
     ("evaluar.py --agente amparo", "Amparo"),
     ("tests/criterio-ciso/", "La familia"),
+    ("criterio-roles/scripts/talento.py", "Norma"),
+    ("evaluar.py --agente norma", "Norma"),
+    ("evaluar.py --agente candido", "Cándido"),
+    ("tests/criterio-chro/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -450,6 +454,8 @@ PLUGIN_DE = {
     "Alexis": "criterio-security",
     "Guillermo": "criterio-vulnerability",
     "Amparo": "criterio-resilience",
+    "Norma": "criterio-roles",
+    "Cándido": "criterio-talent",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -696,6 +702,15 @@ _CISO_NO_CUBRE = [
 ]
 for _p in ("criterio-security", "criterio-vulnerability", "criterio-resilience"):
     NO_CUBRE[_p] = list(_CISO_NO_CUBRE)
+_CHRO_NO_CUBRE = [
+    ("Todavía no hay una ronda con los agentes",
+     "El motor se prueba con la ficha correcta, la de la clave. Que el agente procese el perfil y la hoja de vida y no copie el "
+     "dato protegido lo prueba la ronda, que viene en la 0.2.0."),
+    ("El estándar del material es sintético",
+     "Tiene la forma exacta de la descarga de la CUOC 2026 y de O*NET 31.0; la descarga real se procesó fuera del repositorio."),
+]
+for _p in ("criterio-roles", "criterio-talent"):
+    NO_CUBRE[_p] = list(_CHRO_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -713,6 +728,8 @@ QUE_ES = {
     "criterio-security": ("Alexis", "el agente del gobierno y los controles de la familia CISO"),
     "criterio-vulnerability": ("Guillermo", "el agente de las vulnerabilidades de la familia CISO"),
     "criterio-resilience": ("Amparo", "la agente de la respuesta y la recuperación de la familia CISO"),
+    "criterio-roles": ("Norma", "la agente de los perfiles de cargo de la familia CHRO"),
+    "criterio-talent": ("Cándido", "el agente de la selección de la familia CHRO"),
 }
 
 
@@ -723,7 +740,8 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-assistant": "../criterio-ea/EVIDENCIA.md",
                 "criterio-sales": "../criterio-cco/EVIDENCIA.md", "criterio-revenue": "../criterio-cco/EVIDENCIA.md",
                 "criterio-security": "../criterio-ciso/EVIDENCIA.md", "criterio-vulnerability": "../criterio-ciso/EVIDENCIA.md",
-                "criterio-resilience": "../criterio-ciso/EVIDENCIA.md"}
+                "criterio-resilience": "../criterio-ciso/EVIDENCIA.md",
+                "criterio-roles": "../criterio-chro/EVIDENCIA.md", "criterio-talent": "../criterio-chro/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

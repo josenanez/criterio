@@ -212,7 +212,9 @@ def check_families(root: Path, listed: set[str], f: Findings) -> None:
             f.error(f"{name}/plugin.json", f"the family depends on '{missing}' and does not declare it")
         for extra in sorted(deps - expected):
             f.error(f"{name}/plugin.json", f"'{extra}' is not an agent of the family nor Rostrum")
-        for dep in sorted(deps - listed):
+        # Una familia en construcción entra al marketplace entera con su primera liberación
+        # (decisión 0021): hasta entonces ni ella ni sus agentes están listados.
+        for dep in sorted(deps - listed) if name in listed else []:
             f.error(f"{name}/plugin.json", f"dependency '{dep}' is not in the marketplace")
         if (base / "skills").exists() or (base / "scripts").exists():
             f.error(name, "the whole-family plugin ships no skills and no scripts: they belong to its agents")

@@ -1,0 +1,403 @@
+{
+ "comandos": {
+  "candidate-fit": {
+   "funcion": "Cada candidato contra el perfil, requisito por requisito.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Una tabla por candidato, requisito por requisito, con su evidencia y dónde está; quien selecciona decide",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-candidate-fit.md",
+     "<estado>/corridas/salida-candidate-fit.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "cv-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "candido": {
+   "funcion": "Recibe en palabras de la persona lo que necesita de Alexis y corre el comando que lo resuelve; no hace el trabajo por su cuenta ni escribe nada (decisión 0027).",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras de la persona por cada grupo del agente, uno que encaja en dos comandos y uno que es de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta con las dos etiquetas; en el ajeno da la entrada del otro agente; la tabla la comprueba scripts/familias.py --check"
+   }
+  },
+  "cv-check": {
+   "funcion": "Cada afirmación de la hoja de vida contra su soporte.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada afirmación sin soporte o que no coincide, con su cita; ninguna se da por falsa",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-cv-check.md",
+     "<estado>/corridas/salida-cv-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "cv-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "privacy-check": {
+   "funcion": "La autorización y la conservación de cada candidato.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada candidato con su autorización, hasta cuándo se conservan sus datos y lo que se excluyó",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-privacy-check.md",
+     "<estado>/corridas/salida-privacy-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "selection-policy"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "share-findings": {
+   "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     ".criterio/corridas/<área>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "enlace",
+     "resumen"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+    "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+   }
+  },
+  "talent-scan": {
+   "funcion": "La ficha del periodo al día.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-talent-scan.md",
+     "<estado>/corridas/salida-talent-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "cv-record",
+     "talent-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "talent-search": {
+   "funcion": "La búsqueda que corre quien recluta.",
+   "entrada": {
+    "argumento": "[identificador de la vacante]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Las cadenas de búsqueda y las personas de la base interna con la ocupación, sin ningún orden por número",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-talent-search.md",
+     "<estado>/corridas/salida-talent-search.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "selection-policy"
+    ],
+    "script": [
+     "busqueda",
+     "corrida",
+     "terminos"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "talent-setup": {
+   "funcion": "La configuración y el inventario.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; las columnas que faltan; la primera ficha del periodo",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-talent-setup.md",
+     "<estado>/corridas/salida-talent-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "cv-record",
+     "selection-policy",
+     "talent-intake"
+    ],
+    "script": [
+     "arranque",
+     "compute",
+     "convertir",
+     "corrida",
+     "dejar-listo",
+     "inventario",
+     "reporte"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "talent-wake": {
+   "funcion": "Lo que toca hoy en la selección.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que tocaba y lo que hizo, o una línea si no tocaba nada",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-talent-wake.md",
+     "<estado>/corridas/salida-talent-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "candidate-fit",
+     "cv-check",
+     "privacy-check",
+     "talent-scan",
+     "vacancy-status"
+    ]
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  },
+  "vacancy-status": {
+   "funcion": "Cada vacante contra su plazo de cobertura.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada vacante con su perfil, su apertura, su plazo, su tope y los días que lleva; las que pasaron su plazo",
+    "escribe": [
+     "<estado>/seleccion/<AAAA-MM>/resultados.json",
+     "<estado>/seleccion/<AAAA-MM>/reporte-vacancy-status.md",
+     "<estado>/corridas/salida-vacancy-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "selection-policy"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-chro: los perfiles, las hojas de vida, los soportes y los registros de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna; y cada par de la prueba de sesgo igual"
+   }
+  }
+ },
+ "skills": {
+  "cv-record": {
+   "escribe": [
+    "candidates[].claims",
+    "candidates[].evidence",
+    "candidates[].protected"
+   ],
+   "alimenta": [
+    "claim_without_support",
+    "certification_expired",
+    "employment_dates_differ",
+    "requirement_not_evidenced",
+    "protected_data_received"
+   ]
+  },
+  "selection-policy": {
+   "escribe": [
+    "selection.vacancy.target_days",
+    "selection.data.retention_days",
+    "columns"
+   ],
+   "alimenta": [
+    "consent_missing",
+    "retention_exceeded",
+    "vacancy_past_target"
+   ]
+  },
+  "talent-intake": {
+   "escribe": [],
+   "alimenta": [
+    "protected_data_received"
+   ]
+  }
+ }
+}

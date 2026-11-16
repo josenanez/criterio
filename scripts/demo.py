@@ -38,7 +38,7 @@ P = RAIZ / "plugins"
 ZIP = P / "criterio-server" / "demo" / "criterio-demo.zip"
 ORGANIZACION = "Organización de demostración"
 # Una entidad por familia: la de su primera ronda, con defectos sembrados.
-DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-co"), ("ea", "banca"))
+DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-co"), ("ea", "banca"), ("chro", "banca-co"))
 FECHA_ZIP = (2026, 1, 1, 0, 0, 0)
 
 sys.path.insert(0, str(P / "criterio-finance" / "scripts"))
@@ -54,7 +54,7 @@ def _modulo(ruta: Path, nombre: str):
 
 def _motor(plugin: str) -> Path:
     return next(f for f in (P / plugin / "scripts").glob("*.py")
-                if f.name in ("finanzas.py", "legal.py", "ventas.py", "seguridad.py", "asistente.py"))
+                if f.name in ("finanzas.py", "legal.py", "ventas.py", "seguridad.py", "asistente.py", "talento.py"))
 
 
 def _correr(motor: Path, *args: str) -> str:

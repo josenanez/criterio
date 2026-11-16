@@ -1,0 +1,723 @@
+{
+ "entidad": "Nube Austral Software Sintética",
+ "industria": "tecnologia",
+ "pais": "CL",
+ "estandar": "onet",
+ "ocupaciones": 3,
+ "hoy": "2026-11-16",
+ "periodo": "2026-11",
+ "siembra": true,
+ "config": {
+  "norma": {
+   "entity": {
+    "id": "76543210-K",
+    "name": "Nube Austral Software Sintética",
+    "country": "CL",
+    "currency": "CLP"
+   },
+   "paths": {
+    "documents": "talento/76543210k-nube-austral-software-sintetica",
+    "state": "estado-talento/76543210k-nube-austral-software-sintetica"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "education": {
+    "levels": {}
+   },
+   "profiles": {
+    "review_months": 12
+   },
+   "overlap": {
+    "share": 0.5
+   },
+   "selection": {
+    "prohibited_requirements": [
+     "edad",
+     "sexo",
+     "estado civil",
+     "fotografía"
+    ]
+   }
+  },
+  "candido": {
+   "entity": {
+    "id": "76543210-K",
+    "name": "Nube Austral Software Sintética",
+    "country": "CL",
+    "currency": "CLP"
+   },
+   "paths": {
+    "documents": "talento/76543210k-nube-austral-software-sintetica",
+    "state": "estado-talento/76543210k-nube-austral-software-sintetica"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "selection": {
+    "vacancy": {
+     "target_days": 60
+    },
+    "data": {
+     "retention_days": 90
+    },
+    "publish": false
+   }
+  }
+ },
+ "extraccion": {
+  "perfiles": {
+   "profiles": [
+    {
+     "id": "TI-01",
+     "title": "Desarrollador de software",
+     "source": "10-perfiles/TI-01_desarrollador-de-software.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-1252.00"
+     },
+     "education": {
+      "label": "Ingeniería",
+      "source": "10-perfiles/TI-01_desarrollador-de-software.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Escribir y probar código"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Programación en Python y Java",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.3.e",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-01_desarrollador-de-software.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Pensamiento crítico",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.2.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-01_desarrollador-de-software.docx"
+      }
+     ],
+     "next_review": "2026-10-01"
+    },
+    {
+     "id": "TI-02",
+     "title": "Analista de soporte",
+     "source": "10-perfiles/TI-02_analista-de-soporte.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-1232.00"
+     },
+     "education": {
+      "label": "Técnico",
+      "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Atender las consultas de los usuarios"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Escucha activa",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.b",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Resolución de fallas",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.5.a",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+      },
+      {
+       "id": "R3",
+       "text": "Computadores y electrónica",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.3.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+      },
+      {
+       "id": "R4",
+       "text": "Nivel socioeconómico medio alto",
+       "tasks": [],
+       "type": "otro",
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+      }
+     ],
+     "next_review": "2027-03-01"
+    },
+    {
+     "id": "TI-03",
+     "title": "Analista de seguridad",
+     "source": "10-perfiles/TI-03_analista-de-seguridad.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-1212.00"
+     },
+     "education": {
+      "label": "Ingeniería",
+      "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Vigilar las redes"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Pensamiento crítico",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.2.a",
+       "essential": true,
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Computadores y electrónica",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.3.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+      },
+      {
+       "id": "R3",
+       "text": "No pertenecer a ningún sindicato",
+       "tasks": [
+        "T1"
+       ],
+       "type": "otro",
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+      }
+     ],
+     "next_review": "2027-03-01"
+    },
+    {
+     "id": "TI-04",
+     "title": "Desarrollador backend",
+     "source": "10-perfiles/TI-04_desarrollador-backend.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-1252.00"
+     },
+     "education": {
+      "label": "Ingeniería",
+      "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Escribir y probar código"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Programación en Python y Java",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.3.e",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+      },
+      {
+       "id": "R2",
+       "text": "Pensamiento crítico",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.2.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+      },
+      {
+       "id": "R3",
+       "text": "Computadores y electrónica",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.3.a",
+       "type": "conocimiento",
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+      }
+     ],
+     "next_review": "2027-03-01"
+    },
+    {
+     "id": "TI-05",
+     "title": "Líder técnico",
+     "source": "10-perfiles/TI-05_lider-tecnico.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "15-9999.00"
+     },
+     "education": {
+      "label": "Ingeniería",
+      "source": "10-perfiles/TI-05_lider-tecnico.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Liderar el equipo de desarrollo"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Liderazgo técnico",
+       "tasks": [
+        "T1"
+       ],
+       "essential": true,
+       "type": "otro",
+       "source": "10-perfiles/TI-05_lider-tecnico.docx"
+      }
+     ],
+     "next_review": "2027-03-01"
+    }
+   ]
+  },
+  "seleccion": {
+   "candidates": [
+    {
+     "id": "CAN-301",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-301/",
+     "cv": "30-candidatos/VAC-21/CAN-301/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-301/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-301/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-301/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-301/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": []
+    },
+    {
+     "id": "CAN-302",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-302/",
+     "cv": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf",
+       "support": null
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-302/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-303",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-303/",
+     "cv": "30-candidatos/VAC-21/CAN-303/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-303/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-303/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-303/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-303/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2021-12-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-303/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-304",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-304/",
+     "cv": "30-candidatos/VAC-21/CAN-304/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-304/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-304/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-304/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-304/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-304/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-305",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-305/",
+     "cv": "30-candidatos/VAC-21/CAN-305/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-305/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-305/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-305/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-305/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-305/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-306",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-306/",
+     "cv": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-306/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-306/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fecha_de_nacimiento",
+       "source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf"
+      }
+     ]
+    },
+    {
+     "id": "CAN-307",
+     "vacancy": "VAC-22",
+     "folder": "30-candidatos/VAC-22/CAN-307/",
+     "cv": "30-candidatos/VAC-22/CAN-307/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-22/CAN-307/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-22/CAN-307/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-22/CAN-307/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-22/CAN-307/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-22/CAN-307/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-308",
+     "vacancy": "VAC-22",
+     "folder": "30-candidatos/VAC-22/CAN-308/",
+     "cv": "30-candidatos/VAC-22/CAN-308/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [],
+     "evidence": []
+    },
+    {
+     "id": "CAN-309",
+     "vacancy": "VAC-23",
+     "folder": "30-candidatos/VAC-23/CAN-309/",
+     "cv": "30-candidatos/VAC-23/CAN-309/hoja-de-vida.pdf",
+     "received": "2026-06-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-23/CAN-309/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-23/CAN-309/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-23/CAN-309/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-23/CAN-309/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-23/CAN-309/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-310",
+     "vacancy": "VAC-21",
+     "folder": "30-candidatos/VAC-21/CAN-310/",
+     "cv": "30-candidatos/VAC-21/CAN-310/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Ingeniería en informática",
+       "cv_source": "30-candidatos/VAC-21/CAN-310/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-310/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-21/CAN-310/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-21/CAN-310/certificado-laboral.pdf",
+       "from": "2018-01",
+       "to": "2022-08",
+       "support_from": "2018-06-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-21/CAN-310/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "pares": [
+  [
+   "CAN-305",
+   "CAN-306"
+  ]
+ ],
+ "esperado": [
+  {
+   "signal": "essential_skill_missing",
+   "key": "elemento:TI-01:2_c_3_a"
+  },
+  {
+   "signal": "profile_review_overdue",
+   "key": "revision:TI-01"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:TI-02:R4:socioeconomica"
+  },
+  {
+   "signal": "requirement_without_task",
+   "key": "tarea:TI-02:R4"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:TI-03:R3:sindical"
+  },
+  {
+   "signal": "profiles_overlap",
+   "key": "solape:TI-01:TI-04"
+  },
+  {
+   "signal": "profile_without_occupation",
+   "key": "ocupacion:TI-05"
+  },
+  {
+   "signal": "vacancy_past_target",
+   "key": "vacante:vac_21"
+  },
+  {
+   "signal": "vacancy_past_target",
+   "key": "vacante:vac_24"
+  },
+  {
+   "signal": "requirement_not_evidenced",
+   "key": "requisito:CAN-301:R1"
+  },
+  {
+   "signal": "claim_without_support",
+   "key": "soporte:CAN-302:K1"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-302:fotografia"
+  },
+  {
+   "signal": "employment_dates_differ",
+   "key": "fechas:CAN-303:K2"
+  },
+  {
+   "signal": "consent_missing",
+   "key": "autorizacion:CAN-304"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-306:fotografia"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-306:fecha_de_nacimiento"
+  },
+  {
+   "signal": "consent_missing",
+   "key": "autorizacion:CAN-307"
+  },
+  {
+   "signal": "requirement_not_evidenced",
+   "key": "requisito:CAN-308:R1"
+  },
+  {
+   "signal": "retention_exceeded",
+   "key": "conservacion:CAN-309"
+  },
+  {
+   "signal": "employment_dates_differ",
+   "key": "fechas:CAN-310:K2"
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+# Resultado de las pruebas · Norma
+
+**la agente de los perfiles de cargo de la familia CHRO** · plugin `criterio-roles`
+
+Corrida del 2026-11-16, sobre el commit `9998b2a3`, con cambios en el árbol todavía sin confirmar (sin regenerar el material sintético). **1 puertas · 24 comprobaciones · todas en verde.**
+
+> Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
+
+## Lo que se corrió
+
+| Puerta | Qué prueba | Comprob. | Tiempo | |
+|---|---|---:|---:|---|
+| `criterio-roles/talento.py selftest` | El motor de Norma y Cándido: los perfiles contra la CUOC, lo que no se puede pedir, las hojas de vida y la prueba de sesgo | 24 | 120 ms | verde |
+
+Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
+
+## Lo que esta corrida no cubre
+
+Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
+
+- **Todavía no hay una ronda con los agentes.** El motor se prueba con la ficha correcta, la de la clave. Que el agente procese el perfil y la hoja de vida y no copie el dato protegido lo prueba la ronda, que viene en la 0.2.0.
+- **El estándar del material es sintético.** Tiene la forma exacta de la descarga de la CUOC 2026 y de O*NET 31.0; la descarga real se procesó fuera del repositorio.
+
+## Los comandos, corridos por un agente de verdad
+
+**0 de 9.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+
+Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
+
+
+## Qué material se usó, y qué prueba cada pieza
+
+El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál es su control negativo— está en [`EVIDENCIA.md`](../criterio-chro/EVIDENCIA.md), que se escribe a mano y no se genera.
+
+**El control negativo es la mitad del valor de estas pruebas.** Un agente que encuentra hallazgos donde no los hay es un generador de ruido, y eso no se detecta mirando solo los casos que sí fallan.
+
+## Y lo que se verifica para toda la familia
+
+| Puerta | Qué prueba | Comprob. | |
+|---|---|---:|---|
+| `sintetico/regresion.py verificar` | La regresión del motor: cinco semanas de una organización, en cada cambio | 1 | verde |
+| `tests/setup_corto.py` | El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente | 45 | verde |
+| `tests/reloj_corto.py` | El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada | 6 | verde |
+| `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | verde |
+| `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | verde |
+| `criterio-portfolio/terminos.py` | Los términos: una aceptación mientras su texto no cambie, con comprobante en Markdown y PDF y su huella SHA-256 | 15 | verde |
+| `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 12 | verde |
+| `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 402 | verde |
+| `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
+| `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
+| `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
+| `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
+| `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
+| `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | verde |
+| `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 20 | verde |
+| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
+| `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
+| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
+| `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |
+| `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | verde |
+| `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
+| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
+| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 22 | verde |
+
+El conjunto de los tres agentes, en [`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.
