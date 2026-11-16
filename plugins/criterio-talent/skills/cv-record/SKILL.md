@@ -21,7 +21,9 @@ Una ficha por periodo, en `<estado>/seleccion/<AAAA-MM>/ficha.json`. El registro
        {"id": "K3", "type": "certificacion", "text": "Tarjeta profesional", "support": "30-candidatos/VAC-03/CAN-014/tarjeta.pdf",
         "expires": "2027-06-30", "requirement": "R5"}],
      "evidence": [{"requirement": "R1", "source": "30-candidatos/VAC-03/CAN-014/hoja-de-vida.pdf, p. 1",
-                   "quote": "Cierre contable mensual bajo NIIF"}],
+                   "quote": "Cierre contable mensual bajo NIIF"},
+                  {"requirement": "R4", "source": "30-candidatos/VAC-03/CAN-014/diploma.pdf", "quote": "Otorga el título de Contador público"},
+                  {"requirement": "R5", "source": "30-candidatos/VAC-03/CAN-014/tarjeta.pdf", "quote": "Tarjeta profesional · vigente hasta el 2027-06-30"}],
      "protected": [{"type": "fotografia", "source": "30-candidatos/VAC-03/CAN-014/hoja-de-vida.pdf, p. 1"}]}
   ],
   "reviewed": [],
@@ -32,8 +34,9 @@ Una ficha por periodo, en `<estado>/seleccion/<AAAA-MM>/ficha.json`. El registro
 ## Cómo se decide cada uno
 
 - **`id`**: el identificador del candidato en la organización —el del ATS—, **nunca su nombre**. El nombre no va a la ficha.
-- **`claims`**: cada título, certificación y empleo que **afirma** la hoja de vida. `support` es el archivo que lo soporta —el diploma, el acta, la certificación, el certificado laboral— o `null` si no llegó. Con un empleo, las fechas de la hoja de vida en `from` y `to` y las del certificado en `support_from` y `support_to`, como las dice cada uno. Con una certificación, su vencimiento en `expires`, del soporte. `requirement` es el requisito del perfil que esa afirmación atiende, si atiende alguno.
-- **`evidence`**: para cada requisito del perfil, dónde está su evidencia en la hoja de vida o en un soporte, con la cita y una frase corta textual. **Solo lo que el documento dice**: nada de inferir la personalidad, la «cultura» o el potencial.
+- **`claims`**: cada título, certificación y empleo que **afirma** la hoja de vida, numerado `K1`, `K2`… **en el orden en que la hoja de vida lo dice**. `support` es el archivo que lo soporta —el diploma, el acta, la certificación, el certificado laboral— o `null` si no llegó. Con un empleo, las fechas de la hoja de vida en `from` y `to` y las del certificado en `support_from` y `support_to`, como las dice cada uno. Con una certificación, su vencimiento en `expires`, del soporte. `requirement` es el requisito del perfil que esa afirmación atiende, si atiende alguno.
+- **`evidence`**: para cada requisito del perfil, dónde está su evidencia en la hoja de vida o en un soporte, con la cita y una frase corta textual. **Un requisito que atiende una afirmación con su soporte —la certificación que el perfil pide, con su tarjeta— lleva su evidencia en ese soporte**, además de la afirmación. **Solo lo que el documento dice**: nada de inferir la personalidad, la «cultura» o el potencial.
+- **Una imagen en la carpeta del candidato**: si su nombre dice que es un documento —`diploma`, `titulo`, `acta`, `certificado`, `tarjeta`, `certificacion`—, es un soporte escaneado: se abre solo para confirmar que es ese documento y va en `support`. Si no, es una fotografía: no se abre y va en `protected`.
 - **`protected`**: lo que llegó y no se debe tratar —`fotografia`, `edad`, `fecha_de_nacimiento`, `sexo`, `estado_civil`, `origen`, `religion`, `salud`, `documento_de_identidad`—, **solo su tipo y dónde está**. Su valor no se copia a ninguna parte.
 
 ## Lo que nunca va

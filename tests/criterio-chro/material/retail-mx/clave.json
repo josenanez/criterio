@@ -103,8 +103,8 @@
        ],
        "element": "2.A.1.b",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-01_cajero-de-tienda.docx"
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -114,15 +114,15 @@
        ],
        "element": "2.A.1.e",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-01_cajero-de-tienda.docx"
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
        "text": "Buena presencia",
        "tasks": [],
-       "type": "otro",
-       "source": "10-perfiles/PT-01_cajero-de-tienda.docx"
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "otro"
       }
      ],
      "last_review": "2025-01-10"
@@ -154,8 +154,8 @@
         "T1"
        ],
        "element": "2.A.1.b",
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx"
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -164,8 +164,8 @@
         "T1"
        ],
        "element": "2.A.1.e",
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx"
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -174,8 +174,8 @@
         "T1"
        ],
        "element": "2.C.1.e",
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx"
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-02-01"
@@ -208,8 +208,8 @@
        ],
        "element": "2.B.3.a",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx"
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -218,8 +218,8 @@
         "T1"
        ],
        "element": "2.B.1.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx"
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -228,8 +228,8 @@
         "T1"
        ],
        "element": "2.C.1.c",
-       "type": "conocimiento",
-       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx"
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R4",
@@ -237,8 +237,8 @@
        "tasks": [
         "T1"
        ],
-       "type": "otro",
-       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx"
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-02-01"
@@ -270,8 +270,8 @@
         "T1"
        ],
        "essential": true,
-       "type": "otro",
-       "source": "10-perfiles/PT-04_almacenista.docx"
+       "source": "10-perfiles/PT-04_almacenista.docx",
+       "type": "otro"
       },
       {
        "id": "R2",
@@ -279,8 +279,8 @@
        "tasks": [
         "T1"
        ],
-       "type": "otro",
-       "source": "10-perfiles/PT-04_almacenista.docx"
+       "source": "10-perfiles/PT-04_almacenista.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-02-01"
@@ -356,6 +356,16 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-11/CAN-202/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-11/CAN-202/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-11/CAN-202/foto.jpg"
       }
      ]
     },
@@ -508,8 +518,16 @@
      ],
      "protected": [
       {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-11/CAN-206/hoja-de-vida.pdf"
+      },
+      {
        "type": "fecha_de_nacimiento",
        "source": "30-candidatos/VAC-11/CAN-206/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-11/CAN-206/foto.jpg"
       }
      ]
     },

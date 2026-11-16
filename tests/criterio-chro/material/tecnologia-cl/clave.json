@@ -102,8 +102,8 @@
        ],
        "element": "2.B.3.e",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-01_desarrollador-de-software.docx"
+       "source": "10-perfiles/TI-01_desarrollador-de-software.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -112,8 +112,8 @@
         "T1"
        ],
        "element": "2.A.2.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-01_desarrollador-de-software.docx"
+       "source": "10-perfiles/TI-01_desarrollador-de-software.docx",
+       "type": "destreza"
       }
      ],
      "next_review": "2026-10-01"
@@ -145,8 +145,8 @@
         "T1"
        ],
        "element": "2.A.1.b",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -156,8 +156,8 @@
        ],
        "element": "2.B.5.a",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -166,15 +166,15 @@
         "T1"
        ],
        "element": "2.C.3.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R4",
        "text": "Nivel socioeconómico medio alto",
        "tasks": [],
-       "type": "otro",
-       "source": "10-perfiles/TI-02_analista-de-soporte.docx"
+       "source": "10-perfiles/TI-02_analista-de-soporte.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-03-01"
@@ -207,8 +207,8 @@
        ],
        "element": "2.A.2.a",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -217,8 +217,8 @@
         "T1"
        ],
        "element": "2.C.3.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R3",
@@ -226,8 +226,8 @@
        "tasks": [
         "T1"
        ],
-       "type": "otro",
-       "source": "10-perfiles/TI-03_analista-de-seguridad.docx"
+       "source": "10-perfiles/TI-03_analista-de-seguridad.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-03-01"
@@ -259,8 +259,8 @@
         "T1"
        ],
        "element": "2.B.3.e",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -269,8 +269,8 @@
         "T1"
        ],
        "element": "2.A.2.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -279,8 +279,8 @@
         "T1"
        ],
        "element": "2.C.3.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/TI-04_desarrollador-backend.docx"
+       "source": "10-perfiles/TI-04_desarrollador-backend.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-03-01"
@@ -312,8 +312,8 @@
         "T1"
        ],
        "essential": true,
-       "type": "otro",
-       "source": "10-perfiles/TI-05_lider-tecnico.docx"
+       "source": "10-perfiles/TI-05_lider-tecnico.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-03-01"
@@ -380,6 +380,16 @@
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-21/CAN-302/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-21/CAN-302/foto.jpg"
       }
      ]
     },
@@ -516,8 +526,16 @@
      ],
      "protected": [
       {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf"
+      },
+      {
        "type": "fecha_de_nacimiento",
        "source": "30-candidatos/VAC-21/CAN-306/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-21/CAN-306/foto.jpg"
       }
      ]
     },

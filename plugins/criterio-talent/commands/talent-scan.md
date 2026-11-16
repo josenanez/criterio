@@ -30,7 +30,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/talento.py" inventario --config <config>
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/talento.py" convertir --config <config> --caso 30-candidatos
 ```
 
-**Una fotografía no se abre**: si en la carpeta de un candidato hay una imagen que no es un soporte, el motor la excluye sola. El nombre del candidato no va a la ficha: va su identificador.
+**Una fotografía no se abre.** Una imagen cuyo nombre dice que es un documento —`diploma`, `titulo`, `acta`, `certificado`, `tarjeta`, `certificacion`— es un soporte escaneado: ábrela solo para confirmar que es ese documento y cítala en `support` de lo que soporta. Cualquier otra imagen de la carpeta de un candidato es una fotografía: no se abre, va a `protected` como `fotografia` con su ruta, y el motor la excluye. El nombre del candidato no va a la ficha: va su identificador.
 
 **3. Calcula y muestra.** Si `record_issues` trae un documento que no está en la ficha, llévalo o anótalo en `reviewed` con su motivo, y vuelve a calcular:
 

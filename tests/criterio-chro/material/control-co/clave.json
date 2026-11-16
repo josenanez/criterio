@@ -109,8 +109,8 @@
        ],
        "element": "C5",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-11_contador.docx"
+       "source": "10-perfiles/PC-11_contador.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R2",
@@ -119,8 +119,8 @@
         "T2"
        ],
        "element": "D27",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-11_contador.docx"
+       "source": "10-perfiles/PC-11_contador.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -129,8 +129,8 @@
         "T2"
        ],
        "element": "D9",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-11_contador.docx"
+       "source": "10-perfiles/PC-11_contador.docx",
+       "type": "destreza"
       },
       {
        "id": "R4",
@@ -138,8 +138,8 @@
        "tasks": [
         "T2"
        ],
-       "type": "otro",
-       "source": "10-perfiles/PC-11_contador.docx"
+       "source": "10-perfiles/PC-11_contador.docx",
+       "type": "otro"
       },
       {
        "id": "R5",
@@ -187,8 +187,8 @@
         "T1"
        ],
        "element": "D1",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-12_auxiliar-contable.docx"
+       "source": "10-perfiles/PC-12_auxiliar-contable.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -198,8 +198,8 @@
        ],
        "element": "C5",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-12_auxiliar-contable.docx"
+       "source": "10-perfiles/PC-12_auxiliar-contable.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-01-01"
@@ -232,8 +232,8 @@
        ],
        "element": "D21",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -242,8 +242,8 @@
         "T1"
        ],
        "element": "D18",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -252,8 +252,8 @@
         "T1"
        ],
        "element": "C30",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-13_desarrollador-de-software.docx"
+       "source": "10-perfiles/PC-13_desarrollador-de-software.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-01-01"
@@ -293,14 +293,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-401/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-401/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-401/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -335,14 +339,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-402/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-402/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-402/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -377,14 +385,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-403/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-403/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-403/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -419,14 +431,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-404/tarjeta-profesional.pdf",
-       "expires": "2026-11-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2026-11-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-404/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-404/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -456,7 +472,7 @@
        "support_to": "2020-12-31"
       },
       {
-       "id": "K4",
+       "id": "K3",
        "type": "empleo",
        "text": "Analista en Servicios del Norte Sintéticos",
        "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
@@ -467,19 +483,23 @@
        "support_to": "2026-08-31"
       },
       {
-       "id": "K3",
+       "id": "K4",
        "type": "certificacion",
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-405/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-405/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-405/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -514,14 +534,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-406/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-406/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-406/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -556,14 +580,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-407/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-407/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-407/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -598,14 +626,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-31/CAN-408/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R5"
+       "requirement": "R5",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R1",
        "source": "30-candidatos/VAC-31/CAN-408/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R5",
+       "source": "30-candidatos/VAC-31/CAN-408/tarjeta-profesional.pdf"
       }
      ],
      "protected": [

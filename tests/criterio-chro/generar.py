@@ -55,6 +55,35 @@ HOY, PERIODO = dt.date(2026, 11, 16), "2026-11"
 JPG = b"\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00\xff\xd9"
 
 
+RECURSOS = Path(__file__).resolve().parent / "recursos"
+
+
+def diploma_escaneado(titulo: str) -> bytes:
+    """Un diploma escaneado en imagen, con su texto: quien lo abre ve que es el soporte del título.
+    La imagen se dibuja una vez y se versiona en recursos/ —un codificador JPEG distinto daría otros
+    bytes en otra máquina—; `--recursos` la vuelve a dibujar."""
+    ruta = RECURSOS / f"diploma-{slug(titulo)}.jpg"
+    if "--recursos" in sys.argv:
+        import io
+        import unicodedata
+        from PIL import Image, ImageDraw, ImageFont
+        mayus = lambda t: "".join(c for c in unicodedata.normalize("NFD", t.upper()) if unicodedata.category(c) != "Mn")  # noqa: E731
+        im = Image.new("RGB", (900, 600), (250, 248, 240))
+        d = ImageDraw.Draw(im)
+        d.rectangle((20, 20, 879, 579), outline=(60, 60, 60), width=4)
+        f = ImageFont.load_default(size=34)
+        for y, t in ((120, "Universidad Sintética del Valle"), (230, "Diploma"), (320, "Otorga el título de"), (390, titulo), (480, "2018")):
+            t = mayus(t)
+            d.text(((900 - d.textlength(t, font=f)) / 2, y), t, fill=(30, 30, 30), font=f)
+        b = io.BytesIO()
+        im.save(b, format="JPEG", quality=85)
+        RECURSOS.mkdir(exist_ok=True)
+        ruta.write_bytes(b.getvalue())
+    if not ruta.is_file():
+        raise SystemExit(f"falta {ruta.name} en tests/criterio-chro/recursos/: corre generar.py --recursos")
+    return ruta.read_bytes()
+
+
 def slug(t: str) -> str:
     return T.norm(t).replace("_", "-")
 
@@ -111,6 +140,8 @@ ONET = {
     "15-1212.00": dict(n="Information Security Analysts (synthetic)", zona=4, d=[("2.A.2.a", "Critical Thinking", 4.0)], c=[("2.C.3.a", "Computers and Electronics", 4.3)],
                        f=["Monitor networks for security breaches"], af=["15-1252.00"]),
 }
+# Cada cuánto se revisa un perfil: lo fija la política de selección de cada entidad, y de ahí lo toma el setup.
+REVISION_MESES = 12
 CUOC_ARCHIVO = "00-referencia/estandar/PerfilesOcupacionales-Excel-CUOC-2026-sintetico.xlsx"
 ONET_CARPETA = "00-referencia/onet-31-0-sintetico"
 
@@ -158,6 +189,17 @@ def escribir_onet(carpeta: Path, codigos: list[str]) -> None:
                 filas.append([c, ONET[c]["n"], i, n, "IM", "Importance", str(v), "8", "0.1", "", "", "N", "", "08/2026"])
                 filas.append([c, ONET[c]["n"], i, n, "LV", "Level", "3.5", "8", "0.1", "", "", "N", "N", "08/2026"])
         xl(nombre, filas)
+
+
+def tipo(est: str, codigo: str, nombre: str) -> str:
+    """Destreza o conocimiento, según la lista del estándar en que está el elemento."""
+    o = CUOC[codigo] if est == "cuoc" else ONET[codigo]
+    return "destreza" if any(x[1] == nombre for x in o["d"]) else "conocimiento"
+
+
+# El tipo de cada requisito, con el título con que el perfil lo agrupa: el perfil lo dice, no se adivina.
+GRUPOS = [("conocimiento", "Conocimientos"), ("destreza", "Destrezas"), ("estudio", "Estudios"), ("experiencia", "Experiencia"),
+          ("certificacion", "Certificaciones"), ("otro", "Otros requisitos")]
 
 
 def elemento(est: str, codigo: str, nombre: str) -> str:
@@ -409,6 +451,7 @@ def una(e: dict) -> dict:
 
 - Una vacante se cubre en un máximo de {e['plazo']} días calendario desde su apertura, salvo que el registro de vacantes fije otro plazo.
 - Los datos de un candidato que no quedó en el cargo se conservan {e['conserva']} días desde que termina su proceso; después se suprimen.
+- Cada perfil de cargo se revisa cada {REVISION_MESES} meses desde su última revisión, salvo que el perfil fije otra fecha.
 
 ## Lo que no se pide
 
@@ -433,10 +476,11 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
         reqs = []
         for r in p["reqs"]:
             x = {k: v for k, v in r.items()}
-            x.setdefault("type", "conocimiento" if x.get("element") else "otro")
             x["source"] = ruta
             if x.get("element") and p.get("occ") and (p["occ"] in CUOC or p["occ"] in ONET):
+                x.setdefault("type", tipo(e["est"], p["occ"], x["element"]))
                 x["element"] = elemento(e["est"], p["occ"], x["element"])
+            x.setdefault("type", "experiencia" if x["text"].lower().startswith("experiencia") else "conocimiento" if x.get("element") else "otro")
             reqs.append(x)
         f = {"id": p["id"], "title": p["t"], "source": ruta, "occupation": {"standard": e["est"], "code": p.get("occ") or ""},
              "education": {"label": p["ed"], "source": ruta}, "experience_alternative": bool(p.get("exp")), "tasks": tasks, "requirements": reqs}
@@ -450,10 +494,14 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
         md = [f"# Perfil de cargo · {p['id']} · {p['t']}", "", f"**Ocupación ({e['est'].upper()}):** {p.get('occ') or 'sin código'}", "",
               f"**Nivel de estudios:** {p['ed']}" + (" o experiencia equivalente" if p.get("exp") else ""), "", "## Funciones", ""]
         md += [f"- {t['id']}. {t['text']}" for t in tasks] + ["", "## Requisitos", ""]
-        md += [f"- {r['id']}. {r['text']}" + (" (indispensable)" if r.get("essential") else "") + (f" — apoya {', '.join(r['tasks'])}" if r["tasks"] else "") for r in reqs]
+        for t, titulo in GRUPOS:
+            grupo = [r for r in reqs if r["type"] == t]
+            if grupo:
+                md += [f"### {titulo}", ""] + [f"- {r['id']}. {r['text']}" + (" (indispensable)" if r.get("essential") else "")
+                                               + (f" — apoya {', '.join(r['tasks'])}" if r["tasks"] else "") for r in grupo] + [""]
         if p.get("na"):
             md += ["", "## Lo que no aplica", ""] + [f"- {n['element']}: {n['reason']}" for n in p["na"]]
-        md += ["", f"**Última revisión:** {p.get('last') or '—'} · **Próxima revisión:** {p.get('nxt') or 'cada 12 meses'}"]
+        md += ["", f"**Última revisión:** {p.get('last') or '—'} · **Próxima revisión:** {p.get('nxt') or f'cada {REVISION_MESES} meses'}"]
         documento(docs / ruta, "\n".join(md) + "\n")
         esperado += p["siembra"]
     # Las vacantes.
@@ -477,7 +525,7 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
             if c["titulo_soporte"]:
                 sop = car + ("diploma.jpg" if c["foto_soporte"] else "diploma.pdf")
                 if c["foto_soporte"]:
-                    (docs / sop).write_bytes(JPG)
+                    (docs / sop).write_bytes(diploma_escaneado(e["titulo_ej"]))
                 else:
                     documento(docs / sop, f"# Diploma\n\nOtorga el título de {e['titulo_ej']} · Universidad Sintética del Valle · 2018\n")
             claims.append({"id": "K1", "type": "titulo", "text": e["titulo_ej"], "cv_source": cv, "support": sop})
@@ -498,13 +546,24 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
             if c["cert_soporte"]:
                 sop = car + "tarjeta-profesional.pdf"
                 documento(docs / sop, f"# Certificación\n\n{r['text']} · vigente hasta el {c['cert_vence']}\n")
-            claims.append({"id": "K3", "type": "certificacion", "text": r["text"], "cv_source": cv, "support": sop, "expires": c["cert_vence"], "requirement": r["id"]})
+            # El vencimiento sale del soporte (cv-record): sin soporte, la ficha no lo tiene.
+            claims.append({"id": "K3", "type": "certificacion", "text": r["text"], "cv_source": cv, "support": sop, "requirement": r["id"],
+                           **({"expires": c["cert_vence"]} if sop else {})})
         for rid in c["evid"]:
             evid.append({"requirement": rid, "source": cv + ", p. 1"})
+        # Cada afirmación se numera en el orden en que la hoja de vida la hace (cv-record).
+        for i, k in enumerate(claims, 1):
+            k["id"] = f"K{i}"
+        # La certificación con su soporte es la evidencia de su requisito: el soporte lo dice.
+        cert_k = next((k for k in claims if k["type"] == "certificacion" and k["support"]), None)
+        if cert_k:
+            evid.append({"requirement": cert_k["requirement"], "source": cert_k["support"]})
+        # Lo que llegó y no se debe tratar, con dónde está: la fotografía, en la hoja de vida que la
+        # anuncia y en su archivo.
         prot = [{"type": t, "source": cv} for t in c["protegidos"]]
         if "fotografia" in c["protegidos"]:
             (docs / car / "foto.jpg").write_bytes(JPG)
-            prot = [x for x in prot if x["type"] != "fotografia"]
+            prot.append({"type": "fotografia", "source": car + "foto.jpg"})
         f = {"id": c["id"], "vacancy": c["vac"], "folder": car, "cv": cv, "received": c["recibido"], "claims": claims, "evidence": evid}
         if prot:
             f["protected"] = prot
@@ -529,7 +588,7 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
           [[f"P-{i + 1:02d}", c, "Cargo interno sintético", "Operaciones"] for i, c in enumerate(codigos)])
     ent = {"id": e["id"], "name": e["nombre"], "country": e["pais"], "currency": e["moneda"]}
     comun = {"entity": ent, "paths": {"documents": docs_rel, "state": estado_rel}, "period": PERIODO, "standard": estandar}
-    cfg = {"norma": dict(comun, education={"levels": e["niveles"]}, profiles={"review_months": 12}, overlap={"share": 0.5},
+    cfg = {"norma": dict(comun, education={"levels": e["niveles"]}, profiles={"review_months": REVISION_MESES}, overlap={"share": 0.5},
                          selection={"prohibited_requirements": e["prohibidos"]}),
            "candido": dict(comun, selection={"vacancy": {"target_days": e["plazo"]}, "data": {"retention_days": e["conserva"]}, "publish": False})}
     clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": e["pais"], "estandar": e["est"], "ocupaciones": len(e["ocupaciones"]),

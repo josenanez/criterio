@@ -110,8 +110,8 @@
        ],
        "element": "C5",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-01_contador.docx"
+       "source": "10-perfiles/PC-01_contador.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R2",
@@ -121,8 +121,8 @@
        ],
        "element": "D27",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-01_contador.docx"
+       "source": "10-perfiles/PC-01_contador.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -131,8 +131,8 @@
         "T2"
        ],
        "element": "D9",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-01_contador.docx"
+       "source": "10-perfiles/PC-01_contador.docx",
+       "type": "destreza"
       },
       {
        "id": "R4",
@@ -178,8 +178,8 @@
         "T1"
        ],
        "element": "C5",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-02_contador-de-impuestos.docx"
+       "source": "10-perfiles/PC-02_contador-de-impuestos.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R2",
@@ -188,8 +188,8 @@
         "T2"
        ],
        "element": "D27",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-02_contador-de-impuestos.docx"
+       "source": "10-perfiles/PC-02_contador-de-impuestos.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -198,8 +198,8 @@
         "T2"
        ],
        "element": "D9",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-02_contador-de-impuestos.docx"
+       "source": "10-perfiles/PC-02_contador-de-impuestos.docx",
+       "type": "destreza"
       },
       {
        "id": "R4",
@@ -208,15 +208,15 @@
         "T1"
        ],
        "element": "C7",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-02_contador-de-impuestos.docx"
+       "source": "10-perfiles/PC-02_contador-de-impuestos.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R5",
        "text": "Hombre menor de 35 años",
        "tasks": [],
-       "type": "otro",
-       "source": "10-perfiles/PC-02_contador-de-impuestos.docx"
+       "source": "10-perfiles/PC-02_contador-de-impuestos.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-03-01"
@@ -248,8 +248,8 @@
         "T1"
        ],
        "element": "D1",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-03_auxiliar-contable.docx"
+       "source": "10-perfiles/PC-03_auxiliar-contable.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -259,8 +259,8 @@
        ],
        "element": "C5",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-03_auxiliar-contable.docx"
+       "source": "10-perfiles/PC-03_auxiliar-contable.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-02-01"
@@ -297,8 +297,8 @@
        ],
        "element": "C12",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-04_analista-de-credito.docx"
+       "source": "10-perfiles/PC-04_analista-de-credito.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R2",
@@ -307,8 +307,8 @@
         "T1"
        ],
        "element": "C5",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-04_analista-de-credito.docx"
+       "source": "10-perfiles/PC-04_analista-de-credito.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R3",
@@ -318,8 +318,8 @@
        ],
        "element": "D28",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-04_analista-de-credito.docx"
+       "source": "10-perfiles/PC-04_analista-de-credito.docx",
+       "type": "destreza"
       },
       {
        "id": "R4",
@@ -327,8 +327,8 @@
        "tasks": [
         "T2"
        ],
-       "type": "otro",
-       "source": "10-perfiles/PC-04_analista-de-credito.docx"
+       "source": "10-perfiles/PC-04_analista-de-credito.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-04-01"
@@ -360,8 +360,8 @@
         "T1"
        ],
        "essential": true,
-       "type": "otro",
-       "source": "10-perfiles/PC-05_cajero.docx"
+       "source": "10-perfiles/PC-05_cajero.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-05-01"
@@ -393,8 +393,8 @@
         "T1"
        ],
        "essential": true,
-       "type": "otro",
-       "source": "10-perfiles/PC-06_coordinador-de-cobranzas.docx"
+       "source": "10-perfiles/PC-06_coordinador-de-cobranzas.docx",
+       "type": "experiencia"
       },
       {
        "id": "R2",
@@ -402,8 +402,8 @@
        "tasks": [
         "T1"
        ],
-       "type": "otro",
-       "source": "10-perfiles/PC-06_coordinador-de-cobranzas.docx"
+       "source": "10-perfiles/PC-06_coordinador-de-cobranzas.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-05-01"
@@ -435,8 +435,8 @@
         "T1"
        ],
        "element": "C12",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-07_director-financiero.docx"
+       "source": "10-perfiles/PC-07_director-financiero.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R2",
@@ -445,8 +445,8 @@
         "T1"
        ],
        "element": "C1",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-07_director-financiero.docx"
+       "source": "10-perfiles/PC-07_director-financiero.docx",
+       "type": "conocimiento"
       },
       {
        "id": "R3",
@@ -455,15 +455,15 @@
         "T1"
        ],
        "element": "D28",
-       "type": "conocimiento",
-       "source": "10-perfiles/PC-07_director-financiero.docx"
+       "source": "10-perfiles/PC-07_director-financiero.docx",
+       "type": "destreza"
       },
       {
        "id": "R4",
        "text": "Dominio del inglés de negocios",
        "tasks": [],
-       "type": "otro",
-       "source": "10-perfiles/PC-07_director-financiero.docx"
+       "source": "10-perfiles/PC-07_director-financiero.docx",
+       "type": "otro"
       }
      ],
      "next_review": "2027-01-15"
@@ -503,14 +503,18 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-101/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-101/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-101/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-101/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -545,8 +549,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-102/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-102/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -557,6 +561,20 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-102/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-102/tarjeta-profesional.pdf"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-01/CAN-102/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-01/CAN-102/foto.jpg"
       }
      ]
     },
@@ -591,8 +609,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-103/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-103/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -603,6 +621,10 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-103/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-103/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -637,8 +659,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-104/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-104/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -649,6 +671,10 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-104/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-104/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -683,8 +709,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-105/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-105/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -695,6 +721,10 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-105/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-105/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -729,8 +759,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-106/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-106/tarjeta-profesional.pdf",
-       "expires": "2027-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -741,12 +771,24 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-106/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-106/tarjeta-profesional.pdf"
       }
      ],
      "protected": [
       {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-01/CAN-106/hoja-de-vida.pdf"
+      },
+      {
        "type": "fecha_de_nacimiento",
        "source": "30-candidatos/VAC-01/CAN-106/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-01/CAN-106/foto.jpg"
       }
      ]
     },
@@ -860,8 +902,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-110/hoja-de-vida.pdf",
        "support": "30-candidatos/VAC-01/CAN-110/tarjeta-profesional.pdf",
-       "expires": "2026-06-30",
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2026-06-30"
       }
      ],
      "evidence": [
@@ -872,6 +914,10 @@
       {
        "requirement": "R2",
        "source": "30-candidatos/VAC-01/CAN-110/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
+       "source": "30-candidatos/VAC-01/CAN-110/tarjeta-profesional.pdf"
       }
      ]
     },
@@ -906,7 +952,6 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-111/hoja-de-vida.pdf",
        "support": null,
-       "expires": "2027-06-30",
        "requirement": "R4"
       }
      ],

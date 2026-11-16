@@ -101,8 +101,8 @@
         "T1"
        ],
        "element": "2.A.1.b",
-       "type": "conocimiento",
-       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -112,8 +112,8 @@
        ],
        "element": "2.B.5.a",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+       "type": "destreza"
       },
       {
        "id": "R3",
@@ -122,8 +122,8 @@
         "T1"
        ],
        "element": "2.C.3.a",
-       "type": "conocimiento",
-       "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+       "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+       "type": "conocimiento"
       }
      ],
      "next_review": "2027-02-01"
@@ -155,8 +155,8 @@
         "T1"
        ],
        "element": "2.A.1.b",
-       "type": "conocimiento",
-       "source": "10-perfiles/SA-02_cajero.docx"
+       "source": "10-perfiles/SA-02_cajero.docx",
+       "type": "destreza"
       },
       {
        "id": "R2",
@@ -166,8 +166,8 @@
        ],
        "element": "2.A.1.e",
        "essential": true,
-       "type": "conocimiento",
-       "source": "10-perfiles/SA-02_cajero.docx"
+       "source": "10-perfiles/SA-02_cajero.docx",
+       "type": "destreza"
       }
      ],
      "not_applicable": [
@@ -340,7 +340,7 @@
        "support_to": "2020-12-31"
       },
       {
-       "id": "K4",
+       "id": "K3",
        "type": "empleo",
        "text": "Analista en Servicios del Norte Sintéticos",
        "cv_source": "30-candidatos/VAC-41/CAN-505/hoja-de-vida.pdf",
