@@ -3,79 +3,92 @@
  "criterio": {
   "id": "6IWK2XlaPKI",
   "titulo": "Criterio · El nivel C, soportado por familias de agentes de IA",
-  "transcripcion": "criterio-youtube-es.txt"
+  "transcripcion": "criterio-youtube-es.txt",
+  "duracion": 89.0
  },
  "familias": {
   "cfo": {
    "presentacion": {
     "id": "EXM3bMVS09s",
     "titulo": "Criterio CFO · Agentes de IA para el área financiera",
-    "transcripcion": "criterio-cfo-youtube-es.txt"
+    "transcripcion": "criterio-cfo-youtube-es.txt",
+    "duracion": 95.1
    },
    "uso": {
     "id": "PVCGjoRmNVo",
     "titulo": "Criterio CFO · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-cfo-uso-es.txt"
+    "transcripcion": "criterio-cfo-uso-es.txt",
+    "duracion": 282.2
    }
   },
   "ciso": {
    "presentacion": {
     "id": "DNWD6eMfWrc",
     "titulo": "Criterio CISO · Agentes de IA para la seguridad de la información",
-    "transcripcion": "criterio-ciso-youtube-es.txt"
+    "transcripcion": "criterio-ciso-youtube-es.txt",
+    "duracion": 95.1
    },
    "uso": {
     "id": "63hkeQWxHLE",
     "titulo": "Criterio CISO · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-ciso-uso-es.txt"
+    "transcripcion": "criterio-ciso-uso-es.txt",
+    "duracion": 205.3
    }
   },
   "clo": {
    "presentacion": {
     "id": "feftu7T91zQ",
     "titulo": "Criterio CLO · Agentes de IA para contratos y cumplimiento",
-    "transcripcion": "criterio-clo-youtube-es.txt"
+    "transcripcion": "criterio-clo-youtube-es.txt",
+    "duracion": 88.1
    },
    "uso": {
     "id": "rZSoJvgoAiQ",
     "titulo": "Criterio CLO · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-clo-uso-es.txt"
+    "transcripcion": "criterio-clo-uso-es.txt",
+    "duracion": 203.0
    }
   },
   "cco": {
    "presentacion": {
     "id": "LggEjBDdf_s",
     "titulo": "Criterio CCO · Agentes de IA para la función comercial",
-    "transcripcion": "criterio-cco-youtube-es.txt"
+    "transcripcion": "criterio-cco-youtube-es.txt",
+    "duracion": 88.1
    },
    "uso": {
     "id": "n4YqX8pDRwI",
     "titulo": "Criterio CCO · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-cco-uso-es.txt"
+    "transcripcion": "criterio-cco-uso-es.txt",
+    "duracion": 219.3
    }
   },
   "ea": {
    "presentacion": {
     "id": "pQv48xMVVYg",
     "titulo": "Criterio EA · Un agente de IA para la oficina del ejecutivo",
-    "transcripcion": "criterio-ea-youtube-es.txt"
+    "transcripcion": "criterio-ea-youtube-es.txt",
+    "duracion": 81.1
    },
    "uso": {
     "id": "S6Y3oNbzwzs",
     "titulo": "Criterio EA · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-ea-uso-es.txt"
+    "transcripcion": "criterio-ea-uso-es.txt",
+    "duracion": 132.7
    }
   },
   "pmo": {
    "presentacion": {
     "id": "WIydrxGMB-E",
     "titulo": "Criterio PMO · Agentes de IA para el portafolio, los proyectos y los productos",
-    "transcripcion": "criterio-pmo-youtube-es.txt"
+    "transcripcion": "criterio-pmo-youtube-es.txt",
+    "duracion": 95.1
    },
    "uso": {
     "id": "lwAg17hdsY4",
     "titulo": "Criterio PMO · Cómo se usa, de la instalación al primer resultado",
-    "transcripcion": "criterio-pmo-uso-es.txt"
+    "transcripcion": "criterio-pmo-uso-es.txt",
+    "duracion": 275.1
    }
   }
  }

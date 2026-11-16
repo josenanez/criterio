@@ -1,0 +1,5 @@
+{
+ "nota": "La frase estándar de anonimato de las pruebas: una sola, para todas las familias y todas las industrias. La usan el catálogo de YouTube (scripts/youtube.py) y lo que la publique; no se copia a mano.",
+ "es": "Las pruebas usan información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.",
+ "en": "Tests use real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data."
+}

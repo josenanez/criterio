@@ -35,6 +35,17 @@ lo último que mostró, de modo que una cifra que cuenta queda con su valor y un
 solo, completo. Una transcripción corresponde al video que se subió: se vuelve a sacar con los mismos
 datos con que se grabó, y cada vez que el video se vuelve a grabar. La de cada video de uso la saca [`uso/transcribir.py`](uso/transcribir.py), del guion y el montaje del video.
 
+**El título, la descripción y las etiquetas de cada video en YouTube** no se escriben en YouTube Studio: los
+genera [`scripts/youtube.py`](../../scripts/youtube.py) en [`youtube_catalog.json`](youtube_catalog.json), en español
+—el idioma del video— y su traducción al inglés, desde lo que ya está en el repositorio: cada video publicado de
+[`videos.json`](videos.json), sus capítulos del segundo en que aparece cada pantalla en su transcripción, el rol, las
+áreas, con qué se integra cada una y los agentes de su `familia.json`, los países de su material de pruebas y la frase
+estándar de anonimato de [`docs/anonimato.json`](../anonimato.json). `--check`, en la verificación, falla si el
+catálogo no es el que sale del repositorio o no cumple las reglas de YouTube. [`sync_youtube.py`](sync_youtube.py)
+lo sube: lo corre el dueño del canal en su equipo, con su propia autorización; sin `--aplicar` solo muestra qué
+cambiaría. Un video nuevo se agrega en `videos.json` con su transcripción, y `python3 scripts/youtube.py --medir`
+anota su duración del mp4.
+
 `FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`);
 `IDIOMAS=es` solo ese idioma.
 

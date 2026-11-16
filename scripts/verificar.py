@@ -125,6 +125,8 @@ PUERTAS = [
      "Que las industrias del README salgan de su fuente y que «probada» sea cierto"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/paises_probados.py"), "--check"],
      "Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/youtube.py"), "--check"],
+     "Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/carpetas.py"), "--check"],
      "Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/calidad.py"), "--selftest"],
