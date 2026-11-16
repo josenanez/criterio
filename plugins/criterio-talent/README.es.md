@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/es/criterio-chro-claro.svg" alt="Criterio CHRO · El talento" height="48"></picture>
+
 # Cándido · la selección
+
+<img src="../../docs/img/es/robot-candido.gif" alt="Cándido" width="220" align="right">
 
 **Cándido pone cada afirmación de la hoja de vida al lado de su soporte.**
 Tú respondes por la selección. Él llega con cada hoja de vida contra sus soportes —el título sin diploma, el empleo cuyas fechas no son las de su certificado, la certificación vencida—, cada candidato contra el perfil requisito por requisito y con la cita, la autorización y la conservación de sus datos, y cada vacante contra su plazo. Sin puntajes y sin ordenar a nadie: quien selecciona decide.

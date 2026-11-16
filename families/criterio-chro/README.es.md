@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/es/criterio-chro-claro.svg" alt="Criterio CHRO · El talento" height="48"></picture>
+
 # criterio-chro · la familia del talento
 
 **Dos agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta de la
@@ -5,6 +7,8 @@ gestión humana —quien responde por los perfiles de cargo y quien responde por
 la carpeta y la referencia de la entidad: cada uno escribe solo su ficha.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
+
+![Criterio CHRO](../../docs/img/es/chro.png)
 
 | | |
 |---|---|

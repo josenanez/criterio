@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/es/criterio-chro-claro.svg" alt="Criterio CHRO · El talento" height="48"></picture>
+
 # Norma · los perfiles de cargo
+
+<img src="../../docs/img/es/robot-norma.gif" alt="Norma" width="220" align="right">
 
 **Norma pone cada perfil de cargo sobre un estándar.**
 Tú respondes por los perfiles de cargo y el manual de funciones. Ella llega con cada perfil al lado de la ocupación de su estándar —la CUOC del DANE u O*NET—: las destrezas y los conocimientos que no recoge, los requisitos que no se apoyan en ninguna tarea, lo que pide y la ley no permite pedir, el nivel de estudios que no corresponde a la ocupación y los perfiles que se solapan.

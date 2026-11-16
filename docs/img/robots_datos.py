@@ -23,7 +23,7 @@ CARPETA = os.path.join(AQUI, 'robots')
 
 def archivos() -> dict[str, str]:
     nombres = (trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO
-               + trazos.ORDEN_CISO)
+               + trazos.ORDEN_CISO + trazos.ORDEN_CHRO)
     salida = {f'{n}.svg': trazos.svg(n, ORO, ORO, animado=True) + '\n' for n in nombres}
     salida['robots.json'] = json.dumps(trazos.datos(), ensure_ascii=False, indent=1) + '\n'
     return salida

@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/en/criterio-chro-claro.svg" alt="Criterio CHRO · Talent" height="48"></picture>
+
 # criterio-chro · the talent family
 
 **Two agents and a portal, around their records.** Each one extends a different person in people
@@ -5,6 +7,8 @@ management —whoever answers for job profiles and whoever answers for selection
 entity's folder and reference: each writes only its own record.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
+
+![Criterio CHRO](../../docs/img/en/chro.png)
 
 | | |
 |---|---|

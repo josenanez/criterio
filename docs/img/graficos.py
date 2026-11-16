@@ -149,6 +149,7 @@ T = {
         'ea_fr': 'Preparo cada sesión con lo que dicen los documentos, y no decido por nadie.',
         'cco_fr': 'Pongo el pronóstico al lado de lo que lo sostiene, y cada venta al lado de su factura.',
         'ciso_fr': 'Pongo cada control al lado de su evidencia, y cada plazo al lado de lo que se hizo.',
+        'chro_fr': 'Pongo cada perfil sobre su estándar, y cada afirmación al lado de su soporte.',
         'disponible': 'Disponible',
         # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
         'og': {'pmo': ('Extiende la capacidad de tu PMO',
@@ -163,6 +164,8 @@ T = {
                        'Augusto y Valeria procesan las exportaciones del CRM, las cotizaciones y las comisiones, y dicen qué pronóstico no tiene respaldo y qué venta no llegó a la factura.'),
                'ciso': ('La seguridad de la información, contra sus documentos',
                         'Alexis, Guillermo y Amparo procesan la declaración de aplicabilidad, el escáner y los incidentes, y dicen qué control no tiene evidencia y qué plazo no se cumplió.'),
+               'chro': ('El talento, contra sus estándares y sus soportes',
+                        'Norma y Cándido procesan los perfiles de cargo y las hojas de vida, y dicen qué perfil no corresponde a su ocupación y qué afirmación no tiene soporte. No deciden sobre nadie.'),
                'rostrum': ('Rostrum, el portal de todas las familias',
                            'Lo que pide atención hoy, lo último de cada motor, lo que vence y dónde trabaja cada agente. No calcula ni escribe.')},
         # ── los robots ──
@@ -180,7 +183,9 @@ T = {
                'valeria': ('Valeria', 'De la venta a la factura', 'Para quien responde por lo vendido hasta que se factura.', 'La venta a la factura'),
                'alexis': ('Alexis', 'Los controles', 'Para quien responde por la seguridad de la información y sus controles.', 'Los controles'),
                'guillermo': ('Guillermo', 'Las vulnerabilidades', 'Para quien responde por corregir lo que encuentra el escáner.', 'Las vulnerabilidades'),
-               'amparo': ('Amparo', 'La respuesta', 'Para quien responde por los incidentes y la continuidad.', 'La respuesta')},
+               'amparo': ('Amparo', 'La respuesta', 'Para quien responde por los incidentes y la continuidad.', 'La respuesta'),
+               'norma': ('Norma', 'Los perfiles', 'Para quien responde por los perfiles de cargo.', 'Los perfiles'),
+               'candido': ('Cándido', 'La selección', 'Para quien responde por la selección, sin decidir por nadie.', 'La selección')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -284,6 +289,7 @@ T = {
         'ea_fr': 'I prepare every meeting with what the documents say, and decide for no one.',
         'cco_fr': 'I put the forecast next to what backs it, and every sale next to its invoice.',
         'ciso_fr': 'I put every control next to its evidence, and every deadline next to what was done.',
+        'chro_fr': 'I put every profile on its standard, and every claim next to its support.',
         'disponible': 'Available',
         'og': {'pmo': ('Extend your PMO’s capacity',
                        'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
@@ -297,6 +303,8 @@ T = {
                        'Augusto and Valeria process the CRM exports, the quotes and the commissions, and say which forecast has no backing and which sale never reached the invoice.'),
                'ciso': ('Information security, against its documents',
                         'Alexis, Guillermo and Amparo process the statement of applicability, the scanner and the incidents, and say which control has no evidence and which deadline was missed.'),
+               'chro': ('Talent, against its standards and its supporting documents',
+                        'Norma and Cándido process the job profiles and the CVs, and say which profile does not match its occupation and which claim has no support. They decide about no one.'),
                'rostrum': ('Rostrum, the portal for every family',
                            'What needs attention today, the latest from each engine, what falls due and where each agent works. It calculates and writes nothing.')},
         'en_prueba': 'Built · in testing',
@@ -315,7 +323,9 @@ T = {
                'valeria': ('Valeria', 'From sale to invoice', 'For whoever answers for what was sold until it is invoiced.', 'Sale to invoice'),
                'alexis': ('Alexis', 'The controls', 'For whoever answers for information security and its controls.', 'The controls'),
                'guillermo': ('Guillermo', 'Vulnerabilities', 'For whoever answers for fixing what the scanner finds.', 'Vulnerabilities'),
-               'amparo': ('Amparo', 'Response', 'For whoever answers for incidents and continuity.', 'Response')},
+               'amparo': ('Amparo', 'Response', 'For whoever answers for incidents and continuity.', 'Response'),
+               'norma': ('Norma', 'Profiles', 'For whoever answers for job profiles.', 'Profiles'),
+               'candido': ('Cándido', 'Selection', 'For whoever answers for selection, without deciding for anyone.', 'Selection')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -750,7 +760,7 @@ def marca():
 
 # ══════════════════════════════════════════════════════════════════ tarjetas sociales
 
-OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO,
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO, 'chro': trazos.ORDEN_CHRO,
              'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
 
 
@@ -1393,7 +1403,7 @@ if __name__ == '__main__':
     for idioma, t in T.items():
         print(idioma)
         # el estado de cada familia es el de su familia.json, por medio del registro
-        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso'):
+        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro'):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
@@ -1402,7 +1412,7 @@ if __name__ == '__main__':
             guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
             guardar(flujo(tf), idioma, f'flujo-{sg}.png')
             guardar(contrato(tf), idioma, f'contrato-{sg}.png')
-        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'rostrum'):
+        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
@@ -1411,7 +1421,7 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO + trazos.ORDEN_CHRO:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
     # El trazo de cada robot, como SVG animado y como datos: docs/img/robots_datos.py, que la
     # verificación comprueba.

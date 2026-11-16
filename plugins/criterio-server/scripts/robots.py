@@ -33,10 +33,11 @@ ORDEN_CLO = ("fidel", "constanza")
 ORDEN_EA = ("ofelia",)
 ORDEN_CCO = ("augusto", "valeria")
 ORDEN_CISO = ("alexis", "guillermo", "amparo")
+ORDEN_CHRO = ("norma", "candido")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
           "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos", "alexis": "seguridad",
-          "guillermo": "vulnerabilidades", "amparo": "resiliencia"}
+          "guillermo": "vulnerabilidades", "amparo": "resiliencia", "norma": "perfiles", "candido": "seleccion"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -207,6 +208,30 @@ _PIEZAS = {
         ("ln", "path", dict(d="M36 110 L47 110 L52 98 L58 122 L63 104 L67 110 L84 110"), "latido"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Norma: la escuadra del carpintero en el pecho, y sus marcas se trazan una a una
+    "norma": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "path", dict(d="M42 92 L42 126 L80 126")),
+        ("ln", "line", dict(x1=42, y1=100, x2=50, y2=100), "mide.0"), ("ln", "line", dict(x1=42, y1=108, x2=50, y2=108), "mide.1"),
+        ("ln", "line", dict(x1=42, y1=116, x2=50, y2=116), "mide.2"), ("ln", "line", dict(x1=58, y1=126, x2=58, y2=118), "mide.3"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Cándido: la hoja de vida al lado de su soporte, renglón contra renglón
+    "candido": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "path", dict(d="M48 62 Q60 68 72 62")),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "rect", dict(x=36, y=92, width=22, height=32, rx=2)), ("ln", "rect", dict(x=62, y=92, width=22, height=32, rx=2)),
+        ("ln", "line", dict(x1=40, y1=102, x2=54, y2=102), "coteja.0"), ("ln", "line", dict(x1=66, y1=102, x2=80, y2=102), "coteja.1"),
+        ("ln", "line", dict(x1=40, y1=112, x2=54, y2=112), "coteja.2"), ("ln", "line", dict(x1=66, y1=112, x2=80, y2=112), "coteja.3"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [
         ("ln", "rect", dict(x=18, y=14, width=84, height=146, rx=3)),
         ("ln", "circle", dict(cx=42, cy=40, r=14)), ("ln", "circle", dict(cx=78, cy=40, r=14)),
@@ -286,6 +311,10 @@ GESTOS = {
     "escanea":  {"tipo": "xy", "dura": 2.4, "claves": [(0, (0, 0)), (.45, (0, 26)), (.55, (0, 26)), (1, (0, 0))]},
     # Amparo: el pulso se traza de un lado al otro
     "latido":   {"tipo": "trazo", "dura": 1.2, "claves": [(0, 1), (.6, 0), (.85, 0), (1, 1)]},
+    # Norma: las marcas de la escuadra se trazan una a una
+    "mide":     {"tipo": "trazo", "dura": 2.4, "paso": .3, "claves": [(0, 1), (.2, 0), (.8, 0), (.85, 1), (1, 1)]},
+    # Cándido: cada renglón de la hoja de vida se enciende con el de su soporte
+    "coteja":   {"tipo": "opacidad", "dura": 2.4, "paso": .3, "claves": [(0, .3), (.15, 1), (.8, 1), (.85, .3), (1, .3)]},
     # Rostrum: los carretes giran y las luces corren
     "gira":     {"tipo": "xy", "dura": 1.6, "paso": .4, "claves": _orbita(5)},
     "corre":    {"tipo": "opacidad", "dura": 1.2, "paso": .24, "claves": [(0, 1), (.2, 1), (.2, .3), (1, .3)]},
@@ -486,7 +515,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}

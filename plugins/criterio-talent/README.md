@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/en/criterio-chro-claro.svg" alt="Criterio CHRO · Talent" height="48"></picture>
+
 # Cándido · selection
+
+<img src="../../docs/img/en/robot-candido.gif" alt="Cándido" width="220" align="right">
 
 **Cándido puts every claim in the CV next to its supporting document.**
 You answer for selection. He comes with every CV against its supporting documents —the degree with no diploma, the job whose dates are not those on its certificate, the expired certification—, every candidate against the profile requirement by requirement and with its citation, the authorisation and retention of their data, and every vacancy against its deadline. No scores and no ranking: the person selecting decides.

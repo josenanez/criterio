@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-chro-oscuro.svg"><img src="../../docs/img/marca/en/criterio-chro-claro.svg" alt="Criterio CHRO · Talent" height="48"></picture>
+
 # Norma · job profiles
+
+<img src="../../docs/img/en/robot-norma.gif" alt="Norma" width="220" align="right">
 
 **Norma puts every job profile on a standard.**
 You answer for job profiles and the duties manual. She comes with every profile next to the occupation in its standard —DANE's CUOC or O*NET—: the skills and knowledge it leaves out, the requirements no task supports, what it asks for that the law does not allow, the level of education that does not match the occupation and the profiles that overlap.
