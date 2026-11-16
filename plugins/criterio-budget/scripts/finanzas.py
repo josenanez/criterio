@@ -1652,10 +1652,20 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
     if co.get("error"):
         no_proc.append({"archivo": co["archivo"], "motivo": co["error"]})
     mes_corte = int(corte[-2:])
+    # Lo ejecutado se compara con lo aprobado de los mismos meses: un mes sin contabilidad no cuenta
+    # como gasto cero. Si faltan meses, se dice cuáles y la comparación cubre solo los que están.
+    cubiertos = {int(x[-2:]) for x in ej["periodos"]}
+    faltan = [m for m in range(1, mes_corte + 1) if m not in cubiertos]
+    if faltan and cubiertos:
+        no_proc.append({"archivo": "<AAAA-MM>/10-contabilidad/",
+                        "motivo": f"no está el libro mayor de {', '.join(f'{anio}-{m:02d}' for m in faltan)}: lo ejecutado y lo aprobado se comparan solo en {', '.join(f'{anio}-{m:02d}' for m in sorted(cubiertos))}"})
     var_pct, com_pct = umbral(cfg, "variance_pct"), umbral(cfg, "committed_pct")
     filas = []
     for k, l in sorted(vig["lineas"].items()):
-        aprob_corte = sum(v for m, v in l["meses"].items() if m <= mes_corte) if vig["con_meses"] else l["total"] * mes_corte / 12
+        if vig["con_meses"]:
+            aprob_corte = sum(v for m, v in l["meses"].items() if m <= mes_corte and (m in cubiertos or not cubiertos))
+        else:
+            aprob_corte = l["total"] * (len(cubiertos) if cubiertos else mes_corte) / 12
         e = ej["lineas"].get(k, {"meses": {}, "citas": []})
         ejec = sum(e["meses"].values())
         comp = co["lineas"].get(k, 0.0)
@@ -1666,8 +1676,9 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
              "desviacion_pct": redondo(pct), "distribucion_mensual": vig["con_meses"], "cita": l["citas"][:1] + e["citas"][:2]}
         # Las dos proyecciones, cada una con su supuesto.
         meses_rest = 12 - mes_corte
-        prom = ejec / mes_corte if mes_corte else 0.0
-        f["proyeccion_ritmo"] = redondo(ejec + max(prom * meses_rest, comp))
+        prom = ejec / (len(cubiertos) or mes_corte) if mes_corte else 0.0
+        # Sin todos los meses no hay ejecutado del año del que proyectar al ritmo.
+        f["proyeccion_ritmo"] = None if faltan and cubiertos else redondo(ejec + max(prom * meses_rest, comp))
         f["proyeccion_plan"] = redondo(ejec + sum(v for m, v in l["meses"].items() if m > mes_corte)) if vig["con_meses"] else redondo(ejec + l["total"] * meses_rest / 12)
         filas.append(f)
         if pct is not None and abs(pct) > var_pct:
@@ -2665,6 +2676,21 @@ def selftest() -> int:
     ok("fecha dd/mm/aaaa", fecha("21/10/2012"), dt.date(2012, 10, 21))
     ok("fecha serie de Excel", fecha("45930"), dt.date(2025, 9, 30))
     ok("D+3 en días hábiles", _limite("D+3", "2026-09", set()), dt.date(2026, 10, 5))
+    # Las columnas con los nombres que pide la solicitud de información a la empresa.
+    import tempfile as _tf
+    with _tf.TemporaryDirectory() as t:
+        for nombre, cab, campos in (
+                ("balance", "Cuenta;Nombre de la cuenta;Saldo inicial;Débitos del mes;Créditos del mes;Saldo final", ["cuenta", "debito", "credito", "nombre"]),
+                ("mayor", "Fecha contable;Número de comprobante o asiento;Cuenta;Tercero;Documento de soporte;Débito;Crédito;Descripción o concepto", ["comprobante", "documento", "descripcion"]),
+                ("checklist", "Código de la tarea;Tarea;Responsable;Día límite", ["id", "dia_limite"]),
+                ("pbc", "Código;Solicitud;Fecha de la solicitud;Fecha límite", ["id", "fecha", "dia_limite"]),
+                ("presupuesto", "Área;Línea o rubro;Cuenta;Total", ["area", "linea"]),
+                ("proyeccion", "Área;Línea o rubro;Proyección al cierre del año;Versión del presupuesto", ["proyeccion", "version"]),
+                ("pagos", "Código del pago;Fecha;Valor;Aprobado por", ["id", "aprobado_por"]),
+                ("flujo", "Cuenta;Saldo proyectado cierre mes", ["saldo_proyectado"])):
+            f = Path(t) / f"{nombre}.csv"
+            f.write_text(cab + "\n" + ";".join("1" for _ in cab.split(";")) + "\n", encoding="utf-8")
+            ok(f"columnas de la solicitud: {nombre}", sorted(c for c in campos if c not in Tabla(f, campos).mapa), [])
     # Las rutas de la configuración no dependen de dónde esté parada la sesión.
     import os
     import tempfile

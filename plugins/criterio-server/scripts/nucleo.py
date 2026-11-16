@@ -316,26 +316,27 @@ def filas_de(ruta: Path) -> list[list[str]]:
     raise ValueError(f"{ruta.name}: una tabla llega en .csv, .xlsx o un PDF con texto, no en {ext}")
 
 
-# Los nombres con que llega cada columna en las exportaciones, en español, portugués e inglés. La
-# organización puede fijar los suyos en la configuración (`columns`); si no, se detectan por el nombre.
+# Los nombres con que llega cada columna en las exportaciones, en español, portugués e inglés, y los que
+# usa la solicitud de información que se le envía a la empresa. La organización puede fijar los suyos en
+# la configuración (`columns`); si no, se detectan por el nombre.
 ALIAS = {
     "cuenta": ["cuenta", "codigo", "codigo_cuenta", "cta", "cuenta_contable", "account", "conta", "codigo_conta", "conta_contabil", "g_l_account_no", "no"],
-    "nombre": ["nombre", "nombre_cuenta", "descripcion_cuenta", "account_name", "nome", "nome_conta", "descricao_conta", "g_l_account_name", "name"],
+    "nombre": ["nombre", "nombre_cuenta", "nombre_de_la_cuenta", "descripcion_cuenta", "account_name", "nome", "nome_conta", "descricao_conta", "g_l_account_name", "name"],
     "naturaleza": ["naturaleza", "nature", "natureza"],
     "saldo_inicial": ["saldo_inicial", "saldo_anterior", "opening_balance"],
-    "debito": ["debito", "debitos", "debe", "cargos", "debit", "debit_amount"],
-    "credito": ["credito", "creditos", "haber", "abonos", "credit", "credit_amount"],
+    "debito": ["debito", "debitos", "debitos_del_mes", "debe", "cargos", "debit", "debit_amount"],
+    "credito": ["credito", "creditos", "creditos_del_mes", "haber", "abonos", "credit", "credit_amount"],
     "saldo_final": ["saldo_final", "nuevo_saldo", "saldo", "closing_balance", "balance_at_date", "balance", "saldo_atual"],
-    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "date", "data", "data_lancamento", "data_movimento", "posting_date"],
+    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "fecha_del_documento", "fecha_de_la_solicitud", "date", "data", "data_lancamento", "data_movimento", "posting_date"],
     "tercero": ["tercero", "nit", "ruc", "identificacion", "id_tercero", "nit_tercero", "terceiro", "cnpj", "cpf_cnpj", "source_no"],
-    "documento": ["documento", "numero_documento", "num_documento", "factura", "doc", "numero", "nota_fiscal", "external_document_no", "document_no"],
-    "comprobante": ["comprobante", "asiento", "numero_asiento", "voucher", "lancamento", "numero_lancamento", "transaction_no", "document_no"],
+    "documento": ["documento", "documento_de_soporte", "numero_documento", "num_documento", "factura", "doc", "numero", "nota_fiscal", "external_document_no", "document_no"],
+    "comprobante": ["comprobante", "asiento", "numero_asiento", "numero_de_comprobante_o_asiento", "numero_de_comprobante", "voucher", "lancamento", "numero_lancamento", "transaction_no", "document_no"],
     "centro_costo": ["centro_costo", "centro_de_costo", "cc", "cost_center", "centro_de_custo", "centro_custo", "global_dimension_1_code"],
-    "descripcion": ["descripcion", "detalle", "concepto", "description", "historico", "descricao"],
+    "descripcion": ["descripcion", "descripcion_o_concepto", "detalle", "concepto", "description", "historico", "descricao"],
     "referencia": ["referencia", "ref", "numero_referencia", "reference"],
-    "valor": ["valor", "monto", "importe", "amount"],
+    "valor": ["valor", "monto", "importe", "amount", "valor_comprometido"],
     "moneda": ["moneda", "divisa", "currency", "moeda"],
-    "id": ["id", "codigo_tarea", "tarea_id", "codigo_tarefa"],
+    "id": ["id", "codigo_tarea", "codigo_de_la_tarea", "codigo_del_pago", "codigo", "tarea_id", "codigo_tarefa"],
     "tarea": ["tarea", "actividad", "task", "tarefa", "atividade"],
     "area": ["area", "gerencia", "unidad", "unidade"],
     "responsable": ["responsable", "owner", "encargado", "responsavel"],
@@ -345,12 +346,12 @@ ALIAS = {
     "criticidad": ["criticidad", "prioridad", "criticidade", "prioridade"],
     "estado": ["estado", "status", "situacao"],
     "solicitud": ["solicitud", "requerimiento", "request", "solicitacao"],
-    "linea": ["linea", "linea_presupuestal", "rubro", "line", "linha", "rubrica"],
+    "linea": ["linea", "linea_o_rubro", "linea_presupuestal", "rubro", "line", "linha", "rubrica"],
     "total": ["total", "total_anual", "anual"],
     "proveedor": ["proveedor", "vendor", "fornecedor"],
     "saldo": ["saldo_por_ejecutar", "saldo_pendiente", "pendiente", "saldo", "saldo_a_executar", "saldo_pendente"],
-    "proyeccion": ["proyeccion", "proyeccion_cierre", "forecast", "projecao", "projecao_fechamento"],
-    "version": ["version", "version_presupuesto", "versao"],
+    "proyeccion": ["proyeccion", "proyeccion_cierre", "proyeccion_al_cierre_del_ano", "forecast", "projecao", "projecao_fechamento"],
+    "version": ["version", "version_presupuesto", "version_del_presupuesto", "versao"],
     # La tesorería: la política, la matriz de firmas, el registro de la deuda y el programa de pagos.
     "concepto": ["concepto", "conceito"],
     "monto_maximo": ["monto_maximo", "valor_maximo", "limite_maximo"],
@@ -361,7 +362,7 @@ ALIAS = {
     "tipo": ["tipo"],
     "beneficiario": ["beneficiario"],
     "aprobado_por": ["aprobado_por", "aprovado_por"],
-    "saldo_proyectado": ["saldo_proyectado", "saldo_projetado"],
+    "saldo_proyectado": ["saldo_proyectado", "saldo_proyectado_cierre_mes", "saldo_proyectado_al_cierre_del_mes", "saldo_projetado"],
 }
 # Los valores que dicen lo mismo en portugués que en español: el concepto de una regla de la
 # política, el tipo de una obligación, el estado declarado de una tarea o de un requerimiento.
