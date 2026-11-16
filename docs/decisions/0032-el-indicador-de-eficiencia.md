@@ -1,7 +1,7 @@
 # 0032 · El indicador de eficiencia de cada agente, y las tres palancas que lo mueven
 
 **Fecha:** 2026-11-15 · **Estado:** propuesta: el indicador, por publicar en la página de cada agente;
-las palancas 1 y 2, aplicadas en las seis familias y medidas en la CFO, la CLO, la CCO, la CISO y la EA; la 3, aplicada en los once agentes del núcleo común desde la 2.9.0 y en los tres de la PMO después, por medir en una ronda · **Modifica:** el reloj de cada
+las palancas 1 y 2, aplicadas en las seis familias y medidas en la CFO, la CLO, la CCO, la CISO y la EA; la 3, aplicada desde la 2.9.0 en los catorce setups —los once del núcleo común y los tres de la PMO—, por medir en una ronda · **Modifica:** el reloj de cada
 agente (0028)
 
 ## Contexto
