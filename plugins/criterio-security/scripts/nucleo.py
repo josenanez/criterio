@@ -932,6 +932,9 @@ def argumentos(descripcion: str):
     # El reloj: si no toca nada, el motor deja la corrida registrada él mismo y el agente termina en
     # una línea, sin gastar un paso más (el camino corto del despertar).
     ap.add_argument("--registrar", action="store_true")
+    # El setup en dos llamadas (decisión 0032, palanca 3): `dejar-listo --marcar` deja la marca de la
+    # carpeta raíz, solo con el sí de la persona.
+    ap.add_argument("--marcar", action="store_true")
     return ap
 
 
@@ -957,6 +960,55 @@ def _despertar_uno(ruta: Path, rol: str, despertar, hoy: dt.date, que: str | Non
         salida.write_text(d["linea"] + "\n", encoding="utf-8")
         d["registrado"] = corrida(cfg["_estado"], que, salida, None, "no tocaba nada", hoy, None, plugin(aqui)["version"])["id"]
     return d
+
+
+def arranque(desde: Path, aqui: Path, estructura_json: Path, idioma: str = "es") -> dict:
+    """El principio de cualquier setup, en una llamada: las carpetas candidatas; si hay una sola, o una
+    marcada, su inventario; los términos que se muestran tal cual, que no esperan a la configuración;
+    y la configuración de ejemplo, con los umbrales por omisión que el setup propone."""
+    import sys
+    sys.path.insert(0, str(aqui))
+    import raiz
+    import terminos
+    nombre = plugin(aqui)["name"]
+    r = raiz.buscar(desde, nombre)
+    cand = r.get("candidatas") or []
+    marcadas = [c for c in cand if c.get("marcada")]
+    elegida = marcadas[0] if len(marcadas) == 1 else (cand[0] if len(cand) == 1 else None)
+    out = {"raiz": r, "elegida": elegida["ruta"] if elegida else None}
+    if elegida:
+        inv = inventario(Path(elegida["ruta"]), None, estructura(estructura_json))
+        out["inventario"] = {k: v for k, v in inv.items() if k != "archivos"}
+    t = terminos.terminos(idioma)
+    out["terminos"] = {"version": t["version"], "fecha": t["fecha"], "en_corto": t["en_corto"],
+                       "nota_legal": terminos.NOTA_LEGAL.get(idioma, terminos.NOTA_LEGAL["es"])}
+    out["ejemplo"] = leer_json(aqui / "config.example.json", {}) or {}
+    return out
+
+
+def dejar_listo(ruta: Path, aqui: Path, rol: str, subcarpetas: tuple, revisar_config, por: str | None,
+                marcar: bool, entidad: str | None, idioma: str | None, hoy: dt.date | None) -> dict:
+    """El final de cualquier setup, en una llamada, con la configuración ya escrita: prepara el estado,
+    la valida y, solo si se pidió, registra la aceptación (con el nombre de quien dijo sí) y deja la
+    marca de la carpeta. Si la configuración tiene problemas, no acepta ni marca nada."""
+    import sys
+    sys.path.insert(0, str(aqui))
+    import raiz
+    import terminos
+    cfg, _ = cargar_config(ruta)
+    for sub in tuple(subcarpetas) + ("corridas", "cache"):
+        (cfg["_estado"] / sub).mkdir(parents=True, exist_ok=True)
+    problemas = revisar_config(cfg, rol)
+    out = {"ok": not problemas, "problemas": problemas, "entidad": cfg.get("entity"),
+           "documentos": str(cfg["_docs"]), "estado": str(cfg["_estado"])}
+    if problemas:
+        return out
+    if por:
+        out["terminos"] = terminos.aceptar(ruta, por, idioma, hoy)
+    if marcar:
+        out["marca"] = raiz.marcar(cfg["_docs"], plugin(aqui)["name"], entidad, por, hoy)
+        out["ok"] = bool(out["marca"].get("ok"))
+    return out
 
 
 # La carpeta de la configuración de cada agente, `.criterio/<area>/<entidad>/config.json`. Es la
@@ -988,6 +1040,21 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
             salida["linea"] = " ".join(x.get("linea", "") for x in ds).strip()
         print(json.dumps(salida, ensure_ascii=False, indent=2))
         return 0
+    if a.action == "arranque":
+        # Lo que el setup necesita antes de la primera pregunta, en una sola llamada: la carpeta raíz,
+        # su inventario si ya se sabe cuál es, los términos tal cual y la configuración de ejemplo.
+        print(json.dumps(arranque(a.docs or Path.cwd(), aqui, estructura_json, a.idioma or "es"),
+                         ensure_ascii=False, indent=2)[:60000])
+        return 0
+    if a.action == "dejar-listo":
+        # Lo que el setup hace después de la última respuesta, en una sola llamada: el estado, la
+        # validación, la aceptación de los términos y la marca de la carpeta, cada cosa solo si se pidió.
+        if not a.config:
+            ap.error("--config es la configuración que acabas de escribir")
+        r = dejar_listo(Path(a.config), aqui, rol, subcarpetas, revisar_config, a.por, a.marcar, a.entidad,
+                        a.idioma, _hoy(a) if a.today else None)
+        print(json.dumps(r, ensure_ascii=False, indent=2))
+        return 0 if r["ok"] else 1
     if area and getattr(a, "config", None) and Path(a.config).resolve().parent.parent.name != area:
         print(json.dumps({"ok": False, "motivo": f"{a.config} no es una configuración de este agente: la suya va en "
                           f".criterio/{area}/<entidad>/config.json, aunque comparta el estado con otro agente"},

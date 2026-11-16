@@ -13,11 +13,11 @@
     "escribe": [
      "<estado>/comercial/<AAAA-MM>/ficha.json",
      ".criterio/comercial/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/indice.json",
      "<estado>/cache/",
-     ".criterio/terminos/ (aceptar)",
-     "<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)",
+     ".criterio/terminos/ (dejar-listo)",
+     "<raíz>/_CRITERIO_COMERCIAL.txt (dejar-listo --marcar, con permiso)",
      "<estado>/comercial/<AAAA-MM>/resultados.json",
      "<estado>/comercial/<AAAA-MM>/reporte-sales-setup.md",
      "<estado>/corridas/salida-sales-setup.md"
@@ -30,18 +30,14 @@
      "sales-intake"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "convertir",
      "corrida",
+     "dejar-listo",
      "exportacion",
-     "init",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

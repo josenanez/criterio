@@ -12,15 +12,15 @@
         "muestra": "Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas",
         "escribe": [
           ".criterio/legal/<entidad>/config.json",
-          "<estado>/ (init)",
+          "<estado>/ (dejar-listo)",
           "<estado>/indice.json",
           "<estado>/cache/",
           "<estado>/contratos/<código>.json",
-          ".criterio/terminos/ (aceptar)",
+          ".criterio/terminos/ (dejar-listo)",
           "<estado>/contratos/resultados.json",
           "<estado>/contratos/reporte-obligations-calendar.md",
           "<estado>/corridas/salida-legal-setup.md",
-          "<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)"
+          "<raíz>/_CRITERIO_LEGAL.txt (dejar-listo --marcar, con permiso)"
         ]
       },
       "reglas": {
@@ -30,17 +30,13 @@
           "signing-authority"
         ],
         "script": [
-          "aceptar",
-          "buscar-raiz",
+          "arranque",
           "compute",
-          "config",
           "convertir",
           "corrida",
-          "init",
+          "dejar-listo",
           "inventario",
-          "marcar-raiz",
-          "reporte",
-          "terminos"
+          "reporte"
         ],
         "calcula": true
       },

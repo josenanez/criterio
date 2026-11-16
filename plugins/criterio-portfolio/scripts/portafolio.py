@@ -1045,7 +1045,15 @@ CADENCIAS = {"daily": 1, "weekly": 7, "biweekly": 14, "fortnightly": 14,
 
 
 def _cada(nombre) -> int:
-    return CADENCIAS.get(str(nombre or "").lower().strip(), 0)
+    """Los días entre una reunión y la siguiente: un nombre de la tabla, o «cada N semanas» o «cada N
+    días» cuando la reunión no cae en uno de ellos (un comité cada tres semanas es `every_3_weeks`)."""
+    x = str(nombre or "").lower().strip()
+    if x in CADENCIAS:
+        return CADENCIAS[x]
+    m = re.fullmatch(r"every[_ -]?(\d+)[_ -]?(weeks?|days?)", x)
+    if m and int(m.group(1)) > 0:
+        return int(m.group(1)) * (7 if m.group(2).startswith("week") else 1)
+    return 0
 
 
 def proximo_comite(cfg_cycle: dict, today: dt.date):
@@ -2286,6 +2294,9 @@ def _selftest_cadencia():
         ("cadencia · dos semanas después", sorted(d3["due"]), ["report", "sweep"]),
         ("cadencia · sin configurar, nada", d4["due"], []),
         ("cadencia · sin configurar, sin cita", d4["next_wake"], None),
+        ("cadencia · cada tres semanas", _cada("every_3_weeks"), 21),
+        ("cadencia · cada diez días", _cada("every 10 days"), 10),
+        ("cadencia · un nombre que no existe no rueda", _cada("cada rato"), 0),
         ("cola · una petición abierta rompe el silencio", d5["due"], ["requests"]),
         ("cola · dice cuántas y desde cuándo", d5["detail"]["requests"]["open"], 1),
         ("cola · la respondida no cuenta", [r["id"] for r in peticiones_abiertas(tmp)], []),

@@ -35,12 +35,16 @@ Lo primero que corre la tesorería después de instalar. Al terminar ha visto **
 **La carpeta raíz, primero: búscala, no la pidas.** Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" buscar-raiz --docs <carpeta de la sesión>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" arranque --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: es la carpeta que ya usan Clara y Tomás. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
+Esa sola llamada trae lo que el setup necesita antes de la primera pregunta (decisión 0032): en `raiz`, las carpetas candidatas; en `elegida` e `inventario`, la carpeta y su inventario cuando hay una sola o una marcada; en `terminos`, el texto que se muestra tal cual; y en `ejemplo`, la configuración con los umbrales por omisión. No los pidas uno por uno.
+
+Muestra las `candidatas` de `raiz` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: es la carpeta que ya usan Clara y Tomás. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
 
 **1. Mira antes de preguntar.** El inventario lo da el motor:
+
+Si `arranque` ya trajo el `inventario` de la carpeta elegida, ese es. Solo si la persona eligió otra, pídelo:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" inventario --docs <carpeta de la entidad>
@@ -55,27 +59,19 @@ Reporta qué cuentas tienen extracto en `20-bancos/`, si hay `60-tesoreria/` con
 3. **Las cuentas en otra moneda**, para `treasury.currencies`: la carpeta de la cuenta y su moneda. Si el extracto trae la columna de moneda, el motor la toma de ahí y no hace falta preguntarla; pregunta solo por las cuentas cuyo extracto no la dice.
 4. **Los umbrales**: la desviación contra la proyección, los días de vencimiento y el margen del covenant. Propón los de `config.example.json` y dilo: son configuración, no norma.
 5. **Dónde guardo lo que voy encontrando.** Propón el mismo estado de Clara y Tomás, `estado-finanzas/<entidad>`. **Nunca dentro de la carpeta de documentos.**
-6. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>`, muestra **tal cual** su `en_corto` con el enlace a la nota legal y pide un sí explícito con el nombre de quien acepta. **No lo registres sin un sí.**
+6. **Los términos.** Muestra **tal cual** el `en_corto` de `terminos`, que ya trajo `arranque`, con el enlace a la nota legal y pide un sí explícito con el nombre de quien acepta. **No lo registres sin un sí.**
 
-**Márcala, si la persona dice que sí** y la carpeta no tiene ya la marca de Clara y Tomás:
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
-```
+**Márcala, si la persona dice que sí** y la carpeta no tiene ya la marca de Clara y Tomás: la marca queda al final, en la misma llamada que deja todo listo (`dejar-listo --marcar --entidad "<el nombre y el NIT o RUC de la entidad>"`): no hace falta otra.
 
 **3. Deja la configuración escrita** y valídala. **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona.
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" init --state <estado>
-```
+Con la configuración escrita, una sola llamada prepara el estado, la valida y, con el sí dado, registra la aceptación —el comprobante en Markdown y PDF queda en `.criterio/terminos/`— y deja la marca si la persona la autorizó:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" config --config <config>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" dejar-listo --config <config> --por "<nombre de quien aceptó>" --marcar --entidad "<el nombre y el NIT o RUC de la entidad>"
 ```
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" aceptar --config <config> --por "<nombre>"
-```
+Sin el sí a la marca, sin `--marcar` ni `--entidad`. Si trae `problemas`, no aceptó ni marcó nada: corrígelos con la persona y vuelve a correrlo. Dile dónde quedó el comprobante.
 
 **4. La primera posición de caja.** Calcula y muestra:
 

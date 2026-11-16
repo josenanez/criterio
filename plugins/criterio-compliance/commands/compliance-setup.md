@@ -29,12 +29,16 @@ Lo primero que corre quien responde por el cumplimiento después de instalar. Al
 **La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" buscar-raiz --docs <carpeta de la sesión>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" arranque --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/`, `10-registro/` y 6 periodos de cumplimiento»—. Si una está marcada con `_CRITERIO_LEGAL.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+Esa sola llamada trae lo que el setup necesita antes de la primera pregunta (decisión 0032): en `raiz`, las carpetas candidatas; en `elegida` e `inventario`, la carpeta y su inventario cuando hay una sola o una marcada; en `terminos`, el texto que se muestra tal cual; y en `ejemplo`, la configuración con los umbrales por omisión. No los pidas uno por uno.
+
+Muestra las `candidatas` de `raiz` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/`, `10-registro/` y 6 periodos de cumplimiento»—. Si una está marcada con `_CRITERIO_LEGAL.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
 
 **1. Mira antes de preguntar:**
+
+Si `arranque` ya trajo el `inventario` de la carpeta elegida, ese es. Solo si la persona eligió otra, pídelo:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" inventario --docs <carpeta de la entidad>
@@ -44,29 +48,21 @@ Aplica **legal-intake**: si la carpeta no sigue la estructura, muéstrala como s
 
 **2. La matriz de obligaciones**, en el modelo de **obligations-matrix**: cada obligación con su id, la fuente de la que sale —norma, contrato o política—, su responsable, su periodicidad, su fecha límite y la evidencia que la prueba. **Constanza no trae obligaciones**: las define la organización. Lo que le falte a cada fila se dice, no se completa.
 
-**3. Las preguntas**, una a la vez y con propuesta: la entidad y el país; el periodo que se evalúa; el plazo de respuesta del canal de denuncias; los días para evaluar una norma nueva; si la organización usa a Fidel, dónde están sus fichas (en el estado compartido son `estado-legal/<entidad>/contratos/`: búscalas con Glob y propone la ruta que encontraste, nunca una que no comprobaste); dónde guardo lo que encuentro (`estado-legal/<entidad>`, nunca dentro de los documentos); y los términos: corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" terminos --config <config>`, muestra **tal cual** su `en_corto` y pide un sí explícito con el nombre de quien acepta.
+**3. Las preguntas**, una a la vez y con propuesta: la entidad y el país; el periodo que se evalúa; el plazo de respuesta del canal de denuncias; los días para evaluar una norma nueva; si la organización usa a Fidel, dónde están sus fichas (en el estado compartido son `estado-legal/<entidad>/contratos/`: búscalas con Glob y propone la ruta que encontraste, nunca una que no comprobaste); dónde guardo lo que encuentro (`estado-legal/<entidad>`, nunca dentro de los documentos); y los términos: muestra **tal cual** el `en_corto` de `terminos`, que ya trajo `arranque`, y pide un sí explícito con el nombre de quien acepta.
 
-**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_LEGAL.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
-```
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_LEGAL.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí, la marca queda al final, en la misma llamada que deja todo listo (`dejar-listo --marcar --entidad "<el nombre y el NIT o RUC de la entidad>"`): no hace falta otra.
 
 Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
-**4. Deja la configuración escrita.** **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona: ningún comando del motor la crea. `init` prepara el estado y `config` la valida.
+**4. Deja la configuración escrita.** **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona: ningún comando del motor la crea.
+
+Con la configuración escrita, una sola llamada prepara el estado, la valida y, con el sí dado, registra la aceptación —el comprobante en Markdown y PDF queda en `.criterio/terminos/`— y deja la marca si la persona la autorizó:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" init --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" dejar-listo --config <config> --por "<nombre de quien aceptó>" --marcar --entidad "<el nombre y el NIT o RUC de la entidad>"
 ```
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" config --config <config>
-```
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" aceptar --config <config> --por "<nombre>"
-```
+Sin el sí a la marca, sin `--marcar` ni `--entidad`. Si trae `problemas`, no aceptó ni marcó nada: corrígelos con la persona y vuelve a correrlo. Dile dónde quedó el comprobante.
 
 **5. El primer estado.** Si el informe de cumplimiento del periodo declara algo, regístralo en la ficha aplicando **compliance-record**:
 

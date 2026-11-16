@@ -12,11 +12,11 @@
     "muestra": "Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo",
     "escribe": [
      ".criterio/ingresos/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/indice.json",
      "<estado>/cache/",
-     ".criterio/terminos/ (aceptar)",
-     "<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)",
+     ".criterio/terminos/ (dejar-listo)",
+     "<raíz>/_CRITERIO_COMERCIAL.txt (dejar-listo --marcar, con permiso)",
      "<estado>/ingresos/<AAAA-MM>/resultados.json",
      "<estado>/ingresos/<AAAA-MM>/reporte-revenue-setup.md",
      "<estado>/corridas/salida-revenue-setup.md"
@@ -25,21 +25,19 @@
    "reglas": {
     "skills": [
      "crm-exports",
+     "deal-record",
      "sales-intake",
      "won-to-cash"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
+     "convertir",
      "corrida",
+     "dejar-listo",
      "exportacion",
-     "init",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

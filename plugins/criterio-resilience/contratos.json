@@ -13,11 +13,11 @@
     "escribe": [
      "<estado>/resiliencia/<AAAA-MM>/ficha.json",
      ".criterio/resiliencia/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/indice.json",
      "<estado>/cache/",
-     ".criterio/terminos/ (aceptar)",
-     "<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)",
+     ".criterio/terminos/ (dejar-listo)",
+     "<raíz>/_CRITERIO_SEGURIDAD.txt (dejar-listo --marcar, con permiso)",
      "<estado>/resiliencia/<AAAA-MM>/resultados.json",
      "<estado>/resiliencia/<AAAA-MM>/reporte-resilience-setup.md",
      "<estado>/corridas/salida-resilience-setup.md"
@@ -30,18 +30,14 @@
      "security-intake"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "convertir",
      "corrida",
+     "dejar-listo",
      "excluidos",
-     "init",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

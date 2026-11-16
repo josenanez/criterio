@@ -12,12 +12,12 @@
     "muestra": "inventario, preguntas, primera ejecución contra lo aprobado",
     "escribe": [
      ".criterio/presupuesto/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/presupuesto/<AAAA>/ficha.json",
-     ".criterio/terminos/ (aceptar)",
+     ".criterio/terminos/ (dejar-listo)",
      "<estado>/presupuesto/<AAAA>/resultados.json",
      "<estado>/presupuesto/<AAAA>/reporte-<comando>.md",
-     "<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)"
+     "<raíz>/_CRITERIO_FINANZAS.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -26,17 +26,13 @@
      "finance-intake"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "convertir",
      "corrida",
-     "init",
+     "dejar-listo",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

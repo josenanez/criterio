@@ -590,7 +590,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** inventario, preguntas, estado del cierre
 
-**Escribe.** `.criterio/finanzas/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/cierre/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/finanzas/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/cierre/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (dejar-listo)`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **close-checklist**, **close-record**, **finance-intake**
 
@@ -740,7 +740,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** inventario, preguntas, primera ejecución contra lo aprobado
 
-**Escribe.** `.criterio/presupuesto/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/presupuesto/<AAAA>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/presupuesto/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/presupuesto/<AAAA>/ficha.json`; `.criterio/terminos/ (dejar-listo)`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **budget-record**, **finance-intake**
 
@@ -862,7 +862,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** inventario, preguntas, primera posición de caja
 
-**Escribe.** `.criterio/tesoreria/<entidad>/config.json`; `<estado>/ (init)`; `.criterio/terminos/ (aceptar)`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/tesoreria/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `.criterio/terminos/ (dejar-listo)`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **finance-intake**
 
@@ -970,7 +970,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas
 
-**Escribe.** `.criterio/legal/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/contratos/<código>.json`; `.criterio/terminos/ (aceptar)`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-legal-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/legal/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/contratos/<código>.json`; `.criterio/terminos/ (dejar-listo)`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-legal-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **contract-record**, **legal-intake**, **signing-authority**
 
@@ -1092,7 +1092,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo
 
-**Escribe.** `.criterio/cumplimiento/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/cumplimiento/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (dejar-listo)`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **compliance-record**, **legal-intake**, **obligations-matrix**
 
@@ -1214,7 +1214,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada; inventario por carpeta; cada exportación con su formato, su fecha y sus oportunidades; las columnas que faltan; la primera ficha del periodo
 
-**Escribe.** `<estado>/comercial/<AAAA-MM>/ficha.json`; `.criterio/comercial/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)`; `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-sales-setup.md`; `<estado>/corridas/salida-sales-setup.md`
+**Escribe.** `<estado>/comercial/<AAAA-MM>/ficha.json`; `.criterio/comercial/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (dejar-listo)`; `<raíz>/_CRITERIO_COMERCIAL.txt (dejar-listo --marcar, con permiso)`; `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-sales-setup.md`; `<estado>/corridas/salida-sales-setup.md`
 
 **Skills.** **crm-exports**, **pipeline-record**, **sales-intake**
 
@@ -1322,9 +1322,9 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo
 
-**Escribe.** `.criterio/ingresos/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)`; `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-revenue-setup.md`; `<estado>/corridas/salida-revenue-setup.md`
+**Escribe.** `.criterio/ingresos/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (dejar-listo)`; `<raíz>/_CRITERIO_COMERCIAL.txt (dejar-listo --marcar, con permiso)`; `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-revenue-setup.md`; `<estado>/corridas/salida-revenue-setup.md`
 
-**Skills.** **crm-exports**, **sales-intake**, **won-to-cash**
+**Skills.** **crm-exports**, **deal-record**, **sales-intake**, **won-to-cash**
 
 ### `/criterio-revenue:valeria`
 
@@ -1430,7 +1430,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada; inventario por carpeta; lo excluido y por qué; las columnas que faltan; la primera ficha del periodo
 
-**Escribe.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; `.criterio/seguridad/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-security-setup.md`; `<estado>/corridas/salida-security-setup.md`
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; `.criterio/seguridad/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (dejar-listo)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (dejar-listo --marcar, con permiso)`; `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-security-setup.md`; `<estado>/corridas/salida-security-setup.md`
 
 **Skills.** **control-evidence-record**, **security-intake**, **soa-and-risks**
 
@@ -1564,7 +1564,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada, con los plazos y su cita; inventario por carpeta; cada exportación con su fecha, sus activos y sus hallazgos; las columnas que faltan
 
-**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; `.criterio/vulnerabilidades/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-setup.md`; `<estado>/corridas/salida-vuln-setup.md`
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; `.criterio/vulnerabilidades/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (dejar-listo)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (dejar-listo --marcar, con permiso)`; `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-setup.md`; `<estado>/corridas/salida-vuln-setup.md`
 
 **Skills.** **scanner-exports**, **security-intake**, **vuln-policy**
 
@@ -1670,7 +1670,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** Configuración guardada, con los plazos y su cita; inventario por carpeta; las columnas que faltan; la primera ficha del periodo
 
-**Escribe.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; `.criterio/resiliencia/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-resilience-setup.md`; `<estado>/corridas/salida-resilience-setup.md`
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; `.criterio/resiliencia/<entidad>/config.json`; `<estado>/ (dejar-listo)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (dejar-listo)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (dejar-listo --marcar, con permiso)`; `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-resilience-setup.md`; `<estado>/corridas/salida-resilience-setup.md`
 
 **Skills.** **continuity-record**, **incident-record**, **security-intake**
 
@@ -1776,7 +1776,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** inventario, órganos y sesiones, preguntas, primer resultado
 
-**Escribe.** `.criterio/direccion/<ejecutivo>/config.json`; `<estado>/ (init)`; `.criterio/terminos/ (aceptar)`; `<estado>/resultados.json`; `<estado>/reporte-ea-setup.md`; `<raíz>/_CRITERIO_DIRECCION.txt (marcar-raiz, con permiso)`
+**Escribe.** `.criterio/direccion/<ejecutivo>/config.json`; `<estado>/ (dejar-listo)`; `.criterio/terminos/ (dejar-listo)`; `<estado>/resultados.json`; `<estado>/reporte-ea-setup.md`; `<raíz>/_CRITERIO_DIRECCION.txt (dejar-listo --marcar, con permiso)`
 
 **Skills.** **ea-intake**
 

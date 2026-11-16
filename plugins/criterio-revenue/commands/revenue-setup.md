@@ -29,12 +29,16 @@ Lo primero que corre quien responde por la venta hasta la factura después de in
 **La carpeta raíz, primero: búscala, no la pidas.** Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" buscar-raiz --docs <carpeta de la sesión>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" arranque --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_COMERCIAL.txt`, va primero. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
+Esa sola llamada trae lo que el setup necesita antes de la primera pregunta (decisión 0032): en `raiz`, las carpetas candidatas; en `elegida` e `inventario`, la carpeta y su inventario cuando hay una sola o una marcada; en `terminos`, el texto que se muestra tal cual; y en `ejemplo`, la configuración con los umbrales por omisión. No los pidas uno por uno.
+
+Muestra las `candidatas` de `raiz` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_COMERCIAL.txt`, va primero. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
 
 **1. Mira antes de preguntar:**
+
+Si `arranque` ya trajo el `inventario` de la carpeta elegida, ese es. Solo si la persona eligió otra, pídelo:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" inventario --docs <carpeta de la entidad>
@@ -48,31 +52,29 @@ Aplica **sales-intake** para la estructura, **crm-exports** para cada exportaci�
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" exportacion --config <config> --file <cada exportación de 10-crm/>
 ```
 
-**3. Las preguntas**, una a la vez y con propuesta: la entidad y el país; el periodo; la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/` —**cada cuenta ganada con la identificación del cliente**: las que falten se dicen, no se completan—; de qué CRM sale la exportación de `10-crm/` —corre `exportacion` sobre cada archivo— y, si hace falta, qué columna trae la cuenta; **dónde están las fichas de los contratos de Fidel** (en su estado son `estado-legal/<entidad>/contratos/`) y **las de la facturación de Clara** (`estado-finanzas/<entidad>/`): búscalas con Glob y propone la ruta que encontraste, nunca una que no comprobaste; en cuántos días se factura un contrato firmado; si las comisiones se publican en Rostrum (por omisión, no); dónde guardo lo que encuentro (`estado-comercial/<entidad>`, nunca dentro de los documentos); y los términos: corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" terminos --config <config>`, muestra **tal cual** su `en_corto` y pide un sí explícito con el nombre de quien acepta.
+**3. Las preguntas**, una a la vez y con propuesta: la entidad y el país; el periodo; la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/` —**cada cuenta ganada con la identificación del cliente**: las que falten se dicen, no se completan—; de qué CRM sale la exportación de `10-crm/` —corre `exportacion` sobre cada archivo— y, si hace falta, qué columna trae la cuenta; **dónde están las fichas de los contratos de Fidel** (en su estado son `estado-legal/<entidad>/contratos/`) y **las de la facturación de Clara** (`estado-finanzas/<entidad>/`): búscalas con Glob y propone la ruta que encontraste, nunca una que no comprobaste; en cuántos días se factura un contrato firmado; si las comisiones se publican en Rostrum (por omisión, no); dónde guardo lo que encuentro (`estado-comercial/<entidad>`, nunca dentro de los documentos); y los términos: muestra **tal cual** el `en_corto` de `terminos`, que ya trajo `arranque`, y pide un sí explícito con el nombre de quien acepta.
 
-**Márcala, si la persona dice que sí.** Pregunta una sola vez si dejas en esa carpeta el archivo `_CRITERIO_COMERCIAL.txt` para que la reconozca a primera vista. Con un sí:
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RFC de la entidad>" --por "<nombre de quien autoriza>"
-```
+**Márcala, si la persona dice que sí.** Pregunta una sola vez si dejas en esa carpeta el archivo `_CRITERIO_COMERCIAL.txt` para que la reconozca a primera vista. Con un sí, la marca queda al final, en la misma llamada que deja todo listo (`dejar-listo --marcar --entidad "<el nombre y el NIT o RFC de la entidad>"`): no hace falta otra.
 
 Con un no, sigue sin marcarla y no lo vuelvas a pedir.
 
-**4. Deja la configuración escrita.** **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona. `init` prepara el estado y `config` la valida.
+**4. Deja la configuración escrita.** **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona.
+
+Con la configuración escrita, una sola llamada prepara el estado, la valida y, con el sí dado, registra la aceptación —el comprobante en Markdown y PDF queda en `.criterio/terminos/`— y deja la marca si la persona la autorizó:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" init --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" dejar-listo --config <config> --por "<nombre de quien aceptó>" --marcar --entidad "<el nombre y el NIT o RFC de la entidad>"
 ```
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" config --config <config>
-```
+Sin el sí a la marca, sin `--marcar` ni `--entidad`. Si trae `problemas`, no aceptó ni marcó nada: corrígelos con la persona y vuelve a correrlo. Dile dónde quedó el comprobante.
+
+**5. Las cotizaciones del periodo, a la ficha.** Si `40-cotizaciones/` tiene cotizaciones o pedidos, llévalos a la ficha del periodo como lo hace `/criterio-revenue:deal-scan`, aplicando **deal-record**: su oportunidad, su precio de lista, su descuento y quién lo aprobó con qué cargo y en qué fecha, cada dato con su cita. Sin este paso, el primer cruce de descuentos contra la matriz sale vacío aunque haya cotizaciones en la carpeta.
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" aceptar --config <config> --por "<nombre>"
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" convertir --config <config> --caso 40-cotizaciones
 ```
 
-**5. El primer cruce:**
+**6. El primer cruce:**
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" compute --config <config> --period <AAAA-MM>

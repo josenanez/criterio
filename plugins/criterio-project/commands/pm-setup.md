@@ -80,7 +80,9 @@ Una a la vez, cada una con su propuesta:
 
 1. **Quién eres y qué proyecto es.** Propón lo que encontraste en el acta de constitución.
 2. **Cuándo es tu reunión de seguimiento.** De ahí sale la cadencia. Propón el día de la
-   semana que veas repetido en los nombres de las minutas.
+   semana que veas repetido en los nombres de las minutas. En `cycle.committee` va `weekly`,
+   `biweekly` o `monthly`; si la reunión cae en otro ritmo, `every_<N>_weeks` o `every_<N>_days`
+   —un comité cada tres semanas es `every_3_weeks`—, con la próxima fecha en `committee_next`.
 3. **Dónde guardo lo que voy encontrando.** Propón `<raíz>/estado/<carpeta del proyecto>`
    cuando la carpeta del proyecto esté en `<raíz>/documentos/proyectos/<carpeta>`: así la PMO
    encuentra el estado de cada gerente junto al suyo. **Nunca dentro de la carpeta de

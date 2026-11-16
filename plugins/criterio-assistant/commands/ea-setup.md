@@ -35,12 +35,16 @@ Lo primero que corre quien asiste al ejecutivo después de instalar. Al terminar
 **La carpeta raíz, primero: búscala, no la pidas.** Si el argumento trae una ruta, úsala. Si no:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" buscar-raiz --docs <carpeta de la sesión>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" arranque --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, cada una con su `evidencia` en palabras. Si una está marcada con `_CRITERIO_DIRECCION.txt`, va primero. **Pide que la persona conteste con el número.** Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
+Esa sola llamada trae lo que el setup necesita antes de la primera pregunta (decisión 0032): en `raiz`, las carpetas candidatas; en `elegida` e `inventario`, la carpeta y su inventario cuando hay una sola o una marcada; en `terminos`, el texto que se muestra tal cual; y en `ejemplo`, la configuración con los umbrales por omisión. No los pidas uno por uno.
+
+Muestra las `candidatas` de `raiz` como una lista numerada, cada una con su `evidencia` en palabras. Si una está marcada con `_CRITERIO_DIRECCION.txt`, va primero. **Pide que la persona conteste con el número.** Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
 
 **1. Mira antes de preguntar.** Aplica **ea-intake**:
+
+Si `arranque` ya trajo el `inventario` de la carpeta elegida, ese es. Solo si la persona eligió otra, pídelo:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" inventario --docs <carpeta de la oficina>
@@ -58,27 +62,19 @@ Reporta en tres líneas: si hay una exportación de la agenda en `10-agenda/` y 
 6. **Los umbrales**: días antes de una sesión para el material, días para el acta, cuántas veces se mueve un compromiso para que suene, antigüedad máxima de la agenda y días de plazo de una decisión. Propón los de `config.example.json`: son configuración, no norma.
 7. **Si publica en Rostrum.** Propón que no: el informe de la presidencia no se publica por omisión.
 8. **Dónde guardo lo que voy encontrando.** Propón `estado-direccion/<ejecutivo>`. **Nunca dentro de la carpeta de documentos.**
-9. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" terminos --config <config>` y muestra **tal cual** su `en_corto`, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta.
+9. **Los términos.** Muestra **tal cual** el `en_corto` de `terminos`, que ya trajo `arranque`,, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta.
 
-**Márcala, si la persona dice que sí.** Pregunta una sola vez si deja `_CRITERIO_DIRECCION.txt` en la carpeta. Con un sí:
+**Márcala, si la persona dice que sí.** Pregunta una sola vez si deja `_CRITERIO_DIRECCION.txt` en la carpeta. Con un sí, la marca queda al final, en la misma llamada que deja todo listo (`dejar-listo --marcar --entidad "<la oficina y la entidad>"`): no hace falta otra.
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" marcar-raiz --docs <la carpeta elegida> --entidad "<la oficina y la entidad>" --por "<nombre de quien autoriza>"
-```
+**3. Deja la configuración escrita**, y valídala. **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona.
 
-**3. Deja la configuración escrita**, y valídala. **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona. `init` prepara el estado y `config` la valida.
+Con la configuración escrita, una sola llamada prepara el estado, la valida y, con el sí dado, registra la aceptación —el comprobante en Markdown y PDF queda en `.criterio/terminos/`— y deja la marca si la persona la autorizó:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" init --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" dejar-listo --config <config> --por "<nombre de quien aceptó>" --marcar --entidad "<la oficina y la entidad>"
 ```
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" config --config <config>
-```
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" aceptar --config <config> --por "<nombre>"
-```
+Sin el sí a la marca, sin `--marcar` ni `--entidad`. Si trae `problemas`, no aceptó ni marcó nada: corrígelos con la persona y vuelve a correrlo. Dile dónde quedó el comprobante.
 
 **4. Las primeras fichas**, como en `/criterio-assistant:ea-scan`, y la agenda:
 

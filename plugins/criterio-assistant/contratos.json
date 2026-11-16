@@ -12,11 +12,11 @@
     "muestra": "inventario, órganos y sesiones, preguntas, primer resultado",
     "escribe": [
      ".criterio/direccion/<ejecutivo>/config.json",
-     "<estado>/ (init)",
-     ".criterio/terminos/ (aceptar)",
+     "<estado>/ (dejar-listo)",
+     ".criterio/terminos/ (dejar-listo)",
      "<estado>/resultados.json",
      "<estado>/reporte-ea-setup.md",
-     "<raíz>/_CRITERIO_DIRECCION.txt (marcar-raiz, con permiso)"
+     "<raíz>/_CRITERIO_DIRECCION.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -24,14 +24,11 @@
      "ea-intake"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "corrida",
-     "init",
+     "dejar-listo",
      "inventario",
-     "marcar-raiz",
      "reporte",
      "terminos"
     ],

@@ -12,15 +12,15 @@
     "muestra": "Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo",
     "escribe": [
      ".criterio/cumplimiento/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/indice.json",
      "<estado>/cache/",
      "<estado>/cumplimiento/<AAAA-MM>/ficha.json",
-     ".criterio/terminos/ (aceptar)",
+     ".criterio/terminos/ (dejar-listo)",
      "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
      "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
      "<estado>/corridas/salida-compliance-setup.md",
-     "<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)"
+     "<raíz>/_CRITERIO_LEGAL.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -30,17 +30,13 @@
      "obligations-matrix"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "convertir",
      "corrida",
-     "init",
+     "dejar-listo",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

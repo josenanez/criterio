@@ -13,11 +13,11 @@
     "escribe": [
      "<estado>/seguridad/<AAAA-MM>/ficha.json",
      ".criterio/seguridad/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/indice.json",
      "<estado>/cache/",
-     ".criterio/terminos/ (aceptar)",
-     "<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)",
+     ".criterio/terminos/ (dejar-listo)",
+     "<raíz>/_CRITERIO_SEGURIDAD.txt (dejar-listo --marcar, con permiso)",
      "<estado>/seguridad/<AAAA-MM>/resultados.json",
      "<estado>/seguridad/<AAAA-MM>/reporte-security-setup.md",
      "<estado>/corridas/salida-security-setup.md"
@@ -30,18 +30,14 @@
      "soa-and-risks"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "convertir",
      "corrida",
+     "dejar-listo",
      "excluidos",
-     "init",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },

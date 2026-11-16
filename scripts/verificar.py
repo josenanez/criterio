@@ -73,6 +73,8 @@ PUERTAS = [
      "Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-server/scripts/consumo.py"), "--selftest"],
      "El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación"),
+    ("código", [sys.executable, str(RAIZ / "tests/setup_corto.py")],
+     "El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente"),
     ("código", [sys.executable, str(RAIZ / "tests/reloj_corto.py")],
      "El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada"),
     ("código", [sys.executable, str(RAIZ / "scripts/consumo_pruebas.py"), "--check"],

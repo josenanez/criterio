@@ -12,12 +12,12 @@
     "muestra": "inventario, preguntas, estado del cierre",
     "escribe": [
      ".criterio/finanzas/<entidad>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/cierre/<AAAA-MM>/ficha.json",
-     ".criterio/terminos/ (aceptar)",
+     ".criterio/terminos/ (dejar-listo)",
      "<estado>/cierre/<AAAA-MM>/resultados.json",
      "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md",
-     "<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)"
+     "<raíz>/_CRITERIO_FINANZAS.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -27,17 +27,13 @@
      "finance-intake"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "corrida",
      "cuentas",
-     "init",
+     "dejar-listo",
      "inventario",
-     "marcar-raiz",
-     "reporte",
-     "terminos"
+     "reporte"
     ],
     "calcula": true
    },
