@@ -2,9 +2,9 @@
 
 # criterio-chro · el diseño de la familia
 
-**Estado: en construcción, hacia su versión 0.1.0.** Los comandos, los skills y el motor de cálculo se
-construyen sobre el núcleo común; el motor pasa su prueba determinista y la prueba de sesgo contra el
-material de `tests/criterio-chro/`. Alcance en [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
+**Estado: construida, en su versión 0.1.0, de laboratorio.** Los comandos, los skills y el motor de cálculo
+se construyen sobre el núcleo común; el motor pasa su prueba determinista y la prueba de sesgo contra el
+material de `tests/criterio-chro/`, y los dos agentes pasaron las rondas 1 y 2 sobre la banca de Colombia y su control. Alcance en [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
 
 **Esta es la hoja de diseño de la familia**: las señales que calcula el código, cada comando con su
 entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, la

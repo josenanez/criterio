@@ -733,7 +733,7 @@
     "candido": "La selección",
     "rostrum": "El portal"
    },
-   "nota": "Estado de la familia: en construcción, hacia su versión 0.1.0. El motor, con su prueba determinista y la prueba de sesgo con pares de candidatos sobre material sintético; la ronda con los dos agentes es el paso siguiente.",
+   "nota": "Estado de la familia: de laboratorio, en su versión 0.1.0. El motor pasa su prueba determinista y la prueba de sesgo con pares de candidatos contra todo su material, y los dos agentes, sus primeras rondas con una clave que no ven.",
    "guion": [
     {
      "cabeza": true,
@@ -779,7 +779,7 @@
     "candido": "Selection",
     "rostrum": "The portal"
    },
-   "nota": "Where the family stands: under construction, towards its version 0.1.0. The engine, with its deterministic test and the bias test with candidate pairs on synthetic material; the round with the two agents is the next step.",
+   "nota": "Where the family stands: in the lab, at its version 0.1.0. The engine passes its deterministic test and the bias test with candidate pairs against all its material, and the two agents, their first rounds with a key they never see.",
    "guion": [
     {
      "cabeza": true,

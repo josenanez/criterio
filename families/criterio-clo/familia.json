@@ -761,7 +761,7 @@
         "constanza": "El cumplimiento",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida y probada sobre material sintético de seis países —Colombia, Ecuador, Perú, Chile, México y Brasil, este con sus documentos en portugués—. El motor pasa su prueba determinista contra las dieciocho entidades del material, y los dos agentes pasaron sus rondas con una clave que no ven.",
+      "nota": "Estado de la familia: estable. El motor pasa su prueba determinista contra todo su material, y los dos agentes pasaron sus rondas con una clave que no ven.",
       "guion": [
         {
           "cabeza": true,
@@ -807,7 +807,7 @@
         "constanza": "Compliance",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built and tested on synthetic material from six countries —Colombia, Ecuador, Peru, Chile, Mexico and Brazil, the latter with its documents in Portuguese—. The engine passes its deterministic test against the eighteen entities in the material, and the two agents passed their rounds with a key they never see.",
+      "nota": "Where the family stands: stable. The engine passes its deterministic test against all its material, and the two agents passed their rounds with a key they never see.",
       "guion": [
         {
           "cabeza": true,

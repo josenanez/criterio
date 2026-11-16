@@ -2,9 +2,9 @@
 
 # criterio-chro · the family design
 
-**Status: under construction, towards its version 0.1.0.** The commands, the skills and the calculation
-engine are built on the common core; the engine passes its deterministic test and the bias test against
-the material in `tests/criterio-chro/`. Scope in [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
+**Status: built, at its version 0.1.0, in the lab.** The commands, the skills and the calculation engine
+are built on the common core; the engine passes its deterministic test and the bias test against the
+material in `tests/criterio-chro/`, and both agents passed rounds 1 and 2 on the Colombian bank and its control. Scope in [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
 
 **This is the family's design sheet**: the signals the code calculates, each command with its input,
 process and report, and the decisions taken. What the family does, how it installs, the folder structure
