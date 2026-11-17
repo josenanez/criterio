@@ -13,7 +13,7 @@ del repositorio, y `client_secret.json` es el que se descarga de Google Cloud Co
 «aplicación de escritorio». Ninguno de los dos se versiona.
 
 Sin --aplicar no escribe nada: trae cada video y muestra, campo por campo, lo que está publicado y lo
-que quedaría. Con --aplicar sube solo los videos que cambian, conservando la categoría, y la traducción
+que quedaría, y cómo quedaría el orden de cada lista de reproducción de `listas` en videos.json. Con --aplicar sube solo los videos que cambian, conservando la categoría, y la traducción
 al inglés de los demás idiomas que ya tenga el video. Cada actualización cuesta 50 unidades de la cuota
 diaria de la API (10.000 por defecto); cada consulta, una.
 
@@ -88,6 +88,57 @@ def diferencias(actual: dict, sn: dict, loc: dict) -> list[str]:
     return out
 
 
+def ordenar_listas(yt, listas: dict, videos: dict, aplicar: bool, HttpError) -> int:
+    """Cada lista de reproducción, en el orden del catálogo: lo que falta se agrega en su lugar y lo que
+    está en otro lugar se mueve. Lo que la lista tiene y el catálogo no —un video viejo— queda al final
+    y se nombra; no se quita. Cada movimiento o inserción cuesta 50 unidades de la cuota."""
+    fallas = 0
+    for idioma, lista in listas.items():
+        if not lista.get("id"):
+            print(f"\nLista en {idioma}: sin identificador en videos.json (`listas.{idioma}`); no se ordena")
+            continue
+        items, token = [], None
+        while True:
+            r = yt.playlistItems().list(playlistId=lista["id"], part="snippet", maxResults=50, pageToken=token).execute()
+            items += r.get("items", [])
+            token = r.get("nextPageToken")
+            if not token:
+                break
+        actual = [x["snippet"]["resourceId"]["videoId"] for x in items]
+        de = {x["snippet"]["resourceId"]["videoId"]: x for x in items}
+        deseado = lista["videos"]
+        sobran = [v for v in actual if v not in deseado]
+        if actual[:len(deseado)] == deseado:
+            print(f"\n= Lista en {idioma}: en orden" + (f" · al final, fuera del catálogo: {', '.join(sobran)}" if sobran else ""))
+            continue
+        print(f"\n~ Lista en {idioma}:")
+        for pos, vid in enumerate(deseado):
+            nombre = videos.get(vid, {}).get("video", vid)
+            if vid in de:
+                if actual.index(vid) == pos:
+                    continue
+                print(f"  {pos + 1:>2}. {nombre} ({vid}): se mueve desde el lugar {actual.index(vid) + 1}")
+                cuerpo = {"id": de[vid]["id"], "snippet": {"playlistId": lista["id"], "position": pos,
+                                                           "resourceId": {"kind": "youtube#video", "videoId": vid}}}
+                hacer = lambda c=cuerpo: yt.playlistItems().update(part="snippet", body=c).execute()  # noqa: E731
+            else:
+                print(f"  {pos + 1:>2}. {nombre} ({vid}): se agrega")
+                cuerpo = {"snippet": {"playlistId": lista["id"], "position": pos, "resourceId": {"kind": "youtube#video", "videoId": vid}}}
+                hacer = lambda c=cuerpo: yt.playlistItems().insert(part="snippet", body=c).execute()  # noqa: E731
+            actual = [v for v in actual if v != vid]
+            actual.insert(pos, vid)
+            if aplicar:
+                try:
+                    r = hacer()
+                    de[vid] = r
+                except HttpError as e:
+                    print(f"     ✗ {e}")
+                    fallas += 1
+        if sobran:
+            print(f"  al final, fuera del catálogo (no se quitan): {', '.join(sobran)}")
+    return fallas
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--secreto", type=Path, required=True, help="client_secret.json de la aplicación de escritorio")
@@ -129,6 +180,8 @@ def main() -> int:
                 fallas += 1
     print(f"\n{cambian} de {len(videos)} cambian" + ("" if a.aplicar else " · nada se subió: agrega --aplicar para subirlos")
           + (f" · {fallas} con error" if fallas else ""))
+    if not a.solo:
+        fallas += ordenar_listas(yt, cat.get("listas") or {}, cat["videos"], a.aplicar, HttpError)
     return 1 if fallas else 0
 
 

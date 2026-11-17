@@ -461,8 +461,15 @@ def generar() -> dict:
                 videos[pres["en"]["id"]] = {"video": f"{s}/presentacion/en", **presentacion(s, pres["en"], uso, "en", pres)}
         if uso:
             videos[uso["id"]] = {"video": f"{s}/uso", **de_uso(s, uso, pres)}
+    # Las listas de reproducción, en el orden de las familias en el portal (`orden` de familia.json): Criterio
+    # primero; en español, la presentación y el uso de cada familia; en inglés, sus presentaciones.
+    orden = sorted(reg["familias"], key=lambda s: familia(s)["orden"])
+    listas = {"es": [c["id"]] + [v["id"] for s in orden for v in (reg["familias"][s].get("presentacion"), reg["familias"][s].get("uso")) if v],
+              "en": ([c["en"]["id"]] if c.get("en") else []) + [reg["familias"][s]["presentacion"]["en"]["id"] for s in orden
+                                                                if (reg["familias"][s].get("presentacion") or {}).get("en")]}
+    listas = {l: {"id": (reg.get("listas") or {}).get(l), "videos": ids} for l, ids in listas.items()}
     return {"nota": "Generado por scripts/youtube.py desde el repositorio; no se edita a mano. Lo sube docs/video/sync_youtube.py.",
-            "videos": videos}
+            "videos": videos, "listas": listas}
 
 
 def medir() -> int:
