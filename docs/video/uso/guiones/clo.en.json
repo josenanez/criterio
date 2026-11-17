@@ -1,0 +1,61 @@
+{
+  "base": "clo.es.json",
+  "familia": "clo",
+  "idioma": "en",
+  "titulo": "Criterio CLO · How to use the whole family",
+  "eyebrow": "Criterio CLO · How to use it",
+  "nota": "Real Claude Code session, in Spanish · sped up · synthetic material",
+  "intro": {
+    "titulo": "How to use the CLO family,",
+    "sub": "from install to first result.",
+    "texto": "A real Claude Code session, sped up and in Spanish, on Banco Andino S.A., a test organisation with synthetic material."
+  },
+  "cierre": {
+    "titulo": "Install Criterio.",
+    "url": "josenanez.com/agents",
+    "licencia": "Open source · Apache 2.0",
+    "aviso": "Real Claude Code recording, sped up. Banco Andino S.A. is a test organisation: the material is synthetic."
+  },
+  "capitulos": [
+    {
+      "titulo": "Install the family",
+      "texto": "Two commands in Claude Code: the Criterio catalogue and the CLO family. It installs Fidel and Constanza, and Rostrum, the portal."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Fidel, contracts. He processes the folder, proposes what he found and asks only what no document says: the entity, who signs, the notices and whether it contracts under public procurement law."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "The signing authority matrix: 3 signatories, each with a limit. Against it, Fidel checks who signed each contract."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Constanza, compliance. What was already answered with Fidel is not asked again: the folder and the entity are already set."
+    },
+    {
+      "titulo": "The first result, in a table",
+      "texto": "What each agent found, with its figure: a lapsed notice period without a decision and a period declared compliant with 72.73% of progress backed by evidence."
+    },
+    {
+      "titulo": "The daily task, only with a yes",
+      "texto": "The family proposes a daily task that reviews only what is due. Here it was left to run by hand."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "Each agent is asked in natural language. Fidel finds CTR-101, for 400,000,000.00, signed by someone authorised only up to 150,000,000."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "Constanza says which obligations are overdue, who is responsible for each one and the source of each data point."
+    }
+  ]
+}

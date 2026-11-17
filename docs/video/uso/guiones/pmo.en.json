@@ -1,0 +1,65 @@
+{
+  "base": "pmo.es.json",
+  "familia": "pmo",
+  "idioma": "en",
+  "titulo": "Criterio PMO · How to use the whole family",
+  "eyebrow": "Criterio PMO · How to use it",
+  "nota": "Real Claude Code session, in Spanish · sped up · synthetic material",
+  "intro": {
+    "titulo": "How to use the PMO family,",
+    "sub": "from install to first result.",
+    "texto": "A real Claude Code session, sped up and in Spanish, on a test portfolio with synthetic material."
+  },
+  "cierre": {
+    "titulo": "Install Criterio.",
+    "url": "josenanez.com/agents",
+    "licencia": "Open source · Apache 2.0",
+    "aviso": "Real Claude Code recording, sped up. The portfolio is a test one: the material is synthetic."
+  },
+  "capitulos": [
+    {
+      "titulo": "Install the family",
+      "texto": "Two commands in Claude Code: the Criterio catalogue and the PMO family. It installs Vera, Samuel and Alba, and Rostrum, the portal."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Vera, the portfolio. She processes the folder, finds the 6 projects and asks only what no document says: your role, your committee and how you want the report."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Vera's first sweep, over 3 of the 6 projects: PRY-005 reports green and does not hold up, and Nubetec invoiced 40 M more than what was accepted on PRY-003."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Samuel, the project manager. You choose which projects to set him up for; from the charter he takes the manager, the sponsor and the committee, and only asks to confirm them."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Alba, product, works before there is a project: she checks the business case against interviews with 8 merchants and the visit notes."
+    },
+    {
+      "titulo": "The first result, in a table",
+      "texto": "What each agent found, with its figure: a green project that does not hold up, a report promised three times and 58 days overdue, and a target 28.0% above what was measured."
+    },
+    {
+      "titulo": "The daily task, only with a yes",
+      "texto": "The family proposes a daily task that reviews only what is due. Here it was left to run by hand."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "Each agent is asked in natural language. Vera explains why PRY-005 does not hold up: an overdue deployment, a 31-day commitment and a milestone without its certificate."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "Samuel says which PRY-001 commitments are overdue, who holds them and what he does not know."
+    }
+  ]
+}

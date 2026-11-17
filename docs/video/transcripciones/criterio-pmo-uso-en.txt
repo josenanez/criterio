@@ -1,0 +1,39 @@
+0:00  Criterio PMO · How to use it
+0:00  How to use the PMO family, from install to first result.
+0:00  Vera · Samuel · Alba
+0:00  A real Claude Code session, sped up and in Spanish, on a test portfolio with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the PMO family. It installs Vera, Samuel and Alba, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-pmo@criterio
+0:27  Typed in Claude Code: /criterio-pmo:pmo-setup
+0:27  2 · Set it up in a conversation. Vera, the portfolio. She processes the folder, finds the 6 projects and asks only what no document says: your role, your committee and how you want the report.
+0:36  Typed in Claude Code: Sí, es esa.
+0:44  Typed in Claude Code: Sí, soy la PMO del portafolio.
+0:51  Typed in Claude Code: El primer jueves de cada mes.
+0:58  Typed in Claude Code: Página.
+1:00  2 · Set it up in a conversation. Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once.
+1:05  2 · Set it up in a conversation. The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user.
+1:14  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+1:24  Typed in Claude Code: Sí, márcala.
+1:29  2 · Set it up in a conversation. Vera's first sweep, over 3 of the 6 projects: PRY-005 reports green and does not hold up, and Nubetec invoiced 40 M more than what was accepted on PRY-003.
+1:40  2 · Set it up in a conversation. Samuel, the project manager. You choose which projects to set him up for; from the charter he takes the manager, the sponsor and the committee, and only asks to confirm them.
+1:50  Typed in Claude Code: Samuel, para PRY-001. Alba, para el producto de productos/PRD-QR.
+2:00  Typed in Claude Code: Déjalo a nombre de Andrés Lozano, el gerente.
+2:07  Typed in Claude Code: Cada tres semanas, los viernes.
+2:13  Typed in Claude Code: Sí, ahí.
+2:36  2 · Set it up in a conversation. Alba, product, works before there is a project: she checks the business case against interviews with 8 merchants and the visit notes.
+2:46  Typed in Claude Code: Déjalo a nombre de Marcela Ruiz, la gerente de producto.
+2:53  Typed in Claude Code: Sí, el Comité de producto.
+3:19  3 · The first result, in a table. What each agent found, with its figure: a green project that does not hold up, a report promised three times and 58 days overdue, and a target 28.0% above what was measured.
+3:34  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+3:36  Typed in Claude Code: Por ahora no; lo corro a mano.
+3:43  5 · Day to day, in your own words. Each agent is asked in natural language. Vera explains why PRY-005 does not hold up: an overdue deployment, a 31-day commitment and a milestone without its certificate.
+3:45  Typed in Claude Code: /criterio-portfolio:vera ¿Qué proyecto reporta verde y no se sostiene, y por qué?
+4:06  5 · Day to day, in your own words. Samuel says which PRY-001 commitments are overdue, who holds them and what he does not know.
+4:09  Typed in Claude Code: /criterio-project:samuel ¿Qué compromisos de PRY-001 están vencidos y quién los tiene?
+4:28  Install Criterio.
+4:28  /plugin marketplace add josenanez/criterio
+4:28  josenanez.com/agents
+4:28  Open source · Apache 2.0
+4:28  Real Claude Code recording, sped up. The portfolio is a test one: the material is synthetic.

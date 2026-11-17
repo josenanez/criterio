@@ -1,0 +1,36 @@
+0:00  Criterio CCO · How to use it
+0:00  How to use the CCO family, from install to first result.
+0:00  Augusto · Valeria
+0:00  A real Claude Code session, sped up and in Spanish, on Almacenes del Valle S.A.S., a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the CCO family. It installs Augusto and Valeria, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-cco@criterio
+0:27  Typed in Claude Code: /criterio-cco:cco-setup
+0:27  2 · Set it up in a conversation. Augusto, the forecast. He processes the folder, recognises the Salesforce export and proposes the stages with the evidence each one requires.
+0:35  Typed in Claude Code: Sí, es esa.
+0:48  Typed in Claude Code: Sí, Almacenes del Valle S.A.S., Colombia, noviembre de 2026.
+0:55  Typed in Claude Code: Sí, ahí.
+1:03  Typed in Claude Code: Sí, tal cual.
+1:03  2 · Set it up in a conversation. Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once.
+1:11  2 · Set it up in a conversation. The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user.
+1:21  Typed in Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:25  2 · Set it up in a conversation. Augusto's first result: 13 signals, among them 5 opportunities without a purchase order and 3 stalled for 71 days.
+1:35  2 · Set it up in a conversation. Valeria, from sale to invoice. What was already answered is not asked again; she processes the discount matrix, with 3 levels, and the commission plan.
+1:46  Typed in Claude Code: Todavía no existen; sigue sin ellas.
+1:54  Typed in Claude Code: Sí, 30 días.
+2:00  Typed in Claude Code: Sí, sin publicar.
+2:09  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+2:14  3 · The first result, in a table. What each agent found: 13 signals across 21 opportunities. Valeria matches what was won against what was signed and invoiced when the CLO and the CFO also run.
+2:28  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+2:30  Typed in Claude Code: No por ahora; lo corro a mano.
+2:38  5 · Day to day, in your own words. Each agent is asked in natural language. Augusto lists the 5 opportunities in the Compromiso stage without a purchase order; the largest, OPP-1103, for 250,000,000.
+2:40  Typed in Claude Code: /criterio-sales:augusto ¿Qué oportunidades en Compromiso no tienen la orden de compra que exige su etapa?
+2:59  5 · Day to day, in your own words. Valeria processes the 5 quotes against the matrix: 3 discounts of 22% approved by someone who can only go up to 20%.
+3:02  Typed in Claude Code: /criterio-revenue:valeria ¿Hay alguna cotización con un descuento que no tenga la aprobación que pide la matriz?
+3:14  Typed in Claude Code: Sí, córrelo.
+3:32  Install Criterio.
+3:32  /plugin marketplace add josenanez/criterio
+3:32  josenanez.com/agents
+3:32  Open source · Apache 2.0
+3:32  Real Claude Code recording, sped up. Almacenes del Valle S.A.S. is a test organisation: the material is synthetic.

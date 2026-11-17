@@ -1,0 +1,43 @@
+0:00  Criterio CFO · How to use it
+0:00  How to use the CFO family, from install to first result.
+0:00  Clara · Tomás · Áurea
+0:00  A real Claude Code session, sped up and in Spanish, on Banco Andino S.A., a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the CFO family. It installs Clara, Tomás and Áurea, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-cfo@criterio
+0:21  2 · Set it up in a conversation. Clara, the close. She looks at the folder, proposes what she found and asks only what no document says: the entity, the accounting framework, the period and who approves.
+0:27  Typed in Claude Code: /criterio-cfo:cfo-setup
+0:35  Typed in Claude Code: Sí, es esa.
+0:44  Typed in Claude Code: Sí. El nombre legal es Banco Andino S.A.
+0:52  Typed in Claude Code: Sí, confirmo.
+0:58  Typed in Claude Code: Sí, septiembre de 2026.
+1:04  Typed in Claude Code: Sí, son esas.
+1:10  Typed in Claude Code: Sí, esas cuatro.
+1:16  Typed in Claude Code: Sí, úsalo tal cual.
+1:24  Typed in Claude Code: Sí, Sofía León aprueba. Usa los festivos de Colombia de 2026.
+1:31  Typed in Claude Code: Sí, ahí.
+1:37  2 · Set it up in a conversation. The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user.
+1:39  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+1:47  Typed in Claude Code: Sí, márcala.
+1:49  2 · Set it up in a conversation. Claude Code asks for permission to open the agent's instructions. It is authorised once.
+1:55  2 · Set it up in a conversation. Clara's first result: each close task against its evidence. C-02 is marked as done and has no support.
+2:10  2 · Set it up in a conversation. Tomás, the budget. What was already answered is not asked again: he only asks to confirm it.
+2:21  Typed in Claude Code: Sí, 2026 con corte a septiembre.
+2:27  Typed in Claude Code: Rige la v2.
+2:35  Typed in Claude Code: No lo tengo a mano: déjalas por nombre de área.
+2:41  Typed in Claude Code: Sí, esos.
+2:48  Typed in Claude Code: El próximo comité es el 10 de diciembre de 2026.
+3:03  2 · Set it up in a conversation. Áurea, treasury: cash, payments and debt against their policy. She never moves money.
+3:27  3 · The first result, in a table. What each agent found, with its figure: a close less advanced than declared, a line 15% above what was approved and an account below its minimum.
+3:39  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+3:41  Typed in Claude Code: Por ahora no; lo corro a mano.
+3:53  5 · Day to day, in your own words. Each agent is asked in natural language. Áurea finds a payment of 30,000,000.00 with 1 of the 2 approvals the policy requires.
+3:58  Typed in Claude Code: /criterio-treasury:aurea ¿Hay algún pago programado que no tenga las aprobaciones que pide la política?
+4:15  5 · Day to day, in your own words. Clara says what is missing to close September: the overdue tasks, the critical path and the source of each data point.
+4:18  Typed in Claude Code: /criterio-finance:clara ¿Qué falta para cerrar septiembre?
+4:35  Install Criterio.
+4:35  /plugin marketplace add josenanez/criterio
+4:35  josenanez.com/agents
+4:35  Open source · Apache 2.0
+4:35  Real Claude Code recording, sped up. Banco Andino S.A. is a test organisation: the material is synthetic.

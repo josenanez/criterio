@@ -4,6 +4,9 @@
 //   PORTAL=<repo del portal> node uso/render.mjs <toma> <guion.json> <salida.mp4>
 //   PORTAL=… node uso/render.mjs <toma> <guion.json> <cuadro.png> --cuadro <segundo de la toma> [intro|cierre]
 //
+// Un guion en otro idioma que el de la toma (`base`: el guion de la toma) trae solo sus textos: los tiempos, lo
+// escrito y los robots son los de su base, y sus capítulos van, uno a uno, sobre los de ella.
+//
 // Los robots salen de las figuras de difusión del portal. Lo único que se quita de la toma son los avisos del
 // entorno donde se grabó, no de Criterio ni de Claude Code al usarlo («ocultar» en el guion): se cambian por
 // espacios del mismo ancho.
@@ -15,7 +18,16 @@ import { chromium } from 'playwright';
 const [tomaDir, guionP, salida, modo, segundo, tarjetaFija] = process.argv.slice(2);
 const FPS = 30, INTRO = 5, CIERRE = 7;
 const AQUI = path.dirname(new URL(import.meta.url).pathname);
-const g = JSON.parse(fs.readFileSync(guionP, 'utf8'));
+const leer = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
+function guion(p) {
+  const t = leer(p);
+  if (!t.base) return t;
+  const b = leer(path.join(path.dirname(p), t.base));
+  if (t.capitulos.length !== b.capitulos.length) throw new Error(`${p}: ${t.capitulos.length} capítulos y su base, ${b.capitulos.length}`);
+  return { ...b, ...t, intro: { ...b.intro, ...t.intro }, cierre: { ...b.cierre, ...t.cierre },
+    capitulos: b.capitulos.map((c, i) => ({ ...c, ...t.capitulos[i] })) };
+}
+const g = guion(guionP);
 const FIGURAS = path.resolve(process.env.PORTAL ?? '../jf-amplify-portal', 'difusion', 'criterio-2-0-0', 'figuras');
 const robot = (n) => n && `file://${path.join(FIGURAS, `robot-${n}.svg`)}`;
 
@@ -26,7 +38,12 @@ const ev = fs.readFileSync(path.join(tomaDir, 'toma.cast'), 'utf8').trim().split
   for (const re of ocultar) e[2] = e[2].replace(re, (m) => ' '.repeat(m.replace(/\x1b\[[0-9;]*m/g, '').length));
   return e;
 });
-const m = modo === '--cuadro' ? null : JSON.parse(fs.readFileSync(path.join(tomaDir, 'montaje.json'), 'utf8'));
+const m = modo === '--cuadro' ? null : leer(path.join(tomaDir, 'montaje.json'));
+// Del montaje, el segundo del video de cada capítulo; el texto, del guion.
+if (m) m.capitulos = m.capitulos.map((c, i) => {
+  if (g.capitulos[i]?.desde !== c.desde) throw new Error(`el capítulo ${i + 1} del guion no es el del montaje`);
+  return { ...c, ...g.capitulos[i] };
+});
 
 function castEn(v) {
   const A = m.anclas;

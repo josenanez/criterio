@@ -1,0 +1,25 @@
+0:00  Criterio EA · How to use it
+0:00  How to use the EA family, from install to first result.
+0:00  Ofelia
+0:00  A real Claude Code session, sped up and in Spanish, on the president's office of Banco Andino S.A., a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the EA family. It installs Ofelia and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-ea@criterio
+0:27  2 · Set it up in a conversation. Ofelia, the president's office. From its documents she takes the entity, who she assists and the governing bodies —the board and the committee— and asks only what is missing.
+0:27  Typed in Claude Code: /criterio-assistant:ea-setup
+0:41  Typed in Claude Code: Sí a todo. Márcala.
+0:44  2 · Set it up in a conversation. The terms are accepted with the name of whoever accepts. Here, a demo user.
+0:52  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+0:57  3 · The first result. What Ofelia found: 3 missing minutes, the oldest from 55 days ago, and a calendar exported 21 days ago, on which she does not calculate conflicts.
+1:11  4 · The daily task, only with a yes. Ofelia proposes a daily task that reviews only what is due. Here it was left to run by hand.
+1:12  Typed in Claude Code: No por ahora; lo corro a mano.
+1:21  5 · Day to day, in your own words. Ofelia is asked in natural language. She processes the sessions and the emails: 7 agreements without an owner and 6 emails past their deadline with no saved reply.
+1:23  Typed in Claude Code: /criterio-assistant:ofelia Procesa las sesiones y los correos que faltan, y dime qué compromisos quedaron abiertos.
+1:44  5 · Day to day, in your own words. The supervisor's request 45 is 26 days overdue. Ofelia does not write the draft: the reply commits the entity, and it belongs to a person.
+1:46  Typed in Claude Code: /criterio-assistant:ofelia ¿Qué pidió el supervisor en el requerimiento 45 y qué falta para responderlo?
+2:05  Install Criterio.
+2:05  /plugin marketplace add josenanez/criterio
+2:05  josenanez.com/agents
+2:05  Open source · Apache 2.0
+2:05  Real Claude Code recording, sped up. Banco Andino S.A. is a test organisation: the material is synthetic.

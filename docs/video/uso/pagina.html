@@ -49,7 +49,7 @@
   <div class="pasos" id="pasos"></div>
   <div class="ventana"><div class="barra"><i></i><i></i><i></i><span id="ruta"></span></div><div id="term"></div></div>
   <div class="nota" id="nota"></div>
-  <div class="marca">josenanez.com/es/agents</div>
+  <div class="marca" id="marca"></div>
   <div class="tarjeta" id="intro"></div>
   <div class="tarjeta" id="cierre"></div>
 <script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
@@ -60,7 +60,9 @@
       cursorBlink: false, allowTransparency: false, scrollback: 0,
       theme: { background: '#0f0f0e', foreground: '#e8e6df', cursor: '#0f0f0e' } });
     term.open(document.getElementById('term'));
+    document.documentElement.lang = g.idioma;
     document.getElementById('eyebrow').textContent = g.eyebrow;
+    document.getElementById('marca').textContent = g.cierre.url;
     document.getElementById('ruta').textContent = `${g.carpeta} — Claude Code`;
     document.getElementById('nota').textContent = g.nota;
     const total = Math.max(...g.capitulos.map((c) => c.n));

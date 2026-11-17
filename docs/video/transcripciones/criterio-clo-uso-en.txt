@@ -1,0 +1,37 @@
+0:00  Criterio CLO · How to use it
+0:00  How to use the CLO family, from install to first result.
+0:00  Fidel · Constanza
+0:00  A real Claude Code session, sped up and in Spanish, on Banco Andino S.A., a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the CLO family. It installs Fidel and Constanza, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-clo@criterio
+0:27  2 · Set it up in a conversation. Fidel, contracts. He processes the folder, proposes what he found and asks only what no document says: the entity, who signs, the notices and whether it contracts under public procurement law.
+0:27  Typed in Claude Code: /criterio-clo:clo-setup
+0:35  Typed in Claude Code: Sí, es esa.
+0:36  2 · Set it up in a conversation. Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once.
+0:50  Typed in Claude Code: Sí. El nombre legal es Banco Andino S.A.
+0:51  2 · Set it up in a conversation. The signing authority matrix: 3 signatories, each with a limit. Against it, Fidel checks who signed each contract.
+1:01  Typed in Claude Code: La matriz está vigente y completa. Los avisos de ejemplo me sirven.
+1:07  Typed in Claude Code: Sí, 30 días.
+1:13  Typed in Claude Code: No, es privada.
+1:19  Typed in Claude Code: Sí, ahí.
+1:21  2 · Set it up in a conversation. The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user.
+1:28  Typed in Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:33  2 · Set it up in a conversation. Constanza, compliance. What was already answered with Fidel is not asked again: the folder and the entity are already set.
+1:41  Typed in Claude Code: Sí, septiembre de 2026.
+1:47  Typed in Claude Code: Sí, 15 días.
+1:59  Typed in Claude Code: Sí a las dos.
+2:07  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+2:12  3 · The first result, in a table. What each agent found, with its figure: a lapsed notice period without a decision and a period declared compliant with 72.73% of progress backed by evidence.
+2:24  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+2:26  Typed in Claude Code: Por ahora no; lo corro a mano.
+2:34  5 · Day to day, in your own words. Each agent is asked in natural language. Fidel finds CTR-101, for 400,000,000.00, signed by someone authorised only up to 150,000,000.
+2:37  Typed in Claude Code: /criterio-legal:fidel ¿Hay algún contrato firmado por alguien sin facultad para ese monto?
+2:55  5 · Day to day, in your own words. Constanza says which obligations are overdue, who is responsible for each one and the source of each data point.
+2:57  Typed in Claude Code: /criterio-compliance:constanza ¿Qué obligaciones están vencidas y quién responde por cada una?
+3:15  Install Criterio.
+3:15  /plugin marketplace add josenanez/criterio
+3:15  josenanez.com/agents
+3:15  Open source · Apache 2.0
+3:15  Real Claude Code recording, sped up. Banco Andino S.A. is a test organisation: the material is synthetic.

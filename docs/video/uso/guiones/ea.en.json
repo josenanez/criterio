@@ -1,0 +1,49 @@
+{
+  "base": "ea.es.json",
+  "familia": "ea",
+  "idioma": "en",
+  "titulo": "Criterio EA · How to use the whole family",
+  "eyebrow": "Criterio EA · How to use it",
+  "nota": "Real Claude Code session, in Spanish · sped up · synthetic material",
+  "intro": {
+    "titulo": "How to use the EA family,",
+    "sub": "from install to first result.",
+    "texto": "A real Claude Code session, sped up and in Spanish, on the president's office of Banco Andino S.A., a test organisation with synthetic material."
+  },
+  "cierre": {
+    "titulo": "Install Criterio.",
+    "url": "josenanez.com/agents",
+    "licencia": "Open source · Apache 2.0",
+    "aviso": "Real Claude Code recording, sped up. Banco Andino S.A. is a test organisation: the material is synthetic."
+  },
+  "capitulos": [
+    {
+      "titulo": "Install the family",
+      "texto": "Two commands in Claude Code: the Criterio catalogue and the EA family. It installs Ofelia and Rostrum, the portal."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "Ofelia, the president's office. From its documents she takes the entity, who she assists and the governing bodies —the board and the committee— and asks only what is missing."
+    },
+    {
+      "titulo": "Set it up in a conversation",
+      "texto": "The terms are accepted with the name of whoever accepts. Here, a demo user."
+    },
+    {
+      "titulo": "The first result",
+      "texto": "What Ofelia found: 3 missing minutes, the oldest from 55 days ago, and a calendar exported 21 days ago, on which she does not calculate conflicts."
+    },
+    {
+      "titulo": "The daily task, only with a yes",
+      "texto": "Ofelia proposes a daily task that reviews only what is due. Here it was left to run by hand."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "Ofelia is asked in natural language. She processes the sessions and the emails: 7 agreements without an owner and 6 emails past their deadline with no saved reply."
+    },
+    {
+      "titulo": "Day to day, in your own words",
+      "texto": "The supervisor's request 45 is 26 days overdue. Ofelia does not write the draft: the reply commits the entity, and it belongs to a person."
+    }
+  ]
+}

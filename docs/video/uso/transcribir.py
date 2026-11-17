@@ -15,8 +15,23 @@ from pathlib import Path
 
 INTRO, CIERRE = 5, 7   # los de render.mjs
 
+ESCRIBE = {"es": "Se escribe en Claude Code:", "en": "Typed in Claude Code:"}
+
+
+def leer(p: Path) -> dict:
+    """El guion; si está en otro idioma que la toma, sus textos sobre los de su base, como en render.mjs."""
+    t = json.loads(p.read_text(encoding="utf-8"))
+    if not t.get("base"):
+        return t
+    b = json.loads((p.parent / t["base"]).read_text(encoding="utf-8"))
+    if len(t["capitulos"]) != len(b["capitulos"]):
+        raise SystemExit(f"{p.name}: {len(t['capitulos'])} capítulos y su base, {len(b['capitulos'])}")
+    return {**b, **t, "intro": {**b["intro"], **t["intro"]}, "cierre": {**b["cierre"], **t["cierre"]},
+            "capitulos": [{**c, **x} for c, x in zip(b["capitulos"], t["capitulos"])]}
+
+
 toma, guion = Path(sys.argv[1]), Path(sys.argv[2])
-G = json.loads(guion.read_text(encoding="utf-8"))
+G = leer(guion)
 M = json.loads((toma / "montaje.json").read_text(encoding="utf-8"))
 L = json.loads((toma / "linea.json").read_text(encoding="utf-8"))
 A = M["anclas"]
@@ -35,9 +50,10 @@ def minuto(s: float) -> str:
 
 
 lineas = [(0.0, f"{G['eyebrow']}"), (0.0, f"{G['intro']['titulo']} {G['intro']['sub']}"),
-          (0.0, " · ".join(G["intro"]["nombres"])), (0.0, G["intro"]["texto"])]
-ev = [(c["video"] + INTRO, f"{c['n']} · {c['titulo']}. {c['texto']}") for c in M["capitulos"]]
-ev += [(video(e["enviado"]), f"Se escribe en Claude Code: {e['texto']}") for e in L["entradas"]]
+          (0.0, " · ".join(G["intro"]["nombres"])), (0.0, G["intro"]["texto"]), (0.0, G["nota"])]
+# Del montaje, el segundo de cada capítulo; el texto, del guion.
+ev = [(m["video"] + INTRO, f"{c['n']} · {c['titulo']}. {c['texto']}") for m, c in zip(M["capitulos"], G["capitulos"], strict=True)]
+ev += [(video(e["enviado"]), f"{ESCRIBE[G['idioma']]} {e['texto']}") for e in L["entradas"]]
 lineas += sorted(ev, key=lambda x: x[0])
 fin = INTRO + M["duracion"]
 c = G["cierre"]

@@ -71,16 +71,10 @@ CRITERIO = [
 # Los capítulos de una familia con una sola agente, en singular.
 UNA = {"Los agentes y lo que preparan": {"es": "La agente y lo que prepara", "en": "The agent and what she prepares"},
        "Lo que encontró cada agente": {"es": "Lo que encontró", "en": "What she found"}}
-# Los pasos del video de uso, como los escribe uso/transcribir.py: «N · Título. texto».
+# Los pasos del video de uso, como los escribe uso/transcribir.py: «N · Título. texto». Su nombre en inglés
+# es el del guion en inglés (pasos_en).
 PASO = re.compile(r"^(\d+) · ([^.]+)\.")
-PASOS_EN = {
-    "Instalar la familia": "Install the family",
-    "Configurarla en una conversación": "Set it up in a conversation",
-    "El primer resultado, en una tabla": "The first result, in a table",
-    "El primer resultado": "The first result",
-    "El reloj, solo con un sí": "The daily task, only with a yes",
-    "El día a día, en tus palabras": "Day to day, in your own words",
-}
+GUIONES = VIDEO / "uso" / "guiones"
 
 T = {
     "es": {
@@ -98,6 +92,7 @@ T = {
         "pagina": "La familia, su evidencia y la calculadora: {url}",
         "analisis": "El análisis de las pruebas: {url}",
         "uso": "Cómo se usa, de la instalación al primer resultado: {url}",
+        "uso_en": "",
         "presentacion": "Qué hace la familia, en noventa segundos: {url}",
         "codigo": "El código: {url}",
         "uso_que": "Una sesión real de Claude Code, acelerada y sin voz: Criterio {SIGLA} se instala con dos comandos, se configura en "
@@ -112,6 +107,7 @@ T = {
         "capitulos": "Capítulos",
         "llm": "Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.",
         "pantalla": "Texto en pantalla en inglés.",
+        "pantalla_uso": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.",
         "gemelo": {"en": "En inglés: {url}", "es": "En español: {url}"},
         "y": " y ",
         "hashtags": "#Criterio #AgentesDeIA #ClaudeCode",
@@ -133,6 +129,7 @@ T = {
         "pagina": "The family, its evidence and the calculator: {url}",
         "analisis": "The analysis of the tests: {url}",
         "uso": "How it is used, from install to first result (in Spanish): {url}",
+        "uso_en": "How it is used, from install to first result: {url}",
         "presentacion": "What the family does, in ninety seconds: {url}",
         "codigo": "The code: {url}",
         "uso_que": "A real Claude Code session, sped up and without voice: Criterio {SIGLA} installs with two commands, is set up in a "
@@ -147,6 +144,7 @@ T = {
         "capitulos": "Chapters",
         "llm": "It is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.",
         "pantalla": "On-screen text in Spanish.",
+        "pantalla_uso": "The on-screen text is in English; the Claude Code session, in Spanish.",
         "gemelo": {"es": "In Spanish: {url}", "en": "In English: {url}"},
         "y": " and ",
         "hashtags": "#Criterio #AIAgents #ClaudeCode",
@@ -158,6 +156,18 @@ PROHIBIDO = [r"\bgratis\b", r"\bfree\b", r"100\s?%", r"\blee\b", r"\bleen\b", r"
 
 def _j(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
+
+
+def pasos_en() -> dict[str, str]:
+    """El nombre en inglés de cada paso del video de uso: el del guion en inglés, capítulo a capítulo sobre
+    los de su base. Un mismo paso con dos nombres en inglés es un error."""
+    out: dict[str, str] = {}
+    for p in sorted(GUIONES.glob("*.en.json")):
+        en = _j(p)
+        for a, b in zip(_j(GUIONES / en["base"])["capitulos"], en["capitulos"], strict=True):
+            if out.setdefault(a["titulo"], b["titulo"]) != b["titulo"]:
+                raise SystemExit(f"youtube: el paso «{a['titulo']}» se llama «{out[a['titulo']]}» y, en {p.name}, «{b['titulo']}»")
+    return out
 
 
 def _seg(t: str) -> int:
@@ -218,13 +228,14 @@ def marcas_uso(archivo: str, f: dict) -> list[tuple[int, dict]]:
     empieza —«Configurarla: Clara, el cierre», «Tomás, el presupuesto»—, como lo dice la transcripción."""
     vistos, out = set(), []
     agentes = {a["nombre"]: a for a in f["agentes"]}
+    PASOS_EN = pasos_en()
     for t, x in lineas(archivo):
         m = PASO.match(x)
         if not m:
             continue
         es = m.group(2).strip()
         if es not in PASOS_EN:
-            raise SystemExit(f"youtube: el paso «{es}» de {archivo} no tiene su nombre en inglés en PASOS_EN")
+            raise SystemExit(f"youtube: el paso «{es}» de {archivo} no tiene su nombre en inglés en uso/guiones/*.en.json")
         resto = x[m.end():].strip()
         quien = next((n for n in agentes if resto.startswith(f"{n}, ")), None)
         if es.startswith("Configurarla") and quien and quien not in vistos:
@@ -371,7 +382,9 @@ def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par:
         partes += [anonimato(l), "", t["pagina"].format(url=url_familia(sigla, l)),
                    t["analisis"].format(url=url_familia(sigla, l) + "/analisis")]
         if uso:
-            partes.append(t["uso"].format(url=yt(uso["id"])))
+            # El video de uso en el idioma de la descripción, si está publicado en ese idioma.
+            en = l == "en" and uso.get("en")
+            partes.append(t["uso_en" if en else "uso"].format(url=yt(uso["en"]["id"] if en else uso["id"])))
         partes += gemelo(l, idioma, par)
         partes += [t["codigo"].format(url=REPO), ""] + bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
         out[l] = {"title": titulo_de(v, par, idioma, l) or titulo_familia(f, l), "description": "\n".join(partes)}
@@ -382,21 +395,24 @@ def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par:
     return out
 
 
-def de_uso(sigla: str, v: dict, pres: dict) -> dict:
+def de_uso(sigla: str, v: dict, pres: dict, idioma: str = "es", par: dict | None = None) -> dict:
+    """El video de uso. El de inglés es la misma toma —la sesión de Claude Code, en español— con los textos en
+    pantalla en inglés: el mismo montaje, así que sus capítulos caen en los mismos segundos que los del español."""
     f = familia(sigla)
-    caps = capitulos(marcas_uso(v["transcripcion"], f), v["duracion"], v["transcripcion"])
-    out = {"idioma": "es", "localizaciones": ["en"]}
+    es = v if idioma == "es" else par
+    caps = capitulos(marcas_uso(es["transcripcion"], f), es["duracion"], es["transcripcion"])
+    out = {"idioma": idioma, "localizaciones": [otro(idioma)]}
     for l in ("es", "en"):
         t = T[l]
-        partes = aviso(l, "es")
+        partes = [t["pantalla_uso"]] if idioma == "en" else aviso(l, idioma)
         # La presentación en el idioma de la descripción, si está publicada en ese idioma.
         pres_l = pres.get("en") if l == "en" and pres.get("en") else pres
         partes += [t["uso_que"].format(SIGLA=sigla.upper()), "", t["instalar"],
                    f"/plugin marketplace add {MARKETPLACE}", f"/plugin install criterio-{sigla}@criterio", setup_de(f), "",
                    anonimato(l), "", t["pagina"].format(url=url_familia(sigla, l)),
-                   t["presentacion"].format(url=yt(pres_l["id"])), t["codigo"].format(url=REPO), ""]
+                   t["presentacion"].format(url=yt(pres_l["id"])), *gemelo(l, idioma, par), t["codigo"].format(url=REPO), ""]
         partes += bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
-        out[l] = {"title": v["titulo"] if l == "es" else t["titulo_uso_en"].format(SIGLA=sigla.upper()), "description": "\n".join(partes)}
+        out[l] = {"title": titulo_de(v, par, idioma, l) or T["en"]["titulo_uso_en"].format(SIGLA=sigla.upper()), "description": "\n".join(partes)}
     base = T["es"]["base_tags"] + [f"Criterio {sigla.upper()}", f["nivel_c"]["portada"]["rol"], "instalación", "installation", "tutorial"]
     out["tags"] = etiquetas(base, [a["nombre"] for a in f["agentes"]])
     out["chapters"] = [{"t": _hms(t), "es": m["es"], "en": m["en"]} for t, m in caps]
@@ -460,13 +476,15 @@ def generar() -> dict:
             if pres.get("en"):
                 videos[pres["en"]["id"]] = {"video": f"{s}/presentacion/en", **presentacion(s, pres["en"], uso, "en", pres)}
         if uso:
-            videos[uso["id"]] = {"video": f"{s}/uso", **de_uso(s, uso, pres)}
+            videos[uso["id"]] = {"video": f"{s}/uso", **de_uso(s, uso, pres, "es", uso.get("en"))}
+            if uso.get("en"):
+                videos[uso["en"]["id"]] = {"video": f"{s}/uso/en", **de_uso(s, uso["en"], pres, "en", uso)}
     # Las listas de reproducción, en el orden de las familias en el portal (`orden` de familia.json): Criterio
-    # primero; en español, la presentación y el uso de cada familia; en inglés, sus presentaciones.
+    # primero y, después, la presentación y el uso de cada familia, cada lista con los de su idioma.
     orden = sorted(reg["familias"], key=lambda s: familia(s)["orden"])
-    listas = {"es": [c["id"]] + [v["id"] for s in orden for v in (reg["familias"][s].get("presentacion"), reg["familias"][s].get("uso")) if v],
-              "en": ([c["en"]["id"]] if c.get("en") else []) + [reg["familias"][s]["presentacion"]["en"]["id"] for s in orden
-                                                                if (reg["familias"][s].get("presentacion") or {}).get("en")]}
+    pares = [v for s in orden for v in (reg["familias"][s].get("presentacion"), reg["familias"][s].get("uso")) if v]
+    listas = {"es": [c["id"]] + [v["id"] for v in pares],
+              "en": ([c["en"]["id"]] if c.get("en") else []) + [v["en"]["id"] for v in pares if v.get("en")]}
     listas = {l: {"id": (reg.get("listas") or {}).get(l), "videos": ids} for l, ids in listas.items()}
     return {"nota": "Generado por scripts/youtube.py desde el repositorio; no se edita a mano. Lo sube docs/video/sync_youtube.py.",
             "videos": videos, "listas": listas}
@@ -478,8 +496,9 @@ def medir() -> int:
     def mp4(v: dict) -> Path:
         n = v["transcripcion"].replace(".txt", ".mp4")
         if "-uso-" in n:
-            s, l = re.match(r"criterio-(\w+)-uso-(\w+)\.mp4", n).groups()
-            return VIDEO / "uso" / "tomas" / f"{s}-{l}" / n
+            # El de inglés se arma sobre la toma en español: queda en su carpeta.
+            s = re.match(r"criterio-(\w+)-uso-\w+\.mp4", n).group(1)
+            return next(iter(sorted((VIDEO / "uso" / "tomas").glob(f"{s}-*/{n}"))), VIDEO / "uso" / "tomas" / n)
         return VIDEO / "youtube" / n
 
     todos = [reg["criterio"]] + [v for par in reg["familias"].values() for v in par.values()]

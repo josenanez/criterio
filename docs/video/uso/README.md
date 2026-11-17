@@ -50,6 +50,20 @@ pero no cambia lo que Claude Code escribió.
    python3 uso/transcribir.py uso/tomas/cfo-es uso/guiones/cfo.es.json
    ```
 
+## El video en inglés
+
+La sesión se graba una vez, en español: los agentes trabajan en español. El video en inglés es la misma toma con los
+textos en pantalla en inglés, y lo dice en la nota de cada cuadro y en su portada. Su guion
+(`uso/guiones/<familia>.en.json`) trae solo los textos —el título, la portada, cada capítulo y el cierre— y nombra
+su base, el guion de la toma (`"base": "<familia>.es.json"`): los tiempos, lo escrito, los robots y el montaje son
+los de ella, y sus capítulos van, uno a uno, sobre los de la base. El nombre en inglés de cada paso, que usan los
+capítulos de YouTube, sale de estos guiones.
+
+```
+PORTAL=… node uso/render.mjs uso/tomas/cfo-es uso/guiones/cfo.en.json uso/tomas/cfo-es/criterio-cfo-uso-en.mp4
+python3 uso/transcribir.py uso/tomas/cfo-es uso/guiones/cfo.en.json
+```
+
 Lo único que se quita de la toma son los avisos del entorno donde se grabó, no de Criterio ni de Claude Code
 al usarlo (`ocultar` en el guion). La toma, la configuración de esa sesión y el video quedan en
 `uso/tomas/`, fuera del repositorio: el video se sube a YouTube y la fuente es el guion.

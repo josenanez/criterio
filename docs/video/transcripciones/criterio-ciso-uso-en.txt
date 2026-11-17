@@ -1,0 +1,32 @@
+0:00  Criterio CISO · How to use it
+0:00  How to use the CISO family, from install to first result.
+0:00  Alexis · Guillermo · Amparo
+0:00  A real Claude Code session, sped up and in Spanish, on Banco Cordillera S.A., a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the CISO family. It installs Alexis, Guillermo and Amparo, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-ciso@criterio
+0:27  2 · Set it up in a conversation. Alexis, governance and controls, processes the folder and leaves out, unopened, the files that look like credentials, keys or backups.
+0:27  Typed in Claude Code: /criterio-ciso:ciso-setup
+0:41  2 · Set it up in a conversation. Alexis recognises the statement of applicability, the systems, the third parties and the risk register, and only asks to confirm them.
+0:41  Typed in Claude Code: Sí. Banco Cordillera S.A., Colombia (CO).
+0:54  Typed in Claude Code: Sí, confirmo.
+0:56  2 · Set it up in a conversation. The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user.
+1:05  Typed in Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:10  2 · Set it up in a conversation. Guillermo, vulnerabilities. He recognises the Tenable exports without asking and takes the deadlines from the policy: 15 days for a critical one.
+1:28  Typed in Claude Code: Sí, acepto. Usuario de demostración.
+1:29  2 · Set it up in a conversation. Amparo, response and recovery: the notification matrix with its deadlines —24 hours to the Superintendencia Financiera for a critical incident— and the continuity calendar.
+1:44  2 · Set it up in a conversation. Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once.
+2:03  3 · The first result, in a table. What each agent found, with its figure: 5 vulnerabilities past their deadline, 2 of them critical, and an incident contained in 30 hours when the policy allows 24.
+2:17  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+2:19  Typed in Claude Code: Por ahora no; lo corro a mano.
+2:27  5 · Day to day, in your own words. Each agent is asked in natural language. Guillermo matches what is open against the KEV catalogue: 2 remain open past their remediation date, one with known use in ransomware.
+2:30  Typed in Claude Code: /criterio-vulnerability:guillermo ¿Qué vulnerabilidades críticas están en el catálogo KEV y cuánto llevan abiertas?
+2:49  5 · Day to day, in your own words. Amparo runs the timeline and the notifications: 2 incidents outside the containment deadline, one notification 6 hours late and another never made.
+2:52  Typed in Claude Code: /criterio-resilience:amparo ¿Qué incidente no cumplió el plazo de contención y a quién había que notificar?
+3:00  Typed in Claude Code: Los dos, en ese orden.
+3:18  Install Criterio.
+3:18  /plugin marketplace add josenanez/criterio
+3:18  josenanez.com/agents
+3:18  Open source · Apache 2.0
+3:18  Real Claude Code recording, sped up. Banco Cordillera S.A. is a test organisation: the material is synthetic.

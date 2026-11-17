@@ -26,7 +26,7 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 | `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
 | `linkedin/criterio-hoja-es.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | La hoja para la dirección, animada, para el post de LinkedIn; no se versiona |
-| `uso/tomas/<familia>-<idioma>/criterio-<familia>-uso-<idioma>.mp4` | Horizontal 16:9, 1920×1080, H.264, entre dos y cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; se arma con [`uso/`](uso/README.md) y no se versiona |
+| `uso/tomas/<familia>-es/criterio-<familia>-uso-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, entre dos y cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; el de inglés, la misma sesión —en español— con los textos en pantalla en inglés. Se arma con [`uso/`](uso/README.md) y no se versiona |
 
 **La transcripción de cada video**, para quien no lo ve, está en [`transcripciones/`](transcripciones/):
 el texto que hay en pantalla, en el orden en que aparece y con su minuto. `TRANSCRIBIR=1` la saca de la
@@ -37,7 +37,7 @@ datos con que se grabó, y cada vez que el video se vuelve a grabar. La de cada 
 
 **El título, la descripción y las etiquetas de cada video en YouTube** no se escriben en YouTube Studio: los
 genera [`scripts/youtube.py`](../../scripts/youtube.py) en [`youtube_catalog.json`](youtube_catalog.json), en español
-—el idioma del video— y su traducción al inglés, desde lo que ya está en el repositorio: cada video publicado de
+o en inglés —el idioma del video— y su traducción al otro, desde lo que ya está en el repositorio: cada video publicado de
 [`videos.json`](videos.json), sus capítulos del segundo en que aparece cada pantalla en su transcripción, el rol, las
 áreas, con qué se integra cada una y los agentes de su `familia.json`, los países de su material de pruebas y la frase
 estándar de anonimato de [`docs/anonimato.json`](../anonimato.json). `--check`, en la verificación, falla si el

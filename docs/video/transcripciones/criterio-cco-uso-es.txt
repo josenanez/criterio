@@ -2,6 +2,7 @@
 0:00  Cómo se usa la familia CCO, de la instalación al primer resultado.
 0:00  Augusto · Valeria
 0:00  Una sesión real de Claude Code, acelerada, sobre Almacenes del Valle S.A.S., una organización de prueba con material sintético.
+0:00  Grabación real de Claude Code · acelerada · material sintético
 0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CCO. Instala a Augusto y Valeria, y a Rostrum, el portal.
 0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
 0:15  Se escribe en Claude Code: /plugin install criterio-cco@criterio
