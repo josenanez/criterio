@@ -38,7 +38,7 @@ REPO = "https://github.com/josenanez/criterio"
 MARKETPLACE = "josenanez/criterio"
 CAPITULO_MIN = 10
 # Las marcas con que empieza alguna integración de `nivel_c`: no se pasan a minúscula.
-MARCAS = {"Excel", "Microsoft", "Outlook", "Salesforce", "Tenable", "Word"}
+MARCAS = {"Excel", "Microsoft", "Outlook", "Salesforce", "Tenable", "Word", "Zoho", "Google", "Dynamics", "ChileCompra"}
 
 PAISES = {p["codigo"]: p["nombre"] for p in json.loads((RAIZ / "plugins/criterio-finance/scripts/paises.json").read_text(encoding="utf-8"))["paises"]}
 
@@ -68,6 +68,9 @@ CRITERIO = [
     {"rotulo": {"es": r"^Hacia dónde vamos$", "en": r"^Where we are going$"}, "es": "Hacia dónde vamos", "en": "Where we are heading"},
     {"rotulo": {"es": r"^Instala Criterio\.$", "en": r"^Install Criterio\.$"}, "es": "Cómo se instala", "en": "How to install it"},
 ]
+# Los capítulos de una familia con una sola agente, en singular.
+UNA = {"Los agentes y lo que preparan": {"es": "La agente y lo que prepara", "en": "The agent and what she prepares"},
+       "Lo que encontró cada agente": {"es": "Lo que encontró", "en": "What she found"}}
 # Los pasos del video de uso, como los escribe uso/transcribir.py: «N · Título. texto».
 PASO = re.compile(r"^(\d+) · ([^.]+)\.")
 PASOS_EN = {
@@ -89,15 +92,17 @@ T = {
         "areas": "Qué hace, área por área:",
         "area": "• {a}: {que}. Con {con}.",
         "agentes": "Los agentes: {lista}. Y Rostrum, el portal que publica lo que escriben.",
+        "agente_una": "La agente: {lista}. Y Rostrum, el portal que publica lo que escribe.",
+        "titulo_uso_en": "",
         "donde": "Dónde se probó: {paises}.",
         "pagina": "La familia, su evidencia y la calculadora: {url}",
         "analisis": "El análisis de las pruebas: {url}",
         "uso": "Cómo se usa, de la instalación al primer resultado: {url}",
         "presentacion": "Qué hace la familia, en noventa segundos: {url}",
         "codigo": "El código: {url}",
-        "uso_que": "Una sesión real de Claude Code, acelerada: Criterio {SIGLA} se instala con dos comandos, se configura en "
+        "uso_que": "Una sesión real de Claude Code, acelerada y sin voz: Criterio {SIGLA} se instala con dos comandos, se configura en "
                    "una conversación y entrega su primer resultado.",
-        "instalar": "Para instalarla, en Claude Code:",
+        "instalar": "Para instalarla, en Claude Code o Cowork:",
         "criterio_que": "Criterio es un conjunto de familias de agentes de IA de código abierto (Apache 2.0) para Claude Code, "
                         "una por cada rol del nivel C. Cada familia procesa los documentos de su área y entrega cada señal "
                         "con la cita del documento del que sale; ninguna se anuncia antes de pasar su prueba.",
@@ -122,15 +127,17 @@ T = {
         "areas": "What it does, area by area:",
         "area": "• {a}: {que}. With {con}.",
         "agentes": "The agents: {lista}. And Rostrum, the portal that publishes what they write.",
+        "agente_una": "The agent: {lista}. And Rostrum, the portal that publishes what she writes.",
+        "titulo_uso_en": "Criterio {SIGLA} · How to use it, from install to first result",
         "donde": "Where it was tested: {paises}.",
         "pagina": "The family, its evidence and the calculator: {url}",
         "analisis": "The analysis of the tests: {url}",
         "uso": "How it is used, from install to first result (in Spanish): {url}",
         "presentacion": "What the family does, in ninety seconds: {url}",
         "codigo": "The code: {url}",
-        "uso_que": "A real Claude Code session, sped up: Criterio {SIGLA} installs with two commands, is set up in a "
+        "uso_que": "A real Claude Code session, sped up and without voice: Criterio {SIGLA} installs with two commands, is set up in a "
                    "conversation and delivers its first result.",
-        "instalar": "To install it, in Claude Code:",
+        "instalar": "To install it, in Claude Code or Cowork:",
         "criterio_que": "Criterio is a set of open-source (Apache 2.0) families of AI agents for Claude Code, one for each "
                         "C-level role. Each family processes its area's documents and delivers every signal with a citation "
                         "to the document it comes from; none is announced before it passes its test.",
@@ -206,17 +213,41 @@ def marcas_de(archivo: str, rotulos: list[dict], idioma: str, sigla: str = "") -
     return out
 
 
-def marcas_uso(archivo: str) -> list[tuple[int, dict]]:
+def marcas_uso(archivo: str, f: dict) -> list[tuple[int, dict]]:
+    """Cada paso, la primera vez que aparece; en la configuración, además, cada agente cuando su setup
+    empieza —«Configurarla: Clara, el cierre», «Tomás, el presupuesto»—, como lo dice la transcripción."""
     vistos, out = set(), []
+    agentes = {a["nombre"]: a for a in f["agentes"]}
     for t, x in lineas(archivo):
         m = PASO.match(x)
-        if m and m.group(1) not in vistos:
+        if not m:
+            continue
+        es = m.group(2).strip()
+        if es not in PASOS_EN:
+            raise SystemExit(f"youtube: el paso «{es}» de {archivo} no tiene su nombre en inglés en PASOS_EN")
+        resto = x[m.end():].strip()
+        quien = next((n for n in agentes if resto.startswith(f"{n}, ")), None)
+        if es.startswith("Configurarla") and quien and quien not in vistos:
+            a = agentes[quien]
+            primero = not any(k.startswith("Configurar") for k in vistos)
+            vistos.add(quien)
             vistos.add(m.group(1))
-            es = m.group(2).strip()
-            if es not in PASOS_EN:
-                raise SystemExit(f"youtube: el paso «{es}» de {archivo} no tiene su nombre en inglés en PASOS_EN")
+            out.append((t, {"es": (f"{m.group(1)} · Configurarla: " if primero else "") + f"{a['nombre']}, {a['titulo']}",
+                            "en": (f"{m.group(1)} · Set it up: " if primero else "") + f"{a['nombre']}, {a['rol']['en']}"}))
+            vistos.add("Configurar")
+        elif m.group(1) not in vistos:
+            vistos.add(m.group(1))
             out.append((t, {"es": f"{m.group(1)} · {es}", "en": f"{m.group(1)} · {PASOS_EN[es]}"}))
     return out
+
+
+def setup_de(f: dict) -> str:
+    """El comando que configura la familia: el de su paraguas o, con una sola agente, el de su plugin."""
+    a = f["agentes"]
+    if len(a) == 1:
+        s = next(c["id"] for c in a[0]["comandos"] if c["id"].endswith("-setup"))
+        return f"/{a[0]['plugin']}:{s}"
+    return f"/criterio-{f['sigla']}:{f['sigla']}-setup"
 
 
 def familia(sigla: str) -> dict:
@@ -230,6 +261,16 @@ def paises(sigla: str, l: str) -> list[str]:
         return []
     cods = {_j(c).get("pais") for c in mat.glob("*/clave.json")} - {None, ""}
     return [PAISES[c][l] for c in PAISES if c in cods]
+
+
+TOTAL = re.compile(r"^\d+ (países|countries)$")
+
+
+def es_nombre(m: str) -> bool:
+    """Una integración que es un sistema o una sigla —DIAN, Salesforce, KEV de CISA—, no un documento: va a las etiquetas."""
+    w = m.split(" ")[0].rstrip(",")
+    return not TOTAL.match(m) and not re.search(r"\b(Excel|CSV|Word|PDF|ERP)\b|cualquier", m) and \
+        (w in MARCAS or (len(w) > 1 and w.isupper()) or any(c.isupper() for c in w[1:]))
 
 
 def minuscula(x: str) -> str:
@@ -289,6 +330,13 @@ def anonimato(l: str) -> str:
     return _j(RAIZ / "docs" / "anonimato.json")[l]
 
 
+def titulo_de(v: dict, par: dict | None, idioma: str, l: str) -> str | None:
+    """El título curado de videos.json: el del video en su idioma, y el de su gemelo para la traducción."""
+    if l == idioma:
+        return v.get("titulo")
+    return (par or {}).get("titulo")
+
+
 def otro(idioma: str) -> str:
     return "en" if idioma == "es" else "es"
 
@@ -306,16 +354,17 @@ def gemelo(l: str, idioma: str, par: dict | None) -> list[str]:
 def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par: dict | None = None) -> dict:
     f = familia(sigla)
     p = f["nivel_c"]["portada"]
-    caps = capitulos([(t, {**m, "_sigla": sigla.upper()}) for t, m in marcas_de(v["transcripcion"], PRESENTACION, idioma, sigla)],
-                     v["duracion"], v["transcripcion"])
+    una = len(f["agentes"]) == 1
+    caps = capitulos([(t, {**m, **(UNA.get(m["es"], {}) if una else {}), "_sigla": sigla.upper()})
+                      for t, m in marcas_de(v["transcripcion"], PRESENTACION, idioma, sigla)], v["duracion"], v["transcripcion"])
     out = {"idioma": idioma, "localizaciones": [otro(idioma)]}
     for l in ("es", "en"):
         t = T[l]
         partes = aviso(l, idioma)
         partes += [t["que_es"].format(SIGLA=sigla.upper()), "",
                    t["areas"]] + [t["area"].format(a=x[l][0], que=x[l][1][0].lower() + x[l][1][1:],
-                                                   con=minuscula(x[l][2].replace(" · ", ", "))) for x in p["filas"]]
-        partes += ["", t["agentes"].format(lista=lista_agentes(f, l))]
+                                                   con=minuscula(", ".join(i for i in x[l][2].split(" · ") if not TOTAL.match(i)))) for x in p["filas"]]
+        partes += ["", t["agente_una" if len(f["agentes"]) == 1 else "agentes"].format(lista=lista_agentes(f, l))]
         ps = paises(sigla, l)
         if ps:
             partes += [t["donde"].format(paises=unir(ps, l))]
@@ -325,8 +374,8 @@ def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par:
             partes.append(t["uso"].format(url=yt(uso["id"])))
         partes += gemelo(l, idioma, par)
         partes += [t["codigo"].format(url=REPO), ""] + bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
-        out[l] = {"title": titulo_familia(f, l), "description": "\n".join(partes)}
-    marcas = [m for x in p["filas"] for m in x["es"][2].split(" · ") if not re.search(r"\b(Excel|CSV|Word|PDF|ERP)\b|cualquier|\d", m)]
+        out[l] = {"title": titulo_de(v, par, idioma, l) or titulo_familia(f, l), "description": "\n".join(partes)}
+    marcas = [re.sub(r"\s*\(.*?\)", "", m) for x in p["filas"] for m in x["es"][2].split(" · ") if es_nombre(m)]
     base = T["es"]["base_tags"] + [f"Criterio {sigla.upper()}", p["rol"], f["nombre"]["es"], f["nombre"]["en"]]
     out["tags"] = etiquetas(base, [x["es"][0] for x in p["filas"]] + [a["nombre"] for a in f["agentes"]] + marcas)
     out["chapters"] = [{"t": _hms(t), "es": m["es"].replace("{SIGLA}", sigla.upper()), "en": m["en"].replace("{SIGLA}", sigla.upper())} for t, m in caps]
@@ -335,7 +384,7 @@ def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par:
 
 def de_uso(sigla: str, v: dict, pres: dict) -> dict:
     f = familia(sigla)
-    caps = capitulos(marcas_uso(v["transcripcion"]), v["duracion"], v["transcripcion"])
+    caps = capitulos(marcas_uso(v["transcripcion"], f), v["duracion"], v["transcripcion"])
     out = {"idioma": "es", "localizaciones": ["en"]}
     for l in ("es", "en"):
         t = T[l]
@@ -343,11 +392,11 @@ def de_uso(sigla: str, v: dict, pres: dict) -> dict:
         # La presentación en el idioma de la descripción, si está publicada en ese idioma.
         pres_l = pres.get("en") if l == "en" and pres.get("en") else pres
         partes += [t["uso_que"].format(SIGLA=sigla.upper()), "", t["instalar"],
-                   f"/plugin marketplace add {MARKETPLACE}", f"/plugin install criterio-{sigla}@criterio", "",
+                   f"/plugin marketplace add {MARKETPLACE}", f"/plugin install criterio-{sigla}@criterio", setup_de(f), "",
                    anonimato(l), "", t["pagina"].format(url=url_familia(sigla, l)),
                    t["presentacion"].format(url=yt(pres_l["id"])), t["codigo"].format(url=REPO), ""]
         partes += bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
-        out[l] = {"title": t["titulo_uso"].format(SIGLA=sigla.upper()), "description": "\n".join(partes)}
+        out[l] = {"title": v["titulo"] if l == "es" else t["titulo_uso_en"].format(SIGLA=sigla.upper()), "description": "\n".join(partes)}
     base = T["es"]["base_tags"] + [f"Criterio {sigla.upper()}", f["nivel_c"]["portada"]["rol"], "instalación", "installation", "tutorial"]
     out["tags"] = etiquetas(base, [a["nombre"] for a in f["agentes"]])
     out["chapters"] = [{"t": _hms(t), "es": m["es"], "en": m["en"]} for t, m in caps]
@@ -370,7 +419,7 @@ def de_criterio(v: dict, publicadas: list[str], idioma: str = "es", par: dict | 
         partes += ["", anonimato(l), "", t["agentes_url"].format(url=f"{PORTAL}{'/es' if l == 'es' else ''}/agents"),
                    *gemelo(l, idioma, par), t["codigo"].format(url=REPO), "", t["instalar"], f"/plugin marketplace add {MARKETPLACE}", ""]
         partes += bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
-        out[l] = {"title": t["titulo_criterio"].format(lema=lema[l]), "description": "\n".join(partes)}
+        out[l] = {"title": titulo_de(v, par, idioma, l) or t["titulo_criterio"].format(lema=lema[l]), "description": "\n".join(partes)}
     roles = [familia(s)["nivel_c"]["portada"]["rol"] for s in publicadas]
     out["tags"] = etiquetas(T["es"]["base_tags"] + ["nivel C", "C-level"], [f"Criterio {s.upper()}" for s in publicadas] + roles)
     out["chapters"] = [{"t": _hms(t), "es": m["es"], "en": m["en"]} for t, m in caps]
