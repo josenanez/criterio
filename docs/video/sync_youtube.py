@@ -41,9 +41,15 @@ def credenciales(secreto: Path):
     cred = Credentials.from_authorized_user_file(str(TOKEN), ALCANCE) if TOKEN.exists() else None
     if cred and cred.valid:
         return cred
+    renovado = False
     if cred and cred.expired and cred.refresh_token:
-        cred.refresh(Request())
-    else:
+        try:
+            cred.refresh(Request())
+            renovado = True
+        except Exception:
+            # Una app en modo de prueba de Google vence su permiso a los siete días: se pide de nuevo.
+            renovado = False
+    if not renovado:
         cred = InstalledAppFlow.from_client_secrets_file(str(secreto), ALCANCE).run_local_server(port=0)
     TOKEN.parent.mkdir(parents=True, exist_ok=True)
     TOKEN.write_text(cred.to_json(), encoding="utf-8")
