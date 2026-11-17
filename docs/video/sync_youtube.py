@@ -93,10 +93,22 @@ def ordenar_listas(yt, listas: dict, videos: dict, aplicar: bool, HttpError) -> 
     está en otro lugar se mueve. Lo que la lista tiene y el catálogo no —un video viejo— queda al final
     y se nombra; no se quita. Cada movimiento o inserción cuesta 50 unidades de la cuota."""
     fallas = 0
+    propias = None
     for idioma, lista in listas.items():
         if not lista.get("id"):
-            print(f"\nLista en {idioma}: sin identificador en videos.json (`listas.{idioma}`); no se ordena")
-            continue
+            # Sin identificador en videos.json, la lista es la del canal que más videos de este idioma tiene.
+            if propias is None:
+                propias = {}
+                for pl in yt.playlists().list(mine=True, part="snippet", maxResults=50).execute().get("items", []):
+                    vids = [x["snippet"]["resourceId"]["videoId"] for x in yt.playlistItems().list(
+                        playlistId=pl["id"], part="snippet", maxResults=50).execute().get("items", [])]
+                    propias[pl["id"]] = (pl["snippet"]["title"], set(vids))
+            mejor = max(propias.items(), key=lambda kv: len(kv[1][1] & set(lista["videos"])), default=None)
+            if not mejor or not mejor[1][1] & set(lista["videos"]):
+                print(f"\nLista en {idioma}: el canal no tiene una lista con estos videos; no se ordena")
+                continue
+            lista = {**lista, "id": mejor[0]}
+            print(f"\nLista en {idioma}: «{mejor[1][0]}» ({mejor[0]}), la que tiene {len(mejor[1][1] & set(lista['videos']))} de sus videos")
         items, token = [], None
         while True:
             r = yt.playlistItems().list(playlistId=lista["id"], part="snippet", maxResults=50, pageToken=token).execute()
