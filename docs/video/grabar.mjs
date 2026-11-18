@@ -9,10 +9,11 @@
 //   docs/video/youtube/criterio-<familia>-youtube-{es,en}.mp4   1920×1080, para YouTube (no se versiona)
 //   docs/video/youtube/criterio-youtube-{es,en}.mp4               el de Criterio completo (src/criterio.jsx), igual
 //   docs/video/linkedin/criterio-hoja-es.mp4    la hoja para la dirección animada (src/hoja.jsx), 1080×1350 (no se versiona)
+//   docs/video/linkedin/criterio-equipos-{es,en}.mp4   «Nuestros equipos de agentes» (src/equipos.jsx), 1080×1350 (no se versiona)
 //
 // Uso (desde docs/video):  npm ci && PORTAL=<carpeta del portal> npm run grabar
 // FAMILIAS=cfo,clo graba solo esas (y `criterio`, el video de Criterio y la hoja); PIEZAS=youtube (o video,
-// gif, criterio, hoja) solo esas piezas; IDIOMAS=es solo ese. El video de Criterio cita las descargas: las lee de
+// gif, criterio, hoja, equipos) solo esas piezas; IDIOMAS=es solo ese. El video de Criterio cita las descargas: las lee de
 // la rama `descargas` del repositorio, o del CSV que diga DESCARGAS, con scripts/descargas.py.
 // Pide ffmpeg en el PATH. El navegador es el de Playwright (npx playwright install chromium);
 // CHROMIUM apunta a otro ejecutable si se quiere.
@@ -62,7 +63,7 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // El video es de la PMO y de la CFO: su tarjeta final lleva las cifras de sus rondas. Las familias
 // CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
 const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea,cco,ciso,criterio').split(',');
-const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube,criterio,hoja').split(',');
+const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube,criterio,hoja,equipos').split(',');
 const IDIOMAS = (process.env.IDIOMAS || 'es,en').split(',');
 // Las familias con video, cada una con su tarjeta final en src/main.jsx.
 const VIDEOS = ['pmo', 'cfo'];
@@ -79,6 +80,9 @@ const TOMAS = [
   // La hoja va en español, como la hoja impresa.
   ...IDIOMAS.filter((idioma) => idioma === 'es').map((idioma) =>
     ({ familia: 'criterio', idioma, tipo: 'hoja', pagina: 'hoja.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-hoja' })),
+  // Cada familia como un equipo en su cancha, en los dos idiomas.
+  ...IDIOMAS.map((idioma) =>
+    ({ familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos' })),
 ].filter((t) => FAMILIAS.includes(t.familia) && PIEZAS.includes(t.tipo));
 
 // Las descargas que citan el video de Criterio y la hoja, con la regla de scripts/descargas.py: el CSV de la rama
@@ -305,13 +309,13 @@ const navegador = await chromium.launch(process.env.CHROMIUM ? { executablePath:
 try {
   for (const toma of TOMAS) {
     if (process.env.TRANSCRIBIR) {
-      if (toma.tipo === 'youtube' || toma.tipo === 'criterio') {
+      if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'equipos') {
         const r = await transcribir(navegador, url, toma);
         console.log(`${path.relative(RAIZ, r.salida)}  ${r.lineas} líneas`);
       }
       continue;
     }
-    if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'hoja') {
+    if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'hoja' || toma.tipo === 'equipos') {
       const r = await youtube(navegador, url, toma);
       console.log(`${path.relative(RAIZ, r.salida)}  ${r.cuadros} cuadros, ${r.segundos} s, ${Math.round(fs.statSync(r.salida).size / 1024)} KB`);
       continue;

@@ -1,0 +1,119 @@
+0:00  Criterio
+0:00  Nuestros equipos de agentes
+0:01  Una familia por cada rol del nivel C: sus agentes, lo que hacen y dónde se probaron.
+0:05  Criterio · Familia PMO
+0:05  Estable
+0:05  PMO
+0:05  Gobierno de proyectos
+0:05  Vera
+0:05  El portafolio
+0:06  Samuel
+0:06  Un proyecto
+0:06  Alba
+0:06  Un producto
+0:07  Qué hace
+0:07  Portafolio Lo reportado por cada proyecto, contra sus documentos
+0:08  Comité Informe del portafolio y paquete del comité
+0:08  Proyecto Minutas, compromisos y plan contra la línea base
+0:08  Control Presupuesto, proveedores, riesgos y cambios
+0:09  Producto Definición del producto y proyectos que construyen lo mismo
+0:09  8
+0:09  industrias
+0:09  Banca · Cooperativas · Retail · Minería · Oil & gas · Construcción e infraestructura · Telecomunicaciones · Logística
+0:14  Criterio · Familia CFO
+0:14  CFO
+0:14  El área financiera
+0:14  Clara
+0:14  El cierre
+0:15  Tomás
+0:15  El presupuesto
+0:15  Áurea
+0:15  La tesorería
+0:16  Conciliación Bancos y cuentas contra sus soportes
+0:17  Factura electrónica Cada factura contra la contabilidad
+0:17  Presupuesto Ejecución contra lo aprobado y proyección al cierre
+0:17  Tesorería Pagos, caja y deuda contra la política
+0:18  Auditoría El paquete para el auditor
+0:18  12
+0:18  países en las pruebas
+0:18  Colombia · Ecuador · Perú · Chile · México · Brasil · Argentina · Panamá · Guatemala · Costa Rica · Honduras · Paraguay
+0:18  4
+0:18  Banca · Cooperativas · Retail · Minería
+0:23  Criterio · Familia CLO
+0:23  CLO
+0:23  Contratos y cumplimiento
+0:23  Fidel
+0:23  Los contratos
+0:24  Constanza
+0:24  El cumplimiento
+0:25  Contratos Vencimientos, preavisos y obligaciones
+0:25  Firmas Quién tenía facultad para firmar
+0:26  Pagos y garantías Pagos y pólizas contra lo pactado
+0:26  Contratación pública Publicación y garantías según la ley
+0:26  Cumplimiento Programa, normas nuevas y canal de denuncias
+0:27  5
+0:27  Banca · Cooperativas · Retail · Minería · Sector público
+0:32  Criterio · Familia CCO
+0:32  CCO
+0:32  El área comercial
+0:32  Augusto
+0:32  El pronóstico
+0:33  Valeria
+0:33  De la venta a la factura
+0:34  Embudo Cada oportunidad contra la evidencia que exige su etapa
+0:34  Pronóstico Lo que sostiene el pronóstico comprometido
+0:35  Meta La meta contra lo cerrado, por línea
+0:35  Descuentos Cada descuento contra la matriz aprobada
+0:35  Contrato y comisión Lo ganado hasta el contrato, la factura y la comisión
+0:36  Colombia · Ecuador · Perú · Chile · México
+0:36  Retail · Manufactura · Servicios · Tecnología
+0:41  Criterio · Familia CISO
+0:41  CISO
+0:41  La seguridad de la información
+0:41  Alexis
+0:41  Los controles
+0:42  Guillermo
+0:42  Las vulnerabilidades
+0:42  Amparo
+0:42  La respuesta
+0:43  Controles Cada control de la declaración de aplicabilidad, contra su evidencia
+0:44  Accesos y terceros Revisiones de acceso, terceros críticos y riesgos aceptados
+0:44  Vulnerabilidades Cada una contra su plazo y el catálogo KEV
+0:44  Escaneos Cobertura sobre el inventario de activos
+0:45  Incidentes y continuidad Respuesta, notificaciones y pruebas de continuidad
+0:45  Colombia · Perú · Chile · México · Brasil
+0:45  6
+0:45  Banca · Seguros · Retail · Energía · Salud · Tecnología
+0:50  Criterio · Familia CHRO
+0:50  En laboratorio
+0:50  CHRO
+0:50  El talento
+0:50  Norma
+0:50  Los perfiles
+0:51  Cándido
+0:51  La selección
+0:52  Perfiles de cargo Cada perfil contra la ocupación de su estándar
+0:52  Lo que no se puede pedir Cada requisito contra la ley de datos del país y la política
+0:53  Hojas de vida Cada afirmación contra su soporte, y cada candidato contra el perfil
+0:53  Datos de candidatos Autorización, conservación y lo que no se trata
+0:53  Vacantes Cada vacante contra su plazo de cobertura
+0:54  Colombia · Perú · Chile · México
+0:54  3
+0:54  Banca · Retail · Tecnología
+0:59  Criterio · Familia EA
+0:59  EA
+0:59  Dirección
+0:59  Ofelia
+0:59  La oficina de dirección
+1:01  Agenda Cruces de reuniones, también durante los viajes
+1:01  Juntas y comités Cada sesión con su material y su acta
+1:01  Compromisos Cada acuerdo con responsable y fecha, hasta su cierre
+1:01  Correo Lo que espera respuesta y las decisiones con plazo
+1:02  Semana El resumen para el ejecutivo
+1:02  2
+1:02  Colombia · Ecuador
+1:02  Banca · Cooperativas · Retail
+1:08  Instala Criterio.
+1:09  El nivel C, soportado por familias de agentes de IA.
+1:10  josenanez.com/es/agents
+1:10  Código abierto · Apache 2.0

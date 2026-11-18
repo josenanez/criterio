@@ -26,6 +26,7 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 | `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
 | `linkedin/criterio-hoja-es.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | La hoja para la dirección, animada, para el post de LinkedIn; no se versiona |
+| `linkedin/criterio-equipos-{es,en}.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | «Nuestros equipos de agentes» ([`src/equipos.jsx`](src/equipos.jsx)): cada familia como un equipo en su cancha —sus agentes con su posición, lo que hace, los países y las industrias de sus pruebas— desde lo que publica el portal; para el post de LinkedIn; no se versiona |
 | `uso/tomas/<familia>-es/criterio-<familia>-uso-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, entre dos y cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; el de inglés, la misma sesión —en español— con los textos en pantalla en inglés. Se arma con [`uso/`](uso/README.md) y no se versiona |
 
 **La transcripción de cada video**, para quien no lo ve, está en [`transcripciones/`](transcripciones/):
@@ -46,7 +47,7 @@ lo sube: lo corre el dueño del canal en su equipo, con su propia autorización;
 cambiaría. Un video nuevo se agrega en `videos.json` con su transcripción, y `python3 scripts/youtube.py --medir`
 anota su duración del mp4.
 
-`FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`);
+`FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`, `equipos`);
 `IDIOMAS=es` solo ese idioma.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))

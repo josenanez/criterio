@@ -30,7 +30,7 @@ const TEXTO = {
   donde: 'Dónde se probó',
   paises: 'países',
   industrias: 'industrias',
-  efectividad: 'o más de efectividad mínima en cada familia, con 95 % de confianza',
+  efectividad: 'o más de efectividad mínima en cada familia estable, con 95 % de confianza',
   descargas: 'descargas diarias en promedio, desde el lanzamiento',
   fuente: 'Pruebas sobre material sintético, contra una clave que los agentes no ven; la evidencia está publicada. Descargas: clonaciones en GitHub.',
   instala: 'Instala Criterio.',
@@ -41,11 +41,12 @@ const fmt = (n) => new Intl.NumberFormat('es-CO', { maximumFractionDigits: 0 }).
 const agentesDe = (s) => ROSTRUM.familias.find((f) => f.sigla === s).agentes;
 const nombres = (xs) => (xs.length === 1 ? xs[0] : `${xs.slice(0, -1).join(', ')}${/^[IÍ]/.test(xs.at(-1)) ? ' e ' : ' y '}${xs.at(-1)}`);
 
-// La efectividad mínima que dice la hoja es el umbral de estable: el video no se graba si alguna
-// familia queda por debajo de él.
-const calidad = HOJA.areas.map((a) => CRITERIO_HOJA_DE_RUTA[a.sigla].calidad);
+// La efectividad mínima que dice la hoja es el umbral de estable, en cada familia estable: el video no se
+// graba si alguna de ellas queda por debajo de él. Una familia en laboratorio está en la hoja y no cuenta aquí.
+const estables = HOJA.areas.filter((a) => CRITERIO_HOJA_DE_RUTA[a.sigla].calidad.etiqueta === 'estable');
+const calidad = estables.map((a) => CRITERIO_HOJA_DE_RUTA[a.sigla].calidad);
 const UMBRAL = calidad[0].umbral;
-const bajo = HOJA.areas.filter((a, i) => Math.min(...Object.values(calidad[i].pisos)) < UMBRAL);
+const bajo = estables.filter((a, i) => Math.min(...Object.values(calidad[i].pisos)) < UMBRAL);
 if (bajo.length) throw new Error(`Por debajo del ${UMBRAL} %: ${bajo.map((a) => a.sigla).join(', ')}`);
 
 function escenas() {

@@ -1,0 +1,119 @@
+0:00  Criterio
+0:00  Our agent teams
+0:01  One family for each C-level role: its agents, what they do and where they were tested.
+0:05  Criterio · Family PMO
+0:05  Stable
+0:05  PMO
+0:05  Project governance
+0:05  Vera
+0:05  The portfolio
+0:06  Samuel
+0:06  One project
+0:06  Alba
+0:06  One product
+0:07  What it does
+0:07  Portfolio What each project reports, against its documents
+0:08  Steering committee Portfolio report and committee pack
+0:08  Project Minutes, commitments and plan against the baseline
+0:08  Control Budget, vendors, risks and changes
+0:09  Product Product definition and projects that build the same thing
+0:09  8
+0:09  industries
+0:09  Banking · Credit unions · Retail · Mining · Oil & gas · Construction and infrastructure · Telecommunications · Logistics
+0:14  Criterio · Family CFO
+0:14  CFO
+0:14  The finance area
+0:14  Clara
+0:14  The close
+0:15  Tomás
+0:15  The budget
+0:15  Áurea
+0:15  Treasury
+0:16  Reconciliation Banks and accounts against their support
+0:17  E-invoicing Every invoice against the books
+0:17  Budget Execution against approved, and year-end projection
+0:17  Treasury Payments, cash and debt against policy
+0:18  Audit The auditor's pack
+0:18  12
+0:18  countries in the tests
+0:18  Colombia · Ecuador · Peru · Chile · Mexico · Brazil · Argentina · Panama · Guatemala · Costa Rica · Honduras · Paraguay
+0:18  4
+0:18  Banking · Credit unions · Retail · Mining
+0:23  Criterio · Family CLO
+0:23  CLO
+0:23  Contracts and compliance
+0:23  Fidel
+0:23  Contracts
+0:24  Constanza
+0:24  Compliance
+0:25  Contracts Expiries, notice periods and obligations
+0:25  Signatures Who had authority to sign
+0:26  Payments and guarantees Payments and policies against the contract
+0:26  Public procurement Publication and guarantees under the law
+0:26  Compliance Programme, new regulations and reporting channel
+0:27  5
+0:27  Banking · Credit unions · Retail · Mining · Public sector
+0:32  Criterio · Family CCO
+0:32  CCO
+0:32  The commercial area
+0:32  Augusto
+0:32  The forecast
+0:33  Valeria
+0:33  From sale to invoice
+0:34  Pipeline Every opportunity against the evidence its stage requires
+0:34  Forecast What supports the committed forecast
+0:35  Target The target against what closed, by line
+0:35  Discounts Every discount against the approved matrix
+0:35  Contract and commission What was won, through to contract, invoice and commission
+0:36  Colombia · Ecuador · Peru · Chile · Mexico
+0:36  Retail · Manufacturing · Services · Technology
+0:41  Criterio · Family CISO
+0:41  CISO
+0:41  Information security
+0:41  Alexis
+0:41  The controls
+0:42  Guillermo
+0:42  Vulnerabilities
+0:42  Amparo
+0:42  Response
+0:43  Controls Every control in the statement of applicability, against its evidence
+0:44  Access and third parties Access reviews, critical third parties and accepted risks
+0:44  Vulnerabilities Each one against its deadline and the KEV catalogue
+0:44  Scanning Coverage of the asset inventory
+0:45  Incidents and continuity Response, notifications and continuity tests
+0:45  Colombia · Peru · Chile · Mexico · Brazil
+0:45  6
+0:45  Banking · Insurance · Retail · Energy · Healthcare · Technology
+0:50  Criterio · Family CHRO
+0:50  In the lab
+0:50  CHRO
+0:50  Talent
+0:50  Norma
+0:50  Profiles
+0:51  Cándido
+0:51  Selection
+0:52  Job profiles Every profile against the occupation in its standard
+0:52  What cannot be asked for Every requirement against the country's data law and the policy
+0:53  CVs Every claim against its support, and every candidate against the profile
+0:53  Candidate data Authorisation, retention and what is not processed
+0:53  Vacancies Every vacancy against its time to fill
+0:54  Colombia · Peru · Chile · Mexico
+0:54  3
+0:54  Banking · Retail · Technology
+0:59  Criterio · Family EA
+0:59  EA
+0:59  Executive office
+0:59  Ofelia
+0:59  The executive office
+1:01  Calendar Meeting clashes, also while travelling
+1:01  Boards and committees Every session with its materials and minutes
+1:01  Commitments Every agreement with owner and date, until it closes
+1:01  Email What awaits a reply and decisions with a deadline
+1:02  Week The summary for the executive
+1:02  2
+1:02  Colombia · Ecuador
+1:02  Banking · Credit unions · Retail
+1:08  Install Criterio.
+1:09  The C-level, supported by families of AI agents.
+1:10  josenanez.com/agents
+1:10  Open source · Apache 2.0

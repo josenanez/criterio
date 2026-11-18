@@ -1,0 +1,43 @@
+/* «Nuestros equipos de agentes»: vertical 4:5, 1080×1350, para LinkedIn. Usa el reloj y las piezas de
+   youtube.css y el formato vertical de hoja.css; aquí va solo la cancha y lo que rodea a cada equipo. */
+
+/* La portada */
+.eq-portada { height: 1140px; display: flex; flex-direction: column; justify-content: center; }
+.eq-portada > div:first-child { zoom: 1.5; }
+.eq-portada h1 { margin: 70px 0 0; font: 500 112px/1.02 var(--font-inter-tight); letter-spacing: -.05em; color: #fff; }
+.eq-portada p { margin-top: 44px; font: 400 40px/1.35 var(--font-inter-tight); letter-spacing: -.01em; color: #c9c6bd; }
+
+/* Cada equipo */
+.eq { padding-top: 0; }
+.eq-cabeza { display: flex; justify-content: space-between; align-items: flex-start; }
+.eq-cabeza .yt-eyebrow { margin-bottom: 0; }
+.eq-estado { font-size: 17px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #8a867e; border: 1px solid #2b2b28; padding: 10px 14px; border-radius: 6px; }
+.eq-estado.laboratorio { color: var(--oro-claro); border-color: #5c4a22; }
+.eq-nombre { margin-top: 14px; display: flex; align-items: baseline; gap: 28px; }
+.eq-nombre .s { font: 500 132px/0.9 var(--font-inter-tight); letter-spacing: -.05em; color: #fff; }
+.eq-nombre .n { font: 500 36px/1.1 var(--font-inter-tight); letter-spacing: -.02em; color: #c9c6bd; }
+
+/* La cancha: líneas finas, apagadas; los jugadores encima. */
+.eq-cancha { position: relative; margin-top: 30px; height: 390px; }
+.eq-lineas { position: absolute; inset: 0; border: 1.5px solid #24241f; border-radius: 10px; }
+.eq-lineas i { position: absolute; display: block; border-color: #24241f; border-style: solid; border-width: 0; }
+.eq-lineas .medio { left: 50%; top: 0; bottom: 0; border-left-width: 1.5px; }
+.eq-lineas .circulo { left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px; border-width: 1.5px; border-radius: 50%; }
+.eq-lineas .area { top: 115px; bottom: 115px; width: 86px; border-width: 1.5px; }
+.eq-lineas .area.izq { left: -1.5px; border-left-width: 0; }
+.eq-lineas .area.der { right: -1.5px; border-right-width: 0; }
+.eq-jugador { position: absolute; top: 50%; width: 230px; margin-left: -115px; margin-top: -132px; text-align: center; background: var(--tinta); padding: 10px 0; border-radius: 12px; }
+.eq-jugador .yt-bot { width: 150px; margin: 0 auto; }
+.eq-jugador .nom { margin-top: 8px; font: 600 30px/1 var(--font-inter-tight); color: #fff; }
+.eq-jugador .rol { margin-top: 10px; font-size: 15px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--oro-claro); }
+
+/* Lo que hace y dónde se probó */
+.eq-k { font-size: 16px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--oro-claro); }
+.eq-hace { margin-top: 30px; }
+.eq-hace .eq-k { margin-bottom: 12px; }
+.eq-fila { display: flex; gap: 20px; padding: 10px 0; border-top: 1px solid #2b2b28; font: 400 23px/1.25 var(--font-inter-tight); color: #c9c6bd; }
+.eq-fila b { flex: 0 0 270px; font-weight: 600; color: #fff; }
+.eq-datos { margin-top: 30px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; }
+.eq-datos.solo { grid-template-columns: 1fr; }
+.eq-datos .v { font: 500 64px/1 var(--font-inter-tight); letter-spacing: -.04em; color: #fff; font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.eq-datos .lista { margin-top: 10px; font: 400 22px/1.4 var(--font-inter-tight); color: #c9c6bd; }
