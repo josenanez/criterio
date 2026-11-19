@@ -262,9 +262,25 @@ def _misma_cita(esperada, obtenida, espacio) -> bool:
     hallado = next(iter(sorted(espacio.glob(f"**/{a.strip()}"))), None)
     if hallado is None:
         return False
+    if hallado.suffix.lower() == ".pdf":
+        return _misma_pagina(hallado, la, lb)
     texto = hallado.read_text(encoding="utf-8", errors="replace")
     ra, rb = _renglon(texto, la), _renglon(texto, lb)
     return ra is not None and ra == rb
+
+
+def _misma_pagina(pdf: Path, la: str, lb: str) -> bool:
+    """En un PDF, la cita de una página («p. 1») y la de una sección de esa página («Perfil
+    profesional») señalan lo mismo: la sección se busca en el texto de la página (CHRO-9)."""
+    pagina = lambda x: (m := re.fullmatch(r"\s*(?:p\.|pág\.|página|page)\s*(\d+)\s*", x, re.I)) and int(m.group(1))  # noqa: E731
+    if pagina(la) and pagina(lb):
+        return pagina(la) == pagina(lb)
+    n, seccion = (pagina(la), lb) if pagina(la) else (pagina(lb), la)
+    if not n or not seccion.strip():
+        return False
+    r = subprocess.run(["pdftotext", "-f", str(n), "-l", str(n), "-layout", str(pdf), "-"], capture_output=True, text=True)
+    plano = lambda x: re.sub(r"\s+", " ", NU.canon(x)).strip()  # noqa: E731
+    return r.returncode == 0 and plano(seccion) in plano(r.stdout)
 
 
 VACIAS = {"de", "del", "la", "las", "el", "los", "al", "a", "y", "o", "en", "por", "para", "con", "un", "una", "su", "sus", "que", "se",
