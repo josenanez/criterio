@@ -199,6 +199,78 @@
      "seleccion · candidates"
     ]
    ]
+  },
+  {
+   "id": "CHRO-8",
+   "ronda": 3,
+   "carpeta": "retail-mx",
+   "agentes": [
+    "norma"
+   ],
+   "origen": "material",
+   "commit": "c610e396",
+   "estado": "verificado",
+   "es": {
+    "que": "La política de selección de las tres entidades que usan O*NET no decía desde qué importancia una destreza es exigible. Norma propuso 3,0 en México y Chile, y en México cuatro destrezas quedaron como faltantes de más; en Perú se detuvo sin inventarlo y no armó los perfiles.",
+    "correccion": "La política de cada entidad con O*NET dice el umbral —3,5 sobre 5— y el setup lo toma de ahí. La verificación en Perú armó los perfiles con ese umbral, sin señales de más."
+   },
+   "en": {
+    "que": "The selection policy of the three entities that use O*NET did not say from which importance a skill is required. Norma proposed 3.0 in Mexico and Chile, and in Mexico four skills came out as extra missing ones; in Peru she stopped without inventing it and did not build the profiles.",
+    "correccion": "The policy of each O*NET entity states the threshold —3.5 out of 5— and the setup takes it from there. The verification in Peru built the profiles with that threshold, with no extra signals."
+   },
+   "fallas": [
+    [
+     3,
+     "retail-mx",
+     "[\"essential_skill_missing\", \"elemento:PT-01:2_a_1_d\"]"
+    ],
+    [
+     3,
+     "retail-mx",
+     "[\"essential_skill_missing\", \"elemento:PT-01:2_c_4_a\"]"
+    ],
+    [
+     3,
+     "retail-mx",
+     "[\"essential_skill_missing\", \"elemento:PT-02:2_a_1_d\"]"
+    ],
+    [
+     3,
+     "retail-mx",
+     "[\"essential_skill_missing\", \"elemento:PT-02:2_c_4_a\"]"
+    ],
+    [
+     3,
+     "control-pe",
+     "perfiles · profiles"
+    ]
+   ]
+  },
+  {
+   "id": "CHRO-9",
+   "ronda": 3,
+   "carpeta": "tecnologia-cl",
+   "agentes": [
+    "candido"
+   ],
+   "origen": "arnes",
+   "commit": "a9084b43",
+   "estado": "verificado",
+   "es": {
+    "que": "Cándido citó la evidencia de cada requisito por la sección de la hoja de vida («Perfil profesional»), con la frase, y el arnés solo aceptaba la cita por la página («p. 1»): las dos señalan lo mismo.",
+    "correccion": "Al calificar, la sección se busca en el texto de esa página del PDF. Chile se volvió a calificar sin repetir comandos."
+   },
+   "en": {
+    "que": "Cándido cited each requirement's evidence by the CV section («Perfil profesional»), with the sentence, and the harness only accepted the page («p. 1»): both point to the same place.",
+    "correccion": "When grading, the section is looked up in the text of that PDF page. Chile was graded again without repeating any command."
+   },
+   "fallas": [
+    [
+     3,
+     "tecnologia-cl",
+     "seleccion · candidates"
+    ]
+   ]
   }
  ]
 }

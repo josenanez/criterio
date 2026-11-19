@@ -1,0 +1,40 @@
+{
+  "entidad": "Tiendas del Bajío Sintéticas",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 5371097,
+  "senales": {
+    "esperadas": 22,
+    "acertadas": 22,
+    "de_mas": [
+      [
+        "essential_skill_missing",
+        "elemento:PT-01:2_a_1_d"
+      ],
+      [
+        "essential_skill_missing",
+        "elemento:PT-01:2_c_4_a"
+      ],
+      [
+        "essential_skill_missing",
+        "elemento:PT-02:2_a_1_d"
+      ],
+      [
+        "essential_skill_missing",
+        "elemento:PT-02:2_c_4_a"
+      ]
+    ],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 2,
+    "bien": 2,
+    "mal": []
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

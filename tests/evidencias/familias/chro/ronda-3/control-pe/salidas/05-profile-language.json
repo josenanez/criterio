@@ -1,0 +1,32 @@
+{
+  "n": 5,
+  "agente": "norma",
+  "comando": "profile-language",
+  "argumento": "",
+  "inicio": "2026-11-19T15:51:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 12,
+  "tokens": 574113,
+  "tokens_salida": 3662,
+  "costo_usd": 0.18162850000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-roles-0.1.0-2026-11-16.md",
+      ".criterio/terminos/aceptacion-criterio-roles-0.1.0-2026-11-16.pdf",
+      ".criterio/terminos/aceptacion-criterio-roles-0.1.0-2026-11-16.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/2026-11-16-profile-language-1.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/salida-profile-language.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/perfiles/2026-11/reporte-profile-language.md"
+    ],
+    "modificados": [
+      ".criterio/perfiles/20601234567/config.json",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

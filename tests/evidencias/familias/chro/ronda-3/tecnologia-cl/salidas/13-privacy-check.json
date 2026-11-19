@@ -1,0 +1,28 @@
+{
+  "n": 13,
+  "agente": "candido",
+  "comando": "privacy-check",
+  "argumento": "",
+  "inicio": "2026-11-19T15:49:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 8,
+  "tokens": 404732,
+  "tokens_salida": 2876,
+  "costo_usd": 0.14107920000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/2026-11-16-privacy-check-1.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/salida-privacy-check.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/seleccion/2026-11/reporte-privacy-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

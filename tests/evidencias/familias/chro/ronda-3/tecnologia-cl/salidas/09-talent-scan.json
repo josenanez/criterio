@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "candido",
+  "comando": "talent-scan",
+  "argumento": "",
+  "inicio": "2026-11-19T15:48:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 16,
+  "tokens": 731141,
+  "tokens_salida": 5416,
+  "costo_usd": 0.5373434,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/2026-11-16-talent-scan-1.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/salida-talent-scan.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/seleccion/2026-11/reporte-talent-scan.md"
+    ],
+    "modificados": [
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -48,4 +48,4 @@ En la infraestructura de la plataforma de IA, no solo en tu equipo. Una hoja de 
 
 ### ¿Está lista para usar?
 
-Está en su versión 0.1.0, de laboratorio, y se puede usar: el motor está probado sobre todo el material, con la prueba de sesgo, y los dos agentes pasaron sus primeras rondas sobre la banca de Colombia y su control, sin una alarma falsa en el control. El resto del material corre con los agentes en la ronda siguiente.
+Está en su versión 0.2.0, de laboratorio, y se puede usar: el motor está probado sobre todo el material, con la prueba de sesgo, y los dos agentes corrieron sobre las cinco entidades de prueba, en Colombia, México, Chile y Perú. El paso siguiente para ser estable es llevar los datos que extraen al piso del 95 %, con más material.

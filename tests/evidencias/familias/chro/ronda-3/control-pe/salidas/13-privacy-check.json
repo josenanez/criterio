@@ -1,0 +1,28 @@
+{
+  "n": 13,
+  "agente": "candido",
+  "comando": "privacy-check",
+  "argumento": "",
+  "inicio": "2026-11-19T15:55:24",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 400462,
+  "tokens_salida": 2095,
+  "costo_usd": 0.1299485,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/2026-11-16-privacy-check-1.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/salida-privacy-check.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/seleccion/2026-11/reporte-privacy-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

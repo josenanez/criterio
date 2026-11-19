@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-19T15:37:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 17,
+  "tokens": 919155,
+  "tokens_salida": 6932,
+  "costo_usd": 0.6434789999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/2026-11-16-profile-build-1.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/salida-profile-build.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/perfiles/borradores/43-5081.00-2026-11-16.md"
+    ],
+    "modificados": [
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

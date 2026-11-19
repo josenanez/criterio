@@ -1,0 +1,136 @@
+{
+  "entidad": "Servicios Andinos Control Sintéticos",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 4704870,
+  "senales": {
+    "esperadas": 1,
+    "acertadas": 1,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 2,
+    "bien": 1,
+    "mal": [
+      {
+        "ficha": "perfiles",
+        "campo": "profiles",
+        "esperado": [
+          {
+            "id": "SA-01",
+            "title": "Analista de soporte",
+            "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+            "occupation": {
+              "standard": "onet",
+              "code": "15-1232.00"
+            },
+            "education": {
+              "label": "Técnico",
+              "source": "10-perfiles/SA-01_analista-de-soporte.docx"
+            },
+            "experience_alternative": false,
+            "tasks": [
+              {
+                "id": "T1",
+                "text": "Atender las consultas de los usuarios"
+              }
+            ],
+            "requirements": [
+              {
+                "id": "R1",
+                "text": "Escucha activa",
+                "tasks": [
+                  "T1"
+                ],
+                "element": "2.A.1.b",
+                "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+                "type": "destreza"
+              },
+              {
+                "id": "R2",
+                "text": "Resolución de fallas",
+                "tasks": [
+                  "T1"
+                ],
+                "element": "2.B.5.a",
+                "essential": true,
+                "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+                "type": "destreza"
+              },
+              {
+                "id": "R3",
+                "text": "Computadores y electrónica",
+                "tasks": [
+                  "T1"
+                ],
+                "element": "2.C.3.a",
+                "source": "10-perfiles/SA-01_analista-de-soporte.docx",
+                "type": "conocimiento"
+              }
+            ],
+            "next_review": "2027-02-01"
+          },
+          {
+            "id": "SA-02",
+            "title": "Cajero",
+            "source": "10-perfiles/SA-02_cajero.docx",
+            "occupation": {
+              "standard": "onet",
+              "code": "41-2011.00"
+            },
+            "education": {
+              "label": "Secundaria",
+              "source": "10-perfiles/SA-02_cajero.docx"
+            },
+            "experience_alternative": false,
+            "tasks": [
+              {
+                "id": "T1",
+                "text": "Cobrar a los clientes en caja"
+              }
+            ],
+            "requirements": [
+              {
+                "id": "R1",
+                "text": "Escucha activa",
+                "tasks": [
+                  "T1"
+                ],
+                "element": "2.A.1.b",
+                "source": "10-perfiles/SA-02_cajero.docx",
+                "type": "destreza"
+              },
+              {
+                "id": "R2",
+                "text": "Matemáticas",
+                "tasks": [
+                  "T1"
+                ],
+                "element": "2.A.1.e",
+                "essential": true,
+                "source": "10-perfiles/SA-02_cajero.docx",
+                "type": "destreza"
+              }
+            ],
+            "not_applicable": [
+              {
+                "element": "Customer and Personal Service",
+                "reason": "la caja no atiende reclamos: los atiende el área de servicio"
+              }
+            ],
+            "next_review": "2027-02-01"
+          }
+        ],
+        "obtenido": null,
+        "bien": false
+      }
+    ]
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

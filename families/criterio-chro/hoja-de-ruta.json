@@ -63,23 +63,47 @@
   },
   {
    "incremento": 2,
-   "version": null,
-   "estado": "siguiente",
+   "version": "0.2.0",
+   "estado": "en curso",
    "industrias": [],
-   "paises": [],
+   "paises": [
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    }
+   ],
    "es": {
     "titulo": "La ronda con Norma y Cándido sobre el resto del material",
     "entra": [
-     "La ronda con los dos agentes sobre el retail de México, la tecnología de Chile y el control de Perú, con su clave y los pares de la prueba de sesgo"
+     "La ronda 3 con los dos agentes sobre el retail de México, la tecnología de Chile y el control de Perú, con su clave y los pares de la prueba de sesgo",
+     "La política de selección dice desde qué importancia de O*NET una destreza es exigible (CHRO-8), y al calificar, la cita de una sección de la página vale como la de la página (CHRO-9)"
     ],
-    "prueba": "La ronda 3, con su análisis"
+    "prueba": "La ronda 3 en México, Chile y Perú, cada par de la prueba de sesgo sin una sola diferencia, y la verificación de Perú sin una alarma falsa"
    },
    "en": {
     "titulo": "The round with Norma and Cándido on the rest of the material",
     "entra": [
-     "The round with both agents on Mexican retail, Chilean technology and the Peruvian control, with its key and the bias-test pairs"
+     "Round 3 with both agents on Mexican retail, Chilean technology and the Peruvian control, with its key and the bias-test pairs",
+     "The selection policy states from which O*NET importance a skill is required (CHRO-8), and when grading, citing a section of the page counts as citing the page (CHRO-9)"
     ],
-    "prueba": "Round 3, with its analysis"
+    "prueba": "Round 3 in Mexico, Chile and Peru, every bias-test pair without a single difference, and the Peru verification with no false alarm"
    }
   },
   {

@@ -1,0 +1,27 @@
+{
+  "n": 13,
+  "agente": "candido",
+  "comando": "privacy-check",
+  "argumento": "",
+  "inicio": "2026-11-19T15:41:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 8,
+  "tokens": 404818,
+  "tokens_salida": 3280,
+  "costo_usd": 0.15934579999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/2026-11-16-privacy-check-1.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/salida-privacy-check.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/seleccion/2026-11/reporte-privacy-check.md"
+    ],
+    "modificados": [
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

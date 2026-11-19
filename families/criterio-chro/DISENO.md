@@ -2,7 +2,7 @@
 
 # criterio-chro · the family design
 
-**Status: built, at its version 0.1.0, in the lab.** The commands, the skills and the calculation engine
+**Status: built, at its version 0.2.0, in the lab.** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test and the bias test against the
 material in `tests/criterio-chro/`, and both agents passed rounds 1 and 2 on the Colombian bank and its control. Scope in [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
 

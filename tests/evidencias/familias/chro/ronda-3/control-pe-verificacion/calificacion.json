@@ -1,0 +1,23 @@
+{
+  "entidad": "Servicios Andinos Control Sintéticos",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 4847181,
+  "senales": {
+    "esperadas": 1,
+    "acertadas": 1,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 2,
+    "bien": 2,
+    "mal": []
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

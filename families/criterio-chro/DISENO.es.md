@@ -2,7 +2,7 @@
 
 # criterio-chro · el diseño de la familia
 
-**Estado: construida, en su versión 0.1.0, de laboratorio.** Los comandos, los skills y el motor de cálculo
+**Estado: construida, en su versión 0.2.0, de laboratorio.** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista y la prueba de sesgo contra el
 material de `tests/criterio-chro/`, y los dos agentes pasaron las rondas 1 y 2 sobre la banca de Colombia y su control. Alcance en [ADR 0031](../../docs/decisions/0031-la-familia-chro.md).
 

@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-19T16:02:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 17,
+  "tokens": 722237,
+  "tokens_salida": 4465,
+  "costo_usd": 0.45715639999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/2026-11-16-profile-build-1.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/salida-profile-build.md"
+    ],
+    "modificados": [
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

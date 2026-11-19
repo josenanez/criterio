@@ -1,0 +1,24 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-19T15:51:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 6,
+  "tokens": 302410,
+  "tokens_salida": 2209,
+  "costo_usd": 0.2451806,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log"
+    ],
+    "borrados": []
+  }
+}

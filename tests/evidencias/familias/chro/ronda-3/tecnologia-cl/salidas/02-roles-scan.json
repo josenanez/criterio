@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "norma",
+  "comando": "roles-scan",
+  "argumento": "",
+  "inicio": "2026-11-19T15:44:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 56,
+  "turnos": 16,
+  "tokens": 868286,
+  "tokens_salida": 5001,
+  "costo_usd": 0.5328116,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/2026-11-16-roles-scan-1.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas/salida-roles-scan.md",
+      "estado-talento/76543210k-nube-austral-software-sintetica/indice.json",
+      "estado-talento/76543210k-nube-austral-software-sintetica/perfiles/2026-11/reporte-roles-scan.md"
+    ],
+    "modificados": [
+      "estado-talento/76543210k-nube-austral-software-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

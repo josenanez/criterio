@@ -48,4 +48,4 @@ On the AI platform's infrastructure, not only on your computer. A CV carries per
 
 ### Is it ready to use?
 
-It is at its version 0.1.0, in the lab, and can be used: the engine is tested on all the material, with the bias test, and both agents passed their first rounds on the Colombian bank and its control, with no false alarm in the control. The rest of the material runs with the agents in the next round.
+It is at its version 0.2.0, in the lab, and can be used: the engine is tested on all the material, with the bias test, and both agents ran on the five test entities, in Colombia, Mexico, Chile and Peru. The next step to become stable is bringing the data they extract to the 95 % floor, with more material.

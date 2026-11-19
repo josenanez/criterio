@@ -733,7 +733,7 @@
     "candido": "La selección",
     "rostrum": "El portal"
    },
-   "nota": "Estado de la familia: de laboratorio, en su versión 0.1.0. El motor pasa su prueba determinista y la prueba de sesgo con pares de candidatos contra todo su material, y los dos agentes, sus primeras rondas con una clave que no ven.",
+   "nota": "Estado de la familia: de laboratorio, en su versión 0.2.0. El motor pasa su prueba determinista y la prueba de sesgo con pares de candidatos contra todo su material, y los dos agentes corrieron sobre las cinco entidades de prueba, en Colombia, México, Chile y Perú, con una clave que no ven.",
    "guion": [
     {
      "cabeza": true,
@@ -779,7 +779,7 @@
     "candido": "Selection",
     "rostrum": "The portal"
    },
-   "nota": "Where the family stands: in the lab, at its version 0.1.0. The engine passes its deterministic test and the bias test with candidate pairs against all its material, and the two agents, their first rounds with a key they never see.",
+   "nota": "Where the family stands: in the lab, at its version 0.2.0. The engine passes its deterministic test and the bias test with candidate pairs against all its material, and the two agents ran on the five test entities, in Colombia, Mexico, Chile and Peru, with a key they never see.",
    "guion": [
     {
      "cabeza": true,

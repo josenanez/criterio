@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "norma",
+  "comando": "profile-language",
+  "argumento": "",
+  "inicio": "2026-11-19T15:38:45",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 8,
+  "tokens": 403419,
+  "tokens_salida": 2757,
+  "costo_usd": 0.27134020000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/2026-11-16-profile-language-1.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas/salida-profile-language.md",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/perfiles/2026-11/reporte-profile-language.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/tba110315k21-tiendas-del-bajio-sinteticas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

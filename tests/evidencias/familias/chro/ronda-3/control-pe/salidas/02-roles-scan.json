@@ -1,0 +1,24 @@
+{
+  "n": 2,
+  "agente": "norma",
+  "comando": "roles-scan",
+  "argumento": "",
+  "inicio": "2026-11-19T15:51:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 5,
+  "tokens": 249622,
+  "tokens_salida": 1888,
+  "costo_usd": 0.2189308,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log"
+    ],
+    "borrados": []
+  }
+}

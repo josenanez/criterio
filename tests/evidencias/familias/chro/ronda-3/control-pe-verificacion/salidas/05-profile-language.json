@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "norma",
+  "comando": "profile-language",
+  "argumento": "",
+  "inicio": "2026-11-19T16:02:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 9,
+  "tokens": 457695,
+  "tokens_salida": 2956,
+  "costo_usd": 0.14992470000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/2026-11-16-profile-language-1.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas/salida-profile-language.md",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/perfiles/2026-11/reporte-profile-language.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/20601234567-servicios-andinos-control-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}
