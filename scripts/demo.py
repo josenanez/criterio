@@ -17,12 +17,15 @@ de cada agente, el de su propio plugin, como lo correría el agente: `compute` y
 cada parte. Nada se escribe a mano.
 
 **El zip es determinista:** las fechas son las del material, los archivos van en orden y con una
-fecha fija. Así `--check` puede compararlo byte a byte, y un cambio en un motor o en el material
-que mueva la demostración rompe la verificación hasta que se regenere.
+fecha fija. `--check` lo compara por su contenido —cada archivo y, en un Word o un Excel, cada parte de
+adentro—, no byte a byte: la compresión cambia con la versión de zlib de cada equipo y no cambia lo que
+dice. Un cambio en un motor o en el material que mueva la demostración rompe la verificación hasta que
+se regenere, y regenerar no reescribe el zip si su contenido es el mismo.
 """
 from __future__ import annotations
 
 import argparse
+import io
 import datetime as dt
 import importlib.util
 import json
@@ -142,6 +145,13 @@ def empaquetar(carpeta: Path, zip_: Path) -> None:
             z.writestr(info, f.read_bytes())
 
 
+def contenido(datos: bytes) -> dict:
+    """Lo que dice un zip: cada archivo con lo que trae; un Word, un Excel o un PowerPoint, por las partes
+    que lleva adentro, que también van comprimidas."""
+    with zipfile.ZipFile(io.BytesIO(datos)) as z:
+        return {n: (contenido(z.read(n)) if n.endswith((".docx", ".xlsx", ".pptx")) else z.read(n)) for n in z.namelist()}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="La demostración de Criterio.")
     ap.add_argument("--check", action="store_true")
@@ -152,14 +162,15 @@ def main() -> int:
         nuevo = Path(tmp) / "criterio-demo.zip"
         empaquetar(carpeta, nuevo)
         if a.check:
-            if not ZIP.is_file() or ZIP.read_bytes() != nuevo.read_bytes():
+            if not ZIP.is_file() or contenido(ZIP.read_bytes()) != contenido(nuevo.read_bytes()):
                 print(f"  ✗ {ZIP.relative_to(RAIZ)} no es lo que sale del material y los motores: corre scripts/demo.py")
                 return 1
             print(f"  la demostración sale del material: {len(hecho) - 1} agentes y Rostrum, "
                   f"{ZIP.stat().st_size // 1024} KB")
             return 0
         ZIP.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(nuevo, ZIP)
+        if not ZIP.is_file() or contenido(ZIP.read_bytes()) != contenido(nuevo.read_bytes()):
+            shutil.copyfile(nuevo, ZIP)
     for h in hecho:
         print(f"  {h}")
     print(f"  {ZIP.relative_to(RAIZ)} · {ZIP.stat().st_size // 1024} KB")
