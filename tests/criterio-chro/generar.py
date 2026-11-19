@@ -444,7 +444,11 @@ def una(e: dict) -> dict:
     docs = raiz / docs_rel
     e["titulo_ej"] = {"banca-co": "Contador público", "retail-mx": "Licenciatura en administración", "tecnologia-cl": "Ingeniería en informática",
                       "control-co": "Contador público", "control-pe": "Técnico en computación"}[e["carpeta"]]
-    # La referencia: la política de selección y el estándar.
+    # La referencia: la política de selección y el estándar. Con O*NET, la política dice desde qué
+    # importancia una destreza o un conocimiento es exigible: O*NET no marca ninguno como esencial, y el
+    # setup lo toma de aquí (CHRO-8).
+    exigible = (f"\n\n## El estándar de ocupaciones\n\nCon O*NET, una destreza o un conocimiento es exigible para un cargo "
+                f"desde una importancia de {str(e['umbral']).replace('.', ',')} sobre 5.") if e["est"] == "onet" else ""
     documento(docs / "00-referencia" / "politica-de-seleccion.pdf", f"""# Política de selección · {e['nombre']}
 
 ## Plazos
@@ -459,7 +463,7 @@ Ningún perfil de cargo pide {', '.join(e['prohibidos'])}.
 
 ## Autorización
 
-Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del candidato, registrada antes de recibir sus datos.
+Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del candidato, registrada antes de recibir sus datos.{exigible}
 """)
     if e["est"] == "cuoc":
         escribir_cuoc(docs / CUOC_ARCHIVO, e["ocupaciones"])
