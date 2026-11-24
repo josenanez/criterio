@@ -508,8 +508,8 @@
      "modelo": "claude-sonnet-5-5"
     },
     "privacy-check": {
-     "corridas": 8,
-     "mediana": 375328,
+     "corridas": 10,
+     "mediana": 378866,
      "maximo": 404818,
      "mediana_salida": 2878,
      "mediana_turnos": 8,
@@ -518,13 +518,13 @@
      "modelo": "claude-sonnet-5-5"
     },
     "talent-scan": {
-     "corridas": 8,
-     "mediana": 714522,
+     "corridas": 10,
+     "mediana": 692972,
      "maximo": 940062,
      "mediana_salida": 5160,
      "mediana_turnos": 12,
      "mediana_segundos": 52.0,
-     "mediana_costo_usd": 0.5401,
+     "mediana_costo_usd": 0.5353,
      "modelo": "claude-opus-5-5"
     },
     "talent-search": {
@@ -538,13 +538,13 @@
      "modelo": "claude-opus-5-5"
     },
     "talent-setup": {
-     "corridas": 8,
-     "mediana": 1123324,
-     "maximo": 1351359,
-     "mediana_salida": 11682,
+     "corridas": 10,
+     "mediana": 1133012,
+     "maximo": 2127812,
+     "mediana_salida": 11826,
      "mediana_turnos": 24,
-     "mediana_segundos": 108.0,
-     "mediana_costo_usd": 0.9321,
+     "mediana_segundos": 109.0,
+     "mediana_costo_usd": 0.9607,
      "modelo": "claude-opus-5-5"
     },
     "talent-wake": {
@@ -568,31 +568,46 @@
      "modelo": "claude-sonnet-5-5"
     }
    },
-   "pasada": 4379649,
+   "pasada": 4371325,
    "indicador": {
-    "ronda": "ronda-3",
-    "carpeta": "control-pe",
-    "material": "control-pe",
+    "ronda": "ronda-4",
+    "carpeta": "banca-co",
+    "material": "banca-co",
     "modelo_sesion": "claude-opus-5-5",
     "comandos": 3,
-    "tokens": 2691883,
-    "costo_usd": 1.7811,
-    "segundos": 191,
+    "tokens": 3173123,
+    "costo_usd": 2.0846,
+    "segundos": 240,
     "sin_pendientes": null,
-    "contra": null
+    "contra": {
+     "ronda": "ronda-2",
+     "comandos": 3,
+     "tokens": [
+      2414880,
+      3173123
+     ],
+     "costo_usd": [
+      1.8603,
+      2.0846
+     ],
+     "segundos": [
+      210,
+      240
+     ]
+    }
    }
   },
   "norma": {
    "familia": "chro",
    "comandos": {
     "profile-build": {
-     "corridas": 8,
+     "corridas": 10,
      "mediana": 701262,
      "maximo": 919155,
      "mediana_salida": 4719,
      "mediana_turnos": 12,
      "mediana_segundos": 56.0,
-     "mediana_costo_usd": 0.49,
+     "mediana_costo_usd": 0.4969,
      "modelo": "claude-opus-5-5"
     },
     "profile-check": {
@@ -606,13 +621,13 @@
      "modelo": "claude-sonnet-5-5"
     },
     "profile-language": {
-     "corridas": 8,
-     "mediana": 377086,
+     "corridas": 10,
+     "mediana": 404462,
      "maximo": 574113,
-     "mediana_salida": 3046,
+     "mediana_salida": 2856,
      "mediana_turnos": 8,
-     "mediana_segundos": 28.0,
-     "mediana_costo_usd": 0.1445,
+     "mediana_segundos": 27.5,
+     "mediana_costo_usd": 0.145,
      "modelo": "claude-sonnet-5-5"
     },
     "profile-map": {
@@ -626,23 +641,23 @@
      "modelo": "claude-sonnet-5-5"
     },
     "roles-scan": {
-     "corridas": 8,
-     "mediana": 657010,
+     "corridas": 10,
+     "mediana": 705294,
      "maximo": 868286,
      "mediana_salida": 4594,
      "mediana_turnos": 14,
-     "mediana_segundos": 52.0,
+     "mediana_segundos": 51.5,
      "mediana_costo_usd": 0.4651,
      "modelo": "claude-opus-5-5"
     },
     "roles-setup": {
-     "corridas": 8,
-     "mediana": 1025368,
+     "corridas": 10,
+     "mediana": 1073039,
      "maximo": 1422882,
      "mediana_salida": 13394,
-     "mediana_turnos": 23,
+     "mediana_turnos": 26,
      "mediana_segundos": 120.5,
-     "mediana_costo_usd": 0.8837,
+     "mediana_costo_usd": 0.9031,
      "modelo": "claude-opus-5-5"
     },
     "roles-wake": {
@@ -656,18 +671,33 @@
      "modelo": "claude-opus-5-5"
     }
    },
-   "pasada": 3915572,
+   "pasada": 4038903,
    "indicador": {
-    "ronda": "ronda-3",
-    "carpeta": "control-pe",
-    "material": "control-pe",
+    "ronda": "ronda-4",
+    "carpeta": "banca-co",
+    "material": "banca-co",
     "modelo_sesion": "claude-opus-5-5",
     "comandos": 4,
-    "tokens": 2012987,
-    "costo_usd": 1.2934,
-    "segundos": 173,
+    "tokens": 3197346,
+    "costo_usd": 2.7197,
+    "segundos": 283,
     "sin_pendientes": null,
-    "contra": null
+    "contra": {
+     "ronda": "ronda-2",
+     "comandos": 4,
+     "tokens": [
+      2955528,
+      3197346
+     ],
+     "costo_usd": [
+      2.1462,
+      2.7197
+     ],
+     "segundos": [
+      282,
+      283
+     ]
+    }
    }
   },
   "alexis": {

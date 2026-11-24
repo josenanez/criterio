@@ -1,12 +1,13 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/chro",
-  "ultima_ronda": 3,
+  "ultima_ronda": 4,
   "completa": false,
   "rondas": [
    1,
    2,
-   3
+   3,
+   4
   ]
  },
  "secciones": [
@@ -18,12 +19,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 3, parcial, sobre 3 de las 5 entidades del material: 43 de 43 señales sembradas encontradas (margen del 95 %: 91,7–100 %) y 4 de más; 6 de 6 datos extraídos bien (100 %, margen del 95 %: 60,9–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–3, 103 de 104 señales encontradas, 6 de más y 11 de 16 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 4, parcial, sobre 2 de las 5 entidades del material: 30 de 30 señales sembradas encontradas (margen del 95 %: 88,6–100 %) y 0 de más; 845 de 845 datos extraídos bien (100 %, margen del 95 %: 99,5–100 %); y 1 de 1 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–4, 133 de 134 señales encontradas, 6 de más y 1952 de 2011 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 3, partial, on 3 of the material's 5 entities: 43 of 43 seeded signals found (95% margin: 91.7–100%) and 4 extra; 6 of 6 data items extracted right (100%, 95% margin: 60.9–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–3, 103 of 104 signals found, 6 extra and 11 of 16 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 4, partial, on 2 of the material's 5 entities: 30 of 30 seeded signals found (95% margin: 88.6–100%) and 0 extra; 845 of 845 data items extracted right (100%, 95% margin: 99.5–100%); and 1 of 1 control entities with no signal at all.",
+     "Across rounds 1–4, 133 of 134 signals found, 6 extra and 1952 of 2011 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -48,53 +49,53 @@
      "es": [
       [
        "Rondas",
-       "3; la más reciente, la 3, es parcial"
+       "4; la más reciente, la 4, es parcial"
       ],
       [
        "Material",
-       "Retail · México, Tecnología · Chile"
+       "Banca · Colombia"
       ],
       [
        "Entidades de control",
-       "Control · Perú"
+       "Control · Colombia"
       ],
       [
        "Corridas de una entidad",
-       "8"
+       "10"
       ],
       [
        "Señales sembradas",
-       "104"
+       "134"
       ],
       [
        "Datos calificados",
-       "16"
+       "2011"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "3; the most recent, round 3, is partial"
+       "4; the most recent, round 4, is partial"
       ],
       [
        "Material",
-       "Retail · Mexico, Technology · Chile"
+       "Banking · Colombia"
       ],
       [
        "Control entities",
-       "Control · Peru"
+       "Control · Colombia"
       ],
       [
        "Entity runs",
-       "8"
+       "10"
       ],
       [
        "Seeded signals",
-       "104"
+       "134"
       ],
       [
        "Data items graded",
-       "16"
+       "2011"
       ]
      ]
     }
@@ -113,8 +114,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–3",
-    "en": "Cumulative results · rounds 1–3"
+    "es": "Resultados acumulados · rondas 1–4",
+    "en": "Cumulative results · rounds 1–4"
    },
    "tabla": {
     "cab": {
@@ -135,53 +136,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "103 de 104",
-       "99 %",
-       "94,7–99,9 %"
+       "133 de 134",
+       "99,3 %",
+       "95,8–99,9 %"
       ],
       [
        "Señales · precisión",
-       "103 de 109",
-       "94,5 %",
-       "88,5–97,5 %"
+       "133 de 139",
+       "95,7 %",
+       "90,9–98,1 %"
       ],
       [
        "Extracción · datos correctos",
-       "11 de 16",
-       "68,8 %",
-       "44,4–85,9 %"
+       "1952 de 2011",
+       "97,1 %",
+       "96,2–97,8 %"
       ],
       [
        "Control · sin ninguna señal",
-       "3 de 4",
-       "75 %",
-       "30–95,5 %"
+       "4 de 5",
+       "80 %",
+       "37,5–96,4 %"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "103 of 104",
-       "99%",
-       "94.7–99.9%"
+       "133 of 134",
+       "99.3%",
+       "95.8–99.9%"
       ],
       [
        "Signals · precision",
-       "103 of 109",
-       "94.5%",
-       "88.5–97.5%"
+       "133 of 139",
+       "95.7%",
+       "90.9–98.1%"
       ],
       [
        "Extraction · data right",
-       "11 of 16",
-       "68.8%",
-       "44.4–85.9%"
+       "1952 of 2011",
+       "97.1%",
+       "96.2–97.8%"
       ],
       [
        "Control · with no signal",
-       "3 of 4",
-       "75%",
-       "30–95.5%"
+       "4 of 5",
+       "80%",
+       "37.5–96.4%"
       ]
      ]
     }
@@ -247,10 +248,20 @@
        "4",
        "100 %",
        "91,7 %",
-       "87,5 %",
+       "95,3 %",
        "2 de 2",
        "20,5 M",
        "2"
+      ],
+      [
+       "4",
+       "2",
+       "100 %",
+       "100 %",
+       "100 %",
+       "1 de 1",
+       "11,4 M",
+       "0"
       ]
      ],
      "en": [
@@ -279,10 +290,20 @@
        "4",
        "100%",
        "91.7%",
-       "87.5%",
+       "95.3%",
        "2 of 2",
        "20.5 M",
        "2"
+      ],
+      [
+       "4",
+       "2",
+       "100%",
+       "100%",
+       "100%",
+       "1 of 1",
+       "11.4 M",
+       "0"
       ]
      ]
     }
@@ -299,8 +320,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 3",
-    "en": "The most recent round · round 3"
+    "es": "La ronda más reciente · ronda 4",
+    "en": "The most recent round · round 4"
    },
    "tabla": {
     "cab": {
@@ -321,21 +342,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "43 de 43",
+       "30 de 30",
        "100 %",
-       "91,7–100 %"
+       "88,6–100 %"
       ],
       [
        "Señales · precisión",
-       "43 de 47",
-       "91,5 %",
-       "80–96,7 %"
+       "30 de 30",
+       "100 %",
+       "88,6–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "6 de 6",
+       "845 de 845",
        "100 %",
-       "60,9–100 %"
+       "99,5–100 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -347,21 +368,21 @@
      "en": [
       [
        "Signals · coverage",
-       "43 of 43",
+       "30 of 30",
        "100%",
-       "91.7–100%"
+       "88.6–100%"
       ],
       [
        "Signals · precision",
-       "43 of 47",
-       "91.5%",
-       "80–96.7%"
+       "30 of 30",
+       "100%",
+       "88.6–100%"
       ],
       [
        "Extraction · data right",
-       "6 of 6",
+       "845 of 845",
        "100%",
-       "60.9–100%"
+       "99.5–100%"
       ],
       [
        "Control · with no signal",
@@ -376,8 +397,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 3",
-    "en": "By industry and country · round 3"
+    "es": "Por industria y país · ronda 4",
+    "en": "By industry and country · round 4"
    },
    "tabla": {
     "cab": {
@@ -401,70 +422,38 @@
     "filas": {
      "es": [
       [
-       "Retail · México",
+       "Banca · Colombia",
        "Cándido, Norma",
-       "22 de 22",
-       "4",
-       "2 de 2",
-       "5,4 M"
-      ],
-      [
-       "Tecnología · Chile",
-       "Cándido, Norma",
-       "20 de 20",
+       "29 de 29",
        "0",
-       "2 de 2",
-       "5,5 M"
+       "481 de 481",
+       "6,4 M"
       ],
       [
-       "Control · Perú",
+       "Control · Colombia",
        "Cándido, Norma",
        "1 de 1",
        "0",
-       "1 de 2",
-       "4,7 M"
-      ],
-      [
-       "Control · Perú",
-       "Cándido, Norma",
-       "1 de 1",
-       "0",
-       "2 de 2",
-       "4,8 M"
+       "364 de 364",
+       "5 M"
       ]
      ],
      "en": [
       [
-       "Retail · Mexico",
+       "Banking · Colombia",
        "Cándido, Norma",
-       "22 of 22",
-       "4",
-       "2 of 2",
-       "5.4 M"
-      ],
-      [
-       "Technology · Chile",
-       "Cándido, Norma",
-       "20 of 20",
+       "29 of 29",
        "0",
-       "2 of 2",
-       "5.5 M"
+       "481 of 481",
+       "6.4 M"
       ],
       [
-       "Control · Peru",
+       "Control · Colombia",
        "Cándido, Norma",
        "1 of 1",
        "0",
-       "1 of 2",
-       "4.7 M"
-      ],
-      [
-       "Control · Peru",
-       "Cándido, Norma",
-       "1 of 1",
-       "0",
-       "2 of 2",
-       "4.8 M"
+       "364 of 364",
+       "5 M"
       ]
      ]
     }
@@ -473,15 +462,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–3",
-    "en": "What failed, one by one · rounds 1–3"
+    "es": "Lo que falló, uno por uno · rondas 1–4",
+    "en": "What failed, one by one · rounds 1–4"
    },
    "parrafos": {
     "es": [
-     "12 fallas en 8 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 8 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "66 fallas en 10 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 7 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "12 failures in 8 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 8 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "66 failures in 10 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 7 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -565,9 +554,441 @@
        "3",
        "Control · Perú",
        "Dato calificado como mal",
-       "perfiles · profiles",
-       "CHRO-8",
-       "Material de prueba"
+       "perfiles · profiles[SA-01].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].title",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].occupation.standard",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].occupation.code",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].education.label",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].education.source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].experience_alternative",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].tasks[T1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].tasks[T1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R1].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].essential",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R2].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].requirements[R3].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-01].next_review",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].title",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].occupation.standard",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].occupation.code",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].education.label",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].education.source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].experience_alternative",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].tasks[T1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].tasks[T1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R1].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].essential",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].requirements[R2].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].not_applicable",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Perú",
+       "Dato calificado como mal",
+       "perfiles · profiles[SA-02].next_review",
+       "—",
+       "—"
       ],
       [
        "3",
@@ -663,9 +1084,441 @@
        "3",
        "Control · Peru",
        "Data item graded wrong",
-       "perfiles · profiles",
-       "CHRO-8",
-       "Test material"
+       "perfiles · profiles[SA-01].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].title",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].occupation.standard",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].occupation.code",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].education.label",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].education.source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].experience_alternative",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].tasks[T1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].tasks[T1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R1].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].essential",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R2].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].requirements[R3].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-01].next_review",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].title",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].occupation.standard",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].occupation.code",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].education.label",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].education.source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].experience_alternative",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].tasks[T1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].tasks[T1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R1].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].id",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].text",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].tasks",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].element",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].essential",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].source",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].requirements[R2].type",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].not_applicable",
+       "—",
+       "—"
+      ],
+      [
+       "3",
+       "Control · Peru",
+       "Data item graded wrong",
+       "perfiles · profiles[SA-02].next_review",
+       "—",
+       "—"
       ],
       [
        "3",
@@ -715,10 +1568,10 @@
    },
    "parrafos": {
     "es": [
-     "9 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 8 verificados y 1 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "9 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 9 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "9 defects logged, each with its origin, its fix and the run that verified it: 8 verified and 1 to verify. 6 came from the material, the key or the test harness, not from the agents."
+     "9 defects logged, each with its origin, its fix and the run that verified it: 9 verified and 0 to verify. 6 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -814,11 +1667,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 3 rondas usaron 53,7 millones de tokens: 53,7 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,7 millones por entidad.",
+     "Las 4 rondas usaron 65 millones de tokens: 65 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,5 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 3 rounds used 53.7 million tokens: 53.7 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 6.7 million per entity.",
+     "The 4 rounds used 65 million tokens: 65 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 6.5 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

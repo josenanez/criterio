@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "norma",
+  "comando": "roles-scan",
+  "argumento": "",
+  "inicio": "2026-11-24T19:06:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 13,
+  "tokens": 701233,
+  "tokens_salida": 5534,
+  "costo_usd": 0.538893,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-roles-scan-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-roles-scan.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/indice.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/2026-11/reporte-roles-scan.md"
+    ],
+    "modificados": [
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

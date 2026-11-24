@@ -61,7 +61,7 @@ FAMILIAS = {
              "fichas": {"seguridad": ("alexis", "seguridad/{periodo}/ficha.json"), "vulnerabilidades": ("guillermo", "vulnerabilidades/{periodo}/ficha.json"),
                         "resiliencia": ("amparo", "resiliencia/{periodo}/ficha.json")},
              "periodos": lambda c: {"periodo": c["periodo"]}},
-    "chro": {"normalizar": lambda ficha, espacio, clave: _chro_elementos(ficha, espacio, clave),
+    "chro": {"normalizar": lambda ficha, espacio, clave: _chro_elementos(ficha, espacio, clave), "registros": True,
              "resultados": {"norma": "perfiles/{periodo}/resultados.json", "candido": "seleccion/{periodo}/resultados.json"},
              "fichas": {"perfiles": ("norma", "perfiles/{periodo}/ficha.json"), "seleccion": ("candido", "seleccion/{periodo}/ficha.json")},
              "periodos": lambda c: {"periodo": c["periodo"]}},
@@ -340,11 +340,17 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
     return esperado == obtenido
 
 
-def _plano(x, pre=""):
-    """Un dict anidado como pares ruta → valor, para comparar la ficha campo por campo."""
+def _plano(x, pre="", registros=False):
+    """Un dict anidado como pares ruta → valor, para comparar la ficha campo por campo. Con `registros`,
+    una lista de registros con su `id` —los perfiles, sus requisitos, los candidatos, sus afirmaciones—
+    se abre también, registro por registro (`profiles[PC-01].title`): cada dato de cada registro cuenta,
+    como cuenta cada campo en las fichas de las otras familias. Una lista sin `id` se compara entera."""
     if isinstance(x, dict):
         for k, v in x.items():
-            yield from _plano(v, f"{pre}.{k}" if pre else k)
+            yield from _plano(v, f"{pre}.{k}" if pre else k, registros)
+    elif registros and isinstance(x, list) and x and all(isinstance(r, dict) and r.get("id") for r in x):
+        for r in x:
+            yield from _plano(r, f"{pre}[{r['id']}]", registros)
     else:
         yield pre, x
 
@@ -379,12 +385,16 @@ def calificar(a) -> int:
             ficha = _j(hallados[-1]) if hallados else {}
             if F.get("normalizar") and ficha:
                 ficha = F["normalizar"](ficha, espacio, clave)
-            hecho = dict(_plano(ficha))
-            for ruta, valor in _plano(esperado_k):
-                if ruta.split(".")[0] in PROPIOS:
+            por_registro = bool(F.get("registros"))
+            hecho = dict(_plano(ficha, registros=por_registro))
+            for ruta, valor in _plano(esperado_k, registros=por_registro):
+                if ruta.split(".")[0].split("[")[0] in PROPIOS:
                     continue
+                obtenido = hecho.get(ruta)
+                # Abierto registro por registro, una cita llega sola: vale si señala lo mismo (CLO-5, CHRO-9).
+                bien = _igual(valor, obtenido, espacio) or (ruta.endswith("source") and _misma_cita(valor, obtenido, espacio))
                 extraccion.append({"ficha": f"{sub}/{k}" if k else sub, "campo": ruta, "esperado": valor,
-                                   "obtenido": hecho.get(ruta), "bien": _igual(valor, hecho.get(ruta), espacio)})
+                                   "obtenido": obtenido, "bien": bien})
     tokens = sum(_j(f).get("tokens") or 0 for f in (carpeta / "salidas").glob("*.json"))
     res = {"entidad": clave["entidad"], "agentes": sorted(corridos), "tokens": tokens,
            "senales": {"esperadas": len(esperado), "acertadas": len(ok), "de_mas": sorted(map(list, sobran)),

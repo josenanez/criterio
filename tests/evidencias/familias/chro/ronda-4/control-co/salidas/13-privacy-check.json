@@ -1,0 +1,28 @@
+{
+  "n": 13,
+  "agente": "candido",
+  "comando": "privacy-check",
+  "argumento": "",
+  "inicio": "2026-11-24T19:20:31",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 8,
+  "tokens": 400670,
+  "tokens_salida": 2243,
+  "costo_usd": 0.1299252,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-privacy-check-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-privacy-check.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/seleccion/2026-11/reporte-privacy-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

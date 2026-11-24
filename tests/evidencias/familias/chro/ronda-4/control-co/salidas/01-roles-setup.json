@@ -1,0 +1,39 @@
+{
+  "n": 1,
+  "agente": "norma",
+  "comando": "roles-setup",
+  "argumento": "talento/900777888-cooperativa-control-sintetica",
+  "inicio": "2026-11-24T19:14:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 109,
+  "turnos": 29,
+  "tokens": 1102367,
+  "tokens_salida": 12829,
+  "costo_usd": 0.8841715999999998,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/perfiles/900777888/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.md",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.pdf",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/cache/10-perfiles/PC-11_contador.docx.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/cache/10-perfiles/PC-12_auxiliar-contable.docx.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/cache/10-perfiles/PC-13_desarrollador-de-software.docx.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/cache/manifest.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-roles-setup-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-roles-setup.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/ficha.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/reporte-profile-check.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/resultados.json",
+      "talento/900777888-cooperativa-control-sintetica/_CRITERIO_TALENTO.txt"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

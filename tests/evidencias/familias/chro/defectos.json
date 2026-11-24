@@ -183,14 +183,14 @@
    ],
    "origen": "instrucciones",
    "commit": "50c030a1",
-   "estado": "por-verificar",
+   "estado": "verificado",
    "es": {
     "que": "De una certificación que la hoja de vida afirma sin soporte, Cándido tomó el vencimiento y la evidencia de la hoja de vida en la verificación y no en la primera ronda: cv-record decía que el vencimiento sale del soporte y no decía qué hacer cuando no llega.",
-    "correccion": "Sin soporte, el vencimiento y la evidencia de la certificación salen de la línea de la hoja de vida que la afirma; la afirmación sigue sin soporte y lo dice su señal. La clave lo sigue, y la verificación se volvió a calificar sin repetir comandos."
+    "correccion": "Sin soporte, el vencimiento y la evidencia de la certificación salen de la línea de la hoja de vida que la afirma; la afirmación sigue sin soporte y lo dice su señal. La clave lo sigue, y la verificación se volvió a calificar sin repetir comandos. La ronda 4, sobre la misma banca, lo verificó: la certificación sin soporte de CAN-111 llegó con su vencimiento y su evidencia en la línea de la hoja de vida."
    },
    "en": {
     "que": "For a certification the CV claims without support, Cándido took the expiry and the evidence from the CV in the verification but not in the first round: cv-record said the expiry comes from the support and did not say what to do when none arrives.",
-    "correccion": "Without support, the certification's expiry and evidence come from the CV line that claims it; the claim is still unsupported and its signal says so. The key follows it, and the verification was graded again without repeating any command."
+    "correccion": "Without support, the certification's expiry and evidence come from the CV line that claims it; the claim is still unsupported and its signal says so. The key follows it, and the verification was graded again without repeating any command. Round 4, on the same bank, verified it: CAN-111's unsupported certification arrived with its expiry and evidence on the CV line."
    },
    "fallas": [
     [

@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-24T19:16:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 12,
+  "tokens": 628908,
+  "tokens_salida": 4329,
+  "costo_usd": 0.47099959999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-profile-build-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-profile-build.md"
+    ],
+    "modificados": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

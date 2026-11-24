@@ -1,0 +1,43 @@
+{
+  "n": 1,
+  "agente": "norma",
+  "comando": "roles-setup",
+  "argumento": "talento/901555123-banco-cordillera-sintetico",
+  "inicio": "2026-11-24T19:04:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 137,
+  "turnos": 35,
+  "tokens": 1219010,
+  "tokens_salida": 16872,
+  "costo_usd": 1.2639288,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/perfiles/901555123/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.md",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.pdf",
+      ".criterio/terminos/aceptacion-criterio-roles-0.2.0-2026-11-16.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-01_contador.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-02_contador-de-impuestos.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-03_auxiliar-contable.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-04_analista-de-credito.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-05_cajero.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-06_coordinador-de-cobranzas.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/10-perfiles/PC-07_director-financiero.docx.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/cache/manifest.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-roles-setup-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-roles-setup.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/2026-11/ficha.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/2026-11/reporte-profile-check.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/2026-11/resultados.json",
+      "talento/901555123-banco-cordillera-sintetico/_CRITERIO_TALENTO.txt"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}
