@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -145,6 +145,30 @@
       "description": "Cándido, la selección: cada afirmación de la hoja de vida contra su soporte, cada candidato contra el perfil requisito por requisito y con la cita, la autorización y la conservación de los datos y cada vacante contra su plazo. Nunca rechaza, puntúa ni ordena candidatos, y no usa la fotografía, la edad, el sexo, el origen ni la salud de nadie.",
       "source": "./plugins/criterio-talent",
       "category": "people"
+    },
+    {
+      "name": "criterio-audit-plan",
+      "description": "Prudencia, el plan de auditoría: el plan contra la matriz de riesgos y el universo auditable, los riesgos altos sin un trabajo, las unidades fuera de su ciclo, los cambios sin acta, los trabajos atrasados, las horas contra la capacidad, el requisito temático vigente y la evaluación externa de calidad, sobre las Normas Globales de Auditoría Interna. Nunca decide qué se audita ni aprueba el plan.",
+      "source": "./plugins/criterio-audit-plan",
+      "category": "audit"
+    },
+    {
+      "name": "criterio-audit-work",
+      "description": "Justo, los trabajos de auditoría: cada hallazgo con su criterio, su condición, su causa, su efecto, su prioridad y su papel, cada paso del programa con su papel, cada papel con su revisión, el informe contra los papeles y la objetividad de cada asignación, sobre las Normas Globales de Auditoría Interna. Nunca emite una opinión ni cambia la prioridad de un hallazgo.",
+      "source": "./plugins/criterio-audit-work",
+      "category": "audit"
+    },
+    {
+      "name": "criterio-cae",
+      "description": "La familia CAE completa —la auditoría interna—: instala de una vez a Prudencia, Justo y Remedios y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cae:cae-setup.",
+      "source": "./plugins/criterio-cae",
+      "category": "audit"
+    },
+    {
+      "name": "criterio-remediation",
+      "description": "Remedios, el seguimiento de los hallazgos: cada plan de acción con su responsable, su fecha y su evidencia, las reprogramaciones, los cierres sin evidencia, los hallazgos que vuelven, los riesgos aceptados que no llegaron al consejo y los hallazgos externos fuera del registro. Nunca cierra un hallazgo ni acepta un riesgo.",
+      "source": "./plugins/criterio-remediation",
+      "category": "audit"
     },
     {
       "name": "criterio-server",
