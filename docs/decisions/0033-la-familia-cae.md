@@ -1,12 +1,18 @@
 # 0033 · La familia CAE: la auditoría interna, con tres agentes sobre las Normas Globales de Auditoría Interna
 
 **Fecha:** 2026-11-24 · **Estado:** aceptada: los nombres y la estructura, por José el 2026-11-24. Las fuentes se verifican una a una (abajo, con la fecha de cada verificación) ·
-**Modifica:** —
+**Modifica:** [0014](0014-scope-auditoria-cae.md), la propuesta de alcance de la CAE, que esta decisión reemplaza
 
 ## Contexto
 
 José Francisco Ñáñez fijó el orden de los nuevos diseños: primero la CAE, la auditoría interna;
 después la CDO, los datos. Esta decisión es la primera.
+
+La [decisión 0014](0014-scope-auditoria-cae.md), del 23 de octubre de 2026, propuso el alcance: un
+agente sobre el seguimiento de los hallazgos y el avance del plan, y tres reglas para la operación real
+—la independencia es estructural, los papeles de trabajo son de la función y lo que se reporta va a quien
+lo pide la norma—. Esta decisión la reemplaza: el alcance pasa a tres agentes, y las tres reglas se
+quedan.
 
 La auditoría interna es el área que más trabaja contra documentos, porque su producto es una
 opinión sostenida en evidencia: cada hallazgo tiene que poder rastrearse hasta el papel de trabajo
@@ -79,6 +85,15 @@ hace a mano contra documentos, y Rostrum, como en las demás familias:
 en su estatuto y su metodología de auditoría: el código calcula y el auditor decide. Lo que viene
 de fuera es la estructura de las Normas Globales y los plazos de la regulación de cada país.
 
+### La independencia, de la decisión 0014
+
+- **No comparte estado con ningún agente que revisa** y no escribe en el de ninguno: su carpeta raíz es
+  propia, y los informes de las otras familias entran como cualquier documento.
+- **Los papeles de trabajo son de la función de auditoría.** Lo que escriben los tres agentes no se
+  publica en Rostrum salvo que la configuración lo diga (`publish_rostrum`, por omisión no).
+- **Lo que reporta va a quien lo pide la norma:** el responsable de auditoría y el comité; la persona
+  decide qué sube.
+
 ### Lo que nunca hace
 
 - **Emitir una opinión.** No concluye sobre la eficacia del control interno, no firma ni aprueba
@@ -150,5 +165,8 @@ grupo de señales y su despertador (`*-wake`):
    setup mapea las columnas de cualquier Excel o CSV.
 4. **La regulación de México, Chile y Ecuador:** el capítulo exacto de cada una.
 5. **ISO 19011:** su edición vigente, para las auditorías de sistemas de gestión.
-6. **El sector público:** el control interno de las entidades públicas (en Colombia, la Ley 87 de
+6. **La evidencia de las otras familias**, de la decisión 0014: el informe de un área que declara algo
+   que la evidencia de otro agente no sostiene. Entra cuando una ronda de la CAE procese los informes
+   publicados de la CFO, la CLO, la PMO y la CISO.
+7. **El sector público:** el control interno de las entidades públicas (en Colombia, la Ley 87 de
    1993 y el MIPG) queda fuera de la 0.1.0.

@@ -927,7 +927,7 @@
         {
           "quien": "rostrum",
           "tag": "ROSTRUM · EL PORTAL",
-          "texto": "Publica el estado del plan y de los hallazgos para el comité. No recalcula nada."
+          "texto": "Publica el estado del plan y de los hallazgos solo si la configuración lo dice: los papeles de la auditoría son de la función. No recalcula nada."
         },
         {
           "quien": "ficha",
@@ -979,7 +979,7 @@
         {
           "quien": "rostrum",
           "tag": "ROSTRUM · THE PORTAL",
-          "texto": "Publishes the status of the plan and the findings for the committee. It recalculates nothing."
+          "texto": "Publishes the status of the plan and the findings only if the configuration says so: audit papers belong to the function. It recalculates nothing."
         },
         {
           "quien": "ficha",

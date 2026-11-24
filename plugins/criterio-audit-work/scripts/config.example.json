@@ -12,6 +12,7 @@
     "state": "estado-auditoria/900123456-entidad-de-ejemplo"
   },
   "period": "2026-11",
+  "publish_rostrum": false,
   "methodology": {
     "cycles_months": {
       "Crítico": 12,

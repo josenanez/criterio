@@ -1,6 +1,6 @@
 # 0014 · Propuesta: el alcance se amplía a auditoría interna (CAE)
 
-**Fecha:** 2026-10-23 · **Estado:** propuesta · **Modifica:** 0012
+**Fecha:** 2026-10-23 · **Estado:** reemplazada por la [decisión 0033](0033-la-familia-cae.md), que conserva sus tres reglas de independencia · **Modifica:** 0012
 
 ## Contexto
 

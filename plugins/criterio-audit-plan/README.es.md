@@ -111,7 +111,7 @@ python3 scripts/auditoria.py despertar --config <archivo>
 |---|---|
 | **Justo** | Comparten la carpeta y la metodología; cada uno escribe solo su ficha |
 | **Remedios** | Comparten la carpeta y la metodología; cada uno escribe solo su ficha |
-| **Rostrum** | Publica sus reportes, lo que vence y sus señales para quien no abre una carpeta, y le devuelve las preguntas que deja quien lo mira. **No escribe en el estado** |
+| **Rostrum** | Solo si la configuración lo dice (`publish_rostrum`; por omisión no, decisión 0014): publica sus reportes, lo que vence y sus señales para quien no abre una carpeta, y le devuelve las preguntas que deja quien lo mira. **No escribe en el estado** |
 
 ## Pruebas
 

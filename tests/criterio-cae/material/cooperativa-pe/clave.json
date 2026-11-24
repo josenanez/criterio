@@ -20,6 +20,7 @@
         "state": "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica"
       },
       "period": "2026-11",
+      "publish_rostrum": false,
       "methodology": {
         "cycles_months": {
           "Crítico": 12,
@@ -76,6 +77,7 @@
         "state": "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica"
       },
       "period": "2026-11",
+      "publish_rostrum": false,
       "methodology": {
         "cycles_months": {
           "Crítico": 12,
@@ -132,6 +134,7 @@
         "state": "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica"
       },
       "period": "2026-11",
+      "publish_rostrum": false,
       "methodology": {
         "cycles_months": {
           "Crítico": 12,

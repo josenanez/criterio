@@ -316,7 +316,7 @@ def construir(e: dict) -> dict:
 
     def cfg(rol: str) -> dict:
         return {"version": "0.1", "role": rol, "entity": {"id": e["id"], "name": e["nombre"], "country": e["pais"], "currency": e["moneda"]},
-                "paths": {"documents": f"auditoria/{nombre_carpeta}", "state": f"estado-auditoria/{nombre_carpeta}"}, "period": PERIODO,
+                "paths": {"documents": f"auditoria/{nombre_carpeta}", "state": f"estado-auditoria/{nombre_carpeta}"}, "period": PERIODO, "publish_rostrum": False,
                 "methodology": {"cycles_months": {"Crítico": 12, "Alto": 12, "Medio": 24, "Bajo": 36}, "high_ratings": ["Alto", "Crítico"],
                                 "risk_assessment_date": evaluacion, "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
                                 "external_assessment_date": externa, "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",

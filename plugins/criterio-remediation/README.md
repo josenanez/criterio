@@ -105,7 +105,7 @@ python3 scripts/auditoria.py despertar --config <file>
 |---|---|
 | **Prudencia** | They share the folder and the methodology; each writes only its own record |
 | **Justo** | They share the folder and the methodology; each writes only its own record |
-| **Rostrum** | Publishes its reports, what falls due and its signals for whoever does not open a folder, and hands back the questions left by whoever reads it. **It does not write to the state** |
+| **Rostrum** | Only if the configuration says so (`publish_rostrum`; off by default, decision 0014): it publishes its reports, what falls due and its signals for whoever does not open a folder, and hands back the questions left by whoever reads it. **It does not write to the state** |
 
 ## Tests
 
