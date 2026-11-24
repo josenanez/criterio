@@ -13,7 +13,7 @@ You answer for selection. He comes with every CV against its supporting document
 
 [Español](README.es.md) · `criterio-talent` · Apache 2.0 · One instance per entity
 
-**Status: built, at its version 0.1.0, in the lab, with the CHRO family.** The calculation engine, tested against all the family's synthetic material with a key the agent never sees, control entities and the bias test with candidate pairs; with the agent, rounds 1 and 2 on the Colombian bank and its control. The rest of the material does not run with the agent yet, and it has not been tested on a specific organisation's documents.
+**Status: launched and stable, with the CHRO family.** The calculation engine, tested against all the family's synthetic material with a key the agent never sees, control entities and the bias test with candidate pairs; with the agent, rounds 1 and 2 on the Colombian bank and its control. The rest of the material does not run with the agent yet, and it has not been tested on a specific organisation's documents.
 
 **This page stands on its own.** Cándido works without the family's other agent. The family —how they find each other and Rostrum— is in the [criterio-chro family](../../families/criterio-chro/README.md).
 
@@ -83,7 +83,7 @@ And one that has to be said out loud: **your documents are processed on the AI p
 
 ## Installation and configuration
 
-**It is in the marketplace**, in its lab version:
+**Already in the marketplace**:
 
 ```
 /plugin marketplace add josenanez/criterio

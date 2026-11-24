@@ -15,7 +15,7 @@ que lo sostiene y la meta contra lo cerrado.
 
 [English](README.md) · `criterio-sales` · Apache 2.0 · Una instancia por entidad
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los ocho comandos, los cuatro skills y el motor de
+**Estado: estable, lanzada.** Los ocho comandos, los cuatro skills y el motor de
 cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
 exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
 que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas

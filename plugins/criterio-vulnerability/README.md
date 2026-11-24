@@ -81,7 +81,7 @@ And one that has to be said out loud: **your documents are processed on the AI p
 
 ## Installation and setup
 
-**Already in the marketplace**, laboratory and not yet launched:
+**Already in the marketplace**:
 
 ```
 /plugin marketplace add josenanez/criterio

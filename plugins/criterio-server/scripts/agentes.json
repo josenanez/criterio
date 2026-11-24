@@ -100,8 +100,8 @@
         "en": "Talent"
       },
       "estado": {
-        "es": "Construida · en prueba",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "perfiles",

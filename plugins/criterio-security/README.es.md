@@ -93,7 +93,7 @@ Y una que hay que decir en voz alta: **tus documentos se procesan en la infraest
 
 ## Instalación y configuración
 
-**Ya está en el marketplace**, de laboratorio y sin lanzar:
+**Ya está en el marketplace**:
 
 ```
 /plugin marketplace add josenanez/criterio

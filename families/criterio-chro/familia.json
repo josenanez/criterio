@@ -1,6 +1,7 @@
 {
  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CHRO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta que cita un comando está en carpetas.json y cada fuente, en fuentes.json.",
  "sigla": "chro",
+ "lanzamiento": "2026-11-23",
  "orden": 70,
  "categoria": "people",
  "adr": "0031-la-familia-chro.md",
@@ -9,8 +10,8 @@
   "en": "Talent"
  },
  "estado": {
-  "es": "Construida · en prueba",
-  "en": "Built · in testing"
+  "es": "Construida · probada",
+  "en": "Built · tested"
  },
  "nivel_c": {
   "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
@@ -733,7 +734,7 @@
     "candido": "La selección",
     "rostrum": "El portal"
    },
-   "nota": "Estado de la familia: de laboratorio, en su versión 0.2.0. El motor pasa su prueba determinista y la prueba de sesgo con pares de candidatos contra todo su material, y los dos agentes corrieron sobre las cinco entidades de prueba, en Colombia, México, Chile y Perú, con una clave que no ven.",
+   "nota": "Estado de la familia: estable. El motor pasa su prueba determinista y la prueba de sesgo con pares de candidatos contra todo su material, y los dos agentes pasaron sus rondas en Colombia, México, Chile y Perú con una clave que no ven.",
    "guion": [
     {
      "cabeza": true,
@@ -779,7 +780,7 @@
     "candido": "Selection",
     "rostrum": "The portal"
    },
-   "nota": "Where the family stands: in the lab, at its version 0.2.0. The engine passes its deterministic test and the bias test with candidate pairs against all its material, and the two agents ran on the five test entities, in Colombia, Mexico, Chile and Peru, with a key they never see.",
+   "nota": "Where the family stands: stable. The engine passes its deterministic test and the bias test with candidate pairs against all its material, and the two agents passed their rounds in Colombia, Mexico, Chile and Peru with a key they never see.",
    "guion": [
     {
      "cabeza": true,

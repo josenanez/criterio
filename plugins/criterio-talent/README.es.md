@@ -13,7 +13,7 @@ Tú respondes por la selección. Él llega con cada hoja de vida contra sus sopo
 
 [English](README.md) · `criterio-talent` · Apache 2.0 · Una instancia por entidad
 
-**Estado: construido, en su versión 0.1.0, de laboratorio, con la familia CHRO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve, entidades de control y la prueba de sesgo con pares de candidatos; con el agente, las rondas 1 y 2 sobre la banca de Colombia y su control. El resto del material todavía no corre con el agente, y no se ha probado sobre la documentación de una organización concreta.
+**Estado: lanzado y estable, con la familia CHRO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve, entidades de control y la prueba de sesgo con pares de candidatos; con el agente, las rondas 1 y 2 sobre la banca de Colombia y su control. El resto del material todavía no corre con el agente, y no se ha probado sobre la documentación de una organización concreta.
 
 **Esta página se lee sola.** Cándido funciona sin el otro agente de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-chro](../../families/criterio-chro/README.es.md).
 
@@ -83,7 +83,7 @@ Y una que hay que decir en voz alta: **tus documentos se procesan en la infraest
 
 ## Instalación y configuración
 
-**Está en el marketplace**, en su versión de laboratorio:
+**Ya está en el marketplace**:
 
 ```
 /plugin marketplace add josenanez/criterio

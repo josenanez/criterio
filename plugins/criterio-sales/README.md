@@ -15,7 +15,7 @@ it and the target against what closed.
 
 [Español](README.es.md) · `criterio-sales` · Apache 2.0 · One instance per entity
 
-**Status: stable, not yet launched (version 0.3.0).** The eight commands, the four skills and the
+**Status: stable, launched.** The eight commands, the four skills and the
 calculation engine, tested against synthetic material from Colombia, Mexico, Ecuador, Peru and Chile
 —with Salesforce, HubSpot, Dynamics 365, Zoho and any CRM with its mapping— with a key the agent never
 sees and one control entity per country. It passed its two rounds with the agents: across all of them,

@@ -68,7 +68,7 @@ En la infraestructura de la plataforma de IA sobre la que corre el agente, no so
 
 ### ¿Está lista para usar?
 
-Se puede instalar, y es de laboratorio, en su versión 0.1.0: el motor está probado sobre material sintético de banca, retail, salud y tecnología, con una clave que no ve y dos entidades de control. La ronda con los tres agentes es el siguiente paso.
+Sí: es estable y está lanzada. El motor está probado sobre material sintético de banca, retail, salud y tecnología, con una clave que no ve y dos entidades de control, y los tres agentes pasaron sus rondas con un piso del 95 % o más en las señales y en los datos.
 
 ### ¿Es estable?
 

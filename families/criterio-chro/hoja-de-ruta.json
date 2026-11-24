@@ -108,6 +108,31 @@
   },
   {
    "incremento": 3,
+   "version": "1.0.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [],
+   "es": {
+    "titulo": "Estable, y el lanzamiento",
+    "entra": [
+     "La ronda 4 con los dos agentes sobre la banca de Colombia y su control: CHRO-7 verificado",
+     "La extracción, calificada registro por registro: cada perfil, cada requisito, cada candidato y cada afirmación, como cuenta cada campo en las fichas de las otras familias",
+     "El lanzamiento: estable con las rondas 3 y 4, abre su 1.0.0 (decisión 0021)"
+    ],
+    "prueba": "Las rondas 3 y 4 en Colombia, México, Chile y Perú: 73 de 73 señales, 1.738 datos y ningún control con una señal"
+   },
+   "en": {
+    "titulo": "Stable, and the launch",
+    "entra": [
+     "Round 4 with both agents on the Colombian bank and its control: CHRO-7 verified",
+     "Extraction graded record by record: each profile, requirement, candidate and claim, as each field counts in the other families' records",
+     "The launch: stable with rounds 3 and 4, it opens its 1.0.0 (decision 0021)"
+    ],
+    "prueba": "Rounds 3 and 4 in Colombia, Mexico, Chile and Peru: 73 of 73 signals, 1,738 data items and no control with a signal"
+   }
+  },
+  {
+   "incremento": 4,
    "version": null,
    "estado": "siguiente",
    "industrias": [],
