@@ -303,7 +303,7 @@ def yt(i: str) -> str:
 
 
 def titulo_familia(f: dict, l: str) -> str:
-    areas = [x[l][0][0].lower() + x[l][0][1:] for x in f["nivel_c"]["portada"]["filas"]]
+    areas = [minuscula(x[l][0]) for x in f["nivel_c"]["portada"]["filas"]]
     nombre = f["nombre"][l]
     for n in range(len(areas), 1, -1):
         t = T[l]["titulo"].format(nombre=nombre, areas=", ".join(areas[:n]), SIGLA=f["sigla"].upper())

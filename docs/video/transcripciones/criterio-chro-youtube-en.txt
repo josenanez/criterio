@@ -1,0 +1,60 @@
+0:00  Test data
+0:00  Four requirements that cannot be asked for.
+0:02  Norma caught it before the decision.
+0:06  Criterio CHRO
+0:06  Chief Human Resources Officer
+0:08  Job profiles Every profile against the occupation in its standard
+0:08  DANE CUOC O*NET 31.0 ISCO-08 Personal data laws of 8 countries CVs and supporting documents in PDF or Word Authorisation register ATS export in Excel or CSV Vacancy register in Excel or CSV
+0:10  What cannot be asked for Every requirement against the country's data law and the policy
+0:11  CVs Every claim against its support, and every candidate against the profile
+0:13  Candidate data Authorisation, retention and what is not processed
+0:15  Vacancies Every vacancy against its time to fill
+0:19  Where it was tested
+0:19  4
+0:19  countries
+0:19  5
+0:19  test entities
+0:20  Colombia Peru Chile Mexico
+0:21  Banking Retail Technology
+0:21  and 2 control entities
+0:29  Two agents and a portal
+0:30  Norma
+0:30  Profiles
+0:30  Cándido
+0:30  Selection
+0:31  Rostrum
+0:31  The portal
+0:35  What your team does by hand today
+0:35  ✓ Reviewing each profile against its occupation in the standard: skills, knowledge and education
+0:36  ✓ Finding in each profile what the law or the policy does not allow to be asked for
+0:36  ✓ Checking each degree, certification and job in the CV against its supporting document
+0:37  ✓ Setting each candidate against the profile’s requirements, with no scores
+0:38  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  95.0%
+0:45  caught at least, with 95% confidence
+0:45  73cases tested
+0:46  Profiles 17
+0:47  What cannot be asked for 10
+0:47  The map 3
+0:48  CVs 17
+0:48  Candidate data 20
+0:49  Vacancies 6
+0:50  2 of 2 control entities without a single false alarm
+0:50  9 defects found in 4 rounds: all fixed and verified
+0:58  Job profiles
+0:58  What it found
+0:58  The Colombian bank in November with 14 open signals: four requirements that cannot be asked for —age, sex and health among them—, two profiles with no occupation in the standard, two asking for education their occupation does not require, two skills or knowledge areas left out, two requirements with no task behind them, one profil
+1:05  The same bank: Rostrum shows only the two vacancies past the policy’s deadline, because Cándido’s configuration does not publish what he says about candidates. The other signals are read in his report, in the agent’s folder.
+1:12  Publishes the profiles and the status of the vacancies. Candidates do not appear there unless the configuration says so. Recalculates nothing.
+1:17  Open source · Apache 2.0
+1:18  1
+1:18  Add the marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Install the family
+1:19  /plugin install criterio-chro@criterio
+1:20  3
+1:20  Set up and accept the terms
+1:20  /criterio-chro:chro-setup
+1:22  josenanez.com/agents/criterio-chro

@@ -8,6 +8,7 @@ import { CRITERIO_CLO } from './lib/criterioClo';
 import { CRITERIO_EA } from './lib/criterioEa';
 import { CRITERIO_CCO } from './lib/criterioCco';
 import { CRITERIO_CISO } from './lib/criterioCiso';
+import { CRITERIO_CHRO } from './lib/criterioChro';
 import { CRITERIO_RONDAS } from './lib/criterioRondas';
 import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_SECTORES } from './lib/criterioSectores';
@@ -29,12 +30,12 @@ import { CriterioLogo } from './portal/CriterioLogo';
    que cambia en el repositorio cambia en el video la próxima vez que se graba. El reloj y cómo
    aparece cada cosa están en tiempo.jsx, que comparte con el video de Criterio. */
 
-const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO };
+const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO, chro: CRITERIO_CHRO };
 // La PMO no tiene una ficha de agentes como las demás: sus agentes son los de sus pestañas.
 const agentesDe = (sigla, l) => AGENTES[sigla]?.agentes ?? AGENT_TABS_FAMILIAS[sigla][l].agents.map((a) => ({ id: a.id, nombre: a.name }));
 
 // El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
-const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo' };
+const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo', chro: 'norma' };
 
 const TEXTO = {
   es: {
@@ -90,7 +91,8 @@ function escenas(sigla, l) {
   const quien = tabs.find((a) => a.id === GANCHO[sigla]) ?? tabs[0];
   // La captura de Vera cuenta el hallazgo en una oración entera; las demás lo dan antes de la primera coma.
   const tras = quien.caption.split(': ')[1];
-  const hallazgo = sigla === 'pmo' ? tras.split('. ')[0].replace(/\.$/, '') : tras.split(', ')[0];
+  // Un inciso entre rayas —«—la edad, el sexo y la salud entre ellos—»— no corta la frase: se quita antes de cortar en la coma.
+  const hallazgo = sigla === 'pmo' ? tras.split('. ')[0].replace(/\.$/, '') : tras.replace(/\s*—[^—]*—/g, '').split(', ')[0];
   const gancho = hallazgo.charAt(0).toUpperCase() + hallazgo.slice(1) + '.';
   lista.push({
     dura: 6,

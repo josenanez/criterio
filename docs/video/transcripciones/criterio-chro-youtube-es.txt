@@ -1,0 +1,60 @@
+0:00  Datos de prueba
+0:00  Cuatro requisitos que no se pueden pedir.
+0:02  Norma lo detectó antes de la decisión.
+0:06  Criterio CHRO
+0:06  Chief Human Resources Officer
+0:08  Perfiles de cargo Cada perfil contra la ocupación de su estándar
+0:08  CUOC del DANE O*NET 31.0 CIUO-08 Leyes de datos personales de 8 países Hojas de vida y soportes en PDF o Word Registro de autorizaciones exportación del ATS en Excel o CSV Registro de vacantes en Excel o CSV
+0:10  Lo que no se puede pedir Cada requisito contra la ley de datos del país y la política
+0:11  Hojas de vida Cada afirmación contra su soporte, y cada candidato contra el perfil
+0:13  Datos de candidatos Autorización, conservación y lo que no se trata
+0:15  Vacantes Cada vacante contra su plazo de cobertura
+0:19  Dónde se probó
+0:19  4
+0:19  países
+0:19  5
+0:19  entidades de prueba
+0:20  Colombia Perú Chile México
+0:21  Banca Retail Tecnología
+0:21  y 2 entidades de control
+0:29  Dos agentes y un portal
+0:30  Norma
+0:30  Los perfiles
+0:30  Cándido
+0:30  La selección
+0:31  Rostrum
+0:31  El portal
+0:35  Lo que hoy hace tu equipo, a mano
+0:35  ✓ Revisar cada perfil contra su ocupación en el estándar: destrezas, conocimientos y estudios
+0:36  ✓ Buscar en cada perfil lo que la ley o la política no dejan pedir
+0:36  ✓ Cotejar cada título, certificación y empleo de la hoja de vida con su soporte
+0:37  ✓ Poner a cada candidato contra los requisitos del perfil, sin puntajes
+0:38  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:44  La evidencia
+0:44  95,0 %
+0:45  detectado como mínimo, con 95 % de confianza
+0:45  73casos probados
+0:46  Perfiles 17
+0:47  Lo que no se puede pedir 10
+0:47  El mapa 3
+0:48  Hojas de vida 17
+0:48  Datos de candidatos 20
+0:49  Vacantes 6
+0:50  2 de 2 entidades de control sin una sola alarma falsa
+0:50  9 defectos encontrados en 4 rondas: todos corregidos y verificados
+0:58  Los perfiles de cargo
+0:58  Lo que encontró
+0:58  El banco de Colombia en noviembre con 14 señales abiertas: cuatro requisitos que no se pueden pedir —la edad, el sexo y la salud entre ellos—, dos perfiles sin ocupación del estándar, dos que piden estudios que su ocupación no exige, dos destrezas o conocimientos sin recoger, dos requisitos sin una tarea que los apoye, un perfil q
+1:05  El mismo banco: en Rostrum solo salen las dos vacantes que pasaron el plazo de la política, porque la configuración de Cándido no publica lo que dice de los candidatos. Las demás señales se leen en su reporte, en la carpeta del agente.
+1:12  Publica los perfiles y el estado de las vacantes. Lo de los candidatos no sale ahí salvo que la configuración lo diga. No recalcula nada.
+1:17  Código abierto · Apache 2.0
+1:18  1
+1:18  Agregar el marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Instalar la familia
+1:19  /plugin install criterio-chro@criterio
+1:20  3
+1:20  Configurar y aceptar los términos
+1:20  /criterio-chro:chro-setup
+1:22  josenanez.com/agents/criterio-chro
