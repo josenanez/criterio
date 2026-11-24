@@ -1,0 +1,95 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CAE: scripts/familias.py la escribe en DISENO.es.md, en el skill audit-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "auditoria/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, el estatuto y la metodología de auditoría con el equipo, el plan con el universo auditable, la matriz de riesgos y las actas del comité, una carpeta por trabajo con su programa, sus papeles y su informe, y el seguimiento de los hallazgos con sus evidencias.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the audit charter and methodology with the team, the plan with the audit universe, the risk matrix and the committee minutes, one folder per engagement with its program, working papers and report, and the follow-up of findings with their evidence."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que la auditoría interna lleva de la entidad",
+      "en": "What internal audit keeps for the entity",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "prudencia",
+            "justo",
+            "remedios"
+          ],
+          "es": "El estatuto y la metodología de auditoría —los ciclos, la escala de prioridad, los plazos de seguimiento—, el informe de la última evaluación externa de calidad y el equipo: cada auditor con sus horas disponibles y los cargos que tuvo",
+          "en": "The audit charter and methodology —the cycles, the priority scale, the follow-up deadlines—, the report of the last external quality assessment and the team: each auditor with their available hours and the roles they held",
+          "patrones": [
+            "^estatuto",
+            "^metodologia",
+            "^evaluacion_externa",
+            "^equipo",
+            "^charter",
+            "^methodology",
+            "^team"
+          ]
+        },
+        {
+          "carpeta": "10-plan",
+          "agentes": [
+            "prudencia"
+          ],
+          "es": "El universo auditable, la matriz de riesgos de la segunda línea, el plan anual con sus trabajos y sus horas, y las actas del comité que lo aprueban y lo cambian",
+          "en": "The audit universe, the second line's risk matrix, the annual plan with its engagements and hours, and the committee minutes that approve and change it",
+          "patrones": [
+            "^universo",
+            "^matriz",
+            "^riesgos",
+            "^plan",
+            "^acta",
+            "^universe",
+            "^risk"
+          ]
+        },
+        {
+          "carpeta": "20-trabajos",
+          "agentes": [
+            "justo"
+          ],
+          "es": "Una carpeta por trabajo con su código: el programa de trabajo, el índice de papeles, los papeles de trabajo y el informe",
+          "en": "One folder per engagement with its code: the work program, the index of working papers, the working papers and the report",
+          "patrones": [
+            "^programa",
+            "^indice",
+            "^papel",
+            "^pt",
+            "^informe",
+            "^program",
+            "^workpaper",
+            "^report"
+          ]
+        },
+        {
+          "carpeta": "30-seguimiento",
+          "agentes": [
+            "remedios"
+          ],
+          "es": "El registro de hallazgos y planes de acción, una carpeta por hallazgo con sus evidencias y explicaciones de atraso, el registro de riesgos aceptados y los informes del revisor fiscal, del auditor externo y del supervisor",
+          "en": "The findings and action-plan register, one folder per finding with its evidence and explanations of delay, the accepted-risk register and the reports of the statutory auditor, the external auditor and the supervisor",
+          "patrones": [
+            "^registro_hallazgos",
+            "^hallazgos",
+            "^riesgos_aceptados",
+            "^evidencia",
+            "^informe_externo",
+            "^revisor",
+            "^supervisor",
+            "^findings"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-auditoria/",
+    "es": "Lo que escriben Prudencia, Justo y Remedios: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Prudencia, Justo and Remedios write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

@@ -39,7 +39,7 @@ import time
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-COMANDO = re.compile(r"(criterio-[a-z]+):([a-z][a-z-]*)")
+COMANDO = re.compile(r"(criterio-[a-z]+(?:-[a-z]+)*):([a-z][a-z-]*)")
 
 
 def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:

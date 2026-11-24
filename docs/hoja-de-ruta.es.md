@@ -116,6 +116,5 @@ Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, esp
 
 | Decisión | Familia | Estado |
 |---|---|---|
-| [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Propuesta |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Propuesta |
 | [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Aceptada |

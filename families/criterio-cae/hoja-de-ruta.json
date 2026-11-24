@@ -1,0 +1,140 @@
+{
+  "nota": "Fuente única de la hoja de ruta de la familia CAE: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. La metodología —ciclos, escala de prioridad, plazos— es la de la organización; la estructura, la de las Normas Globales de Auditoría Interna.",
+  "incrementos": [
+    {
+      "incremento": 1,
+      "version": "0.1.0",
+      "estado": "en curso",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "BR",
+          "nombre": {
+            "es": "Brasil",
+            "en": "Brazil"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Prudencia, Justo y Remedios, construidos, con el motor probado",
+        "entra": [
+          "Los comandos, sus cinco skills y el motor, con las veinticuatro señales: el plan contra los riesgos, el universo y su capacidad de Prudencia; cada hallazgo contra su criterio y sus papeles de Justo; cada hallazgo hasta su cierre de Remedios",
+          "Las Normas Globales de Auditoría Interna (F-01) y los requisitos temáticos vigentes (F-02), cada señal atada a su norma",
+          "Material de banca, cooperativas y seguros en Colombia, Perú y Brasil, con dos entidades de control"
+        ],
+        "prueba": "El motor contra la clave de todo el material, sin una alarma en los controles"
+      },
+      "en": {
+        "titulo": "Prudencia, Justo and Remedios, built, with the engine tested",
+        "entra": [
+          "The commands, their five skills and the engine, with the twenty-four signals: Prudencia's plan against the risks, the universe and its capacity; Justo's every finding against its criteria and its papers; Remedios's every finding until it is closed",
+          "The Global Internal Audit Standards (F-01) and the topical requirements in force (F-02), each signal tied to its standard",
+          "Banking, cooperative and insurance material in Colombia, Peru and Brazil, with two control entities"
+        ],
+        "prueba": "The engine against the key of all the material, with no alarm on the controls"
+      }
+    },
+    {
+      "incremento": 2,
+      "version": null,
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "BR",
+          "nombre": {
+            "es": "Brasil",
+            "en": "Brazil"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "La ronda con los tres agentes",
+        "entra": [
+          "Las rondas con Prudencia, Justo y Remedios sobre todo el material, con una clave que no ven",
+          "Los plazos de la regulación de Colombia, Perú y Brasil, desde su texto oficial (F-10 a F-12)"
+        ],
+        "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
+      },
+      "en": {
+        "titulo": "The round with the three agents",
+        "entra": [
+          "The rounds with Prudencia, Justo and Remedios on all the material, with a key they never see",
+          "The deadlines in the regulation of Colombia, Peru and Brazil, from their official text (F-10 to F-12)"
+        ],
+        "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
+      }
+    },
+    {
+      "incremento": 3,
+      "version": null,
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "BR",
+          "nombre": {
+            "es": "Brasil",
+            "en": "Brazil"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Las exportaciones de las herramientas de auditoría",
+        "entra": [
+          "TeamMate+, AuditBoard, Ideagen (Pentana) y SAP Audit Management, cada una con su fuente verificada o con los encabezados de una exportación real"
+        ],
+        "prueba": "Cada exportación procesada contra su clave"
+      },
+      "en": {
+        "titulo": "Audit tool exports",
+        "entra": [
+          "TeamMate+, AuditBoard, Ideagen (Pentana) and SAP Audit Management, each with its verified source or the headers of a real export"
+        ],
+        "prueba": "Each export processed against its key"
+      }
+    }
+  ]
+}

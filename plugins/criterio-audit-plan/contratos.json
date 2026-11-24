@@ -1,0 +1,366 @@
+{
+ "comandos": {
+  "plan-capacity": {
+   "funcion": "Las horas del plan contra la capacidad del equipo, y el requisito temático vigente de cada trabajo de aseguramiento.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Las horas del plan contra la capacidad del equipo, y el requisito temático vigente de cada trabajo de aseguramiento",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-capacity.md",
+     "<estado>/corridas/salida-plan-capacity.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-methodology"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "plan-coverage": {
+   "funcion": "El plan contra la matriz de riesgos y el universo auditable: riesgos altos sin trabajo, unidades fuera de su ciclo, la evaluación de riesgos vencida y las áreas que el plan no considera.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "El plan contra la matriz de riesgos y el universo auditable: riesgos altos sin trabajo, unidades fuera de su ciclo, la evaluación de riesgos vencida y las áreas que el plan no considera",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-coverage.md",
+     "<estado>/corridas/salida-plan-coverage.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-methodology"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "plan-scan": {
+   "funcion": "Procesa lo que cambió en el plan, lleva cada acta nueva a la ficha del periodo y dice qué señales nuevas aparecieron.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Procesa lo que cambió en el plan, lleva cada acta nueva a la ficha del periodo y dice qué señales nuevas aparecieron",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-scan.md",
+     "<estado>/corridas/salida-plan-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "plan-record"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "plan-setup": {
+   "funcion": "Deja a Prudencia lista sobre una entidad.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Deja a Prudencia lista sobre una entidad — mira la carpeta de auditoría, reconoce el universo, la matriz y el plan y muestra el primer resultado",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-setup.md",
+     "<estado>/corridas/salida-plan-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "audit-methodology",
+     "plan-record"
+    ],
+    "script": [
+     "arranque",
+     "compute",
+     "convertir",
+     "corrida",
+     "dejar-listo",
+     "inventario",
+     "reporte"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "plan-status": {
+   "funcion": "Cada trabajo del plan contra sus fechas y cada cambio al plan contra el acta que lo aprueba.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada trabajo del plan contra sus fechas y cada cambio al plan contra el acta que lo aprueba",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-status.md",
+     "<estado>/corridas/salida-plan-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "plan-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "plan-wake": {
+   "funcion": "Lo que toca hoy en el plan.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que toca hoy en el plan — actas nuevas o un reporte con señales abiertas — y si no toca nada, se calla",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-plan-wake.md",
+     "<estado>/corridas/salida-plan-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "prudencia": {
+   "funcion": "Pídeselo a Prudencia (El plan de auditoría) en tus palabras.",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "Pídeselo a Prudencia (El plan de auditoría) en tus palabras — dice qué comando lo resuelve y lo corre",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+   }
+  },
+  "quality-status": {
+   "funcion": "La última evaluación externa de calidad y cuándo toca la siguiente, contra los cinco años de la norma 8.4.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "La última evaluación externa de calidad y cuándo toca la siguiente, contra los cinco años de la norma 8.4",
+    "escribe": [
+     "<estado>/plan/<AAAA-MM>/resultados.json",
+     "<estado>/plan/<AAAA-MM>/reporte-quality-status.md",
+     "<estado>/corridas/salida-quality-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-methodology"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "share-findings": {
+   "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     ".criterio/corridas/<área>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "enlace",
+     "resumen"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+    "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+   }
+  }
+ },
+ "skills": {
+  "audit-intake": {
+   "escribe": [
+    "columns"
+   ],
+   "alimenta": [
+    "high_risk_not_covered",
+    "auditable_unit_overdue",
+    "engagement_behind_schedule",
+    "plan_hours_exceed_capacity",
+    "topical_requirement_missing",
+    "procedure_not_executed",
+    "auditor_reviews_own_work",
+    "action_plan_missing",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "audit-methodology": {
+   "escribe": [
+    "methodology"
+   ],
+   "alimenta": [
+    "risk_assessment_outdated",
+    "external_assessment_overdue",
+    "auditable_unit_overdue",
+    "rating_inconsistent",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "plan-record": {
+   "escribe": [
+    "approvals[]",
+    "areas_not_considered"
+   ],
+   "alimenta": [
+    "plan_change_unapproved",
+    "plan_area_not_considered"
+   ]
+  }
+ }
+}

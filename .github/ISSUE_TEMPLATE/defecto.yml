@@ -14,6 +14,7 @@ body:
         - Criterio CCO · Augusto, Valeria
         - Criterio CISO · Alexis, Guillermo, Amparo
         - Criterio CHRO · Norma, Cándido
+        - Criterio CAE · Prudencia, Justo, Remedios
         - Rostrum
     validations:
       required: true

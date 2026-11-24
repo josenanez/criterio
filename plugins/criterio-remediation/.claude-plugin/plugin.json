@@ -1,0 +1,20 @@
+{
+  "name": "criterio-remediation",
+  "version": "0.1.0",
+  "description": "Remedios, el seguimiento de los hallazgos: cada plan de acción con su responsable, su fecha y su evidencia, las reprogramaciones, los cierres sin evidencia, los hallazgos que vuelven, los riesgos aceptados que no llegaron al consejo y los hallazgos externos fuera del registro. Nunca cierra un hallazgo ni acepta un riesgo.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "auditoria",
+    "audit",
+    "cae",
+    "seguimiento",
+    "follow-up",
+    "planes-de-accion",
+    "comite-de-auditoria"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cae",
+  "license": "Apache-2.0"
+}

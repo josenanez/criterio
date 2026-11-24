@@ -1,0 +1,56 @@
+{
+  "version": "0.1",
+  "role": "seguimiento",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "auditoria/900123456-entidad-de-ejemplo",
+    "state": "estado-auditoria/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-11",
+  "methodology": {
+    "cycles_months": {
+      "Crítico": 12,
+      "Alto": 12,
+      "Medio": 24,
+      "Bajo": 36
+    },
+    "high_ratings": [
+      "Alto",
+      "Crítico"
+    ],
+    "risk_assessment_date": null,
+    "risk_assessment_source": null,
+    "external_assessment_date": null,
+    "external_assessment_source": null,
+    "plan_approver": "Comité de auditoría",
+    "priority": {
+      "levels": [
+        [
+          "Alta",
+          15
+        ],
+        [
+          "Media",
+          8
+        ],
+        [
+          "Baja",
+          1
+        ]
+      ]
+    },
+    "max_reschedules": 2
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

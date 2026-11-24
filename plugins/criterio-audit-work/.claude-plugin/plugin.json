@@ -1,0 +1,20 @@
+{
+  "name": "criterio-audit-work",
+  "version": "0.1.0",
+  "description": "Justo, los trabajos de auditoría: cada hallazgo con su criterio, su condición, su causa, su efecto, su prioridad y su papel, cada paso del programa con su papel, cada papel con su revisión, el informe contra los papeles y la objetividad de cada asignación, sobre las Normas Globales de Auditoría Interna. Nunca emite una opinión ni cambia la prioridad de un hallazgo.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "auditoria",
+    "audit",
+    "cae",
+    "papeles-de-trabajo",
+    "workpapers",
+    "hallazgos",
+    "findings"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cae",
+  "license": "Apache-2.0"
+}

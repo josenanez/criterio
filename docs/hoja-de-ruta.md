@@ -116,6 +116,5 @@ Each one comes in with its scope decision: accepted, it is being designed; propo
 
 | Decision | Family | Status |
 |---|---|---|
-| [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Proposed |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Proposed |
 | [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Accepted |

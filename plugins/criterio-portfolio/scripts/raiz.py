@@ -85,7 +85,15 @@ DESTINO = {
         "setup": "/criterio-roles:roles-setup"},
     "criterio-talent": {"familia": "chro", "busca": "raiz", "marca": "_CRITERIO_TALENTO.txt",
         "que": "la carpeta de talento de una entidad", "agentes": "Norma y Cándido",
-        "setup": "/criterio-talent:talent-setup"},
+        "setup": "/criterio-talent:talent-setup"},    "criterio-audit-plan": {"familia": "cae", "busca": "raiz", "marca": "_CRITERIO_AUDITORIA.txt",
+        "que": "la carpeta de auditoría interna de una entidad", "agentes": "Prudencia, Justo y Remedios",
+        "setup": "/criterio-audit-plan:plan-setup"},
+    "criterio-audit-work": {"familia": "cae", "busca": "raiz", "marca": "_CRITERIO_AUDITORIA.txt",
+        "que": "la carpeta de auditoría interna de una entidad", "agentes": "Prudencia, Justo y Remedios",
+        "setup": "/criterio-audit-work:work-setup"},
+    "criterio-remediation": {"familia": "cae", "busca": "raiz", "marca": "_CRITERIO_AUDITORIA.txt",
+        "que": "la carpeta de auditoría interna de una entidad", "agentes": "Prudencia, Justo y Remedios",
+        "setup": "/criterio-remediation:remediation-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

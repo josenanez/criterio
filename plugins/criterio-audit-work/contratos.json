@@ -1,0 +1,372 @@
+{
+ "comandos": {
+  "finding-check": {
+   "funcion": "Cada hallazgo con su criterio, su condición, su causa, su efecto y su prioridad, y su prioridad contra la que da la metodología.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada hallazgo con su criterio, su condición, su causa, su efecto y su prioridad, y su prioridad contra la que da la metodología",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-finding-check.md",
+     "<estado>/corridas/salida-finding-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-methodology",
+     "finding-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "justo": {
+   "funcion": "Pídeselo a Justo (Los trabajos de auditoría) en tus palabras.",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "Pídeselo a Justo (Los trabajos de auditoría) en tus palabras — dice qué comando lo resuelve y lo corre",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+   }
+  },
+  "objectivity-check": {
+   "funcion": "Cada auditor asignado a un trabajo de aseguramiento contra lo que tuvo a su cargo en los doce meses anteriores.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada auditor asignado a un trabajo de aseguramiento contra lo que tuvo a su cargo en los doce meses anteriores",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-objectivity-check.md",
+     "<estado>/corridas/salida-objectivity-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "report-check": {
+   "funcion": "El informe de cada trabajo contra sus papeles: el hallazgo que falta o sobra, la prioridad y las cifras que no coinciden.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "El informe de cada trabajo contra sus papeles: el hallazgo que falta o sobra, la prioridad y las cifras que no coinciden",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-report-check.md",
+     "<estado>/corridas/salida-report-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "finding-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "share-findings": {
+   "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     ".criterio/corridas/<área>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "enlace",
+     "resumen"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+    "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+   }
+  },
+  "work-scan": {
+   "funcion": "Procesa lo que cambió en los trabajos, lleva cada hallazgo nuevo o cambiado a la ficha del periodo y dice qué señales nuevas aparecieron.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Procesa lo que cambió en los trabajos, lleva cada hallazgo nuevo o cambiado a la ficha del periodo y dice qué señales nuevas aparecieron",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-work-scan.md",
+     "<estado>/corridas/salida-work-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "finding-record"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "work-setup": {
+   "funcion": "Deja a Justo listo sobre una entidad.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Deja a Justo listo sobre una entidad — mira la carpeta de auditoría, reconoce los trabajos y el equipo y muestra el primer resultado",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-work-setup.md",
+     "<estado>/corridas/salida-work-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "audit-methodology",
+     "finding-record"
+    ],
+    "script": [
+     "arranque",
+     "compute",
+     "convertir",
+     "corrida",
+     "dejar-listo",
+     "inventario",
+     "reporte"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "work-wake": {
+   "funcion": "Lo que toca hoy en los trabajos.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que toca hoy en los trabajos — documentos nuevos de un trabajo o un reporte con señales abiertas — y si no toca nada, se calla",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-work-wake.md",
+     "<estado>/corridas/salida-work-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "workpaper-check": {
+   "funcion": "El programa de cada trabajo y su aprobación, cada paso con su papel, cada papel con su revisión y cada hallazgo con un papel que existe.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "El programa de cada trabajo y su aprobación, cada paso con su papel, cada papel con su revisión y cada hallazgo con un papel que existe",
+    "escribe": [
+     "<estado>/trabajos/<AAAA-MM>/resultados.json",
+     "<estado>/trabajos/<AAAA-MM>/reporte-workpaper-check.md",
+     "<estado>/corridas/salida-workpaper-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "finding-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "audit-intake": {
+   "escribe": [
+    "columns"
+   ],
+   "alimenta": [
+    "high_risk_not_covered",
+    "auditable_unit_overdue",
+    "engagement_behind_schedule",
+    "plan_hours_exceed_capacity",
+    "topical_requirement_missing",
+    "procedure_not_executed",
+    "auditor_reviews_own_work",
+    "action_plan_missing",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "audit-methodology": {
+   "escribe": [
+    "methodology"
+   ],
+   "alimenta": [
+    "risk_assessment_outdated",
+    "external_assessment_overdue",
+    "auditable_unit_overdue",
+    "rating_inconsistent",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "finding-record": {
+   "escribe": [
+    "engagements[].program_approved",
+    "engagements[].findings",
+    "engagements[].report_findings"
+   ],
+   "alimenta": [
+    "work_program_not_approved",
+    "finding_element_missing",
+    "finding_without_workpaper",
+    "workpaper_not_reviewed",
+    "report_differs_from_workpapers",
+    "rating_inconsistent"
+   ]
+  }
+ }
+}

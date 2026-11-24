@@ -107,6 +107,22 @@
         "perfiles",
         "seleccion"
       ]
+    },
+    {
+      "sigla": "cae",
+      "nombre": {
+        "es": "La auditoría interna",
+        "en": "Internal audit"
+      },
+      "estado": {
+        "es": "Construida · en pruebas",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "plan",
+        "trabajos",
+        "seguimiento"
+      ]
     }
   ],
   "agentes": [
@@ -1532,6 +1548,236 @@
           ]
         }
       ]
+    },
+    {
+      "id": "prudencia",
+      "nombre": "Prudencia",
+      "plugin": "criterio-audit-plan",
+      "area": "plan",
+      "ambitos": [
+        "plan"
+      ],
+      "familia": "cae",
+      "rol": {
+        "es": "El plan de auditoría",
+        "en": "The audit plan"
+      },
+      "titulo": "el plan de auditoría",
+      "origen": {
+        "es": "del latín *prudentia*, contracción de *providentia*, «ver antes»: el plan que mira el riesgo antes de que ocurra",
+        "en": "from the Latin *prudentia*, a contraction of *providentia*, «seeing ahead»: the plan that looks at risk before it happens"
+      },
+      "privados": {},
+      "setup": "/criterio-audit-plan:plan-setup",
+      "marca": "_CRITERIO_AUDITORIA.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "plan-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "prudencia",
+              "etiqueta": "Pídeselo a Prudencia"
+            },
+            {
+              "id": "plan-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "El plan de auditoría",
+          "linea": "El plan de auditoría contra el universo auditable y la matriz de riesgos: los riesgos altos sin un trabajo, las unidades que pasaron su ciclo, la evaluación de riesgos vencida, las áreas que el plan tiene que considerar, los cambios sin aprobación, los trabajos atrasados, las horas que no alcanzan, el requisito temático que falta y la evaluación externa de calidad",
+          "comandos": [
+            {
+              "id": "plan-scan",
+              "etiqueta": "Qué cambió en el plan"
+            },
+            {
+              "id": "plan-coverage",
+              "etiqueta": "El plan contra los riesgos"
+            },
+            {
+              "id": "plan-status",
+              "etiqueta": "El avance y los cambios del plan"
+            },
+            {
+              "id": "plan-capacity",
+              "etiqueta": "Las horas del plan"
+            },
+            {
+              "id": "quality-status",
+              "etiqueta": "La evaluación externa de calidad"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "justo",
+      "nombre": "Justo",
+      "plugin": "criterio-audit-work",
+      "area": "trabajos",
+      "ambitos": [
+        "trabajos"
+      ],
+      "familia": "cae",
+      "rol": {
+        "es": "Los trabajos de auditoría",
+        "en": "Audit engagements"
+      },
+      "titulo": "los trabajos de auditoría",
+      "origen": {
+        "es": "del latín *iustus*, «conforme a derecho»: cada hallazgo contra su criterio",
+        "en": "from the Latin *iustus*, «according to law»: every finding against its criteria"
+      },
+      "privados": {},
+      "setup": "/criterio-audit-work:work-setup",
+      "marca": "_CRITERIO_AUDITORIA.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "work-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "justo",
+              "etiqueta": "Pídeselo a Justo"
+            },
+            {
+              "id": "work-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Los trabajos de auditoría",
+          "linea": "Cada trabajo contra su programa y sus papeles: el programa sin aprobar, el hallazgo sin su criterio, su condición, su causa, su efecto o su prioridad, el hallazgo sin papel, el paso sin ejecutar, el papel sin revisión, el informe que no dice lo que dicen los papeles, la prioridad que no da la metodología y el auditor que revisa lo que tuvo a su cargo",
+          "comandos": [
+            {
+              "id": "work-scan",
+              "etiqueta": "Qué cambió en los trabajos"
+            },
+            {
+              "id": "finding-check",
+              "etiqueta": "Cada hallazgo y sus elementos"
+            },
+            {
+              "id": "workpaper-check",
+              "etiqueta": "El programa y los papeles"
+            },
+            {
+              "id": "report-check",
+              "etiqueta": "El informe contra los papeles"
+            },
+            {
+              "id": "objectivity-check",
+              "etiqueta": "Las asignaciones y la objetividad"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remedios",
+      "nombre": "Remedios",
+      "plugin": "criterio-remediation",
+      "area": "seguimiento",
+      "ambitos": [
+        "seguimiento"
+      ],
+      "familia": "cae",
+      "rol": {
+        "es": "El seguimiento de los hallazgos",
+        "en": "Finding follow-up"
+      },
+      "titulo": "el seguimiento de los hallazgos",
+      "origen": {
+        "es": "del latín *remedium*, «lo que vuelve a curar»: cada hallazgo hasta su remedio",
+        "en": "from the Latin *remedium*, «what heals again»: every finding until its remedy"
+      },
+      "privados": {},
+      "setup": "/criterio-remediation:remediation-setup",
+      "marca": "_CRITERIO_AUDITORIA.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "remediation-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "remedios",
+              "etiqueta": "Pídeselo a Remedios"
+            },
+            {
+              "id": "remediation-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "El seguimiento de los hallazgos",
+          "linea": "Cada hallazgo hasta su cierre: el plan de acción sin responsable o sin fecha, el vencido sin evidencia ni explicación, la fecha que se corre una y otra vez, el cierre sin evidencia o sin validación, el hallazgo que vuelve, el riesgo aceptado que no llegó a la alta dirección o al consejo y el hallazgo externo que no está en el registro",
+          "comandos": [
+            {
+              "id": "remediation-scan",
+              "etiqueta": "Qué cambió en el seguimiento"
+            },
+            {
+              "id": "action-status",
+              "etiqueta": "Los planes contra su fecha"
+            },
+            {
+              "id": "closure-check",
+              "etiqueta": "Cada cierre contra su evidencia"
+            },
+            {
+              "id": "committee-brief",
+              "etiqueta": "Lo que el comité tiene que saber"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -1572,11 +1818,15 @@
   "senales": {
     "access_review_overdue": "La revisión de accesos de un sistema pasó su fecha, o no hay ninguna",
     "account_unreconciled": "El saldo de una cuenta en el mayor no es el de su auxiliar (cuentas por cobrar, por pagar, inventarios, activos fijos, intercompañías)",
+    "action_plan_missing": "Un hallazgo comunicado no tiene plan de acción, responsable o fecha (norma 15.1)",
+    "action_plan_overdue": "Un plan de acción pasó su fecha sin la evidencia de su implementación ni la explicación documentada del atraso (norma 15.2)",
     "agreement_without_date": "Un acuerdo del acta no tiene fecha",
     "agreement_without_owner": "Un acuerdo del acta no tiene responsable",
     "applicable_norm_not_in_matrix": "Una norma que aplica no tiene ninguna obligación en la matriz",
     "asset_not_scanned": "Un activo del inventario no aparece en ningún escaneo de la ventana configurada",
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
+    "auditable_unit_overdue": "Una unidad del universo auditable pasó su ciclo de rotación sin un trabajo",
+    "auditor_reviews_own_work": "Un auditor asignado a un trabajo de aseguramiento tuvo a su cargo la actividad auditada en los doce meses anteriores (norma 2.2)",
     "bank_unreconciled": "Hay movimientos del extracto sin su registro, o registros sin su movimiento",
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
     "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
@@ -1586,6 +1836,7 @@
     "close_date_slipped": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
+    "closure_without_evidence": "Un plan se dio por cerrado sin la evidencia de su implementación o sin la validación de auditoría (norma 15.2)",
     "commission_differs_from_plan": "La comisión liquidada no es la que da el plan sobre lo cerrado y facturado",
     "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
     "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
@@ -1609,18 +1860,26 @@
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
     "discount_outside_policy": "Un descuento supera el tope de su nivel y no tiene la aprobación que pide la matriz, o ningún nivel lo cubre",
+    "due_date_extended_repeatedly": "La fecha de un plan se corrió más veces de las que permite la metodología",
     "education_level_inconsistent": "El nivel de estudios que pide el perfil no corresponde al nivel de competencia de su ocupación",
     "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
     "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
     "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
     "employment_dates_differ": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
+    "engagement_behind_schedule": "Un trabajo del plan pasó su fecha de inicio o de cierre sin estar en curso o terminado",
     "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
+    "external_assessment_overdue": "La última evaluación externa de calidad tiene más de cinco años (norma 8.4)",
+    "external_finding_untracked": "Un hallazgo del revisor fiscal, del auditor externo o del supervisor no está en el registro con su plan",
+    "finding_element_missing": "Un hallazgo no tiene su criterio, su condición, su efecto o su prioridad, o no tiene su causa raíz ni la razón por la que no se pudo identificar (normas 14.2 y 14.3)",
+    "finding_repeated": "La misma condición, en el mismo proceso, vuelve a aparecer después de que su hallazgo se cerró",
+    "finding_without_workpaper": "Un hallazgo no cita un papel de trabajo, o cita uno que no existe (norma 14.6)",
     "forecast_over_approved": "La proyección al cierre del año supera lo aprobado",
     "forecast_stale": "La proyección del área no se actualizó en los días configurados",
     "forecast_unsupported": "Lo comprometido supera lo que suman las oportunidades con evidencia, ponderadas por su etapa, más de la tolerancia configurada",
     "fx_exposure_over_limit": "La posición en otra moneda, convertida con la tasa de la política, supera su límite",
     "guarantee_expires_early": "La póliza aportada vence antes de lo que exige el contrato",
     "guarantee_missing": "El contrato exige una garantía y no hay póliza aportada",
+    "high_risk_not_covered": "Un riesgo calificado alto o crítico en la matriz no tiene un trabajo en el plan dentro del ciclo de la metodología",
     "incident_notification_late": "Una notificación que pide la matriz —al supervisor, a la autoridad de datos, a los clientes— se hizo tarde o no se hizo",
     "incident_response_late": "Un incidente se contuvo después del plazo de su severidad en la política, o sigue sin contener pasado ese plazo",
     "incident_without_review": "Un incidente cerrado no tiene su revisión posterior dentro del plazo",
@@ -1639,7 +1898,11 @@
     "payment_after_termination": "Hay pagos con fecha posterior a la terminación del contrato",
     "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
     "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
+    "plan_area_not_considered": "El plan no considera el gobierno de TI, el riesgo de fraude o los programas de cumplimiento y ética, ni dice por qué (norma 9.4)",
+    "plan_change_unapproved": "Un trabajo se agregó, se canceló o se aplazó sin el acta del órgano que aprueba el plan",
+    "plan_hours_exceed_capacity": "Las horas del plan superan las horas disponibles del equipo en el periodo",
     "policy_review_overdue": "Una política pasó su fecha de revisión",
+    "procedure_not_executed": "Un paso del programa de trabajo no tiene un papel de trabajo ni la razón por la que no aplica (norma 12.3)",
     "profile_review_overdue": "Un perfil pasó su fecha de revisión",
     "profile_without_occupation": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
     "profiles_overlap": "Dos perfiles comparten la ocupación y la mayor parte de sus requisitos",
@@ -1649,6 +1912,7 @@
     "public_guarantee_below_law": "La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país",
     "public_guarantee_late": "La garantía de cumplimiento de un contrato público se entregó después del plazo de la ley de su país",
     "public_guarantee_over_cap": "La garantía exigida en un contrato público supera el tope de la ley de su país",
+    "rating_inconsistent": "La prioridad de un hallazgo no es la que da la metodología para su impacto y su probabilidad (norma 14.3)",
     "reconciliation_stale": "La conciliación de una cuenta no se actualizó en el periodo",
     "reconciling_item_aged": "Una partida conciliatoria lleva más días de los configurados",
     "recorded_without_einvoice": "Un registro que la necesita no tiene factura electrónica que lo soporte",
@@ -1657,12 +1921,15 @@
     "regulatory_change_unassessed": "Una norma registrada lleva más días de los configurados sin evaluación de impacto",
     "renewal_notice_missed": "Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada",
     "report_case_overdue": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
+    "report_differs_from_workpapers": "El informe trae un hallazgo, una prioridad o una cifra distinta a la de sus papeles",
     "requirement_not_allowed": "Un requisito pide un dato sensible según la ley del país, o algo que la política de selección prohíbe pedir",
     "requirement_not_evidenced": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
     "requirement_without_task": "Un requisito del perfil no se apoya en ninguna de sus tareas",
     "restore_test_overdue": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna",
     "retention_exceeded": "Los datos de un candidato pasaron el tiempo de conservación de la política y siguen en la carpeta",
     "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
+    "risk_accepted_not_escalated": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
+    "risk_assessment_outdated": "La evaluación de riesgos que sostiene el plan tiene más de un año (norma 9.4)",
     "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
     "signed_without_invoice": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",
@@ -1672,6 +1939,7 @@
     "stalled_opportunity": "Una oportunidad abierta no tiene actividad registrada en los días configurados",
     "target_vs_closed": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",
     "third_party_assessment_overdue": "La evaluación de seguridad de un tercero crítico pasó su fecha, o no hay ninguna",
+    "topical_requirement_missing": "Un trabajo de aseguramiento sobre ciberseguridad o terceros no lleva en su programa el requisito temático vigente",
     "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",
     "trial_balance_unbalanced": "Los débitos y los créditos del balance de comprobación no suman lo mismo",
     "trip_not_in_agenda": "Un vuelo del itinerario no está en la agenda: ese tiempo se ve libre",
@@ -1681,6 +1949,8 @@
     "vuln_closed_without_rescan": "Una vulnerabilidad figura cerrada y ningún escaneo posterior la da por corregida",
     "vuln_exception_expired": "Una excepción a la corrección pasó su vencimiento y la vulnerabilidad sigue abierta",
     "vuln_past_sla": "Una vulnerabilidad sigue abierta después del plazo de su severidad en la política, sin una excepción vigente",
-    "won_without_contract": "Una oportunidad ganada no tiene su contrato firmado en la ficha de Fidel"
+    "won_without_contract": "Una oportunidad ganada no tiene su contrato firmado en la ficha de Fidel",
+    "work_program_not_approved": "El programa de trabajo no tiene la aprobación del responsable de auditoría antes de su primer papel (norma 13.6)",
+    "workpaper_not_reviewed": "Un papel de trabajo no tiene la revisión del supervisor y la aprobación del responsable de auditoría antes de la fecha del informe (normas 12.3 y 14.6)"
   }
 }

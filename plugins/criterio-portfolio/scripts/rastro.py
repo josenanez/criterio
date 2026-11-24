@@ -51,12 +51,13 @@ AGENTE = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
           "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
           "criterio-sales": "comercial", "criterio-revenue": "ingresos", "criterio-security": "seguridad",
           "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia",
-          "criterio-roles": "perfiles", "criterio-talent": "seleccion"}
+          "criterio-roles": "perfiles", "criterio-talent": "seleccion",
+          "criterio-audit-plan": "plan", "criterio-audit-work": "trabajos", "criterio-remediation": "seguimiento"}
 NOMBRE = {"portafolio": "Vera", "proyecto": "Samuel", "producto": "Alba", "finanzas": "Clara",
           "presupuesto": "Tomás", "tesoreria": "Áurea", "legal": "Fidel", "cumplimiento": "Constanza",
           "direccion": "Ofelia", "comercial": "Augusto", "ingresos": "Valeria", "seguridad": "Alexis",
           "vulnerabilidades": "Guillermo", "resiliencia": "Amparo"}
-INVOCACION = re.compile(r"^\s*/(criterio-[a-z]+):([a-z0-9-]+)\s*(.*)$", re.S)
+INVOCACION = re.compile(r"^\s*/(criterio-[a-z]+(?:-[a-z]+)*):([a-z0-9-]+)\s*(.*)$", re.S)
 CASO = re.compile(r"\b([A-Z]{2,5}-\d{2,})\b")
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".next", ".venv"}
 

@@ -2,7 +2,7 @@
 
 **la asistente ejecutiva de la familia EA** · plugin `criterio-assistant`
 
-Corrida del 2026-11-16, sobre el commit `50c030a1`, con cambios en el árbol todavía sin confirmar. **3 puertas · 29 comprobaciones · todas en verde.**
+Corrida del 2026-11-24, sobre el commit `06437116`, con cambios en el árbol todavía sin confirmar. **3 puertas · 29 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-11-16, sobre el commit `50c030a1`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 24 | 135 ms | verde |
-| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 131 ms | verde |
-| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 118 ms | verde |
+| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 24 | 152 ms | verde |
+| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 159 ms | verde |
+| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 192 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -52,15 +52,15 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `tests/ronda.py verificar` | Que cada defecto registrado diga su origen, su corrección y dónde se verificó | 1 | verde |
 | `tests/banco.py verificar` | Que cada calificación del agente salga de sus conteos, con intervalo y origen | 1 | verde |
 | `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | verde |
-| `tests/setup_corto.py` | El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente | 45 | verde |
+| `tests/setup_corto.py` | El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente | 54 | verde |
 | `tests/reloj_corto.py` | El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada | 6 | verde |
 | `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | verde |
 | `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | verde |
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación mientras su texto no cambie, con comprobante en Markdown y PDF y su huella SHA-256 | 15 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 12 | verde |
-| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | — | **4 EN ROJO** |
+| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 402 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 458 | **8 EN ROJO** |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
@@ -69,10 +69,10 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | verde |
 | `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
-| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 20 | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 21 | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
-| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | **0 EN ROJO** |
+| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
 | `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |
 | `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | verde |
 | `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | verde |
@@ -80,6 +80,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | verde |
 | `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | verde |
 | `criterio-chro/generar.py` | El material CHRO: banca, retail y tecnología y dos controles, con la CUOC y O*NET en la forma de su descarga, su clave y los pares de sesgo | — | verde |
+| `criterio-cae/generar.py` | El material CAE: banca, cooperativas y seguros en Colombia, Perú y Brasil y dos controles, con su clave | — | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
 | `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 22 | verde |

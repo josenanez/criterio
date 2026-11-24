@@ -1,0 +1,384 @@
+{
+  "entidad": "Seguradora Atlântica Sintética",
+  "industria": "seguros",
+  "pais": "BR",
+  "hoy": "2026-11-24",
+  "periodo": "2026-11",
+  "siembra": true,
+  "config": {
+    "prudencia": {
+      "version": "0.1",
+      "role": "plan",
+      "entity": {
+        "id": "31452078000190",
+        "name": "Seguradora Atlântica Sintética",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "auditoria/31452078000190-seguradora-atlantica-sintetica",
+        "state": "estado-auditoria/31452078000190-seguradora-atlantica-sintetica"
+      },
+      "period": "2026-11",
+      "methodology": {
+        "cycles_months": {
+          "Crítico": 12,
+          "Alto": 12,
+          "Medio": 24,
+          "Bajo": 36
+        },
+        "high_ratings": [
+          "Alto",
+          "Crítico"
+        ],
+        "risk_assessment_date": "2025-09-15",
+        "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "external_assessment_date": "2021-03-31",
+        "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "plan_approver": "Comité de auditoría",
+        "priority": {
+          "levels": [
+            [
+              "Alta",
+              15
+            ],
+            [
+              "Media",
+              8
+            ],
+            [
+              "Baja",
+              1
+            ]
+          ]
+        },
+        "max_reschedules": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "justo": {
+      "version": "0.1",
+      "role": "trabajos",
+      "entity": {
+        "id": "31452078000190",
+        "name": "Seguradora Atlântica Sintética",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "auditoria/31452078000190-seguradora-atlantica-sintetica",
+        "state": "estado-auditoria/31452078000190-seguradora-atlantica-sintetica"
+      },
+      "period": "2026-11",
+      "methodology": {
+        "cycles_months": {
+          "Crítico": 12,
+          "Alto": 12,
+          "Medio": 24,
+          "Bajo": 36
+        },
+        "high_ratings": [
+          "Alto",
+          "Crítico"
+        ],
+        "risk_assessment_date": "2025-09-15",
+        "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "external_assessment_date": "2021-03-31",
+        "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "plan_approver": "Comité de auditoría",
+        "priority": {
+          "levels": [
+            [
+              "Alta",
+              15
+            ],
+            [
+              "Media",
+              8
+            ],
+            [
+              "Baja",
+              1
+            ]
+          ]
+        },
+        "max_reschedules": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "remedios": {
+      "version": "0.1",
+      "role": "seguimiento",
+      "entity": {
+        "id": "31452078000190",
+        "name": "Seguradora Atlântica Sintética",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "auditoria/31452078000190-seguradora-atlantica-sintetica",
+        "state": "estado-auditoria/31452078000190-seguradora-atlantica-sintetica"
+      },
+      "period": "2026-11",
+      "methodology": {
+        "cycles_months": {
+          "Crítico": 12,
+          "Alto": 12,
+          "Medio": 24,
+          "Bajo": 36
+        },
+        "high_ratings": [
+          "Alto",
+          "Crítico"
+        ],
+        "risk_assessment_date": "2025-09-15",
+        "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "external_assessment_date": "2021-03-31",
+        "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
+        "plan_approver": "Comité de auditoría",
+        "priority": {
+          "levels": [
+            [
+              "Alta",
+              15
+            ],
+            [
+              "Media",
+              8
+            ],
+            [
+              "Baja",
+              1
+            ]
+          ]
+        },
+        "max_reschedules": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "plan": {
+      "approvals": [
+        {
+          "engagement": "TR-05",
+          "change": "cancela",
+          "approved_by": "Comité de auditoría",
+          "date": "2026-07-15",
+          "source": "10-plan/actas/acta-07-2026.pdf"
+        },
+        {
+          "engagement": "TR-06",
+          "change": "agrega",
+          "approved_by": "Comité de auditoría",
+          "date": "2026-10-20",
+          "source": "10-plan/actas/acta-10-2026.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "trabajos": {
+      "engagements": [
+        {
+          "id": "TR-01",
+          "program_approved": "2026-02-06",
+          "program_source": "20-trabajos/TR-01_credito-comercial/aprobacion-del-programa.pdf",
+          "report_date": "2026-04-30",
+          "report_source": "20-trabajos/TR-01_credito-comercial/informe.pdf",
+          "findings": [
+            {
+              "id": "H-01",
+              "criteria": "Política de crédito, numeral 4.2",
+              "condition": "12 de 60 créditos desembolsados sin garantía constituida",
+              "cause": "El desembolso no espera la constancia de la garantía",
+              "cause_unknown_reason": null,
+              "effect": "Pérdida esperada sin cobertura",
+              "impact": 4,
+              "likelihood": 4,
+              "priority": "Media",
+              "workpapers": [
+                "PT-03"
+              ],
+              "figures": [
+                1200000000
+              ],
+              "source": "20-trabajos/TR-01_credito-comercial/PT-03.pdf"
+            },
+            {
+              "id": "H-02",
+              "criteria": "Manual de garantías, numeral 2",
+              "condition": "Avalúos con más de tres años sin actualizar",
+              "cause": "El sistema no avisa el vencimiento del avalúo",
+              "cause_unknown_reason": null,
+              "effect": "Garantías con valor desactualizado",
+              "impact": 3,
+              "likelihood": 3,
+              "priority": "Media",
+              "workpapers": [
+                "PT-09"
+              ],
+              "figures": [
+                450000000
+              ],
+              "source": "20-trabajos/TR-01_credito-comercial/PT-02.pdf"
+            }
+          ],
+          "report_findings": [
+            {
+              "id": "H-01",
+              "priority": "Media",
+              "figures": [
+                1200000000
+              ],
+              "source": "20-trabajos/TR-01_credito-comercial/informe.pdf"
+            },
+            {
+              "id": "H-02",
+              "priority": "Media",
+              "figures": [
+                450000000
+              ],
+              "source": "20-trabajos/TR-01_credito-comercial/informe.pdf"
+            }
+          ]
+        },
+        {
+          "id": "TR-02",
+          "program_approved": "2026-03-16",
+          "program_source": "20-trabajos/TR-02_ciberseguridad/aprobacion-del-programa.pdf",
+          "report_date": "2026-05-29",
+          "report_source": "20-trabajos/TR-02_ciberseguridad/informe.pdf",
+          "findings": [
+            {
+              "id": "H-03",
+              "criteria": "Política de seguridad de la información, numeral 7",
+              "condition": "Cuentas privilegiadas sin revisión trimestral",
+              "cause": "La revisión depende de una persona",
+              "cause_unknown_reason": null,
+              "effect": "Accesos indebidos sin detectar",
+              "impact": 4,
+              "likelihood": 2,
+              "priority": "Media",
+              "workpapers": [
+                "PT-02"
+              ],
+              "figures": [],
+              "source": "20-trabajos/TR-02_ciberseguridad/PT-02.pdf"
+            }
+          ],
+          "report_findings": [
+            {
+              "id": "H-03",
+              "priority": "Media",
+              "figures": [],
+              "source": "20-trabajos/TR-02_ciberseguridad/informe.pdf"
+            }
+          ]
+        }
+      ],
+      "reviewed": [
+        "20-trabajos/TR-01_credito-comercial/PT-01.pdf",
+        "20-trabajos/TR-02_ciberseguridad/PT-01.pdf",
+        "20-trabajos/TR-02_ciberseguridad/PT-03.pdf"
+      ],
+      "questions": []
+    },
+    "seguimiento": {
+      "evidence": [
+        {
+          "finding": "H-20",
+          "date": "2025-09-12",
+          "what": "Procedimiento de desembolso actualizado",
+          "source": "30-seguimiento/H-20/evidencia.pdf"
+        }
+      ],
+      "delay_explanations": [
+        {
+          "finding": "H-03",
+          "date": "2026-10-01",
+          "what": "El proveedor entrega en diciembre",
+          "source": "30-seguimiento/H-03/explicacion-del-atraso.pdf"
+        }
+      ],
+      "external_findings": [
+        {
+          "id": "RF-01",
+          "issuer": "Revisor fiscal",
+          "title": "Horas extra sin aprobación",
+          "source": "30-seguimiento/informe_revisor_fiscal_2026.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "auditable_unit_overdue",
+      "key": "unidad:U-03"
+    },
+    {
+      "signal": "auditor_reviews_own_work",
+      "key": "objetividad:TR-02:luis_pena"
+    },
+    {
+      "signal": "closure_without_evidence",
+      "key": "cierre:H-21"
+    },
+    {
+      "signal": "due_date_extended_repeatedly",
+      "key": "reprogramado:H-03"
+    },
+    {
+      "signal": "external_assessment_overdue",
+      "key": "evaluacion_externa"
+    },
+    {
+      "signal": "finding_without_workpaper",
+      "key": "papel:TR-01:H-02"
+    },
+    {
+      "signal": "plan_area_not_considered",
+      "key": "area:cumplimiento"
+    },
+    {
+      "signal": "plan_hours_exceed_capacity",
+      "key": "horas"
+    },
+    {
+      "signal": "rating_inconsistent",
+      "key": "prioridad:TR-01:H-01"
+    },
+    {
+      "signal": "risk_accepted_not_escalated",
+      "key": "aceptado:RA-01"
+    },
+    {
+      "signal": "risk_assessment_outdated",
+      "key": "evaluacion_de_riesgos"
+    },
+    {
+      "signal": "work_program_not_approved",
+      "key": "programa:TR-02"
+    }
+  ]
+}

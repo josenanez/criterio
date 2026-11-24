@@ -21,8 +21,9 @@ MOTOR = {"criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py", "c
          "criterio-legal": "legal.py", "criterio-compliance": "legal.py", "criterio-assistant": "asistente.py",
          "criterio-sales": "ventas.py", "criterio-revenue": "ventas.py", "criterio-security": "seguridad.py",
          "criterio-vulnerability": "seguridad.py", "criterio-resilience": "seguridad.py",
-         "criterio-roles": "talento.py", "criterio-talent": "talento.py"}
-FAMILIAS = ("cfo", "clo", "cco", "ciso", "ea")
+         "criterio-roles": "talento.py", "criterio-talent": "talento.py",
+           "criterio-audit-plan": "auditoria.py", "criterio-audit-work": "auditoria.py", "criterio-remediation": "auditoria.py"}
+FAMILIAS = ("cfo", "clo", "cco", "ciso", "ea", "cae")
 
 
 def correr(raiz: Path, motor: Path, *args) -> tuple[int, dict]:

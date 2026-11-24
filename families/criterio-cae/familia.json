@@ -1,0 +1,996 @@
+{
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CAE: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta que cita un comando está en carpetas.json y cada fuente, en fuentes.json.",
+  "sigla": "cae",
+  "orden": 80,
+  "categoria": "audit",
+  "adr": "0033-la-familia-cae.md",
+  "nombre": {
+    "es": "La auditoría interna",
+    "en": "Internal audit"
+  },
+  "estado": {
+    "es": "Construida · en pruebas",
+    "en": "Built · in testing"
+  },
+  "nivel_c": {
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "rol": "Chief Audit Executive",
+      "cifras": [
+        {
+          "id": "C-01",
+          "es": "de sus ingresos pierden las organizaciones por fraude cada año, según los examinadores",
+          "en": "of revenue is what organisations lose to fraud each year, according to examiners"
+        },
+        {
+          "id": "C-02",
+          "es": "de los fraudes se detectan por una denuncia, casi tres veces más que por el método que le sigue",
+          "en": "of frauds are detected by a tip, nearly three times more than the next method"
+        }
+      ],
+      "filas": [
+        {
+          "es": [
+            "El plan de auditoría",
+            "El plan contra los riesgos, el universo y su capacidad",
+            "Normas Globales de Auditoría Interna · requisitos temáticos"
+          ],
+          "en": [
+            "The audit plan",
+            "The plan against the risks, the universe and its capacity",
+            "Global Internal Audit Standards · topical requirements"
+          ],
+          "fuentes": [
+            "F-01",
+            "F-02"
+          ]
+        },
+        {
+          "es": [
+            "Los trabajos",
+            "Cada hallazgo contra su criterio y sus papeles",
+            "Programas, papeles e informes en Excel, Word o PDF"
+          ],
+          "en": [
+            "Engagements",
+            "Every finding against its criteria and its papers",
+            "Programs, papers and reports in Excel, Word or PDF"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "El seguimiento",
+            "Cada hallazgo hasta su cierre, con su evidencia",
+            "Registro de hallazgos en Excel o CSV"
+          ],
+          "en": [
+            "Follow-up",
+            "Every finding until it is closed, with its evidence",
+            "Findings register in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "El comité de auditoría",
+            "Lo vencido, lo repetido y los riesgos aceptados",
+            "Modelo de las Tres Líneas · COSO 2013"
+          ],
+          "en": [
+            "The audit committee",
+            "What is overdue, what repeats and the accepted risks",
+            "Three Lines Model · COSO 2013"
+          ],
+          "fuentes": [
+            "F-03",
+            "F-04"
+          ]
+        }
+      ]
+    },
+    "alcance": [
+      {
+        "es": [
+          "La cobertura",
+          "Riesgos altos sin trabajo, unidades fuera de su ciclo, la evaluación de riesgos vencida y las áreas que el plan no considera"
+        ],
+        "en": [
+          "Coverage",
+          "High risks with no engagement, units past their cycle, an outdated risk assessment and areas the plan does not consider"
+        ],
+        "senales": [
+          "high_risk_not_covered",
+          "auditable_unit_overdue",
+          "risk_assessment_outdated",
+          "plan_area_not_considered"
+        ]
+      },
+      {
+        "es": [
+          "El plan",
+          "Cambios sin aprobación, trabajos atrasados, horas que no alcanzan y el requisito temático que falta"
+        ],
+        "en": [
+          "The plan",
+          "Unapproved changes, late engagements, hours that do not add up and a missing topical requirement"
+        ],
+        "senales": [
+          "plan_change_unapproved",
+          "engagement_behind_schedule",
+          "plan_hours_exceed_capacity",
+          "topical_requirement_missing"
+        ]
+      },
+      {
+        "es": [
+          "La calidad",
+          "La evaluación externa de calidad vencida y el auditor que revisa lo que tuvo a su cargo"
+        ],
+        "en": [
+          "Quality",
+          "An overdue external quality assessment and an auditor reviewing what they were in charge of"
+        ],
+        "senales": [
+          "external_assessment_overdue",
+          "auditor_reviews_own_work"
+        ]
+      },
+      {
+        "es": [
+          "Los hallazgos",
+          "Hallazgos incompletos, sin papel o con una prioridad que no da la metodología"
+        ],
+        "en": [
+          "Findings",
+          "Findings that are incomplete, with no paper or with a priority the methodology does not give"
+        ],
+        "senales": [
+          "finding_element_missing",
+          "finding_without_workpaper",
+          "rating_inconsistent"
+        ]
+      },
+      {
+        "es": [
+          "Los papeles y el informe",
+          "El programa sin aprobar, pasos sin papel, papeles sin revisión y el informe que no dice lo de los papeles"
+        ],
+        "en": [
+          "Papers and report",
+          "An unapproved program, steps with no paper, unreviewed papers and a report that does not say what the papers say"
+        ],
+        "senales": [
+          "work_program_not_approved",
+          "procedure_not_executed",
+          "workpaper_not_reviewed",
+          "report_differs_from_workpapers"
+        ]
+      },
+      {
+        "es": [
+          "El seguimiento",
+          "Planes sin responsable o vencidos, fechas que se corren, cierres sin evidencia y hallazgos que vuelven"
+        ],
+        "en": [
+          "Follow-up",
+          "Plans with no owner or overdue, dates pushed back, closures with no evidence and findings that come back"
+        ],
+        "senales": [
+          "action_plan_missing",
+          "action_plan_overdue",
+          "due_date_extended_repeatedly",
+          "closure_without_evidence",
+          "finding_repeated"
+        ]
+      },
+      {
+        "es": [
+          "El comité",
+          "Riesgos aceptados que no se escalaron y hallazgos externos fuera del registro"
+        ],
+        "en": [
+          "The committee",
+          "Accepted risks that were not escalated and external findings missing from the register"
+        ],
+        "senales": [
+          "risk_accepted_not_escalated",
+          "external_finding_untracked"
+        ]
+      }
+    ]
+  },
+  "generador": {
+    "cifras_en": "prudencia",
+    "intake": {
+      "skill": "criterio-audit-plan/audit-intake",
+      "texto": "La referencia tiene un solo lugar, `00-referencia/`, y los tres agentes la usan: Prudencia procesa el plan contra la matriz de riesgos, Justo cada trabajo contra la metodología y Remedios cada hallazgo hasta su cierre."
+    },
+    "estructuras": [
+      "criterio-audit-plan",
+      "criterio-audit-work",
+      "criterio-remediation"
+    ],
+    "motor": "criterio-audit-plan/scripts/auditoria.py"
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "agentes": [
+    {
+      "id": "prudencia",
+      "nombre": "Prudencia",
+      "plugin": "criterio-audit-plan",
+      "rol": {
+        "es": "El plan de auditoría",
+        "en": "The audit plan"
+      },
+      "titulo": "el plan de auditoría",
+      "origen": {
+        "es": "del latín *prudentia*, contracción de *providentia*, «ver antes»: el plan que mira el riesgo antes de que ocurra",
+        "en": "from the Latin *prudentia*, a contraction of *providentia*, «seeing ahead»: the plan that looks at risk before it happens"
+      },
+      "hace": {
+        "es": "El plan de auditoría contra el universo auditable y la matriz de riesgos: los riesgos altos sin un trabajo, las unidades que pasaron su ciclo, la evaluación de riesgos vencida, las áreas que el plan tiene que considerar, los cambios sin aprobación, los trabajos atrasados, las horas que no alcanzan, el requisito temático que falta y la evaluación externa de calidad",
+        "en": "The audit plan against the audit universe and the risk matrix: high risks with no engagement, units past their cycle, an outdated risk assessment, the areas the plan has to consider, unapproved changes, late engagements, hours that do not add up, a missing topical requirement and the external quality assessment"
+      },
+      "area": "plan",
+      "ambitos": [
+        "plan"
+      ],
+      "nunca": {
+        "es": "No aprueba el plan, no decide qué se audita, no emite una opinión y no copia el texto de las Normas",
+        "en": "It does not approve the plan, decide what is audited, issue an opinion or copy the text of the Standards"
+      },
+      "marco": [
+        "F-01",
+        "F-02",
+        "F-03"
+      ],
+      "comandos": [
+        {
+          "id": "plan-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, el ciclo de rotación de cada nivel de riesgo, desde qué calificación un riesgo es alto, quién aprueba el plan según el estatuto, la fecha de la última evaluación de riesgos y la de la última evaluación externa de calidad",
+            "proceso": "Inventario de lo que hay; procesa el universo, la matriz de riesgos y el plan de `10-plan/` y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las tablas reconocidas; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las tablas reconocidas"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the rotation cycle of each risk level, from which rating a risk is high, who approves the plan under the charter, the date of the last risk assessment and of the last external quality assessment",
+            "proceso": "Inventory of what is there; processes the universe, the risk matrix and the plan in `10-plan/` and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised tables; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised tables"
+          }
+        },
+        {
+          "id": "plan-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en el plan",
+            "entrada": "El universo, la matriz, el plan, las actas y la capacidad del equipo en `10-plan/`, y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada acta nueva —qué trabajo agrega, cancela o aplaza y quién lo aprobó—, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; las actas que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in the plan",
+            "entrada": "The universe, the matrix, the plan, the minutes and the team's capacity in `10-plan/`, and the period's record",
+            "proceso": "Brings each new set of minutes into the record —which engagement it adds, cancels or postpones and who approved it—, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the minutes not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "plan-coverage",
+          "n": 2,
+          "es": {
+            "etiqueta": "El plan contra los riesgos",
+            "entrada": "La matriz de riesgos, el universo auditable y el plan de `10-plan/`, con el ciclo de la configuración",
+            "proceso": "Cruza cada riesgo alto con los trabajos del plan y cada unidad del universo con su último trabajo; comprueba que el plan considere el gobierno de TI, el fraude y el cumplimiento y ética, y que la evaluación de riesgos no tenga más de un año",
+            "reporte": "Los riesgos altos sin trabajo, las unidades fuera de su ciclo, las áreas sin considerar y la edad de la evaluación de riesgos",
+            "entrega": "Qué riesgo y qué unidad quedan sin cubrir, con su cita"
+          },
+          "en": {
+            "etiqueta": "The plan against the risks",
+            "entrada": "The risk matrix, the audit universe and the plan in `10-plan/`, with the cycle in the configuration",
+            "proceso": "Matches each high risk with the plan's engagements and each unit in the universe with its last engagement; checks that the plan considers IT governance, fraud and compliance and ethics, and that the risk assessment is under a year old",
+            "reporte": "High risks with no engagement, units past their cycle, areas not considered and the age of the risk assessment",
+            "entrega": "Which risk and which unit are left uncovered, with their citation"
+          }
+        },
+        {
+          "id": "plan-status",
+          "n": 3,
+          "es": {
+            "etiqueta": "El avance y los cambios del plan",
+            "entrada": "El plan de `10-plan/` y las actas de la ficha",
+            "proceso": "Cada trabajo contra su fecha de inicio y de cierre, y cada cambio al plan contra el acta que lo aprueba",
+            "reporte": "Los trabajos atrasados y los cambios sin aprobación, cada uno con su fecha y su cita",
+            "entrega": "El estado del plan para el comité"
+          },
+          "en": {
+            "etiqueta": "Plan progress and changes",
+            "entrada": "The plan in `10-plan/` and the minutes in the record",
+            "proceso": "Each engagement against its start and close dates, and each change to the plan against the minutes that approve it",
+            "reporte": "Late engagements and unapproved changes, each with its date and citation",
+            "entrega": "The plan's status for the committee"
+          }
+        },
+        {
+          "id": "plan-capacity",
+          "n": 4,
+          "es": {
+            "etiqueta": "Las horas del plan",
+            "entrada": "El plan y la capacidad del equipo de `10-plan/`",
+            "proceso": "Suma las horas del plan y las disponibles del equipo en el periodo; revisa que cada trabajo de aseguramiento sobre ciberseguridad o terceros lleve su requisito temático vigente",
+            "reporte": "Horas del plan contra horas disponibles y los trabajos sin su requisito temático",
+            "entrega": "Si las horas alcanzan, con la cuenta"
+          },
+          "en": {
+            "etiqueta": "The plan's hours",
+            "entrada": "The plan and the team's capacity in `10-plan/`",
+            "proceso": "Adds up the plan's hours and the team's available hours in the period; checks that each assurance engagement on cybersecurity or third parties carries its topical requirement in force",
+            "reporte": "Plan hours against available hours and the engagements without their topical requirement",
+            "entrega": "Whether the hours add up, with the arithmetic"
+          }
+        },
+        {
+          "id": "quality-status",
+          "n": 5,
+          "es": {
+            "etiqueta": "La evaluación externa de calidad",
+            "entrada": "La fecha de la última evaluación externa de calidad, de la configuración o de `00-referencia/`",
+            "proceso": "Cuenta los años desde la última evaluación externa contra los cinco que fija la norma 8.4",
+            "reporte": "La fecha de la última, la de la siguiente y cuánto falta o cuánto pasó",
+            "entrega": "Cuándo toca la siguiente"
+          },
+          "en": {
+            "etiqueta": "The external quality assessment",
+            "entrada": "The date of the last external quality assessment, from the configuration or `00-referencia/`",
+            "proceso": "Counts the years since the last external assessment against the five that Standard 8.4 sets",
+            "reporte": "The date of the last one, of the next one and how long is left or how long has passed",
+            "entrega": "When the next one is due"
+          }
+        },
+        {
+          "id": "plan-wake",
+          "n": 6,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar el plan —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "El plan al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the plan needs processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The plan up to date without anyone remembering"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 7,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only on a yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "high_risk_not_covered",
+          "es": "Un riesgo calificado alto o crítico en la matriz no tiene un trabajo en el plan dentro del ciclo de la metodología",
+          "en": "A risk rated high or critical in the matrix has no engagement in the plan within the methodology's cycle"
+        },
+        {
+          "id": "auditable_unit_overdue",
+          "es": "Una unidad del universo auditable pasó su ciclo de rotación sin un trabajo",
+          "en": "A unit in the audit universe went past its rotation cycle with no engagement"
+        },
+        {
+          "id": "risk_assessment_outdated",
+          "es": "La evaluación de riesgos que sostiene el plan tiene más de un año (norma 9.4)",
+          "en": "The risk assessment behind the plan is more than a year old (Standard 9.4)"
+        },
+        {
+          "id": "plan_area_not_considered",
+          "es": "El plan no considera el gobierno de TI, el riesgo de fraude o los programas de cumplimiento y ética, ni dice por qué (norma 9.4)",
+          "en": "The plan does not consider IT governance, fraud risk or compliance and ethics programs, and does not say why (Standard 9.4)"
+        },
+        {
+          "id": "plan_change_unapproved",
+          "es": "Un trabajo se agregó, se canceló o se aplazó sin el acta del órgano que aprueba el plan",
+          "en": "An engagement was added, cancelled or postponed without the minutes of the body that approves the plan"
+        },
+        {
+          "id": "engagement_behind_schedule",
+          "es": "Un trabajo del plan pasó su fecha de inicio o de cierre sin estar en curso o terminado",
+          "en": "An engagement in the plan went past its start or close date without being under way or finished"
+        },
+        {
+          "id": "plan_hours_exceed_capacity",
+          "es": "Las horas del plan superan las horas disponibles del equipo en el periodo",
+          "en": "The plan's hours exceed the team's available hours in the period"
+        },
+        {
+          "id": "topical_requirement_missing",
+          "es": "Un trabajo de aseguramiento sobre ciberseguridad o terceros no lleva en su programa el requisito temático vigente",
+          "en": "An assurance engagement on cybersecurity or third parties does not carry the topical requirement in force in its program"
+        },
+        {
+          "id": "external_assessment_overdue",
+          "es": "La última evaluación externa de calidad tiene más de cinco años (norma 8.4)",
+          "en": "The last external quality assessment is more than five years old (Standard 8.4)"
+        }
+      ]
+    },
+    {
+      "id": "justo",
+      "nombre": "Justo",
+      "plugin": "criterio-audit-work",
+      "rol": {
+        "es": "Los trabajos de auditoría",
+        "en": "Audit engagements"
+      },
+      "titulo": "los trabajos de auditoría",
+      "origen": {
+        "es": "del latín *iustus*, «conforme a derecho»: cada hallazgo contra su criterio",
+        "en": "from the Latin *iustus*, «according to law»: every finding against its criteria"
+      },
+      "hace": {
+        "es": "Cada trabajo contra su programa y sus papeles: el programa sin aprobar, el hallazgo sin su criterio, su condición, su causa, su efecto o su prioridad, el hallazgo sin papel, el paso sin ejecutar, el papel sin revisión, el informe que no dice lo que dicen los papeles, la prioridad que no da la metodología y el auditor que revisa lo que tuvo a su cargo",
+        "en": "Each engagement against its program and its working papers: an unapproved program, a finding without its criteria, condition, cause, effect or priority, a finding with no working paper, an unexecuted step, an unreviewed paper, a report that does not say what the papers say, a priority the methodology does not give and an auditor reviewing what they were in charge of"
+      },
+      "area": "trabajos",
+      "ambitos": [
+        "trabajos"
+      ],
+      "nunca": {
+        "es": "No emite una opinión, no firma ni aprueba un informe, no cambia la prioridad de un hallazgo, no edita un papel de trabajo y no califica a las personas",
+        "en": "It does not issue an opinion, sign or approve a report, change a finding's priority, edit a working paper or rate people"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "work-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, la escala de prioridad de la metodología —cada nivel con su impacto y su probabilidad— y quién aprueba el programa y los papeles",
+            "proceso": "Inventario de lo que hay; reconoce los trabajos de `20-trabajos/` y el equipo de `00-referencia/`; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; los trabajos reconocidos; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y los trabajos reconocidos"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the methodology's priority scale —each level with its impact and likelihood— and who approves the program and the papers",
+            "proceso": "Inventory of what is there; recognises the engagements in `20-trabajos/` and the team in `00-referencia/`; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised engagements; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised engagements"
+          }
+        },
+        {
+          "id": "work-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en los trabajos",
+            "entrada": "Los programas, los papeles y los informes de `20-trabajos/`, y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada hallazgo nuevo o cambiado —su criterio, su condición, su causa, su efecto, su prioridad y los papeles que cita— y lo que dice el informe, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in the engagements",
+            "entrada": "The programs, working papers and reports in `20-trabajos/`, and the period's record",
+            "proceso": "Brings each new or changed finding into the record —its criteria, condition, cause, effect, priority and the papers it cites— and what the report says, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "finding-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Cada hallazgo y sus elementos",
+            "entrada": "Los hallazgos de la ficha y la escala de prioridad de la configuración",
+            "proceso": "Revisa que cada hallazgo tenga su criterio, su condición, su efecto, su prioridad y su causa raíz —o la razón por la que no se pudo identificar—, y que su prioridad sea la que da la metodología para su impacto y su probabilidad",
+            "reporte": "Cada hallazgo con lo que le falta y la prioridad que da la metodología",
+            "entrega": "Qué hallazgo está incompleto y por qué"
+          },
+          "en": {
+            "etiqueta": "Each finding and its elements",
+            "entrada": "The findings in the record and the priority scale in the configuration",
+            "proceso": "Checks that each finding has its criteria, condition, effect, priority and root cause —or the reason it could not be identified—, and that its priority is the one the methodology gives for its impact and likelihood",
+            "reporte": "Each finding with what it lacks and the priority the methodology gives",
+            "entrega": "Which finding is incomplete and why"
+          }
+        },
+        {
+          "id": "workpaper-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "El programa y los papeles",
+            "entrada": "El programa de trabajo y el índice de papeles de cada trabajo en `20-trabajos/`",
+            "proceso": "Revisa que el programa se haya aprobado antes del primer papel, que cada paso tenga su papel o la razón por la que no aplica, que cada papel tenga su revisión y su aprobación antes del informe y que cada hallazgo cite un papel que existe",
+            "reporte": "Cada trabajo con el programa, los pasos sin papel, los papeles sin revisión y los hallazgos sin papel",
+            "entrega": "Qué falta en la documentación de cada trabajo"
+          },
+          "en": {
+            "etiqueta": "The program and the papers",
+            "entrada": "The work program and the index of working papers of each engagement in `20-trabajos/`",
+            "proceso": "Checks that the program was approved before the first paper, that each step has its paper or the reason it does not apply, that each paper has its review and approval before the report and that each finding cites a paper that exists",
+            "reporte": "Each engagement with its program, the steps with no paper, the papers with no review and the findings with no paper",
+            "entrega": "What is missing in each engagement's documentation"
+          }
+        },
+        {
+          "id": "report-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "El informe contra los papeles",
+            "entrada": "Lo que la ficha registra del informe y de los papeles de cada trabajo",
+            "proceso": "Cruza cada hallazgo del informe con el de sus papeles: que esté, que tenga la misma prioridad y las mismas cifras",
+            "reporte": "Las diferencias entre el informe y los papeles, cada una con las dos citas",
+            "entrega": "Si el informe dice lo que dicen los papeles"
+          },
+          "en": {
+            "etiqueta": "The report against the papers",
+            "entrada": "What the record holds from each engagement's report and working papers",
+            "proceso": "Matches each finding in the report with the one in its papers: that it is there, with the same priority and the same figures",
+            "reporte": "The differences between the report and the papers, each with both citations",
+            "entrega": "Whether the report says what the papers say"
+          }
+        },
+        {
+          "id": "objectivity-check",
+          "n": 5,
+          "es": {
+            "etiqueta": "Las asignaciones y la objetividad",
+            "entrada": "Las asignaciones de cada trabajo y la historia de cargos del equipo en `00-referencia/`",
+            "proceso": "Cruza cada auditor asignado a un trabajo de aseguramiento con las actividades que tuvo a su cargo en los doce meses anteriores (norma 2.2)",
+            "reporte": "Las asignaciones con un posible impedimento, con la fecha y la cita",
+            "entrega": "Qué asignación hay que revisar"
+          },
+          "en": {
+            "etiqueta": "Assignments and objectivity",
+            "entrada": "Each engagement's assignments and the team's role history in `00-referencia/`",
+            "proceso": "Matches each auditor assigned to an assurance engagement with the activities they were in charge of in the previous twelve months (Standard 2.2)",
+            "reporte": "The assignments with a possible impairment, with the date and citation",
+            "entrega": "Which assignment needs a look"
+          }
+        },
+        {
+          "id": "work-wake",
+          "n": 6,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar los trabajos —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "Los trabajos al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the engagements need processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The engagements up to date without anyone remembering"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 7,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only on a yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "work_program_not_approved",
+          "es": "El programa de trabajo no tiene la aprobación del responsable de auditoría antes de su primer papel (norma 13.6)",
+          "en": "The work program has no approval from the chief audit executive before its first paper (Standard 13.6)"
+        },
+        {
+          "id": "finding_element_missing",
+          "es": "Un hallazgo no tiene su criterio, su condición, su efecto o su prioridad, o no tiene su causa raíz ni la razón por la que no se pudo identificar (normas 14.2 y 14.3)",
+          "en": "A finding lacks its criteria, condition, effect or priority, or has neither its root cause nor the reason it could not be identified (Standards 14.2 and 14.3)"
+        },
+        {
+          "id": "finding_without_workpaper",
+          "es": "Un hallazgo no cita un papel de trabajo, o cita uno que no existe (norma 14.6)",
+          "en": "A finding cites no working paper, or cites one that does not exist (Standard 14.6)"
+        },
+        {
+          "id": "procedure_not_executed",
+          "es": "Un paso del programa de trabajo no tiene un papel de trabajo ni la razón por la que no aplica (norma 12.3)",
+          "en": "A step in the work program has no working paper and no reason why it does not apply (Standard 12.3)"
+        },
+        {
+          "id": "workpaper_not_reviewed",
+          "es": "Un papel de trabajo no tiene la revisión del supervisor y la aprobación del responsable de auditoría antes de la fecha del informe (normas 12.3 y 14.6)",
+          "en": "A working paper has no supervisor review and chief audit executive approval before the report date (Standards 12.3 and 14.6)"
+        },
+        {
+          "id": "report_differs_from_workpapers",
+          "es": "El informe trae un hallazgo, una prioridad o una cifra distinta a la de sus papeles",
+          "en": "The report carries a finding, a priority or a figure different from its papers"
+        },
+        {
+          "id": "rating_inconsistent",
+          "es": "La prioridad de un hallazgo no es la que da la metodología para su impacto y su probabilidad (norma 14.3)",
+          "en": "A finding's priority is not the one the methodology gives for its impact and likelihood (Standard 14.3)"
+        },
+        {
+          "id": "auditor_reviews_own_work",
+          "es": "Un auditor asignado a un trabajo de aseguramiento tuvo a su cargo la actividad auditada en los doce meses anteriores (norma 2.2)",
+          "en": "An auditor assigned to an assurance engagement was in charge of the audited activity in the previous twelve months (Standard 2.2)"
+        }
+      ]
+    },
+    {
+      "id": "remedios",
+      "nombre": "Remedios",
+      "plugin": "criterio-remediation",
+      "rol": {
+        "es": "El seguimiento de los hallazgos",
+        "en": "Finding follow-up"
+      },
+      "titulo": "el seguimiento de los hallazgos",
+      "origen": {
+        "es": "del latín *remedium*, «lo que vuelve a curar»: cada hallazgo hasta su remedio",
+        "en": "from the Latin *remedium*, «what heals again»: every finding until its remedy"
+      },
+      "hace": {
+        "es": "Cada hallazgo hasta su cierre: el plan de acción sin responsable o sin fecha, el vencido sin evidencia ni explicación, la fecha que se corre una y otra vez, el cierre sin evidencia o sin validación, el hallazgo que vuelve, el riesgo aceptado que no llegó a la alta dirección o al consejo y el hallazgo externo que no está en el registro",
+        "en": "Each finding until it is closed: an action plan with no owner or date, an overdue one with no evidence or explanation, a date pushed back again and again, a closure with no evidence or validation, a finding that comes back, an accepted risk that did not reach senior management or the board and an external finding missing from the register"
+      },
+      "area": "seguimiento",
+      "ambitos": [
+        "seguimiento"
+      ],
+      "nunca": {
+        "es": "No cierra un hallazgo, no valida una evidencia por su cuenta, no acepta un riesgo y no comunica nada al comité: prepara lo que el responsable de auditoría lleva",
+        "en": "It does not close a finding, validate evidence on its own, accept a risk or communicate anything to the committee: it prepares what the chief audit executive takes there"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "remediation-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, cuántas veces permite la metodología correr la fecha de un plan, quién valida un cierre y quién es la alta dirección y el consejo para la escalada",
+            "proceso": "Inventario de lo que hay; procesa el registro de hallazgos y el de riesgos aceptados de `30-seguimiento/` y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; los registros reconocidos; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y los registros reconocidos"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, how many times the methodology allows a plan's date to be pushed back, who validates a closure and who senior management and the board are for escalation",
+            "proceso": "Inventory of what is there; processes the findings register and the accepted-risk register in `30-seguimiento/` and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised registers; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised registers"
+          }
+        },
+        {
+          "id": "remediation-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en el seguimiento",
+            "entrada": "El registro de hallazgos, las evidencias, los riesgos aceptados y los informes externos de `30-seguimiento/`, y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada evidencia y cada explicación de atraso nuevas y los hallazgos de cada informe externo, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in follow-up",
+            "entrada": "The findings register, the evidence, the accepted risks and the external reports in `30-seguimiento/`, and the period's record",
+            "proceso": "Brings each new piece of evidence and explanation of delay, and the findings of each external report, into the record, with their citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "action-status",
+          "n": 2,
+          "es": {
+            "etiqueta": "Los planes contra su fecha",
+            "entrada": "El registro de hallazgos de `30-seguimiento/` y la ficha",
+            "proceso": "Cada plan de acción contra su responsable, su fecha y sus reprogramaciones; los vencidos, con su evidencia o la explicación documentada del atraso",
+            "reporte": "Los planes sin responsable o sin fecha, los vencidos y los que se corrieron más de lo que permite la metodología, con los días",
+            "entrega": "Qué plan está vencido y desde cuándo"
+          },
+          "en": {
+            "etiqueta": "Plans against their date",
+            "entrada": "The findings register in `30-seguimiento/` and the record",
+            "proceso": "Each action plan against its owner, its date and its reschedules; the overdue ones, with their evidence or the documented explanation of the delay",
+            "reporte": "Plans with no owner or date, the overdue ones and those pushed back more than the methodology allows, with the days",
+            "entrega": "Which plan is overdue and since when"
+          }
+        },
+        {
+          "id": "closure-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "Cada cierre contra su evidencia",
+            "entrada": "El registro de hallazgos, las evidencias de `30-seguimiento/` y los hallazgos anteriores",
+            "proceso": "Revisa que cada cierre tenga su evidencia y su validación de auditoría, y busca la misma condición en el mismo proceso entre los hallazgos ya cerrados",
+            "reporte": "Los cierres sin evidencia o sin validación y los hallazgos que vuelven, con las dos citas",
+            "entrega": "Qué cierre no se sostiene y qué hallazgo se repite"
+          },
+          "en": {
+            "etiqueta": "Each closure against its evidence",
+            "entrada": "The findings register, the evidence in `30-seguimiento/` and the earlier findings",
+            "proceso": "Checks that each closure has its evidence and its audit validation, and looks for the same condition in the same process among findings already closed",
+            "reporte": "Closures with no evidence or validation and findings that come back, with both citations",
+            "entrega": "Which closure does not hold and which finding repeats"
+          }
+        },
+        {
+          "id": "committee-brief",
+          "n": 4,
+          "es": {
+            "etiqueta": "Lo que el comité tiene que saber",
+            "entrada": "El registro de hallazgos, el de riesgos aceptados y los informes externos de `30-seguimiento/`",
+            "proceso": "Reúne lo vencido, lo repetido, los riesgos aceptados por encima del apetito que no llegaron a la alta dirección o al consejo (norma 11.5) y los hallazgos externos que no están en el registro",
+            "reporte": "El resumen para el comité, cada punto con su cita; ninguna conclusión de auditoría",
+            "entrega": "El material del comité, para que lo lleve el responsable de auditoría"
+          },
+          "en": {
+            "etiqueta": "What the committee needs to know",
+            "entrada": "The findings register, the accepted-risk register and the external reports in `30-seguimiento/`",
+            "proceso": "Gathers what is overdue, what repeats, the risks accepted above appetite that did not reach senior management or the board (Standard 11.5) and the external findings missing from the register",
+            "reporte": "The brief for the committee, each point with its citation; no audit conclusion",
+            "entrega": "The committee material, for the chief audit executive to take"
+          }
+        },
+        {
+          "id": "remediation-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar el seguimiento —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "El seguimiento al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether follow-up needs processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "Follow-up up to date without anyone remembering"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 6,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only on a yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "action_plan_missing",
+          "es": "Un hallazgo comunicado no tiene plan de acción, responsable o fecha (norma 15.1)",
+          "en": "A communicated finding has no action plan, owner or date (Standard 15.1)"
+        },
+        {
+          "id": "action_plan_overdue",
+          "es": "Un plan de acción pasó su fecha sin la evidencia de su implementación ni la explicación documentada del atraso (norma 15.2)",
+          "en": "An action plan went past its date with no evidence of implementation and no documented explanation of the delay (Standard 15.2)"
+        },
+        {
+          "id": "due_date_extended_repeatedly",
+          "es": "La fecha de un plan se corrió más veces de las que permite la metodología",
+          "en": "A plan's date was pushed back more times than the methodology allows"
+        },
+        {
+          "id": "closure_without_evidence",
+          "es": "Un plan se dio por cerrado sin la evidencia de su implementación o sin la validación de auditoría (norma 15.2)",
+          "en": "A plan was closed with no evidence of implementation or no audit validation (Standard 15.2)"
+        },
+        {
+          "id": "finding_repeated",
+          "es": "La misma condición, en el mismo proceso, vuelve a aparecer después de que su hallazgo se cerró",
+          "en": "The same condition, in the same process, appears again after its finding was closed"
+        },
+        {
+          "id": "risk_accepted_not_escalated",
+          "es": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
+          "en": "Management accepted a risk above appetite and there is no record that it was discussed with senior management or, if unresolved, that it reached the board (Standard 11.5)"
+        },
+        {
+          "id": "external_finding_untracked",
+          "es": "Un hallazgo del revisor fiscal, del auditor externo o del supervisor no está en el registro con su plan",
+          "en": "A finding from the statutory auditor, the external auditor or the supervisor is not in the register with its plan"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "audit-intake": {
+      "es": "La estructura recomendada de la carpeta de auditoría, qué va en cada carpeta y qué agente la usa, cómo se nombran los trabajos y qué hacer con lo que no encaja",
+      "en": "The recommended structure of the audit folder, what goes in each folder and which agent uses it, how engagements are named and what to do with what does not fit"
+    },
+    "audit-methodology": {
+      "es": "La metodología de auditoría en la configuración: los ciclos por nivel de riesgo, la escala de prioridad con su impacto y su probabilidad, quién aprueba el plan, el programa y los papeles, y cuántas reprogramaciones se permiten",
+      "en": "The audit methodology in the configuration: the cycles by risk level, the priority scale with its impact and likelihood, who approves the plan, the program and the papers, and how many reschedules are allowed"
+    },
+    "plan-record": {
+      "es": "Cómo se lleva a la ficha cada acta del comité: qué trabajo agrega, cancela o aplaza, quién lo aprobó y la cita",
+      "en": "How each committee minute goes into the record: which engagement it adds, cancels or postpones, who approved it and the citation"
+    },
+    "finding-record": {
+      "es": "Cómo se lleva a la ficha cada hallazgo: su criterio, su condición, su causa o la razón por la que no se identificó, su efecto, su impacto, su probabilidad, su prioridad, los papeles que cita y lo que dice el informe, con la cita",
+      "en": "How each finding goes into the record: its criteria, condition, cause or the reason it was not identified, effect, impact, likelihood, priority, the papers it cites and what the report says, with the citation"
+    },
+    "follow-up-record": {
+      "es": "Cómo se lleva a la ficha cada evidencia de implementación, cada explicación de atraso y cada hallazgo de un informe externo, con la cita",
+      "en": "How each piece of implementation evidence, each explanation of delay and each finding in an external report goes into the record, with the citation"
+    }
+  },
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba.",
+    "bots": [
+      "prudencia",
+      "justo",
+      "remedios",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CAE",
+      "titulo": "Tres agentes para la auditoría interna",
+      "sub": "Procesan el plan, los programas, los papeles, los informes y el registro de hallazgos, y dicen qué riesgo alto no tiene un trabajo, qué hallazgo no tiene su criterio o su papel y qué plan de acción venció sin evidencia. La opinión es del auditor.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "Prudencia, Justo y Remedios comparten la carpeta y la metodología; cada uno escribe solo su ficha, con su cita.",
+      "roles": {
+        "prudencia": "El plan",
+        "justo": "Los trabajos",
+        "remedios": "El seguimiento",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: en pruebas. El motor pasa su prueba determinista contra todo su material; la ronda con los agentes viene en la 0.2.0.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CAE"
+        },
+        {
+          "texto": "La auditoría interna con tres agentes, sobre las Normas Globales de Auditoría Interna. Cada uno extiende a una persona del área; ninguno la reemplaza."
+        },
+        {
+          "quien": "prudencia",
+          "tag": "PRUDENCIA · EL PLAN",
+          "texto": "Pone el plan al lado de la matriz de riesgos y del universo auditable, y dice qué riesgo alto no tiene un trabajo, qué unidad pasó su ciclo y qué cambio no tiene su acta. No decide qué se audita."
+        },
+        {
+          "quien": "justo",
+          "tag": "JUSTO · LOS TRABAJOS",
+          "texto": "Pone cada hallazgo al lado de su criterio y de su papel, y cada informe al lado de sus papeles. No cambia una prioridad ni firma un informe."
+        },
+        {
+          "quien": "remedios",
+          "tag": "REMEDIOS · EL SEGUIMIENTO",
+          "texto": "Lleva cada hallazgo hasta su cierre: el plan vencido, la fecha que se corre, el cierre sin evidencia y el riesgo aceptado que no llegó al consejo. No cierra nada."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica el estado del plan y de los hallazgos para el comité. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Los ciclos, los plazos y la escala de prioridad son de la organización. La opinión, la prioridad y el cierre de un hallazgo son del auditor."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CAE family",
+      "titulo": "Three agents for internal audit",
+      "sub": "They process the plan, the programs, the working papers, the reports and the findings register, and tell you which high risk has no engagement, which finding lacks its criteria or its paper and which action plan expired with no evidence. The opinion is the auditor's.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "Prudencia, Justo and Remedios share the folder and the methodology; each writes only its own record, with its citation.",
+      "roles": {
+        "prudencia": "The plan",
+        "justo": "Engagements",
+        "remedios": "Follow-up",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: in testing. The engine passes its deterministic test against all its material; the round with the agents comes in 0.2.0.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CAE FAMILY"
+        },
+        {
+          "texto": "Internal audit with three agents, on the Global Internal Audit Standards. Each one extends a person in the area; none replaces them."
+        },
+        {
+          "quien": "prudencia",
+          "tag": "PRUDENCIA · THE PLAN",
+          "texto": "Puts the plan next to the risk matrix and the audit universe, and tells you which high risk has no engagement, which unit went past its cycle and which change has no minutes. It does not decide what is audited."
+        },
+        {
+          "quien": "justo",
+          "tag": "JUSTO · ENGAGEMENTS",
+          "texto": "Puts each finding next to its criteria and its paper, and each report next to its papers. It does not change a priority or sign a report."
+        },
+        {
+          "quien": "remedios",
+          "tag": "REMEDIOS · FOLLOW-UP",
+          "texto": "Takes each finding to its closure: the overdue plan, the date that keeps moving, the closure with no evidence and the accepted risk that never reached the board. It closes nothing."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes the status of the plan and the findings for the committee. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "Cycles, deadlines and the priority scale belong to the organisation. The opinion, the priority and the closure of a finding belong to the auditor."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINT."
+        }
+      ]
+    }
+  }
+}

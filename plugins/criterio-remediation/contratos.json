@@ -1,0 +1,334 @@
+{
+ "comandos": {
+  "action-status": {
+   "funcion": "Cada plan de acción contra su responsable, su fecha y sus reprogramaciones: los que no tienen plan, los vencidos y los que se corren una y otra vez.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada plan de acción contra su responsable, su fecha y sus reprogramaciones: los que no tienen plan, los vencidos y los que se corren una y otra vez",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-action-status.md",
+     "<estado>/corridas/salida-action-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-methodology",
+     "follow-up-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "closure-check": {
+   "funcion": "Cada cierre contra su evidencia y su validación, y los hallazgos que vuelven en el mismo proceso.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada cierre contra su evidencia y su validación, y los hallazgos que vuelven en el mismo proceso",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-closure-check.md",
+     "<estado>/corridas/salida-closure-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "follow-up-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "committee-brief": {
+   "funcion": "Lo que el comité de auditoría tiene que saber: lo vencido, lo repetido, los riesgos aceptados sin escalar y los hallazgos externos fuera del registro.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que el comité de auditoría tiene que saber: lo vencido, lo repetido, los riesgos aceptados sin escalar y los hallazgos externos fuera del registro",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-committee-brief.md",
+     "<estado>/corridas/salida-committee-brief.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "follow-up-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "remediation-scan": {
+   "funcion": "Procesa lo que cambió en el seguimiento, lleva cada evidencia, explicación y hallazgo externo a la ficha del periodo y dice qué señales nuevas aparecieron.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Procesa lo que cambió en el seguimiento, lleva cada evidencia, explicación y hallazgo externo a la ficha del periodo y dice qué señales nuevas aparecieron",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-remediation-scan.md",
+     "<estado>/corridas/salida-remediation-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "follow-up-record"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "remediation-setup": {
+   "funcion": "Deja a Remedios lista sobre una entidad.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Deja a Remedios lista sobre una entidad — mira la carpeta de auditoría, reconoce el registro de hallazgos y el de riesgos aceptados y muestra el primer resultado",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-remediation-setup.md",
+     "<estado>/corridas/salida-remediation-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-intake",
+     "audit-methodology",
+     "follow-up-record"
+    ],
+    "script": [
+     "arranque",
+     "compute",
+     "convertir",
+     "corrida",
+     "dejar-listo",
+     "inventario",
+     "reporte"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "remediation-wake": {
+   "funcion": "Lo que toca hoy en el seguimiento.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que toca hoy en el seguimiento — evidencias o informes nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+    "escribe": [
+     "<estado>/seguimiento/<AAAA-MM>/resultados.json",
+     "<estado>/seguimiento/<AAAA-MM>/reporte-remediation-wake.md",
+     "<estado>/corridas/salida-remediation-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cae: el plan, los trabajos y el seguimiento de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "remedios": {
+   "funcion": "Pídeselo a Remedios (El seguimiento de los hallazgos) en tus palabras.",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "Pídeselo a Remedios (El seguimiento de los hallazgos) en tus palabras — dice qué comando lo resuelve y lo corre",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+   }
+  },
+  "share-findings": {
+   "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     ".criterio/corridas/<área>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "enlace",
+     "resumen"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+    "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+   }
+  }
+ },
+ "skills": {
+  "audit-intake": {
+   "escribe": [
+    "columns"
+   ],
+   "alimenta": [
+    "high_risk_not_covered",
+    "auditable_unit_overdue",
+    "engagement_behind_schedule",
+    "plan_hours_exceed_capacity",
+    "topical_requirement_missing",
+    "procedure_not_executed",
+    "auditor_reviews_own_work",
+    "action_plan_missing",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "audit-methodology": {
+   "escribe": [
+    "methodology"
+   ],
+   "alimenta": [
+    "risk_assessment_outdated",
+    "external_assessment_overdue",
+    "auditable_unit_overdue",
+    "rating_inconsistent",
+    "due_date_extended_repeatedly"
+   ]
+  },
+  "follow-up-record": {
+   "escribe": [
+    "evidence[]",
+    "delay_explanations[]",
+    "external_findings[]"
+   ],
+   "alimenta": [
+    "action_plan_overdue",
+    "closure_without_evidence",
+    "finding_repeated",
+    "risk_accepted_not_escalated",
+    "external_finding_untracked"
+   ]
+  }
+ }
+}

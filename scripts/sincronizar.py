@@ -56,7 +56,7 @@ SCRIPTS = {
 # La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
 for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
            "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
-           "criterio-roles", "criterio-talent"):
+           "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -81,7 +81,7 @@ COMANDO_COMPARTIR = RAIZ / "plugins" / "criterio-portfolio" / "commands" / "shar
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
 HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
          "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
-           "criterio-roles", "criterio-talent")
+           "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
@@ -96,7 +96,8 @@ SCRIPTS_CFO = {
     },
 }
 for _p in ("criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-sales", "criterio-revenue",
-           "criterio-security", "criterio-vulnerability", "criterio-resilience", "criterio-roles", "criterio-talent"):
+           "criterio-security", "criterio-vulnerability", "criterio-resilience", "criterio-roles", "criterio-talent",
+           "criterio-audit-plan", "criterio-audit-work", "criterio-remediation"):
     SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
                        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
 # Las reglas de compromiso viven en el núcleo común (ADR 0012): `portafolio.py` lo importa, así que
@@ -148,6 +149,18 @@ SCRIPTS_CHRO = {
 SKILLS_CHRO = {
     "criterio-talent": {"talent-intake": "los mismos documentos y la misma estructura"},
 }
+# La familia CAE tiene su propio motor, con fuente en criterio-audit-plan: Justo y Remedios procesan la
+# misma carpeta de auditoría, con la misma metodología.
+FUENTE_CAE = RAIZ / "plugins" / "criterio-audit-plan" / "scripts"
+SCRIPTS_CAE = {
+    p: {"auditoria.py": "el motor de los tres: la misma carpeta, la misma metodología y la misma escala"}
+    for p in ("criterio-audit-work", "criterio-remediation")
+}
+SKILLS_CAE = {
+    p: {"audit-intake": "los mismos documentos y la misma estructura",
+        "audit-methodology": "la misma metodología en la configuración de los tres"}
+    for p in ("criterio-audit-work", "criterio-remediation")
+}
 SKILLS_CLO = {
     "criterio-compliance": {
         "legal-intake": "los mismos documentos y la misma estructura",
@@ -174,7 +187,7 @@ RAIZ_A_PLUGINS = {
 PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
                    "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-server",
                    "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
-           "criterio-roles", "criterio-talent")
+           "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -302,7 +315,8 @@ def revisar(escribir: bool) -> int:
                                              (FUENTE_CLO, "criterio-legal", SCRIPTS_CLO),
                                              (FUENTE_CCO, "criterio-sales", SCRIPTS_CCO),
                                              (FUENTE_CISO, "criterio-security", SCRIPTS_CISO),
-                                             (FUENTE_CHRO, "criterio-roles", SCRIPTS_CHRO)):
+                                             (FUENTE_CHRO, "criterio-roles", SCRIPTS_CHRO),
+                                             (FUENTE_CAE, "criterio-audit-plan", SCRIPTS_CAE)):
         for plugin, archivos in sorted(tabla.items()):
             for nombre, porque in sorted(archivos.items()):
                 origen = fuente_dir / nombre
@@ -321,7 +335,8 @@ def revisar(escribir: bool) -> int:
                                              (FUENTE_CLO.parent, "criterio-legal", SKILLS_CLO),
                                              (FUENTE_CCO.parent, "criterio-sales", SKILLS_CCO),
                                              (FUENTE_CISO.parent, "criterio-security", SKILLS_CISO),
-                                             (FUENTE_CHRO.parent, "criterio-roles", SKILLS_CHRO)):
+                                             (FUENTE_CHRO.parent, "criterio-roles", SKILLS_CHRO),
+                                             (FUENTE_CAE.parent, "criterio-audit-plan", SKILLS_CAE)):
         for plugin, skills in sorted(tabla.items()):
             for nombre, porque in sorted(skills.items()):
                 carpeta = fuente_dir / "skills" / nombre

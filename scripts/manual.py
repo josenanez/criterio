@@ -51,7 +51,7 @@ AGENTES = [
     ("criterio-server", {"es": ("Rostrum", "el portal de todas las familias"), "en": ("Rostrum", "the portal for every family")}),
 ]
 
-FILA = re.compile(r"^\| `/(criterio-[a-z]+):([a-z-]+)` \| (.+?) \|\s*$")
+FILA = re.compile(r"^\| `/(criterio-[a-z]+(?:-[a-z]+)*):([a-z-]+)` \| (.+?) \|\s*$")
 
 TXT = {
     "es": {

@@ -97,6 +97,9 @@ running `server-setup` again.
 | **Criterio CISO** · Information security | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CHRO** · Talent | Norma | `/criterio-roles:roles-setup` | `.criterio/perfiles/<instance>/` | `_CRITERIO_TALENTO.txt` |
 | **Criterio CHRO** · Talent | Cándido | `/criterio-talent:talent-setup` | `.criterio/seleccion/<instance>/` | `_CRITERIO_TALENTO.txt` |
+| **Criterio CAE** · Internal audit | Prudencia | `/criterio-audit-plan:plan-setup` | `.criterio/plan/<instance>/` | `_CRITERIO_AUDITORIA.txt` |
+| **Criterio CAE** · Internal audit | Justo | `/criterio-audit-work:work-setup` | `.criterio/trabajos/<instance>/` | `_CRITERIO_AUDITORIA.txt` |
+| **Criterio CAE** · Internal audit | Remedios | `/criterio-remediation:remediation-setup` | `.criterio/seguimiento/<instance>/` | `_CRITERIO_AUDITORIA.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

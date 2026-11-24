@@ -68,6 +68,11 @@ DUENIOS = [
     ("evaluar.py --agente norma", "Norma"),
     ("evaluar.py --agente candido", "Cándido"),
     ("tests/criterio-chro/", "La familia"),
+    ("criterio-audit-plan/scripts/auditoria.py", "Prudencia"),
+    ("evaluar.py --agente prudencia", "Prudencia"),
+    ("evaluar.py --agente justo", "Justo"),
+    ("evaluar.py --agente remedios", "Remedios"),
+    ("tests/criterio-cae/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -457,6 +462,9 @@ PLUGIN_DE = {
     "Amparo": "criterio-resilience",
     "Norma": "criterio-roles",
     "Cándido": "criterio-talent",
+    "Prudencia": "criterio-audit-plan",
+    "Justo": "criterio-audit-work",
+    "Remedios": "criterio-remediation",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -712,6 +720,16 @@ _CHRO_NO_CUBRE = [
 ]
 for _p in ("criterio-roles", "criterio-talent"):
     NO_CUBRE[_p] = list(_CHRO_NO_CUBRE)
+_CAE_NO_CUBRE = [
+    ("Todavía no hay una ronda con los agentes",
+     "El motor se prueba con la ficha correcta, la de la clave. Que el agente procese las actas, los papeles, los informes y las "
+     "evidencias y los registre bien lo prueba la ronda, que viene en la 0.2.0."),
+    ("Las exportaciones del material no son las de una herramienta de auditoría",
+     "Son tablas con columnas en español; las de TeamMate+, AuditBoard, Ideagen o SAP Audit Management se mapean en el setup y "
+     "entran con una exportación real."),
+]
+for _p in ("criterio-audit-plan", "criterio-audit-work", "criterio-remediation"):
+    NO_CUBRE[_p] = list(_CAE_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -731,6 +749,9 @@ QUE_ES = {
     "criterio-resilience": ("Amparo", "la agente de la respuesta y la recuperación de la familia CISO"),
     "criterio-roles": ("Norma", "la agente de los perfiles de cargo de la familia CHRO"),
     "criterio-talent": ("Cándido", "el agente de la selección de la familia CHRO"),
+    "criterio-audit-plan": ("Prudencia", "la agente del plan de auditoría de la familia CAE"),
+    "criterio-audit-work": ("Justo", "el agente de los trabajos de auditoría de la familia CAE"),
+    "criterio-remediation": ("Remedios", "la agente del seguimiento de los hallazgos de la familia CAE"),
 }
 
 
@@ -742,7 +763,9 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-sales": "../criterio-cco/EVIDENCIA.md", "criterio-revenue": "../criterio-cco/EVIDENCIA.md",
                 "criterio-security": "../criterio-ciso/EVIDENCIA.md", "criterio-vulnerability": "../criterio-ciso/EVIDENCIA.md",
                 "criterio-resilience": "../criterio-ciso/EVIDENCIA.md",
-                "criterio-roles": "../criterio-chro/EVIDENCIA.md", "criterio-talent": "../criterio-chro/EVIDENCIA.md"}
+                "criterio-roles": "../criterio-chro/EVIDENCIA.md", "criterio-talent": "../criterio-chro/EVIDENCIA.md",
+                "criterio-audit-plan": "../criterio-cae/EVIDENCIA.md", "criterio-audit-work": "../criterio-cae/EVIDENCIA.md",
+                "criterio-remediation": "../criterio-cae/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:
