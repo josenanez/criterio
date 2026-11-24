@@ -74,7 +74,9 @@ def diferencias(actual: dict, sn: dict, loc: dict) -> list[str]:
     a = actual["snippet"]
     for campo in ("title", "description", "tags", "defaultLanguage", "defaultAudioLanguage"):
         antes, despues = a.get(campo), sn.get(campo)
-        if antes == despues:
+        # YouTube devuelve las etiquetas en su propio orden: las mismas etiquetas en otro orden no son
+        # un cambio, y subirlas otra vez solo gasta cuota.
+        if antes == despues or (campo == "tags" and sorted(antes or []) == sorted(despues or [])):
             continue
         if campo == "description":
             d = difflib.unified_diff((antes or "").splitlines(), despues.splitlines(), "publicado", "catálogo", lineterm="", n=1)
