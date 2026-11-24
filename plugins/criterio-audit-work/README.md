@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cae-claro.svg" alt="Criterio CAE · Internal audit" height="48"></picture>
+
 # Justo · audit engagements
+
+<img src="../../docs/img/en/robot-justo.gif" alt="Justo" width="220" align="right">
 
 **Justo puts each finding next to its criteria.**
 You are responsible for audit engagements. He comes with each engagement next to its program and its working papers: the unapproved program, the finding without its criteria, condition, cause, effect or priority, the finding that cites no paper, the unexecuted step, the unreviewed paper, the report that does not say what the papers say, the priority the methodology does not give and the auditor assigned to what they were in charge of.

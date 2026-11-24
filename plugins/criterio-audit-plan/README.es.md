@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cae-claro.svg" alt="Criterio CAE · La auditoría interna" height="48"></picture>
+
 # Prudencia · el plan de auditoría
+
+<img src="../../docs/img/es/robot-prudencia.gif" alt="Prudencia" width="220" align="right">
 
 **Prudencia pone el plan de auditoría al lado de los riesgos.**
 Tú respondes por el plan de auditoría interna. Ella llega con el plan al lado de la matriz de riesgos y del universo auditable: el riesgo alto que ningún trabajo cubre, la unidad que pasó su ciclo, la evaluación de riesgos que ya tiene más de un año, el área que el plan no considera, el cambio que no tiene su acta, el trabajo atrasado, las horas que no alcanzan, el requisito temático que falta y la evaluación externa de calidad que se venció.

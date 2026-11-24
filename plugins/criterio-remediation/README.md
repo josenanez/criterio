@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cae-claro.svg" alt="Criterio CAE · Internal audit" height="48"></picture>
+
 # Remedios · finding follow-up
+
+<img src="../../docs/img/en/robot-remedios.gif" alt="Remedios" width="220" align="right">
 
 **Remedios takes each finding to its remedy.**
 You are responsible for following up findings. She comes with each action plan next to its date and its evidence: the finding with no plan, owner or date, the overdue plan with no evidence or explanation, the date pushed back again and again, the closure with no evidence or validation, the finding that comes back, the accepted risk that never reached senior management or the board and the external finding missing from the register.

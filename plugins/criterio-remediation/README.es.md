@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cae-claro.svg" alt="Criterio CAE · La auditoría interna" height="48"></picture>
+
 # Remedios · el seguimiento de los hallazgos
+
+<img src="../../docs/img/es/robot-remedios.gif" alt="Remedios" width="220" align="right">
 
 **Remedios lleva cada hallazgo hasta su remedio.**
 Tú respondes por el seguimiento de los hallazgos. Ella llega con cada plan de acción al lado de su fecha y de su evidencia: el hallazgo sin plan, sin responsable o sin fecha, el plan vencido sin evidencia ni explicación, la fecha que se corre una y otra vez, el cierre sin evidencia o sin validación, el hallazgo que vuelve, el riesgo aceptado que no llegó a la alta dirección o al consejo y el hallazgo externo que no está en el registro.

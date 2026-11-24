@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cae-claro.svg" alt="Criterio CAE · La auditoría interna" height="48"></picture>
+
 # criterio-cae · la familia de la auditoría interna
 
 **Tres agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta de la
@@ -6,6 +8,8 @@ seguimiento de los hallazgos— y comparten la carpeta y la metodología de la e
 solo su ficha.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
+
+![Criterio CAE](../../docs/img/es/cae.png)
 
 | | |
 |---|---|

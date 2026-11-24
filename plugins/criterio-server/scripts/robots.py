@@ -34,10 +34,12 @@ ORDEN_EA = ("ofelia",)
 ORDEN_CCO = ("augusto", "valeria")
 ORDEN_CISO = ("alexis", "guillermo", "amparo")
 ORDEN_CHRO = ("norma", "candido")
+ORDEN_CAE = ("prudencia", "justo", "remedios")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
           "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos", "alexis": "seguridad",
-          "guillermo": "vulnerabilidades", "amparo": "resiliencia", "norma": "perfiles", "candido": "seleccion"}
+          "guillermo": "vulnerabilidades", "amparo": "resiliencia", "norma": "perfiles", "candido": "seleccion",
+          "prudencia": "plan", "justo": "trabajos", "remedios": "seguimiento"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -232,6 +234,41 @@ _PIEZAS = {
         ("ln", "line", dict(x1=40, y1=112, x2=54, y2=112), "coteja.2"), ("ln", "line", dict(x1=66, y1=112, x2=80, y2=112), "coteja.3"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Prudencia: el universo auditable en el pecho, y cada unidad se enciende cuando el plan la mira
+    "prudencia": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+    ] + [p for i, (x, y) in enumerate(((36, 92), (53, 92), (70, 92), (36, 110), (53, 110), (70, 110))) for p in (
+        ("ln", "rect", dict(x=x, y=y, width=14, height=14, rx=2)),
+        ("led", "circle", dict(cx=x + 7, cy=y + 7, r=2.5), f"recorre.{i}"))] + [
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Justo: la balanza en el pecho, y cada platillo pesa su lado: el criterio y la condición
+    "justo": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "line", dict(x1=60, y1=92, x2=60, y2=126)), ("ln", "line", dict(x1=48, y1=126, x2=72, y2=126)),
+        ("ln", "line", dict(x1=38, y1=98, x2=82, y2=98)),
+        ("ln", "path", dict(d="M34 104 Q40 114 46 104 Z"), "pesa.0"), ("ln", "path", dict(d="M74 104 Q80 114 86 104 Z"), "pesa.1"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Remedios: el ciclo que se cierra, y la marca del hallazgo resuelto adentro
+    "remedios": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "path", dict(d="M48 62 Q60 70 72 62")),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "path", dict(d="M60 93 Q76 93 76 109 Q76 125 60 125 Q44 125 44 109"), "cura"),
+        ("ln", "path", dict(d="M53 110 L58 115 L68 103"), "resuelve"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [
         ("ln", "rect", dict(x=18, y=14, width=84, height=146, rx=3)),
         ("ln", "circle", dict(cx=42, cy=40, r=14)), ("ln", "circle", dict(cx=78, cy=40, r=14)),
@@ -315,6 +352,13 @@ GESTOS = {
     "mide":     {"tipo": "trazo", "dura": 2.4, "paso": .3, "claves": [(0, 1), (.2, 0), (.8, 0), (.85, 1), (1, 1)]},
     # Cándido: cada renglón de la hoja de vida se enciende con el de su soporte
     "coteja":   {"tipo": "opacidad", "dura": 2.4, "paso": .3, "claves": [(0, .3), (.15, 1), (.8, 1), (.85, .3), (1, .3)]},
+    # Prudencia: cada unidad del universo se enciende, una detrás de otra
+    "recorre":  {"tipo": "opacidad", "dura": 2.4, "paso": .3, "claves": [(0, .3), (.15, 1), (.7, 1), (.8, .3), (1, .3)]},
+    # Justo: los platillos de la balanza pesan, uno y después el otro
+    "pesa":     {"tipo": "xy", "dura": 2.4, "paso": 1.2, "claves": [(0, (0, 0)), (.25, (0, 4)), (.5, (0, 0)), (1, (0, 0))]},
+    # Remedios: el ciclo se cierra y, cerrado, se traza la marca de lo resuelto
+    "cura":     {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.35, 0), (.85, 0), (.9, 1), (1, 1)]},
+    "resuelve": {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.4, 1), (.55, 0), (.85, 0), (.9, 1), (1, 1)]},
     # Rostrum: los carretes giran y las luces corren
     "gira":     {"tipo": "xy", "dura": 1.6, "paso": .4, "claves": _orbita(5)},
     "corre":    {"tipo": "opacidad", "dura": 1.2, "paso": .24, "claves": [(0, 1), (.2, 1), (.2, .3), (1, .3)]},
@@ -515,7 +559,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO + ORDEN_CAE
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}

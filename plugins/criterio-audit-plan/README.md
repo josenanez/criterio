@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cae-claro.svg" alt="Criterio CAE · Internal audit" height="48"></picture>
+
 # Prudencia · the audit plan
+
+<img src="../../docs/img/en/robot-prudencia.gif" alt="Prudencia" width="220" align="right">
 
 **Prudencia puts the audit plan next to the risks.**
 You are responsible for the internal audit plan. She comes with the plan next to the risk matrix and the audit universe: the high risk no engagement covers, the unit past its cycle, the risk assessment that is over a year old, the area the plan does not consider, the change with no minutes, the late engagement, the hours that do not add up, the missing topical requirement and the overdue external quality assessment.

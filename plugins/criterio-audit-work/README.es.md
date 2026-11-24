@@ -1,4 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cae-claro.svg" alt="Criterio CAE · La auditoría interna" height="48"></picture>
+
 # Justo · los trabajos de auditoría
+
+<img src="../../docs/img/es/robot-justo.gif" alt="Justo" width="220" align="right">
 
 **Justo pone cada hallazgo al lado de su criterio.**
 Tú respondes por los trabajos de auditoría. Él llega con cada trabajo al lado de su programa y de sus papeles: el programa sin aprobar, el hallazgo sin su criterio, su condición, su causa, su efecto o su prioridad, el hallazgo que no cita un papel, el paso sin ejecutar, el papel sin revisión, el informe que no dice lo que dicen los papeles, la prioridad que no da la metodología y el auditor asignado a lo que tuvo a su cargo.

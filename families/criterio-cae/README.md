@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cae-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cae-claro.svg" alt="Criterio CAE · Internal audit" height="48"></picture>
+
 # criterio-cae · the internal audit family
 
 **Three agents and a portal, around their records.** Each one extends a different person in internal
@@ -5,6 +7,8 @@ audit —whoever is responsible for the plan, for the engagements and for follow
 they share the entity's folder and methodology: each one writes only its own record.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
+
+![Criterio CAE](../../docs/img/en/cae.png)
 
 | | |
 |---|---|
