@@ -21,4 +21,4 @@ description: "La metodología de auditoría de la organización en la configurac
 
 Lo que fijan las Normas Globales de Auditoría Interna (F-01) no se configura: la evaluación de riesgos, al menos una vez al año (9.4); la evaluación externa de calidad, al menos una vez cada cinco años (8.4); lo que el plan tiene que considerar —el gobierno de TI, el riesgo de fraude y los programas de cumplimiento y ética— (9.4); los doce meses de la objetividad (2.2). Los requisitos temáticos y el día desde el que rige cada uno (F-02) están en el motor.
 
-Lo que dice la regulación del país sobre quién aprueba el plan y cuándo se envía al supervisor (F-10 a F-12) está **por verificar**: no se usa hasta que se verifique en su texto oficial.
+Lo que dice la regulación del país sobre quién aprueba el plan: en Colombia, el comité de auditoría aprueba el plan y sus cambios (F-10); en Brasil, el consejo de administración y el comité de auditoría (F-12). Lo del Perú (F-11) está **por verificar** y no se usa. La metodología de la organización sigue mandando: el país dice quién aprueba, no el ciclo ni la escala.

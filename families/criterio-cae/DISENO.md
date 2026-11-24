@@ -125,5 +125,5 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 
 - The names, Prudencia, Justo and Remedios, and the structure: three agents, their twenty-four signals and their commands (decision 0033).
 - The Global Internal Audit Standards are cited by number and title: their text has all rights reserved.
-- Each country's regulation (F-10 to F-12) supports no signal until verified in its official text. ISO 19011 stays out of 0.1.0 until its current edition is verified.
+- Each country's regulation supports no signal until verified in its official text: Colombia (F-10) and Brazil (F-12) are verified; Peru (F-11) is not yet. ISO 19011 stays out of 0.1.0 until its current edition is verified.
 - The public sector stays out of 0.1.0.

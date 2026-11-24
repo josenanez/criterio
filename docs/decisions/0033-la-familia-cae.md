@@ -36,9 +36,9 @@ estándares internacionales, no sobre la ley de cada país:
 
 | País | Norma | Qué exige a esta familia | Estado de la fuente |
 |---|---|---|---|
-| Colombia | Superintendencia Financiera, Circular Externa 008 del 16 de mayo de 2023, que reemplaza el capítulo IV del título I de la parte I de la Circular Básica Jurídica (el sistema de control interno) | El comité de auditoría aprueba el plan anual de auditoría interna y sus cambios, y vigila que se implementen las recomendaciones de la auditoría interna, la externa y el revisor fiscal; informa a la junta al menos cada seis meses | Verificado en parte el 2026-11-24: la fecha y el reemplazo del capítulo, en la carta de la circular; el numeral de la auditoría interna, en la compilación de Colpensiones, que se cortó. **Por verificar** en el texto oficial de la SFC |
+| Colombia | Superintendencia Financiera, Circular Externa 008 del 16 de mayo de 2023, que reemplaza el capítulo IV del título I de la parte I de la Circular Básica Jurídica (el sistema de control interno) | El comité de auditoría aprueba el plan anual de auditoría interna y sus cambios, y vigila que se implementen las recomendaciones de la auditoría interna, la externa y el revisor fiscal; informa a la junta al menos cada seis meses | Verificado el 2026-11-24 en el anexo oficial de la circular, en superfinanciera.gov.co: el comité aprueba el plan (4.2.1.1) y sus cambios por el mismo proceso (3.1.13), monitorea su cumplimiento (4.2.5.3), verifica la implementación de las recomendaciones (4.2.3.7) e informa a la junta al menos cada 6 meses (4.2.2.1) |
 | Perú | SBS, Reglamento de Auditoría Interna, Resolución SBS 11699-2008, del 28 de noviembre de 2008, modificada por las resoluciones SBS 1325-2018 y 1132-2025, entre otras | El directorio aprueba el plan anual de trabajo y una copia llega a la SBS a más tardar el 31 de diciembre del año anterior (art. 16); el comité de auditoría aprueba sus cambios significativos (art. 17); cada informe de avance trae el estado de las observaciones de la SBS (art. 18) | Verificado el 2026-11-24 en una compilación de terceros (regalert.today), hasta el art. 18. **Por verificar** en el texto oficial de la SBS, con sus modificaciones |
-| Brasil | CMN, Resolución 4.879 del 23 de diciembre de 2020, vigente desde el 1 de enero de 2021, modificada por las resoluciones CMN 5.117 y 5.177 de 2024 | Un plan anual basado en la evaluación de riesgos, con los procesos por nivel de riesgo, el cronograma y los recursos, aprobado por el consejo de administración y el comité de auditoría (art. 19), y un informe de seguimiento de las recomendaciones; los documentos, cinco años a disposición del Banco Central (art. 25) | Verificado el 2026-11-24 en legisweb.com.br, con las modificaciones. **Por verificar** en normativos.bcb.gov.br |
+| Brasil | CMN, Resolución 4.879 del 23 de diciembre de 2020, vigente desde el 1 de enero de 2021, modificada por las resoluciones CMN 5.117 y 5.177 de 2024 | Un plan anual basado en la evaluación de riesgos, con los procesos por nivel de riesgo, el cronograma y los recursos, aprobado por el consejo de administración y el comité de auditoría (art. 19), y un informe de seguimiento de las recomendaciones; los documentos, cinco años a disposición del Banco Central (art. 25) | Verificado el 2026-11-24 en el texto del Banco Central do Brasil (bcb.gov.br), con sus modificaciones, que no tocan los arts. 19 y 25 |
 | México, Chile y Ecuador | La CNBV, la CMF y la Superintendencia de Bancos | Por identificar el capítulo exacto de cada una | — |
 
 ## Decisión
@@ -157,8 +157,8 @@ grupo de señales y su despertador (`*-wake`):
 
 1. **Los nombres y la estructura**: aceptados por José el 2026-11-24. Queda cerrado.
 2. **Las fuentes:** verificadas el 2026-11-24 las que dicen las tablas; el motor no usa una fuente
-   sin verificar. Antes de construir los plazos de cada país: los textos oficiales de la SFC, la SBS
-   y el Banco Central de Brasil.
+   sin verificar. Verificados en su texto oficial la SFC y el Banco Central de Brasil; falta el de la SBS del
+   Perú, que no está en línea en su sitio ni en El Peruano.
 3. **Los formatos de exportación:** las herramientas de auditoría que más se usan en la región
    —TeamMate+, AuditBoard, Ideagen (Pentana) y SAP Audit Management—, cada una con su fuente
    verificada o con los encabezados de una exportación real, como en la CFO. Mientras tanto, el

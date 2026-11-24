@@ -72,6 +72,6 @@ registro por su referencia. Ninguno puede levantar una señal.
   los agentes, en la 0.2.0.
 - **Las exportaciones reales** de TeamMate+, AuditBoard, Ideagen o SAP Audit Management: el material usa
   tablas con columnas en español; el setup mapea las de cualquier exportación.
-- **La regulación de cada país** (F-10 a F-12), por verificar en su texto oficial.
+- **La regulación de cada país**: la de Colombia (F-10) y Brasil (F-12), verificada, no entra a ninguna señal todavía; la del Perú (F-11), por verificar.
 - **El juicio del auditor**: si una evidencia sostiene un cierre, si una causa es la raíz o si una
   prioridad es la correcta más allá de la escala.

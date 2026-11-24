@@ -125,5 +125,5 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 
 - Los nombres, Prudencia, Justo y Remedios, y la estructura: tres agentes, sus veinticuatro señales y sus comandos (decisión 0033).
 - Las Normas Globales de Auditoría Interna se citan por su número y su título: su texto tiene todos los derechos reservados.
-- La regulación de cada país (F-10 a F-12) no sostiene ninguna señal hasta verificarse en su texto oficial. ISO 19011 queda fuera de la 0.1.0 hasta verificar su edición vigente.
+- La regulación de cada país no sostiene ninguna señal hasta verificarse en su texto oficial: Colombia (F-10) y Brasil (F-12) están verificados; el Perú (F-11), todavía no. ISO 19011 queda fuera de la 0.1.0 hasta verificar su edición vigente.
 - El sector público queda fuera de la 0.1.0.
