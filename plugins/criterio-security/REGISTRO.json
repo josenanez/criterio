@@ -5305,6 +5305,118 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "d09b6e5b4c988dd63234275e8ac23d9fb8e8f03a76112e2d1c139c710065e8f6",
       "sha256": "80d5510caa6d37d60709125d5f716cc938625478bd58a6875efe30599285ba09"
+    },
+    {
+      "version": "3.3.0",
+      "fecha": "2026-11-24",
+      "commit": null,
+      "base": "a6713c6a",
+      "etiqueta": "v3.3.0",
+      "familias": {
+        "cco": "1.4.2",
+        "cfo": "1.7.2",
+        "chro": "1.0.0",
+        "ciso": "1.5.1",
+        "clo": "1.9.1",
+        "ea": "1.4.2",
+        "pmo": "1.4.2",
+        "rostrum": "1.4.4"
+      },
+      "liberadas": [
+        "chro"
+      ],
+      "versiones": {
+        "criterio-cco": "1.4.2",
+        "criterio-revenue": "1.4.2",
+        "criterio-sales": "1.4.2",
+        "criterio-budget": "1.7.2",
+        "criterio-cfo": "1.7.2",
+        "criterio-finance": "1.7.2",
+        "criterio-treasury": "1.7.2",
+        "criterio-chro": "1.0.0",
+        "criterio-roles": "1.0.0",
+        "criterio-talent": "1.0.0",
+        "criterio-ciso": "1.5.1",
+        "criterio-resilience": "1.5.1",
+        "criterio-security": "1.5.1",
+        "criterio-vulnerability": "1.5.1",
+        "criterio-clo": "1.9.1",
+        "criterio-compliance": "1.9.1",
+        "criterio-legal": "1.9.1",
+        "criterio-assistant": "1.4.2",
+        "criterio-ea": "1.4.2",
+        "criterio-pmo": "1.4.2",
+        "criterio-portfolio": "1.4.2",
+        "criterio-product": "1.4.2",
+        "criterio-project": "1.4.2",
+        "criterio-server": "1.4.4"
+      },
+      "calidad": {
+        "chro": {
+          "etiqueta": "estable",
+          "ronda": 4,
+          "rondas": [
+            3,
+            4
+          ],
+          "casos": {
+            "señales": 73,
+            "datos": 1738
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95,
+            "Datos extraídos": 99.7
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.6",
+        "fecha": "2026-11-16",
+        "sha256": {
+          "es": "9926ba27f936402177da9036b3eb64878c262183c0775b193061b22a8ded1561",
+          "en": "a4a1df234745cd8fe495e179cc081712ab709cd51684699df5baa5ba960f4fd6"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "ee980a2f871e8a84656c649be62aa842448d076cf00d03f1ba88220a72f859da",
+        "criterio-budget": "354e5f750f34207bd30070c43f2957a7136a3ef830976cf9d984e8866441442a",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-chro": "fbd1a3b70dd6e57d81a9f399da45396b502e62b7df4cd9eaa5489f453b803d68",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "784f2d04a908d5dfdf7dde05b57ea5c7b654ba5ed1d3406ca496a971ceb4d38c",
+        "criterio-finance": "3b0a7d451e745f86cc6f4a01709309d95a394b7accbc2902195b027700558c2b",
+        "criterio-legal": "421e27d19a91b7192cf2279b09bb68122708c5a4dfce5112fe02a0aabe983539",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "48ccfa1c5419e191274b68ca8eb8d475bb23fe375822a5d8047de545b87a9158",
+        "criterio-product": "609809881bf3d2dc8c036b785eb9c59df2cff1391a93f07e708064e1e6a9bed5",
+        "criterio-project": "27ae49631b81e29028cb32d70d563d3284b9f1c9b2a518fa887ab400101a9052",
+        "criterio-resilience": "ec5323145afaa8874a23a1fe463222724f49fa827316f4d1a6c66d87a7589df6",
+        "criterio-revenue": "9500069b4270f2d769a16ed5741159856c931ea0f8e7d867c32a799c2965cc03",
+        "criterio-roles": "0dc8bbb3eca454fef5d0c83c38d6870317839c300a96d76db8138dcd8cf63057",
+        "criterio-sales": "1f7a862219eaaa31d5a05632e600a42ae31fcfb8b84a1db4c369cfc23a11327b",
+        "criterio-security": "83b85e4188e440f59b6dac9b9e5f4d66f9f51ce7e02d32ee5597d3c57a35a451",
+        "criterio-server": "951a18e6503c2b7f5ebd583bc83cd89ac374bb343585abbdc69b05f951bed39c",
+        "criterio-talent": "5601aafca8e3fe31ddaf773a95c7a95ef031058abf0fb5f34a7b1d5554bd84df",
+        "criterio-treasury": "8d612eafddf89ca4bc403cda8e9db3c2137324e934d2b9df3990d568e622dcdf",
+        "criterio-vulnerability": "38a3d1b8a25b2fda018f8f1d1b41a19a17ec94799bf3bb2b363462448516d869"
+      },
+      "destacados": [
+        "CHRO 1.0.0: estable con las rondas 3 y 4, y lanzada"
+      ],
+      "cambios": [
+        "sync_youtube.py: las mismas etiquetas en otro orden no son un cambio",
+        "Ronda 4 de la CHRO: CHRO-7 verificado, y la extracción calificada registro por registro",
+        "La CHRO, estable y lanzada esta semana; y los estados que quedaron de laboratorio en la CISO y la CCO"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "80d5510caa6d37d60709125d5f716cc938625478bd58a6875efe30599285ba09",
+      "sha256": "84caa3002267b3ab904b2fd1aa3c62627fd86a5ebb335034a9d5e09c1380e0c7"
     }
   ]
 }
