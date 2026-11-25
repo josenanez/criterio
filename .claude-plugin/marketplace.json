@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -187,6 +187,24 @@
       "description": "Ariadna, la calidad y el linaje: cada cifra de un informe de dirección contra su fuente, su corte y su linaje, y cada regla de calidad contra su umbral y su corrida, sobre BCBS 239 e ISO/IEC 25012. Procesa exportaciones; nunca se conecta a una base ni corrige una cifra.",
       "source": "./plugins/criterio-data-quality",
       "category": "data"
+    },
+    {
+      "name": "criterio-cro",
+      "description": "La familia CRO completa —los riesgos—: instala de una vez a Severo y Casandra y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cro:cro-setup.",
+      "source": "./plugins/criterio-cro",
+      "category": "risk"
+    },
+    {
+      "name": "criterio-risk-appetite",
+      "description": "Severo, el apetito por riesgo: cada exposición contra su límite y su plan, cada límite contra su dueño y su revisión, cada reporte contra el plazo del marco, cada riesgo alto de la matriz contra su límite o su indicador, y la declaración de apetito contra la revisión de la junta. Procesa exportaciones; nunca fija un límite, aprueba un exceso ni calcula capital.",
+      "source": "./plugins/criterio-risk-appetite",
+      "category": "risk"
+    },
+    {
+      "name": "criterio-risk-events",
+      "description": "Casandra, los indicadores y los eventos: cada indicador clave contra sus umbrales y su acción, y cada evento de pérdida contra su causa, su monto, su proceso, su plazo de registro, su repetición y la matriz de riesgos. Procesa exportaciones; nunca califica un riesgo, cierra un evento ni calcula una pérdida esperada.",
+      "source": "./plugins/criterio-risk-events",
+      "category": "risk"
     },
     {
       "name": "criterio-server",

@@ -6017,6 +6017,128 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "e8f8990dab77764e05c0cd5f71a5e6db0fbdfc08f3da8a3f36260cdbd02bf224",
       "sha256": "e84f3e18b5b16352709f8fb651b44f6083544c9c4910cc4b4d9781f078132c52"
+    },
+    {
+      "version": "3.7.0",
+      "fecha": "2026-11-25",
+      "commit": null,
+      "base": "8c9c5e0d",
+      "etiqueta": "v3.7.0",
+      "familias": {
+        "cae": "0.2.2",
+        "cco": "1.4.2",
+        "cdo": "0.1.0",
+        "cfo": "1.7.2",
+        "chro": "1.0.0",
+        "ciso": "1.5.1",
+        "clo": "1.9.1",
+        "cro": "0.1.0",
+        "ea": "1.4.2",
+        "pmo": "1.4.2",
+        "rostrum": "1.4.4"
+      },
+      "liberadas": [
+        "cro"
+      ],
+      "versiones": {
+        "criterio-audit-plan": "0.2.2",
+        "criterio-audit-work": "0.2.2",
+        "criterio-cae": "0.2.2",
+        "criterio-remediation": "0.2.2",
+        "criterio-cco": "1.4.2",
+        "criterio-revenue": "1.4.2",
+        "criterio-sales": "1.4.2",
+        "criterio-cdo": "0.1.0",
+        "criterio-data-governance": "0.1.0",
+        "criterio-data-quality": "0.1.0",
+        "criterio-budget": "1.7.2",
+        "criterio-cfo": "1.7.2",
+        "criterio-finance": "1.7.2",
+        "criterio-treasury": "1.7.2",
+        "criterio-chro": "1.0.0",
+        "criterio-roles": "1.0.0",
+        "criterio-talent": "1.0.0",
+        "criterio-ciso": "1.5.1",
+        "criterio-resilience": "1.5.1",
+        "criterio-security": "1.5.1",
+        "criterio-vulnerability": "1.5.1",
+        "criterio-clo": "1.9.1",
+        "criterio-compliance": "1.9.1",
+        "criterio-legal": "1.9.1",
+        "criterio-cro": "0.1.0",
+        "criterio-risk-appetite": "0.1.0",
+        "criterio-risk-events": "0.1.0",
+        "criterio-assistant": "1.4.2",
+        "criterio-ea": "1.4.2",
+        "criterio-pmo": "1.4.2",
+        "criterio-portfolio": "1.4.2",
+        "criterio-product": "1.4.2",
+        "criterio-project": "1.4.2",
+        "criterio-server": "1.4.4"
+      },
+      "calidad": {
+        "cro": {
+          "etiqueta": "laboratorio",
+          "ronda": null,
+          "pisos": {},
+          "motivo": [
+            "sin ronda con los agentes"
+          ],
+          "umbral": 95
+        }
+      },
+      "terminos": {
+        "version": "1.6",
+        "fecha": "2026-11-16",
+        "sha256": {
+          "es": "9926ba27f936402177da9036b3eb64878c262183c0775b193061b22a8ded1561",
+          "en": "a4a1df234745cd8fe495e179cc081712ab709cd51684699df5baa5ba960f4fd6"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "daf366951fee3958e4fa6911db6637ef7c43aa7e1056ccbba7cdcbecd78ebd3d",
+        "criterio-audit-plan": "291458760fc8ef3b936488c8de92048b1bdba91a7c96528c36fca9c97e53a0b1",
+        "criterio-audit-work": "1d76bcf72e81c5f8ece23377e66caeccc0da7f26356502e7015a10b449507f6a",
+        "criterio-budget": "be843a6befc3ef00316790ae545f4d3c1d8e12ebc503f718a4db4dc5636c5458",
+        "criterio-cae": "f6ba48fbf09ca919fc9f016e6f146e02c7ac220bac022b7e5ac6c40b42cd1a0c",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cdo": "74ece1c05ed7af024567ffa1640fd8bcfb1adc98f56f7d2d689ce07173db3c7c",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-chro": "fbd1a3b70dd6e57d81a9f399da45396b502e62b7df4cd9eaa5489f453b803d68",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "d2b92f496ddad2a80779473e46c1866ebe499ad2e9a461f8239fb96b4e635f75",
+        "criterio-cro": "4d2cbe26e135ce4d5cc89c969d8de715e3e30bd21e92ea743e1fa88c0a87a917",
+        "criterio-data-governance": "bc7b4186f355f7ba1403002a34c24fc604a6278c9a5e7719de596b58fd269634",
+        "criterio-data-quality": "924461d3b8569c5dc1a6c32039fa0d2617425113f8cec89526fa5043b2a70b3f",
+        "criterio-finance": "239bfbd8eb7d5037ec0a3dcab83dc5b76beb9f01350ba610faec644f1a6ddf5d",
+        "criterio-legal": "603a98c5f9fdb1a7f19c91559c5533d2682380c22a43f8e591f96c8b0c262757",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "8106a3d5fe4126f263866f4022338abc8e3b52463d374e968aa6da3a53e1a736",
+        "criterio-product": "6508d25ad8b2bcc2eb59fe7d04593308bfdb8b473f2bca23a81d2b14ef11ed83",
+        "criterio-project": "ea0308463eeb9beec60f4a179710b3f0e448965c0c803796875a514373e87da9",
+        "criterio-remediation": "0c03fb1a77c0fc96cb5a10a46e8540354d8a4c872055539ce0495efa21971c17",
+        "criterio-resilience": "f0dfe743f3e5593a2dcdb5b865b813b42edeebb356783f38ff2f870a4273eb96",
+        "criterio-revenue": "4d17840e56e86005cd395a35baf971b1b16294dc56bead237a68136540466b84",
+        "criterio-risk-appetite": "99f7012e1c9da2002497a0e5af2d11c8581129be74f7970b875c2a0ed8c4ba10",
+        "criterio-risk-events": "e9ca1e44f0ec126db7f8da782b6874becdcfc69f1effbf10467cc4f9cc63f55c",
+        "criterio-roles": "43169a56a86e66ebedbc4dde137828c97a36e7b555cc2830d9088ca1999d7774",
+        "criterio-sales": "6804be63a9a533937e4a36cd0e50781383a95794c463ab82d25ab85e6ac5882b",
+        "criterio-security": "daa66906c7eb7ebffd429ff483c861e1a7d8d64342cbe40a746f9a7e62f29530",
+        "criterio-server": "57722b2f2942676d62085021d0e3a62602b77ec9d7b61da9426b8fe6b0b81590",
+        "criterio-talent": "9ac10c448f4084dc2fbfe7f8a38e91270bc26d20dae9af418b99a40aef81e437",
+        "criterio-treasury": "1ab5bdbb9efa1ba4c9c1acf3cc024195078b147257d07c4d3c5d5c2276628a96",
+        "criterio-vulnerability": "03c0b07b2ae8ef7deb0f3b677409f3dc735201d9d390a049e556efe7e40acfcb"
+      },
+      "destacados": [
+        "Criterio CRO 0.1.0, los riesgos: Severo pone cada exposición al lado de su límite y su plan, y Casandra cada indicador clave al lado de su umbral y cada evento de pérdida al lado de su registro."
+      ],
+      "cambios": [
+        "Criterio CRO, los riesgos, construida (decisión 0035): Severo y Casandra"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "e84f3e18b5b16352709f8fb651b44f6083544c9c4910cc4b4d9781f078132c52",
+      "sha256": "317fb3f45efd6e635fe1557331e9e37d0e5b53b60f0b3fa0f79a57c128dd31ff"
     }
   ]
 }
