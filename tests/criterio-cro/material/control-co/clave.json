@@ -1,0 +1,100 @@
+{
+  "entidad": "Banco Control de Riesgos Sintético",
+  "industria": "banca",
+  "pais": "CO",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": false,
+  "config": {
+    "severo": {
+      "version": "0.1",
+      "role": "apetito",
+      "entity": {
+        "id": "901888444",
+        "name": "Banco Control de Riesgos Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "riesgos/901888444-banco-control-de-riesgos-sintetico",
+        "state": "estado-riesgos/901888444-banco-control-de-riesgos-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "report_days": 10,
+        "statement_review_months": 12,
+        "registration_days": 30,
+        "repeat_window_months": 12
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "casandra": {
+      "version": "0.1",
+      "role": "eventos",
+      "entity": {
+        "id": "901888444",
+        "name": "Banco Control de Riesgos Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "riesgos/901888444-banco-control-de-riesgos-sintetico",
+        "state": "estado-riesgos/901888444-banco-control-de-riesgos-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "report_days": 10,
+        "statement_review_months": 12,
+        "registration_days": 30,
+        "repeat_window_months": 12
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "apetito": {
+      "statement": {
+        "name": "Declaración de apetito por riesgo",
+        "board_review": "2026-02-26",
+        "source": "00-marco/declaracion_de_apetito.pdf"
+      },
+      "approvals": [
+        {
+          "limit": "L-04",
+          "until": "2027-01-31",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        }
+      ],
+      "reviewed": [
+        "00-marco/politica_de_riesgo_operacional.pdf"
+      ],
+      "questions": []
+    },
+    "eventos": {
+      "actions": [
+        {
+          "indicator": "KRI-01",
+          "action": "Bloqueo preventivo de los BIN comprometidos",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

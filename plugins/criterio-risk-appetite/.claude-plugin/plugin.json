@@ -1,0 +1,20 @@
+{
+  "name": "criterio-risk-appetite",
+  "version": "0.1.0",
+  "description": "Severo, el apetito por riesgo: cada exposición contra su límite y su plan, cada límite contra su dueño y su revisión, cada reporte contra el plazo del marco, cada riesgo alto de la matriz contra su límite o su indicador, y la declaración de apetito contra la revisión de la junta. Procesa exportaciones; nunca fija un límite, aprueba un exceso ni calcula capital.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "riesgos",
+    "risk",
+    "cro",
+    "apetito-por-riesgo",
+    "risk-appetite",
+    "limites",
+    "iso-31000"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cro",
+  "license": "Apache-2.0"
+}

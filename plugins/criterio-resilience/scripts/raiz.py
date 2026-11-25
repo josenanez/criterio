@@ -109,6 +109,12 @@ DESTINO = {
     "criterio-data-quality": {"familia": "cdo", "busca": "raiz", "marca": "_CRITERIO_DATOS.txt",
         "que": "la carpeta de datos de una entidad", "agentes": "Custodia y Ariadna",
         "setup": "/criterio-data-quality:lineage-setup"},
+    "criterio-risk-appetite": {"familia": "cro", "busca": "raiz", "marca": "_CRITERIO_RIESGOS.txt",
+        "que": "la carpeta de riesgos de una entidad", "agentes": "Severo y Casandra",
+        "setup": "/criterio-risk-appetite:appetite-setup"},
+    "criterio-risk-events": {"familia": "cro", "busca": "raiz", "marca": "_CRITERIO_RIESGOS.txt",
+        "que": "la carpeta de riesgos de una entidad", "agentes": "Severo y Casandra",
+        "setup": "/criterio-risk-events:events-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

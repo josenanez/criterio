@@ -36,12 +36,13 @@ ORDEN_CISO = ("alexis", "guillermo", "amparo")
 ORDEN_CHRO = ("norma", "candido")
 ORDEN_CAE = ("prudencia", "justo", "remedios")
 ORDEN_CDO = ("custodia", "ariadna")
+ORDEN_CRO = ("severo", "casandra")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
           "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos", "alexis": "seguridad",
           "guillermo": "vulnerabilidades", "amparo": "resiliencia", "norma": "perfiles", "candido": "seleccion",
           "prudencia": "plan", "justo": "trabajos", "remedios": "seguimiento",
-          "custodia": "gobierno", "ariadna": "calidad"}
+          "custodia": "gobierno", "ariadna": "calidad", "severo": "apetito", "casandra": "eventos"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -294,6 +295,32 @@ _PIEZAS = {
         ("led", "circle", dict(cx=62, cy=126, r=3), "origen"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Severo: el ceño recto y, en el pecho, la aguja que avanza por la escala y se detiene antes del límite
+    "severo": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ln", "line", dict(x1=37, y1=35, x2=53, y2=38)), ("ln", "line", dict(x1=67, y1=38, x2=83, y2=35)),
+        ("ojo", "circle", dict(cx=45, cy=48, r=6)), ("ojo", "circle", dict(cx=75, cy=48, r=6)),
+        ("ln", "line", dict(x1=50, y1=65, x2=70, y2=65)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "line", dict(x1=38, y1=120, x2=82, y2=120)),
+        ("ln", "line", dict(x1=72, y1=98, x2=72, y2=126)),
+        ("led", "circle", dict(cx=44, cy=110, r=4), "aguja"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Casandra: la curva sube en el pecho hasta cruzar el umbral, y el aviso se enciende antes que nadie
+    "casandra": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=7)), ("ojo", "circle", dict(cx=75, cy=46, r=7)),
+        ("ln", "path", dict(d="M50 63 Q60 68 70 63")),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "line", dict(x1=38, y1=104, x2=44, y2=104)), ("ln", "line", dict(x1=50, y1=104, x2=56, y2=104)),
+        ("ln", "line", dict(x1=62, y1=104, x2=68, y2=104)), ("ln", "line", dict(x1=74, y1=104, x2=82, y2=104)),
+        ("ln", "path", dict(d="M38 126 L50 121 L60 114 L68 106 L76 96"), "presagio"),
+        ("led", "circle", dict(cx=76, cy=96, r=3), "aviso"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [
         ("ln", "rect", dict(x=18, y=14, width=84, height=146, rx=3)),
         ("ln", "circle", dict(cx=42, cy=40, r=14)), ("ln", "circle", dict(cx=78, cy=40, r=14)),
@@ -389,6 +416,11 @@ GESTOS = {
     # Ariadna: el hilo se traza hasta el origen, y el origen se enciende cuando llega
     "hilo":     {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.5, 0), (.85, 0), (.9, 1), (1, 1)]},
     "origen":   {"tipo": "opacidad", "dura": 2.4, "claves": [(0, .3), (.5, .3), (.55, 1), (.85, 1), (.9, .3), (1, .3)]},
+    # Severo: la aguja avanza por la escala, se detiene justo antes del límite y vuelve
+    "aguja":    {"tipo": "xy", "dura": 2.4, "claves": [(0, (0, 0)), (.4, (22, 0)), (.75, (22, 0)), (1, (0, 0))]},
+    # Casandra: la curva se traza hasta cruzar el umbral, y el aviso se enciende cuando lo cruza
+    "presagio": {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.45, 0), (.85, 0), (.9, 1), (1, 1)]},
+    "aviso":    {"tipo": "opacidad", "dura": 2.4, "claves": [(0, .3), (.4, .3), (.45, 1), (.85, 1), (.9, .3), (1, .3)]},
     # Rostrum: los carretes giran y las luces corren
     "gira":     {"tipo": "xy", "dura": 1.6, "paso": .4, "claves": _orbita(5)},
     "corre":    {"tipo": "opacidad", "dura": 1.2, "paso": .24, "claves": [(0, 1), (.2, 1), (.2, .3), (1, .3)]},
@@ -589,7 +621,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO + ORDEN_CAE + ORDEN_CDO
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO + ORDEN_CAE + ORDEN_CDO + ORDEN_CRO
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}

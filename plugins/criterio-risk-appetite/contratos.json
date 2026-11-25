@@ -1,0 +1,325 @@
+{
+  "comandos": {
+    "appetite-scan": {
+      "funcion": "Procesa lo que cambió en el apetito por riesgo, lleva la revisión de la declaración y cada exceso aprobado a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en el apetito por riesgo, lleva la revisión de la declaración y cada exceso aprobado a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-appetite-scan.md",
+          "<estado>/corridas/salida-appetite-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-intake",
+          "appetite-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "appetite-setup": {
+      "funcion": "Deja a Severo listo sobre una entidad — mira la carpeta de riesgos, reconoce la matriz, los límites y la exposición y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Severo listo sobre una entidad — mira la carpeta de riesgos, reconoce la matriz, los límites y la exposición y muestra el primer resultado",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-appetite-setup.md",
+          "<estado>/corridas/salida-appetite-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-intake",
+          "risk-policy",
+          "appetite-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "appetite-wake": {
+      "funcion": "Lo que toca hoy en el apetito por riesgo — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en el apetito por riesgo — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-appetite-wake.md",
+          "<estado>/corridas/salida-appetite-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "coverage-check": {
+      "funcion": "Cada riesgo alto o crítico de la matriz con su límite o su indicador clave: los que no tienen con qué medirse.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada riesgo alto o crítico de la matriz con su límite o su indicador clave: los que no tienen con qué medirse",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-coverage-check.md",
+          "<estado>/corridas/salida-coverage-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "framework-check": {
+      "funcion": "El marco y la declaración: los límites sin dueño o con la revisión vencida, y la declaración de apetito que la junta no revisó en el plazo del marco.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "El marco y la declaración: los límites sin dueño o con la revisión vencida, y la declaración de apetito que la junta no revisó en el plazo del marco",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-framework-check.md",
+          "<estado>/corridas/salida-framework-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "limit-check": {
+      "funcion": "Cada exposición contra su límite y su plan: los límites excedidos sin plan de acción ni aprobación, y los reportes fuera del plazo del marco.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada exposición contra su límite y su plan: los límites excedidos sin plan de acción ni aprobación, y los reportes fuera del plazo del marco",
+        "escribe": [
+          "<estado>/apetito/<AAAA-MM>/resultados.json",
+          "<estado>/apetito/<AAAA-MM>/reporte-limit-check.md",
+          "<estado>/corridas/salida-limit-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "severo": {
+      "funcion": "Pídeselo a Severo (El apetito por riesgo) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Severo (El apetito por riesgo) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía.",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "risk-intake": {
+      "escribe": [
+        "columns"
+      ],
+      "alimenta": [
+        "limit_without_owner",
+        "limit_review_overdue",
+        "risk_without_limit",
+        "loss_event_incomplete",
+        "loss_event_risk_unmapped",
+        "kri_not_reported"
+      ]
+    },
+    "risk-policy": {
+      "escribe": [
+        "methodology"
+      ],
+      "alimenta": [
+        "exposure_report_late",
+        "appetite_statement_outdated",
+        "loss_event_registered_late",
+        "loss_event_repeated"
+      ]
+    },
+    "appetite-record": {
+      "escribe": [
+        "statement",
+        "approvals[]"
+      ],
+      "alimenta": [
+        "appetite_statement_outdated",
+        "limit_breached_without_plan"
+      ]
+    }
+  }
+}

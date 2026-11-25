@@ -1,0 +1,20 @@
+{
+  "name": "criterio-risk-events",
+  "version": "0.1.0",
+  "description": "Casandra, los indicadores y los eventos: cada indicador clave contra sus umbrales y su acción, y cada evento de pérdida contra su causa, su monto, su proceso, su plazo de registro, su repetición y la matriz de riesgos. Procesa exportaciones; nunca califica un riesgo, cierra un evento ni calcula una pérdida esperada.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "riesgos",
+    "risk",
+    "cro",
+    "indicadores-clave",
+    "kri",
+    "eventos-de-perdida",
+    "riesgo-operacional"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cro",
+  "license": "Apache-2.0"
+}

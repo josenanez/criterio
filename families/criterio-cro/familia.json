@@ -1,0 +1,695 @@
+{
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CRO: scripts/familias.py genera desde aquí las tablas de los README, el diseño, las fuentes, la estructura de carpetas y los comandos de cada agente; el portal los publica con scripts/criterio-familias.mjs.",
+  "sigla": "cro",
+  "orden": 100,
+  "categoria": "risk",
+  "adr": "0035-la-familia-cro.md",
+  "nombre": {
+    "es": "Los riesgos",
+    "en": "Risk"
+  },
+  "estado": {
+    "es": "Construida · en pruebas",
+    "en": "Built · in testing"
+  },
+  "nivel_c": {
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "rol": "Chief Risk Officer",
+      "cifras": [
+        {
+          "id": "C-01",
+          "es": "de las organizaciones describen su supervisión de riesgos como madura o robusta",
+          "en": "of organizations describe their risk oversight as mature or robust"
+        },
+        {
+          "id": "C-02",
+          "es": "tienen un apetito por riesgo formal en su planeación estratégica",
+          "en": "have a formal risk appetite in their strategic planning"
+        }
+      ],
+      "filas": [
+        {
+          "es": [
+            "Los límites",
+            "Cada exposición contra su límite y su plan",
+            "Límites y exposición en Excel o CSV"
+          ],
+          "en": [
+            "Limits",
+            "Each exposure against its limit and plan",
+            "Limits and exposure in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "El marco",
+            "La declaración de apetito y la revisión de la junta",
+            "ISO 31000 · declaración y actas en Word o PDF"
+          ],
+          "en": [
+            "The framework",
+            "The appetite statement and the board's review",
+            "ISO 31000 · statement and minutes in Word or PDF"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "Los indicadores",
+            "Cada indicador clave contra su umbral y su acción",
+            "Indicadores y valores en Excel o CSV"
+          ],
+          "en": [
+            "Indicators",
+            "Each key indicator against its threshold and action",
+            "Indicators and values in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "Los eventos",
+            "Cada evento de pérdida contra su registro y la matriz",
+            "Base de eventos en Excel o CSV"
+          ],
+          "en": [
+            "Events",
+            "Each loss event against its record and the register",
+            "Event database in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        }
+      ]
+    },
+    "alcance": [
+      {
+        "es": [
+          "Los límites",
+          "Límites excedidos sin plan y reportes fuera de plazo"
+        ],
+        "en": [
+          "Limits",
+          "Limits breached with no plan and late reports"
+        ],
+        "senales": [
+          "limit_breached_without_plan",
+          "exposure_report_late"
+        ]
+      },
+      {
+        "es": [
+          "El marco",
+          "Límites sin dueño o sin revisión, y la declaración vencida"
+        ],
+        "en": [
+          "The framework",
+          "Limits with no owner or review, and an overdue statement"
+        ],
+        "senales": [
+          "limit_without_owner",
+          "limit_review_overdue",
+          "appetite_statement_outdated"
+        ]
+      },
+      {
+        "es": [
+          "La cobertura",
+          "Riesgos altos sin límite ni indicador"
+        ],
+        "en": [
+          "Coverage",
+          "High risks with no limit or indicator"
+        ],
+        "senales": [
+          "risk_without_limit"
+        ]
+      },
+      {
+        "es": [
+          "Los indicadores",
+          "Indicadores en alerta sin acción, o sin reportar"
+        ],
+        "en": [
+          "Indicators",
+          "Indicators on alert with no action, or not reported"
+        ],
+        "senales": [
+          "kri_alert_without_action",
+          "kri_not_reported"
+        ]
+      },
+      {
+        "es": [
+          "Los eventos",
+          "Eventos incompletos o registrados tarde"
+        ],
+        "en": [
+          "Events",
+          "Incomplete or late-registered events"
+        ],
+        "senales": [
+          "loss_event_incomplete",
+          "loss_event_registered_late"
+        ]
+      },
+      {
+        "es": [
+          "Los patrones",
+          "Eventos que se repiten y eventos fuera de la matriz"
+        ],
+        "en": [
+          "Patterns",
+          "Repeating events and events outside the register"
+        ],
+        "senales": [
+          "loss_event_repeated",
+          "loss_event_risk_unmapped"
+        ]
+      }
+    ]
+  },
+  "generador": {
+    "cifras_en": "severo",
+    "intake": {
+      "skill": "criterio-risk-appetite/risk-intake",
+      "texto": "El marco tiene un solo lugar, `00-marco/`, y los dos agentes lo usan: Severo procesa cada exposición contra su límite, y Casandra cada indicador contra su umbral y cada evento contra la matriz."
+    },
+    "estructuras": [
+      "criterio-risk-appetite",
+      "criterio-risk-events"
+    ],
+    "motor": "criterio-risk-appetite/scripts/riesgos.py"
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "agentes": [
+    {
+      "id": "severo",
+      "nombre": "Severo",
+      "plugin": "criterio-risk-appetite",
+      "rol": {
+        "es": "El apetito por riesgo",
+        "en": "Risk appetite"
+      },
+      "titulo": "el apetito por riesgo y sus límites",
+      "origen": {
+        "es": "del latín *severus*, el que no hace concesiones: cada exposición contra su límite",
+        "en": "from the Latin *severus*, the one who makes no concessions: each exposure against its limit"
+      },
+      "hace": {
+        "es": "La declaración de apetito contra sus límites y cada límite contra la exposición que reportan las áreas: el límite excedido sin plan ni aprobación, el reporte fuera de plazo, el límite sin dueño o con la revisión vencida, el riesgo alto de la matriz sin límite ni indicador y la declaración que la junta no ha revisado en el plazo del marco",
+        "en": "The appetite statement against its limits and each limit against the exposure the areas report: a limit breached with no plan or approval, a late report, a limit with no owner or past its review, a high risk in the register with no limit or indicator and a statement the board has not reviewed within the framework's period"
+      },
+      "area": "apetito",
+      "ambitos": [
+        "apetito"
+      ],
+      "nunca": {
+        "es": "No fija ni cambia un límite, no aprueba un exceso, no acepta un riesgo, no calcula capital ni valor en riesgo y no se conecta a un sistema",
+        "en": "It does not set or change a limit, approve a breach, accept a risk, calculate capital or value at risk, or connect to a system"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "appetite-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el último periodo cerrado y los plazos del marco: los días para reportar la exposición y cada cuántos meses revisa la junta la declaración",
+            "proceso": "Inventario de lo que hay; procesa la matriz de riesgos, los límites y los indicadores de `00-marco/` y la exposición de `10-exposicion/`, y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las tablas reconocidas; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las tablas reconocidas"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the last closed period and the framework's deadlines: the days to report exposure and how often, in months, the board reviews the statement",
+            "proceso": "Inventory of what is there; processes the risk register, the limits and the indicators in `00-marco/` and the exposure in `10-exposicion/`, and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised tables; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised tables"
+          }
+        },
+        {
+          "id": "appetite-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en el apetito",
+            "entrada": "La declaración y el marco de `00-marco/`, las actas de `40-actas/`, la exposición de `10-exposicion/` y la ficha del periodo",
+            "proceso": "Lleva a la ficha la fecha en que la junta revisó la declaración de apetito y cada exceso que aprobó el comité, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in the appetite",
+            "entrada": "The statement and the framework in `00-marco/`, the minutes in `40-actas/`, the exposure in `10-exposicion/` and the period's record",
+            "proceso": "Brings into the record the date the board reviewed the appetite statement and each breach the committee approved, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "limit-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Cada exposición contra su límite",
+            "entrada": "Los límites de `00-marco/`, la exposición del periodo y los planes de acción de `10-exposicion/`, y los excesos aprobados de la ficha",
+            "proceso": "Cada exposición reportada contra su límite máximo o mínimo; el exceso, contra su plan de acción o su aprobación; cada reporte, contra el plazo del marco",
+            "reporte": "Los límites excedidos sin plan ni aprobación y los reportes fuera de plazo, con la diferencia y los días",
+            "entrega": "Qué límite está excedido sin que nadie lo haya tratado"
+          },
+          "en": {
+            "etiqueta": "Each exposure against its limit",
+            "entrada": "The limits in `00-marco/`, the period's exposure and the action plans in `10-exposicion/`, and the approved breaches in the record",
+            "proceso": "Each reported exposure against its maximum or minimum limit; the breach, against its action plan or its approval; each report, against the framework's deadline",
+            "reporte": "The limits breached with no plan or approval and the late reports, with the difference and the days",
+            "entrega": "Which limit is breached without anyone having dealt with it"
+          }
+        },
+        {
+          "id": "framework-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "El marco y la declaración",
+            "entrada": "Los límites de `00-marco/` y la ficha —la declaración de apetito con su última revisión por la junta—",
+            "proceso": "Cada límite contra su dueño y su fecha de revisión, y la declaración contra el plazo en que la junta la revisa",
+            "reporte": "Los límites sin dueño o con la revisión vencida, y la declaración vencida, con los días",
+            "entrega": "Qué parte del marco se quedó sin dueño o sin revisión"
+          },
+          "en": {
+            "etiqueta": "The framework and the statement",
+            "entrada": "The limits in `00-marco/` and the record —the appetite statement with its last board review—",
+            "proceso": "Each limit against its owner and its review date, and the statement against the period in which the board reviews it",
+            "reporte": "The limits with no owner or past their review, and the overdue statement, with the days",
+            "entrega": "Which part of the framework has no owner or no review"
+          }
+        },
+        {
+          "id": "coverage-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "Cada riesgo alto con su límite",
+            "entrada": "La matriz de riesgos, los límites y los indicadores de `00-marco/`",
+            "proceso": "Cada riesgo calificado alto o crítico en la matriz contra los límites y los indicadores clave que lo miden",
+            "reporte": "Los riesgos altos sin límite ni indicador, con su fila",
+            "entrega": "Qué riesgo alto no tiene con qué medirse"
+          },
+          "en": {
+            "etiqueta": "Each high risk with its limit",
+            "entrada": "The risk register, the limits and the indicators in `00-marco/`",
+            "proceso": "Each risk rated high or critical in the register against the limits and key indicators that measure it",
+            "reporte": "The high risks with no limit or indicator, with their row",
+            "entrega": "Which high risk has nothing to be measured against"
+          }
+        },
+        {
+          "id": "appetite-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar el apetito —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "El apetito al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the limits need processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The limits up to date without anyone having to remember"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 6,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only if the answer is yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "limit_breached_without_plan",
+          "es": "Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso",
+          "en": "An exposure exceeds its limit and has no action plan or approval of the breach"
+        },
+        {
+          "id": "limit_without_owner",
+          "es": "Un límite del marco no tiene dueño",
+          "en": "A limit in the framework has no owner"
+        },
+        {
+          "id": "limit_review_overdue",
+          "es": "Un límite pasó su fecha de revisión",
+          "en": "A limit is past its review date"
+        },
+        {
+          "id": "exposure_report_late",
+          "es": "Un área reportó su exposición después del plazo que fija el marco",
+          "en": "An area reported its exposure after the deadline the framework sets"
+        },
+        {
+          "id": "risk_without_limit",
+          "es": "Un riesgo calificado alto o crítico en la matriz no tiene límite ni indicador clave",
+          "en": "A risk rated high or critical in the register has no limit or key indicator"
+        },
+        {
+          "id": "appetite_statement_outdated",
+          "es": "La declaración de apetito no tiene la revisión de la junta en el plazo que fija el marco",
+          "en": "The appetite statement has not had the board's review within the period the framework sets"
+        }
+      ]
+    },
+    {
+      "id": "casandra",
+      "nombre": "Casandra",
+      "plugin": "criterio-risk-events",
+      "rol": {
+        "es": "Los indicadores y los eventos",
+        "en": "Indicators and events"
+      },
+      "titulo": "los indicadores clave y los eventos de pérdida",
+      "origen": {
+        "es": "la que anunciaba lo que venía: cada indicador que avisa antes",
+        "en": "the one who foretold what was coming: each indicator that warns ahead"
+      },
+      "hace": {
+        "es": "Los indicadores clave de riesgo contra sus umbrales y la base de eventos de pérdida contra sus registros: el indicador en alerta sin acción, el que no se reportó, el evento sin causa, sin monto o sin proceso, el que se registró fuera de plazo, el que se repite en el mismo proceso y el que no está en la matriz de riesgos",
+        "en": "The key risk indicators against their thresholds and the loss event database against its records: an indicator on alert with no action, one not reported, an event with no cause, amount or process, one registered late, one repeating in the same process and one missing from the risk register"
+      },
+      "area": "eventos",
+      "ambitos": [
+        "eventos"
+      ],
+      "nunca": {
+        "es": "No fija un umbral, no califica un riesgo, no calcula una pérdida esperada ni capital, no cierra un evento y no se conecta a un sistema",
+        "en": "It does not set a threshold, rate a risk, calculate expected loss or capital, close an event, or connect to a system"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "events-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el último periodo cerrado y los plazos de la política: los días para registrar un evento y la ventana en que dos eventos cuentan como repetidos",
+            "proceso": "Inventario de lo que hay; procesa los indicadores de `00-marco/`, sus valores de `20-indicadores/` y la base de eventos de `30-eventos/`, y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las tablas reconocidas; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las tablas reconocidas"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the last closed period and the policy's deadlines: the days to register an event and the window in which two events count as repeated",
+            "proceso": "Inventory of what is there; processes the indicators in `00-marco/`, their values in `20-indicadores/` and the event database in `30-eventos/`, and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised tables; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised tables"
+          }
+        },
+        {
+          "id": "events-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en los eventos",
+            "entrada": "Las actas de `40-actas/`, los valores y las acciones de `20-indicadores/`, la base de eventos de `30-eventos/` y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada acción sobre un indicador que quedó en un acta, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in events",
+            "entrada": "The minutes in `40-actas/`, the values and actions in `20-indicadores/`, the event database in `30-eventos/` and the period's record",
+            "proceso": "Brings into the record each action on an indicator agreed in the minutes, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "kri-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Cada indicador contra su umbral",
+            "entrada": "Los indicadores de `00-marco/`, sus valores y sus acciones de `20-indicadores/`, y las acciones de la ficha",
+            "proceso": "Cada indicador clave con su valor del periodo, contra su umbral de alerta y de límite en el sentido que fija el marco; el que está en alerta, contra su acción",
+            "reporte": "Los indicadores en alerta sin acción y los que no tienen valor en el periodo",
+            "entrega": "Qué aviso llegó y nadie atendió"
+          },
+          "en": {
+            "etiqueta": "Each indicator against its threshold",
+            "entrada": "The indicators in `00-marco/`, their values and actions in `20-indicadores/`, and the actions in the record",
+            "proceso": "Each key indicator with its value for the period, against its alert and limit thresholds in the direction the framework sets; the one on alert, against its action",
+            "reporte": "The indicators on alert with no action and those with no value for the period",
+            "entrega": "Which warning arrived and nobody dealt with"
+          }
+        },
+        {
+          "id": "event-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "Cada evento con su registro",
+            "entrada": "La base de eventos de pérdida de `30-eventos/`",
+            "proceso": "Cada evento contra su causa, su monto y su proceso, y su fecha de registro contra el plazo de la política desde que se descubrió",
+            "reporte": "Los eventos incompletos y los registrados fuera de plazo, con los días",
+            "entrega": "Qué evento no está completo ni a tiempo"
+          },
+          "en": {
+            "etiqueta": "Each event with its record",
+            "entrada": "The loss event database in `30-eventos/`",
+            "proceso": "Each event against its cause, amount and process, and its registration date against the policy's deadline from discovery",
+            "reporte": "The incomplete events and those registered late, with the days",
+            "entrega": "Which event is neither complete nor on time"
+          }
+        },
+        {
+          "id": "pattern-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "Lo que se repite",
+            "entrada": "La base de eventos de `30-eventos/` y la matriz de riesgos de `00-marco/`",
+            "proceso": "Los eventos del mismo tipo en el mismo proceso dentro de la ventana de la política, y cada evento contra el riesgo de la matriz al que corresponde",
+            "reporte": "Los eventos repetidos, con su monto, y los que no están en la matriz",
+            "entrega": "Qué evento se repite y cuál la matriz no ve"
+          },
+          "en": {
+            "etiqueta": "What repeats",
+            "entrada": "The event database in `30-eventos/` and the risk register in `00-marco/`",
+            "proceso": "Events of the same type in the same process within the policy's window, and each event against the register risk it belongs to",
+            "reporte": "The repeated events, with their amount, and those missing from the register",
+            "entrega": "Which event repeats and which one the register does not see"
+          }
+        },
+        {
+          "id": "events-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar los eventos —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "Los eventos al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the events need processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The events up to date without anyone having to remember"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 6,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only if the answer is yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "kri_alert_without_action",
+          "es": "Un indicador clave está en su umbral de alerta o de límite y no tiene acción registrada",
+          "en": "A key indicator is at its alert or limit threshold and has no recorded action"
+        },
+        {
+          "id": "kri_not_reported",
+          "es": "Un indicador clave no tiene valor en el periodo",
+          "en": "A key indicator has no value for the period"
+        },
+        {
+          "id": "loss_event_incomplete",
+          "es": "Un evento de pérdida no tiene causa, monto o proceso",
+          "en": "A loss event has no cause, amount or process"
+        },
+        {
+          "id": "loss_event_registered_late",
+          "es": "Un evento se registró después del plazo de la política desde que se descubrió",
+          "en": "An event was registered after the policy's deadline from its discovery"
+        },
+        {
+          "id": "loss_event_repeated",
+          "es": "El mismo tipo de evento se repite en el mismo proceso dentro de la ventana de la política",
+          "en": "The same type of event repeats in the same process within the policy's window"
+        },
+        {
+          "id": "loss_event_risk_unmapped",
+          "es": "Un evento no corresponde a ningún riesgo de la matriz",
+          "en": "An event does not belong to any risk in the register"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "risk-intake": {
+      "es": "La estructura recomendada de la carpeta de riesgos, qué va en cada carpeta y qué agente la usa",
+      "en": "The recommended structure of the risk folder, what goes in each folder and which agent uses it"
+    },
+    "risk-policy": {
+      "es": "Los plazos del marco de apetito en la configuración, y lo que nunca se decide",
+      "en": "The appetite framework's deadlines in the configuration, and what is never decided"
+    },
+    "appetite-record": {
+      "es": "Cómo se lleva a la ficha la revisión de la declaración de apetito por la junta y cada exceso que aprobó el comité, con la cita",
+      "en": "How the board's review of the appetite statement and each breach the committee approved go into the record, with their citation"
+    },
+    "kri-record": {
+      "es": "Cómo se lleva a la ficha cada acción sobre un indicador clave que quedó en un acta, con la cita",
+      "en": "How each action on a key indicator agreed in the minutes goes into the record, with its citation"
+    }
+  },
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica tal cual.",
+    "bots": [
+      "severo",
+      "casandra",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CRO",
+      "titulo": "Dos agentes para los riesgos",
+      "sub": "Procesan la declaración de apetito, los límites, la exposición, los indicadores clave, la base de eventos y las actas, y dicen qué límite está excedido sin plan y qué aviso nadie atendió.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "Severo y Casandra comparten la carpeta y el marco de apetito; cada uno escribe solo su ficha.",
+      "roles": {
+        "severo": "El apetito",
+        "casandra": "Los eventos",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: en pruebas. El motor pasa su prueba determinista contra todo su material; la ronda con los agentes es la siguiente versión.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CRO"
+        },
+        {
+          "texto": "Los riesgos con dos agentes, sobre ISO 31000. Cada uno extiende a una persona del área; ninguno la reemplaza."
+        },
+        {
+          "quien": "severo",
+          "tag": "SEVERO · EL APETITO",
+          "texto": "Pone cada exposición al lado de su límite y su plan, y dice qué límite no tiene dueño y qué riesgo alto no tiene con qué medirse. No aprueba un exceso."
+        },
+        {
+          "quien": "casandra",
+          "tag": "CASANDRA · LOS EVENTOS",
+          "texto": "Sigue cada indicador hasta su umbral y cada evento de pérdida hasta su registro: el aviso sin acción, el evento tarde y el que se repite. No califica un riesgo."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica el estado del apetito y de los eventos para el comité. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Procesa exportaciones: nunca se conecta a un sistema ni calcula capital. El apetito, los límites, los umbrales y los plazos son del marco de la organización."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CRO family",
+      "titulo": "Two agents for risk",
+      "sub": "They process the appetite statement, the limits, the exposure, the key indicators, the event database and the minutes, and say which limit is breached with no plan and which warning nobody dealt with.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "Severo and Casandra share the folder and the appetite framework; each writes only its own record.",
+      "roles": {
+        "severo": "Appetite",
+        "casandra": "Events",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: in testing. The engine passes its deterministic test against all its material; the round with the agents is the next version.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CRO FAMILY"
+        },
+        {
+          "texto": "Risk with two agents, on ISO 31000. Each extends a person in the area; neither replaces them."
+        },
+        {
+          "quien": "severo",
+          "tag": "SEVERO · APPETITE",
+          "texto": "Puts each exposure beside its limit and its plan, and says which limit has no owner and which high risk has nothing to be measured against. It does not approve a breach."
+        },
+        {
+          "quien": "casandra",
+          "tag": "CASANDRA · EVENTS",
+          "texto": "Follows each indicator to its threshold and each loss event to its record: the warning with no action, the late event and the one that repeats. It does not rate a risk."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes the state of the appetite and the events for the committee. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "It processes exports: it never connects to a system or calculates capital. The appetite, limits, thresholds and deadlines belong to the organisation's framework."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINT."
+        }
+      ]
+    }
+  }
+}

@@ -93,13 +93,15 @@ TALENTO = RAIZ / "plugins" / "criterio-roles" / "scripts" / "talento.py"
 AUDITORIA = RAIZ / "plugins" / "criterio-audit-plan" / "scripts" / "auditoria.py"
 # La familia CDO calcula en el motor de Custodia y Ariadna.
 DATOS = RAIZ / "plugins" / "criterio-data-governance" / "scripts" / "datos.py"
+# La familia CRO calcula en el motor de Severo y Casandra.
+RIESGOS = RAIZ / "plugins" / "criterio-risk-appetite" / "scripts" / "riesgos.py"
 NUCLEO = RAIZ / "plugins" / "criterio-finance" / "scripts" / "nucleo.py"
 # Rostrum tiene su mapa, y los nombres que la documentación del servidor usa resuelven ahí.
 MAPA = RAIZ / "plugins" / "criterio-server" / "scripts" / "mapa.py"
 SERVIDOR = RAIZ / "plugins" / "criterio-server" / "scripts" / "servidor.py"
 # La búsqueda de la carpeta raíz es una para todos los agentes, y los setups citan sus claves.
 RAIZ_PY = RAIZ / "plugins" / "criterio-portfolio" / "scripts" / "raiz.py"
-for _m in (FINANZAS, LEGAL, ASISTENTE, VENTAS, SEGURIDAD, TALENTO, AUDITORIA, DATOS, NUCLEO, MAPA, SERVIDOR, RAIZ_PY):
+for _m in (FINANZAS, LEGAL, ASISTENTE, VENTAS, SEGURIDAD, TALENTO, AUDITORIA, DATOS, RIESGOS, NUCLEO, MAPA, SERVIDOR, RAIZ_PY):
     if _m.exists():
         codigo += "\n" + _m.read_text(encoding="utf-8")
 texto_docs = {d: d.read_text(encoding="utf-8") for d in DOCS if d.exists()}
@@ -149,7 +151,7 @@ decir(OK, f"{len(en_codigo_th)} umbrales por defecto: {', '.join(sorted(en_codig
 candidatos = set(re.findall(r"`(silent_days|variance_\w+|committed_pct|stale_\w+|"
                             r"declaration_\w+|rebaseline_\w+)`", todo)) - en_codigo
 # Los umbrales y las señales de la familia CFO viven en su motor.
-for _mot in (FINANZAS, LEGAL, VENTAS, SEGURIDAD, TALENTO, AUDITORIA, DATOS):
+for _mot in (FINANZAS, LEGAL, VENTAS, SEGURIDAD, TALENTO, AUDITORIA, DATOS, RIESGOS):
     if not _mot.exists():
         continue
     _fin = _mot.read_text(encoding="utf-8")

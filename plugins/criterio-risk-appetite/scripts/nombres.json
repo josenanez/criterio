@@ -1,0 +1,32 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cro/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "limit_breached_without_plan": "Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso",
+    "limit_without_owner": "Un límite del marco no tiene dueño",
+    "limit_review_overdue": "Un límite pasó su fecha de revisión",
+    "exposure_report_late": "Un área reportó su exposición después del plazo que fija el marco",
+    "risk_without_limit": "Un riesgo calificado alto o crítico en la matriz no tiene límite ni indicador clave",
+    "appetite_statement_outdated": "La declaración de apetito no tiene la revisión de la junta en el plazo que fija el marco",
+    "kri_alert_without_action": "Un indicador clave está en su umbral de alerta o de límite y no tiene acción registrada",
+    "kri_not_reported": "Un indicador clave no tiene valor en el periodo",
+    "loss_event_incomplete": "Un evento de pérdida no tiene causa, monto o proceso",
+    "loss_event_registered_late": "Un evento se registró después del plazo de la política desde que se descubrió",
+    "loss_event_repeated": "El mismo tipo de evento se repite en el mismo proceso dentro de la ventana de la política",
+    "loss_event_risk_unmapped": "Un evento no corresponde a ningún riesgo de la matriz"
+  },
+  "comandos": {
+    "appetite-setup": "Instalación",
+    "appetite-scan": "Qué cambió en el apetito",
+    "limit-check": "Cada exposición contra su límite",
+    "framework-check": "El marco y la declaración",
+    "coverage-check": "Cada riesgo alto con su límite",
+    "appetite-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
+    "events-setup": "Instalación",
+    "events-scan": "Qué cambió en los eventos",
+    "kri-check": "Cada indicador contra su umbral",
+    "event-check": "Cada evento con su registro",
+    "pattern-check": "Lo que se repite",
+    "events-wake": "Qué toca hoy"
+  }
+}

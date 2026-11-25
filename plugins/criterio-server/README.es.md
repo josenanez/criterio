@@ -103,6 +103,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CAE** · La auditoría interna | Remedios | `/criterio-remediation:remediation-setup` | `.criterio/seguimiento/<instancia>/` | `_CRITERIO_AUDITORIA.txt` |
 | **Criterio CDO** · Los datos | Custodia | `/criterio-data-governance:governance-setup` | `.criterio/gobierno/<instancia>/` | `_CRITERIO_DATOS.txt` |
 | **Criterio CDO** · Los datos | Ariadna | `/criterio-data-quality:lineage-setup` | `.criterio/calidad/<instancia>/` | `_CRITERIO_DATOS.txt` |
+| **Criterio CRO** · Los riesgos | Severo | `/criterio-risk-appetite:appetite-setup` | `.criterio/apetito/<instancia>/` | `_CRITERIO_RIESGOS.txt` |
+| **Criterio CRO** · Los riesgos | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instancia>/` | `_CRITERIO_RIESGOS.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

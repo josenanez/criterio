@@ -1,0 +1,104 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CRO: scripts/familias.py la escribe en DISENO.es.md, en el skill risk-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "riesgos/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, el marco de apetito con la matriz de riesgos, los límites y los indicadores clave; la exposición que reportan las áreas con sus planes de acción; los valores y las acciones de los indicadores; la base de eventos de pérdida, y las actas del comité de riesgos y de la junta.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the appetite framework with the risk register, the limits and the key indicators; the exposure the areas report with its action plans; the values and actions of the indicators; the loss event database, and the minutes of the risk committee and the board."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que el área de riesgos lleva de la entidad",
+      "en": "What the risk office keeps for the entity",
+      "carpetas": [
+        {
+          "carpeta": "00-marco",
+          "agentes": [
+            "severo",
+            "casandra"
+          ],
+          "es": "La declaración de apetito, la política de riesgo operacional con sus plazos, la matriz de riesgos de la segunda línea, los límites del marco y los indicadores clave con sus umbrales",
+          "en": "The appetite statement, the operational risk policy with its deadlines, the second-line risk register, the framework's limits and the key indicators with their thresholds",
+          "patrones": [
+            "^declaracion",
+            "^declaracao",
+            "^marco",
+            "^politica",
+            "^matriz",
+            "^limites",
+            "^indicadores",
+            "^risk_appetite",
+            "^risk_register",
+            "^policy",
+            "^limits",
+            "^kri"
+          ]
+        },
+        {
+          "carpeta": "10-exposicion",
+          "agentes": [
+            "severo"
+          ],
+          "es": "La exposición que reporta cada área contra cada límite, por periodo, con su fecha de reporte, y los planes de acción de los excesos",
+          "en": "The exposure each area reports against each limit, by period, with its report date, and the action plans for breaches",
+          "patrones": [
+            "^exposicion",
+            "^exposicao",
+            "^exposure",
+            "^planes",
+            "^planos",
+            "^action_plans"
+          ]
+        },
+        {
+          "carpeta": "20-indicadores",
+          "agentes": [
+            "casandra"
+          ],
+          "es": "El valor de cada indicador clave por periodo y las acciones acordadas sobre los que están en alerta",
+          "en": "Each key indicator's value by period and the actions agreed on those on alert",
+          "patrones": [
+            "^valores",
+            "^acciones",
+            "^acoes",
+            "^kri_values",
+            "^kri_actions"
+          ]
+        },
+        {
+          "carpeta": "30-eventos",
+          "agentes": [
+            "casandra"
+          ],
+          "es": "La exportación de la base de eventos de pérdida: cada evento con sus fechas, su proceso, su tipo, su causa, su monto y su riesgo",
+          "en": "The loss event database export: each event with its dates, process, type, cause, amount and risk",
+          "patrones": [
+            "^base_de_eventos",
+            "^eventos",
+            "^loss_events"
+          ]
+        },
+        {
+          "carpeta": "40-actas",
+          "agentes": [
+            "severo",
+            "casandra"
+          ],
+          "es": "Las actas del comité de riesgos y de la junta, con los excesos aprobados, la revisión de la declaración y las acciones sobre los indicadores",
+          "en": "The minutes of the risk committee and the board, with the approved breaches, the statement's review and the actions on indicators",
+          "patrones": [
+            "^acta",
+            "^minutes",
+            "^ata"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-riesgos/",
+    "es": "Lo que escriben Severo y Casandra: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Severo and Casandra write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

@@ -57,7 +57,8 @@ SCRIPTS = {
 for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
            "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
            "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation",
-           "criterio-data-governance", "criterio-data-quality"):
+           "criterio-data-governance", "criterio-data-quality",
+           "criterio-risk-appetite", "criterio-risk-events"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -83,7 +84,8 @@ COMANDO_COMPARTIR = RAIZ / "plugins" / "criterio-portfolio" / "commands" / "shar
 HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
          "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
            "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation",
-           "criterio-data-governance", "criterio-data-quality")
+           "criterio-data-governance", "criterio-data-quality",
+           "criterio-risk-appetite", "criterio-risk-events")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
@@ -99,7 +101,8 @@ SCRIPTS_CFO = {
 }
 for _p in ("criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-sales", "criterio-revenue",
            "criterio-security", "criterio-vulnerability", "criterio-resilience", "criterio-roles", "criterio-talent",
-           "criterio-audit-plan", "criterio-audit-work", "criterio-remediation", "criterio-data-governance", "criterio-data-quality"):
+           "criterio-audit-plan", "criterio-audit-work", "criterio-remediation", "criterio-data-governance", "criterio-data-quality",
+           "criterio-risk-appetite", "criterio-risk-events"):
     SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
                        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
 # Las reglas de compromiso viven en el núcleo común (ADR 0012): `portafolio.py` lo importa, así que
@@ -169,6 +172,12 @@ FUENTE_CDO = RAIZ / "plugins" / "criterio-data-governance" / "scripts"
 SCRIPTS_CDO = {"criterio-data-quality": {"datos.py": "el motor de las dos: la misma carpeta y la misma política de datos"}}
 SKILLS_CDO = {"criterio-data-quality": {"data-intake": "los mismos documentos y la misma estructura",
                                          "data-policy": "la misma política de datos en la configuración de las dos"}}
+# La familia CRO tiene su propio motor, con fuente en criterio-risk-appetite: Casandra procesa la misma
+# carpeta de riesgos, con el mismo marco de apetito.
+FUENTE_CRO = RAIZ / "plugins" / "criterio-risk-appetite" / "scripts"
+SCRIPTS_CRO = {"criterio-risk-events": {"riesgos.py": "el motor de los dos: la misma carpeta y el mismo marco de apetito"}}
+SKILLS_CRO = {"criterio-risk-events": {"risk-intake": "los mismos documentos y la misma estructura",
+                                       "risk-policy": "los mismos plazos del marco en la configuración de los dos"}}
 SKILLS_CLO = {
     "criterio-compliance": {
         "legal-intake": "los mismos documentos y la misma estructura",
@@ -196,7 +205,8 @@ PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product",
                    "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-server",
                    "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience",
            "criterio-roles", "criterio-talent", "criterio-audit-plan", "criterio-audit-work", "criterio-remediation",
-           "criterio-data-governance", "criterio-data-quality")
+           "criterio-data-governance", "criterio-data-quality",
+           "criterio-risk-appetite", "criterio-risk-events")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -326,7 +336,8 @@ def revisar(escribir: bool) -> int:
                                              (FUENTE_CISO, "criterio-security", SCRIPTS_CISO),
                                              (FUENTE_CHRO, "criterio-roles", SCRIPTS_CHRO),
                                              (FUENTE_CAE, "criterio-audit-plan", SCRIPTS_CAE),
-                                             (FUENTE_CDO, "criterio-data-governance", SCRIPTS_CDO)):
+                                             (FUENTE_CDO, "criterio-data-governance", SCRIPTS_CDO),
+                                             (FUENTE_CRO, "criterio-risk-appetite", SCRIPTS_CRO)):
         for plugin, archivos in sorted(tabla.items()):
             for nombre, porque in sorted(archivos.items()):
                 origen = fuente_dir / nombre
@@ -347,7 +358,8 @@ def revisar(escribir: bool) -> int:
                                              (FUENTE_CISO.parent, "criterio-security", SKILLS_CISO),
                                              (FUENTE_CHRO.parent, "criterio-roles", SKILLS_CHRO),
                                              (FUENTE_CAE.parent, "criterio-audit-plan", SKILLS_CAE),
-                                             (FUENTE_CDO.parent, "criterio-data-governance", SKILLS_CDO)):
+                                             (FUENTE_CDO.parent, "criterio-data-governance", SKILLS_CDO),
+                                             (FUENTE_CRO.parent, "criterio-risk-appetite", SKILLS_CRO)):
         for plugin, skills in sorted(tabla.items()):
             for nombre, porque in sorted(skills.items()):
                 carpeta = fuente_dir / "skills" / nombre

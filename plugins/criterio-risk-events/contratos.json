@@ -1,0 +1,299 @@
+{
+  "comandos": {
+    "casandra": {
+      "funcion": "Pídeselo a Casandra (Los indicadores y los eventos) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Casandra (Los indicadores y los eventos) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "event-check": {
+      "funcion": "Cada evento de pérdida con su registro: los que no traen causa, monto o proceso, y los registrados fuera del plazo de la política.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada evento de pérdida con su registro: los que no traen causa, monto o proceso, y los registrados fuera del plazo de la política",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-event-check.md",
+          "<estado>/corridas/salida-event-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "events-scan": {
+      "funcion": "Procesa lo que cambió en los indicadores y los eventos, lleva cada acción nueva de las actas a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en los indicadores y los eventos, lleva cada acción nueva de las actas a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-events-scan.md",
+          "<estado>/corridas/salida-events-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-intake",
+          "kri-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "events-setup": {
+      "funcion": "Deja a Casandra lista sobre una entidad — mira la carpeta de riesgos, reconoce los indicadores clave, sus valores y la base de eventos y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Casandra lista sobre una entidad — mira la carpeta de riesgos, reconoce los indicadores clave, sus valores y la base de eventos y muestra el primer resultado",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-events-setup.md",
+          "<estado>/corridas/salida-events-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-intake",
+          "risk-policy",
+          "kri-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "events-wake": {
+      "funcion": "Lo que toca hoy en los indicadores y los eventos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en los indicadores y los eventos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-events-wake.md",
+          "<estado>/corridas/salida-events-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "kri-check": {
+      "funcion": "Cada indicador clave contra sus umbrales: los que están en alerta sin una acción registrada y los que no tienen valor en el periodo.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada indicador clave contra sus umbrales: los que están en alerta sin una acción registrada y los que no tienen valor en el periodo",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-kri-check.md",
+          "<estado>/corridas/salida-kri-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "pattern-check": {
+      "funcion": "Lo que se repite: los eventos del mismo tipo en el mismo proceso dentro de la ventana de la política, y los eventos que no corresponden a ningún riesgo de la matriz.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que se repite: los eventos del mismo tipo en el mismo proceso dentro de la ventana de la política, y los eventos que no corresponden a ningún riesgo de la matriz",
+        "escribe": [
+          "<estado>/eventos/<AAAA-MM>/resultados.json",
+          "<estado>/eventos/<AAAA-MM>/reporte-pattern-check.md",
+          "<estado>/corridas/salida-pattern-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "risk-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cro: el marco, la exposición, los indicadores, los eventos y las actas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía.",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "kri-record": {
+      "escribe": [
+        "actions[]"
+      ],
+      "alimenta": [
+        "kri_alert_without_action"
+      ]
+    }
+  }
+}

@@ -31,7 +31,8 @@ PLUGINS = {"criterio-portfolio": "portafolio.py", "criterio-project": "portafoli
            "criterio-security": "seguridad.py", "criterio-vulnerability": "seguridad.py", "criterio-resilience": "seguridad.py",
            "criterio-roles": "talento.py", "criterio-talent": "talento.py",
            "criterio-audit-plan": "auditoria.py", "criterio-audit-work": "auditoria.py", "criterio-remediation": "auditoria.py",
-           "criterio-data-governance": "datos.py", "criterio-data-quality": "datos.py"}
+           "criterio-data-governance": "datos.py", "criterio-data-quality": "datos.py",
+           "criterio-risk-appetite": "riesgos.py", "criterio-risk-events": "riesgos.py"}
 # Las acciones que calculan. Un comando cuya salida lleva cifras derivadas llama al menos
 # una: si no, las cifras las hizo el modelo, que es lo que el diseño prohíbe.
 CALCULO = {"compute", "impact", "diff", "index", "due", "overlap", "publish", "plan-lectura",
@@ -56,7 +57,8 @@ def senales_emitidas() -> set:
               P / "criterio-finance/scripts/finanzas.py", P / "criterio-legal/scripts/legal.py",
               P / "criterio-assistant/scripts/asistente.py", P / "criterio-sales/scripts/ventas.py",
               P / "criterio-security/scripts/seguridad.py", P / "criterio-roles/scripts/talento.py",
-              P / "criterio-audit-plan/scripts/auditoria.py", P / "criterio-data-governance/scripts/datos.py"):
+              P / "criterio-audit-plan/scripts/auditoria.py", P / "criterio-data-governance/scripts/datos.py",
+              P / "criterio-risk-appetite/scripts/riesgos.py"):
         t = f.read_text(encoding="utf-8")
         s |= (set(re.findall(r'alert\("([a-z_]+)"', t)) | set(re.findall(r'"signal": "([a-z_]+)"', t))
               | set(re.findall(r'alerta\("([a-z_]+)"', t)))

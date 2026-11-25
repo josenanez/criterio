@@ -1,0 +1,67 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cro/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-marco",
+          "patrones": [
+            "^declaracion",
+            "^declaracao",
+            "^marco",
+            "^politica",
+            "^matriz",
+            "^limites",
+            "^indicadores",
+            "^risk_appetite",
+            "^risk_register",
+            "^policy",
+            "^limits",
+            "^kri"
+          ]
+        },
+        {
+          "carpeta": "10-exposicion",
+          "patrones": [
+            "^exposicion",
+            "^exposicao",
+            "^exposure",
+            "^planes",
+            "^planos",
+            "^action_plans"
+          ]
+        },
+        {
+          "carpeta": "20-indicadores",
+          "patrones": [
+            "^valores",
+            "^acciones",
+            "^acoes",
+            "^kri_values",
+            "^kri_actions"
+          ]
+        },
+        {
+          "carpeta": "30-eventos",
+          "patrones": [
+            "^base_de_eventos",
+            "^eventos",
+            "^loss_events"
+          ]
+        },
+        {
+          "carpeta": "40-actas",
+          "patrones": [
+            "^acta",
+            "^minutes",
+            "^ata"
+          ]
+        }
+      ]
+    }
+  ]
+}

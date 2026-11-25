@@ -102,6 +102,8 @@ running `server-setup` again.
 | **Criterio CAE** · Internal audit | Remedios | `/criterio-remediation:remediation-setup` | `.criterio/seguimiento/<instance>/` | `_CRITERIO_AUDITORIA.txt` |
 | **Criterio CDO** · Data | Custodia | `/criterio-data-governance:governance-setup` | `.criterio/gobierno/<instance>/` | `_CRITERIO_DATOS.txt` |
 | **Criterio CDO** · Data | Ariadna | `/criterio-data-quality:lineage-setup` | `.criterio/calidad/<instance>/` | `_CRITERIO_DATOS.txt` |
+| **Criterio CRO** · Risk | Severo | `/criterio-risk-appetite:appetite-setup` | `.criterio/apetito/<instance>/` | `_CRITERIO_RIESGOS.txt` |
+| **Criterio CRO** · Risk | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instance>/` | `_CRITERIO_RIESGOS.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

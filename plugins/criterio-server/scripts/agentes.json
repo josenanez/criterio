@@ -138,6 +138,21 @@
         "gobierno",
         "calidad"
       ]
+    },
+    {
+      "sigla": "cro",
+      "nombre": {
+        "es": "Los riesgos",
+        "en": "Risk"
+      },
+      "estado": {
+        "es": "Construida · en pruebas",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "apetito",
+        "eventos"
+      ]
     }
   ],
   "agentes": [
@@ -1941,6 +1956,154 @@
           ]
         }
       ]
+    },
+    {
+      "id": "severo",
+      "nombre": "Severo",
+      "plugin": "criterio-risk-appetite",
+      "area": "apetito",
+      "ambitos": [
+        "apetito"
+      ],
+      "familia": "cro",
+      "rol": {
+        "es": "El apetito por riesgo",
+        "en": "Risk appetite"
+      },
+      "titulo": "el apetito por riesgo y sus límites",
+      "origen": {
+        "es": "del latín *severus*, el que no hace concesiones: cada exposición contra su límite",
+        "en": "from the Latin *severus*, the one who makes no concessions: each exposure against its limit"
+      },
+      "privados": {},
+      "setup": "/criterio-risk-appetite:appetite-setup",
+      "marca": "_CRITERIO_RIESGOS.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "appetite-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "severo",
+              "etiqueta": "Pídeselo a Severo"
+            },
+            {
+              "id": "appetite-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "El apetito por riesgo",
+          "linea": "La declaración de apetito contra sus límites y cada límite contra la exposición que reportan las áreas: el límite excedido sin plan ni aprobación, el reporte fuera de plazo, el límite sin dueño o con la revisión vencida, el riesgo alto de la matriz sin límite ni indicador y la declaración que la junta no ha revisado en el plazo del marco",
+          "comandos": [
+            {
+              "id": "appetite-scan",
+              "etiqueta": "Qué cambió en el apetito"
+            },
+            {
+              "id": "limit-check",
+              "etiqueta": "Cada exposición contra su límite"
+            },
+            {
+              "id": "framework-check",
+              "etiqueta": "El marco y la declaración"
+            },
+            {
+              "id": "coverage-check",
+              "etiqueta": "Cada riesgo alto con su límite"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casandra",
+      "nombre": "Casandra",
+      "plugin": "criterio-risk-events",
+      "area": "eventos",
+      "ambitos": [
+        "eventos"
+      ],
+      "familia": "cro",
+      "rol": {
+        "es": "Los indicadores y los eventos",
+        "en": "Indicators and events"
+      },
+      "titulo": "los indicadores clave y los eventos de pérdida",
+      "origen": {
+        "es": "la que anunciaba lo que venía: cada indicador que avisa antes",
+        "en": "the one who foretold what was coming: each indicator that warns ahead"
+      },
+      "privados": {},
+      "setup": "/criterio-risk-events:events-setup",
+      "marca": "_CRITERIO_RIESGOS.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "events-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "casandra",
+              "etiqueta": "Pídeselo a Casandra"
+            },
+            {
+              "id": "events-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Los indicadores y los eventos",
+          "linea": "Los indicadores clave de riesgo contra sus umbrales y la base de eventos de pérdida contra sus registros: el indicador en alerta sin acción, el que no se reportó, el evento sin causa, sin monto o sin proceso, el que se registró fuera de plazo, el que se repite en el mismo proceso y el que no está en la matriz de riesgos",
+          "comandos": [
+            {
+              "id": "events-scan",
+              "etiqueta": "Qué cambió en los eventos"
+            },
+            {
+              "id": "kri-check",
+              "etiqueta": "Cada indicador contra su umbral"
+            },
+            {
+              "id": "event-check",
+              "etiqueta": "Cada evento con su registro"
+            },
+            {
+              "id": "pattern-check",
+              "etiqueta": "Lo que se repite"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -1985,6 +2148,7 @@
     "action_plan_overdue": "Un plan de acción pasó su fecha sin la evidencia de su implementación ni la explicación documentada del atraso (norma 15.2)",
     "agreement_without_date": "Un acuerdo del acta no tiene fecha",
     "agreement_without_owner": "Un acuerdo del acta no tiene responsable",
+    "appetite_statement_outdated": "La declaración de apetito no tiene la revisión de la junta en el plazo que fija el marco",
     "applicable_norm_not_in_matrix": "Una norma que aplica no tiene ninguna obligación en la matriz",
     "asset_not_scanned": "Un activo del inventario no aparece en ningún escaneo de la ventana configurada",
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
@@ -2035,6 +2199,7 @@
     "employment_dates_differ": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
     "engagement_behind_schedule": "Un trabajo del plan pasó su fecha de inicio o de cierre sin estar en curso o terminado",
     "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
+    "exposure_report_late": "Un área reportó su exposición después del plazo que fija el marco",
     "external_assessment_overdue": "La última evaluación externa de calidad tiene más de cinco años (norma 8.4)",
     "external_finding_untracked": "Un hallazgo del revisor fiscal, del auditor externo o del supervisor no está en el registro con su plan",
     "figure_differs_from_source": "La cifra del informe no coincide con la de su fuente al mismo corte, más allá de la tolerancia que fija la organización",
@@ -2054,8 +2219,17 @@
     "incident_without_review": "Un incidente cerrado no tiene su revisión posterior dentro del plazo",
     "invoice_outside_authorization": "Una factura recibida cae fuera de su autorización: en Honduras, fuera de su rango autorizado o emitida después de su fecha límite, y no sustenta el crédito fiscal del ISV; en Paraguay, emitida antes de la vigencia de su timbrado, y SIFEN la rechaza",
     "kev_past_due": "Una vulnerabilidad del catálogo KEV sigue abierta después de su fecha de corrección",
+    "kri_alert_without_action": "Un indicador clave está en su umbral de alerta o de límite y no tiene acción registrada",
+    "kri_not_reported": "Un indicador clave no tiene valor en el periodo",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
+    "limit_breached_without_plan": "Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso",
+    "limit_review_overdue": "Un límite pasó su fecha de revisión",
+    "limit_without_owner": "Un límite del marco no tiene dueño",
     "lineage_broken": "Un paso del linaje de una cifra no tiene su sistema de origen",
+    "loss_event_incomplete": "Un evento de pérdida no tiene causa, monto o proceso",
+    "loss_event_registered_late": "Un evento se registró después del plazo de la política desde que se descubrió",
+    "loss_event_repeated": "El mismo tipo de evento se repite en el mismo proceso dentro de la ventana de la política",
+    "loss_event_risk_unmapped": "Un evento no corresponde a ningún riesgo de la matriz",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
     "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
     "meeting_during_flight": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
@@ -2103,6 +2277,7 @@
     "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
     "risk_accepted_not_escalated": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
     "risk_assessment_outdated": "La evaluación de riesgos que sostiene el plan tiene más de un año (norma 9.4)",
+    "risk_without_limit": "Un riesgo calificado alto o crítico en la matriz no tiene límite ni indicador clave",
     "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
     "signed_without_invoice": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",

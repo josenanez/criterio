@@ -1,0 +1,145 @@
+{
+  "entidad": "Banco Andino Sintético",
+  "industria": "banca",
+  "pais": "CO",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": true,
+  "config": {
+    "severo": {
+      "version": "0.1",
+      "role": "apetito",
+      "entity": {
+        "id": "901777333",
+        "name": "Banco Andino Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "riesgos/901777333-banco-andino-sintetico",
+        "state": "estado-riesgos/901777333-banco-andino-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "report_days": 10,
+        "statement_review_months": 12,
+        "registration_days": 30,
+        "repeat_window_months": 12
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "casandra": {
+      "version": "0.1",
+      "role": "eventos",
+      "entity": {
+        "id": "901777333",
+        "name": "Banco Andino Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "riesgos/901777333-banco-andino-sintetico",
+        "state": "estado-riesgos/901777333-banco-andino-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "report_days": 10,
+        "statement_review_months": 12,
+        "registration_days": 30,
+        "repeat_window_months": 12
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "apetito": {
+      "statement": {
+        "name": "Declaración de apetito por riesgo",
+        "board_review": "2025-08-28",
+        "source": "00-marco/declaracion_de_apetito.pdf"
+      },
+      "approvals": [
+        {
+          "limit": "L-04",
+          "until": "2027-01-31",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        }
+      ],
+      "reviewed": [
+        "00-marco/politica_de_riesgo_operacional.pdf"
+      ],
+      "questions": []
+    },
+    "eventos": {
+      "actions": [],
+      "reviewed": [
+        "40-actas/acta_comite_riesgos_2026-10.pdf"
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "appetite_statement_outdated",
+      "key": "declaracion:"
+    },
+    {
+      "signal": "exposure_report_late",
+      "key": "reporte:L-02"
+    },
+    {
+      "signal": "kri_alert_without_action",
+      "key": "alerta:KRI-01"
+    },
+    {
+      "signal": "kri_not_reported",
+      "key": "reporte:KRI-03"
+    },
+    {
+      "signal": "limit_breached_without_plan",
+      "key": "limite:L-01"
+    },
+    {
+      "signal": "limit_review_overdue",
+      "key": "revision:L-02"
+    },
+    {
+      "signal": "limit_without_owner",
+      "key": "dueno:L-02"
+    },
+    {
+      "signal": "loss_event_incomplete",
+      "key": "incompleto:EV-03"
+    },
+    {
+      "signal": "loss_event_registered_late",
+      "key": "tarde:EV-05"
+    },
+    {
+      "signal": "loss_event_repeated",
+      "key": "repetido:canales:fraude_con_tarjeta"
+    },
+    {
+      "signal": "loss_event_risk_unmapped",
+      "key": "sin_riesgo:EV-04"
+    },
+    {
+      "signal": "risk_without_limit",
+      "key": "riesgo:R-04"
+    }
+  ]
+}
