@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -205,6 +205,24 @@
       "description": "Casandra, los indicadores y los eventos: cada indicador clave contra sus umbrales y su acción, y cada evento de pérdida contra su causa, su monto, su proceso, su plazo de registro, su repetición y la matriz de riesgos. Procesa exportaciones; nunca califica un riesgo, cierra un evento ni calcula una pérdida esperada.",
       "source": "./plugins/criterio-risk-events",
       "category": "risk"
+    },
+    {
+      "name": "criterio-campaigns",
+      "description": "Próspero, lo que se invierte: cada campaña contra su presupuesto, su meta y su fecha de fin, cada factura de pauta contra su campaña y su orden, y cada resultado reportado contra la exportación de la plataforma. Procesa exportaciones; nunca aprueba un presupuesto ni se conecta a una plataforma.",
+      "source": "./plugins/criterio-campaigns",
+      "category": "marketing"
+    },
+    {
+      "name": "criterio-claims",
+      "description": "Lucía, lo que se anuncia: cada afirmación de una pieza aprobada contra su soporte, cada comparativa contra su fuente, cada promoción contra sus condiciones, cada pieza contra su aprobación y su identificación como publicidad, y cada base de contactos contra su autorización. Procesa exportaciones y documentos; nunca aprueba una pieza ni procesa los datos de una persona.",
+      "source": "./plugins/criterio-claims",
+      "category": "marketing"
+    },
+    {
+      "name": "criterio-cmo",
+      "description": "La familia CMO completa —el mercadeo—: instala de una vez a Lucía y Próspero y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cmo:cmo-setup.",
+      "source": "./plugins/criterio-cmo",
+      "category": "marketing"
     },
     {
       "name": "criterio-server",

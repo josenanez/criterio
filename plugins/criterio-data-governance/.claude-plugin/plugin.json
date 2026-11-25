@@ -1,6 +1,6 @@
 {
   "name": "criterio-data-governance",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Custodia, el gobierno de los datos: el catálogo contra sus dueños y su clasificación, las políticas contra su revisión, lo que se conserva contra su plazo, los términos de los informes contra el glosario y las bases con datos personales contra el registro. Procesa exportaciones y metadatos; nunca se conecta a una base ni procesa un dato personal.",
   "author": {
     "name": "José Francisco Ñáñez",
