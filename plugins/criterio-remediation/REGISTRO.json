@@ -5530,6 +5530,133 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "84caa3002267b3ab904b2fd1aa3c62627fd86a5ebb335034a9d5e09c1380e0c7",
       "sha256": "db14e06fadafcbf0831ab845c4d3800e61ea343cc2171380d5eb03e50d61e88e"
+    },
+    {
+      "version": "3.5.0",
+      "fecha": "2026-11-24",
+      "commit": null,
+      "base": "111d2e7e",
+      "etiqueta": "v3.5.0",
+      "familias": {
+        "cae": "0.2.0",
+        "cco": "1.4.2",
+        "cfo": "1.7.2",
+        "chro": "1.0.0",
+        "ciso": "1.5.1",
+        "clo": "1.9.1",
+        "ea": "1.4.2",
+        "pmo": "1.4.2",
+        "rostrum": "1.4.4"
+      },
+      "liberadas": [
+        "cae"
+      ],
+      "versiones": {
+        "criterio-audit-plan": "0.2.0",
+        "criterio-audit-work": "0.2.0",
+        "criterio-cae": "0.2.0",
+        "criterio-remediation": "0.2.0",
+        "criterio-cco": "1.4.2",
+        "criterio-revenue": "1.4.2",
+        "criterio-sales": "1.4.2",
+        "criterio-budget": "1.7.2",
+        "criterio-cfo": "1.7.2",
+        "criterio-finance": "1.7.2",
+        "criterio-treasury": "1.7.2",
+        "criterio-chro": "1.0.0",
+        "criterio-roles": "1.0.0",
+        "criterio-talent": "1.0.0",
+        "criterio-ciso": "1.5.1",
+        "criterio-resilience": "1.5.1",
+        "criterio-security": "1.5.1",
+        "criterio-vulnerability": "1.5.1",
+        "criterio-clo": "1.9.1",
+        "criterio-compliance": "1.9.1",
+        "criterio-legal": "1.9.1",
+        "criterio-assistant": "1.4.2",
+        "criterio-ea": "1.4.2",
+        "criterio-pmo": "1.4.2",
+        "criterio-portfolio": "1.4.2",
+        "criterio-product": "1.4.2",
+        "criterio-project": "1.4.2",
+        "criterio-server": "1.4.4"
+      },
+      "calidad": {
+        "cae": {
+          "etiqueta": "laboratorio",
+          "ronda": 1,
+          "rondas": [
+            1
+          ],
+          "casos": {
+            "señales": 51,
+            "datos": 348
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 84,
+            "Datos extraídos": 85.3
+          },
+          "motivo": [
+            "Señales · cobertura: piso de 84.0 %, por debajo del 95 %",
+            "Datos extraídos: piso de 85.3 %, por debajo del 95 %"
+          ],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.6",
+        "fecha": "2026-11-16",
+        "sha256": {
+          "es": "9926ba27f936402177da9036b3eb64878c262183c0775b193061b22a8ded1561",
+          "en": "a4a1df234745cd8fe495e179cc081712ab709cd51684699df5baa5ba960f4fd6"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "506c6110e87bbcb06a6454c3176e08e739e07f7733657ac374d79ad994aecacc",
+        "criterio-audit-plan": "acc229c2377a6677b8726af1c4240738989d727b3a5d7b808dfcfd1581c96176",
+        "criterio-audit-work": "42e55a43448aadc3bd28bb6056a40457d1e323e015b44515e976354d53c03e86",
+        "criterio-budget": "36ff579d6a2a168d6e71d1aca5dadcdc26256422aa876134448c7437c0609a59",
+        "criterio-cae": "f6ba48fbf09ca919fc9f016e6f146e02c7ac220bac022b7e5ac6c40b42cd1a0c",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-chro": "fbd1a3b70dd6e57d81a9f399da45396b502e62b7df4cd9eaa5489f453b803d68",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "fe5f9baee5e829326bbfec97b2b5a2f907de37ce1a0999f5c19cbd1a7389a3d8",
+        "criterio-finance": "f1d55af4e17a595dd88e012f13753e0d93d58abf99543ae7fef26b4683654b62",
+        "criterio-legal": "38f5d5675534bdf935b26c6ec58f2ec67ed95a286edf7f77c66b2422615ad8eb",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "b400cddc3cf5ed6773e12e404d471716341b2bd7fd90346b3b4b2dfe6301a033",
+        "criterio-product": "082080b02b9368594e35c74b273f54aa6d72fc11f6d737ba4aac3774ed309502",
+        "criterio-project": "a6afa86aa84850cfa1b37a94b12aae927df32d456e3f8ffe6592ba08f16bc1fe",
+        "criterio-remediation": "245fa2ee1278d44ac9b9040d432eaad65dd09b2f68396b6706d6e990694784b9",
+        "criterio-resilience": "08b04e0eed6b309885218c8bfbc42dcb537bb220f60f55f1a6003a07e0f75900",
+        "criterio-revenue": "e2aed343a24f0bc5f6f82b0ea600df4233f8dc060cc815df0da6bf067ce92ce2",
+        "criterio-roles": "c05d9e5fd84112f60388b897a70e6740c23dae0c4e8179eda65099e1157f378e",
+        "criterio-sales": "9031cd4da54a934f49cccb762a2c350d6610345cd016dec1cca3cc3098187ec1",
+        "criterio-security": "5c386c66ccf84e2a0df5f8be4b00ad7e9b63d06959a9ec22f1b28b4d7869a4d7",
+        "criterio-server": "89240ec779850b6e5eb345e75e491ac12e523d2a2c2782e1beb7e0fc5616a87e",
+        "criterio-talent": "604e0445847bc610977ca1e3b027ac34d21bd0d9ff8ab068970ba0ab53cd185b",
+        "criterio-treasury": "9230dae7d81a5e7c01c97d60ecb18e9279bfc0944b593d05c94fe22fc4bdbb1c",
+        "criterio-vulnerability": "adb4cc6886002aac5376dfdebdb82e85fb75bcc984c45f91d7c52c0607952684"
+      },
+      "destacados": [
+        "Criterio CAE 0.2.0: Prudencia, Justo y Remedios probados con el agente en las cinco entidades del material, y los cinco defectos que encontró la ronda, corregidos y verificados."
+      ],
+      "cambios": [
+        "CAE: la regulación de Colombia y de Brasil, verificada en su texto oficial",
+        "Decisión 0034, propuesta: la familia CDO, los datos",
+        "El video de YouTube de la CHRO, en los dos idiomas, y la ronda de la CAE en el arnés",
+        "La ronda 1 de la CAE sobre la banca de Colombia, y los cuatro defectos que encontró",
+        "La ronda 1 de la CAE en Perú y Brasil, y el video de presentación de la familia",
+        "La presentación de la CHRO en YouTube, en los dos idiomas, y el control de Colombia de la CAE",
+        "La ronda 1 de la CAE, completa: las cinco entidades, y CAE-5 verificado"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "db14e06fadafcbf0831ab845c4d3800e61ea343cc2171380d5eb03e50d61e88e",
+      "sha256": "d9029b10b702377d5643f47b597ca36a9eac0ade34cecb3931d0ce2686758e5f"
     }
   ]
 }
