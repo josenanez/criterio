@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "custodia",
+  "comando": "retention-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:54:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 8,
+  "tokens": 401240,
+  "tokens_salida": 2286,
+  "costo_usd": 0.13125420000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-retention-check-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-retention-check.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/gobierno/2026-11/reporte-retention-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

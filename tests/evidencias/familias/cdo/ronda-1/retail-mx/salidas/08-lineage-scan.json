@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "ariadna",
+  "comando": "lineage-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T19:04:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 10,
+  "tokens": 537263,
+  "tokens_salida": 4433,
+  "costo_usd": 0.38253319999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/calidad/2026-11/reporte-lineage-scan.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-lineage-scan-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "modificados": [
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

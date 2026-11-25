@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "custodia",
+  "comando": "governance-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T19:14:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 14,
+  "tokens": 719219,
+  "tokens_salida": 3664,
+  "costo_usd": 0.4215284,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-governance-scan-1.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-governance-scan.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/gobierno/2026-11/reporte-governance-scan.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

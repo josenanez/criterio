@@ -34,4 +34,4 @@ The organisation, in its data and retention policies. The setup proposes them fr
 
 ### Is it tested?
 
-The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal at all. The round with the two agents comes in 0.2.0, and it has not been tested on a specific organisation's documentation.
+The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal at all. In 0.2.0, the two agents ran on every entity in the material, with a key they never see. It has not been tested on a specific organisation's documentation.

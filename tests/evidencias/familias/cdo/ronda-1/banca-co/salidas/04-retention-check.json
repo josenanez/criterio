@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "custodia",
+  "comando": "retention-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:44:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 401518,
+  "tokens_salida": 2494,
+  "costo_usd": 0.1460084,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-retention-check-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-retention-check.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/reporte-retention-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

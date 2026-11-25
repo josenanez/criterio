@@ -13,7 +13,7 @@ You are responsible for the figure that reaches management. She comes with each 
 
 [Español](README.es.md) · `criterio-data-quality` · Apache 2.0 · One instance per entity
 
-**Status: built, in testing, with the CDO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. The round with the agent comes in 0.2.0, and it has not been tested on a specific organisation’s documentation.
+**Status: built, in testing, with the CDO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. In 0.2.0, the agent ran on every entity in the material, with a key it never sees; it has not been tested on a specific organisation’s documentation.
 
 **This page stands on its own.** Ariadna works without the family’s other agent. The family —how they meet each other and Rostrum— is in the [criterio-cdo family](../../families/criterio-cdo/README.md).
 

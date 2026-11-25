@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "custodia",
+  "comando": "catalog-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:54:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 8,
+  "tokens": 398518,
+  "tokens_salida": 1964,
+  "costo_usd": 0.125033,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-catalog-check-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-catalog-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

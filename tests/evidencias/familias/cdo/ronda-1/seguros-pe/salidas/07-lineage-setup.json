@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/20605557771-aseguradora-pacifico-sintetica",
+  "inicio": "2026-11-25T18:55:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 14,
+  "tokens": 689618,
+  "tokens_salida": 8204,
+  "costo_usd": 0.6058086,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/20605557771/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.sha256",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/calidad/2026-11/ficha.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/calidad/2026-11/resultados.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

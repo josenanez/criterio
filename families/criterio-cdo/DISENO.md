@@ -2,9 +2,9 @@
 
 # criterio-cdo · the family's design
 
-**Status: built, in testing (version 0.1.0).** The commands, the skills and the calculation engine
+**Status: built, in testing (version 0.2.0).** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test against the material in
-`tests/criterio-cdo/`. The round with the two agents comes in 0.2.0. Scope in [ADR 0034](../../docs/decisions/0034-la-familia-cdo.md).
+`tests/criterio-cdo/`. In 0.2.0, the two agents ran on every entity in the material, with a key they never see: [the rounds](../../tests/evidencias/familias/cdo/RONDAS.md). Scope in [ADR 0034](../../docs/decisions/0034-la-familia-cdo.md).
 
 **This is the family's design sheet**: the signals the code calculates, each command with its input,
 process and report, and the decisions taken. What the family does, how it installs, the folder structure

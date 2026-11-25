@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "ariadna",
+  "comando": "figure-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:57:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 10,
+  "tokens": 514732,
+  "tokens_salida": 2803,
+  "costo_usd": 0.1579161,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-figure-check-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-figure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -69,7 +69,7 @@ registro por su referencia. Ninguno puede levantar una señal.
 
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que el agente
   procese las actas, los papeles, los informes y las evidencias y los registre bien lo prueba la ronda con
-  los agentes, en la 0.2.0.
+  los agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cae/RONDAS.md).
 - **Las exportaciones reales** de TeamMate+, AuditBoard, Ideagen o SAP Audit Management: el material usa
   tablas con columnas en español; el setup mapea las de cualquier exportación.
 - **La regulación de cada país**: la de Colombia (F-10) y Brasil (F-12), verificada, no entra a ninguna señal todavía; la del Perú (F-11), por verificar.

@@ -16,7 +16,7 @@ entity's folder and data policy: each writes only its own record.
 | **Goal** | That every piece of data has someone answering for it and that every figure reaching management can be followed back to its source |
 | **Made up of** | [Custodia](../../plugins/criterio-data-governance/README.md) · [Ariadna](../../plugins/criterio-data-quality/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The backing** | DAMA-DMBOK, the Basel Committee's BCBS 239 principles and ISO/IEC 25012, with their source and status: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Status** | Built, in testing: the engine tested on all its material, with its key and its control entities. The round with the two agents comes in 0.2.0. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Built, in testing: the engine tested on all its material, with its key and its control entities. In 0.2.0, the round with the two agents on every entity in the material. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Exports and metadata, never systems: no agent connects to a database or processes personal data |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional duty |
 | **What it is not** | It does not replace the data office: it assigns no owners, decides no classification, deletes nothing, corrects no figure and does not decide which of two figures is right |
@@ -158,8 +158,8 @@ Four distinct skills across the two agents. **The ones they share are literal co
 <!-- cdo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Custodia** · Data governance | `criterio-data-governance` · 8 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-data-governance/RESULTADOS.md) |
-| **Ariadna** · Quality and lineage | `criterio-data-quality` · 8 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-data-quality/RESULTADOS.md) |
+| **Custodia** · Data governance | `criterio-data-governance` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-data-governance/RESULTADOS.md) |
+| **Ariadna** · Quality and lineage | `criterio-data-quality` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-data-quality/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

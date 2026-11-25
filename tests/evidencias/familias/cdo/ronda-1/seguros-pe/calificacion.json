@@ -1,0 +1,19 @@
+{
+  "entidad": "Aseguradora Pacífico Sintética",
+  "agentes": [
+    "ariadna",
+    "custodia"
+  ],
+  "tokens": 6678249,
+  "senales": {
+    "esperadas": 6,
+    "acertadas": 6,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 6,
+    "bien": 6,
+    "mal": []
+  }
+}

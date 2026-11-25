@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "ariadna",
+  "comando": "lineage-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T18:56:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 15,
+  "tokens": 682417,
+  "tokens_salida": 3565,
+  "costo_usd": 0.3757426,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/calidad/2026-11/reporte-lineage-scan.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-lineage-scan-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-lineage-scan.md"
+    ],
+    "modificados": [
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

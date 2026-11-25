@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/rcc200101cd2-retail-control-de-datos-sintetico",
+  "inicio": "2026-11-25T19:16:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 16,
+  "tokens": 610464,
+  "tokens_salida": 7908,
+  "costo_usd": 0.5667544,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/RCC200101CD2/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.1.0-2026-11-25.sha256",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/calidad/2026-11/ficha.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/calidad/2026-11/resultados.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

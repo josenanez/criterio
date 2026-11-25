@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "ariadna",
+  "comando": "rule-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:58:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 9,
+  "tokens": 453071,
+  "tokens_salida": 2183,
+  "costo_usd": 0.1369424,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/calidad/2026-11/reporte-rule-check.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-rule-check-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-rule-check.md"
+    ],
+    "modificados": [
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Retail Central Sintético",
+  "agentes": [
+    "ariadna",
+    "custodia"
+  ],
+  "tokens": 6284705,
+  "senales": {
+    "esperadas": 8,
+    "acertadas": 8,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 6,
+    "bien": 6,
+    "mal": []
+  }
+}

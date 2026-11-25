@@ -411,6 +411,162 @@
     "contra": null
    }
   },
+  "ariadna": {
+   "familia": "cdo",
+   "comandos": {
+    "figure-check": {
+     "corridas": 5,
+     "mediana": 353083,
+     "maximo": 514732,
+     "mediana_salida": 2803,
+     "mediana_turnos": 8,
+     "mediana_segundos": 24,
+     "mediana_costo_usd": 0.1442,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "lineage-check": {
+     "corridas": 5,
+     "mediana": 363452,
+     "maximo": 401336,
+     "mediana_salida": 2111,
+     "mediana_turnos": 8,
+     "mediana_segundos": 21,
+     "mediana_costo_usd": 0.1273,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "lineage-scan": {
+     "corridas": 5,
+     "mediana": 570701,
+     "maximo": 682417,
+     "mediana_salida": 3565,
+     "mediana_turnos": 11,
+     "mediana_segundos": 35,
+     "mediana_costo_usd": 0.3757,
+     "modelo": "claude-opus-5-5"
+    },
+    "lineage-setup": {
+     "corridas": 5,
+     "mediana": 689618,
+     "maximo": 852365,
+     "mediana_salida": 7988,
+     "mediana_turnos": 16,
+     "mediana_segundos": 67,
+     "mediana_costo_usd": 0.5841,
+     "modelo": "claude-opus-5-5"
+    },
+    "lineage-wake": {
+     "corridas": 5,
+     "mediana": 595168,
+     "maximo": 660225,
+     "mediana_salida": 4775,
+     "mediana_turnos": 15,
+     "mediana_segundos": 41,
+     "mediana_costo_usd": 0.3994,
+     "modelo": "claude-opus-5-5"
+    },
+    "rule-check": {
+     "corridas": 5,
+     "mediana": 403813,
+     "maximo": 453071,
+     "mediana_salida": 2183,
+     "mediana_turnos": 8,
+     "mediana_segundos": 23,
+     "mediana_costo_usd": 0.1361,
+     "modelo": "claude-sonnet-5-5"
+    }
+   },
+   "pasada": 2975835,
+   "indicador": {
+    "ronda": "ronda-1",
+    "carpeta": "banca-co",
+    "material": "banca-co",
+    "modelo_sesion": "claude-opus-5-5",
+    "comandos": 6,
+    "tokens": 3113705,
+    "costo_usd": 1.9701,
+    "segundos": 239,
+    "sin_pendientes": null,
+    "contra": null
+   }
+  },
+  "custodia": {
+   "familia": "cdo",
+   "comandos": {
+    "catalog-check": {
+     "corridas": 5,
+     "mediana": 352980,
+     "maximo": 399196,
+     "mediana_salida": 1964,
+     "mediana_turnos": 8,
+     "mediana_segundos": 20,
+     "mediana_costo_usd": 0.1234,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "glossary-check": {
+     "corridas": 5,
+     "mediana": 402509,
+     "maximo": 452579,
+     "mediana_salida": 2544,
+     "mediana_turnos": 8,
+     "mediana_segundos": 22,
+     "mediana_costo_usd": 0.1383,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "governance-scan": {
+     "corridas": 5,
+     "mediana": 719219,
+     "maximo": 814382,
+     "mediana_salida": 4582,
+     "mediana_turnos": 17,
+     "mediana_segundos": 40,
+     "mediana_costo_usd": 0.4215,
+     "modelo": "claude-opus-5-5"
+    },
+    "governance-setup": {
+     "corridas": 5,
+     "mediana": 803834,
+     "maximo": 849359,
+     "mediana_salida": 8253,
+     "mediana_turnos": 22,
+     "mediana_segundos": 70,
+     "mediana_costo_usd": 0.6265,
+     "modelo": "claude-opus-5-5"
+    },
+    "governance-wake": {
+     "corridas": 5,
+     "mediana": 654532,
+     "maximo": 781556,
+     "mediana_salida": 5192,
+     "mediana_turnos": 16,
+     "mediana_segundos": 47,
+     "mediana_costo_usd": 0.4351,
+     "modelo": "claude-opus-5-5"
+    },
+    "retention-check": {
+     "corridas": 5,
+     "mediana": 349443,
+     "maximo": 401518,
+     "mediana_salida": 2286,
+     "mediana_turnos": 7,
+     "mediana_segundos": 22,
+     "mediana_costo_usd": 0.1265,
+     "modelo": "claude-sonnet-5-5"
+    }
+   },
+   "pasada": 3282517,
+   "indicador": {
+    "ronda": "ronda-1",
+    "carpeta": "banca-co",
+    "material": "banca-co",
+    "modelo_sesion": "claude-opus-5-5",
+    "comandos": 6,
+    "tokens": 3332125,
+    "costo_usd": 2.3651,
+    "segundos": 267,
+    "sin_pendientes": null,
+    "contra": null
+   }
+  },
   "aurea": {
    "familia": "cfo",
    "comandos": {

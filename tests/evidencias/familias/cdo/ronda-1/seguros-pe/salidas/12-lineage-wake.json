@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "ariadna",
+  "comando": "lineage-wake",
+  "argumento": "",
+  "inicio": "2026-11-25T18:58:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 14,
+  "tokens": 485574,
+  "tokens_salida": 4775,
+  "costo_usd": 0.36988779999999993,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-lineage-scan-2.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-lineage-wake-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-lineage-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-lineage-scan.md"
+    ],
+    "borrados": []
+  }
+}

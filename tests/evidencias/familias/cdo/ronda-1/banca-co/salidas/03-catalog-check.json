@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "custodia",
+  "comando": "catalog-check",
+  "argumento": "",
+  "inicio": "2026-11-25T18:43:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 8,
+  "tokens": 399196,
+  "tokens_salida": 1921,
+  "costo_usd": 0.2583788,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-catalog-check-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-catalog-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

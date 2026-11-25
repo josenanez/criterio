@@ -1,0 +1,28 @@
+{
+  "n": 8,
+  "agente": "ariadna",
+  "comando": "lineage-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T18:46:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 12,
+  "tokens": 570701,
+  "tokens_salida": 5387,
+  "costo_usd": 0.42497340000000006,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/calidad/2026-11/reporte-lineage-scan.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-lineage-scan-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

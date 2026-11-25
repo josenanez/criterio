@@ -16,7 +16,7 @@ carpeta y la política de datos de la entidad: cada una escribe solo su ficha.
 | **Objetivo** | Que cada dato tenga quien responda por él y que cada cifra que llega a la dirección se pueda seguir hasta su fuente |
 | **Compuesta por** | [Custodia](../../plugins/criterio-data-governance/README.es.md) · [Ariadna](../../plugins/criterio-data-quality/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | DAMA-DMBOK, los principios BCBS 239 del Comité de Basilea e ISO/IEC 25012, con su fuente y su estado: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida, en pruebas: el motor probado sobre todo su material, con su clave y sus entidades de control. La ronda con las dos agentes viene en la 0.2.0. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida, en pruebas: el motor probado sobre todo su material, con su clave y sus entidades de control. En la 0.2.0, la ronda con las dos agentes sobre todas las entidades del material. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Exportaciones y metadatos, nunca sistemas: ninguna agente se conecta a una base ni procesa un dato personal |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al área de datos: no asigna dueños, no decide una clasificación, no borra nada, no corrige una cifra y no decide cuál de dos cifras es la correcta |
@@ -158,8 +158,8 @@ Cuatro skills distintos entre los dos agentes. **Los que comparten son copias li
 <!-- cdo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Custodia** · El gobierno de los datos | `criterio-data-governance` · 8 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-data-governance/RESULTADOS.md) |
-| **Ariadna** · La calidad y el linaje | `criterio-data-quality` · 8 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-data-quality/RESULTADOS.md) |
+| **Custodia** · El gobierno de los datos | `criterio-data-governance` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-data-governance/RESULTADOS.md) |
+| **Ariadna** · La calidad y el linaje | `criterio-data-quality` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-data-quality/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

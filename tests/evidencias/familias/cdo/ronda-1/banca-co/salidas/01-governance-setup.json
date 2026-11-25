@@ -1,0 +1,40 @@
+{
+  "n": 1,
+  "agente": "custodia",
+  "comando": "governance-setup",
+  "argumento": "datos/901555777-banco-cordillera-sintetico",
+  "inicio": "2026-11-25T18:41:24",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 24,
+  "tokens": 817643,
+  "tokens_salida": 8699,
+  "costo_usd": 0.8946434000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/gobierno/901555777/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.1.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "datos/901555777-banco-cordillera-sintetico/_CRITERIO_DATOS.txt",
+      "estado-datos/901555777-banco-cordillera-sintetico/cache/00-referencia/glosario.xlsx.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/cache/00-referencia/politica_de_conservacion.pdf.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/cache/00-referencia/politica_de_datos.pdf.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/cache/20-informes/informe_junta_2026-10.pdf.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/cache/manifest.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-governance-setup-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-governance-setup.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/ficha.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/reporte-catalog-check.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/resultados.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

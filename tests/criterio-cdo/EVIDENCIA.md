@@ -53,7 +53,7 @@ corrida sobre un dato que no es crítico. Ninguno puede levantar una señal.
 
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que la agente
   procese las políticas, los plazos, los términos y las cifras de los informes y los registre bien lo
-  prueba la ronda con las agentes, en la 0.2.0.
+  prueba la ronda con las agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cdo/RONDAS.md).
 - **Las exportaciones reales** de Collibra, Alation, Microsoft Purview o Informatica: el material usa tablas
   con columnas en español; el setup mapea las de cualquier exportación.
 - **La ley de cada país** sobre el registro de bases de datos personales: está por verificar, país por país;
