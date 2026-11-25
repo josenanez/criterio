@@ -1,0 +1,154 @@
+{
+  "entidad": "Almacenes Control de Mercadeo Sintéticos",
+  "industria": "retail",
+  "pais": "CO",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": false,
+  "config": {
+    "lucia": {
+      "version": "0.1",
+      "role": "piezas",
+      "entity": {
+        "id": "901444666",
+        "name": "Almacenes Control de Mercadeo Sintéticos",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos",
+        "state": "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "budget_tolerance_pct": 5,
+        "result_tolerance_pct": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "prospero": {
+      "version": "0.1",
+      "role": "campanas",
+      "entity": {
+        "id": "901444666",
+        "name": "Almacenes Control de Mercadeo Sintéticos",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos",
+        "state": "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "budget_tolerance_pct": 5,
+        "result_tolerance_pct": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "piezas": {
+      "claims": [
+        {
+          "piece": "P-01",
+          "claim": "Entrega en 24 horas en las ciudades principales.",
+          "support": "20-soportes/tiempos_de_entrega.xlsx",
+          "source": "10-piezas/pieza_P-01.pdf"
+        },
+        {
+          "piece": "P-02",
+          "claim": "El precio más bajo del mercado en la canasta básica.",
+          "support": "20-soportes/comparativo_de_precios_2026-10.pdf",
+          "source": "10-piezas/pieza_P-02.pdf",
+          "comparative": true,
+          "comparative_source": "Fuente: comparativo de precios de un tercero independiente, octubre de 2026."
+        },
+        {
+          "piece": "P-03",
+          "claim": "9 de cada 10 clientes nos recomiendan.",
+          "support": "20-soportes/encuesta_de_satisfaccion_2026.pdf",
+          "source": "10-piezas/pieza_P-03.pdf"
+        },
+        {
+          "piece": "P-04",
+          "claim": "Mi pedido llegó al día siguiente.",
+          "support": "20-soportes/tiempos_de_entrega.xlsx",
+          "source": "10-piezas/pieza_P-04.pdf"
+        },
+        {
+          "piece": "P-05",
+          "claim": "Fabricado en el país.",
+          "support": "20-soportes/certificado_de_origen.pdf",
+          "source": "10-piezas/pieza_P-05.pdf"
+        },
+        {
+          "piece": "P-06",
+          "claim": "La colección llega en tres colores.",
+          "support": "20-soportes/catalogo_de_la_coleccion.pdf",
+          "source": "10-piezas/pieza_P-06.pdf"
+        }
+      ],
+      "promotions": [
+        {
+          "name": "Navidad",
+          "start": "2026-12-01",
+          "end": "2026-12-24",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_navidad.pdf"
+        },
+        {
+          "name": "Puntos dobles",
+          "start": "2026-11-01",
+          "end": "2026-11-30",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_puntos_dobles.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "campanas": {
+      "reported": [
+        {
+          "campaign": "C-01",
+          "indicator": "Ventas atribuidas",
+          "cutoff": "2026-10-31",
+          "value": 4150,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        },
+        {
+          "campaign": "C-03",
+          "indicator": "Visitas a la tienda",
+          "cutoff": "2026-10-31",
+          "value": 2850,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        },
+        {
+          "campaign": "C-04",
+          "indicator": "Impresiones",
+          "cutoff": "2026-10-31",
+          "value": 1840000,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

@@ -1,0 +1,62 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cmo/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-politica",
+          "patrones": [
+            "^politica",
+            "^policy",
+            "^manual"
+          ]
+        },
+        {
+          "carpeta": "10-piezas",
+          "patrones": [
+            "^pieza",
+            "^registro_de_piezas",
+            "^piece"
+          ]
+        },
+        {
+          "carpeta": "20-soportes",
+          "patrones": [
+            ".*"
+          ]
+        },
+        {
+          "carpeta": "30-promociones",
+          "patrones": [
+            "^bases",
+            "^promocion",
+            "^terms"
+          ]
+        },
+        {
+          "carpeta": "40-bases",
+          "patrones": [
+            "^registro_de_bases",
+            "^bases_de_contactos",
+            "^contact"
+          ]
+        },
+        {
+          "carpeta": "50-campanas",
+          "patrones": [
+            "^plan",
+            "^facturas",
+            "^resultados",
+            "^informe",
+            "^marketing_plan",
+            "^media"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -104,6 +104,8 @@ running `server-setup` again.
 | **Criterio CDO** · Data | Ariadna | `/criterio-data-quality:lineage-setup` | `.criterio/calidad/<instance>/` | `_CRITERIO_DATOS.txt` |
 | **Criterio CRO** · Risk | Severo | `/criterio-risk-appetite:appetite-setup` | `.criterio/apetito/<instance>/` | `_CRITERIO_RIESGOS.txt` |
 | **Criterio CRO** · Risk | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instance>/` | `_CRITERIO_RIESGOS.txt` |
+| **Criterio CMO** · Marketing | Lucía | `/criterio-claims:claims-setup` | `.criterio/piezas/<instance>/` | `_CRITERIO_MERCADEO.txt` |
+| **Criterio CMO** · Marketing | Próspero | `/criterio-campaigns:campaigns-setup` | `.criterio/campanas/<instance>/` | `_CRITERIO_MERCADEO.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

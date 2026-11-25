@@ -115,6 +115,12 @@ DESTINO = {
     "criterio-risk-events": {"familia": "cro", "busca": "raiz", "marca": "_CRITERIO_RIESGOS.txt",
         "que": "la carpeta de riesgos de una entidad", "agentes": "Severo y Casandra",
         "setup": "/criterio-risk-events:events-setup"},
+    "criterio-claims": {"familia": "cmo", "busca": "raiz", "marca": "_CRITERIO_MERCADEO.txt",
+        "que": "la carpeta de mercadeo de una entidad", "agentes": "Lucía y Próspero",
+        "setup": "/criterio-claims:claims-setup"},
+    "criterio-campaigns": {"familia": "cmo", "busca": "raiz", "marca": "_CRITERIO_MERCADEO.txt",
+        "que": "la carpeta de mercadeo de una entidad", "agentes": "Lucía y Próspero",
+        "setup": "/criterio-campaigns:campaigns-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

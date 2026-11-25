@@ -105,6 +105,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CDO** · Los datos | Ariadna | `/criterio-data-quality:lineage-setup` | `.criterio/calidad/<instancia>/` | `_CRITERIO_DATOS.txt` |
 | **Criterio CRO** · Los riesgos | Severo | `/criterio-risk-appetite:appetite-setup` | `.criterio/apetito/<instancia>/` | `_CRITERIO_RIESGOS.txt` |
 | **Criterio CRO** · Los riesgos | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instancia>/` | `_CRITERIO_RIESGOS.txt` |
+| **Criterio CMO** · El mercadeo | Lucía | `/criterio-claims:claims-setup` | `.criterio/piezas/<instancia>/` | `_CRITERIO_MERCADEO.txt` |
+| **Criterio CMO** · El mercadeo | Próspero | `/criterio-campaigns:campaigns-setup` | `.criterio/campanas/<instancia>/` | `_CRITERIO_MERCADEO.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

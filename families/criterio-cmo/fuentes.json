@@ -1,0 +1,162 @@
+{
+  "nota": "Fuente única de las fuentes técnicas y normativas de la familia CMO y de las cifras de terceros que cita, con su estado: scripts/familias.py la escribe en FUENTES.es.md. Una fuente por verificar no sostiene ningún comando ni ninguna cifra publicada (ADR 0006).",
+  "secciones": [
+    {
+      "id": "rol",
+      "titulo": "Los marcos del mercadeo",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "Cámara de Comercio Internacional (ICC) · Código de Publicidad y Comunicaciones de Mercadeo, undécima edición",
+          "version": "2024",
+          "enlaces": [
+            [
+              "iccwbo.org",
+              "https://iccwbo.org/wp-content/uploads/sites/3/2024/09/ICC_2024_MarketingCode_2024.pdf"
+            ]
+          ],
+          "consultada": "2026-11-25",
+          "estado": "verificada",
+          "nota": "Verificado en su índice: honestidad (art. 4), veracidad (art. 5), soporte de lo que se afirma (art. 6), identificación (art. 7), testimonios e influenciadores (art. 18), niños y adolescentes (art. 20), protección de datos (art. 22) y el capítulo D, sobre las afirmaciones ambientales. Se cita por su nombre y sus artículos, nunca por su texto. Por verificar: el texto de cada artículo",
+          "uso": "El estándar de autorregulación de lo que se anuncia: el soporte de cada afirmación, la identificación de la publicidad y las bases de datos, que son las señales de Lucía"
+        },
+        {
+          "id": "F-02",
+          "fuente": "Media Rating Council (MRC), con ANA, 4A's y ACA · Outcomes and Data Quality Standards",
+          "version": "Versión final, septiembre de 2022",
+          "enlaces": [
+            [
+              "mediaratingcouncil.org",
+              "https://mediaratingcouncil.org/sites/default/files/Standards/MRC%20Outcomes%20and%20Data%20Quality%20Standards%20%28Final%29.pdf"
+            ]
+          ],
+          "consultada": "2026-11-25",
+          "estado": "verificada",
+          "nota": "Verificado en el documento: su sección 1.1 fija estándares para la calidad de los datos y la atribución de resultados a la exposición y la interacción con la publicidad, y trae una sección de guías de auditoría. Se cita por su nombre, nunca por su texto",
+          "uso": "El resultado reportado de una campaña, contra la medición de la plataforma: las señales de Próspero"
+        }
+      ]
+    },
+    {
+      "id": "regulacion",
+      "titulo": "La regulación de la publicidad y del consumidor",
+      "fuentes": [
+        {
+          "id": "F-10",
+          "fuente": "Colombia · Ley 1480 de 2011, Estatuto del Consumidor",
+          "version": "12 de octubre de 2011",
+          "enlaces": [
+            [
+              "normograma de la Cancillería",
+              "https://www.cancilleria.gov.co/sites/default/files/Normograma/docs/ley_1480_2011.htm"
+            ]
+          ],
+          "consultada": "2026-11-25",
+          "estado": "verificada",
+          "nota": "Verificada en el texto de la ley: lo que se anuncia obliga a quien lo anuncia (art. 29); la publicidad engañosa está prohibida y de ella responde el anunciante (art. 30); las promociones informan sus condiciones de tiempo, modo y lugar (art. 33); y sus definiciones de publicidad (art. 5, num. 12), publicidad engañosa (num. 13) y promociones y ofertas (num. 10)",
+          "uso": "Las condiciones de una promoción y la responsabilidad por lo que se anuncia, en una entidad de Colombia"
+        },
+        {
+          "id": "F-11",
+          "fuente": "Colombia · Ley 2300 de 2023, los horarios y canales de contacto con los consumidores",
+          "version": "2023",
+          "enlaces": [],
+          "consultada": "2026-11-25",
+          "estado": "por verificar",
+          "nota": "Su página en Función Pública no respondió. Fuera de la 0.1.0 hasta verificarla",
+          "uso": "Los horarios y canales de contacto de una campaña, cuando entre"
+        },
+        {
+          "id": "F-12",
+          "fuente": "Colombia · Ley 1581 de 2012, protección de datos personales",
+          "version": "2012",
+          "enlaces": [],
+          "consultada": "2026-11-25",
+          "estado": "por verificar",
+          "nota": "Ya citada en la decisión 0031. Por verificar: lo que pide para el uso de una base con fines de mercadeo",
+          "uso": "La autorización de una base de contactos para mercadeo, cuando entre"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "7,7 %",
+        "en": "7.7%"
+      },
+      "cifra": {
+        "es": "de los ingresos de la empresa es el presupuesto de mercadeo, igual que el año anterior",
+        "en": "of company revenue is the marketing budget, the same as the year before"
+      },
+      "fuente": "Gartner, 2025 CMO Spend Survey",
+      "anio": "2025",
+      "enlace": "https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue",
+      "muestra": {
+        "es": "402 líderes de mercadeo de Norteamérica, el Reino Unido y Europa",
+        "en": "402 marketing leaders in North America, the UK and Europe"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el comunicado de Gartner del 12 de mayo de 2025: los presupuestos de mercadeo de 2025 siguen en el 7,7 % de los ingresos de la empresa.",
+      "barra": {
+        "tipo": "share",
+        "valor": 7.7,
+        "es": "7,7 de cada 100 de los ingresos",
+        "en": "7.7 of every 100 in revenue"
+      }
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "59 %",
+        "en": "59%"
+      },
+      "cifra": {
+        "es": "de los CMO dicen que no tienen presupuesto suficiente para ejecutar su estrategia",
+        "en": "of CMOs say they lack the budget to execute their strategy"
+      },
+      "fuente": "Gartner, 2025 CMO Spend Survey",
+      "anio": "2025",
+      "enlace": "https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-2025-cmo-spend-survey-reveals-marketing-budgets-have-flatlined-at-seven-percent-of-overall-company-revenue",
+      "muestra": {
+        "es": "402 líderes de mercadeo de Norteamérica, el Reino Unido y Europa",
+        "en": "402 marketing leaders in North America, the UK and Europe"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el comunicado de Gartner del 12 de mayo de 2025: el 59 % de los CMO dice que no tiene presupuesto suficiente para ejecutar su estrategia en 2025.",
+      "barra": {
+        "tipo": "share",
+        "valor": 59,
+        "es": "59 de cada 100 CMO",
+        "en": "59 of every 100 CMOs"
+      }
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "36 centavos",
+        "en": "36 cents"
+      },
+      "cifra": {
+        "es": "de cada dólar que entra a una plataforma de compra programática llegan al consumidor",
+        "en": "of every dollar entering a programmatic buying platform reach the consumer"
+      },
+      "fuente": "Association of National Advertisers (ANA), Programmatic Media Supply Chain Transparency Study",
+      "anio": "2023",
+      "enlace": "https://www.ana.net/content/show/id/media-programmatic-transparency",
+      "muestra": {
+        "es": "los datos de registro de 21 anunciantes",
+        "en": "the log-level data of 21 advertisers"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en la página del estudio de la ANA, publicado en diciembre de 2023: solo 36 centavos de cada dólar que entra a una plataforma del lado de la demanda llegan efectivamente al consumidor.",
+      "barra": {
+        "tipo": "share",
+        "valor": 36,
+        "es": "36 de cada 100 centavos",
+        "en": "36 of every 100 cents"
+      }
+    }
+  ]
+}

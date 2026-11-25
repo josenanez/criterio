@@ -1,0 +1,104 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CMO: scripts/familias.py la escribe en DISENO.es.md, en el skill marketing-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "mercadeo/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, la política de publicidad; las piezas aprobadas con su registro; los soportes de las afirmaciones; las bases de cada promoción; el registro de bases de contactos, y el plan de mercadeo con las facturas de pauta, la exportación de la plataforma y el informe de resultados.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the advertising policy; the approved pieces with their register; the substantiation of the claims; each promotion's terms; the contact base register, and the marketing plan with the media invoices, the platform export and the results report."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que el área de mercadeo lleva de la entidad",
+      "en": "What the marketing office keeps for the entity",
+      "carpetas": [
+        {
+          "carpeta": "00-politica",
+          "agentes": [
+            "lucia",
+            "prospero"
+          ],
+          "es": "La política de publicidad y de aprobación de piezas, con sus tolerancias",
+          "en": "The advertising and piece approval policy, with its tolerances",
+          "patrones": [
+            "^politica",
+            "^policy",
+            "^manual"
+          ]
+        },
+        {
+          "carpeta": "10-piezas",
+          "agentes": [
+            "lucia"
+          ],
+          "es": "Cada pieza aprobada con su texto y el registro de piezas: su canal, su fecha de publicación, su aprobación y si es pagada a un influenciador",
+          "en": "Each approved piece with its text and the piece register: its channel, publication date, approval and whether it is paid to an influencer",
+          "patrones": [
+            "^pieza",
+            "^registro_de_piezas",
+            "^piece"
+          ]
+        },
+        {
+          "carpeta": "20-soportes",
+          "agentes": [
+            "lucia"
+          ],
+          "es": "Los soportes de cada afirmación: estudios, mediciones, certificados y comparativos",
+          "en": "The substantiation for each claim: studies, measurements, certificates and comparisons",
+          "patrones": [
+            ".*"
+          ]
+        },
+        {
+          "carpeta": "30-promociones",
+          "agentes": [
+            "lucia"
+          ],
+          "es": "Las bases de cada promoción, con su vigencia y sus condiciones de modo y lugar",
+          "en": "Each promotion's terms, with its dates and its terms of how and where",
+          "patrones": [
+            "^bases",
+            "^promocion",
+            "^terms"
+          ]
+        },
+        {
+          "carpeta": "40-bases",
+          "agentes": [
+            "lucia"
+          ],
+          "es": "El registro de bases de contactos: cada base con sus registros, su autorización para mercadeo y su fecha. Nunca los datos de una persona",
+          "en": "The contact base register: each base with its records, its marketing consent and its date. Never a person's data",
+          "patrones": [
+            "^registro_de_bases",
+            "^bases_de_contactos",
+            "^contact"
+          ]
+        },
+        {
+          "carpeta": "50-campanas",
+          "agentes": [
+            "prospero",
+            "lucia"
+          ],
+          "es": "El plan de mercadeo con el presupuesto, la meta y la base de cada campaña; las facturas de pauta; la exportación de la plataforma y el informe de resultados",
+          "en": "The marketing plan with each campaign's budget, goal and base; the media invoices; the platform export and the results report",
+          "patrones": [
+            "^plan",
+            "^facturas",
+            "^resultados",
+            "^informe",
+            "^marketing_plan",
+            "^media"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-mercadeo/",
+    "es": "Lo que escriben Lucía y Próspero: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Lucía and Próspero write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

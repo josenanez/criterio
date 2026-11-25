@@ -153,6 +153,21 @@
         "apetito",
         "eventos"
       ]
+    },
+    {
+      "sigla": "cmo",
+      "nombre": {
+        "es": "El mercadeo",
+        "en": "Marketing"
+      },
+      "estado": {
+        "es": "Construida · en pruebas",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "piezas",
+        "campanas"
+      ]
     }
   ],
   "agentes": [
@@ -2104,6 +2119,154 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lucia",
+      "nombre": "Lucía",
+      "plugin": "criterio-claims",
+      "area": "piezas",
+      "ambitos": [
+        "piezas"
+      ],
+      "familia": "cmo",
+      "rol": {
+        "es": "Lo que se anuncia",
+        "en": "What is advertised"
+      },
+      "titulo": "lo que se anuncia y su soporte",
+      "origen": {
+        "es": "del latín *lux*, la luz: cada afirmación, a la luz de su soporte",
+        "en": "from the Latin *lux*, light: each claim, in the light of its substantiation"
+      },
+      "privados": {},
+      "setup": "/criterio-claims:claims-setup",
+      "marca": "_CRITERIO_MERCADEO.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "claims-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "lucia",
+              "etiqueta": "Pídeselo a Lucía"
+            },
+            {
+              "id": "claims-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Lo que se anuncia",
+          "linea": "Cada pieza aprobada contra su soporte, cada promoción contra sus condiciones publicadas y cada base de contactos contra su autorización: la afirmación sin soporte, la comparativa sin fuente, la promoción sin vigencia o sin condiciones, la pieza pagada a un influenciador sin identificarse como publicidad, la pieza publicada sin la aprobación de legal y la base usada sin autorización para mercadeo",
+          "comandos": [
+            {
+              "id": "claims-scan",
+              "etiqueta": "Qué cambió en las piezas"
+            },
+            {
+              "id": "claim-check",
+              "etiqueta": "Cada afirmación con su soporte"
+            },
+            {
+              "id": "promo-check",
+              "etiqueta": "Cada promoción con sus condiciones"
+            },
+            {
+              "id": "approval-check",
+              "etiqueta": "La aprobación y la autorización"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prospero",
+      "nombre": "Próspero",
+      "plugin": "criterio-campaigns",
+      "area": "campanas",
+      "ambitos": [
+        "campanas"
+      ],
+      "familia": "cmo",
+      "rol": {
+        "es": "Lo que se invierte",
+        "en": "What is invested"
+      },
+      "titulo": "lo que se invierte en las campañas",
+      "origen": {
+        "es": "del latín *prosperus*, el que hace que algo rinda: cada peso de la pauta contra lo que produjo",
+        "en": "from the Latin *prosperus*, the one who makes something yield: each unit of media spend against what it produced"
+      },
+      "privados": {},
+      "setup": "/criterio-campaigns:campaigns-setup",
+      "marca": "_CRITERIO_MERCADEO.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "campaigns-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "prospero",
+              "etiqueta": "Pídeselo a Próspero"
+            },
+            {
+              "id": "campaigns-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Lo que se invierte",
+          "linea": "El presupuesto de cada campaña contra la pauta facturada y contra su resultado medido: la campaña que pasó su presupuesto, la factura de pauta sin campaña ni orden, la campaña sin meta ni indicador, el resultado reportado que no coincide con la plataforma y la pauta facturada después de la fecha de fin",
+          "comandos": [
+            {
+              "id": "campaigns-scan",
+              "etiqueta": "Qué cambió en las campañas"
+            },
+            {
+              "id": "budget-check",
+              "etiqueta": "Cada campaña contra su presupuesto"
+            },
+            {
+              "id": "invoice-check",
+              "etiqueta": "Cada factura con su campaña"
+            },
+            {
+              "id": "result-check",
+              "etiqueta": "Cada resultado contra la plataforma"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -2156,9 +2319,13 @@
     "auditor_reviews_own_work": "Un auditor asignado a un trabajo de aseguramiento tuvo a su cargo la actividad auditada en los doce meses anteriores (norma 2.2)",
     "bank_unreconciled": "Hay movimientos del extracto sin su registro, o registros sin su movimiento",
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
+    "campaign_over_budget": "La pauta facturada de una campaña supera su presupuesto más la tolerancia de la política",
+    "campaign_ran_past_end": "Hay pauta facturada después de la fecha de fin de la campaña",
+    "campaign_without_goal": "Una campaña no tiene meta ni indicador de medición",
     "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
     "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
     "certification_expired": "Una certificación que el perfil exige venció antes de la postulación",
+    "claim_without_substantiation": "Una afirmación de una pieza aprobada no tiene un soporte en la carpeta de soportes",
     "claim_without_support": "La hoja de vida afirma un título, una certificación o un empleo sin el documento que lo soporte",
     "close_date_slipped": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
@@ -2168,10 +2335,12 @@
     "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
     "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
     "committed_near_approved": "Ejecutado más comprometido se acerca a lo aprobado sin holgura",
+    "comparative_claim_without_source": "Una afirmación comparativa no cita su fuente ni su fecha",
     "compliance_done_without_evidence": "Una obligación figura cumplida y ninguna evidencia la sostiene",
     "compliance_evidence_stale": "La evidencia más reciente de una obligación periódica es de antes de su ventana",
     "compliance_obligation_overdue": "Una obligación de la matriz pasó su fecha límite sin evidencia",
     "consent_missing": "No hay autorización de tratamiento de datos del candidato, o es posterior a recibir sus datos",
+    "contact_base_without_consent": "Una base de contactos usada en una campaña no tiene autorización para mercadeo",
     "continuity_test_overdue": "La prueba del plan de continuidad o de recuperación pasó su fecha, o no hay ninguna",
     "contract_expired_active": "El registro reporta vigente un contrato cuya fecha de terminación ya pasó",
     "contract_expiring": "Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar",
@@ -2231,6 +2400,7 @@
     "loss_event_repeated": "El mismo tipo de evento se repite en el mismo proceso dentro de la ventana de la política",
     "loss_event_risk_unmapped": "Un evento no corresponde a ningún riesgo de la matriz",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
+    "media_invoice_unmatched": "Una factura de pauta no tiene campaña del plan ni orden de compra",
     "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
     "meeting_during_flight": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
     "meeting_while_away": "Una reunión presencial en la ciudad del ejecutivo cae mientras el itinerario lo tiene de viaje en otra",
@@ -2243,6 +2413,7 @@
     "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
     "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
     "personal_data_unregistered": "Un conjunto con datos personales no está en el registro de bases de datos personales de la organización",
+    "piece_published_unapproved": "Una pieza se publicó sin la aprobación que pide la política, o antes de ella",
     "plan_area_not_considered": "El plan no considera el gobierno de TI, el riesgo de fraude o los programas de cumplimiento y ética, ni dice por qué (norma 9.4)",
     "plan_change_unapproved": "Un trabajo se agregó, se canceló o se aplazó sin el acta del órgano que aprueba el plan",
     "plan_hours_exceed_capacity": "Las horas del plan superan las horas disponibles del equipo en el periodo",
@@ -2252,6 +2423,7 @@
     "profile_without_occupation": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
     "profiles_overlap": "Dos perfiles comparten la ocupación y la mayor parte de sus requisitos",
     "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área",
+    "promotion_terms_missing": "Una promoción no publica su vigencia o sus condiciones de modo y lugar",
     "protected_data_received": "Llegó un dato que no se debe tratar —fotografía, edad, documento de identidad, salud—, y se excluye del análisis",
     "public_contract_not_published": "Un contrato de una entidad pública no se publicó en el sistema nacional dentro del plazo de la ley de su país",
     "public_guarantee_below_law": "La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país",
@@ -2273,6 +2445,7 @@
     "requirement_not_evidenced": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
     "requirement_without_task": "Un requisito del perfil no se apoya en ninguna de sus tareas",
     "restore_test_overdue": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna",
+    "result_differs_from_platform": "El resultado reportado no coincide con la exportación de la plataforma para el mismo corte, más allá de la tolerancia",
     "retention_exceeded": "Un conjunto conserva registros más tiempo del que fija la política para su tipo",
     "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
     "risk_accepted_not_escalated": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
@@ -2283,6 +2456,7 @@
     "signed_without_invoice": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",
     "soa_control_unassigned": "Un control aplicable no tiene responsable",
     "spend_without_budget_line": "Hay gasto en una cuenta o centro de costo sin línea presupuestal",
+    "sponsored_content_unidentified": "Una pieza pagada a un influenciador no se identifica como publicidad",
     "stage_without_evidence": "Una oportunidad está en una etapa y no tiene el documento que esa etapa exige: la propuesta enviada, la orden de compra",
     "stalled_opportunity": "Una oportunidad abierta no tiene actividad registrada en los días configurados",
     "target_vs_closed": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",

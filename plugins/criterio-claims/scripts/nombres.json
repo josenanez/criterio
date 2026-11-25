@@ -1,0 +1,31 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cmo/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "claim_without_substantiation": "Una afirmación de una pieza aprobada no tiene un soporte en la carpeta de soportes",
+    "comparative_claim_without_source": "Una afirmación comparativa no cita su fuente ni su fecha",
+    "promotion_terms_missing": "Una promoción no publica su vigencia o sus condiciones de modo y lugar",
+    "sponsored_content_unidentified": "Una pieza pagada a un influenciador no se identifica como publicidad",
+    "piece_published_unapproved": "Una pieza se publicó sin la aprobación que pide la política, o antes de ella",
+    "contact_base_without_consent": "Una base de contactos usada en una campaña no tiene autorización para mercadeo",
+    "campaign_over_budget": "La pauta facturada de una campaña supera su presupuesto más la tolerancia de la política",
+    "media_invoice_unmatched": "Una factura de pauta no tiene campaña del plan ni orden de compra",
+    "campaign_without_goal": "Una campaña no tiene meta ni indicador de medición",
+    "result_differs_from_platform": "El resultado reportado no coincide con la exportación de la plataforma para el mismo corte, más allá de la tolerancia",
+    "campaign_ran_past_end": "Hay pauta facturada después de la fecha de fin de la campaña"
+  },
+  "comandos": {
+    "claims-setup": "Instalación",
+    "claims-scan": "Qué cambió en las piezas",
+    "claim-check": "Cada afirmación con su soporte",
+    "promo-check": "Cada promoción con sus condiciones",
+    "approval-check": "La aprobación y la autorización",
+    "claims-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
+    "campaigns-setup": "Instalación",
+    "campaigns-scan": "Qué cambió en las campañas",
+    "budget-check": "Cada campaña contra su presupuesto",
+    "invoice-check": "Cada factura con su campaña",
+    "result-check": "Cada resultado contra la plataforma",
+    "campaigns-wake": "Qué toca hoy"
+  }
+}

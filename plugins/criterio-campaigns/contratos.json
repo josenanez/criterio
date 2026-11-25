@@ -1,0 +1,299 @@
+{
+  "comandos": {
+    "budget-check": {
+      "funcion": "Cada campaña contra su presupuesto, su meta y su fecha de fin: las que se pasaron, las que siguieron y las que no miden nada.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada campaña contra su presupuesto, su meta y su fecha de fin: las que se pasaron, las que siguieron y las que no miden nada",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-budget-check.md",
+          "<estado>/corridas/salida-budget-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "campaigns-scan": {
+      "funcion": "Procesa lo que cambió en las campañas, lleva cada resultado nuevo del informe a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en las campañas, lleva cada resultado nuevo del informe a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-campaigns-scan.md",
+          "<estado>/corridas/salida-campaigns-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-intake",
+          "result-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "campaigns-setup": {
+      "funcion": "Deja a Próspero listo sobre una entidad — mira la carpeta de mercadeo, reconoce el plan, las facturas de pauta y la exportación de la plataforma y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Próspero listo sobre una entidad — mira la carpeta de mercadeo, reconoce el plan, las facturas de pauta y la exportación de la plataforma y muestra el primer resultado",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-campaigns-setup.md",
+          "<estado>/corridas/salida-campaigns-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-intake",
+          "marketing-policy",
+          "result-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "campaigns-wake": {
+      "funcion": "Lo que toca hoy en las campañas — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en las campañas — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-campaigns-wake.md",
+          "<estado>/corridas/salida-campaigns-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "invoice-check": {
+      "funcion": "Cada factura de pauta con su campaña y su orden de compra: la pauta facturada sin campaña ni orden.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada factura de pauta con su campaña y su orden de compra: la pauta facturada sin campaña ni orden",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-invoice-check.md",
+          "<estado>/corridas/salida-invoice-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "prospero": {
+      "funcion": "Pídeselo a Próspero (Lo que se invierte) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Próspero (Lo que se invierte) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "result-check": {
+      "funcion": "Cada resultado del informe de mercadeo contra la exportación de la plataforma al mismo corte: el que no se sostiene.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada resultado del informe de mercadeo contra la exportación de la plataforma al mismo corte: el que no se sostiene",
+        "escribe": [
+          "<estado>/campanas/<AAAA-MM>/resultados.json",
+          "<estado>/campanas/<AAAA-MM>/reporte-result-check.md",
+          "<estado>/corridas/salida-result-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía.",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "result-record": {
+      "escribe": [
+        "reported[]"
+      ],
+      "alimenta": [
+        "result_differs_from_platform"
+      ]
+    }
+  }
+}

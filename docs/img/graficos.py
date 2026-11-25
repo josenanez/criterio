@@ -153,6 +153,7 @@ T = {
         'cae_fr': 'Pongo cada riesgo al lado de su trabajo, y cada hallazgo al lado de su evidencia.',
         'cdo_fr': 'Pongo cada dato al lado de su dueño, y cada cifra al lado de su fuente.',
         'cro_fr': 'Pongo cada exposición al lado de su límite, y cada aviso al lado de lo que se hizo.',
+        'cmo_fr': 'Pongo cada afirmación al lado de su soporte, y cada campaña al lado de lo que produjo.',
         'disponible': 'Disponible',
         # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
         'og': {'pmo': ('Extiende la capacidad de tu PMO',
@@ -173,6 +174,8 @@ T = {
                        'Custodia y Ariadna procesan el catálogo, las políticas, los informes y el linaje, y dicen qué dato no tiene dueño y qué cifra no se sostiene en su fuente.'),
                'cro': ('Los riesgos, contra su apetito',
                        'Severo y Casandra procesan los límites, los indicadores y los eventos, y dicen qué límite está excedido sin plan y qué aviso nadie atendió.'),
+               'cmo': ('El mercadeo, contra su soporte',
+                       'Lucía y Próspero procesan las piezas, los soportes, la pauta y los resultados, y dicen qué se anunció sin soporte y qué campaña se pasó.'),
                'chro': ('El talento, contra sus estándares y sus soportes',
                         'Norma y Cándido procesan los perfiles de cargo y las hojas de vida, y dicen qué perfil no corresponde a su ocupación y qué afirmación no tiene soporte. No deciden sobre nadie.'),
                'rostrum': ('Rostrum, el portal de todas las familias',
@@ -201,7 +204,9 @@ T = {
                'custodia': ('Custodia', 'El gobierno', 'Para quien responde por el gobierno de los datos.', 'El gobierno'),
                'ariadna': ('Ariadna', 'La calidad', 'Para quien responde por la cifra que llega a la dirección.', 'La calidad'),
                'severo': ('Severo', 'El apetito', 'Para quien responde por el apetito por riesgo y sus límites.', 'El apetito'),
-               'casandra': ('Casandra', 'Los eventos', 'Para quien responde por los indicadores y los eventos de pérdida.', 'Los eventos')},
+               'casandra': ('Casandra', 'Los eventos', 'Para quien responde por los indicadores y los eventos de pérdida.', 'Los eventos'),
+               'lucia': ('Lucía', 'Lo que se anuncia', 'Para quien responde por lo que la marca anuncia.', 'Lo que se anuncia'),
+               'prospero': ('Próspero', 'Lo que se invierte', 'Para quien responde por la inversión en las campañas.', 'Lo que se invierte')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -309,6 +314,7 @@ T = {
         'cae_fr': 'I put every risk next to its engagement, and every finding next to its evidence.',
         'cdo_fr': 'I put every piece of data next to its owner, and every figure next to its source.',
         'cro_fr': 'I put every exposure next to its limit, and every warning next to what was done about it.',
+        'cmo_fr': 'I put every claim next to its support, and every campaign next to what it produced.',
         'disponible': 'Available',
         'og': {'pmo': ('Extend your PMO’s capacity',
                        'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
@@ -328,6 +334,8 @@ T = {
                        'Custodia and Ariadna process the catalog, the policies, the reports and the lineage, and say which data has no owner and which figure does not hold up against its source.'),
                'cro': ('Risk, against its appetite',
                        'Severo and Casandra process the limits, the indicators and the events, and say which limit is breached with no plan and which warning nobody dealt with.'),
+               'cmo': ('Marketing, against its substantiation',
+                       'Lucía and Próspero process the pieces, the substantiation, the media and the results, and say what was advertised unsupported and which campaign overspent.'),
                'chro': ('Talent, against its standards and its supporting documents',
                         'Norma and Cándido process the job profiles and the CVs, and say which profile does not match its occupation and which claim has no support. They decide about no one.'),
                'rostrum': ('Rostrum, the portal for every family',
@@ -357,7 +365,9 @@ T = {
                'custodia': ('Custodia', 'Governance', 'For whoever answers for data governance.', 'Governance'),
                'ariadna': ('Ariadna', 'Quality', 'For whoever answers for the figure that reaches management.', 'Quality'),
                'severo': ('Severo', 'Appetite', 'For whoever answers for risk appetite and its limits.', 'Appetite'),
-               'casandra': ('Casandra', 'Events', 'For whoever answers for the indicators and loss events.', 'Events')},
+               'casandra': ('Casandra', 'Events', 'For whoever answers for the indicators and loss events.', 'Events'),
+               'lucia': ('Lucía', 'What is advertised', 'For whoever answers for what the brand advertises.', 'What is advertised'),
+               'prospero': ('Próspero', 'What is invested', 'For whoever answers for the investment in campaigns.', 'What is invested')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -792,7 +802,7 @@ def marca():
 
 # ══════════════════════════════════════════════════════════════════ tarjetas sociales
 
-OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO, 'chro': trazos.ORDEN_CHRO, 'cae': trazos.ORDEN_CAE, 'cdo': trazos.ORDEN_CDO, 'cro': trazos.ORDEN_CRO,
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO, 'chro': trazos.ORDEN_CHRO, 'cae': trazos.ORDEN_CAE, 'cdo': trazos.ORDEN_CDO, 'cro': trazos.ORDEN_CRO, 'cmo': trazos.ORDEN_CMO,
              'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
 
 
@@ -1435,7 +1445,7 @@ if __name__ == '__main__':
     for idioma, t in T.items():
         print(idioma)
         # el estado de cada familia es el de su familia.json, por medio del registro
-        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'cro'):
+        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'cro', 'cmo'):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
@@ -1444,7 +1454,7 @@ if __name__ == '__main__':
             guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
             guardar(flujo(tf), idioma, f'flujo-{sg}.png')
             guardar(contrato(tf), idioma, f'contrato-{sg}.png')
-        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'cro', 'rostrum'):
+        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'cro', 'cmo', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
@@ -1453,7 +1463,7 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO + trazos.ORDEN_CHRO + trazos.ORDEN_CAE + trazos.ORDEN_CDO + trazos.ORDEN_CRO:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO + trazos.ORDEN_CHRO + trazos.ORDEN_CAE + trazos.ORDEN_CDO + trazos.ORDEN_CRO + trazos.ORDEN_CMO:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
     # El trazo de cada robot, como SVG animado y como datos: docs/img/robots_datos.py, que la
     # verificación comprueba.

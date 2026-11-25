@@ -1,0 +1,324 @@
+{
+  "comandos": {
+    "approval-check": {
+      "funcion": "Cada pieza con su aprobación y su identificación como publicidad, y cada base de contactos con su autorización: lo que salió sin el sí de la política.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada pieza con su aprobación y su identificación como publicidad, y cada base de contactos con su autorización: lo que salió sin el sí de la política",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-approval-check.md",
+          "<estado>/corridas/salida-approval-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "claim-check": {
+      "funcion": "Cada afirmación de una pieza con su soporte, y cada comparativa con su fuente: lo que se anunció sin con qué sostenerlo.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada afirmación de una pieza con su soporte, y cada comparativa con su fuente: lo que se anunció sin con qué sostenerlo",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-claim-check.md",
+          "<estado>/corridas/salida-claim-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "claims-scan": {
+      "funcion": "Procesa lo que cambió en las piezas, lleva cada afirmación con su soporte y cada promoción con sus condiciones a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en las piezas, lleva cada afirmación con su soporte y cada promoción con sus condiciones a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-claims-scan.md",
+          "<estado>/corridas/salida-claims-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-intake",
+          "claim-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "claims-setup": {
+      "funcion": "Deja a Lucía lista sobre una entidad — mira la carpeta de mercadeo, reconoce el registro de piezas, el de bases de contactos y el plan, y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Lucía lista sobre una entidad — mira la carpeta de mercadeo, reconoce el registro de piezas, el de bases de contactos y el plan, y muestra el primer resultado",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-claims-setup.md",
+          "<estado>/corridas/salida-claims-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-intake",
+          "marketing-policy",
+          "claim-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "claims-wake": {
+      "funcion": "Lo que toca hoy en las piezas — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en las piezas — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-claims-wake.md",
+          "<estado>/corridas/salida-claims-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "lucia": {
+      "funcion": "Pídeselo a Lucía (Lo que se anuncia) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Lucía (Lo que se anuncia) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "promo-check": {
+      "funcion": "Cada promoción con su vigencia y sus condiciones de modo y lugar: las que no dicen cuándo ni cómo.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada promoción con su vigencia y sus condiciones de modo y lugar: las que no dicen cuándo ni cómo",
+        "escribe": [
+          "<estado>/piezas/<AAAA-MM>/resultados.json",
+          "<estado>/piezas/<AAAA-MM>/reporte-promo-check.md",
+          "<estado>/corridas/salida-promo-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "marketing-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cmo: las piezas, los soportes, las promociones, las bases y las campañas de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía.",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "marketing-intake": {
+      "escribe": [
+        "columns"
+      ],
+      "alimenta": [
+        "piece_published_unapproved",
+        "sponsored_content_unidentified",
+        "contact_base_without_consent",
+        "media_invoice_unmatched",
+        "campaign_without_goal",
+        "campaign_ran_past_end"
+      ]
+    },
+    "marketing-policy": {
+      "escribe": [
+        "methodology"
+      ],
+      "alimenta": [
+        "campaign_over_budget",
+        "result_differs_from_platform"
+      ]
+    },
+    "claim-record": {
+      "escribe": [
+        "claims[]",
+        "promotions[]"
+      ],
+      "alimenta": [
+        "claim_without_substantiation",
+        "comparative_claim_without_source",
+        "promotion_terms_missing"
+      ]
+    }
+  }
+}

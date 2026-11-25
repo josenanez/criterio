@@ -1,0 +1,20 @@
+{
+  "name": "criterio-claims",
+  "version": "0.1.0",
+  "description": "Lucía, lo que se anuncia: cada afirmación de una pieza aprobada contra su soporte, cada comparativa contra su fuente, cada promoción contra sus condiciones, cada pieza contra su aprobación y su identificación como publicidad, y cada base de contactos contra su autorización. Procesa exportaciones y documentos; nunca aprueba una pieza ni procesa los datos de una persona.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "mercadeo",
+    "marketing",
+    "cmo",
+    "publicidad",
+    "advertising",
+    "codigo-icc",
+    "afirmaciones"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cmo",
+  "license": "Apache-2.0"
+}

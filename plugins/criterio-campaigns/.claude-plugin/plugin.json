@@ -1,0 +1,20 @@
+{
+  "name": "criterio-campaigns",
+  "version": "0.1.0",
+  "description": "Próspero, lo que se invierte: cada campaña contra su presupuesto, su meta y su fecha de fin, cada factura de pauta contra su campaña y su orden, y cada resultado reportado contra la exportación de la plataforma. Procesa exportaciones; nunca aprueba un presupuesto ni se conecta a una plataforma.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "mercadeo",
+    "marketing",
+    "cmo",
+    "campanas",
+    "campaigns",
+    "pauta",
+    "media-spend"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cmo",
+  "license": "Apache-2.0"
+}
