@@ -76,7 +76,7 @@
           "support": "20-soportes/comparativo_de_precios_2026-10.pdf",
           "source": "10-piezas/pieza_P-02.pdf",
           "comparative": true,
-          "comparative_source": "Fuente: comparativo de precios de un tercero independiente, octubre de 2026."
+          "comparative_source": "comparativo de precios de un tercero independiente, octubre de 2026"
         },
         {
           "piece": "P-03",

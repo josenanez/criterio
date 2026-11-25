@@ -42,6 +42,7 @@ import formatos as FMT  # noqa: E402  (Word, Excel y PDF sin dependencias y con 
 SALIDA = AQUI / "material"
 HOY, PERIODO = dt.date(2026, 11, 25), "2026-10"
 METODO = {"budget_tolerance_pct": 5, "result_tolerance_pct": 2}
+FUENTE_COMP = "comparativo de precios de un tercero independiente, octubre de 2026"
 TODAS = {"sin_soporte", "comparativa", "promocion", "patrocinada", "aprobacion", "base",
          "presupuesto", "factura", "meta", "resultado", "fin"}
 
@@ -113,7 +114,7 @@ def construir(e: dict) -> dict:
     _pdf("# Catálogo de la colección\n\nTres colores disponibles.\n", docs / soportes["coleccion"])
 
     # ------------------------------------------------------------ 10-piezas
-    fuente_comp = "" if "comparativa" in s else "Fuente: comparativo de precios de un tercero independiente, octubre de 2026."
+    fuente_comp = "" if "comparativa" in s else f"Fuente: {FUENTE_COMP}."
     piezas = [
         ("P-01", "Entrega en un día", "Televisión", "Entrega en 24 horas en las ciudades principales.", soportes["entrega"], False, ""),
         ("P-02", "Precio bajo", "Prensa", "El precio más bajo del mercado en la canasta básica.", soportes["precios"], True, fuente_comp),
@@ -132,7 +133,9 @@ def construir(e: dict) -> dict:
         c = {"piece": pid, "claim": texto, "support": sop, "source": f}
         if comp:
             c["comparative"] = True
-            c["comparative_source"] = fuente or ""
+            # La fuente que la pieza cita, sin la etiqueta «Fuente:» ni el punto final: es lo que el
+            # agente lleva a la ficha, y la calificación busca este texto dentro del suyo (CMO-1).
+            c["comparative_source"] = FUENTE_COMP if fuente else ""
         claims.append(c)
     if "sin_soporte" in s:
         esp("claim_without_substantiation", "soporte:P-03")
