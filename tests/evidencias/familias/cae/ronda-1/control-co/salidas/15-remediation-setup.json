@@ -1,0 +1,41 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/901888432-banco-control-sintetico",
+  "inicio": "2026-11-25T00:40:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 21,
+  "tokens": 855410,
+  "tokens_salida": 7973,
+  "costo_usd": 0.6773626,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/901888432/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.sha256",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/H-03/explicacion-del-atraso.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/H-21/evidencia.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-remediation-setup.md",
+      "estado-auditoria/901888432-banco-control-sintetico/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/901888432-banco-control-sintetico/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/901888432-banco-control-sintetico/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/manifest.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

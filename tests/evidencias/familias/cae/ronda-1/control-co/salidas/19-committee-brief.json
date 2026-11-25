@@ -1,0 +1,28 @@
+{
+  "n": 19,
+  "agente": "remedios",
+  "comando": "committee-brief",
+  "argumento": "",
+  "inicio": "2026-11-25T00:43:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 10,
+  "tokens": 409032,
+  "tokens_salida": 2356,
+  "costo_usd": 0.1373362,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-committee-brief-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-committee-brief.md",
+      "estado-auditoria/901888432-banco-control-sintetico/seguimiento/2026-11/reporte-committee-brief.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

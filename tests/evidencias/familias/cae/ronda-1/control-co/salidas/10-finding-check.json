@@ -1,0 +1,26 @@
+{
+  "n": 10,
+  "agente": "justo",
+  "comando": "finding-check",
+  "argumento": "",
+  "inicio": "2026-11-25T00:38:31",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 401486,
+  "tokens_salida": 2296,
+  "costo_usd": 0.1315104,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-finding-check-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-finding-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

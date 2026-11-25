@@ -1467,6 +1467,152 @@
      "en": "4 · The daily task, only with a yes"
     }
    ]
+  },
+  "C9tPSPVgc9g": {
+   "video": "chro/presentacion",
+   "idioma": "es",
+   "localizaciones": [
+    "en"
+   ],
+   "es": {
+    "title": "El talento con agentes de IA: perfiles de cargo, lo que no se puede pedir | Criterio CHRO",
+    "description": "Criterio CHRO es una familia de agentes de IA de código abierto (Apache 2.0) que trabaja en Claude Code: procesa los documentos del área y entrega cada señal con la cita del documento del que sale.\n\nQué hace, área por área:\n• Perfiles de cargo: cada perfil contra la ocupación de su estándar. Con CUOC del DANE, O*NET 31.0, CIUO-08.\n• Lo que no se puede pedir: cada requisito contra la ley de datos del país y la política. Con leyes de datos personales de 8 países.\n• Hojas de vida: cada afirmación contra su soporte, y cada candidato contra el perfil. Con hojas de vida y soportes en PDF o Word.\n• Datos de candidatos: autorización, conservación y lo que no se trata. Con registro de autorizaciones, exportación del ATS en Excel o CSV.\n• Vacantes: cada vacante contra su plazo de cobertura. Con registro de vacantes en Excel o CSV.\n\nLos agentes: Norma, los perfiles de cargo · Cándido, la selección. Y Rostrum, el portal que publica lo que escriben.\nDónde se probó: Colombia, Perú, Chile y México.\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-chro\nEl análisis de las pruebas: https://www.josenanez.com/es/agents/criterio-chro/analisis\nEn inglés: https://youtu.be/Ohlwj9HtHh0\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 Qué hace Criterio CHRO, área por área\n0:19 Dónde se probó\n0:29 Los agentes y lo que preparan\n0:44 La evidencia de las pruebas\n0:58 Lo que encontró cada agente\n1:17 Cómo se instala\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Talent with AI agents: job profiles, what cannot be asked for, CVs, candidate data | Criterio CHRO",
+    "description": "On-screen text in Spanish.\nCriterio CHRO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Job profiles: every profile against the occupation in its standard. With DANE CUOC, O*NET 31.0, ISCO-08.\n• What cannot be asked for: every requirement against the country's data law and the policy. With personal data laws of 8 countries.\n• CVs: every claim against its support, and every candidate against the profile. With CVs and supporting documents in PDF or Word.\n• Candidate data: authorisation, retention and what is not processed. With authorisation register, ATS export in Excel or CSV.\n• Vacancies: every vacancy against its time to fill. With vacancy register in Excel or CSV.\n\nThe agents: Norma, Job profiles · Cándido, Selection. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-chro\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-chro/analisis\nIn English: https://youtu.be/Ohlwj9HtHh0\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CHRO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CHRO",
+    "Chief Human Resources Officer",
+    "El talento",
+    "Talent",
+    "Perfiles de cargo",
+    "Lo que no se puede pedir",
+    "Hojas de vida",
+    "Datos de candidatos",
+    "Vacantes",
+    "Norma",
+    "Cándido",
+    "CUOC del DANE",
+    "O*NET 31.0",
+    "CIUO-08"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "Qué hace Criterio CHRO, área por área",
+     "en": "What Criterio CHRO does, area by area"
+    },
+    {
+     "t": "0:19",
+     "es": "Dónde se probó",
+     "en": "Where it was tested"
+    },
+    {
+     "t": "0:29",
+     "es": "Los agentes y lo que preparan",
+     "en": "The agents and what they prepare"
+    },
+    {
+     "t": "0:44",
+     "es": "La evidencia de las pruebas",
+     "en": "The test evidence"
+    },
+    {
+     "t": "0:58",
+     "es": "Lo que encontró cada agente",
+     "en": "What each agent found"
+    },
+    {
+     "t": "1:17",
+     "es": "Cómo se instala",
+     "en": "How to install it"
+    }
+   ]
+  },
+  "Ohlwj9HtHh0": {
+   "video": "chro/presentacion/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "El talento con agentes de IA: perfiles de cargo, lo que no se puede pedir | Criterio CHRO",
+    "description": "Texto en pantalla en inglés.\nCriterio CHRO es una familia de agentes de IA de código abierto (Apache 2.0) que trabaja en Claude Code: procesa los documentos del área y entrega cada señal con la cita del documento del que sale.\n\nQué hace, área por área:\n• Perfiles de cargo: cada perfil contra la ocupación de su estándar. Con CUOC del DANE, O*NET 31.0, CIUO-08.\n• Lo que no se puede pedir: cada requisito contra la ley de datos del país y la política. Con leyes de datos personales de 8 países.\n• Hojas de vida: cada afirmación contra su soporte, y cada candidato contra el perfil. Con hojas de vida y soportes en PDF o Word.\n• Datos de candidatos: autorización, conservación y lo que no se trata. Con registro de autorizaciones, exportación del ATS en Excel o CSV.\n• Vacantes: cada vacante contra su plazo de cobertura. Con registro de vacantes en Excel o CSV.\n\nLos agentes: Norma, los perfiles de cargo · Cándido, la selección. Y Rostrum, el portal que publica lo que escriben.\nDónde se probó: Colombia, Perú, Chile y México.\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-chro\nEl análisis de las pruebas: https://www.josenanez.com/es/agents/criterio-chro/analisis\nEn español: https://youtu.be/C9tPSPVgc9g\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 Qué hace Criterio CHRO, área por área\n0:19 Dónde se probó\n0:29 Los agentes y lo que preparan\n0:44 La evidencia de las pruebas\n0:58 Lo que encontró cada agente\n1:17 Cómo se instala\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Talent with AI agents: job profiles, what cannot be asked for, CVs, candidate data | Criterio CHRO",
+    "description": "Criterio CHRO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Job profiles: every profile against the occupation in its standard. With DANE CUOC, O*NET 31.0, ISCO-08.\n• What cannot be asked for: every requirement against the country's data law and the policy. With personal data laws of 8 countries.\n• CVs: every claim against its support, and every candidate against the profile. With CVs and supporting documents in PDF or Word.\n• Candidate data: authorisation, retention and what is not processed. With authorisation register, ATS export in Excel or CSV.\n• Vacancies: every vacancy against its time to fill. With vacancy register in Excel or CSV.\n\nThe agents: Norma, Job profiles · Cándido, Selection. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-chro\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-chro/analisis\nIn Spanish: https://youtu.be/C9tPSPVgc9g\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CHRO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CHRO",
+    "Chief Human Resources Officer",
+    "El talento",
+    "Talent",
+    "Perfiles de cargo",
+    "Lo que no se puede pedir",
+    "Hojas de vida",
+    "Datos de candidatos",
+    "Vacantes",
+    "Norma",
+    "Cándido",
+    "CUOC del DANE",
+    "O*NET 31.0",
+    "CIUO-08"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "Qué hace Criterio CHRO, área por área",
+     "en": "What Criterio CHRO does, area by area"
+    },
+    {
+     "t": "0:19",
+     "es": "Dónde se probó",
+     "en": "Where it was tested"
+    },
+    {
+     "t": "0:29",
+     "es": "Los agentes y lo que preparan",
+     "en": "The agents and what they prepare"
+    },
+    {
+     "t": "0:44",
+     "es": "La evidencia de las pruebas",
+     "en": "The test evidence"
+    },
+    {
+     "t": "0:58",
+     "es": "Lo que encontró cada agente",
+     "en": "What each agent found"
+    },
+    {
+     "t": "1:17",
+     "es": "Cómo se instala",
+     "en": "How to install it"
+    }
+   ]
   }
  },
  "listas": {
@@ -1485,7 +1631,8 @@
     "LggEjBDdf_s",
     "n4YqX8pDRwI",
     "BiEpT0LQ_AI",
-    "63hkeQWxHLE"
+    "63hkeQWxHLE",
+    "C9tPSPVgc9g"
    ]
   },
   "en": {
@@ -1497,7 +1644,8 @@
     "9kJPN4TTUtY",
     "MVXBxgZ74VY",
     "1xSnCYvDicw",
-    "HRqqTtYWYcE"
+    "HRqqTtYWYcE",
+    "Ohlwj9HtHh0"
    ]
   }
  }

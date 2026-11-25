@@ -1,0 +1,28 @@
+{
+  "n": 18,
+  "agente": "remedios",
+  "comando": "closure-check",
+  "argumento": "",
+  "inicio": "2026-11-25T00:43:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 402549,
+  "tokens_salida": 2191,
+  "costo_usd": 0.132106,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-closure-check-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-closure-check.md",
+      "estado-auditoria/901888432-banco-control-sintetico/seguimiento/2026-11/reporte-closure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -132,6 +132,18 @@
     "transcripcion": "criterio-pmo-uso-es.txt",
     "duracion": 275.1
    }
+  },
+  "chro": {
+   "presentacion": {
+    "id": "C9tPSPVgc9g",
+    "transcripcion": "criterio-chro-youtube-es.txt",
+    "duracion": 88.1,
+    "en": {
+     "id": "Ohlwj9HtHh0",
+     "transcripcion": "criterio-chro-youtube-en.txt",
+     "duracion": 88.1
+    }
+   }
   }
  },
  "listas": {

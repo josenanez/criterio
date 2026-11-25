@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "prudencia",
+  "comando": "plan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-25T00:33:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 9,
+  "tokens": 403744,
+  "tokens_salida": 2503,
+  "costo_usd": 0.13577060000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-plan-coverage-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-plan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
