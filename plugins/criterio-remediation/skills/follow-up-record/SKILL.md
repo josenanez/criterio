@@ -25,7 +25,7 @@ Una ficha por periodo, en `<estado>/seguimiento/<AAAA-MM>/ficha.json`. El regist
 - **`evidence`**: un documento por cada hallazgo que lo soporta, con la fecha que consta en él y, en `what`, el título del documento en sus palabras. Que la evidencia **sostenga** el cierre lo valida el auditor; aquí solo se registra que existe y qué dice.
 - **`delay_explanations`**: la explicación documentada de un atraso, con la fecha que consta en ella y, en `what`, su título (norma 15.2).
 - **`external_findings`**: cada hallazgo de un informe externo con el identificador y el título que le da ese informe, en sus palabras. El motor lo busca en el registro por su identificador o por su `referencia_externa`.
-- **`reviewed`**: los documentos de `30-seguimiento/` que se procesaron y no traen nada para la ficha. Un documento citado en otro campo —una evidencia, una explicación, el informe externo— no va aquí.
+- **`reviewed`**: los documentos de `30-seguimiento/` que se procesaron y no traen nada para la ficha. Un documento citado en otro campo —una evidencia, una explicación, el informe externo— no va aquí, ni las tablas que procesa el motor: el registro de hallazgos y el de riesgos aceptados.
 
 ## Lo que nunca va
 

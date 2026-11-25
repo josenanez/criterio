@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "prudencia",
+  "comando": "plan-capacity",
+  "argumento": "",
+  "inicio": "2026-11-25T00:19:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 402000,
+  "tokens_salida": 2050,
+  "costo_usd": 0.1298479,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-plan-capacity-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-plan-capacity.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/reporte-plan-capacity.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,44 @@
+# /criterio-audit-plan:plan-capacity 
+
+Los términos están vigentes (versión 1.6) y la corrida quedó registrada con el id `2026-11-24-plan-capacity-1`. El motor ya traía la aceptación, así que no hizo falta registrarla de nuevo a nombre de José Francisco Ñáñez.
+
+# Las horas del plan · Seguradora Atlântica Sintética · periodo 2026-11
+
+**Entidad:** Seguradora Atlântica Sintética (31452078000190) · **Fecha de corte:** 2026-11-24 · **Procesado:** 2026-11-24 · **Agente:** Prudencia, versión 0.1.0 · **Comando:** `plan-capacity`
+
+## Lo que hay que atender
+
+| # | Señal | Qué | Monto | Responsable | Días | Cita |
+|---|---|---|---|---|---|---|
+| 1 | Las horas del plan superan las horas disponibles del equipo en el periodo (`plan_hours_exceed_capacity`) | el plan suma 2200 horas y el equipo tiene 2000 disponibles en el periodo: faltan 200 | — | — | — | `10-plan/plan_anual_2026.xlsx` · `00-referencia/equipo.xlsx` |
+
+## El resultado
+
+**Horas del plan:** 2200 · **Horas disponibles del equipo:** 2000.
+
+| Trabajo | Temas | Horas |
+|---|---|---|
+| TR-01 · Crédito comercial | credito | 500.0 |
+| TR-02 · Ciberseguridad de canales | ciberseguridad, ti | 400.0 |
+| TR-03 · Prevención de lavado | lavado_de_activos | 300.0 |
+| TR-04 · Pagos a proveedores | fraude, proveedores, terceros | 300.0 |
+| TR-06 · Nómina | nomina | 200.0 |
+| TR-07 · Gobierno corporativo | gobierno | 500.0 |
+
+Requisitos temáticos de The IIA y desde cuándo rigen: Ciberseguridad, 2026-02-05; Terceros, 2026-09-15; Comportamiento Organizacional, 2026-12-15; Resiliencia Organizacional, 2027-04-30; Anticorrupción, 2027-11-23.
+
+## Lo que no se pudo procesar
+
+Todo lo que llegó se procesó.
+
+## Las preguntas que hizo
+
+Ninguna en esta corrida.
+
+## Fuentes
+
+- `00-referencia/equipo.xlsx`
+- `10-plan/plan_anual_2026.xlsx`
+- Fuentes técnicas: F-01 (families/criterio-cae/FUENTES.es.md)
+
+El reporte está en `estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/reporte-plan-capacity.md`. Su copia, que es lo que se mostró, está en `corridas/salida-plan-capacity.md`.

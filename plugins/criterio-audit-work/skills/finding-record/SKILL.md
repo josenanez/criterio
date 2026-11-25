@@ -31,7 +31,7 @@ Una ficha por periodo, en `<estado>/trabajos/<AAAA-MM>/ficha.json`. El programa 
 - **`program_approved`**: la fecha en que el responsable de auditoría aprobó el programa, tal como consta en el documento; sin constancia, va vacío y el motor levanta la señal.
 - **`findings`**: cada hallazgo **como lo escriben los papeles**. `criteria`, `condition`, `cause` y `effect` en sus palabras; si los papeles dicen por qué no se pudo identificar la causa, va en `cause_unknown_reason`. `impact` y `likelihood` en la escala de la metodología; `priority`, la que puso el auditor. `workpapers`, las referencias que cita; `figures`, las cifras del hallazgo.
 - **`report_findings`**: cada hallazgo **como lo dice el informe**, con su prioridad y sus cifras. Si el informe no se ha emitido, la lista no va.
-- **`reviewed`**: los documentos de `20-trabajos/` que se procesaron y no traen nada para la ficha: un papel sin hallazgo. Un documento citado en otro campo —el papel de un hallazgo, el informe, la aprobación del programa— no va aquí.
+- **`reviewed`**: los documentos de `20-trabajos/` que se procesaron y no traen nada para la ficha: un papel sin hallazgo. Un documento citado en otro campo —el papel de un hallazgo, el informe, la aprobación del programa— no va aquí, ni las tablas que procesa el motor: el programa, el índice de papeles, las asignaciones.
 
 ## Lo que nunca va
 

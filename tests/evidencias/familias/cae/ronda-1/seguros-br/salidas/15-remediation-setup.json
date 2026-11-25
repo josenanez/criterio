@@ -1,0 +1,40 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/31452078000190-seguradora-atlantica-sintetica",
+  "inicio": "2026-11-25T00:26:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 83,
+  "turnos": 21,
+  "tokens": 923739,
+  "tokens_salida": 8555,
+  "costo_usd": 0.7181596,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/31452078000190/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.sha256",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/30-seguimiento/H-03/explicacion-del-atraso.pdf.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-remediation-setup.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/manifest.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -23,8 +23,8 @@ Comité de Basilea (BCBS 239).
 | Marco | Qué aporta | Estado de la fuente |
 |---|---|---|
 | DAMA-DMBOK, segunda edición (DAMA International) | Las áreas de la gestión de datos; la familia toma el gobierno, la calidad y los metadatos con el linaje | Verificado el 2026-11-24 en dama.org: la segunda edición es la vigente, con una revisión lanzada en 2024 y un proyecto de tercera edición desde 2025; es un libro de pago. **Por verificar:** el número de áreas y el lugar del gobierno, en el libro |
-| Comité de Basilea, BCBS 239: principios para la agregación eficaz de datos de riesgo y la presentación de informes de riesgo | La exactitud, la integridad y la oportunidad de la cifra de riesgo que llega a la junta | Verificado el 2026-11-24 en bis.org: publicado el 9 de enero de 2013, vigente; informe de avance del 28 de noviembre de 2023 sobre 31 bancos sistémicos. **Por verificar:** los principios y sus grupos, en el documento |
-| ISO/IEC 25012, el modelo de calidad de datos | Las características de calidad con las que se escribe una regla | **Por verificar:** su página en iso.org no respondió |
+| Comité de Basilea, BCBS 239: principios para la agregación eficaz de datos de riesgo y la presentación de informes de riesgo | La exactitud, la integridad y la oportunidad de la cifra de riesgo que llega a la junta | Verificado el 2026-11-24 en bis.org: publicado el 9 de enero de 2013, vigente; informe de avance del 28 de noviembre de 2023 sobre 31 bancos sistémicos. Verificado el 2026-11-24 en el documento: catorce principios en cuatro grupos —el gobierno y la infraestructura (1 y 2), la capacidad de agregar los datos de riesgo (3 a 6: exactitud e integridad, completitud, oportunidad, adaptabilidad), la presentación de informes de riesgo (desde el 7: exactitud, exhaustividad, claridad y utilidad) y la revisión de los supervisores—; se dirigen primero a los bancos sistémicos, en el grupo y en cada entidad (párrafo 13), y a los sistémicos locales tres años después de su designación (párrafo 15). Ariadna trabaja sobre los principios 3, 4, 5 y 7. **Por verificar:** los títulos de los principios 10 a 14 y la página de cada uno |
+| ISO/IEC 25012, el modelo de calidad de datos | Las características de calidad con las que se escribe una regla | Verificado el 2026-11-24 en la tienda de la IEC y en la muestra oficial de la norma: primera edición, de diciembre de 2008, dentro de la serie SQuaRE; quince características desde dos puntos de vista, el inherente al dato y el que depende del sistema. **Por verificar:** el nombre de cada característica y si sigue vigente; su página en iso.org no respondió |
 | ISO 8000, la calidad de datos | La calidad de los datos maestros | **Por verificar:** la parte 1 de 2011 está retirada y la reemplaza la de 2022; las partes 8 y 61, sin verificar |
 
 **La ley de datos personales de cada país** ya está verificada en la [decisión 0031](0031-la-familia-chro.md)
@@ -101,7 +101,7 @@ su política de datos: el código calcula y la persona decide.
 
 1. **Los nombres**: Custodia y Ariadna, por aceptar por José.
 2. **La estructura**: dos agentes en lugar de uno, sus señales y sus documentos, por aceptar por José.
-3. **Las fuentes por verificar**: las áreas de DAMA-DMBOK, los principios de BCBS 239, ISO/IEC 25012, las
+3. **Las fuentes por verificar**: las áreas de DAMA-DMBOK, los títulos de los principios 10 a 14 de BCBS 239, ISO/IEC 25012, las
    partes de ISO 8000 y el registro de bases de datos personales de cada país.
 4. **Los formatos de exportación** de los catálogos y del linaje más usados —Collibra, Alation, Microsoft
    Purview, Informatica—, cada uno con su fuente o con los encabezados de una exportación real, como en la

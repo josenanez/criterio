@@ -1,0 +1,40 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica",
+  "inicio": "2026-11-25T00:11:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 99,
+  "turnos": 22,
+  "tokens": 976721,
+  "tokens_salida": 9742,
+  "costo_usd": 0.8004704,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/20601777321/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.sha256",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/30-seguimiento/H-21/evidencia.pdf.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-remediation-setup.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/cache/manifest.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

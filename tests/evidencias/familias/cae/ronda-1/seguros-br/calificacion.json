@@ -1,0 +1,32 @@
+{
+  "entidad": "Seguradora Atlântica Sintética",
+  "agentes": [
+    "justo",
+    "prudencia",
+    "remedios"
+  ],
+  "tokens": 11115482,
+  "senales": {
+    "esperadas": 12,
+    "acertadas": 12,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 68,
+    "bien": 67,
+    "mal": [
+      {
+        "ficha": "plan",
+        "campo": "reviewed",
+        "esperado": [],
+        "obtenido": [
+          "10-plan/matriz_de_riesgos.xlsx",
+          "10-plan/plan_anual_2026.xlsx",
+          "10-plan/universo_auditable.xlsx"
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

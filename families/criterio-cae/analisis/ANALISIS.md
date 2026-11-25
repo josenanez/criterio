@@ -6,9 +6,9 @@ Not edited by hand: every figure comes from the evidence and the analysis is reg
 
 ## At a glance
 
-The most recent round, round 1, partial, on 1 of the material's 5 entities: 22 of 25 seeded signals found (95% margin: 70–95.9%) and 2 extra; 35 of 72 data items extracted right (48.6%, 95% margin: 37.4–60%); and 0 of 0 control entities with no signal at all.
+The most recent round, round 1, partial, on 3 of the material's 5 entities: 48 of 51 seeded signals found (95% margin: 84–98%) and 2 extra; 174 of 212 data items extracted right (82.1%, 95% margin: 76.3–86.7%); and 0 of 0 control entities with no signal at all.
 
-Across rounds 1–1, 22 of 25 signals found, 2 extra and 35 of 72 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
+Across rounds 1–1, 48 of 51 signals found, 2 extra and 174 of 212 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
 
 ## What was tested and how
 
@@ -19,19 +19,19 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |   |   |
 |---|---|
 | Rounds | 1; the most recent, round 1, is partial |
-| Material | Banking · Colombia |
+| Material | Banking · Colombia, Credit unions · Peru, seguros · Brazil |
 | Control entities |  |
-| Entity runs | 1 |
-| Seeded signals | 25 |
-| Data items graded | 72 |
+| Entity runs | 3 |
+| Seeded signals | 51 |
+| Data items graded | 212 |
 
 ## Cumulative results · rounds 1–1
 
 | Measure | Cases | Result | 95% margin |
 |---|---|---|---|
-| Signals · coverage | 22 of 25 | 88% | 70–95.9% |
-| Signals · precision | 22 of 24 | 91.7% | 74.1–97.7% |
-| Extraction · data right | 35 of 72 | 48.6% | 37.4–60% |
+| Signals · coverage | 48 of 51 | 94.1% | 84–98% |
+| Signals · precision | 48 of 50 | 96% | 86.5–98.9% |
+| Extraction · data right | 174 of 212 | 82.1% | 76.3–86.7% |
 | Control · with no signal | 0 of 0 | — | — |
 
 ## Round by round
@@ -42,15 +42,15 @@ A round that does not run every entity is partial: the first, small one, before 
 
 | Round | Entities | Signals · coverage | Signals · precision | Extraction | Control with no signal | Tokens | Defects |
 |---|---|---|---|---|---|---|---|
-| 1 | 1 | 88% | 91.7% | 48.6% | 0 of 0 | 11.3 M | 4 |
+| 1 | 3 | 94.1% | 96% | 82.1% | 0 of 0 | 33.9 M | 5 |
 
 ## The most recent round · round 1
 
 | Measure | Cases | Result | 95% margin |
 |---|---|---|---|
-| Signals · coverage | 22 of 25 | 88% | 70–95.9% |
-| Signals · precision | 22 of 24 | 91.7% | 74.1–97.7% |
-| Extraction · data right | 35 of 72 | 48.6% | 37.4–60% |
+| Signals · coverage | 48 of 51 | 94.1% | 84–98% |
+| Signals · precision | 48 of 50 | 96% | 86.5–98.9% |
+| Extraction · data right | 174 of 212 | 82.1% | 76.3–86.7% |
 | Control · with no signal | 0 of 0 | — | — |
 
 ## By industry and country · round 1
@@ -58,10 +58,12 @@ A round that does not run every entity is partial: the first, small one, before 
 | Material | Agents | Signals | Extra | Extraction | Tokens |
 |---|---|---|---|---|---|
 | Banking · Colombia | Justo, Prudencia, Remedios | 22 of 25 | 2 | 35 of 72 | 11.3 M |
+| Credit unions · Peru | Justo, Prudencia, Remedios | 14 of 14 | 0 | 72 of 72 | 11.5 M |
+| seguros · Brazil | Justo, Prudencia, Remedios | 12 of 12 | 0 | 67 of 68 | 11.1 M |
 
 ## What failed, one by one · rounds 1–1
 
-42 failures in 1 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
+43 failures in 3 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
 
 | Round | Material | What | Where | Defect | Origin |
 |---|---|---|---|---|---|
@@ -107,27 +109,29 @@ A round that does not run every entity is partial: the first, small one, before 
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · evidence | CAE-2 | Test material |
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · external_findings[RF-01].title | — | — |
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · reviewed | CAE-4 | Agent instructions |
+| 1 | seguros · Brazil | Data item graded wrong | plan · reviewed | CAE-5 | Agent instructions |
 
 ## Defects
 
 ![Defects](defectos-en.svg)
 
-4 defects logged, each with its origin, its fix and the run that verified it: 0 verified and 4 to verify. 3 came from the material, the key or the test harness, not from the agents.
+5 defects logged, each with its origin, its fix and the run that verified it: 4 verified and 1 to verify. 3 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
 | Test material | 2 |
+| Agent instructions | 2 |
 | Grading key | 1 |
-| Agent instructions | 1 |
 
 | Agent | Defects |
 |---|---|
 | Remedios | 3 |
 | Justo | 2 |
+| Prudencia | 1 |
 
 ## Cost and next step
 
-The 1 rounds used 11.3 million tokens: 11.3 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 11.3 million per entity.
+The 1 rounds used 33.9 million tokens: 33.9 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 11.3 million per entity.
 
 The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020).
 

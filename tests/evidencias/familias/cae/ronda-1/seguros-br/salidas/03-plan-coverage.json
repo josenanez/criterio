@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "prudencia",
+  "comando": "plan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-25T00:19:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 7,
+  "tokens": 353222,
+  "tokens_salida": 2448,
+  "costo_usd": 0.1297528,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-plan-coverage-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-plan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

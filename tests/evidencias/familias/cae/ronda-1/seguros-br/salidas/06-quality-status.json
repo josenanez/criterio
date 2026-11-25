@@ -1,0 +1,28 @@
+{
+  "n": 6,
+  "agente": "prudencia",
+  "comando": "quality-status",
+  "argumento": "",
+  "inicio": "2026-11-25T00:20:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 8,
+  "tokens": 348913,
+  "tokens_salida": 1926,
+  "costo_usd": 0.1204608,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-quality-status-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-quality-status.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/reporte-quality-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -16,12 +16,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 1, parcial, sobre 1 de las 5 entidades del material: 22 de 25 señales sembradas encontradas (margen del 95 %: 70–95,9 %) y 2 de más; 35 de 72 datos extraídos bien (48,6 %, margen del 95 %: 37,4–60 %); y 0 de 0 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–1, 22 de 25 señales encontradas, 2 de más y 35 de 72 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 1, parcial, sobre 3 de las 5 entidades del material: 48 de 51 señales sembradas encontradas (margen del 95 %: 84–98 %) y 2 de más; 174 de 212 datos extraídos bien (82,1 %, margen del 95 %: 76,3–86,7 %); y 0 de 0 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–1, 48 de 51 señales encontradas, 2 de más y 174 de 212 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 1, partial, on 1 of the material's 5 entities: 22 of 25 seeded signals found (95% margin: 70–95.9%) and 2 extra; 35 of 72 data items extracted right (48.6%, 95% margin: 37.4–60%); and 0 of 0 control entities with no signal at all.",
-     "Across rounds 1–1, 22 of 25 signals found, 2 extra and 35 of 72 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 1, partial, on 3 of the material's 5 entities: 48 of 51 seeded signals found (95% margin: 84–98%) and 2 extra; 174 of 212 data items extracted right (82.1%, 95% margin: 76.3–86.7%); and 0 of 0 control entities with no signal at all.",
+     "Across rounds 1–1, 48 of 51 signals found, 2 extra and 174 of 212 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -50,7 +50,7 @@
       ],
       [
        "Material",
-       "Banca · Colombia"
+       "Banca · Colombia, Cooperativas · Perú, seguros · Brasil"
       ],
       [
        "Entidades de control",
@@ -58,15 +58,15 @@
       ],
       [
        "Corridas de una entidad",
-       "1"
+       "3"
       ],
       [
        "Señales sembradas",
-       "25"
+       "51"
       ],
       [
        "Datos calificados",
-       "72"
+       "212"
       ]
      ],
      "en": [
@@ -76,7 +76,7 @@
       ],
       [
        "Material",
-       "Banking · Colombia"
+       "Banking · Colombia, Credit unions · Peru, seguros · Brazil"
       ],
       [
        "Control entities",
@@ -84,15 +84,15 @@
       ],
       [
        "Entity runs",
-       "1"
+       "3"
       ],
       [
        "Seeded signals",
-       "25"
+       "51"
       ],
       [
        "Data items graded",
-       "72"
+       "212"
       ]
      ]
     }
@@ -133,21 +133,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "22 de 25",
-       "88 %",
-       "70–95,9 %"
+       "48 de 51",
+       "94,1 %",
+       "84–98 %"
       ],
       [
        "Señales · precisión",
-       "22 de 24",
-       "91,7 %",
-       "74,1–97,7 %"
+       "48 de 50",
+       "96 %",
+       "86,5–98,9 %"
       ],
       [
        "Extracción · datos correctos",
-       "35 de 72",
-       "48,6 %",
-       "37,4–60 %"
+       "174 de 212",
+       "82,1 %",
+       "76,3–86,7 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -159,21 +159,21 @@
      "en": [
       [
        "Signals · coverage",
-       "22 of 25",
-       "88%",
-       "70–95.9%"
+       "48 of 51",
+       "94.1%",
+       "84–98%"
       ],
       [
        "Signals · precision",
-       "22 of 24",
-       "91.7%",
-       "74.1–97.7%"
+       "48 of 50",
+       "96%",
+       "86.5–98.9%"
       ],
       [
        "Extraction · data right",
-       "35 of 72",
-       "48.6%",
-       "37.4–60%"
+       "174 of 212",
+       "82.1%",
+       "76.3–86.7%"
       ],
       [
        "Control · with no signal",
@@ -222,25 +222,25 @@
      "es": [
       [
        "1",
-       "1",
-       "88 %",
-       "91,7 %",
-       "48,6 %",
+       "3",
+       "94,1 %",
+       "96 %",
+       "82,1 %",
        "0 de 0",
-       "11,3 M",
-       "4"
+       "33,9 M",
+       "5"
       ]
      ],
      "en": [
       [
        "1",
-       "1",
-       "88%",
-       "91.7%",
-       "48.6%",
+       "3",
+       "94.1%",
+       "96%",
+       "82.1%",
        "0 of 0",
-       "11.3 M",
-       "4"
+       "33.9 M",
+       "5"
       ]
      ]
     }
@@ -279,21 +279,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "22 de 25",
-       "88 %",
-       "70–95,9 %"
+       "48 de 51",
+       "94,1 %",
+       "84–98 %"
       ],
       [
        "Señales · precisión",
-       "22 de 24",
-       "91,7 %",
-       "74,1–97,7 %"
+       "48 de 50",
+       "96 %",
+       "86,5–98,9 %"
       ],
       [
        "Extracción · datos correctos",
-       "35 de 72",
-       "48,6 %",
-       "37,4–60 %"
+       "174 de 212",
+       "82,1 %",
+       "76,3–86,7 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -305,21 +305,21 @@
      "en": [
       [
        "Signals · coverage",
-       "22 of 25",
-       "88%",
-       "70–95.9%"
+       "48 of 51",
+       "94.1%",
+       "84–98%"
       ],
       [
        "Signals · precision",
-       "22 of 24",
-       "91.7%",
-       "74.1–97.7%"
+       "48 of 50",
+       "96%",
+       "86.5–98.9%"
       ],
       [
        "Extraction · data right",
-       "35 of 72",
-       "48.6%",
-       "37.4–60%"
+       "174 of 212",
+       "82.1%",
+       "76.3–86.7%"
       ],
       [
        "Control · with no signal",
@@ -365,6 +365,22 @@
        "2",
        "35 de 72",
        "11,3 M"
+      ],
+      [
+       "Cooperativas · Perú",
+       "Justo, Prudencia, Remedios",
+       "14 de 14",
+       "0",
+       "72 de 72",
+       "11,5 M"
+      ],
+      [
+       "seguros · Brasil",
+       "Justo, Prudencia, Remedios",
+       "12 de 12",
+       "0",
+       "67 de 68",
+       "11,1 M"
       ]
      ],
      "en": [
@@ -375,6 +391,22 @@
        "2",
        "35 of 72",
        "11.3 M"
+      ],
+      [
+       "Credit unions · Peru",
+       "Justo, Prudencia, Remedios",
+       "14 of 14",
+       "0",
+       "72 of 72",
+       "11.5 M"
+      ],
+      [
+       "seguros · Brazil",
+       "Justo, Prudencia, Remedios",
+       "12 of 12",
+       "0",
+       "67 of 68",
+       "11.1 M"
       ]
      ]
     }
@@ -388,10 +420,10 @@
    },
    "parrafos": {
     "es": [
-     "42 fallas en 1 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "43 fallas en 3 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "42 failures in 1 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "43 failures in 3 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -750,6 +782,14 @@
        "seguimiento · reviewed",
        "CAE-4",
        "Instrucciones del agente"
+      ],
+      [
+       "1",
+       "seguros · Brasil",
+       "Dato calificado como mal",
+       "plan · reviewed",
+       "CAE-5",
+       "Instrucciones del agente"
       ]
      ],
      "en": [
@@ -1088,6 +1128,14 @@
        "seguimiento · reviewed",
        "CAE-4",
        "Agent instructions"
+      ],
+      [
+       "1",
+       "seguros · Brazil",
+       "Data item graded wrong",
+       "plan · reviewed",
+       "CAE-5",
+       "Agent instructions"
       ]
      ]
     }
@@ -1105,10 +1153,10 @@
    },
    "parrafos": {
     "es": [
-     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 0 verificados y 4 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "5 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 1 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "4 defects logged, each with its origin, its fix and the run that verified it: 0 verified and 4 to verify. 3 came from the material, the key or the test harness, not from the agents."
+     "5 defects logged, each with its origin, its fix and the run that verified it: 4 verified and 1 to verify. 3 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -1129,11 +1177,11 @@
        "2"
       ],
       [
-       "Clave de calificación",
-       "1"
+       "Instrucciones del agente",
+       "2"
       ],
       [
-       "Instrucciones del agente",
+       "Clave de calificación",
        "1"
       ]
      ],
@@ -1143,11 +1191,11 @@
        "2"
       ],
       [
-       "Grading key",
-       "1"
+       "Agent instructions",
+       "2"
       ],
       [
-       "Agent instructions",
+       "Grading key",
        "1"
       ]
      ]
@@ -1173,6 +1221,10 @@
       [
        "Justo",
        "2"
+      ],
+      [
+       "Prudencia",
+       "1"
       ]
      ],
      "en": [
@@ -1183,6 +1235,10 @@
       [
        "Justo",
        "2"
+      ],
+      [
+       "Prudencia",
+       "1"
       ]
      ]
     }
@@ -1196,11 +1252,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 1 rondas usaron 11,3 millones de tokens: 11,3 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11,3 millones por entidad.",
+     "Las 1 rondas usaron 33,9 millones de tokens: 33,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11,3 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 1 rounds used 11.3 million tokens: 11.3 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 11.3 million per entity.",
+     "The 1 rounds used 33.9 million tokens: 33.9 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 11.3 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

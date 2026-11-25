@@ -6,9 +6,9 @@ No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera c
 
 ## En una mirada
 
-La ronda más reciente, la 1, parcial, sobre 1 de las 5 entidades del material: 22 de 25 señales sembradas encontradas (margen del 95 %: 70–95,9 %) y 2 de más; 35 de 72 datos extraídos bien (48,6 %, margen del 95 %: 37,4–60 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 1, parcial, sobre 3 de las 5 entidades del material: 48 de 51 señales sembradas encontradas (margen del 95 %: 84–98 %) y 2 de más; 174 de 212 datos extraídos bien (82,1 %, margen del 95 %: 76,3–86,7 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 22 de 25 señales encontradas, 2 de más y 35 de 72 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–1, 48 de 51 señales encontradas, 2 de más y 174 de 212 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -19,19 +19,19 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |   |   |
 |---|---|
 | Rondas | 1; la más reciente, la 1, es parcial |
-| Material | Banca · Colombia |
+| Material | Banca · Colombia, Cooperativas · Perú, seguros · Brasil |
 | Entidades de control |  |
-| Corridas de una entidad | 1 |
-| Señales sembradas | 25 |
-| Datos calificados | 72 |
+| Corridas de una entidad | 3 |
+| Señales sembradas | 51 |
+| Datos calificados | 212 |
 
 ## Resultados acumulados · rondas 1–1
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 22 de 25 | 88 % | 70–95,9 % |
-| Señales · precisión | 22 de 24 | 91,7 % | 74,1–97,7 % |
-| Extracción · datos correctos | 35 de 72 | 48,6 % | 37,4–60 % |
+| Señales · cobertura | 48 de 51 | 94,1 % | 84–98 % |
+| Señales · precisión | 48 de 50 | 96 % | 86,5–98,9 % |
+| Extracción · datos correctos | 174 de 212 | 82,1 % | 76,3–86,7 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
 ## Evolución por ronda
@@ -42,15 +42,15 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
-| 1 | 1 | 88 % | 91,7 % | 48,6 % | 0 de 0 | 11,3 M | 4 |
+| 1 | 3 | 94,1 % | 96 % | 82,1 % | 0 de 0 | 33,9 M | 5 |
 
 ## La ronda más reciente · ronda 1
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 22 de 25 | 88 % | 70–95,9 % |
-| Señales · precisión | 22 de 24 | 91,7 % | 74,1–97,7 % |
-| Extracción · datos correctos | 35 de 72 | 48,6 % | 37,4–60 % |
+| Señales · cobertura | 48 de 51 | 94,1 % | 84–98 % |
+| Señales · precisión | 48 de 50 | 96 % | 86,5–98,9 % |
+| Extracción · datos correctos | 174 de 212 | 82,1 % | 76,3–86,7 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
 ## Por industria y país · ronda 1
@@ -58,10 +58,12 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
 | Banca · Colombia | Justo, Prudencia, Remedios | 22 de 25 | 2 | 35 de 72 | 11,3 M |
+| Cooperativas · Perú | Justo, Prudencia, Remedios | 14 de 14 | 0 | 72 de 72 | 11,5 M |
+| seguros · Brasil | Justo, Prudencia, Remedios | 12 de 12 | 0 | 67 de 68 | 11,1 M |
 
 ## Lo que falló, uno por uno · rondas 1–1
 
-42 fallas en 1 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+43 fallas en 3 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -107,27 +109,29 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · evidence | CAE-2 | Material de prueba |
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · external_findings[RF-01].title | — | — |
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · reviewed | CAE-4 | Instrucciones del agente |
+| 1 | seguros · Brasil | Dato calificado como mal | plan · reviewed | CAE-5 | Instrucciones del agente |
 
 ## Defectos
 
 ![Defectos](defectos-es.svg)
 
-4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 0 verificados y 4 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+5 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 1 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
 | Material de prueba | 2 |
+| Instrucciones del agente | 2 |
 | Clave de calificación | 1 |
-| Instrucciones del agente | 1 |
 
 | Agente | Defectos |
 |---|---|
 | Remedios | 3 |
 | Justo | 2 |
+| Prudencia | 1 |
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 11,3 millones de tokens: 11,3 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11,3 millones por entidad.
+Las 1 rondas usaron 33,9 millones de tokens: 33,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11,3 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

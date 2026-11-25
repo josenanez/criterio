@@ -1,0 +1,28 @@
+{
+  "n": 18,
+  "agente": "remedios",
+  "comando": "closure-check",
+  "argumento": "",
+  "inicio": "2026-11-25T00:29:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 6,
+  "tokens": 299267,
+  "tokens_salida": 2088,
+  "costo_usd": 0.117611,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/31452078000190/corridas/salida-closure-check.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-closure-check-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/seguimiento/2026-11/reporte-closure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 16,
+  "agente": "remedios",
+  "comando": "remediation-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T00:27:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 16,
+  "tokens": 739185,
+  "tokens_salida": 3970,
+  "costo_usd": 0.45342020000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-remediation-scan-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-remediation-scan.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/seguimiento/2026-11/reporte-remediation-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

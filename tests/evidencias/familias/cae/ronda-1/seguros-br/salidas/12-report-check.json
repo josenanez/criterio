@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "justo",
+  "comando": "report-check",
+  "argumento": "",
+  "inicio": "2026-11-25T00:24:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 401489,
+  "tokens_salida": 2083,
+  "costo_usd": 0.1294878,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-report-check-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-report-check.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/trabajos/2026-11/reporte-report-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

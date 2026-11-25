@@ -9,6 +9,7 @@ import { CRITERIO_EA } from './lib/criterioEa';
 import { CRITERIO_CCO } from './lib/criterioCco';
 import { CRITERIO_CISO } from './lib/criterioCiso';
 import { CRITERIO_CHRO } from './lib/criterioChro';
+import { CRITERIO_CAE } from './lib/criterioCae';
 import { CRITERIO_RONDAS } from './lib/criterioRondas';
 import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_SECTORES } from './lib/criterioSectores';
@@ -30,12 +31,12 @@ import { CriterioLogo } from './portal/CriterioLogo';
    que cambia en el repositorio cambia en el video la próxima vez que se graba. El reloj y cómo
    aparece cada cosa están en tiempo.jsx, que comparte con el video de Criterio. */
 
-const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO, chro: CRITERIO_CHRO };
+const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO, chro: CRITERIO_CHRO, cae: CRITERIO_CAE };
 // La PMO no tiene una ficha de agentes como las demás: sus agentes son los de sus pestañas.
 const agentesDe = (sigla, l) => AGENTES[sigla]?.agentes ?? AGENT_TABS_FAMILIAS[sigla][l].agents.map((a) => ({ id: a.id, nombre: a.name }));
 
 // El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
-const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo', chro: 'norma' };
+const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo', chro: 'norma', cae: 'remedios' };
 
 const TEXTO = {
   es: {
@@ -52,7 +53,7 @@ const TEXTO = {
     piso: 'detectado como mínimo, con 95 % de confianza',
     casos: 'casos probados',
     controles: (k, n) => `${k} de ${n} entidades de control sin una sola alarma falsa`,
-    defectos: (n, r, k) => (k === n ? `${n} defectos encontrados en ${r} rondas: todos corregidos y verificados` : `${n} defectos encontrados en ${r} rondas: ${k} corregidos y verificados`),
+    defectos: (n, r, k) => `${n} ${n === 1 ? 'defecto encontrado' : 'defectos encontrados'} en ${r === 1 ? 'una ronda' : `${r} rondas`}: ${k === n ? (n === 1 ? 'corregido y verificado' : 'todos corregidos y verificados') : `${k} corregidos y verificados`}`,
     encontro: 'Lo que encontró',
     licencia: 'Código abierto · Apache 2.0',
   },
@@ -70,7 +71,7 @@ const TEXTO = {
     piso: 'caught at least, with 95% confidence',
     casos: 'cases tested',
     controles: (k, n) => `${k} of ${n} control entities without a single false alarm`,
-    defectos: (n, r, k) => (k === n ? `${n} defects found in ${r} rounds: all fixed and verified` : `${n} defects found in ${r} rounds: ${k} fixed and verified`),
+    defectos: (n, r, k) => `${n} ${n === 1 ? 'defect' : 'defects'} found in ${r === 1 ? 'one round' : `${r} rounds`}: ${k === n ? (n === 1 ? 'fixed and verified' : 'all fixed and verified') : `${k} fixed and verified`}`,
     encontro: 'What it found',
     licencia: 'Open source · Apache 2.0',
   },

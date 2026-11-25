@@ -23,7 +23,7 @@ Una ficha por periodo, en `<estado>/plan/<AAAA-MM>/ficha.json`. El universo, la 
 
 - **`approvals`**: una entrada por cada trabajo que un acta aprueba agregar, cancelar o aplazar. `change` es `agrega`, `cancela` o `aplaza`; `approved_by`, el órgano tal como lo dice el acta. Un acta que solo menciona el cambio sin aprobarlo no va.
 - **`areas_not_considered`**: solo si un documento dice por qué el plan no considera el gobierno de TI (`ti`), el riesgo de fraude (`fraude`) o los programas de cumplimiento y ética (`cumplimiento`). La razón va con su fuente; sin documento, no va.
-- **`reviewed`**: los documentos de `10-plan/` que se procesaron y no traen nada para la ficha.
+- **`reviewed`**: los documentos escritos de `10-plan/` que se procesaron y no traen nada para la ficha. Las tablas que procesa el motor —el universo auditable, la matriz de riesgos, el plan anual, las horas— no van aquí: no pasan por la ficha.
 
 ## Lo que nunca va
 
