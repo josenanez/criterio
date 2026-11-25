@@ -1,140 +1,140 @@
 {
- "nota": "Fuente única de la hoja de ruta de la familia CMO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Las tolerancias, las metas y quién aprueba son los de la política de la organización.",
- "incrementos": [
-  {
-   "incremento": 1,
-   "version": "0.1.0",
-   "estado": "liberada",
-   "industrias": [],
-   "paises": [
+  "nota": "Fuente única de la hoja de ruta de la familia CMO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Las tolerancias, las metas y quién aprueba son los de la política de la organización.",
+  "incrementos": [
     {
-     "codigo": "CO",
-     "nombre": {
-      "es": "Colombia",
-      "en": "Colombia"
-     }
+      "incremento": 1,
+      "version": "0.1.0",
+      "estado": "liberada",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Lucía y Próspero, construidos, con el motor probado",
+        "entra": [
+          "Los comandos, sus cuatro skills y el motor, con las once señales: cada afirmación contra su soporte, cada promoción contra sus condiciones y cada pieza y cada base contra su aprobación, de Lucía; cada campaña contra su presupuesto, su factura, su meta y su resultado en la plataforma, de Próspero",
+          "El Código ICC (F-01), los estándares del MRC (F-02) y el Estatuto del Consumidor de Colombia (F-10)",
+          "Material de retail en Colombia, banca en el Perú y consumo masivo en México, con dos entidades de control"
+        ],
+        "prueba": "El motor contra la clave de todo el material, sin una alarma en los controles"
+      },
+      "en": {
+        "titulo": "Lucía and Próspero, built, with the engine tested",
+        "entra": [
+          "The commands, their four skills and the engine, with the eleven signals: Lucía's each claim against its substantiation, each promotion against its terms and each piece and base against its approval; Próspero's each campaign against its budget, invoice, goal and platform result",
+          "The ICC Code (F-01), the MRC standards (F-02) and Colombia's Consumer Statute (F-10)",
+          "Retail material in Colombia, banking in Peru and consumer goods in Mexico, with two control entities"
+        ],
+        "prueba": "The engine against the key of all the material, with no alarm on the controls"
+      }
     },
     {
-     "codigo": "PE",
-     "nombre": {
-      "es": "Perú",
-      "en": "Peru"
-     }
+      "incremento": 2,
+      "version": "0.2.0",
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "La ronda con los dos agentes",
+        "entra": [
+          "Las rondas con Lucía y Próspero sobre todo el material, con una clave que no ven"
+        ],
+        "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
+      },
+      "en": {
+        "titulo": "The round with the two agents",
+        "entra": [
+          "The rounds with Lucía and Próspero on all the material, with a key they never see"
+        ],
+        "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
+      }
     },
     {
-     "codigo": "MX",
-     "nombre": {
-      "es": "México",
-      "en": "Mexico"
-     }
+      "incremento": 3,
+      "version": null,
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "PE",
+          "nombre": {
+            "es": "Perú",
+            "en": "Peru"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Las exportaciones de las plataformas y la ley de cada país",
+        "entra": [
+          "Google Ads, Meta y LinkedIn, cada una con su fuente verificada o con los encabezados de una exportación real",
+          "La Ley 2300 de 2023, lo que pide la Ley 1581 para el mercadeo, y la ley de publicidad de México, el Perú y Brasil, verificadas"
+        ],
+        "prueba": "Cada exportación procesada contra su clave"
+      },
+      "en": {
+        "titulo": "The platforms' exports and each country's law",
+        "entra": [
+          "Google Ads, Meta and LinkedIn, each with its verified source or the headers of a real export",
+          "Law 2300 of 2023, what Law 1581 requires for marketing, and the advertising law of Mexico, Peru and Brazil, verified"
+        ],
+        "prueba": "Each export processed against its key"
+      }
     }
-   ],
-   "es": {
-    "titulo": "Lucía y Próspero, construidos, con el motor probado",
-    "entra": [
-     "Los comandos, sus cuatro skills y el motor, con las once señales: cada afirmación contra su soporte, cada promoción contra sus condiciones y cada pieza y cada base contra su aprobación, de Lucía; cada campaña contra su presupuesto, su factura, su meta y su resultado en la plataforma, de Próspero",
-     "El Código ICC (F-01), los estándares del MRC (F-02) y el Estatuto del Consumidor de Colombia (F-10)",
-     "Material de retail en Colombia, banca en el Perú y consumo masivo en México, con dos entidades de control"
-    ],
-    "prueba": "El motor contra la clave de todo el material, sin una alarma en los controles"
-   },
-   "en": {
-    "titulo": "Lucía and Próspero, built, with the engine tested",
-    "entra": [
-     "The commands, their four skills and the engine, with the eleven signals: Lucía's each claim against its substantiation, each promotion against its terms and each piece and base against its approval; Próspero's each campaign against its budget, invoice, goal and platform result",
-     "The ICC Code (F-01), the MRC standards (F-02) and Colombia's Consumer Statute (F-10)",
-     "Retail material in Colombia, banking in Peru and consumer goods in Mexico, with two control entities"
-    ],
-    "prueba": "The engine against the key of all the material, with no alarm on the controls"
-   }
-  },
-  {
-   "incremento": 2,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
-    {
-     "codigo": "CO",
-     "nombre": {
-      "es": "Colombia",
-      "en": "Colombia"
-     }
-    },
-    {
-     "codigo": "PE",
-     "nombre": {
-      "es": "Perú",
-      "en": "Peru"
-     }
-    },
-    {
-     "codigo": "MX",
-     "nombre": {
-      "es": "México",
-      "en": "Mexico"
-     }
-    }
-   ],
-   "es": {
-    "titulo": "La ronda con los dos agentes",
-    "entra": [
-     "Las rondas con Lucía y Próspero sobre todo el material, con una clave que no ven"
-    ],
-    "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
-   },
-   "en": {
-    "titulo": "The round with the two agents",
-    "entra": [
-     "The rounds with Lucía and Próspero on all the material, with a key they never see"
-    ],
-    "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
-   }
-  },
-  {
-   "incremento": 3,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
-    {
-     "codigo": "CO",
-     "nombre": {
-      "es": "Colombia",
-      "en": "Colombia"
-     }
-    },
-    {
-     "codigo": "PE",
-     "nombre": {
-      "es": "Perú",
-      "en": "Peru"
-     }
-    },
-    {
-     "codigo": "MX",
-     "nombre": {
-      "es": "México",
-      "en": "Mexico"
-     }
-    }
-   ],
-   "es": {
-    "titulo": "Las exportaciones de las plataformas y la ley de cada país",
-    "entra": [
-     "Google Ads, Meta y LinkedIn, cada una con su fuente verificada o con los encabezados de una exportación real",
-     "La Ley 2300 de 2023, lo que pide la Ley 1581 para el mercadeo, y la ley de publicidad de México, el Perú y Brasil, verificadas"
-    ],
-    "prueba": "Cada exportación procesada contra su clave"
-   },
-   "en": {
-    "titulo": "The platforms' exports and each country's law",
-    "entra": [
-     "Google Ads, Meta and LinkedIn, each with its verified source or the headers of a real export",
-     "Law 2300 of 2023, what Law 1581 requires for marketing, and the advertising law of Mexico, Peru and Brazil, verified"
-    ],
-    "prueba": "Each export processed against its key"
-   }
-  }
- ]
+  ]
 }

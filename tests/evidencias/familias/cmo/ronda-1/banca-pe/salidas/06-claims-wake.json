@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "lucia",
+  "comando": "claims-wake",
+  "argumento": "",
+  "inicio": "2026-11-25T21:57:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 15,
+  "tokens": 492066,
+  "tokens_salida": 4547,
+  "costo_usd": 0.37765420000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/2026-11-25-claims-scan-2.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/2026-11-25-claims-wake-1.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/salida-claims-wake.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas.json",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/salida-claims-scan.md"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "lucia",
+  "comando": "approval-check",
+  "argumento": "",
+  "inicio": "2026-11-25T21:50:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 10,
+  "tokens": 456351,
+  "tokens_salida": 3031,
+  "costo_usd": 0.16429200000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/2026-11-25-approval-check-1.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/salida-approval-check.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/piezas/2026-11/reporte-approval-check.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -9,8 +9,8 @@
     "en": "Data"
   },
   "estado": {
-    "es": "Construida · en pruebas",
-    "en": "Built · in testing"
+    "es": "Construida · probada",
+    "en": "Built · tested"
   },
   "nivel_c": {
     "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
@@ -618,7 +618,7 @@
         "ariadna": "La calidad",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: en pruebas. El motor pasa su prueba determinista contra todo su material, y las dos agentes corrieron sobre todas sus entidades.",
+      "nota": "Estado de la familia: probada, en laboratorio. El motor pasa su prueba determinista contra todo su material, y las dos agentes corrieron sobre todas sus entidades.",
       "guion": [
         {
           "cabeza": true,
@@ -664,7 +664,7 @@
         "ariadna": "Quality",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: in testing. The engine passes its deterministic test against all its material, and the two agents ran on every entity in it.",
+      "nota": "Where the family stands: tested, in the lab. The engine passes its deterministic test against all its material, and the two agents ran on every entity in it.",
       "guion": [
         {
           "cabeza": true,

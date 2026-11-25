@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes Control de Mercadeo Sintéticos",
+  "agentes": [
+    "lucia",
+    "prospero"
+  ],
+  "tokens": 6720021,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

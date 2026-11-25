@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "lucia",
+  "comando": "claims-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T22:56:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 18,
+  "tokens": 695282,
+  "tokens_salida": 3927,
+  "costo_usd": 0.453585,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/2026-11-25-claims-scan-1.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/salida-claims-scan.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/indice.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/piezas/2026-10/reporte-claims-scan.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/manifest.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

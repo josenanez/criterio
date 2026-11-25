@@ -1,0 +1,575 @@
+{
+ "meta": {
+  "generado_desde": "tests/evidencias/familias/cmo",
+  "ultima_ronda": 1,
+  "completa": true,
+  "rondas": [
+   1
+  ]
+ },
+ "secciones": [
+  {
+   "id": "resumen",
+   "titulo": {
+    "es": "En una mirada",
+    "en": "At a glance"
+   },
+   "parrafos": {
+    "es": [
+     "La ronda completa más reciente, la 1, sobre las 5 entidades del material: 22 de 22 señales sembradas encontradas (margen del 95 %: 85,1–100 %) y 0 de más; 25 de 25 datos extraídos bien (100 %, margen del 95 %: 86,6–100 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–1, 22 de 22 señales encontradas, 0 de más y 25 de 25 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+    ],
+    "en": [
+     "The most recent complete round, round 1, on the material's 5 entities: 22 of 22 seeded signals found (95% margin: 85.1–100%) and 0 extra; 25 of 25 data items extracted right (100%, 95% margin: 86.6–100%); and 2 of 2 control entities with no signal at all.",
+     "Across rounds 1–1, 22 of 22 signals found, 0 extra and 25 of 25 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+    ]
+   }
+  },
+  {
+   "id": "metodo",
+   "titulo": {
+    "es": "Qué se probó y cómo",
+    "en": "What was tested and how"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "",
+      ""
+     ],
+     "en": [
+      "",
+      ""
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Rondas",
+       "1; la completa más reciente es la 1"
+      ],
+      [
+       "Material",
+       "Banca · Perú, Manufactura · México, Retail · Colombia"
+      ],
+      [
+       "Entidades de control",
+       "Control · Colombia, Control · México"
+      ],
+      [
+       "Corridas de una entidad",
+       "5"
+      ],
+      [
+       "Señales sembradas",
+       "22"
+      ],
+      [
+       "Datos calificados",
+       "25"
+      ]
+     ],
+     "en": [
+      [
+       "Rounds",
+       "1; the most recent complete one is round 1"
+      ],
+      [
+       "Material",
+       "Banking · Peru, Manufacturing · Mexico, Retail · Colombia"
+      ],
+      [
+       "Control entities",
+       "Control · Colombia, Control · Mexico"
+      ],
+      [
+       "Entity runs",
+       "5"
+      ],
+      [
+       "Seeded signals",
+       "22"
+      ],
+      [
+       "Data items graded",
+       "25"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "En cada entidad corren el setup y el procesamiento de Lucía y Próspero —los comandos que procesan los documentos y escriben las fichas—, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte, que nadie ve. Los demás comandos calculan sobre esas fichas con el motor, que se prueba con cada cambio del repositorio. Las señales se comparan por su nombre y su clave; la extracción, campo por campo, contra lo que traen los documentos escritos. Las entidades de control no tienen ningún defecto sembrado: cualquier señal en ellas es una falla.",
+     "Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que levantó, cuántas eran correctas. Margen del 95 %: intervalo de confianza de Wilson sobre los casos."
+    ],
+    "en": [
+     "On each entity, Lucía and Próspero run their setup and processing —the commands that process the documents and write the records—, with a token cap set before starting, on material whose key is kept apart and never seen. The other commands calculate on those records with the engine, which is tested on every change to the repository. Signals are compared by name and key; extraction, field by field, against what the written documents say. Control entities carry no seeded defect: any signal in them is a failure.",
+     "Coverage: of the seeded signals, how many were found. Precision: of those raised, how many were right. 95% margin: Wilson confidence interval over the cases."
+    ]
+   }
+  },
+  {
+   "id": "acumulado",
+   "titulo": {
+    "es": "Resultados acumulados · rondas 1–1",
+    "en": "Cumulative results · rounds 1–1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "22 de 22",
+       "100 %",
+       "85,1–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "22 de 22",
+       "100 %",
+       "85,1–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "25 de 25",
+       "100 %",
+       "86,6–100 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "2 de 2",
+       "100 %",
+       "34,2–100 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "22 of 22",
+       "100%",
+       "85.1–100%"
+      ],
+      [
+       "Signals · precision",
+       "22 of 22",
+       "100%",
+       "85.1–100%"
+      ],
+      [
+       "Extraction · data right",
+       "25 of 25",
+       "100%",
+       "86.6–100%"
+      ],
+      [
+       "Control · with no signal",
+       "2 of 2",
+       "100%",
+       "34.2–100%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "evolucion",
+   "titulo": {
+    "es": "Evolución por ronda",
+    "en": "Round by round"
+   },
+   "imagen": {
+    "es": "evolucion-es.svg",
+    "en": "evolucion-en.svg"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Entidades",
+      "Señales · cobertura",
+      "Señales · precisión",
+      "Extracción",
+      "Control sin señales",
+      "Tokens",
+      "Defectos"
+     ],
+     "en": [
+      "Round",
+      "Entities",
+      "Signals · coverage",
+      "Signals · precision",
+      "Extraction",
+      "Control with no signal",
+      "Tokens",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "5",
+       "100 %",
+       "100 %",
+       "100 %",
+       "2 de 2",
+       "32,9 M",
+       "2"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "5",
+       "100%",
+       "100%",
+       "100%",
+       "2 of 2",
+       "32.9 M",
+       "2"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "ultima",
+   "titulo": {
+    "es": "La ronda completa más reciente · ronda 1",
+    "en": "The most recent complete round · round 1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "22 de 22",
+       "100 %",
+       "85,1–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "22 de 22",
+       "100 %",
+       "85,1–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "25 de 25",
+       "100 %",
+       "86,6–100 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "2 de 2",
+       "100 %",
+       "34,2–100 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "22 of 22",
+       "100%",
+       "85.1–100%"
+      ],
+      [
+       "Signals · precision",
+       "22 of 22",
+       "100%",
+       "85.1–100%"
+      ],
+      [
+       "Extraction · data right",
+       "25 of 25",
+       "100%",
+       "86.6–100%"
+      ],
+      [
+       "Control · with no signal",
+       "2 of 2",
+       "100%",
+       "34.2–100%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "industrias",
+   "titulo": {
+    "es": "Por industria y país · ronda 1",
+    "en": "By industry and country · round 1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Material",
+      "Agentes",
+      "Señales",
+      "De más",
+      "Extracción",
+      "Tokens"
+     ],
+     "en": [
+      "Material",
+      "Agents",
+      "Signals",
+      "Extra",
+      "Extraction",
+      "Tokens"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Banca · Perú",
+       "Lucía, Próspero",
+       "6 de 6",
+       "0",
+       "5 de 5",
+       "6,3 M"
+      ],
+      [
+       "Manufactura · México",
+       "Lucía, Próspero",
+       "5 de 5",
+       "0",
+       "5 de 5",
+       "6,4 M"
+      ],
+      [
+       "Retail · Colombia",
+       "Lucía, Próspero",
+       "11 de 11",
+       "0",
+       "5 de 5",
+       "6,8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Lucía, Próspero",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "6,7 M"
+      ],
+      [
+       "Control · México",
+       "Lucía, Próspero",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "6,7 M"
+      ]
+     ],
+     "en": [
+      [
+       "Banking · Peru",
+       "Lucía, Próspero",
+       "6 of 6",
+       "0",
+       "5 of 5",
+       "6.3 M"
+      ],
+      [
+       "Manufacturing · Mexico",
+       "Lucía, Próspero",
+       "5 of 5",
+       "0",
+       "5 of 5",
+       "6.4 M"
+      ],
+      [
+       "Retail · Colombia",
+       "Lucía, Próspero",
+       "11 of 11",
+       "0",
+       "5 of 5",
+       "6.8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Lucía, Próspero",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "6.7 M"
+      ],
+      [
+       "Control · Mexico",
+       "Lucía, Próspero",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "6.7 M"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "senales",
+   "titulo": {
+    "es": "Lo que falló, uno por uno · rondas 1–1",
+    "en": "What failed, one by one · rounds 1–1"
+   },
+   "parrafos": {
+    "es": [
+     "Ninguna falla."
+    ],
+    "en": [
+     "No failures."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Material",
+      "Qué",
+      "Dónde",
+      "Defecto",
+      "Origen"
+     ],
+     "en": [
+      "Round",
+      "Material",
+      "What",
+      "Where",
+      "Defect",
+      "Origin"
+     ]
+    },
+    "filas": {
+     "es": [],
+     "en": []
+    }
+   }
+  },
+  {
+   "id": "defectos",
+   "titulo": {
+    "es": "Defectos",
+    "en": "Defects"
+   },
+   "imagen": {
+    "es": "defectos-es.svg",
+    "en": "defectos-en.svg"
+   },
+   "parrafos": {
+    "es": [
+     "2 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 0 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+    ],
+    "en": [
+     "2 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 0 to verify. 1 came from the material, the key or the test harness, not from the agents."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Origen",
+      "Defectos"
+     ],
+     "en": [
+      "Origin",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Clave de calificación",
+       "1"
+      ],
+      [
+       "Instrucciones del agente",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Grading key",
+       "1"
+      ],
+      [
+       "Agent instructions",
+       "1"
+      ]
+     ]
+    }
+   },
+   "tabla2": {
+    "cab": {
+     "es": [
+      "Agente",
+      "Defectos"
+     ],
+     "en": [
+      "Agent",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Lucía",
+       "2"
+      ]
+     ],
+     "en": [
+      [
+       "Lucía",
+       "2"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "consumo",
+   "titulo": {
+    "es": "Consumo y próximo paso",
+    "en": "Cost and next step"
+   },
+   "parrafos": {
+    "es": [
+     "Las 1 rondas usaron 39,9 millones de tokens: 32,9 millones en las corridas calificadas y 7 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.",
+     "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
+    ],
+    "en": [
+     "The 1 rounds used 39.9 million tokens: 32.9 million in the graded runs and 7 in the ones repeated after fixing a defect. On average, 6.6 million per entity.",
+     "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
+    ]
+   }
+  }
+ ]
+}

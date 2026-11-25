@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "lucia",
+  "comando": "claims-wake",
+  "argumento": "",
+  "inicio": "2026-11-25T22:05:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 16,
+  "tokens": 441670,
+  "tokens_salida": 4100,
+  "costo_usd": 0.3646916,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-claims-scan-2.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-claims-wake-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-claims-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-claims-scan.md"
+    ],
+    "borrados": []
+  }
+}

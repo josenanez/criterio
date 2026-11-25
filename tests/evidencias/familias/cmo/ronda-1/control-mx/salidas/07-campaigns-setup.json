@@ -1,0 +1,39 @@
+{
+  "n": 7,
+  "agente": "prospero",
+  "comando": "campaigns-setup",
+  "argumento": "mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico",
+  "inicio": "2026-11-25T23:08:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 17,
+  "tokens": 671083,
+  "tokens_salida": 7599,
+  "costo_usd": 0.5277769999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/campanas/CCM220101ZZ9/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.sha256",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/50-campanas/facturas_de_pauta.xlsx.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/50-campanas/informe_de_resultados_2026-10.pdf.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/50-campanas/plan_de_mercadeo.xlsx.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/50-campanas/resultados_plataforma.xlsx.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/campanas/2026-10/ficha.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/campanas/2026-10/reporte-budget-check.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/campanas/2026-10/resultados.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/2026-11-25-campaigns-setup-1.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/salida-campaigns-setup.md"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/cache/manifest.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "n": 7,
+  "agente": "prospero",
+  "comando": "campaigns-setup",
+  "argumento": "mercadeo/901333555-almacenes-del-valle-sinteticos",
+  "inicio": "2026-11-25T21:51:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 17,
+  "tokens": 608317,
+  "tokens_salida": 8729,
+  "costo_usd": 0.586699,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/campanas/901333555/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.sha256",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/cache/50-campanas/facturas_de_pauta.xlsx.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/cache/50-campanas/informe_de_resultados_2026-10.pdf.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/cache/50-campanas/plan_de_mercadeo.xlsx.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/cache/50-campanas/resultados_plataforma.xlsx.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/campanas/2026-10/ficha.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/campanas/2026-10/reporte-budget-check.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/campanas/2026-10/resultados.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/2026-11-25-campaigns-setup-1.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/salida-campaigns-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/cache/manifest.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -16,7 +16,7 @@ they share the entity's folder and methodology: each one writes only its own rec
 | **Goal** | That every high risk has an engagement, that every finding can be traced to the paper that supports it and that every action plan reaches its closure with evidence that it was implemented |
 | **Made up of** | [Prudencia](../../plugins/criterio-audit-plan/README.md) · [Justo](../../plugins/criterio-audit-work/README.md) · [Remedios](../../plugins/criterio-remediation/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The backing** | The Global Internal Audit Standards and their topical requirements, the Three Lines Model, COSO 2013 and the regulation of internal audit in the financial sector, with their source and status: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Status** | Built, in testing: the engine tested on all its material, with its key and its control entities. In 0.2.0, the round with the three agents on every entity in the material. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Built and tested, in the lab: the engine tested on all its material, with its key and its control entities. In 0.2.0, the round with the three agents on every entity in the material. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Documents and exports, never systems: no agent goes into the audited systems or the audit tool |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the auditor: it issues no opinions, signs no reports, changes no finding's priority, closes no plans and accepts no risks |

@@ -1,0 +1,19 @@
+{
+  "entidad": "Consumo Control de Mercadeo Sintético",
+  "agentes": [
+    "lucia",
+    "prospero"
+  ],
+  "tokens": 6673445,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

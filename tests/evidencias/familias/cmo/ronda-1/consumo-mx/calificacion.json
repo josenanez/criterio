@@ -1,0 +1,19 @@
+{
+  "entidad": "Consumo Maya Sintético",
+  "agentes": [
+    "lucia",
+    "prospero"
+  ],
+  "tokens": 6418197,
+  "senales": {
+    "esperadas": 5,
+    "acertadas": 5,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

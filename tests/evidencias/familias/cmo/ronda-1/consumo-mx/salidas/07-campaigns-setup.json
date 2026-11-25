@@ -1,0 +1,40 @@
+{
+  "n": 7,
+  "agente": "prospero",
+  "comando": "campaigns-setup",
+  "argumento": "mercadeo/cms210415xy3-consumo-maya-sintetico",
+  "inicio": "2026-11-25T22:06:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 17,
+  "tokens": 649504,
+  "tokens_salida": 8009,
+  "costo_usd": 0.5604859999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/campanas/CMS210415XY3/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.1.0-2026-11-25.sha256",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/cache/50-campanas/facturas_de_pauta.xlsx.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/cache/50-campanas/informe_de_resultados_2026-10.pdf.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/cache/50-campanas/plan_de_mercadeo.xlsx.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/cache/50-campanas/resultados_plataforma.xlsx.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-10/ficha.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-10/reporte-budget-check.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-10/resultados.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-campaigns-setup-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-campaigns-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/cache/manifest.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

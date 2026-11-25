@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "prospero",
+  "comando": "invoice-check",
+  "argumento": "",
+  "inicio": "2026-11-25T23:10:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 18,
+  "turnos": 8,
+  "tokens": 398324,
+  "tokens_salida": 1691,
+  "costo_usd": 0.12137490000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/campanas/2026-11/reporte-invoice-check.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/2026-11-25-invoice-check-1.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/salida-invoice-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

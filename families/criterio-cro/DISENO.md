@@ -2,7 +2,7 @@
 
 # criterio-cro · the family design
 
-**Status: built, in testing (version 0.2.0).** The commands, the skills and the calculation engine
+**Status: built and tested, in the lab (version 0.2.0).** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test against the material in
 `tests/criterio-cro/`. In 0.2.0, the two agents ran on every entity in the material, with a key they never see: [the rounds](../../tests/evidencias/familias/cro/RONDAS.md). Scope in [ADR 0035](../../docs/decisions/0035-la-familia-cro.md).
 

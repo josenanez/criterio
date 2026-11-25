@@ -115,8 +115,8 @@
         "en": "Internal audit"
       },
       "estado": {
-        "es": "Construida · en pruebas",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "plan",
@@ -131,8 +131,8 @@
         "en": "Data"
       },
       "estado": {
-        "es": "Construida · en pruebas",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "gobierno",
@@ -146,8 +146,8 @@
         "en": "Risk"
       },
       "estado": {
-        "es": "Construida · en pruebas",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "apetito",
@@ -161,8 +161,8 @@
         "en": "Marketing"
       },
       "estado": {
-        "es": "Construida · en pruebas",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "piezas",

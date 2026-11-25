@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "lucia",
+  "comando": "promo-check",
+  "argumento": "",
+  "inicio": "2026-11-25T22:49:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 10,
+  "tokens": 508572,
+  "tokens_salida": 3028,
+  "costo_usd": 0.15777650000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas/2026-11-25-promo-check-1.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas/salida-promo-check.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/piezas/2026-10/reporte-promo-check.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/piezas/2026-11/resultados.json"
+    ],
+    "modificados": [
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

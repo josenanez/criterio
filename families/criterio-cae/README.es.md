@@ -17,7 +17,7 @@ solo su ficha.
 | **Objetivo** | Que cada riesgo alto tenga un trabajo, que cada hallazgo se pueda rastrear hasta el papel que lo soporta y que cada plan de acción llegue a su cierre con la evidencia de que se implementó |
 | **Compuesta por** | [Prudencia](../../plugins/criterio-audit-plan/README.es.md) · [Justo](../../plugins/criterio-audit-work/README.es.md) · [Remedios](../../plugins/criterio-remediation/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | Las Normas Globales de Auditoría Interna y sus requisitos temáticos, el Modelo de las Tres Líneas, COSO 2013 y la regulación de la auditoría interna en el sector financiero, con su fuente y su estado: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida, en pruebas: el motor probado sobre todo su material, con su clave y sus entidades de control. En la 0.2.0, la ronda con los tres agentes sobre todas las entidades del material. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida y probada, en laboratorio: el motor probado sobre todo su material, con su clave y sus entidades de control. En la 0.2.0, la ronda con los tres agentes sobre todas las entidades del material. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Documentos y exportaciones, nunca sistemas: ningún agente entra a los sistemas auditados ni a la herramienta de auditoría |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al auditor: no emite opiniones, no firma informes, no cambia la prioridad de un hallazgo, no cierra planes y no acepta riesgos |

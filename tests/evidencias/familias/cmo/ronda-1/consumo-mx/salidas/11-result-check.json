@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "prospero",
+  "comando": "result-check",
+  "argumento": "",
+  "inicio": "2026-11-25T22:08:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 399294,
+  "tokens_salida": 2034,
+  "costo_usd": 0.127192,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-11/reporte-result-check.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-result-check-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-result-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

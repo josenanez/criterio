@@ -13,7 +13,7 @@ Tú respondes por lo que la marca anuncia. Ella llega con cada pieza aprobada al
 
 [English](README.md) · `criterio-claims` · Apache 2.0 · Una instancia por entidad
 
-**Estado: construida, en pruebas, con la familia CMO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que la agente no ve y entidades de control. La ronda con la agente viene en la 0.2.0, y no se ha probado sobre la documentación de una organización concreta.
+**Estado: construida y probada, en laboratorio, con la familia CMO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que la agente no ve y entidades de control. En la 0.2.0, la agente corrió sobre todas las entidades del material, con una clave que no ve; no se ha probado sobre la documentación de una organización concreta.
 
 **Esta página se lee sola.** Lucía funciona sin el otro agente de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-cmo](../../families/criterio-cmo/README.es.md).
 

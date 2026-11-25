@@ -53,7 +53,7 @@ fuente y su fecha. Ninguno puede levantar una señal.
 
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que el agente
   procese las piezas, asocie cada afirmación con el soporte que trata de lo mismo, lea las bases de cada
-  promoción y el informe de resultados, y los registre bien, lo prueba la ronda con los agentes, en la 0.2.0.
+  promoción y el informe de resultados, y los registre bien, lo prueba la ronda con los agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cmo/RONDAS.md).
 - **Las exportaciones reales** de Google Ads, Meta o LinkedIn: el material usa tablas con columnas en
   español; el setup mapea las de cualquier exportación.
 - **La ley de publicidad de cada país** fuera de Colombia: está por verificar, y no sostiene ninguna señal.

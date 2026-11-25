@@ -2,7 +2,7 @@
 
 # criterio-cdo · el diseño de la familia
 
-**Estado: construida, en pruebas (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
+**Estado: construida y probada, en laboratorio (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
 `tests/criterio-cdo/`. En la 0.2.0, las dos agentes corrieron sobre todas las entidades del material, con una clave que no ven: [las rondas](../../tests/evidencias/familias/cdo/RONDAS.md). Alcance en [ADR 0034](../../docs/decisions/0034-la-familia-cdo.md).
 

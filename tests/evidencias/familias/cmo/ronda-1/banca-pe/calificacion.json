@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Altiplano Sintético",
+  "agentes": [
+    "lucia",
+    "prospero"
+  ],
+  "tokens": 6302286,
+  "senales": {
+    "esperadas": 6,
+    "acertadas": 6,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

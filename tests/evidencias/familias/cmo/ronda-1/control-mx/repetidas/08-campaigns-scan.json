@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "prospero",
+  "comando": "campaigns-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T23:00:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 43,
+  "turnos": 14,
+  "tokens": 597191,
+  "tokens_salida": 3191,
+  "costo_usd": 0.380605,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/campanas/2026-10/reporte-campaigns-scan.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/2026-11-25-campaigns-scan-1.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/salida-campaigns-scan.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "lucia",
+  "comando": "claim-check",
+  "argumento": "",
+  "inicio": "2026-11-25T23:06:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 7,
+  "tokens": 349581,
+  "tokens_salida": 2386,
+  "costo_usd": 0.12534289999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/2026-11-25-claim-check-1.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas/salida-claim-check.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/piezas/2026-11/reporte-claim-check.md",
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/piezas/2026-11/resultados.json"
+    ],
+    "modificados": [
+      "estado-mercadeo/ccm220101zz9-consumo-control-de-mercadeo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -2,7 +2,7 @@
 
 **la agente de los perfiles de cargo de la familia CHRO** · plugin `criterio-roles`
 
-Corrida del 2026-11-25, sobre el commit `7005acc7`, con cambios en el árbol todavía sin confirmar. **2 puertas · 30 comprobaciones · todas en verde.**
+Corrida del 2026-11-25, sobre el commit `95cef028`, con cambios en el árbol todavía sin confirmar. **2 puertas · 30 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-25, sobre el commit `7005acc7`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-roles/talento.py selftest` | El motor de Norma y Cándido: los perfiles contra la CUOC, lo que no se puede pedir, las hojas de vida y la prueba de sesgo | 24 | 124 ms | verde |
-| `criterio-chro/evaluar.py` | Que Norma levante cada señal sembrada en los perfiles, y ninguna de más | 6 | 101 ms | verde |
+| `criterio-roles/talento.py selftest` | El motor de Norma y Cándido: los perfiles contra la CUOC, lo que no se puede pedir, las hojas de vida y la prueba de sesgo | 24 | 106 ms | verde |
+| `criterio-chro/evaluar.py` | Que Norma levante cada señal sembrada en los perfiles, y ninguna de más | 6 | 74 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -58,7 +58,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 12 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 572 | **8 EN ROJO** |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 573 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

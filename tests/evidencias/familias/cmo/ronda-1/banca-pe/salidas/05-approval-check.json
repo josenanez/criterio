@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "lucia",
+  "comando": "approval-check",
+  "argumento": "",
+  "inicio": "2026-11-25T21:57:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 401877,
+  "tokens_salida": 2450,
+  "costo_usd": 0.13252029999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/2026-11-25-approval-check-1.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/salida-approval-check.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/piezas/2026-11/reporte-approval-check.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

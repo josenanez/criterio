@@ -2,7 +2,7 @@
 
 # criterio-cro · el diseño de la familia
 
-**Estado: construida, en pruebas (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
+**Estado: construida y probada, en laboratorio (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
 `tests/criterio-cro/`. En la 0.2.0, los dos agentes corrieron sobre todas las entidades del material, con una clave que no ven: [las rondas](../../tests/evidencias/familias/cro/RONDAS.md). Alcance en [ADR 0035](../../docs/decisions/0035-la-familia-cro.md).
 

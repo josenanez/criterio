@@ -1,0 +1,62 @@
+{
+  "nota": "Los defectos que encontraron las rondas con los agentes de la familia CMO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+  "defectos": [
+    {
+      "id": "CMO-1",
+      "ronda": 1,
+      "carpeta": "banca-pe",
+      "agentes": [
+        "lucia"
+      ],
+      "origen": "clave",
+      "commit": "46d4a7d0",
+      "estado": "verificado",
+      "es": {
+        "que": "La clave guardaba la fuente de la comparativa con la etiqueta «Fuente:» y el punto final de la pieza. Lucía la llevó a la ficha sin ellos, como lo pide claim-record, y la calificación la contó como mal: el dato estaba bien.",
+        "correccion": "La clave guarda solo la fuente. La misma salida de Lucía, calificada otra vez con la clave corregida, da los cinco datos bien; los controles se corrieron después con la clave corregida."
+      },
+      "en": {
+        "que": "The key stored the comparison's source with the piece's «Fuente:» label and final period. Lucía recorded it without them, as claim-record asks, and the grading counted it as wrong: the data was right.",
+        "correccion": "The key stores only the source. Lucía's same output, graded again with the corrected key, has all five data right; the controls were run afterwards with the corrected key."
+      },
+      "fallas": [
+        [
+          1,
+          "banca-pe",
+          "piezas · claims"
+        ]
+      ]
+    },
+    {
+      "id": "CMO-2",
+      "ronda": 1,
+      "carpeta": "control-mx",
+      "agentes": [
+        "lucia"
+      ],
+      "origen": "instrucciones",
+      "commit": "95cef028",
+      "estado": "verificado",
+      "es": {
+        "que": "Lucía dejó la reseña pagada a la creadora —«mi pedido llegó al día siguiente»— como revisada sin afirmaciones: claim-record decía que una opinión no es una afirmación y no decía nada de los testimonios. En las otras cuatro entidades la llevó a la ficha con su soporte.",
+        "correccion": "claim-record dice que un testimonio que dice un hecho comprobable es una afirmación y va con su soporte; «me encantó» no lo es. El control de México, corrido otra vez, da los cinco datos bien; la primera corrida está en repetidas/."
+      },
+      "en": {
+        "que": "Lucía left the paid creator review —«my order arrived the next day»— as reviewed with no claims: claim-record said an opinion is not a claim and said nothing about testimonials. In the other four entities she recorded it with its substantiation.",
+        "correccion": "claim-record says a testimonial stating a verifiable fact is a claim and goes with its substantiation; «I loved it» is not. The Mexico control, run again, has all five data right; the first run is in repetidas/."
+      },
+      "fallas": [
+        [
+          1,
+          "control-mx",
+          "piezas · claims"
+        ],
+        [
+          1,
+          "control-mx",
+          "piezas · reviewed"
+        ]
+      ]
+    }
+  ]
+}

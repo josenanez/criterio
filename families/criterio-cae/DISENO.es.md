@@ -2,7 +2,7 @@
 
 # criterio-cae · el diseño de la familia
 
-**Estado: construida, en pruebas (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
+**Estado: construida y probada, en laboratorio (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
 `tests/criterio-cae/`. En la 0.2.0, los tres agentes corrieron sobre todas las entidades del material, con una clave que no ven: [las rondas](../../tests/evidencias/familias/cae/RONDAS.md). Alcance en [ADR 0033](../../docs/decisions/0033-la-familia-cae.md).
 

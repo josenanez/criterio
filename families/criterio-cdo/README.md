@@ -16,7 +16,7 @@ entity's folder and data policy: each writes only its own record.
 | **Goal** | That every piece of data has someone answering for it and that every figure reaching management can be followed back to its source |
 | **Made up of** | [Custodia](../../plugins/criterio-data-governance/README.md) · [Ariadna](../../plugins/criterio-data-quality/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The backing** | DAMA-DMBOK, the Basel Committee's BCBS 239 principles and ISO/IEC 25012, with their source and status: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Status** | Built, in testing: the engine tested on all its material, with its key and its control entities. In 0.2.0, the round with the two agents on every entity in the material. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Built and tested, in the lab: the engine tested on all its material, with its key and its control entities. In 0.2.0, the round with the two agents on every entity in the material. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Exports and metadata, never systems: no agent connects to a database or processes personal data |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional duty |
 | **What it is not** | It does not replace the data office: it assigns no owners, decides no classification, deletes nothing, corrects no figure and does not decide which of two figures is right |

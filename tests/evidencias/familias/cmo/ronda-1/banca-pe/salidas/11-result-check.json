@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "prospero",
+  "comando": "result-check",
+  "argumento": "",
+  "inicio": "2026-11-25T22:01:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 352310,
+  "tokens_salida": 2657,
+  "costo_usd": 0.13342330000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/campanas/2026-10/reporte-result-check.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/2026-11-25-result-check-1.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/salida-result-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

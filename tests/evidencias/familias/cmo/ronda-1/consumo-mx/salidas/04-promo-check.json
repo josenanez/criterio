@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "lucia",
+  "comando": "promo-check",
+  "argumento": "",
+  "inicio": "2026-11-25T22:04:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 399180,
+  "tokens_salida": 2184,
+  "costo_usd": 0.12691059999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-promo-check-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-promo-check.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/piezas/2026-11/reporte-promo-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
