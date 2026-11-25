@@ -15,6 +15,7 @@ body:
         - Criterio CISO · Alexis, Guillermo, Amparo
         - Criterio CHRO · Norma, Cándido
         - Criterio CAE · Prudencia, Justo, Remedios
+        - Criterio CDO · Custodia, Ariadna
         - Rostrum
     validations:
       required: true

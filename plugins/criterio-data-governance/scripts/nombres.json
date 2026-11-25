@@ -1,0 +1,33 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cdo/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "dataset_without_owner": "Un conjunto de datos del catálogo no tiene un dueño de negocio",
+    "dataset_without_classification": "Un conjunto no tiene su clasificación de confidencialidad",
+    "policy_review_overdue": "Una política de datos o de conservación pasó su fecha de revisión",
+    "retention_exceeded": "Un conjunto conserva registros más tiempo del que fija la política para su tipo",
+    "term_not_in_glossary": "Un término de un informe de dirección no tiene su definición en el glosario de negocio",
+    "personal_data_unregistered": "Un conjunto con datos personales no está en el registro de bases de datos personales de la organización",
+    "figure_without_source": "Una cifra de un informe de dirección no tiene fuente en el linaje ni en las cifras de la fuente exportadas",
+    "figure_differs_from_source": "La cifra del informe no coincide con la de su fuente al mismo corte, más allá de la tolerancia que fija la organización",
+    "cutoff_mismatch": "La cifra del informe es la de la fuente en un corte distinto al que el informe declara",
+    "lineage_broken": "Un paso del linaje de una cifra no tiene su sistema de origen",
+    "quality_rule_below_threshold": "El resultado de una regla de calidad en el periodo está bajo su umbral",
+    "quality_rule_not_run": "Una regla de calidad sobre un dato crítico no tiene resultado en el periodo",
+    "critical_data_without_rule": "Un dato marcado como crítico no tiene ninguna regla de calidad"
+  },
+  "comandos": {
+    "governance-setup": "Instalación",
+    "governance-scan": "Qué cambió en el gobierno",
+    "catalog-check": "Cada conjunto con su dueño",
+    "retention-check": "Las políticas y los plazos",
+    "glossary-check": "El glosario y el registro",
+    "governance-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
+    "lineage-setup": "Instalación",
+    "lineage-scan": "Qué cambió en la calidad",
+    "figure-check": "Cada cifra contra su fuente",
+    "lineage-check": "El linaje de cada cifra",
+    "rule-check": "Las reglas de calidad",
+    "lineage-wake": "Qué toca hoy"
+  }
+}

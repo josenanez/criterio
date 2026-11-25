@@ -1,0 +1,153 @@
+{
+  "entidad": "Retail Control de Datos Sintético",
+  "industria": "retail",
+  "pais": "MX",
+  "hoy": "2026-11-25",
+  "periodo": "2026-11",
+  "siembra": false,
+  "config": {
+    "custodia": {
+      "version": "0.1",
+      "role": "gobierno",
+      "entity": {
+        "id": "RCC200101CD2",
+        "name": "Retail Control de Datos Sintético",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "datos/rcc200101cd2-retail-control-de-datos-sintetico",
+        "state": "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico"
+      },
+      "period": "2026-11",
+      "publish_rostrum": true,
+      "methodology": {
+        "tolerance_pct": 0.5
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "ariadna": {
+      "version": "0.1",
+      "role": "calidad",
+      "entity": {
+        "id": "RCC200101CD2",
+        "name": "Retail Control de Datos Sintético",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "datos/rcc200101cd2-retail-control-de-datos-sintetico",
+        "state": "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico"
+      },
+      "period": "2026-11",
+      "publish_rostrum": true,
+      "methodology": {
+        "tolerance_pct": 0.5
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "gobierno": {
+      "policies": [
+        {
+          "name": "Política de datos",
+          "approved": "2024-06-30",
+          "next_review": "2026-12-15",
+          "source": "00-referencia/politica_de_datos.pdf"
+        },
+        {
+          "name": "Política de conservación",
+          "approved": "2025-09-01",
+          "next_review": "2027-09-01",
+          "source": "00-referencia/politica_de_conservacion.pdf"
+        }
+      ],
+      "retention": [
+        {
+          "type": "Clientes",
+          "months": 120,
+          "source": "00-referencia/politica_de_conservacion.pdf"
+        },
+        {
+          "type": "Transaccional",
+          "months": 120,
+          "source": "00-referencia/politica_de_conservacion.pdf"
+        },
+        {
+          "type": "Candidatos",
+          "months": 24,
+          "source": "00-referencia/politica_de_conservacion.pdf"
+        },
+        {
+          "type": "Proveedores",
+          "months": 60,
+          "source": "00-referencia/politica_de_conservacion.pdf"
+        }
+      ],
+      "report_terms": [
+        {
+          "term": "Cartera vencida",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Clientes activos",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Ventas netas",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Margen operacional",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "calidad": {
+      "figures": [
+        {
+          "indicator": "Cartera vencida",
+          "value": 1250000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Clientes activos",
+          "value": 84200,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Ventas netas",
+          "value": 9420000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Margen operacional",
+          "value": 3400000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

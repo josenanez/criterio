@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "role": "gobierno",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "datos/900123456-entidad-de-ejemplo",
+    "state": "estado-datos/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-11",
+  "publish_rostrum": true,
+  "methodology": {
+    "tolerance_pct": 0.5
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

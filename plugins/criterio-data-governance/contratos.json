@@ -1,0 +1,325 @@
+{
+  "comandos": {
+    "catalog-check": {
+      "funcion": "Cada conjunto del catálogo con su dueño de negocio y su clasificación de confidencialidad: los que no tienen quién responda por ellos.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada conjunto del catálogo con su dueño de negocio y su clasificación de confidencialidad: los que no tienen quién responda por ellos",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-catalog-check.md",
+          "<estado>/corridas/salida-catalog-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "custodia": {
+      "funcion": "Pídeselo a Custodia (El gobierno de los datos) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Custodia (El gobierno de los datos) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "glossary-check": {
+      "funcion": "Cada término de los informes contra el glosario de negocio y cada base con datos personales contra el registro de la organización.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada término de los informes contra el glosario de negocio y cada base con datos personales contra el registro de la organización",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-glossary-check.md",
+          "<estado>/corridas/salida-glossary-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "governance-scan": {
+      "funcion": "Procesa lo que cambió en el gobierno de los datos, lleva cada política, cada plazo y cada término nuevo a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en el gobierno de los datos, lleva cada política, cada plazo y cada término nuevo a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-governance-scan.md",
+          "<estado>/corridas/salida-governance-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-intake",
+          "governance-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "governance-setup": {
+      "funcion": "Deja a Custodia lista sobre una entidad — mira la carpeta de datos, reconoce el catálogo y el registro de bases personales y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Custodia lista sobre una entidad — mira la carpeta de datos, reconoce el catálogo y el registro de bases personales y muestra el primer resultado",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-governance-setup.md",
+          "<estado>/corridas/salida-governance-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-intake",
+          "data-policy",
+          "governance-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "governance-wake": {
+      "funcion": "Lo que toca hoy en el gobierno de los datos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en el gobierno de los datos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-governance-wake.md",
+          "<estado>/corridas/salida-governance-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "retention-check": {
+      "funcion": "Cada política contra su fecha de revisión y cada conjunto contra el plazo de conservación de su tipo: lo vencido y lo que se conserva de más.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada política contra su fecha de revisión y cada conjunto contra el plazo de conservación de su tipo: lo vencido y lo que se conserva de más",
+        "escribe": [
+          "<estado>/gobierno/<AAAA-MM>/resultados.json",
+          "<estado>/gobierno/<AAAA-MM>/reporte-retention-check.md",
+          "<estado>/corridas/salida-retention-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "data-intake": {
+      "escribe": [
+        "columns"
+      ],
+      "alimenta": [
+        "dataset_without_owner",
+        "dataset_without_classification",
+        "personal_data_unregistered",
+        "lineage_broken",
+        "critical_data_without_rule",
+        "quality_rule_not_run"
+      ]
+    },
+    "data-policy": {
+      "escribe": [
+        "methodology"
+      ],
+      "alimenta": [
+        "figure_differs_from_source",
+        "quality_rule_below_threshold"
+      ]
+    },
+    "governance-record": {
+      "escribe": [
+        "policies[]",
+        "retention[]",
+        "report_terms[]"
+      ],
+      "alimenta": [
+        "policy_review_overdue",
+        "retention_exceeded",
+        "term_not_in_glossary"
+      ]
+    }
+  }
+}

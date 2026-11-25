@@ -73,6 +73,10 @@ DUENIOS = [
     ("evaluar.py --agente justo", "Justo"),
     ("evaluar.py --agente remedios", "Remedios"),
     ("tests/criterio-cae/", "La familia"),
+    ("criterio-data-governance/scripts/datos.py", "Custodia"),
+    ("evaluar.py --agente custodia", "Custodia"),
+    ("evaluar.py --agente ariadna", "Ariadna"),
+    ("tests/criterio-cdo/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -465,6 +469,8 @@ PLUGIN_DE = {
     "Prudencia": "criterio-audit-plan",
     "Justo": "criterio-audit-work",
     "Remedios": "criterio-remediation",
+    "Custodia": "criterio-data-governance",
+    "Ariadna": "criterio-data-quality",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -730,6 +736,18 @@ _CAE_NO_CUBRE = [
 ]
 for _p in ("criterio-audit-plan", "criterio-audit-work", "criterio-remediation"):
     NO_CUBRE[_p] = list(_CAE_NO_CUBRE)
+_CDO_NO_CUBRE = [
+    ("La extracción de las políticas, los plazos, los términos y las cifras de los informes",
+     "El motor se prueba con la ficha correcta, la de la clave. Que la agente procese los documentos escritos y los registre bien "
+     "lo prueba la ronda, que viene en la 0.2.0."),
+    ("Las exportaciones del material no son las de un catálogo de datos",
+     "Son tablas con columnas en español; las de Collibra, Alation, Microsoft Purview o Informatica se mapean en el setup y entran "
+     "con una exportación real."),
+    ("La ley de cada país sobre el registro de bases de datos personales",
+     "Está por verificar, país por país; el material compara el catálogo con el registro de la organización."),
+]
+for _p in ("criterio-data-governance", "criterio-data-quality"):
+    NO_CUBRE[_p] = list(_CDO_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -752,6 +770,8 @@ QUE_ES = {
     "criterio-audit-plan": ("Prudencia", "la agente del plan de auditoría de la familia CAE"),
     "criterio-audit-work": ("Justo", "el agente de los trabajos de auditoría de la familia CAE"),
     "criterio-remediation": ("Remedios", "la agente del seguimiento de los hallazgos de la familia CAE"),
+    "criterio-data-governance": ("Custodia", "la agente del gobierno de los datos de la familia CDO"),
+    "criterio-data-quality": ("Ariadna", "la agente de la calidad y el linaje de la familia CDO"),
 }
 
 
@@ -765,7 +785,8 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-resilience": "../criterio-ciso/EVIDENCIA.md",
                 "criterio-roles": "../criterio-chro/EVIDENCIA.md", "criterio-talent": "../criterio-chro/EVIDENCIA.md",
                 "criterio-audit-plan": "../criterio-cae/EVIDENCIA.md", "criterio-audit-work": "../criterio-cae/EVIDENCIA.md",
-                "criterio-remediation": "../criterio-cae/EVIDENCIA.md"}
+                "criterio-remediation": "../criterio-cae/EVIDENCIA.md",
+                "criterio-data-governance": "../criterio-cdo/EVIDENCIA.md", "criterio-data-quality": "../criterio-cdo/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

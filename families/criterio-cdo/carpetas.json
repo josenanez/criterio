@@ -1,0 +1,86 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CDO: scripts/familias.py la escribe en DISENO.es.md, en el skill data-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "datos/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, las políticas de datos y de conservación con el glosario de negocio, la exportación del catálogo con el registro de bases de datos personales, los informes de dirección con sus cifras, y el linaje, las cifras de la fuente y las reglas de calidad con sus resultados.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the data and retention policies with the business glossary, the catalog export with the register of personal databases, the management reports with their figures, and the lineage, the source figures and the quality rules with their results."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que el área de datos lleva de la entidad",
+      "en": "What the data office keeps for the entity",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "custodia",
+            "ariadna"
+          ],
+          "es": "La política de datos —con sus tolerancias y sus plazos de revisión—, la política de conservación con el plazo de cada tipo de dato y el glosario de negocio",
+          "en": "The data policy —with its tolerances and review deadlines—, the retention policy with the period for each data type and the business glossary",
+          "patrones": [
+            "^politica",
+            "^glosario",
+            "^policy",
+            "^glossary"
+          ]
+        },
+        {
+          "carpeta": "10-catalogo",
+          "agentes": [
+            "custodia"
+          ],
+          "es": "La exportación del catálogo de datos —cada conjunto con su dueño, su clasificación, su tipo y su registro más antiguo— y el registro de bases de datos personales de la organización",
+          "en": "The data catalog export —each dataset with its owner, classification, type and oldest record— and the organisation's register of personal databases",
+          "patrones": [
+            "^catalogo",
+            "^catalog",
+            "^registro_de_bases",
+            "^registro_bases",
+            "^bases_personales"
+          ]
+        },
+        {
+          "carpeta": "20-informes",
+          "agentes": [
+            "custodia",
+            "ariadna"
+          ],
+          "es": "Los informes de dirección, de junta y al supervisor, con sus cifras y su fecha de corte",
+          "en": "The management, board and supervisory reports, with their figures and cut-off date",
+          "patrones": [
+            "^informe",
+            "^reporte",
+            "^report"
+          ]
+        },
+        {
+          "carpeta": "30-calidad",
+          "agentes": [
+            "ariadna"
+          ],
+          "es": "La exportación del linaje de cada cifra, las cifras de la fuente por corte, las reglas de calidad con su umbral, sus resultados por periodo y la lista de datos críticos",
+          "en": "The lineage export of each figure, the source figures by cut-off, the quality rules with their threshold, their results by period and the list of critical data",
+          "patrones": [
+            "^linaje",
+            "^lineage",
+            "^cifras_fuente",
+            "^valores_fuente",
+            "^reglas",
+            "^resultados",
+            "^datos_criticos",
+            "^quality",
+            "^critical"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-datos/",
+    "es": "Lo que escriben Custodia y Ariadna: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Custodia and Ariadna write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

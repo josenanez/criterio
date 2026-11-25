@@ -35,11 +35,13 @@ ORDEN_CCO = ("augusto", "valeria")
 ORDEN_CISO = ("alexis", "guillermo", "amparo")
 ORDEN_CHRO = ("norma", "candido")
 ORDEN_CAE = ("prudencia", "justo", "remedios")
+ORDEN_CDO = ("custodia", "ariadna")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
           "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos", "alexis": "seguridad",
           "guillermo": "vulnerabilidades", "amparo": "resiliencia", "norma": "perfiles", "candido": "seleccion",
-          "prudencia": "plan", "justo": "trabajos", "remedios": "seguimiento"}
+          "prudencia": "plan", "justo": "trabajos", "remedios": "seguimiento",
+          "custodia": "gobierno", "ariadna": "calidad"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -269,6 +271,29 @@ _PIEZAS = {
         ("ln", "path", dict(d="M53 110 L58 115 L68 103"), "resuelve"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Custodia: el archivo en el pecho, y la etiqueta de cada cajón se enciende: cada dato con su dueño
+    "custodia": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+    ] + [p for i, y in enumerate((90, 104, 118)) for p in (
+        ("ln", "rect", dict(x=38, y=y, width=44, height=11, rx=2)),
+        ("led", "rect", dict(x=54, y=y + 3.5, width=12, height=4, rx=1), f"guarda.{i}"))] + [
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Ariadna: el hilo recorre el laberinto en el pecho hasta su origen, que se enciende al llegar
+    "ariadna": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "path", dict(d="M48 62 Q60 68 72 62")),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "path", dict(d="M38 92 L82 92 L82 104 L38 104 L38 116 L82 116 L82 126 L66 126"), "hilo"),
+        ("led", "circle", dict(cx=62, cy=126, r=3), "origen"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [
         ("ln", "rect", dict(x=18, y=14, width=84, height=146, rx=3)),
         ("ln", "circle", dict(cx=42, cy=40, r=14)), ("ln", "circle", dict(cx=78, cy=40, r=14)),
@@ -359,6 +384,11 @@ GESTOS = {
     # Remedios: el ciclo se cierra y, cerrado, se traza la marca de lo resuelto
     "cura":     {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.35, 0), (.85, 0), (.9, 1), (1, 1)]},
     "resuelve": {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.4, 1), (.55, 0), (.85, 0), (.9, 1), (1, 1)]},
+    # Custodia: la etiqueta de cada cajón se enciende, una detrás de otra
+    "guarda":   {"tipo": "opacidad", "dura": 2.4, "paso": .4, "claves": [(0, .3), (.15, 1), (.7, 1), (.8, .3), (1, .3)]},
+    # Ariadna: el hilo se traza hasta el origen, y el origen se enciende cuando llega
+    "hilo":     {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.5, 0), (.85, 0), (.9, 1), (1, 1)]},
+    "origen":   {"tipo": "opacidad", "dura": 2.4, "claves": [(0, .3), (.5, .3), (.55, 1), (.85, 1), (.9, .3), (1, .3)]},
     # Rostrum: los carretes giran y las luces corren
     "gira":     {"tipo": "xy", "dura": 1.6, "paso": .4, "claves": _orbita(5)},
     "corre":    {"tipo": "opacidad", "dura": 1.2, "paso": .24, "claves": [(0, 1), (.2, 1), (.2, .3), (1, .3)]},
@@ -559,7 +589,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO + ORDEN_CAE
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO + ORDEN_CISO + ORDEN_CHRO + ORDEN_CAE + ORDEN_CDO
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}

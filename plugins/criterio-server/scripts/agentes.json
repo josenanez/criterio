@@ -123,6 +123,21 @@
         "trabajos",
         "seguimiento"
       ]
+    },
+    {
+      "sigla": "cdo",
+      "nombre": {
+        "es": "Los datos",
+        "en": "Data"
+      },
+      "estado": {
+        "es": "Construida · en pruebas",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "gobierno",
+        "calidad"
+      ]
     }
   ],
   "agentes": [
@@ -1778,6 +1793,154 @@
           ]
         }
       ]
+    },
+    {
+      "id": "custodia",
+      "nombre": "Custodia",
+      "plugin": "criterio-data-governance",
+      "area": "gobierno",
+      "ambitos": [
+        "gobierno"
+      ],
+      "familia": "cdo",
+      "rol": {
+        "es": "El gobierno de los datos",
+        "en": "Data governance"
+      },
+      "titulo": "el gobierno de los datos",
+      "origen": {
+        "es": "del latín *custodia*, la guarda: cada dato con quien responde por él",
+        "en": "from the Latin *custodia*, safekeeping: each piece of data with whoever answers for it"
+      },
+      "privados": {},
+      "setup": "/criterio-data-governance:governance-setup",
+      "marca": "_CRITERIO_DATOS.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "governance-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "custodia",
+              "etiqueta": "Pídeselo a Custodia"
+            },
+            {
+              "id": "governance-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "El gobierno de los datos",
+          "linea": "El catálogo de datos contra sus dueños, su clasificación, su conservación y sus políticas: el conjunto sin dueño o sin clasificar, la política con la revisión vencida, lo que se conserva más de lo que dice la política, el término del informe que no está en el glosario y la base con datos personales que no está en el registro de la organización",
+          "comandos": [
+            {
+              "id": "governance-scan",
+              "etiqueta": "Qué cambió en el gobierno"
+            },
+            {
+              "id": "catalog-check",
+              "etiqueta": "Cada conjunto con su dueño"
+            },
+            {
+              "id": "retention-check",
+              "etiqueta": "Las políticas y los plazos"
+            },
+            {
+              "id": "glossary-check",
+              "etiqueta": "El glosario y el registro"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ariadna",
+      "nombre": "Ariadna",
+      "plugin": "criterio-data-quality",
+      "area": "calidad",
+      "ambitos": [
+        "calidad"
+      ],
+      "familia": "cdo",
+      "rol": {
+        "es": "La calidad y el linaje",
+        "en": "Quality and lineage"
+      },
+      "titulo": "la calidad y el linaje de los datos",
+      "origen": {
+        "es": "la del hilo que lleva de vuelta por el laberinto: cada cifra hasta su fuente",
+        "en": "the one whose thread leads back through the labyrinth: each figure back to its source"
+      },
+      "privados": {},
+      "setup": "/criterio-data-quality:lineage-setup",
+      "marca": "_CRITERIO_DATOS.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "lineage-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "ariadna",
+              "etiqueta": "Pídeselo a Ariadna"
+            },
+            {
+              "id": "lineage-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "La calidad y el linaje",
+          "linea": "Cada cifra de un informe de dirección contra su fuente, su corte y su linaje, y cada regla de calidad contra su umbral: la cifra sin fuente, la que no coincide con su fuente en el mismo corte, la que sale de otro corte, el linaje que se corta, la regla bajo su umbral, la que no corrió y el dato crítico sin regla",
+          "comandos": [
+            {
+              "id": "lineage-scan",
+              "etiqueta": "Qué cambió en la calidad"
+            },
+            {
+              "id": "figure-check",
+              "etiqueta": "Cada cifra contra su fuente"
+            },
+            {
+              "id": "lineage-check",
+              "etiqueta": "El linaje de cada cifra"
+            },
+            {
+              "id": "rule-check",
+              "etiqueta": "Las reglas de calidad"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -1855,6 +2018,10 @@
     "correspondence_unanswered": "Un correo guardado pide respuesta y su plazo venció sin una respuesta guardada",
     "counterparty_certificate_stale": "El certificado de la contraparte tenía más días de los configurados cuando se firmó",
     "covenant_at_risk": "Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él",
+    "critical_data_without_rule": "Un dato marcado como crítico no tiene ninguna regla de calidad",
+    "cutoff_mismatch": "La cifra del informe es la de la fuente en un corte distinto al que el informe declara",
+    "dataset_without_classification": "Un conjunto no tiene su clasificación de confidencialidad",
+    "dataset_without_owner": "Un conjunto de datos del catálogo no tiene un dueño de negocio",
     "decision_deadline": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
@@ -1870,6 +2037,8 @@
     "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
     "external_assessment_overdue": "La última evaluación externa de calidad tiene más de cinco años (norma 8.4)",
     "external_finding_untracked": "Un hallazgo del revisor fiscal, del auditor externo o del supervisor no está en el registro con su plan",
+    "figure_differs_from_source": "La cifra del informe no coincide con la de su fuente al mismo corte, más allá de la tolerancia que fija la organización",
+    "figure_without_source": "Una cifra de un informe de dirección no tiene fuente en el linaje ni en las cifras de la fuente exportadas",
     "finding_element_missing": "Un hallazgo no tiene su criterio, su condición, su efecto o su prioridad, o no tiene su causa raíz ni la razón por la que no se pudo identificar (normas 14.2 y 14.3)",
     "finding_repeated": "La misma condición, en el mismo proceso, vuelve a aparecer después de que su hallazgo se cerró",
     "finding_without_workpaper": "Un hallazgo no cita un papel de trabajo, o cita uno que no existe (norma 14.6)",
@@ -1886,6 +2055,7 @@
     "invoice_outside_authorization": "Una factura recibida cae fuera de su autorización: en Honduras, fuera de su rango autorizado o emitida después de su fecha límite, y no sustenta el crédito fiscal del ISV; en Paraguay, emitida antes de la vigencia de su timbrado, y SIFEN la rechaza",
     "kev_past_due": "Una vulnerabilidad del catálogo KEV sigue abierta después de su fecha de corrección",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
+    "lineage_broken": "Un paso del linaje de una cifra no tiene su sistema de origen",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
     "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
     "meeting_during_flight": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
@@ -1898,10 +2068,11 @@
     "payment_after_termination": "Hay pagos con fecha posterior a la terminación del contrato",
     "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
     "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
+    "personal_data_unregistered": "Un conjunto con datos personales no está en el registro de bases de datos personales de la organización",
     "plan_area_not_considered": "El plan no considera el gobierno de TI, el riesgo de fraude o los programas de cumplimiento y ética, ni dice por qué (norma 9.4)",
     "plan_change_unapproved": "Un trabajo se agregó, se canceló o se aplazó sin el acta del órgano que aprueba el plan",
     "plan_hours_exceed_capacity": "Las horas del plan superan las horas disponibles del equipo en el periodo",
-    "policy_review_overdue": "Una política pasó su fecha de revisión",
+    "policy_review_overdue": "Una política de datos o de conservación pasó su fecha de revisión",
     "procedure_not_executed": "Un paso del programa de trabajo no tiene un papel de trabajo ni la razón por la que no aplica (norma 12.3)",
     "profile_review_overdue": "Un perfil pasó su fecha de revisión",
     "profile_without_occupation": "Un perfil no tiene un código de ocupación que lo ate a un estándar, o su código no está en el estándar",
@@ -1912,6 +2083,8 @@
     "public_guarantee_below_law": "La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país",
     "public_guarantee_late": "La garantía de cumplimiento de un contrato público se entregó después del plazo de la ley de su país",
     "public_guarantee_over_cap": "La garantía exigida en un contrato público supera el tope de la ley de su país",
+    "quality_rule_below_threshold": "El resultado de una regla de calidad en el periodo está bajo su umbral",
+    "quality_rule_not_run": "Una regla de calidad sobre un dato crítico no tiene resultado en el periodo",
     "rating_inconsistent": "La prioridad de un hallazgo no es la que da la metodología para su impacto y su probabilidad (norma 14.3)",
     "reconciliation_stale": "La conciliación de una cuenta no se actualizó en el periodo",
     "reconciling_item_aged": "Una partida conciliatoria lleva más días de los configurados",
@@ -1926,7 +2099,7 @@
     "requirement_not_evidenced": "Un requisito esencial del perfil no tiene evidencia ni en la hoja de vida ni en sus soportes",
     "requirement_without_task": "Un requisito del perfil no se apoya en ninguna de sus tareas",
     "restore_test_overdue": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna",
-    "retention_exceeded": "Los datos de un candidato pasaron el tiempo de conservación de la política y siguen en la carpeta",
+    "retention_exceeded": "Un conjunto conserva registros más tiempo del que fija la política para su tipo",
     "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
     "risk_accepted_not_escalated": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
     "risk_assessment_outdated": "La evaluación de riesgos que sostiene el plan tiene más de un año (norma 9.4)",
@@ -1938,6 +2111,7 @@
     "stage_without_evidence": "Una oportunidad está en una etapa y no tiene el documento que esa etapa exige: la propuesta enviada, la orden de compra",
     "stalled_opportunity": "Una oportunidad abierta no tiene actividad registrada en los días configurados",
     "target_vs_closed": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",
+    "term_not_in_glossary": "Un término de un informe de dirección no tiene su definición en el glosario de negocio",
     "third_party_assessment_overdue": "La evaluación de seguridad de un tercero crítico pasó su fecha, o no hay ninguna",
     "topical_requirement_missing": "Un trabajo de aseguramiento sobre ciberseguridad o terceros no lleva en su programa el requisito temático vigente",
     "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",

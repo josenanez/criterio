@@ -151,6 +151,7 @@ T = {
         'ciso_fr': 'Pongo cada control al lado de su evidencia, y cada plazo al lado de lo que se hizo.',
         'chro_fr': 'Pongo cada perfil sobre su estándar, y cada afirmación al lado de su soporte.',
         'cae_fr': 'Pongo cada riesgo al lado de su trabajo, y cada hallazgo al lado de su evidencia.',
+        'cdo_fr': 'Pongo cada dato al lado de su dueño, y cada cifra al lado de su fuente.',
         'disponible': 'Disponible',
         # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
         'og': {'pmo': ('Extiende la capacidad de tu PMO',
@@ -167,6 +168,8 @@ T = {
                         'Alexis, Guillermo y Amparo procesan la declaración de aplicabilidad, el escáner y los incidentes, y dicen qué control no tiene evidencia y qué plazo no se cumplió.'),
                'cae': ('La auditoría interna, contra su evidencia',
                        'Prudencia, Justo y Remedios procesan el plan, los papeles y el registro de hallazgos, y dicen qué riesgo no tiene un trabajo y qué hallazgo no tiene su papel.'),
+               'cdo': ('Los datos, contra su fuente',
+                       'Custodia y Ariadna procesan el catálogo, las políticas, los informes y el linaje, y dicen qué dato no tiene dueño y qué cifra no se sostiene en su fuente.'),
                'chro': ('El talento, contra sus estándares y sus soportes',
                         'Norma y Cándido procesan los perfiles de cargo y las hojas de vida, y dicen qué perfil no corresponde a su ocupación y qué afirmación no tiene soporte. No deciden sobre nadie.'),
                'rostrum': ('Rostrum, el portal de todas las familias',
@@ -191,7 +194,9 @@ T = {
                'candido': ('Cándido', 'La selección', 'Para quien responde por la selección, sin decidir por nadie.', 'La selección'),
                'prudencia': ('Prudencia', 'El plan', 'Para quien responde por el plan de auditoría.', 'El plan'),
                'justo': ('Justo', 'Los trabajos', 'Para quien supervisa los trabajos de auditoría.', 'Los trabajos'),
-               'remedios': ('Remedios', 'El seguimiento', 'Para quien lleva cada hallazgo hasta su cierre.', 'El seguimiento')},
+               'remedios': ('Remedios', 'El seguimiento', 'Para quien lleva cada hallazgo hasta su cierre.', 'El seguimiento'),
+               'custodia': ('Custodia', 'El gobierno', 'Para quien responde por el gobierno de los datos.', 'El gobierno'),
+               'ariadna': ('Ariadna', 'La calidad', 'Para quien responde por la cifra que llega a la dirección.', 'La calidad')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -297,6 +302,7 @@ T = {
         'ciso_fr': 'I put every control next to its evidence, and every deadline next to what was done.',
         'chro_fr': 'I put every profile on its standard, and every claim next to its support.',
         'cae_fr': 'I put every risk next to its engagement, and every finding next to its evidence.',
+        'cdo_fr': 'I put every piece of data next to its owner, and every figure next to its source.',
         'disponible': 'Available',
         'og': {'pmo': ('Extend your PMO’s capacity',
                        'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
@@ -312,6 +318,8 @@ T = {
                         'Alexis, Guillermo and Amparo process the statement of applicability, the scanner and the incidents, and say which control has no evidence and which deadline was missed.'),
                'cae': ('Internal audit, against its evidence',
                        'Prudencia, Justo and Remedios process the plan, the papers and the findings register, and tell you which risk has no engagement and which finding has no paper.'),
+               'cdo': ('Data, against its source',
+                       'Custodia and Ariadna process the catalog, the policies, the reports and the lineage, and say which data has no owner and which figure does not hold up against its source.'),
                'chro': ('Talent, against its standards and its supporting documents',
                         'Norma and Cándido process the job profiles and the CVs, and say which profile does not match its occupation and which claim has no support. They decide about no one.'),
                'rostrum': ('Rostrum, the portal for every family',
@@ -337,7 +345,9 @@ T = {
                'candido': ('Cándido', 'Selection', 'For whoever answers for selection, without deciding for anyone.', 'Selection'),
                'prudencia': ('Prudencia', 'The plan', 'For whoever answers for the audit plan.', 'The plan'),
                'justo': ('Justo', 'Engagements', 'For whoever supervises audit engagements.', 'Engagements'),
-               'remedios': ('Remedios', 'Follow-up', 'For whoever takes each finding to its closure.', 'Follow-up')},
+               'remedios': ('Remedios', 'Follow-up', 'For whoever takes each finding to its closure.', 'Follow-up'),
+               'custodia': ('Custodia', 'Governance', 'For whoever answers for data governance.', 'Governance'),
+               'ariadna': ('Ariadna', 'Quality', 'For whoever answers for the figure that reaches management.', 'Quality')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -772,7 +782,7 @@ def marca():
 
 # ══════════════════════════════════════════════════════════════════ tarjetas sociales
 
-OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO, 'chro': trazos.ORDEN_CHRO, 'cae': trazos.ORDEN_CAE,
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO, 'chro': trazos.ORDEN_CHRO, 'cae': trazos.ORDEN_CAE, 'cdo': trazos.ORDEN_CDO,
              'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
 
 
@@ -1415,7 +1425,7 @@ if __name__ == '__main__':
     for idioma, t in T.items():
         print(idioma)
         # el estado de cada familia es el de su familia.json, por medio del registro
-        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae'):
+        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo'):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
@@ -1424,7 +1434,7 @@ if __name__ == '__main__':
             guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
             guardar(flujo(tf), idioma, f'flujo-{sg}.png')
             guardar(contrato(tf), idioma, f'contrato-{sg}.png')
-        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'rostrum'):
+        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
@@ -1433,7 +1443,7 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO + trazos.ORDEN_CHRO + trazos.ORDEN_CAE:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO + trazos.ORDEN_CHRO + trazos.ORDEN_CAE + trazos.ORDEN_CDO:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
     # El trazo de cada robot, como SVG animado y como datos: docs/img/robots_datos.py, que la
     # verificación comprueba.

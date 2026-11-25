@@ -2,7 +2,7 @@
 
 **el portal de todas las familias** · plugin `criterio-server`
 
-Corrida del 2026-11-24, sobre el commit `06437116`, con cambios en el árbol todavía sin confirmar. **8 puertas · 146 comprobaciones · todas en verde.**
+Corrida del 2026-11-25, sobre el commit `6b594499`, con cambios en el árbol todavía sin confirmar. **8 puertas · 146 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,14 +10,14 @@ Corrida del 2026-11-24, sobre el commit `06437116`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 388 ms | verde |
-| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 106 | 1523 ms | verde |
-| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 51 ms | verde |
-| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 361 ms | verde |
-| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 41 ms | verde |
-| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 90 ms | verde |
-| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 47 ms | verde |
-| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 7971 ms | verde |
+| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 483 ms | verde |
+| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 106 | 1405 ms | verde |
+| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 47 ms | verde |
+| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 888 ms | verde |
+| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 43 ms | verde |
+| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 65 ms | verde |
+| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 42 ms | verde |
+| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 7563 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -61,7 +61,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `tests/ronda.py verificar` | Que cada defecto registrado diga su origen, su corrección y dónde se verificó | 1 | verde |
 | `tests/banco.py verificar` | Que cada calificación del agente salga de sus conteos, con intervalo y origen | 1 | verde |
 | `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | verde |
-| `tests/setup_corto.py` | El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente | 54 | verde |
+| `tests/setup_corto.py` | El setup en dos llamadas: arranque antes de la primera pregunta y dejar-listo después de la última, en cada agente | 60 | verde |
 | `tests/reloj_corto.py` | El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada | 6 | verde |
 | `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | verde |
 | `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | verde |
@@ -69,7 +69,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 12 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 458 | **8 EN ROJO** |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 497 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
@@ -78,7 +78,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | verde |
 | `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
-| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 21 | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 22 | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
@@ -90,6 +90,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | verde |
 | `criterio-chro/generar.py` | El material CHRO: banca, retail y tecnología y dos controles, con la CUOC y O*NET en la forma de su descarga, su clave y los pares de sesgo | — | verde |
 | `criterio-cae/generar.py` | El material CAE: banca, cooperativas y seguros en Colombia, Perú y Brasil y dos controles, con su clave | — | verde |
+| `criterio-cdo/generar.py` | El material CDO: banca, seguros y retail en Colombia, Perú y México y dos controles, con su clave | — | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
 | `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 22 | verde |

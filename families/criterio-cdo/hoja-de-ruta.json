@@ -1,0 +1,140 @@
+{
+ "nota": "Fuente única de la hoja de ruta de la familia CDO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Las tolerancias, los umbrales y los plazos son los de la política de datos de la organización.",
+ "incrementos": [
+  {
+   "incremento": 1,
+   "version": "0.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Custodia y Ariadna, construidas, con el motor probado",
+    "entra": [
+     "Los comandos, sus cuatro skills y el motor, con las trece señales: el catálogo, las políticas, la conservación, el glosario y el registro de bases personales de Custodia; cada cifra contra su fuente, su corte y su linaje, y cada regla de calidad contra su umbral, de Ariadna",
+     "DAMA-DMBOK (F-01), BCBS 239 (F-02) e ISO/IEC 25012 (F-03)",
+     "Material de banca, seguros y retail en Colombia, Perú y México, con dos entidades de control"
+    ],
+    "prueba": "El motor contra la clave de todo el material, sin una alarma en los controles"
+   },
+   "en": {
+    "titulo": "Custodia and Ariadna, built, with the engine tested",
+    "entra": [
+     "The commands, their four skills and the engine, with the thirteen signals: Custodia's catalog, policies, retention, glossary and personal database register; Ariadna's every figure against its source, cut-off and lineage, and every quality rule against its threshold",
+     "DAMA-DMBOK (F-01), BCBS 239 (F-02) and ISO/IEC 25012 (F-03)",
+     "Banking, insurance and retail material in Colombia, Peru and Mexico, with two control entities"
+    ],
+    "prueba": "The engine against the key of all the material, with no alarm on the controls"
+   }
+  },
+  {
+   "incremento": 2,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "La ronda con las dos agentes",
+    "entra": [
+     "Las rondas con Custodia y Ariadna sobre todo el material, con una clave que no ven"
+    ],
+    "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
+   },
+   "en": {
+    "titulo": "The round with the two agents",
+    "entra": [
+     "The rounds with Custodia and Ariadna on all the material, with a key they never see"
+    ],
+    "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Las exportaciones de los catálogos de datos",
+    "entra": [
+     "Collibra, Alation, Microsoft Purview e Informatica, cada una con su fuente verificada o con los encabezados de una exportación real",
+     "El registro de bases de datos personales que exige la ley de cada país, verificado país por país"
+    ],
+    "prueba": "Cada exportación procesada contra su clave"
+   },
+   "en": {
+    "titulo": "Data catalog exports",
+    "entra": [
+     "Collibra, Alation, Microsoft Purview and Informatica, each with its verified source or the headers of a real export",
+     "The register of personal databases each country's law requires, verified country by country"
+    ],
+    "prueba": "Each export processed against its key"
+   }
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cdo/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "patrones": [
+            "^politica",
+            "^glosario",
+            "^policy",
+            "^glossary"
+          ]
+        },
+        {
+          "carpeta": "10-catalogo",
+          "patrones": [
+            "^catalogo",
+            "^catalog",
+            "^registro_de_bases",
+            "^registro_bases",
+            "^bases_personales"
+          ]
+        },
+        {
+          "carpeta": "20-informes",
+          "patrones": [
+            "^informe",
+            "^reporte",
+            "^report"
+          ]
+        },
+        {
+          "carpeta": "30-calidad",
+          "patrones": [
+            "^linaje",
+            "^lineage",
+            "^cifras_fuente",
+            "^valores_fuente",
+            "^reglas",
+            "^resultados",
+            "^datos_criticos",
+            "^quality",
+            "^critical"
+          ]
+        }
+      ]
+    }
+  ]
+}

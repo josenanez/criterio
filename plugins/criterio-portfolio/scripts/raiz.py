@@ -94,6 +94,12 @@ DESTINO = {
     "criterio-remediation": {"familia": "cae", "busca": "raiz", "marca": "_CRITERIO_AUDITORIA.txt",
         "que": "la carpeta de auditoría interna de una entidad", "agentes": "Prudencia, Justo y Remedios",
         "setup": "/criterio-remediation:remediation-setup"},
+    "criterio-data-governance": {"familia": "cdo", "busca": "raiz", "marca": "_CRITERIO_DATOS.txt",
+        "que": "la carpeta de datos de una entidad", "agentes": "Custodia y Ariadna",
+        "setup": "/criterio-data-governance:governance-setup"},
+    "criterio-data-quality": {"familia": "cdo", "busca": "raiz", "marca": "_CRITERIO_DATOS.txt",
+        "que": "la carpeta de datos de una entidad", "agentes": "Custodia y Ariadna",
+        "setup": "/criterio-data-quality:lineage-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

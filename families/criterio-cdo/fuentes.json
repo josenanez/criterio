@@ -1,0 +1,155 @@
+{
+  "nota": "Fuente única de las fuentes técnicas y normativas de la familia CDO y de las cifras de terceros que cita, con su estado: scripts/familias.py la escribe en FUENTES.es.md. Una fuente por verificar no sostiene ningún comando ni ninguna cifra publicada (ADR 0006).",
+  "secciones": [
+    {
+      "id": "rol",
+      "titulo": "Los marcos de la gestión de datos",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "DAMA International · DAMA-DMBOK, Data Management Body of Knowledge, segunda edición",
+          "version": "Segunda edición, vigente; revisión lanzada en 2024 y proyecto de tercera edición desde 2025",
+          "enlaces": [
+            [
+              "dama.org",
+              "https://dama.org/learning-resources/dama-data-management-body-of-knowledge-dmbok/"
+            ]
+          ],
+          "consultada": "2026-11-24",
+          "estado": "verificada",
+          "nota": "Verificada en dama.org: la segunda edición es la vigente. Libro de pago: se citan sus áreas por su nombre, nunca su texto. Por verificar en el libro: el número de áreas y el lugar del gobierno",
+          "uso": "Las tres áreas que trabaja la familia: el gobierno de datos (Custodia), la calidad y los metadatos con el linaje (Ariadna)"
+        },
+        {
+          "id": "F-02",
+          "fuente": "Comité de Supervisión Bancaria de Basilea · BCBS 239, Principios para la agregación eficaz de datos de riesgo y la presentación de informes de riesgo",
+          "version": "Enero de 2013, vigente; informe de avance del 28 de noviembre de 2023",
+          "enlaces": [
+            [
+              "bis.org/publ/bcbs239",
+              "https://www.bis.org/publ/bcbs239.pdf"
+            ],
+            [
+              "informe de avance de 2023",
+              "https://www.bis.org/bcbs/publ/d559.htm"
+            ]
+          ],
+          "consultada": "2026-11-25",
+          "estado": "verificada",
+          "nota": "Catorce principios en cuatro grupos. Verificados en el documento: el gobierno y la infraestructura (1 y 2), la capacidad de agregar los datos de riesgo (3 a 6: exactitud e integridad, completitud, oportunidad y adaptabilidad) y la presentación de informes (desde el 7: exactitud, exhaustividad, claridad y utilidad). Se dirigen primero a los bancos sistémicos (párrafo 13), y los supervisores deberían aplicarlos a los sistémicos locales tres años después de su designación (párrafo 15). Por verificar: los títulos de los principios 10 a 14",
+          "uso": "La cifra de riesgo que llega a la junta, contra su fuente y su corte, en una entidad financiera: las señales de las cifras de Ariadna"
+        },
+        {
+          "id": "F-03",
+          "fuente": "ISO/IEC 25012 · Modelo de calidad de datos (SQuaRE)",
+          "version": "Primera edición, diciembre de 2008",
+          "enlaces": [
+            [
+              "IEC webstore",
+              "https://webstore.iec.ch/publication/11246"
+            ]
+          ],
+          "consultada": "2026-11-25",
+          "estado": "verificada",
+          "nota": "Verificada en la tienda de la IEC y en la muestra oficial de la norma: quince características desde dos puntos de vista, el inherente al dato y el que depende del sistema. Norma de pago. Por verificar: el nombre de cada característica y si sigue vigente; su página en iso.org no respondió",
+          "uso": "La característica de calidad con que la organización escribe cada regla"
+        },
+        {
+          "id": "F-04",
+          "fuente": "ISO 8000 · Calidad de datos",
+          "version": "La parte 1 de 2011 está retirada y la reemplaza la de 2022",
+          "enlaces": [
+            [
+              "iso.org",
+              "https://www.iso.org/standard/81745.html"
+            ]
+          ],
+          "consultada": "2026-11-24",
+          "estado": "por verificar",
+          "nota": "Las partes 8 y 61, sin verificar. Fuera de la 0.1.0 hasta verificar sus partes vigentes",
+          "uso": "La calidad de los datos maestros, cuando entre"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "2 de 31",
+        "en": "2 of 31"
+      },
+      "cifra": {
+        "es": "bancos sistémicos globales cumplían todos los principios de agregación de datos de riesgo en la evaluación del Comité de Basilea",
+        "en": "global systemically important banks complied with all the risk data aggregation principles in the Basel Committee's assessment"
+      },
+      "fuente": "Comité de Supervisión Bancaria de Basilea, Progress in adopting the Principles for effective risk data aggregation and risk reporting",
+      "anio": "2023",
+      "enlace": "https://www.bis.org/bcbs/publ/d559.htm",
+      "muestra": {
+        "es": "31 bancos sistémicos globales designados entre 2011 y 2021",
+        "en": "31 global systemically important banks designated between 2011 and 2021"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el informe del 28 de noviembre de 2023: de los 31 bancos evaluados, solo dos cumplen plenamente todos los principios, y ningún principio está plenamente aplicado en todos los bancos.",
+      "barra": {
+        "tipo": "share",
+        "valor": 6.5,
+        "es": "2 de cada 31 bancos",
+        "en": "2 of every 31 banks"
+      }
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "3 %",
+        "en": "3%"
+      },
+      "cifra": {
+        "es": "de las evaluaciones de calidad de datos alcanzaron el nivel aceptable, 97 de cada 100 registros sin errores",
+        "en": "of data quality assessments reached the acceptable level, 97 of every 100 records error-free"
+      },
+      "fuente": "Nagle, Redman y Sammon, Assessing data quality: A managerial call to action, Business Horizons, vol. 63, n.º 3",
+      "anio": "2020",
+      "enlace": "https://research.ucc.ie/en/publications/assessing-data-quality-a-managerial-call-to-action/",
+      "muestra": {
+        "es": "75 evaluaciones de calidad de datos recogidas durante dos años",
+        "en": "75 data quality assessments collected over two years"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el resumen del artículo, publicado el 1 de mayo de 2020.",
+      "barra": {
+        "tipo": "share",
+        "valor": 3,
+        "es": "3 de cada 100 evaluaciones",
+        "en": "3 of every 100 assessments"
+      }
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "47 %",
+        "en": "47%"
+      },
+      "cifra": {
+        "es": "de los registros recién creados tiene al menos un error crítico",
+        "en": "of newly created records have at least one critical error"
+      },
+      "fuente": "Nagle, Redman y Sammon, Assessing data quality: A managerial call to action, Business Horizons, vol. 63, n.º 3",
+      "anio": "2020",
+      "enlace": "https://research.ucc.ie/en/publications/assessing-data-quality-a-managerial-call-to-action/",
+      "muestra": {
+        "es": "75 evaluaciones de calidad de datos recogidas durante dos años",
+        "en": "75 data quality assessments collected over two years"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el resumen del artículo, publicado el 1 de mayo de 2020: en promedio.",
+      "barra": {
+        "tipo": "share",
+        "valor": 47,
+        "es": "47 de cada 100 registros",
+        "en": "47 of every 100 records"
+      }
+    }
+  ]
+}

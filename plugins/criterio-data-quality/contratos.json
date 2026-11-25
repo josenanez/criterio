@@ -1,0 +1,301 @@
+{
+  "comandos": {
+    "ariadna": {
+      "funcion": "Pídeselo a Ariadna (La calidad y el linaje) en tus palabras.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Ariadna (La calidad y el linaje) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "figure-check": {
+      "funcion": "Cada cifra de los informes contra la de su fuente al mismo corte: las que no tienen fuente, las que no coinciden y las que salen de otro corte.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada cifra de los informes contra la de su fuente al mismo corte: las que no tienen fuente, las que no coinciden y las que salen de otro corte",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-figure-check.md",
+          "<estado>/corridas/salida-figure-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "lineage-check": {
+      "funcion": "El linaje de cada cifra, paso a paso: dónde se corta porque un paso no tiene su sistema de origen.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "El linaje de cada cifra, paso a paso: dónde se corta porque un paso no tiene su sistema de origen",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-lineage-check.md",
+          "<estado>/corridas/salida-lineage-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "lineage-scan": {
+      "funcion": "Procesa lo que cambió en los informes y en la calidad, lleva cada cifra nueva a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en los informes y en la calidad, lleva cada cifra nueva a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-lineage-scan.md",
+          "<estado>/corridas/salida-lineage-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-intake",
+          "figure-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "lineage-setup": {
+      "funcion": "Deja a Ariadna lista sobre una entidad — mira la carpeta de datos, reconoce el linaje, las cifras de la fuente y las reglas de calidad y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Ariadna lista sobre una entidad — mira la carpeta de datos, reconoce el linaje, las cifras de la fuente y las reglas de calidad y muestra el primer resultado",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-lineage-setup.md",
+          "<estado>/corridas/salida-lineage-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-intake",
+          "data-policy",
+          "figure-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "lineage-wake": {
+      "funcion": "Lo que toca hoy en la calidad de los datos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en la calidad de los datos — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-lineage-wake.md",
+          "<estado>/corridas/salida-lineage-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "rule-check": {
+      "funcion": "Cada regla de calidad contra su umbral y su corrida del periodo, y cada dato crítico contra las reglas que lo miden.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada regla de calidad contra su umbral y su corrida del periodo, y cada dato crítico contra las reglas que lo miden",
+        "escribe": [
+          "<estado>/calidad/<AAAA-MM>/resultados.json",
+          "<estado>/calidad/<AAAA-MM>/reporte-rule-check.md",
+          "<estado>/corridas/salida-rule-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "data-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cdo: el catálogo, los informes y la calidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "figure-record": {
+      "escribe": [
+        "figures[]"
+      ],
+      "alimenta": [
+        "figure_without_source",
+        "figure_differs_from_source",
+        "cutoff_mismatch"
+      ]
+    }
+  }
+}
