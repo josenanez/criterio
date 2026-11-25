@@ -1,6 +1,6 @@
 {
   "name": "criterio-remediation",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Remedios, el seguimiento de los hallazgos: cada plan de acción con su responsable, su fecha y su evidencia, las reprogramaciones, los cierres sin evidencia, los hallazgos que vuelven, los riesgos aceptados que no llegaron al consejo y los hallazgos externos fuera del registro. Nunca cierra un hallazgo ni acepta un riesgo.",
   "author": {
     "name": "José Francisco Ñáñez",

@@ -5779,6 +5779,127 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "d9029b10b702377d5643f47b597ca36a9eac0ade34cecb3931d0ce2686758e5f",
       "sha256": "be7f03bbfdd74dd67cf4632d8d65a03255f8a60d11bab144e7e06e202756e264"
+    },
+    {
+      "version": "3.5.2",
+      "fecha": "2026-11-24",
+      "commit": null,
+      "base": "d42402f3",
+      "etiqueta": "v3.5.2",
+      "familias": {
+        "cae": "0.2.2",
+        "cco": "1.4.2",
+        "cfo": "1.7.2",
+        "chro": "1.0.0",
+        "ciso": "1.5.1",
+        "clo": "1.9.1",
+        "ea": "1.4.2",
+        "pmo": "1.4.2",
+        "rostrum": "1.4.4"
+      },
+      "liberadas": [
+        "cae"
+      ],
+      "versiones": {
+        "criterio-audit-plan": "0.2.2",
+        "criterio-audit-work": "0.2.2",
+        "criterio-cae": "0.2.2",
+        "criterio-remediation": "0.2.2",
+        "criterio-cco": "1.4.2",
+        "criterio-revenue": "1.4.2",
+        "criterio-sales": "1.4.2",
+        "criterio-budget": "1.7.2",
+        "criterio-cfo": "1.7.2",
+        "criterio-finance": "1.7.2",
+        "criterio-treasury": "1.7.2",
+        "criterio-chro": "1.0.0",
+        "criterio-roles": "1.0.0",
+        "criterio-talent": "1.0.0",
+        "criterio-ciso": "1.5.1",
+        "criterio-resilience": "1.5.1",
+        "criterio-security": "1.5.1",
+        "criterio-vulnerability": "1.5.1",
+        "criterio-clo": "1.9.1",
+        "criterio-compliance": "1.9.1",
+        "criterio-legal": "1.9.1",
+        "criterio-assistant": "1.4.2",
+        "criterio-ea": "1.4.2",
+        "criterio-pmo": "1.4.2",
+        "criterio-portfolio": "1.4.2",
+        "criterio-product": "1.4.2",
+        "criterio-project": "1.4.2",
+        "criterio-server": "1.4.4"
+      },
+      "calidad": {
+        "cae": {
+          "etiqueta": "laboratorio",
+          "ronda": 1,
+          "rondas": [
+            1
+          ],
+          "casos": {
+            "señales": 51,
+            "datos": 348
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 84,
+            "Datos extraídos": 85.3
+          },
+          "motivo": [
+            "Señales · cobertura: piso de 84.0 %, por debajo del 95 %",
+            "Datos extraídos: piso de 85.3 %, por debajo del 95 %"
+          ],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.6",
+        "fecha": "2026-11-16",
+        "sha256": {
+          "es": "9926ba27f936402177da9036b3eb64878c262183c0775b193061b22a8ded1561",
+          "en": "a4a1df234745cd8fe495e179cc081712ab709cd51684699df5baa5ba960f4fd6"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "febb355df21557657946f0477cf59a1f973d015e39a9c534b239ba28d6b4b069",
+        "criterio-audit-plan": "d1a0eaf7d0de56b1e04db58e736f5278088ad673ce56096d24a747fac3a3d8ae",
+        "criterio-audit-work": "20f8e4fea41334687fa7dd645b91e5154889a285e57ca9e9fc197ca69ea04125",
+        "criterio-budget": "37865a774f1403cc082696c4d480d1284e0755935e1977cfccc3850c7edb8895",
+        "criterio-cae": "f6ba48fbf09ca919fc9f016e6f146e02c7ac220bac022b7e5ac6c40b42cd1a0c",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-chro": "fbd1a3b70dd6e57d81a9f399da45396b502e62b7df4cd9eaa5489f453b803d68",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "35f2419f8bf1a1896d3088a843a305965626035eac3eb47ec5035479cf1681d9",
+        "criterio-finance": "f3c2484c8e9684e0460d56e87f77716d28f82b3391f0ca78d907f8b19840d3a2",
+        "criterio-legal": "85c0903e269aa12fc7b7fbe1ecd8578ef6a8830983680312f4b93023e67137e4",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "305c31671ca9f8a0fc37387931c01ff80e238ac3523846e224d78f2b33824e8f",
+        "criterio-product": "a89bf91cd0e6b157202f541e396d51f713dea70bd57b8640b5a44ed4a8b9b74a",
+        "criterio-project": "a0513b8031cfe2584fc6e584d7286c86d41b75b95ceb1bae0f90b37fa13532fe",
+        "criterio-remediation": "e2757c9770dd07d268918d689a944979d720e373b3b0c354c0abff371ce132e5",
+        "criterio-resilience": "7fc8d2fb9fb3f2729efbccd67e4211432577ba61337bcfc8db16721562f517f6",
+        "criterio-revenue": "bd6558b88af44c815c65e53324fa4c303b4031eddd18d0ee6e05934ba1f1461e",
+        "criterio-roles": "3f1b5bad9315ad34dc97c9b54a4d7e1d938fbfffd84d6659664e092230cd29a7",
+        "criterio-sales": "7ba9957e063bf0f6dac8d79dab051dfabc60a74db06fc82b0d498b2be4d40d9b",
+        "criterio-security": "4958a82fa7531076b73622997bd9c16bb6a53251bb170dd245d43d5a2b5cb22f",
+        "criterio-server": "cda65a907bc367b540780e1ef40572dacb7f4e7f82b143b0692f410191631331",
+        "criterio-talent": "5dda5f51ee723fb5d2fe0c046e88605c8ea3c26aaf9608c360880be11bf56ace",
+        "criterio-treasury": "e64aa93c5343998d0653605457f9b7f624f9e9895c4e400e19f1c83146ea420b",
+        "criterio-vulnerability": "409bf5cd7d9967b92febeb22fff0e683aba8d04b810c6d1edaa68cae7f34a988"
+      },
+      "destacados": [
+        "Criterio CAE 0.2.2: el setup de Remedios ya no pregunta lo que dicen los registros de seguimiento."
+      ],
+      "cambios": [
+        "Remedios no pregunta lo que dicen los registros, y los guiones del video de uso de la CAE"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "be7f03bbfdd74dd67cf4632d8d65a03255f8a60d11bab144e7e06e202756e264",
+      "sha256": "e8f8990dab77764e05c0cd5f71a5e6db0fbdfc08f3da8a3f36260cdbd02bf224"
     }
   ]
 }

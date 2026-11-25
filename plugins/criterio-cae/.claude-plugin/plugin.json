@@ -1,6 +1,6 @@
 {
   "name": "criterio-cae",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "La familia CAE completa —la auditoría interna—: instala de una vez a Prudencia, Justo y Remedios y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cae:cae-setup.",
   "author": {
     "name": "José Francisco Ñáñez",
