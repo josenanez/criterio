@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "prudencia",
+  "comando": "plan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-24T23:40:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 18,
+  "turnos": 7,
+  "tokens": 352505,
+  "tokens_salida": 1575,
+  "costo_usd": 0.25397770000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-plan-coverage-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-plan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

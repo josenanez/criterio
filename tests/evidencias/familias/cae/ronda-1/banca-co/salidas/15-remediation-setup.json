@@ -1,0 +1,40 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/901777321-banco-andino-sintetico",
+  "inicio": "2026-11-24T23:48:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 86,
+  "turnos": 17,
+  "tokens": 790454,
+  "tokens_salida": 9503,
+  "costo_usd": 0.703043,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/901777321/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.sha256",
+      "estado-auditoria/901777321-banco-andino-sintetico/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-remediation-setup.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/cache/manifest.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

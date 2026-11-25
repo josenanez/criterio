@@ -1,0 +1,28 @@
+{
+  "n": 20,
+  "agente": "remedios",
+  "comando": "remediation-wake",
+  "argumento": "",
+  "inicio": "2026-11-24T23:53:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 20,
+  "tokens": 887482,
+  "tokens_salida": 6734,
+  "costo_usd": 0.5856122,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-remediation-scan-2.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-remediation-wake-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-remediation-wake.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-remediation-scan.md"
+    ],
+    "borrados": []
+  }
+}

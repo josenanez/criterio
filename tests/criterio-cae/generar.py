@@ -96,6 +96,24 @@ def _xlsx(filas: list[list], ruta: Path) -> None:
     FMT.a_xlsx_tipado(filas, ruta)
 
 
+def _pesos(x: int) -> str:
+    return "$" + f"{x:,}".replace(",", ".")
+
+
+def _hoja(h: dict) -> str:
+    """La hoja de un hallazgo en su papel de trabajo."""
+    filas = [f"Criterio: {h['criteria']}", f"Condición: {h['condition']}"]
+    if h["cause"]:
+        filas.append(f"Causa: {h['cause']}")
+    if h["cause_unknown_reason"]:
+        filas.append(f"Por qué no se identificó la causa: {h['cause_unknown_reason']}")
+    filas += [f"Efecto: {h['effect']}", f"Impacto (de 1 a 5, según la metodología): {h['impact']}",
+              f"Probabilidad (de 1 a 5, según la metodología): {h['likelihood']}", f"Prioridad que asigna el auditor: {h['priority']}",
+              f"Papeles que lo soportan: {', '.join(h['workpapers'])}"]
+    filas += [f"Monto: {_pesos(x)}" for x in h["figures"]]
+    return f"\n## Hallazgo {h['id']}\n\n" + "\n".join(f"- {f}" for f in filas) + "\n"
+
+
 def construir(e: dict) -> dict:
     """La carpeta de una entidad y su clave."""
     s = e["siembra"]
@@ -220,8 +238,6 @@ def construir(e: dict) -> dict:
         if "programa" in s and not uno:
             esp("work_program_not_approved", f"programa:{tid}")
         _pdf(f"# Aprobación del programa de trabajo {tid}\n\nLa jefa de auditoría aprueba el programa el {aprobado}.\n", base / "aprobacion-del-programa.pdf")
-        for pt in ("PT-01", "PT-02", "PT-03"):
-            _pdf(f"# Papel de trabajo {pt} · {tid} · {unidad}\n\nPreparado por el equipo de auditoría interna.\n", base / f"{pt}.pdf")
         hall = []
         rep = []
         if uno:
@@ -253,8 +269,14 @@ def construir(e: dict) -> dict:
                      "cause": "La revisión depende de una persona", "cause_unknown_reason": None, "effect": "Accesos indebidos sin detectar",
                      "impact": 4, "likelihood": 2, "priority": "Media", "workpapers": ["PT-02"], "figures": [], "source": f"20-trabajos/{carpeta}/PT-02.pdf"}]
             rep = [{"id": "H-03", "priority": "Media", "figures": [], "source": f"20-trabajos/{carpeta}/informe.pdf"}]
+        # Cada hallazgo, escrito en el papel que lo cita como su fuente: lo que el agente procesa. Un
+        # elemento que falta —la causa— no se escribe; la razón por la que no se identificó, sí.
+        for pt in ("PT-01", "PT-02", "PT-03"):
+            hojas = "".join(_hoja(h) for h in hall if h["source"] == f"20-trabajos/{carpeta}/{pt}.pdf")
+            _pdf(f"# Papel de trabajo {pt} · {tid} · {unidad}\n\nPreparado por el equipo de auditoría interna.\n" + hojas, base / f"{pt}.pdf")
         _pdf(f"# Informe de auditoría {tid} · {unidad}\n\nFecha del informe: {informe}.\n\n" +
-                  "\n".join(f"- {h['id']}: prioridad {h['priority']}." for h in rep) + "\n", base / "informe.pdf")
+                  "\n".join(f"- {h['id']}: prioridad {h['priority']}." + "".join(f" Monto: {_pesos(x)}." for x in h["figures"]) for h in rep) + "\n",
+             base / "informe.pdf")
         citados = {h["source"] for h in hall}
         revisados += [f"20-trabajos/{carpeta}/{pt}.pdf" for pt in ("PT-01", "PT-02", "PT-03") if f"20-trabajos/{carpeta}/{pt}.pdf" not in citados]
         engagements.append({"id": tid, "program_approved": aprobado, "program_source": f"20-trabajos/{carpeta}/aprobacion-del-programa.pdf",
@@ -267,7 +289,8 @@ def construir(e: dict) -> dict:
            ["H-20", "TR-90", "Interna", "Crédito", "Créditos desembolsados sin garantía constituida", "Alta", "2025-04-30", "Exigir la constancia", "Gerencia de crédito",
             "2025-09-30", 0, "Cerrado", "2025-09-15", "Ana Ríos", ""]]
     evidencias = [{"finding": "H-20", "date": "2025-09-12", "what": "Procedimiento de desembolso actualizado", "source": "30-seguimiento/H-20/evidencia.pdf"}]
-    _pdf("# Evidencia H-20\n\nProcedimiento de desembolso con la constancia de la garantía como requisito.\n", seg / "H-20" / "evidencia.pdf")
+    _pdf("# Evidencia H-20 · Procedimiento de desembolso actualizado\n\nFecha: 2025-09-12.\n\nProcedimiento de desembolso con la constancia de la garantía como requisito.\n",
+         seg / "H-20" / "evidencia.pdf")
     # H-01 vuelve: la misma condición en el mismo proceso que H-20, cerrado en 2025.
     reg.append(["H-01", "TR-01", "Interna", "Crédito" if "repetido" in s else "Garantías", "Créditos desembolsados sin garantía constituida", "Alta", "2026-04-30",
                 "Bloquear el desembolso sin constancia", "Gerencia de crédito", "2026-12-31", 0, "Abierto", "", "", ""])
@@ -283,7 +306,8 @@ def construir(e: dict) -> dict:
     if "vencido" in s:
         esp("action_plan_overdue", "vencido:H-03")
     else:
-        _pdf("# Explicación del atraso H-03\n\nEl proveedor entrega la automatización el 15 de diciembre de 2026.\n", seg / "H-03" / "explicacion-del-atraso.pdf")
+        _pdf("# Explicación del atraso H-03 · El proveedor entrega en diciembre\n\nFecha: 2026-10-01.\n\nEl proveedor entrega la automatización el 15 de diciembre de 2026.\n",
+             seg / "H-03" / "explicacion-del-atraso.pdf")
     if "reprogramado" in s:
         esp("due_date_extended_repeatedly", "reprogramado:H-03")
     # H-21: cerrado con validación; sin evidencia (siembra) o con ella (control).
@@ -292,7 +316,7 @@ def construir(e: dict) -> dict:
     if "cierre" in s:
         esp("closure_without_evidence", "cierre:H-21")
     else:
-        _pdf("# Evidencia H-21\n\nConciliaciones de octubre firmadas por el revisor.\n", seg / "H-21" / "evidencia.pdf")
+        _pdf("# Evidencia H-21 · Conciliaciones firmadas\n\nFecha: 2025-10-18.\n\nConciliaciones de octubre firmadas por el revisor.\n", seg / "H-21" / "evidencia.pdf")
         evidencias.append({"finding": "H-21", "date": "2025-10-18", "what": "Conciliaciones firmadas", "source": "30-seguimiento/H-21/evidencia.pdf"})
     reg.append(["RF-01", "", "Revisor fiscal", "Nómina", "Horas extra pagadas sin aprobación", "Media", "2026-06-15", "Aprobación en el sistema", "Gestión humana",
                 "2026-12-31", 0, "Abierto", "", "", "RF-01"])
@@ -304,7 +328,7 @@ def construir(e: dict) -> dict:
     if "aceptado" in s:
         esp("risk_accepted_not_escalated", "aceptado:RA-01")
     _xlsx(acep, seg / "riesgos_aceptados.xlsx")
-    externos = [{"id": "RF-01", "issuer": "Revisor fiscal", "title": "Horas extra sin aprobación", "source": "30-seguimiento/informe_revisor_fiscal_2026.pdf"}]
+    externos = [{"id": "RF-01", "issuer": "Revisor fiscal", "title": "Horas extra pagadas sin aprobación", "source": "30-seguimiento/informe_revisor_fiscal_2026.pdf"}]
     texto_externo = "- RF-01: horas extra pagadas sin aprobación.\n"
     if "externo" in s:
         externos.append({"id": "RF-02", "issuer": "Revisor fiscal", "title": "Caja menor sin arqueo", "source": "30-seguimiento/informe_revisor_fiscal_2026.pdf"})

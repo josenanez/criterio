@@ -1,0 +1,28 @@
+{
+  "n": 7,
+  "agente": "prudencia",
+  "comando": "plan-wake",
+  "argumento": "",
+  "inicio": "2026-11-24T23:41:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 13,
+  "tokens": 599711,
+  "tokens_salida": 4863,
+  "costo_usd": 0.4268038,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-plan-scan-2.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-plan-wake-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-plan-wake.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-plan-scan.md"
+    ],
+    "borrados": []
+  }
+}

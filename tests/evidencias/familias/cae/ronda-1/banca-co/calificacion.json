@@ -1,0 +1,348 @@
+{
+  "entidad": "Banco Andino Sintético",
+  "agentes": [
+    "justo",
+    "prudencia",
+    "remedios"
+  ],
+  "tokens": 11279505,
+  "senales": {
+    "esperadas": 25,
+    "acertadas": 22,
+    "de_mas": [
+      [
+        "report_differs_from_workpapers",
+        "informe:TR-01:H-01"
+      ],
+      [
+        "report_differs_from_workpapers",
+        "informe:TR-02:H-03"
+      ]
+    ],
+    "faltantes": [
+      [
+        "finding_element_missing",
+        "elementos:TR-01:H-01"
+      ],
+      [
+        "finding_without_workpaper",
+        "papel:TR-01:H-02"
+      ],
+      [
+        "rating_inconsistent",
+        "prioridad:TR-01:H-01"
+      ]
+    ]
+  },
+  "extraccion": {
+    "campos": 72,
+    "bien": 35,
+    "mal": [
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].id",
+        "esperado": "H-01",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].criteria",
+        "esperado": "Política de crédito, numeral 4.2",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].condition",
+        "esperado": "12 de 60 créditos desembolsados sin garantía constituida",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].effect",
+        "esperado": "Pérdida esperada sin cobertura",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].impact",
+        "esperado": 4,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].likelihood",
+        "esperado": 4,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].priority",
+        "esperado": "Media",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].workpapers",
+        "esperado": [
+          "PT-03"
+        ],
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].figures",
+        "esperado": [
+          1200000000
+        ],
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-01].source",
+        "esperado": "20-trabajos/TR-01_credito-comercial/PT-03.pdf",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].id",
+        "esperado": "H-02",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].criteria",
+        "esperado": "Manual de garantías, numeral 2",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].condition",
+        "esperado": "Avalúos con más de tres años sin actualizar",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].cause",
+        "esperado": "El sistema no avisa el vencimiento del avalúo",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].effect",
+        "esperado": "Garantías con valor desactualizado",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].impact",
+        "esperado": 3,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].likelihood",
+        "esperado": 3,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].priority",
+        "esperado": "Media",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].workpapers",
+        "esperado": [
+          "PT-09"
+        ],
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].figures",
+        "esperado": [
+          450000000
+        ],
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].findings[H-02].source",
+        "esperado": "20-trabajos/TR-01_credito-comercial/PT-02.pdf",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].report_findings[H-01].figures",
+        "esperado": [
+          1200000000
+        ],
+        "obtenido": [],
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-01].report_findings[H-02].figures",
+        "esperado": [
+          540000000
+        ],
+        "obtenido": [],
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].id",
+        "esperado": "H-03",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].criteria",
+        "esperado": "Política de seguridad de la información, numeral 7",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].condition",
+        "esperado": "Cuentas privilegiadas sin revisión trimestral",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].cause",
+        "esperado": "La revisión depende de una persona",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].effect",
+        "esperado": "Accesos indebidos sin detectar",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].impact",
+        "esperado": 4,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].likelihood",
+        "esperado": 2,
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].priority",
+        "esperado": "Media",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].workpapers",
+        "esperado": [
+          "PT-02"
+        ],
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "engagements[TR-02].findings[H-03].source",
+        "esperado": "20-trabajos/TR-02_ciberseguridad/PT-02.pdf",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "trabajos",
+        "campo": "reviewed",
+        "esperado": [
+          "20-trabajos/TR-01_credito-comercial/PT-01.pdf",
+          "20-trabajos/TR-02_ciberseguridad/PT-01.pdf",
+          "20-trabajos/TR-02_ciberseguridad/PT-03.pdf"
+        ],
+        "obtenido": [
+          "20-trabajos/TR-01_credito-comercial/PT-01.pdf",
+          "20-trabajos/TR-01_credito-comercial/PT-02.pdf",
+          "20-trabajos/TR-01_credito-comercial/PT-03.pdf",
+          "20-trabajos/TR-01_credito-comercial/aprobacion-del-programa.pdf",
+          "20-trabajos/TR-01_credito-comercial/informe.pdf",
+          "20-trabajos/TR-02_ciberseguridad/PT-01.pdf",
+          "20-trabajos/TR-02_ciberseguridad/PT-02.pdf",
+          "20-trabajos/TR-02_ciberseguridad/PT-03.pdf",
+          "20-trabajos/TR-02_ciberseguridad/aprobacion-del-programa.pdf",
+          "20-trabajos/TR-02_ciberseguridad/informe.pdf"
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "seguimiento",
+        "campo": "evidence",
+        "esperado": [
+          {
+            "finding": "H-20",
+            "date": "2025-09-12",
+            "what": "Procedimiento de desembolso actualizado",
+            "source": "30-seguimiento/H-20/evidencia.pdf"
+          }
+        ],
+        "obtenido": [
+          {
+            "finding": "H-20",
+            "date": null,
+            "what": "Procedimiento de desembolso con la constancia de la garantía como requisito",
+            "source": "30-seguimiento/H-20/evidencia.pdf"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "seguimiento",
+        "campo": "external_findings[RF-01].title",
+        "esperado": "Horas extra sin aprobación",
+        "obtenido": "Horas extra pagadas sin aprobación",
+        "bien": false
+      },
+      {
+        "ficha": "seguimiento",
+        "campo": "reviewed",
+        "esperado": [],
+        "obtenido": [
+          "30-seguimiento/H-20/evidencia.pdf",
+          "30-seguimiento/informe_revisor_fiscal_2026.pdf"
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

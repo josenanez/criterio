@@ -1,0 +1,37 @@
+{
+  "nota": "Los defectos que encontraron las rondas con los agentes de la familia CAE, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+  "defectos": [
+    {
+      "id": "CAE-1", "ronda": 1, "carpeta": "banca-co", "agentes": ["justo"], "origen": "material", "commit": null, "estado": "por-verificar",
+      "es": {"que": "Los papeles de trabajo traían solo su encabezado: el criterio, la condición, la causa, el efecto, la calificación y la cifra de cada hallazgo estaban en la clave y no en ningún documento, y el informe no decía sus cifras. Justo no registró hallazgos, con razón, y por eso faltaron tres señales y sobraron dos: los hallazgos del informe quedaron sin su papel.",
+             "correccion": "Cada hallazgo se escribe en el papel que la clave cita como su fuente, con cada elemento en su renglón; el que falta no se escribe, y la razón por la que no se identificó la causa, sí. El informe dice la cifra de cada hallazgo."},
+      "en": {"que": "The working papers carried only their header: each finding's criteria, condition, cause, effect, rating and figure were in the key and in no document, and the report did not state its figures. Justo recorded no findings, rightly, so three signals were missing and two extra: the report's findings were left without their paper.",
+             "correccion": "Each finding is written in the paper the key cites as its source, each element on its own line; a missing one is not written, and the reason the cause was not identified is. The report states each finding's figure."},
+      "fallas": [[1, "banca-co", "trabajos · findings"], [1, "banca-co", "trabajos · report_findings"], [1, "banca-co", "señales · finding_element_missing, finding_without_workpaper, rating_inconsistent, report_differs_from_workpapers"]]
+    },
+    {
+      "id": "CAE-2", "ronda": 1, "carpeta": "banca-co", "agentes": ["remedios"], "origen": "material", "commit": null, "estado": "por-verificar",
+      "es": {"que": "La evidencia de implementación y la explicación del atraso no traían su fecha ni su título: la fecha estaba solo en la clave. Remedios dejó la fecha vacía.",
+             "correccion": "Cada evidencia y cada explicación dicen su fecha y su título; la instrucción de Remedios pide los dos, en las palabras del documento."},
+      "en": {"que": "The implementation evidence and the delay explanation carried neither their date nor their title: the date was only in the key. Remedios left the date empty.",
+             "correccion": "Each evidence and each explanation state their date and title; Remedios' instruction asks for both, in the document's words."},
+      "fallas": [[1, "banca-co", "seguimiento · evidence"]]
+    },
+    {
+      "id": "CAE-3", "ronda": 1, "carpeta": "banca-co", "agentes": ["remedios"], "origen": "clave", "commit": null, "estado": "por-verificar",
+      "es": {"que": "La clave esperaba el título del hallazgo del revisor fiscal acortado, «Horas extra sin aprobación»; el informe dice «horas extra pagadas sin aprobación», y así lo registró Remedios.",
+             "correccion": "La clave toma el título como lo dice el informe."},
+      "en": {"que": "The key expected the statutory auditor's finding title shortened, «Horas extra sin aprobación»; the report says «horas extra pagadas sin aprobación», and that is what Remedios recorded.",
+             "correccion": "The key takes the title as the report states it."},
+      "fallas": [[1, "banca-co", "seguimiento · external_findings"]]
+    },
+    {
+      "id": "CAE-4", "ronda": 1, "carpeta": "banca-co", "agentes": ["justo", "remedios"], "origen": "instrucciones", "commit": null, "estado": "por-verificar",
+      "es": {"que": "Las instrucciones de Justo y de Remedios no decían qué va en `reviewed`, y los dos listaron ahí todos los documentos que procesaron, también los citados en otro campo.",
+             "correccion": "Las dos instrucciones dicen que `reviewed` lleva solo los documentos procesados que no traen nada para la ficha, y que un documento citado en otro campo no va ahí."},
+      "en": {"que": "Justo's and Remedios' instructions did not say what goes in `reviewed`, and both listed there every document they processed, including those cited in another field.",
+             "correccion": "Both instructions say `reviewed` holds only processed documents that bring nothing to the record, and that a document cited in another field does not go there."},
+      "fallas": [[1, "banca-co", "trabajos · reviewed"], [1, "banca-co", "seguimiento · reviewed"]]
+    }
+  ]
+}

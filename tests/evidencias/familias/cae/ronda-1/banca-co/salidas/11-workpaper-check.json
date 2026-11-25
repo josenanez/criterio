@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "justo",
+  "comando": "workpaper-check",
+  "argumento": "",
+  "inicio": "2026-11-24T23:45:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 8,
+  "tokens": 405496,
+  "tokens_salida": 3487,
+  "costo_usd": 0.1614122,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-workpaper-check-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-workpaper-check.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/trabajos/2026-11/reporte-workpaper-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

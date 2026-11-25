@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "prudencia",
+  "comando": "plan-scan",
+  "argumento": "",
+  "inicio": "2026-11-24T23:39:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 62,
+  "turnos": 17,
+  "tokens": 779303,
+  "tokens_salida": 5006,
+  "costo_usd": 0.509927,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-plan-scan-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-plan-scan.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/indice.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/plan/2026-11/reporte-plan-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
