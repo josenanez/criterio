@@ -23,27 +23,15 @@
     },
     {
       "titulo": "Set it up in a conversation",
-      "texto": "Prudencia, the audit plan. She finds the cooperative's folder and takes the cycles, the priority scale and who approves the plan from the methodology and the charter: she only asks to confirm them."
+      "texto": "Prudencia, the audit plan. She finds the cooperative's folder and proposes in a table what she took from the methodology and the charter, each value with its source. She only asks about the folder's mark and the terms, with the name of whoever accepts: here, a demo user."
     },
     {
       "titulo": "Set it up in a conversation",
-      "texto": "One question at a time: the period, whether to publish in Rostrum —no by default, because audit papers belong to the function— and where to keep what she finds."
+      "texto": "Justo, audit engagements. He takes what was already answered and asks only his own question: who approves the program and the papers. Each agent asks for its own yes to the terms."
     },
     {
       "titulo": "Set it up in a conversation",
-      "texto": "The terms: each agent asks for its own yes, with the name of whoever accepts. Here, a demo user."
-    },
-    {
-      "titulo": "Set it up in a conversation",
-      "texto": "Justo, audit engagements. He takes what was already answered and asks only his own question: who approves the program and the papers."
-    },
-    {
-      "titulo": "Set it up in a conversation",
-      "texto": "Claude Code asks for permission to open the agent's files, which are outside the folder. It is authorised once."
-    },
-    {
-      "titulo": "Set it up in a conversation",
-      "texto": "Remedios, follow-up. She finds the findings register, the accepted-risk register, the evidence and the statutory auditor's report."
+      "texto": "Remedios, follow-up. She does not ask who validated each closure or whether an accepted risk reached the board: each row of the registers says so."
     },
     {
       "titulo": "The first result, in a table",

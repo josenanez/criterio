@@ -1,0 +1,26 @@
+0:00  Criterio CAE · How to use it
+0:00  How to use the CAE family, from install to first result.
+0:00  Prudencia · Justo · Remedios
+0:00  A real Claude Code session, sped up and in Spanish, on Cooperativa de Ahorro Altiplano, a test organisation with synthetic material.
+0:00  Real Claude Code session, in Spanish · sped up · synthetic material
+0:05  1 · Install the family. Two commands in Claude Code: the Criterio catalogue and the CAE family. It installs Prudencia, Justo and Remedios, and Rostrum, the portal.
+0:07  Typed in Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Typed in Claude Code: /plugin install criterio-cae@criterio
+0:27  Typed in Claude Code: /criterio-cae:cae-setup
+0:27  2 · Set it up in a conversation. Prudencia, the audit plan. She finds the cooperative's folder and proposes in a table what she took from the methodology and the charter, each value with its source. She only asks about the folder's mark and the terms, with the name of whoever accepts: here, a demo user.
+0:53  Typed in Claude Code: Sí a todo. Acepto como Usuario de demostración, y sí, márcala.
+0:58  2 · Set it up in a conversation. Justo, audit engagements. He takes what was already answered and asks only his own question: who approves the program and the papers. Each agent asks for its own yes to the terms.
+1:15  Typed in Claude Code: Sí, confirmo y acepto como Usuario de demostración.
+1:20  2 · Set it up in a conversation. Remedios, follow-up. She does not ask who validated each closure or whether an accepted risk reached the board: each row of the registers says so.
+1:41  3 · The first result, in a table. What each agent found: a critical risk with no engagement in the plan, a finding without its cause and an action plan 56 days overdue.
+1:58  4 · The daily task, only with a yes. The family proposes a daily task that reviews only what is due. Here it was left to run by hand.
+1:58  Typed in Claude Code: Por ahora no; lo corro a mano.
+2:12  5 · Day to day, in your own words. Each agent is asked in natural language. Remedios builds the committee material: a credit finding that comes back in the same process closed in 2025, an overdue plan with no evidence and a statutory auditor's finding missing from the register.
+2:12  Typed in Claude Code: /criterio-remediation:remedios ¿Qué hallazgo vuelve en un proceso que ya se había cerrado, y qué tiene que saber el comité?
+2:36  5 · Day to day, in your own words. Justo compares the report with the papers: in one finding, the report says 540 million and the papers 450. Which figure is right is the auditor's call.
+2:36  Typed in Claude Code: /criterio-audit-work:justo ¿En qué no coincide el informe de crédito con sus papeles de trabajo?
+2:54  Install Criterio.
+2:54  /plugin marketplace add josenanez/criterio
+2:54  josenanez.com/agents
+2:54  Open source · Apache 2.0
+2:54  Real Claude Code recording, sped up. Cooperativa de Ahorro Altiplano is a test organisation: the material is synthetic.

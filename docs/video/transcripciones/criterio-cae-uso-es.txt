@@ -1,0 +1,26 @@
+0:00  Criterio CAE · Cómo se usa
+0:00  Cómo se usa la familia CAE, de la instalación al primer resultado.
+0:00  Prudencia · Justo · Remedios
+0:00  Una sesión real de Claude Code, acelerada, sobre la Cooperativa de Ahorro Altiplano, una organización de prueba con material sintético.
+0:00  Grabación real de Claude Code · acelerada · material sintético
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CAE. Instala a Prudencia, Justo y Remedios, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-cae@criterio
+0:27  Se escribe en Claude Code: /criterio-cae:cae-setup
+0:27  2 · Configurarla en una conversación. Prudencia, el plan de auditoría. Encuentra la carpeta de la cooperativa y propone en una tabla lo que sacó de la metodología y del estatuto, cada valor con su fuente. Solo pregunta por la marca de la carpeta y por los términos, con el nombre de quien acepta: aquí, un usuario de demostración.
+0:53  Se escribe en Claude Code: Sí a todo. Acepto como Usuario de demostración, y sí, márcala.
+0:58  2 · Configurarla en una conversación. Justo, los trabajos de auditoría. Toma lo que ya se respondió y pregunta solo lo suyo: quién aprueba el programa y los papeles. Cada agente pide su propio sí a los términos.
+1:15  Se escribe en Claude Code: Sí, confirmo y acepto como Usuario de demostración.
+1:20  2 · Configurarla en una conversación. Remedios, el seguimiento. Quién validó cada cierre y si un riesgo aceptado llegó al consejo no lo pregunta: lo dice cada fila de los registros.
+1:41  3 · El primer resultado, en una tabla. Lo que encontró cada agente: un riesgo crítico sin trabajo en el plan, un hallazgo sin su causa y un plan de acción vencido hace 56 días.
+1:58  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+1:58  Se escribe en Claude Code: Por ahora no; lo corro a mano.
+2:12  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Remedios arma lo del comité: un hallazgo de crédito que vuelve en el mismo proceso que se cerró en 2025, un plan vencido sin evidencia y un hallazgo del revisor fiscal fuera del registro.
+2:12  Se escribe en Claude Code: /criterio-remediation:remedios ¿Qué hallazgo vuelve en un proceso que ya se había cerrado, y qué tiene que saber el comité?
+2:36  5 · El día a día, en tus palabras. Justo coteja el informe con los papeles: en un hallazgo, el informe trae 540 millones y los papeles 450. Cuál cifra es la correcta lo decide el auditor.
+2:36  Se escribe en Claude Code: /criterio-audit-work:justo ¿En qué no coincide el informe de crédito con sus papeles de trabajo?
+2:54  Instala Criterio.
+2:54  /plugin marketplace add josenanez/criterio
+2:54  josenanez.com/es/agents
+2:54  Código abierto · Apache 2.0
+2:54  Grabación real de Claude Code, acelerada. La Cooperativa de Ahorro Altiplano es una organización de prueba: el material es sintético.
