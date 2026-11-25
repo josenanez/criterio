@@ -1,17 +1,17 @@
 # 0034 · La familia CDO: los datos, con dos agentes sobre el gobierno, la calidad y el linaje
 
-**Fecha:** 2026-11-24 · **Estado:** propuesta: los nombres y la estructura, por aceptar por José. Las fuentes se verifican una a una (abajo, con la fecha de cada verificación) ·
-**Modifica:** [0015](0015-scope-datos-cdo.md), la propuesta de alcance de la CDO, que esta decisión reemplazaría al aceptarse
+**Fecha:** 2026-11-24 · **Estado:** aceptada: los nombres y la estructura, por José el 2026-11-25. Las fuentes se verifican una a una (abajo, con la fecha de cada verificación) ·
+**Modifica:** [0015](0015-scope-datos-cdo.md), la propuesta de alcance de la CDO, que esta decisión reemplaza
 
 ## Contexto
 
 José Francisco Ñáñez fijó el orden de los nuevos diseños: primero la CAE, construida en la 0.1.0
-([decisión 0033](0033-la-familia-cae.md)); después la CDO, los datos. Esta decisión la propone.
+([decisión 0033](0033-la-familia-cae.md)); después la CDO, los datos. Esta decisión la define.
 
 La [decisión 0015](0015-scope-datos-cdo.md), del 23 de octubre de 2026, propuso el alcance: un agente que
 contrasta la cifra publicada con su fuente y su linaje, y la política de datos con su cumplimiento, sobre
 las tres áreas de DAMA-DMBOK que se trabajan contra documentos —el gobierno, la calidad y los metadatos con
-el linaje—. Y tres reglas que esta propuesta conserva: **procesa exportaciones y nunca se conecta a una
+el linaje—. Y tres reglas que esta decisión conserva: **procesa exportaciones y nunca se conecta a una
 base; no procesa los datos personales en sí, solo sus metadatos; y la ley de cada país se verifica antes de
 citarse.**
 
@@ -32,7 +32,7 @@ para ocho países (Colombia, México, Argentina, Chile, Ecuador, Perú, Panamá 
 sensibles. Lo que la CDO necesita de ella es otra cosa —el registro de las bases de datos personales, como
 el Registro Nacional de Bases de Datos de Colombia ante la SIC— y está **por verificar** país por país.
 
-## Decisión propuesta
+## Decisión
 
 **Criterio CDO · Los datos.** Dos agentes y Rostrum, como en las demás familias:
 
@@ -99,12 +99,10 @@ su política de datos: el código calcula y la persona decide.
 
 ## Lo que queda abierto
 
-1. **Los nombres**: Custodia y Ariadna, por aceptar por José.
-2. **La estructura**: dos agentes en lugar de uno, sus señales y sus documentos, por aceptar por José.
-3. **Las fuentes por verificar**: las áreas de DAMA-DMBOK, los títulos de los principios 10 a 14 de BCBS 239, ISO/IEC 25012, las
+1. **Las fuentes por verificar**: las áreas de DAMA-DMBOK, los títulos de los principios 10 a 14 de BCBS 239, ISO/IEC 25012, las
    partes de ISO 8000 y el registro de bases de datos personales de cada país.
-4. **Los formatos de exportación** de los catálogos y del linaje más usados —Collibra, Alation, Microsoft
+2. **Los formatos de exportación** de los catálogos y del linaje más usados —Collibra, Alation, Microsoft
    Purview, Informatica—, cada uno con su fuente o con los encabezados de una exportación real, como en la
    CFO.
-5. **La primera fuente de cifras**, de la decisión 0015: el informe al supervisor contra la contabilidad,
+3. **La primera fuente de cifras**, de la decisión 0015: el informe al supervisor contra la contabilidad,
    con la CFO.

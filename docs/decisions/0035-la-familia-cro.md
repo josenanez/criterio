@@ -1,11 +1,11 @@
 # 0035 · La familia CRO: los riesgos de la organización, con dos agentes sobre el apetito y los eventos
 
-**Fecha:** 2026-11-25 · **Estado:** propuesta. Los nombres y la estructura están por aceptar por José, y cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
+**Fecha:** 2026-11-25 · **Estado:** aceptada: los nombres y la estructura, por José el 2026-11-25. Cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
 
 ## Contexto
 
 José Francisco Ñáñez pidió el 25 de noviembre de 2026 montar los diseños de la CMO, la CRO y la CDO. Esta
-decisión propone la CRO. **Aquí CRO es Chief Risk Officer**, el responsable de la gestión integral de riesgos
+decisión define la CRO. **Aquí CRO es Chief Risk Officer**, el responsable de la gestión integral de riesgos
 de la segunda línea. No es Chief Revenue Officer: esa lectura se descartó en la [decisión 0022](0022-la-familia-comercial-es-la-cco.md),
 y la función comercial es la familia CCO.
 
@@ -23,7 +23,7 @@ son los del CRO.
 | Perú · SBS, Resolución 272-2017 | El Reglamento de Gobierno Corporativo y de la Gestión Integral de Riesgos | Verificado el 2026-11-25 en su texto, publicado el 23 de enero de 2017 y vigente desde el 1 de abril de 2018. Define el apetito, la capacidad y los límites de riesgo (art. 2). El directorio aprueba el sistema de apetito (art. 7) y firma una declaración anual de cumplimiento (art. 8). La unidad de riesgos es independiente de las de negocio (art. 25), y su jefe tiene nivel gerencial y reporta al directorio, a la gerencia o al comité de riesgos (art. 26). La empresa envía a la SBS un informe anual de riesgos (art. 27). |
 | Brasil · CMN, Resolución 4.557 de 2017 | La estructura de gestión de riesgos y de capital | Verificado el 2026-11-25 en su versión en inglés del Banco Central: la declaración de apetito por riesgos, la RAS (art. 5), las pruebas de estrés (arts. 11 a 19) y los segmentos S1 a S4 (art. 2), con una estructura simplificada para S5 (art. 3). **Por verificar:** los artículos sobre el CRO y el comité de riesgos, y las reformas posteriores, en el texto vigente en portugués |
 
-## Decisión propuesta
+## Decisión
 
 **Criterio CRO · Los riesgos.** Dos agentes y Rostrum, como en las demás familias:
 
@@ -65,7 +65,7 @@ código calcula y la persona decide.
 | Los incidentes de seguridad como eventos de riesgo operacional | CISO (Amparo) |
 | La matriz de riesgos que usa el plan de auditoría | CAE (Prudencia) |
 | Las cifras de exposición contra la contabilidad | CFO (Clara) |
-| Los indicadores que dependen de la calidad de un dato | CDO (Ariadna), si se acepta la decisión 0034 |
+| Los indicadores que dependen de la calidad de un dato | CDO (Ariadna) |
 
 ### Los documentos que procesan
 
@@ -85,7 +85,5 @@ código calcula y la persona decide.
 
 ## Lo que queda abierto
 
-1. **Los nombres** Severo y Casandra, por aceptar por José.
-2. **La estructura**: dos agentes, sus señales y sus documentos, por aceptar por José.
-3. **Las fuentes por verificar**: COSO ERM 2017, el texto del Capítulo XXXI de la Superintendencia Financiera, los artículos del CRO y del comité en la Resolución CMN 4.557 vigente, y la revisión de ISO 31000.
-4. **Fuera de la banca**: la familia sirve a cualquier organización con un marco de apetito. La regulación de cada país solo se cita en las entidades vigiladas.
+1. **Las fuentes por verificar**: COSO ERM 2017, el texto del Capítulo XXXI de la Superintendencia Financiera, los artículos del CRO y del comité en la Resolución CMN 4.557 vigente, y la revisión de ISO 31000.
+2. **Fuera de la banca**: la familia sirve a cualquier organización con un marco de apetito. La regulación de cada país solo se cita en las entidades vigiladas.

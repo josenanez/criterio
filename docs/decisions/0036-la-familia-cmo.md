@@ -1,11 +1,11 @@
 # 0036 · La familia CMO: el mercadeo, con dos agentes sobre lo que se anuncia y lo que se invierte
 
-**Fecha:** 2026-11-25 · **Estado:** propuesta. Los nombres y la estructura están por aceptar por José, y cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
+**Fecha:** 2026-11-25 · **Estado:** aceptada: los nombres y la estructura, por José el 2026-11-25. Cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
 
 ## Contexto
 
 José Francisco Ñáñez pidió el 25 de noviembre de 2026 montar los diseños de la CMO, la CRO y la CDO. Esta
-decisión propone la CMO.
+decisión define la CMO.
 
 La [decisión 0019](0019-scope-comercial-cso.md) eligió la función comercial antes que el mercadeo, por tres
 razones:
@@ -14,7 +14,7 @@ razones:
 - la función comercial cruza más familias;
 - el mercadeo se apoya en ella después.
 
-Esta propuesta toma del mercadeo solo lo que vive en documentos, y deja las plataformas en sus exportaciones:
+Esta decisión toma del mercadeo solo lo que vive en documentos, y deja las plataformas en sus exportaciones:
 
 - **lo que se anuncia**: cada afirmación de una pieza, con su soporte, y cada promoción, con sus condiciones;
 - **lo que se invierte**: el presupuesto, la pauta facturada y el resultado medido de cada campaña.
@@ -27,7 +27,7 @@ Esta propuesta toma del mercadeo solo lo que vive en documentos, y deja las plat
 | Colombia · Ley 1581 de 2012 | La autorización para tratar los datos de las bases de mercadeo | Ya citada en la [decisión 0031](0031-la-familia-chro.md). **Por verificar:** lo que pide para el uso con fines de mercadeo |
 | México, Perú y Brasil | La ley del consumidor y la de publicidad de cada país | **Por verificar** país por país |
 
-## Decisión propuesta
+## Decisión
 
 **Criterio CMO · El mercadeo.** Dos agentes y Rostrum, como en las demás familias:
 
@@ -68,7 +68,7 @@ calcula y la persona decide.
 | Las facturas de pauta contra la contabilidad | CFO (Clara) |
 | Los contratos con agencias, medios e influenciadores | CLO (Fidel) |
 | La campaña contra las oportunidades y los cierres que produjo | CCO (Augusto y Valeria) |
-| La autorización de las bases de datos | CDO (Custodia), si se acepta la decisión 0034 |
+| La autorización de las bases de datos | CDO (Custodia) |
 
 ### Los documentos que procesan
 
@@ -90,7 +90,5 @@ calcula y la persona decide.
 
 ## Lo que queda abierto
 
-1. **Los nombres** Lucía y Próspero, por aceptar por José.
-2. **La estructura**: dos agentes, sus señales y sus documentos, por aceptar por José.
-3. **Las fuentes por verificar**: el texto de los artículos del Código ICC, la Ley 2300 de 2023, lo que pide la Ley 1581 para el mercadeo, y la ley de publicidad de México, Perú y Brasil.
-4. **Las exportaciones de las plataformas**, como Google Ads, Meta y LinkedIn, cada una con su fuente o con los encabezados de una exportación real, como en la CFO.
+1. **Las fuentes por verificar**: el texto de los artículos del Código ICC, la Ley 2300 de 2023, lo que pide la Ley 1581 para el mercadeo, y la ley de publicidad de México, Perú y Brasil.
+2. **Las exportaciones de las plataformas**, como Google Ads, Meta y LinkedIn, cada una con su fuente o con los encabezados de una exportación real, como en la CFO.

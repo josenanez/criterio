@@ -1,6 +1,6 @@
 # 0015 · Propuesta: el alcance se amplía a datos (CDO)
 
-**Fecha:** 2026-10-23 · **Estado:** propuesta · **Modifica:** 0012
+**Fecha:** 2026-10-23 · **Estado:** reemplazada por la [decisión 0034](0034-la-familia-cdo.md), que conserva sus tres reglas · **Modifica:** 0012
 
 ## Contexto
 
