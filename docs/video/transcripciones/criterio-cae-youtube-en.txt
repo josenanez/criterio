@@ -1,0 +1,66 @@
+0:00  Test data
+0:00  A credit finding that comes back in the same process closed in 2025.
+0:03  Remedios caught it before the decision.
+0:06  Criterio CAE
+0:06  Chief Audit Executive
+0:08  The audit plan The plan against the risks, the universe and its capacity
+0:08  Global Internal Audit Standards topical requirements Programs, papers and reports in Excel, Word or PDF Findings register in Excel or CSV Three Lines Model COSO 2013
+0:10  Engagements Every finding against its criteria and its papers
+0:11  Follow-up Every finding until it is closed, with its evidence
+0:13  The audit committee What is overdue, what repeats and the accepted risks
+0:17  Where it was tested
+0:17  3
+0:17  countries
+0:17  5
+0:17  test entities
+0:18  Colombia Peru Brazil
+0:19  Banking Credit unions Insurance
+0:19  and 2 control entities
+0:27  Three agents and a portal
+0:28  Prudencia
+0:28  The plan
+0:29  Justo
+0:29  Engagements
+0:29  Remedios
+0:29  Follow-up
+0:30  Rostrum
+0:30  The portal
+0:33  What your team does by hand today
+0:34  ✓ Matching the plan with the risk matrix and the audit universe
+0:34  ✓ Tracking the plan’s progress and changes against the committee minutes
+0:35  ✓ Checking that each finding has its criteria, condition, cause, effect and priority
+0:35  ✓ Checking that each program step has its paper and each paper its review
+0:36  ✓ Chasing each action plan to its date and its evidence
+0:36  ✓ Checking each closure against its evidence and finding the ones that come back
+0:37  What does it cost? Work it out with your numbers on the page.
+0:42  The evidence
+0:42  84.0%
+0:43  caught at least, with 95% confidence
+0:43  51cases tested
+0:45  Coverage 11
+0:45  The plan 8
+0:46  Quality 4
+0:46  Findings 6
+0:47  Papers and report 8
+0:47  Follow-up 10
+0:48  The committee 4
+0:49  2 of 2 control entities without a single false alarm
+0:49  5 defects found in one round: all fixed and verified
+0:56  The audit plan
+0:56  What it found
+0:56  The Peruvian cooperative in November with 6 open signals: a critical risk no engagement in the plan covers, two units past their cycle without an audit, an engagement added without the minutes approving it, a cybersecurity engagement without its topical requirement and one running late.
+1:03  Audit engagements
+1:03  The same cooperative: a report with a figure different from its papers, a finding with no cause or reason it was not identified, a program step with no paper and a paper without the supervisor’s review.
+1:10  Finding follow-up
+1:10  The same cooperative: a credit finding that comes back in the same process closed in 2025, an action plan expired with no evidence or explanation, a finding with no owner and one from the statutory auditor missing from the register.
+1:17  Publishes the status of the plan and the findings only if the configuration says so: audit papers belong to the function. It recalculates nothing.
+1:22  Open source · Apache 2.0
+1:23  1
+1:23  Add the marketplace
+1:23  /plugin marketplace add josenanez/criterio
+1:24  2
+1:24  Install the family
+1:24  /plugin install criterio-cae@criterio
+1:25  Set up and accept the terms
+1:25  /criterio-cae:cae-setup
+1:27  josenanez.com/agents/criterio-cae

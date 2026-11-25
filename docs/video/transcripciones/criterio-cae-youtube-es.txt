@@ -1,0 +1,66 @@
+0:00  Datos de prueba
+0:00  Un hallazgo de crédito que vuelve en el mismo proceso que se cerró en 2025.
+0:03  Remedios lo detectó antes de la decisión.
+0:06  Criterio CAE
+0:06  Chief Audit Executive
+0:08  El plan de auditoría El plan contra los riesgos, el universo y su capacidad
+0:08  Normas Globales de Auditoría Interna requisitos temáticos Programas, papeles e informes en Excel, Word o PDF Registro de hallazgos en Excel o CSV Modelo de las Tres Líneas COSO 2013
+0:10  Los trabajos Cada hallazgo contra su criterio y sus papeles
+0:11  El seguimiento Cada hallazgo hasta su cierre, con su evidencia
+0:13  El comité de auditoría Lo vencido, lo repetido y los riesgos aceptados
+0:17  Dónde se probó
+0:17  3
+0:17  países
+0:17  5
+0:17  entidades de prueba
+0:18  Colombia Perú Brasil
+0:19  Banca Cooperativas Seguros
+0:19  y 2 entidades de control
+0:27  Tres agentes y un portal
+0:28  Prudencia
+0:28  El plan
+0:29  Justo
+0:29  Los trabajos
+0:29  Remedios
+0:29  El seguimiento
+0:30  Rostrum
+0:30  El portal
+0:33  Lo que hoy hace tu equipo, a mano
+0:34  ✓ Cruzar el plan con la matriz de riesgos y el universo auditable
+0:34  ✓ Seguir el avance del plan y sus cambios contra las actas del comité
+0:35  ✓ Revisar que cada hallazgo tenga su criterio, su condición, su causa, su efecto y su prioridad
+0:35  ✓ Revisar que cada paso del programa tenga su papel y cada papel su revisión
+0:36  ✓ Perseguir cada plan de acción hasta su fecha y su evidencia
+0:36  ✓ Revisar cada cierre contra su evidencia y buscar los hallazgos que vuelven
+0:37  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:42  La evidencia
+0:42  84,0 %
+0:43  detectado como mínimo, con 95 % de confianza
+0:43  51casos probados
+0:45  La cobertura 11
+0:45  El plan 8
+0:46  La calidad 4
+0:46  Los hallazgos 6
+0:47  Los papeles y el informe 8
+0:47  El seguimiento 10
+0:48  El comité 4
+0:49  2 de 2 entidades de control sin una sola alarma falsa
+0:49  5 defectos encontrados en una ronda: todos corregidos y verificados
+0:56  El plan de auditoría
+0:56  Lo que encontró
+0:56  La cooperativa de Perú en noviembre con 6 señales abiertas: un riesgo crítico que ningún trabajo del plan cubre, dos unidades que pasaron su ciclo sin auditarse, un trabajo agregado sin el acta que lo apruebe, un trabajo de ciberseguridad sin su requisito temático y uno atrasado.
+1:03  Los trabajos de auditoría
+1:03  La misma cooperativa: un informe con una cifra distinta de la de sus papeles, un hallazgo sin su causa ni la razón por la que no se identificó, un paso del programa sin papel y un papel sin la revisión del supervisor.
+1:10  El seguimiento de los hallazgos
+1:10  La misma cooperativa: un hallazgo de crédito que vuelve en el mismo proceso que se cerró en 2025, un plan de acción vencido sin evidencia ni explicación, un hallazgo sin responsable y uno del revisor fiscal que no está en el registro.
+1:17  Publica el estado del plan y de los hallazgos solo si la configuración lo dice: los papeles de la auditoría son de la función. No recalcula nada.
+1:22  Código abierto · Apache 2.0
+1:23  1
+1:23  Agregar el marketplace
+1:23  /plugin marketplace add josenanez/criterio
+1:24  2
+1:24  Instalar la familia
+1:24  /plugin install criterio-cae@criterio
+1:25  Configurar y aceptar los términos
+1:25  /criterio-cae:cae-setup
+1:27  josenanez.com/agents/criterio-cae
