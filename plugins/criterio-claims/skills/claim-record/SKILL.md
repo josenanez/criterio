@@ -23,6 +23,7 @@ Una ficha por periodo, en `<estado>/piezas/<AAAA-MM>/ficha.json`. El registro de
 ## Cómo se decide cada uno
 
 - **`claims`**: cada afirmación objetiva de una pieza —una cifra, un plazo, un origen, una comparación—, en las palabras de la pieza, con el código de la pieza como lo escribe el registro. Una opinión o una emoción no es una afirmación.
+- **Un testimonio también es una afirmación si dice un hecho que se puede comprobar** —«mi pedido llegó al día siguiente» dice un plazo—, venga de un cliente o de un influenciador: el Código ICC trata los testimonios en su art. 18. Va con el soporte que trata de lo mismo. «Me encantó» no es una afirmación.
 - **`support`**: la ruta del documento de `20-soportes/` que sostiene esa afirmación, si hay uno que trate de lo mismo. Si ninguno trata de lo mismo, va vacío: el motor dice que falta. Si el soporte basta, no lo decides tú: lo decide legal.
 - **`comparative`** y **`comparative_source`**: si la afirmación compara con la competencia —«el más», «más que», «el único»—, y la fuente y la fecha que la pieza misma cita. Si la pieza no las cita, `comparative_source` va vacío.
 - **`promotions`**: cada promoción con su nombre, su inicio y su fin tal como los publican sus bases, y `conditions` verdadero solo si las bases dicen el modo y el lugar. Una fecha que las bases no dicen va vacía.
