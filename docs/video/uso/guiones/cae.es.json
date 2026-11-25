@@ -1,0 +1,205 @@
+{
+  "familia": "cae",
+  "idioma": "es",
+  "titulo": "Criterio CAE · Cómo se usa la familia completa",
+  "eyebrow": "Criterio CAE · Cómo se usa",
+  "carpeta": "cooperativa-altiplano",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 22.0,
+  "hasta": 880.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-cae@criterio",
+    "/criterio-cae:cae-setup",
+    "Sí, confirmo. Perú y soles.",
+    "Sí, 2026-11.",
+    "Sí, en no.",
+    "Sí, ahí.",
+    "Sí, acepto. Usuario de demostración. Y sí, márcala.",
+    "Sí, confirmo.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, confirmo. La alta dirección es la gerencia general y el consejo es el consejo de administración.",
+    "Sí, acepto. Usuario de demostración.",
+    "Por ahora no; lo corro a mano.",
+    "/criterio-remediation:remedios ¿Qué hallazgo vuelve en un proceso que ya se había cerrado, y qué tiene que saber el comité?",
+    "/criterio-audit-work:justo ¿En qué no coincide el informe de crédito con sus papeles de trabajo?"
+  ],
+  "ocultar": [
+    "How is Claude doing this session? (optional)",
+    "1: Bad",
+    "2: Fine",
+    "3: Good",
+    "0: Dismiss"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "dur": 5.0,
+      "sostener": 12.0
+    },
+    "3": {
+      "sostener": 5.0
+    },
+    "4": {
+      "sostener": 4.0
+    },
+    "5": {
+      "sostener": 5.0
+    },
+    "6": {
+      "sostener": 9.0
+    },
+    "7": {
+      "dur": 5.0,
+      "sostener": 11.0
+    },
+    "8": {
+      "sostener": 6.0
+    },
+    "9": {
+      "anclas": [
+        [
+          327.2,
+          2.0,
+          6.0
+        ],
+        [
+          635.1,
+          0.5,
+          0
+        ],
+        [
+          690.0,
+          4.0,
+          12.0
+        ]
+      ]
+    },
+    "10": {
+      "sostener": 7.0
+    },
+    "11": {
+      "dur": 5.0,
+      "sostener": 12.0
+    },
+    "12": {
+      "sostener": 5.0
+    },
+    "13": {
+      "dur": 6.0,
+      "sostener": 13.0
+    },
+    "14": {
+      "dur": 6.0,
+      "sostener": 12.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 22.0,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia CAE. Instala a Prudencia, Justo y Remedios, y a Rostrum, el portal."
+    },
+    {
+      "desde": 125.7,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "prudencia",
+      "texto": "Prudencia, el plan de auditoría. Encuentra la carpeta de la cooperativa y saca de la metodología y del estatuto los ciclos, la escala de prioridad y quién aprueba el plan: solo pide confirmarlos."
+    },
+    {
+      "desde": 166.4,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "prudencia",
+      "texto": "Una pregunta a la vez: el periodo, si publica en Rostrum —por omisión no, porque los papeles de la auditoría son de la función— y dónde guarda lo que encuentra."
+    },
+    {
+      "desde": 222.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "prudencia",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 285.2,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "justo",
+      "texto": "Justo, los trabajos de auditoría. Toma lo que ya se respondió y pregunta solo lo suyo: quién aprueba el programa y los papeles."
+    },
+    {
+      "desde": 327.2,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "justo",
+      "texto": "Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez."
+    },
+    {
+      "desde": 680.3,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "remedios",
+      "texto": "Remedios, el seguimiento. Encuentra el registro de hallazgos, el de riesgos aceptados, las evidencias y el informe del revisor fiscal."
+    },
+    {
+      "desde": 753.9,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente: un riesgo crítico sin trabajo en el plan, un hallazgo sin su causa y un plan de acción vencido hace 56 días."
+    },
+    {
+      "desde": 779.5,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 810.8,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "remedios",
+      "texto": "A cada agente se le pide en lenguaje natural. Remedios arma lo del comité: un hallazgo de crédito que vuelve en el mismo proceso que se cerró en 2025, un plan vencido sin evidencia y un hallazgo del revisor fiscal fuera del registro."
+    },
+    {
+      "desde": 866.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "justo",
+      "texto": "Justo coteja el informe con los papeles: en un hallazgo, el informe trae 540 millones y los papeles 450. Cuál cifra es la correcta lo decide el auditor."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia CAE,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "prudencia",
+      "justo",
+      "remedios"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre la Cooperativa de Ahorro Altiplano, una organización de prueba con material sintético.",
+    "nombres": [
+      "Prudencia",
+      "Justo",
+      "Remedios"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. La Cooperativa de Ahorro Altiplano es una organización de prueba: el material es sintético."
+  }
+}

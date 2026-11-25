@@ -697,14 +697,14 @@
           "n": 0,
           "es": {
             "etiqueta": "Instalación",
-            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, cuántas veces permite la metodología correr la fecha de un plan, quién valida un cierre y quién es la alta dirección y el consejo para la escalada",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo y cuántas veces permite la metodología correr la fecha de un plan",
             "proceso": "Inventario de lo que hay; procesa el registro de hallazgos y el de riesgos aceptados de `30-seguimiento/` y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta; los registros reconocidos; la primera ficha del periodo",
             "entrega": "La configuración, el inventario y los registros reconocidos"
           },
           "en": {
             "etiqueta": "Setup",
-            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, how many times the methodology allows a plan's date to be pushed back, who validates a closure and who senior management and the board are for escalation",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period and how many times the methodology allows a plan's date to be pushed back",
             "proceso": "Inventory of what is there; processes the findings register and the accepted-risk register in `30-seguimiento/` and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
             "reporte": "Configuration saved; inventory by folder; the recognised registers; the period's first record",
             "entrega": "The configuration, the inventory and the recognised registers"
