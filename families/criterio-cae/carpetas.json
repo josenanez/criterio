@@ -81,7 +81,10 @@
             "^informe_externo",
             "^revisor",
             "^supervisor",
-            "^findings"
+            "^findings",
+            "^informe_revisor",
+            "^informe_auditor_externo",
+            "^informe_supervisor"
           ]
         }
       ]

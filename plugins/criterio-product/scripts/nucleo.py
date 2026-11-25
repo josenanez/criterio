@@ -545,15 +545,12 @@ def clasificar(ruta_rel: str, est: dict) -> dict:
     if sub in [c["carpeta"] for c in nivel.get("carpetas", [])]:
         out["carpeta"] = sub
     nombre = norm(partes[-1])
-    destino = None
-    for n in est.get("niveles", []):
-        for c in n.get("carpetas", []):
-            if any(re.search(pat, nombre) for pat in c.get("patrones", [])):
-                destino = (n, c["carpeta"])
-                break
-        if destino:
-            break
-    if destino and out["carpeta"] == destino[1] and out["nivel"] == destino[0]["id"]:
+    # Un nombre puede calzar con los patrones de más de una carpeta —«riesgos_aceptados» con los de la matriz
+    # de riesgos y con los del seguimiento—: si una de ellas es donde está, está en su lugar.
+    candidatos = [(n, c["carpeta"]) for n in est.get("niveles", []) for c in n.get("carpetas", [])
+                  if any(re.search(pat, nombre) for pat in c.get("patrones", []))]
+    destino = candidatos[0] if candidatos else None
+    if any(out["carpeta"] == c and out["nivel"] == n["id"] for n, c in candidatos):
         out["en_su_lugar"] = True
     elif destino:
         out["iria"] = (destino[0].get("etiqueta") or "") + destino[1] + "/"
