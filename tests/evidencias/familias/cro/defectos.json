@@ -1,0 +1,4 @@
+{
+  "nota": "Los defectos que encontraron las rondas con los agentes de la familia CRO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+  "defectos": []
+}

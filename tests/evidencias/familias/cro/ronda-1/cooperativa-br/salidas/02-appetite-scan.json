@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "severo",
+  "comando": "appetite-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T19:38:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 16,
+  "tokens": 707397,
+  "tokens_salida": 4949,
+  "costo_usd": 0.4366352,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/apetito/2026-10/reporte-appetite-scan.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-appetite-scan-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-appetite-scan.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/indice.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "casandra",
+  "comando": "kri-check",
+  "argumento": "",
+  "inicio": "2026-11-25T19:35:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 8,
+  "tokens": 402504,
+  "tokens_salida": 2944,
+  "costo_usd": 0.1402036,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/2026-11-25-kri-check-1.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/salida-kri-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

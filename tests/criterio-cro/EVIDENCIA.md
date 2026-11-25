@@ -55,7 +55,7 @@ fuera de la ventana de 12 meses. Ninguno puede levantar una señal.
 
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que el agente
   procese la declaración, el acta, el exceso aprobado y la acción sobre el indicador, y los registre bien,
-  lo prueba la ronda con los agentes, en la 0.2.0.
+  lo prueba la ronda con los agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cro/RONDAS.md).
 - **Las exportaciones reales** de las herramientas de gestión de riesgos: el material usa tablas con columnas
   en español y en portugués; el setup mapea las de cualquier exportación.
 - **El texto del Capítulo XXXI de la Superintendencia Financiera y COSO ERM**: están por verificar, y no

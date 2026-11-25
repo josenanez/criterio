@@ -1,0 +1,19 @@
+{
+  "entidad": "Cooperativa Vale Sintética",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 7024826,
+  "senales": {
+    "esperadas": 6,
+    "acertadas": 6,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 7,
+    "bien": 7,
+    "mal": []
+  }
+}

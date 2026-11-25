@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "casandra",
+  "comando": "events-setup",
+  "argumento": "riesgos/20607773331-seguros-del-sur-sintetica",
+  "inicio": "2026-11-25T19:33:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 21,
+  "tokens": 851942,
+  "tokens_salida": 7422,
+  "costo_usd": 0.605387,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/eventos/20607773331/config.json",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.1.0-2026-11-25.sha256",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/2026-11-25-events-setup-1.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/salida-events-setup.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/eventos/2026-10/ficha.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/eventos/2026-10/reporte-kri-check.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/eventos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

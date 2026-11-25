@@ -1,0 +1,29 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-25T19:24:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 402106,
+  "tokens_salida": 2202,
+  "costo_usd": 0.14355470000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/apetito/2026-11/reporte-framework-check.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/apetito/2026-11/resultados.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

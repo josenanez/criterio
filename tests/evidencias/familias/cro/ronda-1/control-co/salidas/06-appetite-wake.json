@@ -1,0 +1,28 @@
+{
+  "n": 6,
+  "agente": "severo",
+  "comando": "appetite-wake",
+  "argumento": "",
+  "inicio": "2026-11-25T19:47:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 19,
+  "tokens": 664583,
+  "tokens_salida": 4637,
+  "costo_usd": 0.422636,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-appetite-scan-2.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-appetite-wake-1.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-appetite-wake.md"
+    ],
+    "modificados": [
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-appetite-scan.md"
+    ],
+    "borrados": []
+  }
+}

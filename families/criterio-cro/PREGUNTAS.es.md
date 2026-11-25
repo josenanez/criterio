@@ -38,4 +38,4 @@ La organización, en su marco de apetito y su política de riesgo operacional. E
 
 ### ¿Está probada?
 
-El motor está probado contra todo su material sintético, con una clave que los agentes no ven y dos entidades de control sin ninguna señal. La ronda con los dos agentes viene en la 0.2.0, y no se ha probado sobre la documentación de una organización concreta.
+El motor está probado contra todo su material sintético, con una clave que los agentes no ven y dos entidades de control sin ninguna señal. En la 0.2.0, los dos agentes corrieron sobre todas las entidades del material, con una clave que no ven. No se ha probado sobre la documentación de una organización concreta.

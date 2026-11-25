@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "severo",
+  "comando": "coverage-check",
+  "argumento": "",
+  "inicio": "2026-11-25T19:40:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 350658,
+  "tokens_salida": 2347,
+  "costo_usd": 0.126254,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/apetito/2026-11/reporte-coverage-check.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-coverage-check-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-coverage-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

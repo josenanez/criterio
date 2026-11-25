@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "casandra",
+  "comando": "pattern-check",
+  "argumento": "",
+  "inicio": "2026-11-25T19:57:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 401455,
+  "tokens_salida": 1820,
+  "costo_usd": 0.1283744,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/2026-11-25-pattern-check-1.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/salida-pattern-check.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/eventos/2026-10/reporte-pattern-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

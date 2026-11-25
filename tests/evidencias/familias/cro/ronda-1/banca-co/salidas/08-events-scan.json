@@ -1,0 +1,28 @@
+{
+  "n": 8,
+  "agente": "casandra",
+  "comando": "events-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T19:27:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 14,
+  "tokens": 608656,
+  "tokens_salida": 5704,
+  "costo_usd": 0.4718194,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/2026-11-25-events-scan-1.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/salida-events-scan.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/eventos/2026-10/reporte-events-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

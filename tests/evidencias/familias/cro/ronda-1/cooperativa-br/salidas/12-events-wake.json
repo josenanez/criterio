@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "casandra",
+  "comando": "events-wake",
+  "argumento": "",
+  "inicio": "2026-11-25T19:44:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 21,
+  "tokens": 735390,
+  "tokens_salida": 5200,
+  "costo_usd": 0.46133700000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-events-scan-2.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-events-wake-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-events-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-events-scan.md"
+    ],
+    "borrados": []
+  }
+}

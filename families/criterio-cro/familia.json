@@ -610,7 +610,7 @@
         "casandra": "Los eventos",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: en pruebas. El motor pasa su prueba determinista contra todo su material; la ronda con los agentes es la siguiente versión.",
+      "nota": "Estado de la familia: en pruebas. El motor pasa su prueba determinista contra todo su material, y los dos agentes corrieron sobre todas sus entidades.",
       "guion": [
         {
           "cabeza": true,
@@ -656,7 +656,7 @@
         "casandra": "Events",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: in testing. The engine passes its deterministic test against all its material; the round with the agents is the next version.",
+      "nota": "Where the family stands: in testing. The engine passes its deterministic test against all its material, and the two agents ran on every entity in it.",
       "guion": [
         {
           "cabeza": true,

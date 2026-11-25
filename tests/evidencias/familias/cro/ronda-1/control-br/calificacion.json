@@ -1,0 +1,19 @@
+{
+  "entidad": "Cooperativa Controle Sintética",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 6439602,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 7,
+    "bien": 7,
+    "mal": []
+  }
+}

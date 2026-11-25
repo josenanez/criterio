@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "severo",
+  "comando": "limit-check",
+  "argumento": "",
+  "inicio": "2026-11-25T19:24:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 9,
+  "tokens": 358580,
+  "tokens_salida": 2532,
+  "costo_usd": 0.1482412,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/2026-11-25-limit-check-1.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/salida-limit-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
