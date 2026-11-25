@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "justo",
+  "comando": "report-check",
+  "argumento": "",
+  "inicio": "2026-11-25T00:55:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 9,
+  "tokens": 453652,
+  "tokens_salida": 1815,
+  "costo_usd": 0.1346599,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-report-check-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-report-check.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/trabajos/2026-11/reporte-report-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

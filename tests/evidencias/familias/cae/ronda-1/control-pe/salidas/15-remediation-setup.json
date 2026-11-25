@@ -1,0 +1,41 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/20602888432-cooperativa-control-sintetica",
+  "inicio": "2026-11-25T00:56:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 91,
+  "turnos": 24,
+  "tokens": 967379,
+  "tokens_salida": 9635,
+  "costo_usd": 0.7799006,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/20602888432/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-0.1.0-2026-11-24.sha256",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/H-03/explicacion-del-atraso.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/H-21/evidencia.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-remediation-setup.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/manifest.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

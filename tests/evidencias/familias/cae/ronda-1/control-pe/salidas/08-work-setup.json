@@ -1,0 +1,51 @@
+{
+  "n": 8,
+  "agente": "justo",
+  "comando": "work-setup",
+  "argumento": "auditoria/20602888432-cooperativa-control-sintetica",
+  "inicio": "2026-11-25T00:52:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 77,
+  "turnos": 18,
+  "tokens": 662957,
+  "tokens_salida": 8574,
+  "costo_usd": 0.6630886,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.1.0-2026-11-24.sha256",
+      ".criterio/trabajos/20602888432/config.json",
+      "auditoria/20602888432-cooperativa-control-sintetica/_CRITERIO_AUDITORIA.txt",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/PT-01.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/PT-02.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/PT-03.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/aprobacion-del-programa.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/indice_de_papeles.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/informe.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-01_credito-comercial/programa_de_trabajo.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/PT-01.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/PT-02.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/PT-03.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/aprobacion-del-programa.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/indice_de_papeles.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/informe.pdf.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/TR-02_ciberseguridad/programa_de_trabajo.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/20-trabajos/asignaciones.xlsx.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-work-setup-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-work-setup.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/trabajos/2026-11/ficha.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/trabajos/2026-11/reporte-finding-check.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/trabajos/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/cache/manifest.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

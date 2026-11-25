@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CAE
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cae/` · ronda más reciente: 1 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cae/` · ronda completa más reciente: 1 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 1, parcial, sobre 3 de las 5 entidades del material: 48 de 51 señales sembradas encontradas (margen del 95 %: 84–98 %) y 2 de más; 174 de 212 datos extraídos bien (82,1 %, margen del 95 %: 76,3–86,7 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda completa más reciente, la 1, sobre las 5 entidades del material: 48 de 51 señales sembradas encontradas (margen del 95 %: 84–98 %) y 2 de más; 310 de 348 datos extraídos bien (89,1 %, margen del 95 %: 85,3–92 %); y 2 de 2 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 48 de 51 señales encontradas, 2 de más y 174 de 212 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–1, 48 de 51 señales encontradas, 2 de más y 310 de 348 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,12 +18,12 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 1; la más reciente, la 1, es parcial |
+| Rondas | 1; la completa más reciente es la 1 |
 | Material | Banca · Colombia, Cooperativas · Perú, seguros · Brasil |
-| Entidades de control |  |
-| Corridas de una entidad | 3 |
+| Entidades de control | Control · Colombia, Control · Perú |
+| Corridas de una entidad | 5 |
 | Señales sembradas | 51 |
-| Datos calificados | 212 |
+| Datos calificados | 348 |
 
 ## Resultados acumulados · rondas 1–1
 
@@ -31,27 +31,25 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |---|---|---|---|
 | Señales · cobertura | 48 de 51 | 94,1 % | 84–98 % |
 | Señales · precisión | 48 de 50 | 96 % | 86,5–98,9 % |
-| Extracción · datos correctos | 174 de 212 | 82,1 % | 76,3–86,7 % |
-| Control · sin ninguna señal | 0 de 0 | — | — |
+| Extracción · datos correctos | 310 de 348 | 89,1 % | 85,3–92 % |
+| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
 
 ## Evolución por ronda
 
 ![Evolución por ronda](evolucion-es.svg)
 
-Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes.
-
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
-| 1 | 3 | 94,1 % | 96 % | 82,1 % | 0 de 0 | 33,9 M | 5 |
+| 1 | 5 | 94,1 % | 96 % | 89,1 % | 2 de 2 | 55,2 M | 5 |
 
-## La ronda más reciente · ronda 1
+## La ronda completa más reciente · ronda 1
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
 | Señales · cobertura | 48 de 51 | 94,1 % | 84–98 % |
 | Señales · precisión | 48 de 50 | 96 % | 86,5–98,9 % |
-| Extracción · datos correctos | 174 de 212 | 82,1 % | 76,3–86,7 % |
-| Control · sin ninguna señal | 0 de 0 | — | — |
+| Extracción · datos correctos | 310 de 348 | 89,1 % | 85,3–92 % |
+| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
 
 ## Por industria y país · ronda 1
 
@@ -60,10 +58,12 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Banca · Colombia | Justo, Prudencia, Remedios | 22 de 25 | 2 | 35 de 72 | 11,3 M |
 | Cooperativas · Perú | Justo, Prudencia, Remedios | 14 de 14 | 0 | 72 de 72 | 11,5 M |
 | seguros · Brasil | Justo, Prudencia, Remedios | 12 de 12 | 0 | 67 de 68 | 11,1 M |
+| Control · Colombia | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 10,4 M |
+| Control · Perú | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 10,9 M |
 
 ## Lo que falló, uno por uno · rondas 1–1
 
-43 fallas en 3 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+43 fallas en 5 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -115,7 +115,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ![Defectos](defectos-es.svg)
 
-5 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 1 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+5 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 5 verificados y 0 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
@@ -131,7 +131,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 33,9 millones de tokens: 33,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11,3 millones por entidad.
+Las 1 rondas usaron 55,2 millones de tokens: 55,2 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 11 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

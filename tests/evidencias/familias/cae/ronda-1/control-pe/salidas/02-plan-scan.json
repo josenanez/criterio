@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "prudencia",
+  "comando": "plan-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T00:48:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 62,
+  "turnos": 15,
+  "tokens": 667065,
+  "tokens_salida": 3750,
+  "costo_usd": 0.4191652,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-plan-scan-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-plan-scan.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/indice.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/plan/2026-11/reporte-plan-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

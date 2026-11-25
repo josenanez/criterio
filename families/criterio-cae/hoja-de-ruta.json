@@ -50,8 +50,8 @@
   },
   {
    "incremento": 2,
-   "version": null,
-   "estado": "siguiente",
+   "version": "0.2.0",
+   "estado": "en curso",
    "industrias": [],
    "paises": [
     {

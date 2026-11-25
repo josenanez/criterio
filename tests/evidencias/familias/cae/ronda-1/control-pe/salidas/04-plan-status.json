@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "prudencia",
+  "comando": "plan-status",
+  "argumento": "",
+  "inicio": "2026-11-25T00:50:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 350743,
+  "tokens_salida": 2591,
+  "costo_usd": 0.1297233,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-plan-status-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-plan-status.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/plan/2026-11/reporte-plan-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

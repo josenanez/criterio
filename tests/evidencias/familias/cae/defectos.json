@@ -137,8 +137,8 @@
         "prudencia"
       ],
       "origen": "instrucciones",
-      "commit": null,
-      "estado": "por-verificar",
+      "commit": "24f39616",
+      "estado": "verificado",
       "es": {
         "que": "Prudencia listó en `reviewed` las tablas del plan —el universo, la matriz de riesgos y el plan anual—, que procesa el motor y no pasan por la ficha. La instrucción decía «los documentos que se procesaron» sin distinguirlas.",
         "correccion": "La instrucción de cada uno de los tres agentes nombra las tablas que procesa el motor y dice que no van en `reviewed`."
@@ -153,7 +153,9 @@
           "seguros-br",
           "plan · reviewed"
         ]
-      ]
+      ],
+      "verificacion": "control-co",
+      "ronda_verificacion": 1
     }
   ]
 }

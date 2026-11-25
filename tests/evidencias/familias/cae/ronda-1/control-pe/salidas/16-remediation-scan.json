@@ -1,0 +1,27 @@
+{
+  "n": 16,
+  "agente": "remedios",
+  "comando": "remediation-scan",
+  "argumento": "",
+  "inicio": "2026-11-25T00:58:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 56,
+  "turnos": 15,
+  "tokens": 615304,
+  "tokens_salida": 3451,
+  "costo_usd": 0.40592700000000004,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/2026-11-24-remediation-scan-1.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas/salida-remediation-scan.md",
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/seguimiento/2026-11/reporte-remediation-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/20602888432-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}
