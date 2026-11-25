@@ -5900,6 +5900,123 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "be7f03bbfdd74dd67cf4632d8d65a03255f8a60d11bab144e7e06e202756e264",
       "sha256": "e8f8990dab77764e05c0cd5f71a5e6db0fbdfc08f3da8a3f36260cdbd02bf224"
+    },
+    {
+      "version": "3.6.0",
+      "fecha": "2026-11-25",
+      "commit": null,
+      "base": "8954d79d",
+      "etiqueta": "v3.6.0",
+      "familias": {
+        "cae": "0.2.2",
+        "cco": "1.4.2",
+        "cdo": "0.1.0",
+        "cfo": "1.7.2",
+        "chro": "1.0.0",
+        "ciso": "1.5.1",
+        "clo": "1.9.1",
+        "ea": "1.4.2",
+        "pmo": "1.4.2",
+        "rostrum": "1.4.4"
+      },
+      "liberadas": [
+        "cdo"
+      ],
+      "versiones": {
+        "criterio-audit-plan": "0.2.2",
+        "criterio-audit-work": "0.2.2",
+        "criterio-cae": "0.2.2",
+        "criterio-remediation": "0.2.2",
+        "criterio-cco": "1.4.2",
+        "criterio-revenue": "1.4.2",
+        "criterio-sales": "1.4.2",
+        "criterio-cdo": "0.1.0",
+        "criterio-data-governance": "0.1.0",
+        "criterio-data-quality": "0.1.0",
+        "criterio-budget": "1.7.2",
+        "criterio-cfo": "1.7.2",
+        "criterio-finance": "1.7.2",
+        "criterio-treasury": "1.7.2",
+        "criterio-chro": "1.0.0",
+        "criterio-roles": "1.0.0",
+        "criterio-talent": "1.0.0",
+        "criterio-ciso": "1.5.1",
+        "criterio-resilience": "1.5.1",
+        "criterio-security": "1.5.1",
+        "criterio-vulnerability": "1.5.1",
+        "criterio-clo": "1.9.1",
+        "criterio-compliance": "1.9.1",
+        "criterio-legal": "1.9.1",
+        "criterio-assistant": "1.4.2",
+        "criterio-ea": "1.4.2",
+        "criterio-pmo": "1.4.2",
+        "criterio-portfolio": "1.4.2",
+        "criterio-product": "1.4.2",
+        "criterio-project": "1.4.2",
+        "criterio-server": "1.4.4"
+      },
+      "calidad": {
+        "cdo": {
+          "etiqueta": "laboratorio",
+          "ronda": null,
+          "pisos": {},
+          "motivo": [
+            "sin ronda con los agentes"
+          ],
+          "umbral": 95
+        }
+      },
+      "terminos": {
+        "version": "1.6",
+        "fecha": "2026-11-16",
+        "sha256": {
+          "es": "9926ba27f936402177da9036b3eb64878c262183c0775b193061b22a8ded1561",
+          "en": "a4a1df234745cd8fe495e179cc081712ab709cd51684699df5baa5ba960f4fd6"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "0c8a8d6e8571856681f65a770f93df1ba4d0037b5d74cbda7ade94947ad77cc1",
+        "criterio-audit-plan": "1e6cf8ae6fe0da8819d22237ed1b3c2aa72257334cac49126c399446b91abb48",
+        "criterio-audit-work": "28a9b3002485cffd1d86075392b7823ab29c70f899a3d56b363624a6e41188db",
+        "criterio-budget": "dd4fae9d66d9ed26010426cb43e3dd9dcd2423d63beae06c7e481d50faa0eea0",
+        "criterio-cae": "f6ba48fbf09ca919fc9f016e6f146e02c7ac220bac022b7e5ac6c40b42cd1a0c",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cdo": "74ece1c05ed7af024567ffa1640fd8bcfb1adc98f56f7d2d689ce07173db3c7c",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-chro": "fbd1a3b70dd6e57d81a9f399da45396b502e62b7df4cd9eaa5489f453b803d68",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "c5d0680368d09297e85aaf4739c98244c6d4c324ffbef3cb13312bb077fcf769",
+        "criterio-data-governance": "fabfbadfe07f79463888d91dd9367468d4c7b7e5c3d3927ea6f9a06c80d1a3c7",
+        "criterio-data-quality": "ede801505617727ea720fc26cac6ec7bc6aaf2ae3cb04eecbec5a61cb2462c98",
+        "criterio-finance": "8161f3b79d536f2fb8bb617b4084ecb8391c786e914d6dc385410c8ff2345677",
+        "criterio-legal": "d7db5647eb0dd2efbe7af1b93a4cecc87453aa994079062d4c57e5ddb2d8c2de",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "ec80fbae6073350b1f7bf3761a2bb0901e5d466003084e23ef5584a907969f29",
+        "criterio-product": "8c83518c7df161c1a7459be1ef92ef767b8b70325bd9ae26e0295799fd647250",
+        "criterio-project": "bf19d68a26b62fb61cbe98c1246726640f1a9332782abbcf3b2ea654cde63667",
+        "criterio-remediation": "a6f0ddedc316b5ba6394165f6beddf207aba17aa01448b6805b92e45ee7a7999",
+        "criterio-resilience": "e16936fba9136e789c81634ac6c2534ff0076f1cf9e75725f79c6a26e95e912d",
+        "criterio-revenue": "5a26f999f22fdf81de6f2dd9e81e8979f3d98ecf287c36f35eed30d7226e8335",
+        "criterio-roles": "83e2eb43171e2720b679af5d99bc163faae58b9e093b86381dd7af5bafc3b082",
+        "criterio-sales": "2cbb83959978266b8a2c00f522a17ec59673dbb19319d6f0aa836c0d1109b0b2",
+        "criterio-security": "f0659f6069e5544b94144aaa2cccded39f8fbbfbbde5ff9304c4e4f9682c6136",
+        "criterio-server": "d29947e9bb7518cfeb10b62c40310790e1c3cc027294a91efd0ee13ff965aab8",
+        "criterio-talent": "dced86e4415ae50734e3d7b2c1165c9a25b1cf6a5b723e3f0442ba961c548857",
+        "criterio-treasury": "6c6d23f1edfe441a598cd1af8fab1af2994593ee3ac8a0d6350d3a3a0099b2b0",
+        "criterio-vulnerability": "3b00416b2b3e64221bfb8cc488928ff482a36d7a2c0d8cd7dc9281b4462b8df5"
+      },
+      "destacados": [
+        "Criterio CDO 0.1.0, los datos: Custodia pone cada dato al lado de su dueño, su clasificación y su plazo, y Ariadna cada cifra de los informes al lado de su fuente, su corte y su linaje."
+      ],
+      "cambios": [
+        "Decisiones 0035 y 0036, propuestas: la CRO y la CMO; y el video de uso de la CAE",
+        "Decisiones 0034, 0035 y 0036, aceptadas: la CDO, la CRO y la CMO",
+        "Criterio CDO, los datos, construida (decisión 0034): Custodia y Ariadna"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "e8f8990dab77764e05c0cd5f71a5e6db0fbdfc08f3da8a3f36260cdbd02bf224",
+      "sha256": "e84f3e18b5b16352709f8fb651b44f6083544c9c4910cc4b4d9781f078132c52"
     }
   ]
 }
