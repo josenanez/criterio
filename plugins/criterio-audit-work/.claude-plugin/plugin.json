@@ -1,6 +1,6 @@
 {
   "name": "criterio-audit-work",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Justo, los trabajos de auditoría: cada hallazgo con su criterio, su condición, su causa, su efecto, su prioridad y su papel, cada paso del programa con su papel, cada papel con su revisión, el informe contra los papeles y la objetividad de cada asignación, sobre las Normas Globales de Auditoría Interna. Nunca emite una opinión ni cambia la prioridad de un hallazgo.",
   "author": {
     "name": "José Francisco Ñáñez",
