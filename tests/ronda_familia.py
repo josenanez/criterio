@@ -75,7 +75,7 @@ FAMILIAS = {
             "resultados": {"custodia": "gobierno/{periodo}/resultados.json", "ariadna": "calidad/{periodo}/resultados.json"},
             "fichas": {"gobierno": ("custodia", "gobierno/{periodo}/ficha.json"), "calidad": ("ariadna", "calidad/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
-    "cro": {"registros": True,
+    "cro": {"registros": {"approvals": "limit", "actions": "indicator"},
             "resultados": {"severo": "apetito/{periodo}/resultados.json", "casandra": "eventos/{periodo}/resultados.json"},
             "fichas": {"apetito": ("severo", "apetito/{periodo}/ficha.json"), "eventos": ("casandra", "eventos/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
@@ -358,6 +358,12 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
     return esperado == obtenido
 
 
+def _llave(registros, pre: str) -> str:
+    """El campo que identifica cada registro de una lista: `id`, o el que la familia diga para esa lista
+    —las aprobaciones de la CRO se identifican por su límite y las acciones por su indicador—."""
+    return registros.get(pre.split(".")[-1].split("[")[0], "id") if isinstance(registros, dict) else "id"
+
+
 def _plano(x, pre="", registros=False):
     """Un dict anidado como pares ruta → valor, para comparar la ficha campo por campo. Con `registros`,
     una lista de registros con su `id` —los perfiles, sus requisitos, los candidatos, sus afirmaciones—
@@ -366,9 +372,10 @@ def _plano(x, pre="", registros=False):
     if isinstance(x, dict):
         for k, v in x.items():
             yield from _plano(v, f"{pre}.{k}" if pre else k, registros)
-    elif registros and isinstance(x, list) and x and all(isinstance(r, dict) and r.get("id") for r in x):
+    elif registros and isinstance(x, list) and x and all(isinstance(r, dict) and r.get(_llave(registros, pre)) for r in x):
+        llave = _llave(registros, pre)
         for r in x:
-            yield from _plano(r, f"{pre}[{r['id']}]", registros)
+            yield from _plano(r, f"{pre}[{r[llave]}]", registros)
     else:
         yield pre, x
 
@@ -403,7 +410,7 @@ def calificar(a) -> int:
             ficha = _j(hallados[-1]) if hallados else {}
             if F.get("normalizar") and ficha:
                 ficha = F["normalizar"](ficha, espacio, clave)
-            por_registro = bool(F.get("registros"))
+            por_registro = F.get("registros") or False
             hecho = dict(_plano(ficha, registros=por_registro))
             for ruta, valor in _plano(esperado_k, registros=por_registro):
                 if ruta.split(".")[0].split("[")[0] in PROPIOS:

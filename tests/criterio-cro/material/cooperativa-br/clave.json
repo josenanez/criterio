@@ -77,6 +77,16 @@
           "limit": "L-04",
           "until": "2027-01-31",
           "source": "40-actas/ata_comite_riscos_2026-10.pdf"
+        },
+        {
+          "limit": "L-06",
+          "until": "2027-02-28",
+          "source": "40-actas/ata_comite_riscos_2026-10.pdf"
+        },
+        {
+          "limit": "L-07",
+          "until": "2027-03-31",
+          "source": "40-actas/ata_comite_riscos_2026-10.pdf"
         }
       ],
       "reviewed": [
@@ -87,8 +97,8 @@
     "eventos": {
       "actions": [
         {
-          "indicator": "KRI-01",
-          "action": "Bloqueio preventivo dos BIN comprometidos",
+          "indicator": "KRI-06",
+          "action": "Conciliação diária automática das contas transitórias",
           "source": "40-actas/ata_comite_riscos_2026-10.pdf"
         }
       ],
@@ -106,20 +116,88 @@
       "key": "reporte:L-02"
     },
     {
+      "signal": "exposure_report_late",
+      "key": "reporte:L-42"
+    },
+    {
+      "signal": "kri_alert_without_action",
+      "key": "alerta:KRI-01"
+    },
+    {
+      "signal": "kri_alert_without_action",
+      "key": "alerta:KRI-12"
+    },
+    {
       "signal": "kri_not_reported",
       "key": "reporte:KRI-03"
+    },
+    {
+      "signal": "kri_not_reported",
+      "key": "reporte:KRI-22"
+    },
+    {
+      "signal": "limit_breached_without_plan",
+      "key": "limite:L-01"
+    },
+    {
+      "signal": "limit_breached_without_plan",
+      "key": "limite:L-12"
+    },
+    {
+      "signal": "limit_review_overdue",
+      "key": "revision:L-02"
+    },
+    {
+      "signal": "limit_review_overdue",
+      "key": "revision:L-32"
     },
     {
       "signal": "limit_without_owner",
       "key": "dueno:L-02"
     },
     {
+      "signal": "limit_without_owner",
+      "key": "dueno:L-22"
+    },
+    {
+      "signal": "loss_event_incomplete",
+      "key": "incompleto:EV-03"
+    },
+    {
+      "signal": "loss_event_incomplete",
+      "key": "incompleto:EV-12"
+    },
+    {
       "signal": "loss_event_registered_late",
       "key": "tarde:EV-05"
     },
     {
+      "signal": "loss_event_registered_late",
+      "key": "tarde:EV-22"
+    },
+    {
+      "signal": "loss_event_repeated",
+      "key": "repetido:agencias:falta_de_numerario"
+    },
+    {
+      "signal": "loss_event_repeated",
+      "key": "repetido:canais:fraude_com_cartao"
+    },
+    {
       "signal": "loss_event_risk_unmapped",
       "key": "sin_riesgo:EV-04"
+    },
+    {
+      "signal": "loss_event_risk_unmapped",
+      "key": "sin_riesgo:EV-42"
+    },
+    {
+      "signal": "risk_without_limit",
+      "key": "riesgo:R-04"
+    },
+    {
+      "signal": "risk_without_limit",
+      "key": "riesgo:R-12"
     }
   ]
 }

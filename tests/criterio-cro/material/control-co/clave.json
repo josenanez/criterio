@@ -77,6 +77,16 @@
           "limit": "L-04",
           "until": "2027-01-31",
           "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        },
+        {
+          "limit": "L-06",
+          "until": "2027-02-28",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        },
+        {
+          "limit": "L-07",
+          "until": "2027-03-31",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
         }
       ],
       "reviewed": [
@@ -89,6 +99,11 @@
         {
           "indicator": "KRI-01",
           "action": "Bloqueo preventivo de los BIN comprometidos",
+          "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
+        },
+        {
+          "indicator": "KRI-06",
+          "action": "Conciliación diaria automática de las cuentas puente",
           "source": "40-actas/acta_comite_riesgos_2026-10.pdf"
         }
       ],
