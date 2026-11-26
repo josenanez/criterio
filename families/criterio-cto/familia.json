@@ -33,12 +33,12 @@
           "es": [
             "Los cambios",
             "Cada cambio en producción con su aprobación y su revisión",
-            "ITIL · ServiceNow o Jira en Excel o CSV"
+            "ServiceNow o Jira, exportados en Excel o CSV"
           ],
           "en": [
             "Changes",
             "Each production change with its approval and review",
-            "ITIL · ServiceNow or Jira in Excel or CSV"
+            "ServiceNow or Jira, exported in Excel or CSV"
           ],
           "fuentes": [
             "F-01"
