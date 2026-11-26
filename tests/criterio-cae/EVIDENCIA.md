@@ -10,8 +10,8 @@ inventados.
 | Carpeta del material | País | Industria | Señales esperadas |
 |---|---|---|---:|
 | `banca-co` | Colombia | banca | 25 |
-| `cooperativa-pe` | Perú | cooperativas | 14 |
-| `seguros-br` | Brasil | seguros | 12 |
+| `cooperativa-pe` | Perú | cooperativas | 26 |
+| `seguros-br` | Brasil | seguros | 25 |
 | `control-co` | Colombia | banca | 0 |
 | `control-pe` | Perú | cooperativas | 0 |
 
@@ -24,8 +24,9 @@ de un atraso y el informe del revisor fiscal.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
-La lista exacta está en la clave de cada entidad, en `esperado`. Las veinticuatro señales se siembran al
-menos una vez.
+La lista exacta está en la clave de cada entidad, en `esperado`. Desde la ronda 2, las tres entidades
+sembradas traen las veinticuatro señales: así la familia pasa de 73 señales sembradas, la muestra que pide
+el piso del 95 % sin fallas (decisión 0020).
 
 | Agente | Lo que se siembra | Señal |
 |---|---|---|

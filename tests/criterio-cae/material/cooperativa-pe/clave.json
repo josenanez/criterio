@@ -32,9 +32,9 @@
           "Alto",
           "Crítico"
         ],
-        "risk_assessment_date": "2025-12-01",
+        "risk_assessment_date": "2025-09-15",
         "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
-        "external_assessment_date": "2021-12-15",
+        "external_assessment_date": "2021-03-31",
         "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
         "plan_approver": "Comité de auditoría",
         "priority": {
@@ -89,9 +89,9 @@
           "Alto",
           "Crítico"
         ],
-        "risk_assessment_date": "2025-12-01",
+        "risk_assessment_date": "2025-09-15",
         "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
-        "external_assessment_date": "2021-12-15",
+        "external_assessment_date": "2021-03-31",
         "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
         "plan_approver": "Comité de auditoría",
         "priority": {
@@ -146,9 +146,9 @@
           "Alto",
           "Crítico"
         ],
-        "risk_assessment_date": "2025-12-01",
+        "risk_assessment_date": "2025-09-15",
         "risk_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
-        "external_assessment_date": "2021-12-15",
+        "external_assessment_date": "2021-03-31",
         "external_assessment_source": "00-referencia/metodologia-de-auditoria.pdf",
         "plan_approver": "Comité de auditoría",
         "priority": {
@@ -210,7 +210,7 @@
               "effect": "Pérdida esperada sin cobertura",
               "impact": 4,
               "likelihood": 4,
-              "priority": "Alta",
+              "priority": "Media",
               "workpapers": [
                 "PT-03"
               ],
@@ -230,7 +230,7 @@
               "likelihood": 3,
               "priority": "Media",
               "workpapers": [
-                "PT-02"
+                "PT-09"
               ],
               "figures": [
                 450000000
@@ -241,7 +241,7 @@
           "report_findings": [
             {
               "id": "H-01",
-              "priority": "Alta",
+              "priority": "Media",
               "figures": [
                 1200000000
               ],
@@ -259,7 +259,7 @@
         },
         {
           "id": "TR-02",
-          "program_approved": "2026-03-06",
+          "program_approved": "2026-03-16",
           "program_source": "20-trabajos/TR-02_ciberseguridad/aprobacion-del-programa.pdf",
           "report_date": "2026-05-29",
           "report_source": "20-trabajos/TR-02_ciberseguridad/informe.pdf",
@@ -305,12 +305,6 @@
           "date": "2025-09-12",
           "what": "Procedimiento de desembolso actualizado",
           "source": "30-seguimiento/H-20/evidencia.pdf"
-        },
-        {
-          "finding": "H-21",
-          "date": "2025-10-18",
-          "what": "Conciliaciones firmadas",
-          "source": "30-seguimiento/H-21/evidencia.pdf"
         }
       ],
       "delay_explanations": [],
@@ -350,8 +344,24 @@
       "key": "unidad:U-10"
     },
     {
+      "signal": "auditor_reviews_own_work",
+      "key": "objetividad:TR-02:luis_pena"
+    },
+    {
+      "signal": "closure_without_evidence",
+      "key": "cierre:H-21"
+    },
+    {
+      "signal": "due_date_extended_repeatedly",
+      "key": "reprogramado:H-03"
+    },
+    {
       "signal": "engagement_behind_schedule",
       "key": "atraso:TR-06"
+    },
+    {
+      "signal": "external_assessment_overdue",
+      "key": "evaluacion_externa"
     },
     {
       "signal": "external_finding_untracked",
@@ -366,24 +376,56 @@
       "key": "repetido:H-01:H-20"
     },
     {
+      "signal": "finding_without_workpaper",
+      "key": "papel:TR-01:H-02"
+    },
+    {
       "signal": "high_risk_not_covered",
       "key": "riesgo:R-06"
+    },
+    {
+      "signal": "plan_area_not_considered",
+      "key": "area:cumplimiento"
+    },
+    {
+      "signal": "plan_area_not_considered",
+      "key": "area:fraude"
     },
     {
       "signal": "plan_change_unapproved",
       "key": "cambio:TR-06"
     },
     {
+      "signal": "plan_hours_exceed_capacity",
+      "key": "horas"
+    },
+    {
       "signal": "procedure_not_executed",
       "key": "paso:TR-01:P4"
+    },
+    {
+      "signal": "rating_inconsistent",
+      "key": "prioridad:TR-01:H-01"
     },
     {
       "signal": "report_differs_from_workpapers",
       "key": "informe:TR-01:H-02"
     },
     {
+      "signal": "risk_accepted_not_escalated",
+      "key": "aceptado:RA-01"
+    },
+    {
+      "signal": "risk_assessment_outdated",
+      "key": "evaluacion_de_riesgos"
+    },
+    {
       "signal": "topical_requirement_missing",
       "key": "tematico:TR-02:ciberseguridad"
+    },
+    {
+      "signal": "work_program_not_approved",
+      "key": "programa:TR-02"
     },
     {
       "signal": "workpaper_not_reviewed",
