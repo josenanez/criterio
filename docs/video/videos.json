@@ -1,5 +1,5 @@
 {
- "nota": "Los videos publicados en YouTube: el identificador de cada uno, su título tal como está publicado, su transcripción en docs/video/transcripciones/ y su duración. Cada video está en español; la presentación de cada familia y la de Criterio tienen además su versión en inglés (`en`). El portal los inserta con scripts/criterio-videos.mjs y scripts/youtube.py arma su catálogo; no se copian a mano.",
+ "nota": "Los videos publicados en YouTube: el identificador de cada uno, su título tal como está publicado, su transcripción en docs/video/transcripciones/ y su duración. Cada video está en español; la presentación de cada familia, la de Criterio y los videos de uso que ya se subieron en inglés tienen además esa versión (`en`). El portal los inserta con scripts/criterio-videos.mjs y scripts/youtube.py arma su catálogo; no se copian a mano.",
  "criterio": {
   "id": "6IWK2XlaPKI",
   "titulo": "Criterio · El nivel C, soportado por familias de agentes de IA",
@@ -30,7 +30,13 @@
     "id": "PVCGjoRmNVo",
     "titulo": "Criterio CFO · Cómo se usa, de la instalación al primer resultado",
     "transcripcion": "criterio-cfo-uso-es.txt",
-    "duracion": 282.2
+    "duracion": 282.2,
+    "en": {
+     "id": "Y045HsCb0Qo",
+     "titulo": "Criterio CFO · How to use it, from install to first result",
+     "transcripcion": "criterio-cfo-uso-en.txt",
+     "duracion": 282.2
+    }
    }
   },
   "ciso": {
@@ -50,7 +56,13 @@
     "id": "63hkeQWxHLE",
     "titulo": "Criterio CISO · Cómo se usa, de la instalación al primer resultado",
     "transcripcion": "criterio-ciso-uso-es.txt",
-    "duracion": 205.3
+    "duracion": 205.3,
+    "en": {
+     "id": "61CNrCWOG1Q",
+     "titulo": "Criterio CISO · How to use it, from install to first result",
+     "transcripcion": "criterio-ciso-uso-en.txt",
+     "duracion": 205.3
+    }
    }
   },
   "clo": {
@@ -130,7 +142,13 @@
     "id": "lwAg17hdsY4",
     "titulo": "Criterio PMO · Cómo se usa, de la instalación al primer resultado",
     "transcripcion": "criterio-pmo-uso-es.txt",
-    "duracion": 275.1
+    "duracion": 275.1,
+    "en": {
+     "id": "12RWLHiwnW8",
+     "titulo": "Criterio PMO · How to use it, from install to first result",
+     "transcripcion": "criterio-pmo-uso-en.txt",
+     "duracion": 275.1
+    }
    }
   },
   "chro": {

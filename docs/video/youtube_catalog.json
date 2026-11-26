@@ -179,7 +179,7 @@
    },
    "en": {
     "title": "Criterio CFO · AI agents for the finance area",
-    "description": "On-screen text in Spanish.\nCriterio CFO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Reconciliation: banks and accounts against their support. With statements from any bank, ERP in Excel or CSV.\n• E-invoicing: every invoice against the books. With DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, SAR, SIFEN.\n• Budget: execution against approved, and year-end projection. With ERP and budget in Excel.\n• Treasury: payments, cash and debt against policy. With payment run and signature matrix in Excel.\n• Audit: the auditor's pack. With requests in Word and PDF.\n\nThe agents: Clara, Controller · Tomás, FP&A · Áurea, Treasury. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cfo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/PVCGjoRmNVo\nIn English: https://youtu.be/z7Gj1uS5TOU\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CFO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio CFO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Reconciliation: banks and accounts against their support. With statements from any bank, ERP in Excel or CSV.\n• E-invoicing: every invoice against the books. With DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, SAR, SIFEN.\n• Budget: execution against approved, and year-end projection. With ERP and budget in Excel.\n• Treasury: payments, cash and debt against policy. With payment run and signature matrix in Excel.\n• Audit: the auditor's pack. With requests in Word and PDF.\n\nThe agents: Clara, Controller · Tomás, FP&A · Áurea, Treasury. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cfo/analisis\nHow it is used, from install to first result: https://youtu.be/Y045HsCb0Qo\nIn English: https://youtu.be/z7Gj1uS5TOU\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CFO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -261,7 +261,7 @@
    },
    "en": {
     "title": "Criterio CFO · AI agents for the finance area",
-    "description": "Criterio CFO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Reconciliation: banks and accounts against their support. With statements from any bank, ERP in Excel or CSV.\n• E-invoicing: every invoice against the books. With DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, SAR, SIFEN.\n• Budget: execution against approved, and year-end projection. With ERP and budget in Excel.\n• Treasury: payments, cash and debt against policy. With payment run and signature matrix in Excel.\n• Audit: the auditor's pack. With requests in Word and PDF.\n\nThe agents: Clara, Controller · Tomás, FP&A · Áurea, Treasury. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cfo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/PVCGjoRmNVo\nIn Spanish: https://youtu.be/EXM3bMVS09s\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CFO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio CFO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Reconciliation: banks and accounts against their support. With statements from any bank, ERP in Excel or CSV.\n• E-invoicing: every invoice against the books. With DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, SAR, SIFEN.\n• Budget: execution against approved, and year-end projection. With ERP and budget in Excel.\n• Treasury: payments, cash and debt against policy. With payment run and signature matrix in Excel.\n• Audit: the auditor's pack. With requests in Word and PDF.\n\nThe agents: Clara, Controller · Tomás, FP&A · Áurea, Treasury. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cfo/analisis\nHow it is used, from install to first result: https://youtu.be/Y045HsCb0Qo\nIn Spanish: https://youtu.be/EXM3bMVS09s\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CFO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -339,11 +339,83 @@
    ],
    "es": {
     "title": "Criterio CFO · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CFO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cfo\nQué hace la familia, en noventa segundos: https://youtu.be/EXM3bMVS09s\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:21 2 · Configurarla: Clara, el cierre\n2:10 Tomás, el presupuesto\n3:03 Áurea, la tesorería\n3:27 3 · El primer resultado, en una tabla\n3:39 4 · El reloj, solo con un sí\n3:53 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CFO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cfo\nQué hace la familia, en noventa segundos: https://youtu.be/EXM3bMVS09s\nEn inglés: https://youtu.be/Y045HsCb0Qo\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:21 2 · Configurarla: Clara, el cierre\n2:10 Tomás, el presupuesto\n3:03 Áurea, la tesorería\n3:27 3 · El primer resultado, en una tabla\n3:39 4 · El reloj, solo con un sí\n3:53 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio CFO · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CFO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nWhat the family does, in ninety seconds: https://youtu.be/z7Gj1uS5TOU\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:21 2 · Set it up: Clara, Controller\n2:10 Tomás, FP&A\n3:03 Áurea, Treasury\n3:27 3 · The first result, in a table\n3:39 4 · The daily task, only with a yes\n3:53 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CFO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nWhat the family does, in ninety seconds: https://youtu.be/z7Gj1uS5TOU\nIn English: https://youtu.be/Y045HsCb0Qo\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:21 2 · Set it up: Clara, Controller\n2:10 Tomás, FP&A\n3:03 Áurea, Treasury\n3:27 3 · The first result, in a table\n3:39 4 · The daily task, only with a yes\n3:53 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CFO",
+    "Chief Financial Officer",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Clara",
+    "Tomás",
+    "Áurea"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:21",
+     "es": "2 · Configurarla: Clara, el cierre",
+     "en": "2 · Set it up: Clara, Controller"
+    },
+    {
+     "t": "2:10",
+     "es": "Tomás, el presupuesto",
+     "en": "Tomás, FP&A"
+    },
+    {
+     "t": "3:03",
+     "es": "Áurea, la tesorería",
+     "en": "Áurea, Treasury"
+    },
+    {
+     "t": "3:27",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "3:39",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "3:53",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "Y045HsCb0Qo": {
+   "video": "cfo/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CFO · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio CFO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cfo\nQué hace la familia, en noventa segundos: https://youtu.be/EXM3bMVS09s\nEn español: https://youtu.be/PVCGjoRmNVo\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:21 2 · Configurarla: Clara, el cierre\n2:10 Tomás, el presupuesto\n3:03 Áurea, la tesorería\n3:27 3 · El primer resultado, en una tabla\n3:39 4 · El reloj, solo con un sí\n3:53 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CFO · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CFO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cfo@criterio\n/criterio-cfo:cfo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cfo\nWhat the family does, in ninety seconds: https://youtu.be/z7Gj1uS5TOU\nIn Spanish: https://youtu.be/PVCGjoRmNVo\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:21 2 · Set it up: Clara, Controller\n2:10 Tomás, FP&A\n3:03 Áurea, Treasury\n3:27 3 · The first result, in a table\n3:39 4 · The daily task, only with a yes\n3:53 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -415,7 +487,7 @@
    },
    "en": {
     "title": "Criterio CISO · AI agents for information security",
-    "description": "On-screen text in Spanish.\nCriterio CISO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Controls: every control in the statement of applicability, against its evidence. With NIST CSF 2.0, statement of applicability in Excel.\n• Access and third parties: access reviews, critical third parties and accepted risks. With registers in Excel or CSV.\n• Vulnerabilities: each one against its deadline and the KEV catalogue. With Tenable, Microsoft Defender, CISA KEV, CVSS v4.0.\n• Scanning: coverage of the asset inventory. With Tenable, Microsoft Defender, any other in CSV or Excel.\n• Incidents and continuity: response, notifications and continuity tests. With NIST SP 800-61.\n\nThe agents: Alexis, Governance and controls · Guillermo, Vulnerabilities · Amparo, Response and recovery. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile, Mexico and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ciso/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/63hkeQWxHLE\nIn English: https://youtu.be/HRqqTtYWYcE\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CISO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio CISO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Controls: every control in the statement of applicability, against its evidence. With NIST CSF 2.0, statement of applicability in Excel.\n• Access and third parties: access reviews, critical third parties and accepted risks. With registers in Excel or CSV.\n• Vulnerabilities: each one against its deadline and the KEV catalogue. With Tenable, Microsoft Defender, CISA KEV, CVSS v4.0.\n• Scanning: coverage of the asset inventory. With Tenable, Microsoft Defender, any other in CSV or Excel.\n• Incidents and continuity: response, notifications and continuity tests. With NIST SP 800-61.\n\nThe agents: Alexis, Governance and controls · Guillermo, Vulnerabilities · Amparo, Response and recovery. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile, Mexico and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ciso/analisis\nHow it is used, from install to first result: https://youtu.be/61CNrCWOG1Q\nIn English: https://youtu.be/HRqqTtYWYcE\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CISO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -492,7 +564,7 @@
    },
    "en": {
     "title": "Criterio CISO · AI agents for information security",
-    "description": "Criterio CISO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Controls: every control in the statement of applicability, against its evidence. With NIST CSF 2.0, statement of applicability in Excel.\n• Access and third parties: access reviews, critical third parties and accepted risks. With registers in Excel or CSV.\n• Vulnerabilities: each one against its deadline and the KEV catalogue. With Tenable, Microsoft Defender, CISA KEV, CVSS v4.0.\n• Scanning: coverage of the asset inventory. With Tenable, Microsoft Defender, any other in CSV or Excel.\n• Incidents and continuity: response, notifications and continuity tests. With NIST SP 800-61.\n\nThe agents: Alexis, Governance and controls · Guillermo, Vulnerabilities · Amparo, Response and recovery. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile, Mexico and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ciso/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/63hkeQWxHLE\nIn Spanish: https://youtu.be/BiEpT0LQ_AI\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CISO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio CISO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Controls: every control in the statement of applicability, against its evidence. With NIST CSF 2.0, statement of applicability in Excel.\n• Access and third parties: access reviews, critical third parties and accepted risks. With registers in Excel or CSV.\n• Vulnerabilities: each one against its deadline and the KEV catalogue. With Tenable, Microsoft Defender, CISA KEV, CVSS v4.0.\n• Scanning: coverage of the asset inventory. With Tenable, Microsoft Defender, any other in CSV or Excel.\n• Incidents and continuity: response, notifications and continuity tests. With NIST SP 800-61.\n\nThe agents: Alexis, Governance and controls · Guillermo, Vulnerabilities · Amparo, Response and recovery. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru, Chile, Mexico and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ciso/analisis\nHow it is used, from install to first result: https://youtu.be/61CNrCWOG1Q\nIn Spanish: https://youtu.be/BiEpT0LQ_AI\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CISO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -565,11 +637,83 @@
    ],
    "es": {
     "title": "Criterio CISO · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CISO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ciso\nQué hace la familia, en noventa segundos: https://youtu.be/BiEpT0LQ_AI\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Alexis, el gobierno y los controles\n1:10 Guillermo, las vulnerabilidades\n1:29 Amparo, la respuesta y la recuperación\n2:03 3 · El primer resultado, en una tabla\n2:17 4 · El reloj, solo con un sí\n2:27 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CISO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ciso\nQué hace la familia, en noventa segundos: https://youtu.be/BiEpT0LQ_AI\nEn inglés: https://youtu.be/61CNrCWOG1Q\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Alexis, el gobierno y los controles\n1:10 Guillermo, las vulnerabilidades\n1:29 Amparo, la respuesta y la recuperación\n2:03 3 · El primer resultado, en una tabla\n2:17 4 · El reloj, solo con un sí\n2:27 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio CISO · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CISO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nWhat the family does, in ninety seconds: https://youtu.be/HRqqTtYWYcE\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Alexis, Governance and controls\n1:10 Guillermo, Vulnerabilities\n1:29 Amparo, Response and recovery\n2:03 3 · The first result, in a table\n2:17 4 · The daily task, only with a yes\n2:27 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CISO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nWhat the family does, in ninety seconds: https://youtu.be/HRqqTtYWYcE\nIn English: https://youtu.be/61CNrCWOG1Q\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Alexis, Governance and controls\n1:10 Guillermo, Vulnerabilities\n1:29 Amparo, Response and recovery\n2:03 3 · The first result, in a table\n2:17 4 · The daily task, only with a yes\n2:27 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CISO",
+    "Chief Information Security Officer",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Alexis",
+    "Guillermo",
+    "Amparo"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Alexis, el gobierno y los controles",
+     "en": "2 · Set it up: Alexis, Governance and controls"
+    },
+    {
+     "t": "1:10",
+     "es": "Guillermo, las vulnerabilidades",
+     "en": "Guillermo, Vulnerabilities"
+    },
+    {
+     "t": "1:29",
+     "es": "Amparo, la respuesta y la recuperación",
+     "en": "Amparo, Response and recovery"
+    },
+    {
+     "t": "2:03",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "2:17",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "2:27",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "61CNrCWOG1Q": {
+   "video": "ciso/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CISO · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio CISO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ciso\nQué hace la familia, en noventa segundos: https://youtu.be/BiEpT0LQ_AI\nEn español: https://youtu.be/63hkeQWxHLE\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Alexis, el gobierno y los controles\n1:10 Guillermo, las vulnerabilidades\n1:29 Amparo, la respuesta y la recuperación\n2:03 3 · El primer resultado, en una tabla\n2:17 4 · El reloj, solo con un sí\n2:27 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CISO · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CISO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ciso@criterio\n/criterio-ciso:ciso-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ciso\nWhat the family does, in ninety seconds: https://youtu.be/HRqqTtYWYcE\nIn Spanish: https://youtu.be/63hkeQWxHLE\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Alexis, Governance and controls\n1:10 Guillermo, Vulnerabilities\n1:29 Amparo, Response and recovery\n2:03 3 · The first result, in a table\n2:17 4 · The daily task, only with a yes\n2:27 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1269,7 +1413,7 @@
    },
    "en": {
     "title": "Criterio PMO · AI agents for the portfolio, projects and products",
-    "description": "On-screen text in Spanish.\nCriterio PMO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Portfolio: what each project reports, against its documents. With Microsoft Project (XML and .mpp), Excel, CSV.\n• Steering committee: portfolio report and committee pack. With Word, PowerPoint, PDF with text.\n• Project: minutes, commitments and plan against the baseline. With schedule in Microsoft Project or Excel, minutes in Word.\n• Control: budget, vendors, risks and changes. With Excel, CSV.\n• Product: product definition and projects that build the same thing. With Word, PDF with text.\n\nThe agents: Vera, Project director · Samuel, Project manager · Alba, Product manager. And Rostrum, the portal that publishes what they write.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-pmo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/lwAg17hdsY4\nIn English: https://youtu.be/A0W3TbIuoNk\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio PMO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio PMO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Portfolio: what each project reports, against its documents. With Microsoft Project (XML and .mpp), Excel, CSV.\n• Steering committee: portfolio report and committee pack. With Word, PowerPoint, PDF with text.\n• Project: minutes, commitments and plan against the baseline. With schedule in Microsoft Project or Excel, minutes in Word.\n• Control: budget, vendors, risks and changes. With Excel, CSV.\n• Product: product definition and projects that build the same thing. With Word, PDF with text.\n\nThe agents: Vera, Project director · Samuel, Project manager · Alba, Product manager. And Rostrum, the portal that publishes what they write.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-pmo/analisis\nHow it is used, from install to first result: https://youtu.be/12RWLHiwnW8\nIn English: https://youtu.be/A0W3TbIuoNk\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio PMO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1342,7 +1486,7 @@
    },
    "en": {
     "title": "Criterio PMO · AI agents for the portfolio, projects and products",
-    "description": "Criterio PMO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Portfolio: what each project reports, against its documents. With Microsoft Project (XML and .mpp), Excel, CSV.\n• Steering committee: portfolio report and committee pack. With Word, PowerPoint, PDF with text.\n• Project: minutes, commitments and plan against the baseline. With schedule in Microsoft Project or Excel, minutes in Word.\n• Control: budget, vendors, risks and changes. With Excel, CSV.\n• Product: product definition and projects that build the same thing. With Word, PDF with text.\n\nThe agents: Vera, Project director · Samuel, Project manager · Alba, Product manager. And Rostrum, the portal that publishes what they write.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-pmo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/lwAg17hdsY4\nIn Spanish: https://youtu.be/WIydrxGMB-E\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio PMO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio PMO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Portfolio: what each project reports, against its documents. With Microsoft Project (XML and .mpp), Excel, CSV.\n• Steering committee: portfolio report and committee pack. With Word, PowerPoint, PDF with text.\n• Project: minutes, commitments and plan against the baseline. With schedule in Microsoft Project or Excel, minutes in Word.\n• Control: budget, vendors, risks and changes. With Excel, CSV.\n• Product: product definition and projects that build the same thing. With Word, PDF with text.\n\nThe agents: Vera, Project director · Samuel, Project manager · Alba, Product manager. And Rostrum, the portal that publishes what they write.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-pmo/analisis\nHow it is used, from install to first result: https://youtu.be/12RWLHiwnW8\nIn Spanish: https://youtu.be/WIydrxGMB-E\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio PMO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:24 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1411,11 +1555,78 @@
    ],
    "es": {
     "title": "Criterio PMO · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio PMO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-pmo\nQué hace la familia, en noventa segundos: https://youtu.be/WIydrxGMB-E\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Vera, la PMO\n1:40 Samuel, gerente de proyecto\n2:36 Alba, gerente de producto\n3:19 3 · El primer resultado, en una tabla\n3:34 4 · El reloj, solo con un sí\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio PMO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-pmo\nQué hace la familia, en noventa segundos: https://youtu.be/WIydrxGMB-E\nEn inglés: https://youtu.be/12RWLHiwnW8\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Vera, la PMO\n1:40 Samuel, gerente de proyecto\n2:36 Alba, gerente de producto\n3:19 3 · El primer resultado, en una tabla\n3:34 4 · El reloj, solo con un sí\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio PMO · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio PMO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nWhat the family does, in ninety seconds: https://youtu.be/A0W3TbIuoNk\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Vera, Project director\n1:40 Samuel, Project manager\n2:36 Alba, Product manager\n3:19 3 · The first result, in a table\n3:34 4 · The daily task, only with a yes\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio PMO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nWhat the family does, in ninety seconds: https://youtu.be/A0W3TbIuoNk\nIn English: https://youtu.be/12RWLHiwnW8\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Vera, Project director\n1:40 Samuel, Project manager\n2:36 Alba, Product manager\n3:19 3 · The first result, in a table\n3:34 4 · The daily task, only with a yes\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio PMO",
+    "Project Management Office",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Vera",
+    "Samuel",
+    "Alba"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Vera, la PMO",
+     "en": "2 · Set it up: Vera, Project director"
+    },
+    {
+     "t": "1:40",
+     "es": "Samuel, gerente de proyecto",
+     "en": "Samuel, Project manager"
+    },
+    {
+     "t": "2:36",
+     "es": "Alba, gerente de producto",
+     "en": "Alba, Product manager"
+    },
+    {
+     "t": "3:19",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "3:34",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    }
+   ]
+  },
+  "12RWLHiwnW8": {
+   "video": "pmo/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio PMO · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio PMO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-pmo\nQué hace la familia, en noventa segundos: https://youtu.be/WIydrxGMB-E\nEn español: https://youtu.be/lwAg17hdsY4\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Vera, la PMO\n1:40 Samuel, gerente de proyecto\n2:36 Alba, gerente de producto\n3:19 3 · El primer resultado, en una tabla\n3:34 4 · El reloj, solo con un sí\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio PMO · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio PMO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-pmo@criterio\n/criterio-pmo:pmo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-pmo\nWhat the family does, in ninety seconds: https://youtu.be/A0W3TbIuoNk\nIn Spanish: https://youtu.be/lwAg17hdsY4\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Vera, Project director\n1:40 Samuel, Project manager\n2:36 Alba, Product manager\n3:19 3 · The first result, in a table\n3:34 4 · The daily task, only with a yes\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1642,11 +1853,14 @@
    "videos": [
     "DUYvTphxVBs",
     "A0W3TbIuoNk",
+    "12RWLHiwnW8",
     "z7Gj1uS5TOU",
+    "Y045HsCb0Qo",
     "9kJPN4TTUtY",
     "MVXBxgZ74VY",
     "1xSnCYvDicw",
     "HRqqTtYWYcE",
+    "61CNrCWOG1Q",
     "Ohlwj9HtHh0"
    ]
   }
