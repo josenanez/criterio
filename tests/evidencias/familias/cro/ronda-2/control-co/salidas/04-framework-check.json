@@ -1,0 +1,29 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:26:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 404989,
+  "tokens_salida": 3083,
+  "costo_usd": 0.14198419999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/apetito/2026-11/reporte-framework-check.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/apetito/2026-11/resultados.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

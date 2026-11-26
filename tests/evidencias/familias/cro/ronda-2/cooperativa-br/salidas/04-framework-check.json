@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:18:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 8,
+  "tokens": 412883,
+  "tokens_salida": 3915,
+  "costo_usd": 0.16122060000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/apetito/2026-11/reporte-framework-check.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/apetito/2026-11/resultados.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

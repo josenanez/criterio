@@ -2,7 +2,7 @@
 
 **la agente del plan de auditoría de la familia CAE** · plugin `criterio-audit-plan`
 
-Corrida del 2026-11-26, sobre el commit `ae8199ba`, con cambios en el árbol todavía sin confirmar. **2 puertas · 15 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol todavía sin confirmar. **2 puertas · 15 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-26, sobre el commit `ae8199ba`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-audit-plan/auditoria.py selftest` | El motor de Prudencia, Justo y Remedios: el plan contra los riesgos, cada hallazgo contra su criterio y cada plan de acción hasta su cierre | 9 | 67 ms | verde |
+| `criterio-audit-plan/auditoria.py selftest` | El motor de Prudencia, Justo y Remedios: el plan contra los riesgos, cada hallazgo contra su criterio y cada plan de acción hasta su cierre | 9 | 65 ms | verde |
 | `criterio-cae/evaluar.py` | Que Prudencia levante cada señal sembrada en el plan, y ninguna en los controles | 6 | 65 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.

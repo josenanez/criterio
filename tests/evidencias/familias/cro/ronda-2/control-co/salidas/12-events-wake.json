@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "casandra",
+  "comando": "events-wake",
+  "argumento": "",
+  "inicio": "2026-11-26T12:31:13",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 14,
+  "tokens": 538409,
+  "tokens_salida": 3736,
+  "costo_usd": 0.3528156,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-events-scan-2.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-events-wake-1.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-events-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-events-scan.md"
+    ],
+    "borrados": []
+  }
+}

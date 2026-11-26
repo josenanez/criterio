@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "casandra",
+  "comando": "events-setup",
+  "argumento": "riesgos/901888444-banco-control-de-riesgos-sintetico",
+  "inicio": "2026-11-26T12:28:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 15,
+  "tokens": 764873,
+  "tokens_salida": 7149,
+  "costo_usd": 0.5542385999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/eventos/901888444/config.json",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.sha256",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-events-setup-1.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-events-setup.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/eventos/2026-10/ficha.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/eventos/2026-10/reporte-kri-check.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/eventos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

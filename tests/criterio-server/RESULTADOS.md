@@ -2,7 +2,7 @@
 
 **el portal de todas las familias** · plugin `criterio-server`
 
-Corrida del 2026-11-26, sobre el commit `ae8199ba`, con cambios en el árbol todavía sin confirmar. **8 puertas · 146 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol todavía sin confirmar. **8 puertas · 146 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,14 +10,14 @@ Corrida del 2026-11-26, sobre el commit `ae8199ba`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 281 ms | verde |
-| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 106 | 1270 ms | verde |
-| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 40 ms | verde |
-| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 194 ms | verde |
-| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 28 ms | verde |
-| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 54 ms | verde |
+| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 328 ms | verde |
+| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 106 | 1267 ms | verde |
+| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 39 ms | verde |
+| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 201 ms | verde |
+| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 30 ms | verde |
+| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 65 ms | verde |
 | `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 33 ms | verde |
-| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 6050 ms | verde |
+| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 6254 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

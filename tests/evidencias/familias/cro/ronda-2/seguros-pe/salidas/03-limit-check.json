@@ -1,0 +1,28 @@
+{
+  "n": 3,
+  "agente": "severo",
+  "comando": "limit-check",
+  "argumento": "",
+  "inicio": "2026-11-26T11:11:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 9,
+  "tokens": 466831,
+  "tokens_salida": 3475,
+  "costo_usd": 0.16098010000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/apetito/2026-11/reporte-limit-check.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/apetito/2026-11/resultados.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/2026-11-25-limit-check-1.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/salida-limit-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

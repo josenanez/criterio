@@ -1708,156 +1708,186 @@
    "familia": "cro",
    "comandos": {
     "event-check": {
-     "corridas": 5,
-     "mediana": 401666,
-     "maximo": 403999,
-     "mediana_salida": 2385,
+     "corridas": 10,
+     "mediana": 379360,
+     "maximo": 515629,
+     "mediana_salida": 2518,
      "mediana_turnos": 8,
-     "mediana_segundos": 22,
-     "mediana_costo_usd": 0.1321,
+     "mediana_segundos": 23.0,
+     "mediana_costo_usd": 0.1377,
      "modelo": "claude-sonnet-5-5"
     },
     "events-scan": {
-     "corridas": 5,
-     "mediana": 608656,
-     "maximo": 637086,
-     "mediana_salida": 3054,
+     "corridas": 10,
+     "mediana": 621066,
+     "maximo": 688303,
+     "mediana_salida": 3916,
      "mediana_turnos": 14,
-     "mediana_segundos": 40,
-     "mediana_costo_usd": 0.3634,
+     "mediana_segundos": 42.5,
+     "mediana_costo_usd": 0.3889,
      "modelo": "claude-opus-5-5"
     },
     "events-setup": {
-     "corridas": 5,
-     "mediana": 683649,
-     "maximo": 992361,
-     "mediana_salida": 7422,
+     "corridas": 10,
+     "mediana": 772306,
+     "maximo": 1049181,
+     "mediana_salida": 8009,
      "mediana_turnos": 20,
-     "mediana_segundos": 64,
-     "mediana_costo_usd": 0.5924,
+     "mediana_segundos": 66.5,
+     "mediana_costo_usd": 0.6135,
      "modelo": "claude-opus-5-5"
     },
     "events-wake": {
-     "corridas": 5,
-     "mediana": 656593,
+     "corridas": 10,
+     "mediana": 603290,
      "maximo": 763597,
-     "mediana_salida": 4188,
-     "mediana_turnos": 18,
-     "mediana_segundos": 39,
-     "mediana_costo_usd": 0.4472,
+     "mediana_salida": 4641,
+     "mediana_turnos": 16,
+     "mediana_segundos": 41.0,
+     "mediana_costo_usd": 0.4188,
      "modelo": "claude-opus-5-5"
     },
     "kri-check": {
-     "corridas": 5,
-     "mediana": 401313,
-     "maximo": 402504,
-     "mediana_salida": 2063,
+     "corridas": 10,
+     "mediana": 401402,
+     "maximo": 405304,
+     "mediana_salida": 2343,
      "mediana_turnos": 8,
-     "mediana_segundos": 21,
-     "mediana_costo_usd": 0.1296,
+     "mediana_segundos": 22.0,
+     "mediana_costo_usd": 0.138,
      "modelo": "claude-sonnet-5-5"
     },
     "pattern-check": {
-     "corridas": 5,
-     "mediana": 399424,
-     "maximo": 415211,
-     "mediana_salida": 2227,
+     "corridas": 10,
+     "mediana": 400440,
+     "maximo": 567258,
+     "mediana_salida": 2601,
      "mediana_turnos": 8,
-     "mediana_segundos": 22,
-     "mediana_costo_usd": 0.1311,
+     "mediana_segundos": 23.0,
+     "mediana_costo_usd": 0.1453,
      "modelo": "claude-sonnet-5-5"
     }
    },
-   "pasada": 3151301,
+   "pasada": 3177864,
    "indicador": {
-    "ronda": "ronda-1",
+    "ronda": "ronda-2",
     "carpeta": "banca-co",
     "material": "banca-co",
     "modelo_sesion": "claude-opus-5-5",
     "comandos": 6,
-    "tokens": 3074450,
-    "costo_usd": 1.8753,
-    "segundos": 206,
+    "tokens": 3233318,
+    "costo_usd": 2.1285,
+    "segundos": 265,
     "sin_pendientes": null,
-    "contra": null
+    "contra": {
+     "ronda": "ronda-1",
+     "comandos": 6,
+     "tokens": [
+      3074450,
+      3233318
+     ],
+     "costo_usd": [
+      1.8753,
+      2.1285
+     ],
+     "segundos": [
+      206,
+      265
+     ]
+    }
    }
   },
   "severo": {
    "familia": "cro",
    "comandos": {
     "appetite-scan": {
-     "corridas": 5,
-     "mediana": 772654,
+     "corridas": 10,
+     "mediana": 713434,
      "maximo": 877303,
-     "mediana_salida": 4711,
-     "mediana_turnos": 21,
-     "mediana_segundos": 44,
-     "mediana_costo_usd": 0.4657,
+     "mediana_salida": 4815,
+     "mediana_turnos": 18,
+     "mediana_segundos": 43.0,
+     "mediana_costo_usd": 0.4543,
      "modelo": "claude-opus-5-5"
     },
     "appetite-setup": {
-     "corridas": 5,
-     "mediana": 684770,
-     "maximo": 898405,
-     "mediana_salida": 8133,
+     "corridas": 10,
+     "mediana": 783794,
+     "maximo": 935946,
+     "mediana_salida": 8220,
      "mediana_turnos": 19,
-     "mediana_segundos": 66,
-     "mediana_costo_usd": 0.5975,
+     "mediana_segundos": 67.0,
+     "mediana_costo_usd": 0.6162,
      "modelo": "claude-opus-5-5"
     },
     "appetite-wake": {
-     "corridas": 5,
-     "mediana": 674665,
+     "corridas": 10,
+     "mediana": 695857,
      "maximo": 850264,
-     "mediana_salida": 4377,
+     "mediana_salida": 4518,
      "mediana_turnos": 18,
-     "mediana_segundos": 38,
-     "mediana_costo_usd": 0.4201,
+     "mediana_segundos": 42.0,
+     "mediana_costo_usd": 0.4349,
      "modelo": "claude-opus-5-5"
     },
     "coverage-check": {
-     "corridas": 5,
-     "mediana": 406468,
-     "maximo": 457453,
-     "mediana_salida": 2664,
+     "corridas": 10,
+     "mediana": 404352,
+     "maximo": 457616,
+     "mediana_salida": 2678,
      "mediana_turnos": 8,
-     "mediana_segundos": 25,
-     "mediana_costo_usd": 0.1485,
+     "mediana_segundos": 25.0,
+     "mediana_costo_usd": 0.1464,
      "modelo": "claude-sonnet-5-5"
     },
     "framework-check": {
-     "corridas": 5,
-     "mediana": 352846,
-     "maximo": 402106,
-     "mediana_salida": 2205,
-     "mediana_turnos": 7,
-     "mediana_segundos": 21,
-     "mediana_costo_usd": 0.1312,
+     "corridas": 10,
+     "mediana": 378862,
+     "maximo": 412883,
+     "mediana_salida": 2618,
+     "mediana_turnos": 8,
+     "mediana_segundos": 23.5,
+     "mediana_costo_usd": 0.139,
      "modelo": "claude-sonnet-5-5"
     },
     "limit-check": {
-     "corridas": 5,
-     "mediana": 402157,
-     "maximo": 409492,
-     "mediana_salida": 2532,
+     "corridas": 10,
+     "mediana": 401843,
+     "maximo": 466831,
+     "mediana_salida": 2506,
      "mediana_turnos": 8,
-     "mediana_segundos": 23,
-     "mediana_costo_usd": 0.1365,
+     "mediana_segundos": 23.5,
+     "mediana_costo_usd": 0.1362,
      "modelo": "claude-sonnet-5-5"
     }
    },
-   "pasada": 3293560,
+   "pasada": 3378142,
    "indicador": {
-    "ronda": "ronda-1",
+    "ronda": "ronda-2",
     "carpeta": "banca-co",
     "material": "banca-co",
     "modelo_sesion": "claude-opus-5-5",
     "comandos": 6,
-    "tokens": 3061343,
-    "costo_usd": 1.9383,
-    "segundos": 218,
+    "tokens": 3423673,
+    "costo_usd": 2.573,
+    "segundos": 254,
     "sin_pendientes": null,
-    "contra": null
+    "contra": {
+     "ronda": "ronda-1",
+     "comandos": 6,
+     "tokens": [
+      3061343,
+      3423673
+     ],
+     "costo_usd": [
+      1.9383,
+      2.573
+     ],
+     "segundos": [
+      218,
+      254
+     ]
+    }
    }
   },
   "ofelia": {

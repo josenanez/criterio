@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "severo",
+  "comando": "limit-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:18:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 7,
+  "tokens": 354386,
+  "tokens_salida": 2946,
+  "costo_usd": 0.13587580000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-limit-check-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-limit-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

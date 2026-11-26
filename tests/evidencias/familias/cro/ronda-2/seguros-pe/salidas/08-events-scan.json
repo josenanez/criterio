@@ -1,0 +1,28 @@
+{
+  "n": 8,
+  "agente": "casandra",
+  "comando": "events-scan",
+  "argumento": "",
+  "inicio": "2026-11-26T11:14:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 42,
+  "turnos": 18,
+  "tokens": 557124,
+  "tokens_salida": 5054,
+  "costo_usd": 0.4240338,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/2026-11-25-events-scan-1.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/salida-events-scan.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/eventos/2026-10/reporte-events-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

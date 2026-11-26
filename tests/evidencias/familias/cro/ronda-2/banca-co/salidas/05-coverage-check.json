@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "severo",
+  "comando": "coverage-check",
+  "argumento": "",
+  "inicio": "2026-11-26T11:03:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 7,
+  "tokens": 354999,
+  "tokens_salida": 3295,
+  "costo_usd": 0.1531241,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/apetito/2026-11/reporte-coverage-check.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/2026-11-25-coverage-check-1.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/salida-coverage-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

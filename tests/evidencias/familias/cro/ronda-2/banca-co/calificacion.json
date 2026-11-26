@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Andino Sintético",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 6656991,
+  "senales": {
+    "esperadas": 34,
+    "acertadas": 34,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 17,
+    "bien": 17,
+    "mal": []
+  }
+}

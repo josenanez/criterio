@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "casandra",
+  "comando": "pattern-check",
+  "argumento": "",
+  "inicio": "2026-11-26T11:07:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 8,
+  "tokens": 353529,
+  "tokens_salida": 2835,
+  "costo_usd": 0.14773280000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/2026-11-25-pattern-check-1.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas/salida-pattern-check.md",
+      "estado-riesgos/901777333-banco-andino-sintetico/eventos/2026-11/reporte-pattern-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/901777333-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

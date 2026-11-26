@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "casandra",
+  "comando": "events-setup",
+  "argumento": "riesgos/98765432000110-cooperativa-controle-sintetica",
+  "inicio": "2026-11-26T12:35:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 68,
+  "turnos": 28,
+  "tokens": 1049181,
+  "tokens_salida": 8227,
+  "costo_usd": 0.7229082,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/eventos/98765432000110/config.json",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-risk-events-0.2.0-2026-11-25.sha256",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/2026-11-25-events-setup-1.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/salida-events-setup.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/eventos/2026-10/ficha.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/eventos/2026-10/reporte-kri-check.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/eventos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "casandra",
+  "comando": "pattern-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:23:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 8,
+  "tokens": 355442,
+  "tokens_salida": 2464,
+  "costo_usd": 0.1484593,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/2026-11-25-pattern-check-1.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas/salida-pattern-check.md",
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/eventos/2026-10/reporte-pattern-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/12345678000190-cooperativa-vale-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

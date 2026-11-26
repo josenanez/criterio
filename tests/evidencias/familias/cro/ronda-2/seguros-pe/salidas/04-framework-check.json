@@ -1,0 +1,27 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-26T11:11:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 354928,
+  "tokens_salida": 3009,
+  "costo_usd": 0.1379304,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/apetito/2026-11/reporte-framework-check.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/20607773331-seguros-del-sur-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

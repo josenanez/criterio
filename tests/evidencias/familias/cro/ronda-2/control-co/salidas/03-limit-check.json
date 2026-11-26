@@ -1,0 +1,27 @@
+{
+  "n": 3,
+  "agente": "severo",
+  "comando": "limit-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:26:13",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 10,
+  "tokens": 408501,
+  "tokens_salida": 2043,
+  "costo_usd": 0.1320589,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/2026-11-25-limit-check-1.md",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas/salida-limit-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/901888444-banco-control-de-riesgos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

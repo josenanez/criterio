@@ -1,0 +1,41 @@
+{
+  "n": 1,
+  "agente": "severo",
+  "comando": "appetite-setup",
+  "argumento": "riesgos/98765432000110-cooperativa-controle-sintetica",
+  "inicio": "2026-11-26T12:31:48",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 15,
+  "tokens": 756283,
+  "tokens_salida": 7890,
+  "costo_usd": 0.6259814,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/apetito/98765432000110/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-risk-appetite-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-risk-appetite-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-risk-appetite-0.2.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/apetito/2026-10/ficha.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/apetito/2026-10/reporte-limit-check.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/apetito/2026-10/resultados.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/00-marco/declaracao_de_apetite.pdf.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/00-marco/indicadores_chave.xlsx.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/00-marco/limites.xlsx.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/00-marco/matriz_de_riscos.xlsx.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/00-marco/politica_de_risco_operacional.pdf.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/40-actas/ata_comite_riscos_2026-10.pdf.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/cache/manifest.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas.json",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/2026-11-25-appetite-setup-1.md",
+      "estado-riesgos/98765432000110-cooperativa-controle-sintetica/corridas/salida-appetite-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

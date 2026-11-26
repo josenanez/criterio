@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Control de Riesgos Sintético",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 6696044,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 20,
+    "bien": 20,
+    "mal": []
+  }
+}

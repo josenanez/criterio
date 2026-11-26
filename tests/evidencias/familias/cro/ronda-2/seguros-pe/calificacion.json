@@ -1,0 +1,19 @@
+{
+  "entidad": "Seguros del Sur Sintética",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 6499612,
+  "senales": {
+    "esperadas": 23,
+    "acertadas": 23,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 17,
+    "bien": 17,
+    "mal": []
+  }
+}
