@@ -39,7 +39,8 @@ const TRAER = {
     .map((f) => path.join('components', 'criterio', f)),
   ...['agentsMapa.ts', 'agentsTextos.ts'].map((f) => path.join('components', 'agents', f))],
   lib: [path.join('difusion', 'criterio-2-7-0', 'una-pagina.json'), ...['criterioImpresora', 'criterioNivelC', 'criterioRondas', 'criterioHojaDeRuta', 'criterioIndustrias', 'criterioRegistro',
-    'criterioPaises', 'criterioSectores', 'criterioMapaGeo', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso', 'criterioChro', 'criterioCae', 'criterioAnonimato'].map((f) => path.join('lib', `${f}.ts`))],
+    'criterioPaises', 'criterioSectores', 'criterioMapaGeo', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso', 'criterioChro', 'criterioCae',
+    'criterioCdo', 'criterioCro', 'criterioCmo', 'criterioAnonimato'].map((f) => path.join('lib', `${f}.ts`))],
 };
 for (const [destino, archivos] of Object.entries(TRAER)) {
   fs.mkdirSync(path.join(AQUI, 'src', destino), { recursive: true });
@@ -62,13 +63,13 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // ni encabezado, solo el piso y la hoja: el README ya tiene su propio título.
 // El video es de la PMO y de la CFO: su tarjeta final lleva las cifras de sus rondas. Las familias
 // CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
-const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea,cco,ciso,chro,criterio').split(',');
+const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea,cco,ciso,chro,cae,cdo,cro,cmo,criterio').split(',');
 const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube,criterio,hoja,equipos').split(',');
 const IDIOMAS = (process.env.IDIOMAS || 'es,en').split(',');
 // Las familias con video, cada una con su tarjeta final en src/main.jsx.
 const VIDEOS = ['pmo', 'cfo'];
 // Las familias con video de YouTube: las que el portal publica con sus agentes (lib/criterio<Sigla>.ts).
-const YOUTUBE = ['pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae'];
+const YOUTUBE = ['pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'chro', 'cae', 'cdo', 'cro', 'cmo'];
 const TOMAS = [
   ...VIDEOS.flatMap((familia) => IDIOMAS.map((idioma) =>
     ({ familia, idioma, tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 }))),
@@ -81,8 +82,10 @@ const TOMAS = [
   ...IDIOMAS.filter((idioma) => idioma === 'es').map((idioma) =>
     ({ familia: 'criterio', idioma, tipo: 'hoja', pagina: 'hoja.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-hoja' })),
   // Cada familia como un equipo en su cancha, en los dos idiomas.
-  ...IDIOMAS.map((idioma) =>
-    ({ familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos' })),
+  // EQUIPOS=cae,cdo,cro,cmo graba en su lugar solo esos, con la portada de los nuevos: criterio-equipos-nuevos-{es,en}.mp4.
+  ...IDIOMAS.map((idioma) => (process.env.EQUIPOS
+    ? { familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos-nuevos', equipos: process.env.EQUIPOS }
+    : { familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos' })),
 ].filter((t) => FAMILIAS.includes(t.familia) && PIEZAS.includes(t.tipo));
 
 // Las descargas que citan el video de Criterio y la hoja, con la regla de scripts/descargas.py: el CSV de la rama
@@ -218,7 +221,7 @@ async function youtube(navegador, url, toma) {
   fs.rmSync(carpeta, { recursive: true, force: true });
   fs.mkdirSync(carpeta, { recursive: true });
   const pagina = await navegador.newPage({ viewport: { width: toma.ancho, height: toma.alto } });
-  await pagina.goto(`${url}${toma.pagina}?l=${toma.idioma}&f=${toma.familia}`, { waitUntil: 'networkidle' });
+  await pagina.goto(`${url}${toma.pagina}?l=${toma.idioma}&f=${toma.familia}${toma.equipos ? `&e=${toma.equipos}` : ''}`, { waitUntil: 'networkidle' });
   await pagina.evaluate(() => document.fonts.ready);
   const total = await pagina.evaluate(() => window.__duracion);
   const n = Math.round(total * CUADROS);
@@ -242,7 +245,7 @@ async function youtube(navegador, url, toma) {
 async function transcribir(navegador, url, toma) {
   const nombre = toma.nombre ?? (toma.familia === 'criterio' ? 'criterio-youtube' : `criterio-${toma.familia}-youtube`);
   const pagina = await navegador.newPage({ viewport: { width: toma.ancho, height: toma.alto } });
-  await pagina.goto(`${url}${toma.pagina}?l=${toma.idioma}&f=${toma.familia}`, { waitUntil: 'networkidle' });
+  await pagina.goto(`${url}${toma.pagina}?l=${toma.idioma}&f=${toma.familia}${toma.equipos ? `&e=${toma.equipos}` : ''}`, { waitUntil: 'networkidle' });
   await pagina.evaluate(() => document.fonts.ready);
   const total = await pagina.evaluate(() => window.__duracion);
   const bloques = [];          // { s, texto }, en orden de aparición

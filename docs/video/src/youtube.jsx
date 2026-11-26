@@ -10,6 +10,9 @@ import { CRITERIO_CCO } from './lib/criterioCco';
 import { CRITERIO_CISO } from './lib/criterioCiso';
 import { CRITERIO_CHRO } from './lib/criterioChro';
 import { CRITERIO_CAE } from './lib/criterioCae';
+import { CRITERIO_CDO } from './lib/criterioCdo';
+import { CRITERIO_CRO } from './lib/criterioCro';
+import { CRITERIO_CMO } from './lib/criterioCmo';
 import { CRITERIO_RONDAS } from './lib/criterioRondas';
 import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_SECTORES } from './lib/criterioSectores';
@@ -31,12 +34,14 @@ import { CriterioLogo } from './portal/CriterioLogo';
    que cambia en el repositorio cambia en el video la próxima vez que se graba. El reloj y cómo
    aparece cada cosa están en tiempo.jsx, que comparte con el video de Criterio. */
 
-const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO, chro: CRITERIO_CHRO, cae: CRITERIO_CAE };
+const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO, chro: CRITERIO_CHRO, cae: CRITERIO_CAE,
+  cdo: CRITERIO_CDO, cro: CRITERIO_CRO, cmo: CRITERIO_CMO };
 // La PMO no tiene una ficha de agentes como las demás: sus agentes son los de sus pestañas.
 const agentesDe = (sigla, l) => AGENTES[sigla]?.agentes ?? AGENT_TABS_FAMILIAS[sigla][l].agents.map((a) => ({ id: a.id, nombre: a.name }));
 
 // El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
-const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo', chro: 'norma', cae: 'remedios' };
+const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo', chro: 'norma', cae: 'remedios',
+  cdo: 'ariadna', cro: 'severo', cmo: 'lucia' };
 
 const TEXTO = {
   es: {

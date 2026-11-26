@@ -48,7 +48,8 @@ cambiaría. Un video nuevo se agrega en `videos.json` con su transcripción, y `
 anota su duración del mp4.
 
 `FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`, `equipos`);
-`IDIOMAS=es` solo ese idioma.
+`IDIOMAS=es` solo ese idioma. `EQUIPOS=cae,cdo` graba, en lugar de todos los equipos, solo esos, con la portada de los equipos nuevos:
+`linkedin/criterio-equipos-nuevos-{es,en}.mp4`, para el post que los anuncia.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))
 dura unos noventa segundos, una idea por pantalla, en el orden de la página de la familia: un

@@ -28,6 +28,7 @@ const TEXTO = {
     titulo: 'Nuestros equipos de agentes',
     sub: 'Una familia por cada rol del nivel C: sus agentes, lo que hacen y dónde se probaron.',
     familia: 'Familia',
+    nuevos: { titulo: 'Los equipos nuevos', sub: 'Las familias que llegan, en laboratorio: sus agentes, lo que hacen y dónde se probaron.' },
     estado: { estable: 'Estable', laboratorio: 'En laboratorio' },
     hace: 'Qué hace',
     paises: ['país en las pruebas', 'países en las pruebas'],
@@ -41,6 +42,7 @@ const TEXTO = {
     titulo: 'Our agent teams',
     sub: 'One family for each C-level role: its agents, what they do and where they were tested.',
     familia: 'Family',
+    nuevos: { titulo: 'Our new agent teams', sub: 'The families joining, in the lab: their agents, what they do and where they were tested.' },
     estado: { estable: 'Stable', laboratorio: 'In the lab' },
     hace: 'What it does',
     paises: ['country in the tests', 'countries in the tests'],
@@ -118,9 +120,14 @@ function Equipo({ f, l, lt }) {
   );
 }
 
+// ?e=cae,cdo solo esos equipos, con la portada de los nuevos: la pieza de un anuncio.
+const SOLO = (new URLSearchParams(location.search).get('e') || '').split(',').filter(Boolean);
+
 function escenas(l) {
-  const t = TEXTO[l];
-  const familias = [...ROSTRUM.familias].sort((x, y) => ordenDe(x.sigla) - ordenDe(y.sigla));
+  const t = { ...TEXTO[l], ...(SOLO.length ? TEXTO[l].nuevos : {}) };
+  for (const s of SOLO) if (!ROSTRUM.familias.some((f) => f.sigla === s)) throw new Error(`El portal no publica la familia ${s}`);
+  const familias = [...ROSTRUM.familias].filter((f) => !SOLO.length || SOLO.includes(f.sigla))
+    .sort((x, y) => ordenDe(x.sigla) - ordenDe(y.sigla));
   const lista = [{
     dura: 5,
     oscuro: true,
