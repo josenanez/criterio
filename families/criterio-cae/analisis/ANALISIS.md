@@ -19,7 +19,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |   |   |
 |---|---|
 | Rounds | 1; the most recent complete one is round 1 |
-| Material | Banking · Colombia, Credit unions · Peru, seguros · Brazil |
+| Material | Banking · Colombia, Credit unions · Peru, Insurance · Brazil |
 | Control entities | Control · Colombia, Control · Peru |
 | Entity runs | 5 |
 | Seeded signals | 51 |
@@ -57,7 +57,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |---|---|---|---|---|---|
 | Banking · Colombia | Justo, Prudencia, Remedios | 22 of 25 | 2 | 35 of 72 | 11.3 M |
 | Credit unions · Peru | Justo, Prudencia, Remedios | 14 of 14 | 0 | 72 of 72 | 11.5 M |
-| seguros · Brazil | Justo, Prudencia, Remedios | 12 of 12 | 0 | 67 of 68 | 11.1 M |
+| Insurance · Brazil | Justo, Prudencia, Remedios | 12 of 12 | 0 | 67 of 68 | 11.1 M |
 | Control · Colombia | Justo, Prudencia, Remedios | 0 of 0 | 0 | 68 of 68 | 10.4 M |
 | Control · Peru | Justo, Prudencia, Remedios | 0 of 0 | 0 | 68 of 68 | 10.9 M |
 
@@ -109,7 +109,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · evidence | CAE-2 | Test material |
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · external_findings[RF-01].title | — | — |
 | 1 | Banking · Colombia | Data item graded wrong | seguimiento · reviewed | CAE-4 | Agent instructions |
-| 1 | seguros · Brazil | Data item graded wrong | plan · reviewed | CAE-5 | Agent instructions |
+| 1 | Insurance · Brazil | Data item graded wrong | plan · reviewed | CAE-5 | Agent instructions |
 
 ## Defects
 

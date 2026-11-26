@@ -19,7 +19,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |   |   |
 |---|---|
 | Rounds | 1; the most recent complete one is round 1 |
-| Material | Banking · Colombia, Retail · Mexico, seguros · Peru |
+| Material | Banking · Colombia, Insurance · Peru, Retail · Mexico |
 | Control entities | Control · Colombia, Control · Mexico |
 | Entity runs | 5 |
 | Seeded signals | 28 |
@@ -57,7 +57,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |---|---|---|---|---|---|
 | Banking · Colombia | Ariadna, Custodia | 14 of 14 | 0 | 6 of 6 | 6.4 M |
 | Retail · Mexico | Ariadna, Custodia | 8 of 8 | 0 | 6 of 6 | 6.3 M |
-| seguros · Peru | Ariadna, Custodia | 6 of 6 | 0 | 6 of 6 | 6.7 M |
+| Insurance · Peru | Ariadna, Custodia | 6 of 6 | 0 | 6 of 6 | 6.7 M |
 | Control · Colombia | Ariadna, Custodia | 0 of 0 | 0 | 6 of 6 | 5.9 M |
 | Control · Mexico | Ariadna, Custodia | 0 of 0 | 0 | 6 of 6 | 6.3 M |
 

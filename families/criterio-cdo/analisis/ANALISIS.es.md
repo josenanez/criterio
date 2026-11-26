@@ -19,7 +19,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |   |   |
 |---|---|
 | Rondas | 1; la completa más reciente es la 1 |
-| Material | Banca · Colombia, Retail · México, seguros · Perú |
+| Material | Banca · Colombia, Retail · México, Seguros · Perú |
 | Entidades de control | Control · Colombia, Control · México |
 | Corridas de una entidad | 5 |
 | Señales sembradas | 28 |
@@ -57,7 +57,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |---|---|---|---|---|---|
 | Banca · Colombia | Ariadna, Custodia | 14 de 14 | 0 | 6 de 6 | 6,4 M |
 | Retail · México | Ariadna, Custodia | 8 de 8 | 0 | 6 de 6 | 6,3 M |
-| seguros · Perú | Ariadna, Custodia | 6 de 6 | 0 | 6 de 6 | 6,7 M |
+| Seguros · Perú | Ariadna, Custodia | 6 de 6 | 0 | 6 de 6 | 6,7 M |
 | Control · Colombia | Ariadna, Custodia | 0 de 0 | 0 | 6 de 6 | 5,9 M |
 | Control · México | Ariadna, Custodia | 0 de 0 | 0 | 6 de 6 | 6,3 M |
 

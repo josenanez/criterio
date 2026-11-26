@@ -19,7 +19,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |   |   |
 |---|---|
 | Rondas | 1; la completa más reciente es la 1 |
-| Material | Banca · Colombia, Cooperativas · Perú, seguros · Brasil |
+| Material | Banca · Colombia, Cooperativas · Perú, Seguros · Brasil |
 | Entidades de control | Control · Colombia, Control · Perú |
 | Corridas de una entidad | 5 |
 | Señales sembradas | 51 |
@@ -57,7 +57,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |---|---|---|---|---|---|
 | Banca · Colombia | Justo, Prudencia, Remedios | 22 de 25 | 2 | 35 de 72 | 11,3 M |
 | Cooperativas · Perú | Justo, Prudencia, Remedios | 14 de 14 | 0 | 72 de 72 | 11,5 M |
-| seguros · Brasil | Justo, Prudencia, Remedios | 12 de 12 | 0 | 67 de 68 | 11,1 M |
+| Seguros · Brasil | Justo, Prudencia, Remedios | 12 de 12 | 0 | 67 de 68 | 11,1 M |
 | Control · Colombia | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 10,4 M |
 | Control · Perú | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 10,9 M |
 
@@ -109,7 +109,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · evidence | CAE-2 | Material de prueba |
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · external_findings[RF-01].title | — | — |
 | 1 | Banca · Colombia | Dato calificado como mal | seguimiento · reviewed | CAE-4 | Instrucciones del agente |
-| 1 | seguros · Brasil | Dato calificado como mal | plan · reviewed | CAE-5 | Instrucciones del agente |
+| 1 | Seguros · Brasil | Dato calificado como mal | plan · reviewed | CAE-5 | Instrucciones del agente |
 
 ## Defectos
 

@@ -19,7 +19,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |   |   |
 |---|---|
 | Rondas | 1; la completa más reciente es la 1 |
-| Material | Banca · Colombia, cooperativa · Brasil, seguros · Perú |
+| Material | Banca · Colombia, Cooperativas · Brasil, Seguros · Perú |
 | Entidades de control | Control · Brasil, Control · Colombia |
 | Corridas de una entidad | 5 |
 | Señales sembradas | 24 |
@@ -56,8 +56,8 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
 | Banca · Colombia | Casandra, Severo | 12 de 12 | 0 | 7 de 7 | 6,1 M |
-| cooperativa · Brasil | Casandra, Severo | 6 de 6 | 0 | 7 de 7 | 7 M |
-| seguros · Perú | Casandra, Severo | 6 de 6 | 0 | 7 de 7 | 6,7 M |
+| Cooperativas · Brasil | Casandra, Severo | 6 de 6 | 0 | 7 de 7 | 7 M |
+| Seguros · Perú | Casandra, Severo | 6 de 6 | 0 | 7 de 7 | 6,7 M |
 | Control · Brasil | Casandra, Severo | 0 de 0 | 0 | 7 de 7 | 6,4 M |
 | Control · Colombia | Casandra, Severo | 0 de 0 | 0 | 7 de 7 | 6,4 M |
 

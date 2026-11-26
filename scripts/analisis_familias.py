@@ -45,7 +45,8 @@ for _d in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
     if (RAIZ / "tests" / "evidencias" / "familias" / _f["sigla"]).is_dir() and _f["sigla"] != "pmo":
         FAM[_f["sigla"]] = {"titulo": (f"familia {_f['sigla'].upper()}", f"{_f['sigla'].upper()} family"),
                             "agentes": {a["id"]: a["nombre"] for a in _f["agentes"]}}
-INDUSTRIA = {"banca": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"), "retail": ("Retail", "Retail"),
+INDUSTRIA = {"banca": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"), "cooperativa": ("Cooperativas", "Credit unions"),
+             "seguros": ("Seguros", "Insurance"), "retail": ("Retail", "Retail"),
              "mineria": ("Minería", "Mining"), "manufactura": ("Manufactura", "Manufacturing"), "servicios": ("Servicios", "Services"),
              "tecnologia": ("Tecnología", "Technology"), "publica": ("Entidad pública", "Public entity"), "control": ("Control", "Control")}
 # Los nombres de los países salen del registro único del motor, no de aquí.

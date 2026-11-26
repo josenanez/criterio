@@ -19,7 +19,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |   |   |
 |---|---|
 | Rounds | 1; the most recent complete one is round 1 |
-| Material | Banking · Colombia, cooperativa · Brazil, seguros · Peru |
+| Material | Banking · Colombia, Credit unions · Brazil, Insurance · Peru |
 | Control entities | Control · Brazil, Control · Colombia |
 | Entity runs | 5 |
 | Seeded signals | 24 |
@@ -56,8 +56,8 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | Material | Agents | Signals | Extra | Extraction | Tokens |
 |---|---|---|---|---|---|
 | Banking · Colombia | Casandra, Severo | 12 of 12 | 0 | 7 of 7 | 6.1 M |
-| cooperativa · Brazil | Casandra, Severo | 6 of 6 | 0 | 7 of 7 | 7 M |
-| seguros · Peru | Casandra, Severo | 6 of 6 | 0 | 7 of 7 | 6.7 M |
+| Credit unions · Brazil | Casandra, Severo | 6 of 6 | 0 | 7 of 7 | 7 M |
+| Insurance · Peru | Casandra, Severo | 6 of 6 | 0 | 7 of 7 | 6.7 M |
 | Control · Brazil | Casandra, Severo | 0 of 0 | 0 | 7 of 7 | 6.4 M |
 | Control · Colombia | Casandra, Severo | 0 of 0 | 0 | 7 of 7 | 6.4 M |
 
