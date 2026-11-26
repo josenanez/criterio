@@ -108,7 +108,13 @@
     "id": "n4YqX8pDRwI",
     "titulo": "Criterio CCO · Cómo se usa, de la instalación al primer resultado",
     "transcripcion": "criterio-cco-uso-es.txt",
-    "duracion": 219.3
+    "duracion": 219.3,
+    "en": {
+     "id": "f4a7l0-OfaA",
+     "titulo": "Criterio CCO · How to use it, from install to first result",
+     "transcripcion": "criterio-cco-uso-en.txt",
+     "duracion": 219.3
+    }
    }
   },
   "ea": {
@@ -128,7 +134,13 @@
     "id": "S6Y3oNbzwzs",
     "titulo": "Criterio EA · Cómo se usa, de la instalación al primer resultado",
     "transcripcion": "criterio-ea-uso-es.txt",
-    "duracion": 132.7
+    "duracion": 132.7,
+    "en": {
+     "id": "U1lkt-IJDr4",
+     "titulo": "Criterio EA · How to use it, from install to first result",
+     "transcripcion": "criterio-ea-uso-en.txt",
+     "duracion": 132.7
+    }
    }
   },
   "pmo": {
@@ -166,6 +178,32 @@
      "id": "Ohlwj9HtHh0",
      "transcripcion": "criterio-chro-youtube-en.txt",
      "duracion": 88.1
+    }
+   }
+  },
+  "cae": {
+   "presentacion": {
+    "id": "RNCWsMdySdA",
+    "titulo": "Criterio CAE · Agentes de IA para la auditoría interna",
+    "transcripcion": "criterio-cae-youtube-es.txt",
+    "duracion": 93.4,
+    "en": {
+     "id": "7XSjPZNd_Hw",
+     "titulo": "Criterio CAE · AI agents for internal audit",
+     "transcripcion": "criterio-cae-youtube-en.txt",
+     "duracion": 93.4
+    }
+   },
+   "uso": {
+    "id": "egEWVPu7djM",
+    "titulo": "Criterio CAE · Cómo se usa, de la instalación al primer resultado",
+    "transcripcion": "criterio-cae-uso-es.txt",
+    "duracion": 181.4,
+    "en": {
+     "id": "OPp0l0bFRUw",
+     "titulo": "Criterio CAE · How to use it, from install to first result",
+     "transcripcion": "criterio-cae-uso-en.txt",
+     "duracion": 181.4
     }
    }
   }

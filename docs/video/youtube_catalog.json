@@ -1063,7 +1063,7 @@
    },
    "en": {
     "title": "Criterio CCO · AI agents for the commercial area",
-    "description": "On-screen text in Spanish.\nCriterio CCO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Pipeline: every opportunity against the evidence its stage requires. With Salesforce, HubSpot, Dynamics 365, Zoho, CSV or Excel.\n• Forecast: what supports the committed forecast. With CRM export.\n• Target: the target against what closed, by line. With target in Excel, CRM export.\n• Discounts: every discount against the approved matrix. With quotes, discount matrix in Excel.\n• Contract and commission: what was won, through to contract, invoice and commission. With purchase orders, contracts, commission plan.\n\nThe agents: Augusto, The forecast · Valeria, From sale to invoice. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cco/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/n4YqX8pDRwI\nIn English: https://youtu.be/1xSnCYvDicw\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CCO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio CCO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Pipeline: every opportunity against the evidence its stage requires. With Salesforce, HubSpot, Dynamics 365, Zoho, CSV or Excel.\n• Forecast: what supports the committed forecast. With CRM export.\n• Target: the target against what closed, by line. With target in Excel, CRM export.\n• Discounts: every discount against the approved matrix. With quotes, discount matrix in Excel.\n• Contract and commission: what was won, through to contract, invoice and commission. With purchase orders, contracts, commission plan.\n\nThe agents: Augusto, The forecast · Valeria, From sale to invoice. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cco/analisis\nHow it is used, from install to first result: https://youtu.be/f4a7l0-OfaA\nIn English: https://youtu.be/1xSnCYvDicw\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CCO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1137,7 +1137,7 @@
    },
    "en": {
     "title": "Criterio CCO · AI agents for the commercial area",
-    "description": "Criterio CCO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Pipeline: every opportunity against the evidence its stage requires. With Salesforce, HubSpot, Dynamics 365, Zoho, CSV or Excel.\n• Forecast: what supports the committed forecast. With CRM export.\n• Target: the target against what closed, by line. With target in Excel, CRM export.\n• Discounts: every discount against the approved matrix. With quotes, discount matrix in Excel.\n• Contract and commission: what was won, through to contract, invoice and commission. With purchase orders, contracts, commission plan.\n\nThe agents: Augusto, The forecast · Valeria, From sale to invoice. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cco/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/n4YqX8pDRwI\nIn Spanish: https://youtu.be/LggEjBDdf_s\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CCO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio CCO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Pipeline: every opportunity against the evidence its stage requires. With Salesforce, HubSpot, Dynamics 365, Zoho, CSV or Excel.\n• Forecast: what supports the committed forecast. With CRM export.\n• Target: the target against what closed, by line. With target in Excel, CRM export.\n• Discounts: every discount against the approved matrix. With quotes, discount matrix in Excel.\n• Contract and commission: what was won, through to contract, invoice and commission. With purchase orders, contracts, commission plan.\n\nThe agents: Augusto, The forecast · Valeria, From sale to invoice. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile and Mexico.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cco/analisis\nHow it is used, from install to first result: https://youtu.be/f4a7l0-OfaA\nIn Spanish: https://youtu.be/LggEjBDdf_s\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CCO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1207,11 +1207,77 @@
    ],
    "es": {
     "title": "Criterio CCO · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CCO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cco\nQué hace la familia, en noventa segundos: https://youtu.be/LggEjBDdf_s\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Augusto, el pronóstico\n1:35 Valeria, de la venta a la factura\n2:14 3 · El primer resultado, en una tabla\n2:28 4 · El reloj, solo con un sí\n2:38 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CCO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cco\nQué hace la familia, en noventa segundos: https://youtu.be/LggEjBDdf_s\nEn inglés: https://youtu.be/f4a7l0-OfaA\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Augusto, el pronóstico\n1:35 Valeria, de la venta a la factura\n2:14 3 · El primer resultado, en una tabla\n2:28 4 · El reloj, solo con un sí\n2:38 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio CCO · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CCO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nWhat the family does, in ninety seconds: https://youtu.be/1xSnCYvDicw\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Augusto, The forecast\n1:35 Valeria, From sale to invoice\n2:14 3 · The first result, in a table\n2:28 4 · The daily task, only with a yes\n2:38 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CCO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nWhat the family does, in ninety seconds: https://youtu.be/1xSnCYvDicw\nIn English: https://youtu.be/f4a7l0-OfaA\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Augusto, The forecast\n1:35 Valeria, From sale to invoice\n2:14 3 · The first result, in a table\n2:28 4 · The daily task, only with a yes\n2:38 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CCO",
+    "Chief Commercial Officer",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Augusto",
+    "Valeria"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Augusto, el pronóstico",
+     "en": "2 · Set it up: Augusto, The forecast"
+    },
+    {
+     "t": "1:35",
+     "es": "Valeria, de la venta a la factura",
+     "en": "Valeria, From sale to invoice"
+    },
+    {
+     "t": "2:14",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "2:28",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "2:38",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "f4a7l0-OfaA": {
+   "video": "cco/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CCO · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio CCO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cco\nQué hace la familia, en noventa segundos: https://youtu.be/LggEjBDdf_s\nEn español: https://youtu.be/n4YqX8pDRwI\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Augusto, el pronóstico\n1:35 Valeria, de la venta a la factura\n2:14 3 · El primer resultado, en una tabla\n2:28 4 · El reloj, solo con un sí\n2:38 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CCO · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CCO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cco@criterio\n/criterio-cco:cco-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cco\nWhat the family does, in ninety seconds: https://youtu.be/1xSnCYvDicw\nIn Spanish: https://youtu.be/n4YqX8pDRwI\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Augusto, The forecast\n1:35 Valeria, From sale to invoice\n2:14 3 · The first result, in a table\n2:28 4 · The daily task, only with a yes\n2:38 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1277,7 +1343,7 @@
    },
    "en": {
     "title": "Criterio EA · An AI agent for the executive office",
-    "description": "On-screen text in Spanish.\nCriterio EA is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Calendar: meeting clashes, also while travelling. With Outlook, Google Calendar (.ics).\n• Boards and committees: every session with its materials and minutes. With notices, materials and minutes.\n• Commitments: every agreement with owner and date, until it closes. With minutes and meeting notes.\n• Email: what awaits a reply and decisions with a deadline. With Outlook (.msg), .eml.\n• Week: the summary for the executive. With calendar, email and minutes.\n\nThe agent: Ofelia, Executive assistant. And Rostrum, the portal that publishes what she writes.\nWhere it was tested: Colombia and Ecuador.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ea/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/S6Y3oNbzwzs\nIn English: https://youtu.be/MVXBxgZ74VY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio EA does, area by area\n0:19 Where it was tested\n0:29 The agent and what she prepares\n0:44 The test evidence\n0:58 What she found\n1:10 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio EA is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Calendar: meeting clashes, also while travelling. With Outlook, Google Calendar (.ics).\n• Boards and committees: every session with its materials and minutes. With notices, materials and minutes.\n• Commitments: every agreement with owner and date, until it closes. With minutes and meeting notes.\n• Email: what awaits a reply and decisions with a deadline. With Outlook (.msg), .eml.\n• Week: the summary for the executive. With calendar, email and minutes.\n\nThe agent: Ofelia, Executive assistant. And Rostrum, the portal that publishes what she writes.\nWhere it was tested: Colombia and Ecuador.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ea/analisis\nHow it is used, from install to first result: https://youtu.be/U1lkt-IJDr4\nIn English: https://youtu.be/MVXBxgZ74VY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio EA does, area by area\n0:19 Where it was tested\n0:29 The agent and what she prepares\n0:44 The test evidence\n0:58 What she found\n1:10 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1348,7 +1414,7 @@
    },
    "en": {
     "title": "Criterio EA · An AI agent for the executive office",
-    "description": "Criterio EA is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Calendar: meeting clashes, also while travelling. With Outlook, Google Calendar (.ics).\n• Boards and committees: every session with its materials and minutes. With notices, materials and minutes.\n• Commitments: every agreement with owner and date, until it closes. With minutes and meeting notes.\n• Email: what awaits a reply and decisions with a deadline. With Outlook (.msg), .eml.\n• Week: the summary for the executive. With calendar, email and minutes.\n\nThe agent: Ofelia, Executive assistant. And Rostrum, the portal that publishes what she writes.\nWhere it was tested: Colombia and Ecuador.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ea/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/S6Y3oNbzwzs\nIn Spanish: https://youtu.be/pQv48xMVVYg\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio EA does, area by area\n0:19 Where it was tested\n0:29 The agent and what she prepares\n0:44 The test evidence\n0:58 What she found\n1:10 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio EA is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Calendar: meeting clashes, also while travelling. With Outlook, Google Calendar (.ics).\n• Boards and committees: every session with its materials and minutes. With notices, materials and minutes.\n• Commitments: every agreement with owner and date, until it closes. With minutes and meeting notes.\n• Email: what awaits a reply and decisions with a deadline. With Outlook (.msg), .eml.\n• Week: the summary for the executive. With calendar, email and minutes.\n\nThe agent: Ofelia, Executive assistant. And Rostrum, the portal that publishes what she writes.\nWhere it was tested: Colombia and Ecuador.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-ea/analisis\nHow it is used, from install to first result: https://youtu.be/U1lkt-IJDr4\nIn Spanish: https://youtu.be/pQv48xMVVYg\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio EA does, area by area\n0:19 Where it was tested\n0:29 The agent and what she prepares\n0:44 The test evidence\n0:58 What she found\n1:10 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1415,11 +1481,71 @@
    ],
    "es": {
     "title": "Criterio EA · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio EA se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ea\nQué hace la familia, en noventa segundos: https://youtu.be/pQv48xMVVYg\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Ofelia, la oficina de dirección\n0:57 3 · El primer resultado\n1:11 4 · El reloj, solo con un sí\n1:21 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio EA se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ea\nQué hace la familia, en noventa segundos: https://youtu.be/pQv48xMVVYg\nEn inglés: https://youtu.be/U1lkt-IJDr4\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Ofelia, la oficina de dirección\n0:57 3 · El primer resultado\n1:11 4 · El reloj, solo con un sí\n1:21 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio EA · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio EA installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nWhat the family does, in ninety seconds: https://youtu.be/MVXBxgZ74VY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Ofelia, Executive assistant\n0:57 3 · The first result\n1:11 4 · The daily task, only with a yes\n1:21 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio EA installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nWhat the family does, in ninety seconds: https://youtu.be/MVXBxgZ74VY\nIn English: https://youtu.be/U1lkt-IJDr4\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Ofelia, Executive assistant\n0:57 3 · The first result\n1:11 4 · The daily task, only with a yes\n1:21 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio EA",
+    "Executive Assistant",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Ofelia"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Ofelia, la oficina de dirección",
+     "en": "2 · Set it up: Ofelia, Executive assistant"
+    },
+    {
+     "t": "0:57",
+     "es": "3 · El primer resultado",
+     "en": "3 · The first result"
+    },
+    {
+     "t": "1:11",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "1:21",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "U1lkt-IJDr4": {
+   "video": "ea/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio EA · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio EA se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-ea\nQué hace la familia, en noventa segundos: https://youtu.be/pQv48xMVVYg\nEn español: https://youtu.be/S6Y3oNbzwzs\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Ofelia, la oficina de dirección\n0:57 3 · El primer resultado\n1:11 4 · El reloj, solo con un sí\n1:21 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio EA · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio EA installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-ea@criterio\n/criterio-assistant:ea-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-ea\nWhat the family does, in ninety seconds: https://youtu.be/MVXBxgZ74VY\nIn Spanish: https://youtu.be/S6Y3oNbzwzs\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Ofelia, Executive assistant\n0:57 3 · The first result\n1:11 4 · The daily task, only with a yes\n1:21 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1892,6 +2018,292 @@
      "en": "How to install it"
     }
    ]
+  },
+  "RNCWsMdySdA": {
+   "video": "cae/presentacion",
+   "idioma": "es",
+   "localizaciones": [
+    "en"
+   ],
+   "es": {
+    "title": "Criterio CAE · Agentes de IA para la auditoría interna",
+    "description": "Criterio CAE es una familia de agentes de IA de código abierto (Apache 2.0) que trabaja en Claude Code: procesa los documentos del área y entrega cada señal con la cita del documento del que sale.\n\nQué hace, área por área:\n• El plan de auditoría: el plan contra los riesgos, el universo y su capacidad. Con normas Globales de Auditoría Interna, requisitos temáticos.\n• Los trabajos: cada hallazgo contra su criterio y sus papeles. Con programas, papeles e informes en Excel, Word o PDF.\n• El seguimiento: cada hallazgo hasta su cierre, con su evidencia. Con registro de hallazgos en Excel o CSV.\n• El comité de auditoría: lo vencido, lo repetido y los riesgos aceptados. Con modelo de las Tres Líneas, COSO 2013.\n\nLos agentes: Prudencia, el plan de auditoría · Justo, los trabajos de auditoría · Remedios, el seguimiento de los hallazgos. Y Rostrum, el portal que publica lo que escriben.\nDónde se probó: Colombia, Perú y Brasil.\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cae\nEl análisis de las pruebas: https://www.josenanez.com/es/agents/criterio-cae/analisis\nCómo se usa, de la instalación al primer resultado: https://youtu.be/egEWVPu7djM\nEn inglés: https://youtu.be/7XSjPZNd_Hw\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 Qué hace Criterio CAE, área por área\n0:17 Dónde se probó\n0:27 Los agentes y lo que preparan\n0:42 La evidencia de las pruebas\n0:56 Lo que encontró cada agente\n1:22 Cómo se instala\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CAE · AI agents for internal audit",
+    "description": "On-screen text in Spanish.\nCriterio CAE is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• The audit plan: the plan against the risks, the universe and its capacity. With global Internal Audit Standards, topical requirements.\n• Engagements: every finding against its criteria and its papers. With programs, papers and reports in Excel, Word or PDF.\n• Follow-up: every finding until it is closed, with its evidence. With findings register in Excel or CSV.\n• The audit committee: what is overdue, what repeats and the accepted risks. With three Lines Model, COSO 2013.\n\nThe agents: Prudencia, The audit plan · Justo, Audit engagements · Remedios, Finding follow-up. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cae\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cae/analisis\nHow it is used, from install to first result: https://youtu.be/OPp0l0bFRUw\nIn English: https://youtu.be/7XSjPZNd_Hw\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CAE does, area by area\n0:17 Where it was tested\n0:27 The agents and what they prepare\n0:42 The test evidence\n0:56 What each agent found\n1:22 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CAE",
+    "Chief Audit Executive",
+    "La auditoría interna",
+    "Internal audit",
+    "El plan de auditoría",
+    "Los trabajos",
+    "El seguimiento",
+    "El comité de auditoría",
+    "Prudencia",
+    "Justo",
+    "Remedios",
+    "COSO 2013"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "Qué hace Criterio CAE, área por área",
+     "en": "What Criterio CAE does, area by area"
+    },
+    {
+     "t": "0:17",
+     "es": "Dónde se probó",
+     "en": "Where it was tested"
+    },
+    {
+     "t": "0:27",
+     "es": "Los agentes y lo que preparan",
+     "en": "The agents and what they prepare"
+    },
+    {
+     "t": "0:42",
+     "es": "La evidencia de las pruebas",
+     "en": "The test evidence"
+    },
+    {
+     "t": "0:56",
+     "es": "Lo que encontró cada agente",
+     "en": "What each agent found"
+    },
+    {
+     "t": "1:22",
+     "es": "Cómo se instala",
+     "en": "How to install it"
+    }
+   ]
+  },
+  "7XSjPZNd_Hw": {
+   "video": "cae/presentacion/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CAE · Agentes de IA para la auditoría interna",
+    "description": "Texto en pantalla en inglés.\nCriterio CAE es una familia de agentes de IA de código abierto (Apache 2.0) que trabaja en Claude Code: procesa los documentos del área y entrega cada señal con la cita del documento del que sale.\n\nQué hace, área por área:\n• El plan de auditoría: el plan contra los riesgos, el universo y su capacidad. Con normas Globales de Auditoría Interna, requisitos temáticos.\n• Los trabajos: cada hallazgo contra su criterio y sus papeles. Con programas, papeles e informes en Excel, Word o PDF.\n• El seguimiento: cada hallazgo hasta su cierre, con su evidencia. Con registro de hallazgos en Excel o CSV.\n• El comité de auditoría: lo vencido, lo repetido y los riesgos aceptados. Con modelo de las Tres Líneas, COSO 2013.\n\nLos agentes: Prudencia, el plan de auditoría · Justo, los trabajos de auditoría · Remedios, el seguimiento de los hallazgos. Y Rostrum, el portal que publica lo que escriben.\nDónde se probó: Colombia, Perú y Brasil.\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cae\nEl análisis de las pruebas: https://www.josenanez.com/es/agents/criterio-cae/analisis\nCómo se usa, de la instalación al primer resultado: https://youtu.be/egEWVPu7djM\nEn español: https://youtu.be/RNCWsMdySdA\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 Qué hace Criterio CAE, área por área\n0:17 Dónde se probó\n0:27 Los agentes y lo que preparan\n0:42 La evidencia de las pruebas\n0:56 Lo que encontró cada agente\n1:22 Cómo se instala\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CAE · AI agents for internal audit",
+    "description": "Criterio CAE is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• The audit plan: the plan against the risks, the universe and its capacity. With global Internal Audit Standards, topical requirements.\n• Engagements: every finding against its criteria and its papers. With programs, papers and reports in Excel, Word or PDF.\n• Follow-up: every finding until it is closed, with its evidence. With findings register in Excel or CSV.\n• The audit committee: what is overdue, what repeats and the accepted risks. With three Lines Model, COSO 2013.\n\nThe agents: Prudencia, The audit plan · Justo, Audit engagements · Remedios, Finding follow-up. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Peru and Brazil.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cae\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-cae/analisis\nHow it is used, from install to first result: https://youtu.be/OPp0l0bFRUw\nIn Spanish: https://youtu.be/RNCWsMdySdA\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CAE does, area by area\n0:17 Where it was tested\n0:27 The agents and what they prepare\n0:42 The test evidence\n0:56 What each agent found\n1:22 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CAE",
+    "Chief Audit Executive",
+    "La auditoría interna",
+    "Internal audit",
+    "El plan de auditoría",
+    "Los trabajos",
+    "El seguimiento",
+    "El comité de auditoría",
+    "Prudencia",
+    "Justo",
+    "Remedios",
+    "COSO 2013"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "Qué hace Criterio CAE, área por área",
+     "en": "What Criterio CAE does, area by area"
+    },
+    {
+     "t": "0:17",
+     "es": "Dónde se probó",
+     "en": "Where it was tested"
+    },
+    {
+     "t": "0:27",
+     "es": "Los agentes y lo que preparan",
+     "en": "The agents and what they prepare"
+    },
+    {
+     "t": "0:42",
+     "es": "La evidencia de las pruebas",
+     "en": "The test evidence"
+    },
+    {
+     "t": "0:56",
+     "es": "Lo que encontró cada agente",
+     "en": "What each agent found"
+    },
+    {
+     "t": "1:22",
+     "es": "Cómo se instala",
+     "en": "How to install it"
+    }
+   ]
+  },
+  "egEWVPu7djM": {
+   "video": "cae/uso",
+   "idioma": "es",
+   "localizaciones": [
+    "en"
+   ],
+   "es": {
+    "title": "Criterio CAE · Cómo se usa, de la instalación al primer resultado",
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CAE se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cae@criterio\n/criterio-cae:cae-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cae\nQué hace la familia, en noventa segundos: https://youtu.be/RNCWsMdySdA\nEn inglés: https://youtu.be/OPp0l0bFRUw\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Prudencia, el plan de auditoría\n0:58 Justo, los trabajos de auditoría\n1:20 Remedios, el seguimiento de los hallazgos\n1:41 3 · El primer resultado, en una tabla\n1:58 4 · El reloj, solo con un sí\n2:12 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CAE · How to use it, from install to first result",
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CAE installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cae@criterio\n/criterio-cae:cae-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cae\nWhat the family does, in ninety seconds: https://youtu.be/7XSjPZNd_Hw\nIn English: https://youtu.be/OPp0l0bFRUw\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Prudencia, The audit plan\n0:58 Justo, Audit engagements\n1:20 Remedios, Finding follow-up\n1:41 3 · The first result, in a table\n1:58 4 · The daily task, only with a yes\n2:12 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CAE",
+    "Chief Audit Executive",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Prudencia",
+    "Justo",
+    "Remedios"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Prudencia, el plan de auditoría",
+     "en": "2 · Set it up: Prudencia, The audit plan"
+    },
+    {
+     "t": "0:58",
+     "es": "Justo, los trabajos de auditoría",
+     "en": "Justo, Audit engagements"
+    },
+    {
+     "t": "1:20",
+     "es": "Remedios, el seguimiento de los hallazgos",
+     "en": "Remedios, Finding follow-up"
+    },
+    {
+     "t": "1:41",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "1:58",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "2:12",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "OPp0l0bFRUw": {
+   "video": "cae/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CAE · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio CAE se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cae@criterio\n/criterio-cae:cae-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-cae\nQué hace la familia, en noventa segundos: https://youtu.be/RNCWsMdySdA\nEn español: https://youtu.be/egEWVPu7djM\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Prudencia, el plan de auditoría\n0:58 Justo, los trabajos de auditoría\n1:20 Remedios, el seguimiento de los hallazgos\n1:41 3 · El primer resultado, en una tabla\n1:58 4 · El reloj, solo con un sí\n2:12 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CAE · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CAE installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-cae@criterio\n/criterio-cae:cae-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-cae\nWhat the family does, in ninety seconds: https://youtu.be/7XSjPZNd_Hw\nIn Spanish: https://youtu.be/egEWVPu7djM\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Prudencia, The audit plan\n0:58 Justo, Audit engagements\n1:20 Remedios, Finding follow-up\n1:41 3 · The first result, in a table\n1:58 4 · The daily task, only with a yes\n2:12 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CAE",
+    "Chief Audit Executive",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Prudencia",
+    "Justo",
+    "Remedios"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Prudencia, el plan de auditoría",
+     "en": "2 · Set it up: Prudencia, The audit plan"
+    },
+    {
+     "t": "0:58",
+     "es": "Justo, los trabajos de auditoría",
+     "en": "Justo, Audit engagements"
+    },
+    {
+     "t": "1:20",
+     "es": "Remedios, el seguimiento de los hallazgos",
+     "en": "Remedios, Finding follow-up"
+    },
+    {
+     "t": "1:41",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "1:58",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "2:12",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
   }
  },
  "listas": {
@@ -1911,7 +2323,9 @@
     "n4YqX8pDRwI",
     "BiEpT0LQ_AI",
     "63hkeQWxHLE",
-    "C9tPSPVgc9g"
+    "C9tPSPVgc9g",
+    "RNCWsMdySdA",
+    "egEWVPu7djM"
    ]
   },
   "en": {
@@ -1925,10 +2339,14 @@
     "9kJPN4TTUtY",
     "HpzsuyXuPqc",
     "MVXBxgZ74VY",
+    "U1lkt-IJDr4",
     "1xSnCYvDicw",
+    "f4a7l0-OfaA",
     "HRqqTtYWYcE",
     "61CNrCWOG1Q",
-    "Ohlwj9HtHh0"
+    "Ohlwj9HtHh0",
+    "7XSjPZNd_Hw",
+    "OPp0l0bFRUw"
    ]
   }
  }
