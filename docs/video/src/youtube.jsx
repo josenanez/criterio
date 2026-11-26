@@ -150,7 +150,7 @@ function escenas(sigla, l) {
   const codigos = [...new Set(D.entidades.map((e) => e.pais).filter(Boolean))].sort((a, b) => orden(a) - orden(b));
   const nombrePais = (c) => CRITERIO_PAISES.find((p) => p.codigo === c)?.nombre[l] ?? c;
   const sectores = [...new Set(D.entidades.filter((e) => !e.control).map((e) => e.industria))].map((id) => {
-    const x = CRITERIO_SECTORES.find((y) => y.id === id);
+    const x = CRITERIO_SECTORES.find((y) => y.id === id || (y.alias ?? []).includes(id));
     if (!x) throw new Error(`La industria ${id} no está en lib/criterioSectores.ts`);
     return x;
   });
