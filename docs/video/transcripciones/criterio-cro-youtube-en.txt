@@ -1,0 +1,58 @@
+0:00  Test data
+0:00  Past-due consumer loans above their limit with no plan or approval.
+0:03  Severo caught it before the decision.
+0:06  Criterio CRO
+0:06  Chief Risk Officer
+0:08  Limits Each exposure against its limit and plan
+0:08  Limits and exposure in Excel or CSV ISO 31000 statement and minutes in Word or PDF Indicators and values in Excel or CSV Event database in Excel or CSV
+0:10  The framework The appetite statement and the board's review
+0:11  Indicators Each key indicator against its threshold and action
+0:13  Events Each loss event against its record and the register
+0:17  Where it was tested
+0:17  3
+0:17  countries
+0:17  5
+0:17  test entities
+0:18  Colombia Peru Brazil
+0:19  Banking Credit unions Insurance
+0:19  and 2 control entities
+0:27  Two agents and a portal
+0:28  Severo
+0:28  Appetite
+0:29  Casandra
+0:29  Events
+0:29  Rostrum
+0:29  The portal
+0:33  What your team does by hand today
+0:34  ✓ Matching each exposure with its limit and plan
+0:34  ✓ Checking the owners and reviews of the framework and the statement
+0:35  ✓ Checking each indicator against its threshold and action
+0:35  ✓ Checking each loss event against its record
+0:36  What does it cost? Work it out with your numbers on the page.
+0:42  The evidence
+0:42  86.2%
+0:43  caught at least, with 95% confidence
+0:43  24cases tested
+0:45  Limits 4
+0:45  The framework 6
+0:46  Coverage 2
+0:46  Indicators 4
+0:47  Events 4
+0:47  Patterns 4
+0:49  2 of 2 control entities without a single false alarm
+0:56  Risk appetite
+0:56  What it found
+0:56  The Colombian bank in October with 6 open signals: past-due consumer loans above their limit with no plan or approval, the liquidity indicator reported late, with no owner and past its review, business continuity rated high with no limit or indicator and the appetite statement without the board’s review.
+1:03  Indicators and events
+1:03  The same bank: fraud per million transactions on alert with no action, an indicator with no value for the period, an incomplete loss event, another registered late, card fraud repeating in the channels and an event missing from the register.
+1:10  Publishes the state of the appetite and the events for the committee. It recalculates nothing.
+1:15  Open source · Apache 2.0
+1:16  1
+1:16  Add the marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Install the family
+1:17  /plugin install criterio-cro@criterio
+1:18  Set up and accept the terms
+1:18  /criterio-cro:cro-setup
+1:20  josenanez.com/agents/criterio-cro

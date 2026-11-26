@@ -1,0 +1,58 @@
+0:00  Test data
+0:00  Net sales in the board report that do not match their source at the same cut-off.
+0:03  Ariadna caught it before the decision.
+0:06  Criterio CDO
+0:06  Chief Data Officer
+0:08  The catalog Each dataset with its owner and classification
+0:08  Catalog export in Excel or CSV DAMA-DMBOK policies in Word or PDF BCBS 239 reports in PDF, Excel or Word ISO/IEC 25012 lineage and rules in Excel or CSV
+0:10  Policies Reviews, retention periods and the glossary
+0:11  Figures Each report figure against its source and cut-off
+0:13  Quality The lineage and the rules against their threshold
+0:17  Where it was tested
+0:17  3
+0:17  countries
+0:17  5
+0:17  test entities
+0:18  Colombia Peru Mexico
+0:19  Banking Retail Insurance
+0:19  and 2 control entities
+0:27  Two agents and a portal
+0:28  Custodia
+0:28  Governance
+0:29  Ariadna
+0:29  Quality
+0:29  Rostrum
+0:29  The portal
+0:33  What your team does by hand today
+0:34  ✓ Matching the catalog with its owners and classification
+0:34  ✓ Checking the policies and the retention periods
+0:35  ✓ Reconciling each report figure with its source and cut-off
+0:35  ✓ Following each figure’s lineage to its source system
+0:36  What does it cost? Work it out with your numbers on the page.
+0:42  The evidence
+0:42  87.9%
+0:43  caught at least, with 95% confidence
+0:43  28cases tested
+0:45  The catalog 4
+0:45  Policies 4
+0:46  Glossary and register 6
+0:46  Figures 6
+0:47  Lineage 2
+0:47  Quality rules 6
+0:49  2 of 2 control entities without a single false alarm
+0:56  Data governance
+0:56  What it found
+0:56  The Colombian bank in November with 7 open signals: the suppliers dataset with personal data neither registered nor classified, the transactions dataset with no owner, the candidates dataset kept past its period, the data policy past its review and two report terms missing from the glossary.
+1:03  Quality and lineage
+1:03  The same bank: net sales in the board report that do not match their source at the same cut-off, past-due loans taken from another cut-off, an index with no source, the lineage of active customers broken, a quality rule below its threshold, another that did not run and a critical data element with no rule.
+1:10  Publishes the state of the catalog and the figures for management. It recalculates nothing.
+1:15  Open source · Apache 2.0
+1:16  1
+1:16  Add the marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Install the family
+1:17  /plugin install criterio-cdo@criterio
+1:18  Set up and accept the terms
+1:18  /criterio-cdo:cdo-setup
+1:20  josenanez.com/agents/criterio-cdo

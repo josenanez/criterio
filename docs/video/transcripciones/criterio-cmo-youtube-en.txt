@@ -1,0 +1,57 @@
+0:00  Test data
+0:00  «The lowest price on the market» with no source or date.
+0:02  Lucía caught it before the decision.
+0:06  Criterio CMO
+0:06  Chief Marketing Officer
+0:08  Claims Each claim in a piece against its substantiation
+0:08  ICC Code pieces in PDF or Word Terms in PDF; register in Excel Plan and invoices in Excel or CSV MRC exports in Excel or CSV
+0:10  Promotions and bases Each promotion with its terms; each base with its consent
+0:11  Media Each campaign against its budget and its invoice
+0:13  Results Each report result against the platform
+0:17  Where it was tested
+0:17  3
+0:17  countries
+0:17  5
+0:17  test entities
+0:18  Colombia Peru Mexico
+0:19  Banking Manufacturing Retail
+0:19  and 2 control entities
+0:27  Two agents and a portal
+0:28  Lucía
+0:28  What is advertised
+0:29  Próspero
+0:29  What is invested
+0:29  Rostrum
+0:29  The portal
+0:33  What your team does by hand today
+0:34  ✓ Finding the substantiation for each claim in the pieces
+0:34  ✓ Checking each promotion’s terms
+0:35  ✓ Reconciling each campaign’s invoiced media with its budget
+0:35  ✓ Matching each media invoice with its campaign and order
+0:36  What does it cost? Work it out with your numbers on the page.
+0:42  The evidence
+0:42  85.1%
+0:43  caught at least, with 95% confidence
+0:43  22cases tested
+0:45  Claims 4
+0:45  Promotions 2
+0:46  Approval 6
+0:46  Budget 6
+0:47  Media 2
+0:47  Results 2
+0:49  2 of 2 control entities without a single false alarm
+0:49  2 defects found in one round: all fixed and verified
+0:56  What it found
+0:56  The Colombian retailer in October with 6 open signals: «The lowest price on the market» with no source or date, «9 out of 10 customers recommend us» without its survey, the double-points promotion with no end date, a paid review not identified as advertising, a piece published before approval and a contact base used without cons
+1:03  The same retailer: the year-end season with 108 million invoiced on a budget of 100, a radio invoice with no campaign or purchase order, a campaign with no goal, sales in the report above the platform’s and outdoor media invoiced after its campaign ended.
+1:10  Publishes the state of the pieces and the campaigns for management. It recalculates nothing.
+1:15  Open source · Apache 2.0
+1:16  1
+1:16  Add the marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Install the family
+1:17  /plugin install criterio-cmo@criterio
+1:18  Set up and accept the terms
+1:18  /criterio-cmo:cmo-setup
+1:20  josenanez.com/agents/criterio-cmo

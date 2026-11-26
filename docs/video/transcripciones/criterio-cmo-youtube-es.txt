@@ -1,0 +1,57 @@
+0:00  Datos de prueba
+0:00  «El precio más bajo del mercado» sin la fuente ni la fecha.
+0:02  Lucía lo detectó antes de la decisión.
+0:06  Criterio CMO
+0:06  Chief Marketing Officer
+0:08  Las afirmaciones Cada afirmación de una pieza contra su soporte
+0:08  Código ICC piezas en PDF o Word Bases en PDF; registro en Excel Plan y facturas en Excel o CSV MRC exportaciones en Excel o CSV
+0:10  Las promociones y las bases Cada promoción con sus condiciones; cada base con su autorización
+0:11  La pauta Cada campaña contra su presupuesto y su factura
+0:13  Los resultados Cada resultado del informe contra la plataforma
+0:17  Dónde se probó
+0:17  3
+0:17  países
+0:17  5
+0:17  entidades de prueba
+0:18  Colombia Perú México
+0:19  Banca Manufactura Retail
+0:19  y 2 entidades de control
+0:27  Dos agentes y un portal
+0:28  Lucía
+0:28  Lo que se anuncia
+0:29  Próspero
+0:29  Lo que se invierte
+0:29  Rostrum
+0:29  El portal
+0:33  Lo que hoy hace tu equipo, a mano
+0:34  ✓ Buscar el soporte de cada afirmación de las piezas
+0:34  ✓ Revisar las condiciones de cada promoción
+0:35  ✓ Cuadrar la pauta facturada de cada campaña con su presupuesto
+0:35  ✓ Cruzar cada factura de pauta con su campaña y su orden
+0:36  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:42  La evidencia
+0:42  85,1 %
+0:43  detectado como mínimo, con 95 % de confianza
+0:43  22casos probados
+0:45  Las afirmaciones 4
+0:45  Las promociones 2
+0:46  La aprobación 6
+0:46  El presupuesto 6
+0:47  La pauta 2
+0:47  Los resultados 2
+0:49  2 de 2 entidades de control sin una sola alarma falsa
+0:49  2 defectos encontrados en una ronda: todos corregidos y verificados
+0:56  Lo que encontró
+0:56  La cadena de Colombia en octubre con 6 señales abiertas: «El precio más bajo del mercado» sin la fuente ni la fecha, «9 de cada 10 clientes nos recomiendan» sin su encuesta, la promoción de puntos dobles sin su fin, una reseña pagada sin identificarse como publicidad, una pieza publicada antes de aprobarse y una base de contacto
+1:03  La misma cadena: la temporada de fin de año con 108 millones facturados sobre 100 de presupuesto, una factura de radio sin campaña ni orden de compra, una campaña sin meta, las ventas del informe por encima de las de la plataforma y pauta de exteriores facturada después del fin de su campaña.
+1:10  Publica el estado de las piezas y de las campañas para la dirección. No recalcula nada.
+1:15  Código abierto · Apache 2.0
+1:16  1
+1:16  Agregar el marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Instalar la familia
+1:17  /plugin install criterio-cmo@criterio
+1:18  Configurar y aceptar los términos
+1:18  /criterio-cmo:cmo-setup
+1:20  josenanez.com/agents/criterio-cmo

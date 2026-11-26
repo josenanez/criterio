@@ -1,0 +1,58 @@
+0:00  Datos de prueba
+0:00  Las ventas netas del informe de la junta que no coinciden con su fuente al mismo corte.
+0:03  Ariadna lo detectó antes de la decisión.
+0:06  Criterio CDO
+0:06  Chief Data Officer
+0:08  El catálogo Cada conjunto con su dueño y su clasificación
+0:08  Exportación del catálogo en Excel o CSV DAMA-DMBOK políticas en Word o PDF BCBS 239 informes en PDF, Excel o Word ISO/IEC 25012 linaje y reglas en Excel o CSV
+0:10  Las políticas Las revisiones, los plazos de conservación y el glosario
+0:11  Las cifras Cada cifra del informe contra su fuente y su corte
+0:13  La calidad El linaje y las reglas contra su umbral
+0:17  Dónde se probó
+0:17  3
+0:17  países
+0:17  5
+0:17  entidades de prueba
+0:18  Colombia Perú México
+0:19  Banca Retail Seguros
+0:19  y 2 entidades de control
+0:27  Dos agentes y un portal
+0:28  Custodia
+0:28  El gobierno
+0:29  Ariadna
+0:29  La calidad
+0:29  Rostrum
+0:29  El portal
+0:33  Lo que hoy hace tu equipo, a mano
+0:34  ✓ Cruzar el catálogo con sus dueños y su clasificación
+0:34  ✓ Revisar las políticas y los plazos de conservación
+0:35  ✓ Cuadrar cada cifra del informe con su fuente y su corte
+0:35  ✓ Seguir el linaje de cada cifra hasta su sistema de origen
+0:36  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:42  La evidencia
+0:42  87,9 %
+0:43  detectado como mínimo, con 95 % de confianza
+0:43  28casos probados
+0:45  El catálogo 4
+0:45  Las políticas 4
+0:46  El glosario y el registro 6
+0:46  Las cifras 6
+0:47  El linaje 2
+0:47  Las reglas de calidad 6
+0:49  2 de 2 entidades de control sin una sola alarma falsa
+0:56  El gobierno de los datos
+0:56  Lo que encontró
+0:56  El banco de Colombia en noviembre con 7 señales abiertas: el conjunto de proveedores con datos personales sin registrar y sin clasificar, el de movimientos sin dueño, el de candidatos conservado más allá de su plazo, la política de datos con la revisión vencida y dos términos de los informes que no están en el glosario.
+1:03  La calidad y el linaje
+1:03  El mismo banco: las ventas netas del informe de la junta que no coinciden con su fuente al mismo corte, la cartera vencida tomada de otro corte, un índice sin fuente, el linaje de los clientes activos roto, una regla de calidad bajo su umbral, otra que no corrió y un dato crítico sin regla.
+1:10  Publica el estado del catálogo y de las cifras para la dirección. No recalcula nada.
+1:15  Código abierto · Apache 2.0
+1:16  1
+1:16  Agregar el marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Instalar la familia
+1:17  /plugin install criterio-cdo@criterio
+1:18  Configurar y aceptar los términos
+1:18  /criterio-cdo:cdo-setup
+1:20  josenanez.com/agents/criterio-cdo

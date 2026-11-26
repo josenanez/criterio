@@ -1,0 +1,58 @@
+0:00  Datos de prueba
+0:00  La cartera vencida de consumo por encima de su límite sin plan ni aprobación.
+0:03  Severo lo detectó antes de la decisión.
+0:06  Criterio CRO
+0:06  Chief Risk Officer
+0:08  Los límites Cada exposición contra su límite y su plan
+0:08  Límites y exposición en Excel o CSV ISO 31000 declaración y actas en Word o PDF Indicadores y valores en Excel o CSV Base de eventos en Excel o CSV
+0:10  El marco La declaración de apetito y la revisión de la junta
+0:11  Los indicadores Cada indicador clave contra su umbral y su acción
+0:13  Los eventos Cada evento de pérdida contra su registro y la matriz
+0:17  Dónde se probó
+0:17  3
+0:17  países
+0:17  5
+0:17  entidades de prueba
+0:18  Colombia Perú Brasil
+0:19  Banca Cooperativas Seguros
+0:19  y 2 entidades de control
+0:27  Dos agentes y un portal
+0:28  Severo
+0:28  El apetito
+0:29  Casandra
+0:29  Los eventos
+0:29  Rostrum
+0:29  El portal
+0:33  Lo que hoy hace tu equipo, a mano
+0:34  ✓ Cruzar cada exposición con su límite y su plan
+0:34  ✓ Revisar los dueños y las revisiones del marco y de la declaración
+0:35  ✓ Revisar cada indicador contra su umbral y su acción
+0:35  ✓ Revisar cada evento de pérdida contra su registro
+0:36  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:42  La evidencia
+0:42  86,2 %
+0:43  detectado como mínimo, con 95 % de confianza
+0:43  24casos probados
+0:45  Los límites 4
+0:45  El marco 6
+0:46  La cobertura 2
+0:46  Los indicadores 4
+0:47  Los eventos 4
+0:47  Los patrones 4
+0:49  2 de 2 entidades de control sin una sola alarma falsa
+0:56  El apetito por riesgo
+0:56  Lo que encontró
+0:56  El banco de Colombia en octubre con 6 señales abiertas: la cartera vencida de consumo por encima de su límite sin plan ni aprobación, el indicador de liquidez reportado fuera de plazo, sin dueño y con la revisión vencida, la continuidad del negocio calificada alta sin límite ni indicador y la declaración de apetito sin la revisi
+1:03  Los indicadores y los eventos
+1:03  El mismo banco: el fraude por millón de transacciones en alerta sin acción, un indicador sin valor en el periodo, un evento de pérdida incompleto, otro registrado fuera de plazo, el fraude con tarjeta repetido en los canales y un evento que no está en la matriz.
+1:10  Publica el estado del apetito y de los eventos para el comité. No recalcula nada.
+1:15  Código abierto · Apache 2.0
+1:16  1
+1:16  Agregar el marketplace
+1:16  /plugin marketplace add josenanez/criterio
+1:17  2
+1:17  Instalar la familia
+1:17  /plugin install criterio-cro@criterio
+1:18  Configurar y aceptar los términos
+1:18  /criterio-cro:cro-setup
+1:20  josenanez.com/agents/criterio-cro
