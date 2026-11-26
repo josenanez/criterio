@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "custodia",
+  "comando": "glossary-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:59:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 18,
+  "turnos": 7,
+  "tokens": 351996,
+  "tokens_salida": 1584,
+  "costo_usd": 0.1213925,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-glossary-check-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-glossary-check.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/gobierno/2026-11/reporte-glossary-check.md"
+    ],
+    "modificados": [
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

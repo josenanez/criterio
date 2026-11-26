@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/901666888-banco-control-de-datos-sintetico",
+  "inicio": "2026-11-26T13:08:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 18,
+  "tokens": 792934,
+  "tokens_salida": 7500,
+  "costo_usd": 0.5958319999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/901666888/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.sha256",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/calidad/2026-11/ficha.json",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/calidad/2026-11/resultados.json",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/901666888-banco-control-de-datos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "n": 1,
+  "agente": "custodia",
+  "comando": "governance-setup",
+  "argumento": "datos/rcm190305ab1-retail-central-sintetico",
+  "inicio": "2026-11-26T12:56:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 90,
+  "turnos": 26,
+  "tokens": 989926,
+  "tokens_salida": 11184,
+  "costo_usd": 0.7804638,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/gobierno/RCM190305AB1/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-governance-0.2.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "datos/rcm190305ab1-retail-central-sintetico/_CRITERIO_DATOS.txt",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/cache/00-referencia/glosario.xlsx.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/cache/00-referencia/politica_de_conservacion.pdf.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/cache/00-referencia/politica_de_datos.pdf.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/cache/20-informes/informe_junta_2026-10.pdf.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/cache/manifest.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-governance-setup-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-governance-setup.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/gobierno/2026-11/ficha.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/gobierno/2026-11/reporte-catalog-check.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/gobierno/2026-11/resultados.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

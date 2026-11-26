@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "ariadna",
+  "comando": "rule-check",
+  "argumento": "",
+  "inicio": "2026-11-26T13:18:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 10,
+  "tokens": 454934,
+  "tokens_salida": 2708,
+  "costo_usd": 0.1471154,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/calidad/2026-11/reporte-rule-check.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-rule-check-1.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-rule-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

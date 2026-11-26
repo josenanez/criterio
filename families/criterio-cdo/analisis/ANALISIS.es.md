@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CDO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cdo/` · ronda completa más reciente: 1 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cdo/` · ronda completa más reciente: 2 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 1, sobre las 5 entidades del material: 28 de 28 señales sembradas encontradas (margen del 95 %: 87,9–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda completa más reciente, la 2, sobre las 5 entidades del material: 94 de 94 señales sembradas encontradas (margen del 95 %: 96–100 %) y 0 de más; 348 de 348 datos extraídos bien (100 %, margen del 95 %: 98,9–100 %); y 2 de 2 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 28 de 28 señales encontradas, 0 de más y 30 de 30 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–2, 122 de 122 señales encontradas, 0 de más y 378 de 378 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 1; la completa más reciente es la 1 |
+| Rondas | 2; la completa más reciente es la 2 |
 | Material | Banca · Colombia, Retail · México, Seguros · Perú |
 | Entidades de control | Control · Colombia, Control · México |
-| Corridas de una entidad | 5 |
-| Señales sembradas | 28 |
-| Datos calificados | 30 |
+| Corridas de una entidad | 10 |
+| Señales sembradas | 122 |
+| Datos calificados | 378 |
 
-## Resultados acumulados · rondas 1–1
+## Resultados acumulados · rondas 1–2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 28 de 28 | 100 % | 87,9–100 % |
-| Señales · precisión | 28 de 28 | 100 % | 87,9–100 % |
-| Extracción · datos correctos | 30 de 30 | 100 % | 88,6–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 122 de 122 | 100 % | 96,9–100 % |
+| Señales · precisión | 122 de 122 | 100 % | 96,9–100 % |
+| Extracción · datos correctos | 378 de 378 | 100 % | 98,9–100 % |
+| Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
 
@@ -41,27 +41,28 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 31,5 M | 0 |
+| 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 33,5 M | 0 |
 
-## La ronda completa más reciente · ronda 1
+## La ronda completa más reciente · ronda 2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 28 de 28 | 100 % | 87,9–100 % |
-| Señales · precisión | 28 de 28 | 100 % | 87,9–100 % |
-| Extracción · datos correctos | 30 de 30 | 100 % | 88,6–100 % |
+| Señales · cobertura | 94 de 94 | 100 % | 96–100 % |
+| Señales · precisión | 94 de 94 | 100 % | 96–100 % |
+| Extracción · datos correctos | 348 de 348 | 100 % | 98,9–100 % |
 | Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
 
-## Por industria y país · ronda 1
+## Por industria y país · ronda 2
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Ariadna, Custodia | 14 de 14 | 0 | 6 de 6 | 6,4 M |
-| Retail · México | Ariadna, Custodia | 8 de 8 | 0 | 6 de 6 | 6,3 M |
-| Seguros · Perú | Ariadna, Custodia | 6 de 6 | 0 | 6 de 6 | 6,7 M |
-| Control · Colombia | Ariadna, Custodia | 0 de 0 | 0 | 6 de 6 | 5,9 M |
-| Control · México | Ariadna, Custodia | 0 de 0 | 0 | 6 de 6 | 6,3 M |
+| Banca · Colombia | Ariadna, Custodia | 40 de 40 | 0 | 104 de 104 | 6,7 M |
+| Retail · México | Ariadna, Custodia | 27 de 27 | 0 | 76 de 76 | 6,4 M |
+| Seguros · Perú | Ariadna, Custodia | 27 de 27 | 0 | 76 de 76 | 6,8 M |
+| Control · Colombia | Ariadna, Custodia | 0 de 0 | 0 | 46 de 46 | 6,6 M |
+| Control · México | Ariadna, Custodia | 0 de 0 | 0 | 46 de 46 | 7 M |
 
-## Lo que falló, uno por uno · rondas 1–1
+## Lo que falló, uno por uno · rondas 1–2
 
 Ninguna falla.
 
@@ -82,7 +83,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 31,5 millones de tokens: 31,5 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,3 millones por entidad.
+Las 2 rondas usaron 65 millones de tokens: 65 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,5 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

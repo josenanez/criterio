@@ -1,0 +1,19 @@
+{
+  "entidad": "Retail Control de Datos Sintético",
+  "agentes": [
+    "ariadna",
+    "custodia"
+  ],
+  "tokens": 6998837,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 46,
+    "bien": 46,
+    "mal": []
+  }
+}

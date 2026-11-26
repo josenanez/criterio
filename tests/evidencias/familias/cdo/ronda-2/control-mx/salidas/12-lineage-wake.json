@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "ariadna",
+  "comando": "lineage-wake",
+  "argumento": "",
+  "inicio": "2026-11-26T13:19:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 16,
+  "tokens": 655515,
+  "tokens_salida": 4437,
+  "costo_usd": 0.408532,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-lineage-scan-2.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-lineage-wake-1.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-lineage-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "borrados": []
+  }
+}

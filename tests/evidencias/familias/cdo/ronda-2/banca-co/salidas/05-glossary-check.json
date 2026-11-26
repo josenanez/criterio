@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "custodia",
+  "comando": "glossary-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:41:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 9,
+  "tokens": 357729,
+  "tokens_salida": 2784,
+  "costo_usd": 0.14960959999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-glossary-check-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-glossary-check.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/reporte-glossary-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

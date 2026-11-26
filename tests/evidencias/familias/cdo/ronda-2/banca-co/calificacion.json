@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Cordillera Sintético",
+  "agentes": [
+    "ariadna",
+    "custodia"
+  ],
+  "tokens": 6687844,
+  "senales": {
+    "esperadas": 40,
+    "acertadas": 40,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 104,
+    "bien": 104,
+    "mal": []
+  }
+}

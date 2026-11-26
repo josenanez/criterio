@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "custodia",
+  "comando": "governance-scan",
+  "argumento": "",
+  "inicio": "2026-11-26T12:40:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 15,
+  "tokens": 665721,
+  "tokens_salida": 5553,
+  "costo_usd": 0.4861,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-governance-scan-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-governance-scan.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/gobierno/2026-11/reporte-governance-scan.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

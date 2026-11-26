@@ -2,7 +2,7 @@
 
 **el agente del apetito por riesgo de la familia CRO** · plugin `criterio-risk-appetite`
 
-Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol todavía sin confirmar. **2 puertas · 17 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **2 puertas · 17 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-risk-appetite/riesgos.py selftest` | El motor de Severo y Casandra: cada exposición contra su límite, el marco y la matriz, y cada indicador y evento contra su umbral y su registro | 11 | 83 ms | verde |
-| `criterio-cro/evaluar.py` | Que Severo levante cada señal sembrada en el apetito y los límites, y ninguna en los controles | 6 | 65 ms | verde |
+| `criterio-risk-appetite/riesgos.py selftest` | El motor de Severo y Casandra: cada exposición contra su límite, el marco y la matriz, y cada indicador y evento contra su umbral y su registro | 11 | 55 ms | verde |
+| `criterio-cro/evaluar.py` | Que Severo levante cada señal sembrada en el apetito y los límites, y ninguna en los controles | 6 | 74 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "ariadna",
+  "comando": "figure-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:45:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 7,
+  "tokens": 355996,
+  "tokens_salida": 2733,
+  "costo_usd": 0.1502925,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-figure-check-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-figure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

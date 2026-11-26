@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "custodia",
+  "comando": "governance-wake",
+  "argumento": "",
+  "inicio": "2026-11-26T12:59:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 15,
+  "tokens": 604793,
+  "tokens_salida": 5714,
+  "costo_usd": 0.42838360000000003,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-governance-scan-2.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-governance-wake-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-governance-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-governance-scan.md"
+    ],
+    "borrados": []
+  }
+}

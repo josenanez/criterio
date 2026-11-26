@@ -1,10 +1,11 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/cdo",
-  "ultima_ronda": 1,
+  "ultima_ronda": 2,
   "completa": true,
   "rondas": [
-   1
+   1,
+   2
   ]
  },
  "secciones": [
@@ -16,12 +17,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda completa más reciente, la 1, sobre las 5 entidades del material: 28 de 28 señales sembradas encontradas (margen del 95 %: 87,9–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–1, 28 de 28 señales encontradas, 0 de más y 30 de 30 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda completa más reciente, la 2, sobre las 5 entidades del material: 94 de 94 señales sembradas encontradas (margen del 95 %: 96–100 %) y 0 de más; 348 de 348 datos extraídos bien (100 %, margen del 95 %: 98,9–100 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–2, 122 de 122 señales encontradas, 0 de más y 378 de 378 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent complete round, round 1, on the material's 5 entities: 28 of 28 seeded signals found (95% margin: 87.9–100%) and 0 extra; 30 of 30 data items extracted right (100%, 95% margin: 88.6–100%); and 2 of 2 control entities with no signal at all.",
-     "Across rounds 1–1, 28 of 28 signals found, 0 extra and 30 of 30 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent complete round, round 2, on the material's 5 entities: 94 of 94 seeded signals found (95% margin: 96–100%) and 0 extra; 348 of 348 data items extracted right (100%, 95% margin: 98.9–100%); and 2 of 2 control entities with no signal at all.",
+     "Across rounds 1–2, 122 of 122 signals found, 0 extra and 378 of 378 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -46,7 +47,7 @@
      "es": [
       [
        "Rondas",
-       "1; la completa más reciente es la 1"
+       "2; la completa más reciente es la 2"
       ],
       [
        "Material",
@@ -58,21 +59,21 @@
       ],
       [
        "Corridas de una entidad",
-       "5"
+       "10"
       ],
       [
        "Señales sembradas",
-       "28"
+       "122"
       ],
       [
        "Datos calificados",
-       "30"
+       "378"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "1; the most recent complete one is round 1"
+       "2; the most recent complete one is round 2"
       ],
       [
        "Material",
@@ -84,15 +85,15 @@
       ],
       [
        "Entity runs",
-       "5"
+       "10"
       ],
       [
        "Seeded signals",
-       "28"
+       "122"
       ],
       [
        "Data items graded",
-       "30"
+       "378"
       ]
      ]
     }
@@ -111,8 +112,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–1",
-    "en": "Cumulative results · rounds 1–1"
+    "es": "Resultados acumulados · rondas 1–2",
+    "en": "Cumulative results · rounds 1–2"
    },
    "tabla": {
     "cab": {
@@ -133,53 +134,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "28 de 28",
+       "122 de 122",
        "100 %",
-       "87,9–100 %"
+       "96,9–100 %"
       ],
       [
        "Señales · precisión",
-       "28 de 28",
+       "122 de 122",
        "100 %",
-       "87,9–100 %"
+       "96,9–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "30 de 30",
+       "378 de 378",
        "100 %",
-       "88,6–100 %"
+       "98,9–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "2 de 2",
+       "4 de 4",
        "100 %",
-       "34,2–100 %"
+       "51–100 %"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "28 of 28",
+       "122 of 122",
        "100%",
-       "87.9–100%"
+       "96.9–100%"
       ],
       [
        "Signals · precision",
-       "28 of 28",
+       "122 of 122",
        "100%",
-       "87.9–100%"
+       "96.9–100%"
       ],
       [
        "Extraction · data right",
-       "30 of 30",
+       "378 of 378",
        "100%",
-       "88.6–100%"
+       "98.9–100%"
       ],
       [
        "Control · with no signal",
-       "2 of 2",
+       "4 of 4",
        "100%",
-       "34.2–100%"
+       "51–100%"
       ]
      ]
     }
@@ -229,6 +230,16 @@
        "2 de 2",
        "31,5 M",
        "0"
+      ],
+      [
+       "2",
+       "5",
+       "100 %",
+       "100 %",
+       "100 %",
+       "2 de 2",
+       "33,5 M",
+       "0"
       ]
      ],
      "en": [
@@ -241,6 +252,16 @@
        "2 of 2",
        "31.5 M",
        "0"
+      ],
+      [
+       "2",
+       "5",
+       "100%",
+       "100%",
+       "100%",
+       "2 of 2",
+       "33.5 M",
+       "0"
       ]
      ]
     }
@@ -249,8 +270,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda completa más reciente · ronda 1",
-    "en": "The most recent complete round · round 1"
+    "es": "La ronda completa más reciente · ronda 2",
+    "en": "The most recent complete round · round 2"
    },
    "tabla": {
     "cab": {
@@ -271,21 +292,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "28 de 28",
+       "94 de 94",
        "100 %",
-       "87,9–100 %"
+       "96–100 %"
       ],
       [
        "Señales · precisión",
-       "28 de 28",
+       "94 de 94",
        "100 %",
-       "87,9–100 %"
+       "96–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "30 de 30",
+       "348 de 348",
        "100 %",
-       "88,6–100 %"
+       "98,9–100 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -297,21 +318,21 @@
      "en": [
       [
        "Signals · coverage",
-       "28 of 28",
+       "94 of 94",
        "100%",
-       "87.9–100%"
+       "96–100%"
       ],
       [
        "Signals · precision",
-       "28 of 28",
+       "94 of 94",
        "100%",
-       "87.9–100%"
+       "96–100%"
       ],
       [
        "Extraction · data right",
-       "30 of 30",
+       "348 of 348",
        "100%",
-       "88.6–100%"
+       "98.9–100%"
       ],
       [
        "Control · with no signal",
@@ -326,8 +347,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 1",
-    "en": "By industry and country · round 1"
+    "es": "Por industria y país · ronda 2",
+    "en": "By industry and country · round 2"
    },
    "tabla": {
     "cab": {
@@ -353,84 +374,84 @@
       [
        "Banca · Colombia",
        "Ariadna, Custodia",
-       "14 de 14",
+       "40 de 40",
        "0",
-       "6 de 6",
-       "6,4 M"
+       "104 de 104",
+       "6,7 M"
       ],
       [
        "Retail · México",
        "Ariadna, Custodia",
-       "8 de 8",
+       "27 de 27",
        "0",
-       "6 de 6",
-       "6,3 M"
+       "76 de 76",
+       "6,4 M"
       ],
       [
        "Seguros · Perú",
        "Ariadna, Custodia",
-       "6 de 6",
+       "27 de 27",
        "0",
-       "6 de 6",
-       "6,7 M"
+       "76 de 76",
+       "6,8 M"
       ],
       [
        "Control · Colombia",
        "Ariadna, Custodia",
        "0 de 0",
        "0",
-       "6 de 6",
-       "5,9 M"
+       "46 de 46",
+       "6,6 M"
       ],
       [
        "Control · México",
        "Ariadna, Custodia",
        "0 de 0",
        "0",
-       "6 de 6",
-       "6,3 M"
+       "46 de 46",
+       "7 M"
       ]
      ],
      "en": [
       [
        "Banking · Colombia",
        "Ariadna, Custodia",
-       "14 of 14",
+       "40 of 40",
        "0",
-       "6 of 6",
-       "6.4 M"
+       "104 of 104",
+       "6.7 M"
       ],
       [
        "Retail · Mexico",
        "Ariadna, Custodia",
-       "8 of 8",
+       "27 of 27",
        "0",
-       "6 of 6",
-       "6.3 M"
+       "76 of 76",
+       "6.4 M"
       ],
       [
        "Insurance · Peru",
        "Ariadna, Custodia",
-       "6 of 6",
+       "27 of 27",
        "0",
-       "6 of 6",
-       "6.7 M"
+       "76 of 76",
+       "6.8 M"
       ],
       [
        "Control · Colombia",
        "Ariadna, Custodia",
        "0 of 0",
        "0",
-       "6 of 6",
-       "5.9 M"
+       "46 of 46",
+       "6.6 M"
       ],
       [
        "Control · Mexico",
        "Ariadna, Custodia",
        "0 of 0",
        "0",
-       "6 of 6",
-       "6.3 M"
+       "46 of 46",
+       "7 M"
       ]
      ]
     }
@@ -439,8 +460,8 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–1",
-    "en": "What failed, one by one · rounds 1–1"
+    "es": "Lo que falló, uno por uno · rondas 1–2",
+    "en": "What failed, one by one · rounds 1–2"
    },
    "parrafos": {
     "es": [
@@ -534,11 +555,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 1 rondas usaron 31,5 millones de tokens: 31,5 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,3 millones por entidad.",
+     "Las 2 rondas usaron 65 millones de tokens: 65 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,5 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 1 rounds used 31.5 million tokens: 31.5 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 6.3 million per entity.",
+     "The 2 rounds used 65 million tokens: 65 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 6.5 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

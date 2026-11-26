@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "custodia",
+  "comando": "retention-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:58:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 404716,
+  "tokens_salida": 2038,
+  "costo_usd": 0.1319234,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-retention-check-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-retention-check.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/gobierno/2026-11/reporte-retention-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

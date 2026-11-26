@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/rcm190305ab1-retail-central-sintetico",
+  "inicio": "2026-11-26T13:00:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 88,
+  "turnos": 18,
+  "tokens": 730665,
+  "tokens_salida": 11404,
+  "costo_usd": 0.6845148,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/RCM190305AB1/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-0.2.0-2026-11-25.sha256",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/calidad/2026-11/ficha.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/calidad/2026-11/resultados.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/rcm190305ab1-retail-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

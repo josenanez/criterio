@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "custodia",
+  "comando": "catalog-check",
+  "argumento": "",
+  "inicio": "2026-11-26T13:14:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 400467,
+  "tokens_salida": 2028,
+  "costo_usd": 0.1282327,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/2026-11-25-catalog-check-1.md",
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas/salida-catalog-check.md"
+    ],
+    "modificados": [
+      "estado-datos/rcc200101cd2-retail-control-de-datos-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

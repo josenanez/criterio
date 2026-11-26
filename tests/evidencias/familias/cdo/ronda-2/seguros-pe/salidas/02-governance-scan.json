@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "custodia",
+  "comando": "governance-scan",
+  "argumento": "",
+  "inicio": "2026-11-26T12:49:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 42,
+  "turnos": 15,
+  "tokens": 591499,
+  "tokens_salida": 4773,
+  "costo_usd": 0.40678879999999995,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-governance-scan-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-governance-scan.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/gobierno/2026-11/reporte-governance-scan.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/indice.json"
+    ],
+    "modificados": [
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

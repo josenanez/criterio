@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "custodia",
+  "comando": "glossary-check",
+  "argumento": "",
+  "inicio": "2026-11-26T12:50:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 9,
+  "tokens": 454708,
+  "tokens_salida": 2502,
+  "costo_usd": 0.13980789999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/2026-11-25-glossary-check-1.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas/salida-glossary-check.md",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/gobierno/2026-11/reporte-glossary-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/20605557771-aseguradora-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

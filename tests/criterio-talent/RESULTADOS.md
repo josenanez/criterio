@@ -2,7 +2,7 @@
 
 **el agente de la selección de la familia CHRO** · plugin `criterio-talent`
 
-Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-26, sobre el commit `13c6f66a`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-chro/evaluar.py` | Que Cándido levante cada señal sembrada en la selección, ninguna de más, y que cada par de sesgo dé exactamente lo mismo | 6 | 79 ms | verde |
+| `criterio-chro/evaluar.py` | Que Cándido levante cada señal sembrada en la selección, ninguna de más, y que cada par de sesgo dé exactamente lo mismo | 6 | 76 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

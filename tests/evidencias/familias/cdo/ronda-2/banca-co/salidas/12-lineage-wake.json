@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "ariadna",
+  "comando": "lineage-wake",
+  "argumento": "",
+  "inicio": "2026-11-26T12:47:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 15,
+  "tokens": 685844,
+  "tokens_salida": 6473,
+  "costo_usd": 0.5323258,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-lineage-scan-2.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/2026-11-25-lineage-wake-1.md",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-lineage-wake.md"
+    ],
+    "modificados": [
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas.json",
+      "estado-datos/901555777-banco-cordillera-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "borrados": []
+  }
+}
