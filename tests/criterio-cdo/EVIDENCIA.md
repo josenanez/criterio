@@ -9,9 +9,9 @@ ninguna entidad trae un dato personal: el catálogo dice qué conjunto los tiene
 
 | Carpeta del material | País | Industria | Señales esperadas |
 |---|---|---|---:|
-| `banca-co` | Colombia | banca | 14 |
-| `seguros-pe` | Perú | seguros | 6 |
-| `retail-mx` | México | retail | 8 |
+| `banca-co` | Colombia | banca | 40 |
+| `seguros-pe` | Perú | seguros | 27 |
+| `retail-mx` | México | retail | 27 |
 | `control-co` | Colombia | banca | 0 |
 | `control-mx` | México | retail | 0 |
 
@@ -23,8 +23,9 @@ los datos críticos en Excel.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
-La lista exacta está en la clave de cada entidad, en `esperado`. Las trece señales se siembran al menos una
-vez.
+La lista exacta está en la clave de cada entidad, en `esperado`. Las tres entidades sembradas traen las trece
+señales: el banco, cada una tres veces, y la aseguradora y el retail, dos. Cada repetición va en su propia
+fila —otro conjunto, otra cifra, otra regla, otra política—, y la tabla dice la primera.
 
 | Agente | Lo que se siembra | Señal |
 |---|---|---|
@@ -42,6 +43,15 @@ vez.
 | Ariadna | Una regla sobre un dato crítico sin resultado en noviembre | `quality_rule_not_run` |
 | Ariadna | Un dato crítico que ninguna regla mide | `critical_data_without_rule` |
 
+Las repeticiones: los pagos a proveedores y las campañas sin dueño; los contratos con proveedores y el
+inventario de activos sin clasificar; la política de conservación y la de calidad de datos con la revisión
+vencida; candidatos a prácticas y proveedores históricos conservados más allá de su plazo; el costo de
+adquisición y la tasa de retención, que el glosario no define; los beneficiarios y los visitantes, con datos
+personales y sin registro; el índice de satisfacción y la participación de mercado sin fuente; los depósitos
+y los gastos operacionales por encima de su fuente; las colocaciones y las provisiones de septiembre con el
+corte de octubre; el linaje de las ventas netas y del margen operacional roto en su segundo paso; dos reglas
+por debajo de su umbral, dos sobre datos críticos sin correr y dos datos críticos sin regla.
+
 ## Lo que se parece a un defecto y no lo es
 
 En las entidades de control: una política que se revisa el mes que viene, datos de candidatos justo dentro
@@ -54,6 +64,8 @@ corrida sobre un dato que no es crítico. Ninguno puede levantar una señal.
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que la agente
   procese las políticas, los plazos, los términos y las cifras de los informes y los registre bien lo
   prueba la ronda con las agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cdo/RONDAS.md).
+  Desde la ronda 2, cada política, cada plazo, cada término y cada cifra se califican por separado, campo por
+  campo.
 - **Las exportaciones reales** de Collibra, Alation, Microsoft Purview o Informatica: el material usa tablas
   con columnas en español; el setup mapea las de cualquier exportación.
 - **La ley de cada país** sobre el registro de bases de datos personales: está por verificar, país por país;

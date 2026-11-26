@@ -18,6 +18,10 @@ queda escrita en `clave.json`, junto con lo que la agente tendría que extraer d
 cifra con su corte— y la configuración que deja el setup. El motor no la ve; `evaluar.py` compara lo que
 el motor levanta contra ella, y una señal de más cuenta igual que una de menos.
 
+**Cuántas veces.** El banco trae cada defecto tres veces y la aseguradora y el retail, dos (`veces`), cada
+repetición en su propia fila (`REP`). Así la familia pasa de 73 señales sembradas, la muestra que pide el piso
+del 95 % sin fallas (decisión 0020).
+
 **Las entidades de control no tienen ningún defecto**, y sí los casos que se parecen a uno: una política
 que se revisa el mes que viene, un conjunto que conserva datos justo dentro de su plazo, un término del
 informe escrito con otras mayúsculas que el del glosario, una cifra que difiere de su fuente dentro de la
@@ -41,18 +45,38 @@ import formatos as FMT  # noqa: E402  (Word, Excel y PDF sin dependencias y con 
 SALIDA = AQUI / "material"
 HOY, PERIODO = dt.date(2026, 11, 25), "2026-11"
 TOLERANCIA = 0.5
+TODAS = {"dueno", "clasificacion", "politica", "conservacion", "termino", "personales",
+         "sin_fuente", "cifra", "corte", "linaje", "umbral", "corrida", "sin_regla"}
 
 ENTIDADES = [
     {"carpeta": "banca-co", "industria": "banca", "pais": "CO", "id": "901555777", "nombre": "Banco Cordillera Sintético", "moneda": "COP",
-     "siembra": {"dueno", "clasificacion", "politica", "conservacion", "termino", "personales",
-                 "sin_fuente", "cifra", "corte", "linaje", "umbral", "corrida", "sin_regla"}},
+     "siembra": set(TODAS), "veces": 3},
     {"carpeta": "seguros-pe", "industria": "seguros", "pais": "PE", "id": "20605557771", "nombre": "Aseguradora Pacífico Sintética", "moneda": "PEN",
-     "siembra": {"dueno", "conservacion", "personales", "cifra", "linaje", "corrida"}},
+     "siembra": set(TODAS), "veces": 2},
     {"carpeta": "retail-mx", "industria": "retail", "pais": "MX", "id": "RCM190305AB1", "nombre": "Retail Central Sintético", "moneda": "MXN",
-     "siembra": {"clasificacion", "politica", "termino", "sin_fuente", "corte", "umbral", "sin_regla"}},
-    {"carpeta": "control-co", "industria": "banca", "pais": "CO", "id": "901666888", "nombre": "Banco Control de Datos Sintético", "moneda": "COP", "siembra": set()},
-    {"carpeta": "control-mx", "industria": "retail", "pais": "MX", "id": "RCC200101CD2", "nombre": "Retail Control de Datos Sintético", "moneda": "MXN", "siembra": set()},
+     "siembra": set(TODAS), "veces": 2},
+    {"carpeta": "control-co", "industria": "banca", "pais": "CO", "id": "901666888", "nombre": "Banco Control de Datos Sintético", "moneda": "COP",
+     "siembra": set(), "veces": 1},
+    {"carpeta": "control-mx", "industria": "retail", "pais": "MX", "id": "RCC200101CD2", "nombre": "Retail Control de Datos Sintético", "moneda": "MXN",
+     "siembra": set(), "veces": 1},
 ]
+
+# Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia fila.
+REP = {
+    "dueno": {2: ("DS-12", "Pagos a proveedores", "Transaccional"), 3: ("DS-13", "Campañas de mercadeo", "Transaccional")},
+    "clasificacion": {2: ("DS-22", "Contratos con proveedores", "Proveedores"), 3: ("DS-23", "Inventario de activos", "Transaccional")},
+    "personales": {2: ("DS-32", "Beneficiarios", "Clientes"), 3: ("DS-33", "Visitantes de las sedes", "Clientes")},
+    "conservacion": {2: ("DS-42", "Candidatos a prácticas", "Candidatos", "2022-01-01"), 3: ("DS-43", "Proveedores históricos", "Proveedores", "2019-01-01")},
+    "termino": {2: ("Costo de adquisición", 185_000), 3: ("Tasa de retención", 87.5)},
+    "sin_fuente": {2: ("Índice de satisfacción", 8.1), 3: ("Participación de mercado", 12.5)},
+    "cifra": {2: ("Depósitos", 5_000_000_000, 5_100_000_000), 3: ("Gastos operacionales", 2_000_000_000, 2_060_000_000)},
+    "corte": {2: ("Colocaciones", 7_800_000_000, 7_600_000_000), 3: ("Provisiones", 640_000_000, 610_000_000)},
+    "linaje": {2: "Ventas netas", 3: "Margen operacional"},
+    "umbral": {2: ("RQ-12", "Cliente.correo", 95, 91.0), 3: ("RQ-13", "Movimiento.fecha", 99, 97.5)},
+    "corrida": {2: ("RQ-22", "Cuenta.saldo", 99), 3: ("RQ-23", "Crédito.tasa", 98)},
+    "sin_regla": {2: "Cliente.ingresos", 3: "Garantía.valor"},
+    "politica": {2: ("Política de conservación", "politica_de_conservacion"), 3: ("Política de calidad de datos", "politica_de_calidad_de_datos")},
+}
 
 
 def _pdf(md: str, ruta: Path) -> None:
@@ -78,6 +102,11 @@ def _pesos(x: float) -> str:
 def construir(e: dict) -> dict:
     """La carpeta de una entidad y su clave."""
     s = e["siembra"]
+
+    def veces(tipo: str) -> list[int]:
+        """Las repeticiones de un defecto sembrado, cada una en su propia fila."""
+        return list(range(2, e["veces"] + 1)) if tipo in s else []
+
     raiz = SALIDA / e["carpeta"]
     nombre_carpeta = f"{e['id'].lower()}-{_norm(e['nombre']).replace('_', '-')}"
     docs = raiz / "datos" / nombre_carpeta
@@ -94,17 +123,31 @@ def construir(e: dict) -> dict:
          "Cada conjunto del catálogo tiene un dueño de negocio y una clasificación de confidencialidad: pública, interna, confidencial o restringida.\n\n"
          f"Una cifra de un informe de dirección no puede diferir de su fuente en más del {TOLERANCIA:g} % al mismo corte.\n",
          docs / "00-referencia" / "politica_de_datos.pdf")
-    _pdf(f"# Política de conservación · {e['nombre']}\n\nAprobada por la junta directiva el 2025-09-01.\n\nPróxima revisión: 2027-09-01.\n\n"
+    revision_cons = "2026-03-01" if 2 in veces("politica") else "2027-09-01"
+    for i in veces("politica"):
+        esp("policy_review_overdue", f"politica:{REP['politica'][i][1]}")
+    _pdf(f"# Política de conservación · {e['nombre']}\n\nAprobada por la junta directiva el 2025-09-01.\n\nPróxima revisión: {revision_cons}.\n\n"
          "## Plazos de conservación\n\n- Clientes: 120 meses.\n- Transaccional: 120 meses.\n- Candidatos: 24 meses.\n- Proveedores: 60 meses.\n",
          docs / "00-referencia" / "politica_de_conservacion.pdf")
+    if 3 in veces("politica"):
+        _pdf(f"# Política de calidad de datos · {e['nombre']}\n\nAprobada por la junta directiva el 2023-05-15.\n\nPróxima revisión: 2025-05-15.\n\n"
+             "Cada dato crítico tiene al menos una regla de calidad, con su umbral, que corre cada mes.\n",
+             docs / "00-referencia" / "politica_de_calidad_de_datos.pdf")
+    # Las cifras que se agregan al informe con las repeticiones: las que el glosario sí define.
+    glosario_extra = ([[REP["sin_fuente"][i][0], "Indicador de gestión del informe", "Planeación"] for i in veces("sin_fuente")]
+                      + [[REP["cifra"][i][0], "Saldo al cierre del mes", "Finanzas"] for i in veces("cifra")]
+                      + [[REP["corte"][i][0], "Saldo al cierre del mes", "Finanzas"] for i in veces("corte")])
     _xlsx([["Término", "Definición", "Dueño"],
            ["Cartera vencida", "Saldo de los créditos con más de 30 días de mora", "Riesgo"],
            ["Clientes activos", "Clientes con al menos una transacción en los últimos 90 días", "Comercial"],
            ["Ventas netas", "Ventas menos devoluciones y descuentos", "Finanzas"]] +
-          ([] if "termino" in s else [["Margen operacional", "Utilidad operacional sobre ingresos", "Finanzas"]]),
+          ([] if "termino" in s else [["Margen operacional", "Utilidad operacional sobre ingresos", "Finanzas"]]) + glosario_extra,
           docs / "00-referencia" / "glosario.xlsx")
     politicas = [{"name": "Política de datos", "approved": "2024-06-30", "next_review": revision_datos, "source": "00-referencia/politica_de_datos.pdf"},
-                 {"name": "Política de conservación", "approved": "2025-09-01", "next_review": "2027-09-01", "source": "00-referencia/politica_de_conservacion.pdf"}]
+                 {"name": "Política de conservación", "approved": "2025-09-01", "next_review": revision_cons, "source": "00-referencia/politica_de_conservacion.pdf"}]
+    if 3 in veces("politica"):
+        politicas.append({"name": "Política de calidad de datos", "approved": "2023-05-15", "next_review": "2025-05-15",
+                          "source": "00-referencia/politica_de_calidad_de_datos.pdf"})
     plazos = [{"type": t, "months": n, "source": "00-referencia/politica_de_conservacion.pdf"}
               for t, n in (("Clientes", 120), ("Transaccional", 120), ("Candidatos", 24), ("Proveedores", 60))]
 
@@ -119,6 +162,22 @@ def construir(e: dict) -> dict:
            ["DS-03", "Proveedores", "Compras", "" if "clasificacion" in s else "Interna", "Proveedores", "Sí", "2023-01-01", "ERP"],
            ["DS-04", "Candidatos", "Gestión humana", "Confidencial", "Candidatos", "Sí", cand, "ATS"],
            ["DS-05", "Indicadores de gestión", "Planeación", "Interna", "Transaccional", "No", "2020-01-01", "Bodega"]]
+    for i in veces("dueno"):
+        cid, nom, tipo = REP["dueno"][i]
+        cat.append([cid, nom, "", "Interna", tipo, "No", "2024-01-01", "ERP"])
+        esp("dataset_without_owner", f"dueno:{cid}")
+    for i in veces("clasificacion"):
+        cid, nom, tipo = REP["clasificacion"][i]
+        cat.append([cid, nom, "Compras", "", tipo, "No", "2024-01-01", "ERP"])
+        esp("dataset_without_classification", f"clasificacion:{cid}")
+    for i in veces("personales"):
+        cid, nom, tipo = REP["personales"][i]
+        cat.append([cid, nom, "Gerencia comercial", "Confidencial", tipo, "Sí", "2022-01-01", "CRM"])
+        esp("personal_data_unregistered", f"personales:{cid}")
+    for i in veces("conservacion"):
+        cid, nom, tipo, antiguo = REP["conservacion"][i]
+        cat.append([cid, nom, "Gestión humana" if tipo == "Candidatos" else "Compras", "Interna", tipo, "No", antiguo, "Archivo"])
+        esp("retention_exceeded", f"conservacion:{cid}")
     if "dueno" in s:
         esp("dataset_without_owner", "dueno:DS-02")
     if "clasificacion" in s:
@@ -148,7 +207,26 @@ def construir(e: dict) -> dict:
         esp("cutoff_mismatch", "corte:informe_junta_2026_10:cartera_vencida")
     if "cifra" in s:
         esp("figure_differs_from_source", "cifra:informe_junta_2026_10:ventas_netas")
+    for i in veces("cifra"):
+        nom, fte, rep_ = REP["cifra"][i]
+        fuente[nom] = {corte: fte, anterior: round(fte * 0.97)}
+        cifras[nom] = rep_
+        esp("figure_differs_from_source", f"cifra:informe_junta_2026_10:{_norm(nom)}")
+    for i in veces("corte"):
+        nom, fte, ant = REP["corte"][i]
+        fuente[nom] = {corte: fte, anterior: ant}
+        cifras[nom] = ant
+        esp("cutoff_mismatch", f"corte:informe_junta_2026_10:{_norm(nom)}")
+    for i in veces("termino"):                         # en la fuente y bien, pero el glosario no la define
+        nom, v = REP["termino"][i]
+        fuente[nom] = {corte: v, anterior: v}
+        cifras[nom] = v
+        esp("term_not_in_glossary", f"termino:{_norm(nom)}")
     lineas = [(k, v) for k, v in cifras.items()]
+    for i in veces("sin_fuente"):                      # el glosario la define, y nada la sostiene
+        nom, v = REP["sin_fuente"][i]
+        lineas.append((nom, v))
+        esp("figure_without_source", f"fuente:informe_junta_2026_10:{_norm(nom)}")
     if "sin_fuente" in s:
         lineas.append(("Índice de rotación", 4.2))
         esp("figure_without_source", "fuente:informe_junta_2026_10:indice_de_rotacion")
@@ -171,11 +249,16 @@ def construir(e: dict) -> dict:
            ["Ventas netas", "1", "ERP", "DS-05"], ["Margen operacional", "1", "ERP", "DS-05"]]
     if "linaje" in s:
         esp("lineage_broken", "linaje:clientes_activos:2")
+    for i in veces("linaje"):                          # el segundo paso, sin su sistema de origen
+        lin.append([REP["linaje"][i], "2", "", "DS-05"])
+        esp("lineage_broken", f"linaje:{_norm(REP['linaje'][i])}:2")
     _xlsx(lin, docs / "30-calidad" / "linaje.xlsx")
     _xlsx([["Indicador", "Corte", "Valor"]] + [[k, c, v] for k, vs in fuente.items() for c, v in sorted(vs.items(), reverse=True)],
           docs / "30-calidad" / "cifras_fuente.xlsx")
     reglas = [["Regla", "Dato", "Umbral"], ["RQ-01", "Cliente.documento", 99], ["RQ-02", "Movimiento.valor", 98], ["RQ-03", "Crédito.fecha_desembolso", 97],
               ["RQ-04", "Proveedor.correo", 90]]
+    reglas += [[REP["umbral"][i][0], REP["umbral"][i][1], REP["umbral"][i][2]] for i in veces("umbral")]
+    reglas += [[REP["corrida"][i][0], REP["corrida"][i][1], REP["corrida"][i][2]] for i in veces("corrida")]
     _xlsx(reglas, docs / "30-calidad" / "reglas_calidad.xlsx")
     resultados = [["Regla", "Periodo", "Resultado"], ["RQ-01", PERIODO, 99.6], ["RQ-02", PERIODO, 96.1 if "umbral" in s else 98.0]]
     if "umbral" in s:
@@ -184,9 +267,18 @@ def construir(e: dict) -> dict:
         resultados.append(["RQ-03", PERIODO, 97.4])
     else:
         esp("quality_rule_not_run", "corrida:RQ-03")
+    for i in veces("umbral"):
+        resultados.append([REP["umbral"][i][0], PERIODO, REP["umbral"][i][3]])
+        esp("quality_rule_below_threshold", f"umbral:{REP['umbral'][i][0]}")
+    for i in veces("corrida"):
+        esp("quality_rule_not_run", f"corrida:{REP['corrida'][i][0]}")
     # RQ-04 no corrió, y Proveedor.correo no es crítico: no es una señal.
     _xlsx(resultados, docs / "30-calidad" / "resultados_calidad.xlsx")
     criticos = [["Dato", "Dueño"], ["Cliente.documento", "Comercial"], ["Movimiento.valor", "Operaciones"], ["Crédito.fecha_desembolso", "Crédito"]]
+    criticos += [[REP["corrida"][i][1], "Finanzas"] for i in veces("corrida")]
+    for i in veces("sin_regla"):
+        criticos.append([REP["sin_regla"][i], "Riesgo"])
+        esp("critical_data_without_rule", f"critico:{_norm(REP['sin_regla'][i])}")
     if "sin_regla" in s:
         criticos.append(["Crédito.calificación", "Riesgo"])
         esp("critical_data_without_rule", "critico:credito_calificacion")

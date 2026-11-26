@@ -71,8 +71,14 @@
         {
           "name": "Política de conservación",
           "approved": "2025-09-01",
-          "next_review": "2027-09-01",
+          "next_review": "2026-03-01",
           "source": "00-referencia/politica_de_conservacion.pdf"
+        },
+        {
+          "name": "Política de calidad de datos",
+          "approved": "2023-05-15",
+          "next_review": "2025-05-15",
+          "source": "00-referencia/politica_de_calidad_de_datos.pdf"
         }
       ],
       "retention": [
@@ -115,6 +121,38 @@
           "source": "20-informes/informe_junta_2026-10.pdf"
         },
         {
+          "term": "Depósitos",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Gastos operacionales",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Colocaciones",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Provisiones",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Costo de adquisición",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Tasa de retención",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Índice de satisfacción",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "term": "Participación de mercado",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
           "term": "Índice de rotación",
           "source": "20-informes/informe_junta_2026-10.pdf"
         }
@@ -149,6 +187,54 @@
           "source": "20-informes/informe_junta_2026-10.pdf"
         },
         {
+          "indicator": "Depósitos",
+          "value": 5100000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Gastos operacionales",
+          "value": 2060000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Colocaciones",
+          "value": 7600000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Provisiones",
+          "value": 610000000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Costo de adquisición",
+          "value": 185000,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Tasa de retención",
+          "value": 87.5,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Índice de satisfacción",
+          "value": 8.1,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
+          "indicator": "Participación de mercado",
+          "value": 12.5,
+          "cutoff": "2026-10-31",
+          "source": "20-informes/informe_junta_2026-10.pdf"
+        },
+        {
           "indicator": "Índice de rotación",
           "value": 4.2,
           "cutoff": "2026-10-31",
@@ -162,19 +248,59 @@
   "esperado": [
     {
       "signal": "critical_data_without_rule",
+      "key": "critico:cliente_ingresos"
+    },
+    {
+      "signal": "critical_data_without_rule",
       "key": "critico:credito_calificacion"
+    },
+    {
+      "signal": "critical_data_without_rule",
+      "key": "critico:garantia_valor"
     },
     {
       "signal": "cutoff_mismatch",
       "key": "corte:informe_junta_2026_10:cartera_vencida"
     },
     {
+      "signal": "cutoff_mismatch",
+      "key": "corte:informe_junta_2026_10:colocaciones"
+    },
+    {
+      "signal": "cutoff_mismatch",
+      "key": "corte:informe_junta_2026_10:provisiones"
+    },
+    {
       "signal": "dataset_without_classification",
       "key": "clasificacion:DS-03"
     },
     {
+      "signal": "dataset_without_classification",
+      "key": "clasificacion:DS-22"
+    },
+    {
+      "signal": "dataset_without_classification",
+      "key": "clasificacion:DS-23"
+    },
+    {
       "signal": "dataset_without_owner",
       "key": "dueno:DS-02"
+    },
+    {
+      "signal": "dataset_without_owner",
+      "key": "dueno:DS-12"
+    },
+    {
+      "signal": "dataset_without_owner",
+      "key": "dueno:DS-13"
+    },
+    {
+      "signal": "figure_differs_from_source",
+      "key": "cifra:informe_junta_2026_10:depositos"
+    },
+    {
+      "signal": "figure_differs_from_source",
+      "key": "cifra:informe_junta_2026_10:gastos_operacionales"
     },
     {
       "signal": "figure_differs_from_source",
@@ -185,12 +311,44 @@
       "key": "fuente:informe_junta_2026_10:indice_de_rotacion"
     },
     {
+      "signal": "figure_without_source",
+      "key": "fuente:informe_junta_2026_10:indice_de_satisfaccion"
+    },
+    {
+      "signal": "figure_without_source",
+      "key": "fuente:informe_junta_2026_10:participacion_de_mercado"
+    },
+    {
       "signal": "lineage_broken",
       "key": "linaje:clientes_activos:2"
     },
     {
+      "signal": "lineage_broken",
+      "key": "linaje:margen_operacional:2"
+    },
+    {
+      "signal": "lineage_broken",
+      "key": "linaje:ventas_netas:2"
+    },
+    {
       "signal": "personal_data_unregistered",
       "key": "personales:DS-03"
+    },
+    {
+      "signal": "personal_data_unregistered",
+      "key": "personales:DS-32"
+    },
+    {
+      "signal": "personal_data_unregistered",
+      "key": "personales:DS-33"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:politica_de_calidad_de_datos"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:politica_de_conservacion"
     },
     {
       "signal": "policy_review_overdue",
@@ -201,12 +359,40 @@
       "key": "umbral:RQ-02"
     },
     {
+      "signal": "quality_rule_below_threshold",
+      "key": "umbral:RQ-12"
+    },
+    {
+      "signal": "quality_rule_below_threshold",
+      "key": "umbral:RQ-13"
+    },
+    {
       "signal": "quality_rule_not_run",
       "key": "corrida:RQ-03"
     },
     {
+      "signal": "quality_rule_not_run",
+      "key": "corrida:RQ-22"
+    },
+    {
+      "signal": "quality_rule_not_run",
+      "key": "corrida:RQ-23"
+    },
+    {
       "signal": "retention_exceeded",
       "key": "conservacion:DS-04"
+    },
+    {
+      "signal": "retention_exceeded",
+      "key": "conservacion:DS-42"
+    },
+    {
+      "signal": "retention_exceeded",
+      "key": "conservacion:DS-43"
+    },
+    {
+      "signal": "term_not_in_glossary",
+      "key": "termino:costo_de_adquisicion"
     },
     {
       "signal": "term_not_in_glossary",
@@ -215,6 +401,10 @@
     {
       "signal": "term_not_in_glossary",
       "key": "termino:margen_operacional"
+    },
+    {
+      "signal": "term_not_in_glossary",
+      "key": "termino:tasa_de_retencion"
     }
   ]
 }

@@ -71,7 +71,7 @@ FAMILIAS = {
             "fichas": {"plan": ("prudencia", "plan/{periodo}/ficha.json"), "trabajos": ("justo", "trabajos/{periodo}/ficha.json"),
                        "seguimiento": ("remedios", "seguimiento/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
-    "cdo": {"registros": True,
+    "cdo": {"registros": {"policies": "name", "retention": "type", "report_terms": "term", "figures": "indicator"},
             "resultados": {"custodia": "gobierno/{periodo}/resultados.json", "ariadna": "calidad/{periodo}/resultados.json"},
             "fichas": {"gobierno": ("custodia", "gobierno/{periodo}/ficha.json"), "calidad": ("ariadna", "calidad/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
