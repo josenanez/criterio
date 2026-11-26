@@ -1,0 +1,75 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cto/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-politica",
+          "patrones": [
+            "^politica",
+            "^policy",
+            "^catalogo",
+            "^service_catalog"
+          ]
+        },
+        {
+          "carpeta": "10-cambios",
+          "patrones": [
+            "^cambios",
+            "^changes",
+            "^despliegues",
+            "^deployments",
+            "^acta"
+          ]
+        },
+        {
+          "carpeta": "20-servicio",
+          "patrones": [
+            "^incidentes",
+            "^incidents",
+            "^problemas",
+            "^problems",
+            "^disponibilidad",
+            "^availability"
+          ]
+        },
+        {
+          "carpeta": "30-activos",
+          "patrones": [
+            "^inventario",
+            "^inventory",
+            "^licencias",
+            "^licenses",
+            "^acta"
+          ]
+        },
+        {
+          "carpeta": "40-proveedores",
+          "patrones": [
+            "^contrato",
+            "^contract",
+            "^cumplimiento",
+            "^sla",
+            "^facturas",
+            "^invoices"
+          ]
+        },
+        {
+          "carpeta": "50-nube",
+          "patrones": [
+            "^factura",
+            "^bill",
+            "^presupuesto",
+            "^budget",
+            "^costos",
+            "^cost"
+          ]
+        }
+      ]
+    }
+  ]
+}

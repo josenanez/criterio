@@ -107,6 +107,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CRO** · Los riesgos | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instancia>/` | `_CRITERIO_RIESGOS.txt` |
 | **Criterio CMO** · El mercadeo | Lucía | `/criterio-claims:claims-setup` | `.criterio/piezas/<instancia>/` | `_CRITERIO_MERCADEO.txt` |
 | **Criterio CMO** · El mercadeo | Próspero | `/criterio-campaigns:campaigns-setup` | `.criterio/campanas/<instancia>/` | `_CRITERIO_MERCADEO.txt` |
+| **Criterio CTO** · La tecnología | Fausto | `/criterio-changes:changes-setup` | `.criterio/cambios/<instancia>/` | `_CRITERIO_TECNOLOGIA.txt` |
+| **Criterio CTO** · La tecnología | Domingo | `/criterio-assets:assets-setup` | `.criterio/activos/<instancia>/` | `_CRITERIO_TECNOLOGIA.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

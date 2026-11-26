@@ -1,0 +1,192 @@
+{
+  "nota": "Fuente única de las fuentes técnicas y normativas de la familia CTO y de las cifras de terceros que cita, con su estado: scripts/familias.py la escribe en FUENTES.es.md. Una fuente por verificar no sostiene ningún comando ni ninguna cifra publicada (ADR 0006).",
+  "secciones": [
+    {
+      "id": "rol",
+      "titulo": "Los marcos de la tecnología",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "ISO/IEC 20000-1 · Tecnología de la información — Gestión del servicio — Parte 1: requisitos del sistema de gestión del servicio",
+          "version": "Tercera edición, septiembre de 2018; revisada y confirmada en 2023, con la enmienda 1 de 2024",
+          "enlaces": [
+            [
+              "iso.org",
+              "https://www.iso.org/standard/70636.html"
+            ]
+          ],
+          "consultada": "2026-11-26",
+          "estado": "verificada",
+          "nota": "Verificada en iso.org: especifica los requisitos para establecer, implementar, mantener y mejorar un sistema de gestión del servicio, que cubren el diseño, la transición, la entrega y la mejora de los servicios. Se cita por su nombre, nunca por su texto. Por verificar: el texto de sus cláusulas de cambios, incidentes y niveles de servicio",
+          "uso": "La gestión del servicio: cada cambio, cada incidente y cada nivel acordado, que son las señales de Fausto"
+        },
+        {
+          "id": "F-02",
+          "fuente": "ISO/IEC 19770-1 · Tecnología de la información — Gestión de activos de TI — Parte 1: requisitos del sistema de gestión de activos de TI",
+          "version": "Tercera edición, diciembre de 2017; revisada y confirmada en 2024",
+          "enlaces": [
+            [
+              "iso.org",
+              "https://www.iso.org/standard/68531.html"
+            ]
+          ],
+          "consultada": "2026-11-26",
+          "estado": "verificada",
+          "nota": "Verificada en iso.org: especifica los requisitos de un sistema de gestión de activos de TI, para todo tipo de activo y de organización, como extensión de ISO 55001. Se cita por su nombre, nunca por su texto",
+          "uso": "Los activos de TI: cada activo con su dueño y su soporte, y cada licencia contra su uso, que son las señales de Domingo"
+        },
+        {
+          "id": "F-03",
+          "fuente": "PeopleCert · ITIL 4, la práctica de habilitación del cambio",
+          "version": "ITIL 4",
+          "enlaces": [
+            [
+              "su descripción, citada por AWS",
+              "https://docs.aws.amazon.com/wellarchitected/latest/change-enablement-in-the-cloud/change-enablement-in-itil4.html"
+            ]
+          ],
+          "consultada": "2026-11-26",
+          "estado": "por verificar",
+          "nota": "Verificado solo en su descripción: maximizar los cambios exitosos evaluando su riesgo, autorizándolos y llevando su calendario. Por verificar: la guía de la práctica, de PeopleCert. Fuera de la 0.1.0 hasta verificarla",
+          "uso": "La autoridad de cambio y los tipos de cambio, cuando entre"
+        },
+        {
+          "id": "F-04",
+          "fuente": "ISACA · COBIT 2019, los objetivos BAI06 (los cambios de TI) y APO10 (los proveedores)",
+          "version": "2019",
+          "enlaces": [
+            [
+              "la comparación de ISACA con COBIT 5",
+              "https://www.isaca.org/resources/news-and-trends/industry-news/2020/cobit-2019-and-cobit-5-comparison"
+            ]
+          ],
+          "consultada": "2026-11-26",
+          "estado": "por verificar",
+          "nota": "Verificado solo en la comparación de ISACA: BAI06 trata de los cambios de TI y APO10 de los proveedores. Por verificar: el texto de cada objetivo. Fuera de la 0.1.0 hasta verificarlo",
+          "uso": "El gobierno de los cambios y de los proveedores, cuando entre"
+        }
+      ]
+    },
+    {
+      "id": "regulacion",
+      "titulo": "La regulación de la tecnología",
+      "fuentes": [
+        {
+          "id": "F-10",
+          "fuente": "Superintendencia Financiera de Colombia · Circular Externa 005 de 2019, la computación en la nube",
+          "version": "11 de marzo de 2019; agrega el capítulo VI al título I de la parte I de la Circular Básica Jurídica",
+          "enlaces": [
+            [
+              "la copia compilada del normograma de Colpensiones",
+              "https://normativa.colpensiones.gov.co/colpensiones/docs/circular_superfinanciera_0005_2019.htm"
+            ]
+          ],
+          "consultada": "2026-11-26",
+          "estado": "verificada",
+          "nota": "Verificada en la copia compilada del normograma de Colpensiones: la entidad vigilada gestiona el riesgo de la nube en el SARO, pacta en el contrato la capacidad, la disponibilidad, los tiempos de recuperación y el manejo de incidentes, incluye la nube en su plan de continuidad y avisa a la Superintendencia 15 días antes de procesar. Se cita por su nombre, nunca por su texto",
+          "uso": "El nivel de servicio pactado con un proveedor de nube, en una entidad vigilada de Colombia"
+        },
+        {
+          "id": "F-11",
+          "fuente": "Perú · la norma de la SBS sobre la seguridad de la información y la tecnología",
+          "version": "",
+          "enlaces": [],
+          "consultada": "2026-11-26",
+          "estado": "por verificar",
+          "nota": "Por verificar en el sitio de la SBS. Fuera de la 0.1.0 hasta verificarla",
+          "uso": "La tecnología de una entidad vigilada del Perú, cuando entre"
+        },
+        {
+          "id": "F-12",
+          "fuente": "Brasil · Resolución CMN 4.893 de 2021, la ciberseguridad y la nube",
+          "version": "2021",
+          "enlaces": [],
+          "consultada": "2026-11-26",
+          "estado": "por verificar",
+          "nota": "Por verificar en la fuente primaria del Banco Central do Brasil. Fuera de la 0.1.0 hasta verificarla",
+          "uso": "La nube en una entidad vigilada de Brasil, cuando entre"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "84 %",
+        "en": "84%"
+      },
+      "cifra": {
+        "es": "de las organizaciones dice que gestionar el gasto en la nube es su mayor reto",
+        "en": "of organisations say managing cloud spend is their top cloud challenge"
+      },
+      "fuente": "Flexera, 2025 State of the Cloud Report",
+      "anio": "2025",
+      "enlace": "https://www.flexera.com/about-us/press-center/new-flexera-report-finds-84-percent-of-organizations-struggle-to-manage-cloud-spend",
+      "muestra": {
+        "es": "más de 750 profesionales técnicos y directivos de todo el mundo",
+        "en": "more than 750 technical professionals and executive leaders worldwide"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el comunicado de Flexera del 19 de marzo de 2025: el 84 % de los encuestados cree que gestionar el gasto en la nube es el mayor reto de la nube para las organizaciones hoy.",
+      "barra": {
+        "tipo": "share",
+        "valor": 84,
+        "es": "84 de cada 100 organizaciones",
+        "en": "84 of every 100 organisations"
+      }
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "57 %",
+        "en": "57%"
+      },
+      "cifra": {
+        "es": "dice que su última caída mayor costó más de 100.000 dólares",
+        "en": "say their most recent major outage cost more than 100,000 dollars"
+      },
+      "fuente": "Uptime Institute, Annual Global Data Center Survey 2025, citada en su Annual Outage Analysis 2026",
+      "anio": "2025",
+      "enlace": "https://www.businesswire.com/news/home/20260513289344/en",
+      "muestra": {
+        "es": "más de 800 dueños y operadores de centros de datos",
+        "en": "more than 800 data center owners and operators"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el comunicado del Annual Outage Analysis 2026 de Uptime Institute, del 13 de mayo de 2026: en su encuesta anual de 2025, el 57 % dijo que su caída mayor más reciente costó más de 100.000 dólares. La muestra, en el comunicado de la encuesta del 30 de julio de 2025.",
+      "barra": {
+        "tipo": "share",
+        "valor": 57,
+        "es": "57 de cada 100",
+        "en": "57 of every 100"
+      }
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "1 de cada 5",
+        "en": "1 in 5"
+      },
+      "cifra": {
+        "es": "reporta caídas de más de un millón de dólares, por segundo año seguido",
+        "en": "report outages costing more than one million dollars, for the second year running"
+      },
+      "fuente": "Uptime Institute, Annual Global Data Center Survey 2025, citada en su Annual Outage Analysis 2026",
+      "anio": "2025",
+      "enlace": "https://www.businesswire.com/news/home/20260513289344/en",
+      "muestra": {
+        "es": "más de 800 dueños y operadores de centros de datos",
+        "en": "more than 800 data center owners and operators"
+      },
+      "estado": "verificada",
+      "nota": "Verificada en el comunicado del Annual Outage Analysis 2026 de Uptime Institute, del 13 de mayo de 2026: por segundo año seguido, 1 de cada 5 reporta costos de más de un millón de dólares.",
+      "barra": {
+        "tipo": "share",
+        "valor": 20,
+        "es": "20 de cada 100",
+        "en": "20 of every 100"
+      }
+    }
+  ]
+}

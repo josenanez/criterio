@@ -121,6 +121,12 @@ DESTINO = {
     "criterio-campaigns": {"familia": "cmo", "busca": "raiz", "marca": "_CRITERIO_MERCADEO.txt",
         "que": "la carpeta de mercadeo de una entidad", "agentes": "Lucía y Próspero",
         "setup": "/criterio-campaigns:campaigns-setup"},
+    "criterio-changes": {"familia": "cto", "busca": "raiz", "marca": "_CRITERIO_TECNOLOGIA.txt",
+        "que": "la carpeta de tecnología de una entidad", "agentes": "Fausto y Domingo",
+        "setup": "/criterio-changes:changes-setup"},
+    "criterio-assets": {"familia": "cto", "busca": "raiz", "marca": "_CRITERIO_TECNOLOGIA.txt",
+        "que": "la carpeta de tecnología de una entidad", "agentes": "Fausto y Domingo",
+        "setup": "/criterio-assets:assets-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

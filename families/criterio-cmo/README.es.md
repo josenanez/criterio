@@ -72,13 +72,13 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 Necesita Claude Code 2.1.110 o posterior; si algo falla, [la instalación paso a paso](../../docs/instalacion.es.md).
 
 **La familia se instala de una vez.** El plugin `criterio-cmo` trae a sus agentes y a Rostrum, y
-`/criterio-cmo:cro-setup` los configura en orden, en una sola conversación: lo que ya se respondió
+`/criterio-cmo:cmo-setup` los configura en orden, en una sola conversación: lo que ya se respondió
 no se vuelve a preguntar.
 
 ```
 /plugin marketplace add josenanez/criterio
 /plugin install criterio-cmo@criterio
-/criterio-cmo:cro-setup
+/criterio-cmo:cmo-setup
 ```
 
 Después, a cada agente se le pide en tus palabras, sin saber cómo se llama cada comando:

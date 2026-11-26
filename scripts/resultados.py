@@ -85,6 +85,10 @@ DUENIOS = [
     ("evaluar.py --agente lucia", "Lucía"),
     ("evaluar.py --agente prospero", "Próspero"),
     ("tests/criterio-cmo/", "La familia"),
+    ("criterio-changes/scripts/tecnologia.py", "Fausto"),
+    ("evaluar.py --agente fausto", "Fausto"),
+    ("evaluar.py --agente domingo", "Domingo"),
+    ("tests/criterio-cto/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -483,6 +487,8 @@ PLUGIN_DE = {
     "Casandra": "criterio-risk-events",
     "Lucía": "criterio-claims",
     "Próspero": "criterio-campaigns",
+    "Fausto": "criterio-changes",
+    "Domingo": "criterio-assets",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -782,6 +788,18 @@ _CMO_NO_CUBRE = [
 ]
 for _p in ("criterio-claims", "criterio-campaigns"):
     NO_CUBRE[_p] = list(_CMO_NO_CUBRE)
+_CTO_NO_CUBRE = [
+    ("La extracción de las aprobaciones y las revisiones de las actas, las excepciones y los niveles de servicio de los contratos",
+     "El motor se prueba con la ficha correcta, la de la clave. Que el agente procese los documentos escritos y los registre bien "
+     "lo prueba la ronda, que viene en la 0.2.0."),
+    ("Las exportaciones del material no son las de una herramienta de gestión del servicio ni de la nube",
+     "Son tablas con columnas en español; las de ServiceNow, Jira, Flexera o la facturación de AWS, Azure y Google Cloud se mapean en el setup "
+     "y entran con una exportación real."),
+    ("La norma de la tecnología y de la nube fuera de Colombia",
+     "Está por verificar y no sostiene ninguna señal."),
+]
+for _p in ("criterio-changes", "criterio-assets"):
+    NO_CUBRE[_p] = list(_CTO_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -810,6 +828,8 @@ QUE_ES = {
     "criterio-risk-events": ("Casandra", "la agente de los indicadores y los eventos de la familia CRO"),
     "criterio-claims": ("Lucía", "la agente de lo que se anuncia de la familia CMO"),
     "criterio-campaigns": ("Próspero", "el agente de lo que se invierte de la familia CMO"),
+    "criterio-changes": ("Fausto", "el agente de los cambios y el servicio de la familia CTO"),
+    "criterio-assets": ("Domingo", "el agente de los activos y los proveedores de la familia CTO"),
 }
 
 
@@ -826,7 +846,8 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-remediation": "../criterio-cae/EVIDENCIA.md",
                 "criterio-data-governance": "../criterio-cdo/EVIDENCIA.md", "criterio-data-quality": "../criterio-cdo/EVIDENCIA.md",
                 "criterio-risk-appetite": "../criterio-cro/EVIDENCIA.md", "criterio-risk-events": "../criterio-cro/EVIDENCIA.md",
-                "criterio-claims": "../criterio-cmo/EVIDENCIA.md", "criterio-campaigns": "../criterio-cmo/EVIDENCIA.md"}
+                "criterio-claims": "../criterio-cmo/EVIDENCIA.md", "criterio-campaigns": "../criterio-cmo/EVIDENCIA.md",
+                "criterio-changes": "../criterio-cto/EVIDENCIA.md", "criterio-assets": "../criterio-cto/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

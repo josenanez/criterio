@@ -106,6 +106,8 @@ running `server-setup` again.
 | **Criterio CRO** · Risk | Casandra | `/criterio-risk-events:events-setup` | `.criterio/eventos/<instance>/` | `_CRITERIO_RIESGOS.txt` |
 | **Criterio CMO** · Marketing | Lucía | `/criterio-claims:claims-setup` | `.criterio/piezas/<instance>/` | `_CRITERIO_MERCADEO.txt` |
 | **Criterio CMO** · Marketing | Próspero | `/criterio-campaigns:campaigns-setup` | `.criterio/campanas/<instance>/` | `_CRITERIO_MERCADEO.txt` |
+| **Criterio CTO** · Technology | Fausto | `/criterio-changes:changes-setup` | `.criterio/cambios/<instance>/` | `_CRITERIO_TECNOLOGIA.txt` |
+| **Criterio CTO** · Technology | Domingo | `/criterio-assets:assets-setup` | `.criterio/activos/<instance>/` | `_CRITERIO_TECNOLOGIA.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

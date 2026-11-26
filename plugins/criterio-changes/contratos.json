@@ -1,0 +1,325 @@
+{
+  "comandos": {
+    "change-check": {
+      "funcion": "Cada cambio en producción con su aprobación y su revisión, y cada despliegue con su cambio: lo que llegó a producción sin el sí del comité.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada cambio en producción con su aprobación y su revisión, y cada despliegue con su cambio: lo que llegó a producción sin el sí del comité",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-change-check.md",
+          "<estado>/corridas/salida-change-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "technology-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "changes-scan": {
+      "funcion": "Procesa lo que cambió en los cambios, lleva cada aprobación y cada revisión de las actas a la ficha del periodo y dice qué señales nuevas aparecieron.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Procesa lo que cambió en los cambios, lleva cada aprobación y cada revisión de las actas a la ficha del periodo y dice qué señales nuevas aparecieron",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-changes-scan.md",
+          "<estado>/corridas/salida-changes-scan.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "technology-intake",
+          "change-record"
+        ],
+        "script": [
+          "compute",
+          "convertir",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "changes-setup": {
+      "funcion": "Deja a Fausto listo sobre una entidad — mira la carpeta de tecnología, reconoce el catálogo de servicios, los cambios, los despliegues, los incidentes y la disponibilidad, y muestra el primer resultado.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta de la entidad] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Deja a Fausto listo sobre una entidad — mira la carpeta de tecnología, reconoce el catálogo de servicios, los cambios, los despliegues, los incidentes y la disponibilidad, y muestra el primer resultado",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-changes-setup.md",
+          "<estado>/corridas/salida-changes-setup.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "technology-intake",
+          "technology-policy",
+          "change-record"
+        ],
+        "script": [
+          "arranque",
+          "compute",
+          "convertir",
+          "corrida",
+          "dejar-listo",
+          "inventario",
+          "reporte"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "changes-wake": {
+      "funcion": "Lo que toca hoy en los cambios — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD para simular otro día]",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Lo que toca hoy en los cambios — documentos nuevos o un reporte con señales abiertas — y si no toca nada, se calla",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-changes-wake.md",
+          "<estado>/corridas/salida-changes-wake.md"
+        ]
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "fausto": {
+      "funcion": "Pídeselo a Fausto (Lo que se anuncia) en tus palabras — dice qué comando lo resuelve y lo corre.",
+      "entrada": {
+        "argumento": "[lo que necesitas, en tus palabras] o vacío",
+        "lee": []
+      },
+      "salida": {
+        "muestra": "Pídeselo a Fausto (Lo que se anuncia) en tus palabras — dice qué comando lo resuelve y lo corre",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pedido en palabras por cada grupo del agente, uno que encaja en dos comandos y uno de otro agente de la familia",
+        "esperado": "corre el comando de su grupo; en el ambiguo pregunta; en el ajeno da la entrada del otro agente"
+      }
+    },
+    "incident-check": {
+      "funcion": "Cada incidente mayor con su problema y su causa: la falla grande que todavía no tiene su porqué.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada incidente mayor con su problema y su causa: la falla grande que todavía no tiene su porqué",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-incident-check.md",
+          "<estado>/corridas/salida-incident-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "technology-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "service-check": {
+      "funcion": "Cada servicio del catálogo contra el nivel que se acordó con el negocio: el que no lo cumplió.",
+      "entrada": {
+        "argumento": "[AAAA-MM] o vacío",
+        "lee": [
+          "config",
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "Cada servicio del catálogo contra el nivel que se acordó con el negocio: el que no lo cumplió",
+        "escribe": [
+          "<estado>/cambios/<AAAA-MM>/resultados.json",
+          "<estado>/cambios/<AAAA-MM>/reporte-service-check.md",
+          "<estado>/corridas/salida-service-check.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "technology-policy"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "tests/criterio-cto: los cambios, los despliegues, las actas, los incidentes, los problemas y la disponibilidad de cada entidad con su clave",
+        "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+      }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía.",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
+    }
+  },
+  "skills": {
+    "technology-intake": {
+      "escribe": [
+        "columns"
+      ],
+      "alimenta": [
+        "deployment_without_change",
+        "major_incident_without_problem",
+        "service_below_level",
+        "asset_without_owner",
+        "license_shortfall"
+      ]
+    },
+    "technology-policy": {
+      "escribe": [
+        "methodology"
+      ],
+      "alimenta": [
+        "emergency_change_without_review",
+        "major_incident_without_problem",
+        "license_unused",
+        "cloud_over_budget"
+      ]
+    },
+    "change-record": {
+      "escribe": [
+        "approvals[]",
+        "reviews[]"
+      ],
+      "alimenta": [
+        "change_without_approval",
+        "emergency_change_without_review",
+        "failed_change_without_review"
+      ]
+    }
+  }
+}

@@ -18,6 +18,7 @@ body:
         - Criterio CDO · Custodia, Ariadna
         - Criterio CMO · Lucía, Próspero
         - Criterio CRO · Severo, Casandra
+        - Criterio CTO · Fausto, Domingo
         - Rostrum
     validations:
       required: true

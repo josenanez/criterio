@@ -1,0 +1,140 @@
+{
+  "nota": "Fuente única de la hoja de ruta de la familia CTO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Los plazos, los niveles de servicio y los umbrales son los de la política de la organización.",
+  "incrementos": [
+    {
+      "incremento": 1,
+      "version": "0.1.0",
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        },
+        {
+          "codigo": "CL",
+          "nombre": {
+            "es": "Chile",
+            "en": "Chile"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Fausto y Domingo, construidos, con el motor probado",
+        "entra": [
+          "Los comandos, sus cuatro skills y el motor, con las doce señales: cada cambio contra su aprobación y su revisión, cada incidente mayor contra su causa y cada servicio contra su nivel, de Fausto; cada activo contra su dueño y su soporte, cada licencia contra su uso, cada proveedor contra su nivel y la nube contra su presupuesto, de Domingo",
+          "ISO/IEC 20000-1 (F-01), ISO/IEC 19770-1 (F-02) y la Circular Externa 005 de 2019 de la Superintendencia Financiera (F-10)",
+          "Material de banca en Colombia, retail en México y tecnología en Chile, con dos entidades de control y cada defecto sembrado más de una vez"
+        ],
+        "prueba": "El motor contra la clave de todo el material, sin una alarma en los controles"
+      },
+      "en": {
+        "titulo": "Fausto and Domingo, built, with the engine tested",
+        "entra": [
+          "The commands, their four skills and the engine, with the twelve signals: Fausto's each change against its approval and review, each major incident against its cause and each service against its level; Domingo's each asset against its owner and support, each licence against its use, each vendor against its level and the cloud against its budget",
+          "ISO/IEC 20000-1 (F-01), ISO/IEC 19770-1 (F-02) and the Financial Superintendency's External Circular 005 of 2019 (F-10)",
+          "Banking material in Colombia, retail in Mexico and technology in Chile, with two control entities and each defect planted more than once"
+        ],
+        "prueba": "The engine against the key of all the material, with no alarm on the controls"
+      }
+    },
+    {
+      "incremento": 2,
+      "version": null,
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        },
+        {
+          "codigo": "CL",
+          "nombre": {
+            "es": "Chile",
+            "en": "Chile"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "La ronda con los dos agentes",
+        "entra": [
+          "Las rondas con Fausto y Domingo sobre todo el material, con una clave que no ven"
+        ],
+        "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
+      },
+      "en": {
+        "titulo": "The round with the two agents",
+        "entra": [
+          "The rounds with Fausto and Domingo on all the material, with a key they never see"
+        ],
+        "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
+      }
+    },
+    {
+      "incremento": 3,
+      "version": null,
+      "estado": "siguiente",
+      "industrias": [],
+      "paises": [
+        {
+          "codigo": "CO",
+          "nombre": {
+            "es": "Colombia",
+            "en": "Colombia"
+          }
+        },
+        {
+          "codigo": "MX",
+          "nombre": {
+            "es": "México",
+            "en": "Mexico"
+          }
+        },
+        {
+          "codigo": "CL",
+          "nombre": {
+            "es": "Chile",
+            "en": "Chile"
+          }
+        }
+      ],
+      "es": {
+        "titulo": "Las exportaciones de las herramientas y la norma de cada país",
+        "entra": [
+          "ServiceNow, Jira Service Management, Flexera y la facturación de AWS, Azure y Google Cloud, cada una con su fuente verificada o con los encabezados de una exportación real",
+          "La guía de ITIL 4, los objetivos de COBIT 2019, la norma de la SBS y la Resolución CMN 4.893, verificadas"
+        ],
+        "prueba": "Cada exportación procesada contra su clave"
+      },
+      "en": {
+        "titulo": "The tools' exports and each country's regulation",
+        "entra": [
+          "ServiceNow, Jira Service Management, Flexera and AWS, Azure and Google Cloud billing, each with its verified source or the headers of a real export",
+          "The ITIL 4 guide, the COBIT 2019 objectives, the SBS regulation and CMN Resolution 4,893, verified"
+        ],
+        "prueba": "Each export processed against its key"
+      }
+    }
+  ]
+}

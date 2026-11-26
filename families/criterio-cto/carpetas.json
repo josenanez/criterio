@@ -1,0 +1,116 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CTO: scripts/familias.py la escribe en DISENO.es.md, en el skill technology-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "tecnologia/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, la política de cambios y de niveles de servicio con el catálogo de servicios; los cambios, los despliegues y las actas del comité de cambios; los incidentes, los problemas y la disponibilidad; el inventario de activos y las licencias; los contratos, el cumplimiento y las facturas de los proveedores, y la factura y el presupuesto de la nube.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the change and service level policy with the service catalogue; the changes, deployments and change board minutes; the incidents, problems and availability; the asset inventory and licences; the vendors' contracts, compliance and invoices, and the cloud bill and budget."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que el área de tecnología lleva de la entidad",
+      "en": "What the technology office keeps for the entity",
+      "carpetas": [
+        {
+          "carpeta": "00-politica",
+          "agentes": [
+            "fausto",
+            "domingo"
+          ],
+          "es": "La política de cambios y de niveles de servicio, con sus plazos y umbrales, y el catálogo de servicios con el nivel acordado de cada uno",
+          "en": "The change and service level policy, with its deadlines and thresholds, and the service catalogue with each service's agreed level",
+          "patrones": [
+            "^politica",
+            "^policy",
+            "^catalogo",
+            "^service_catalog"
+          ]
+        },
+        {
+          "carpeta": "10-cambios",
+          "agentes": [
+            "fausto"
+          ],
+          "es": "La exportación de cambios de la herramienta de gestión del servicio, el registro de despliegues en producción y las actas del comité de cambios",
+          "en": "The change export from the service management tool, the production deployment log and the change board minutes",
+          "patrones": [
+            "^cambios",
+            "^changes",
+            "^despliegues",
+            "^deployments",
+            "^acta"
+          ]
+        },
+        {
+          "carpeta": "20-servicio",
+          "agentes": [
+            "fausto"
+          ],
+          "es": "Las exportaciones de incidentes y de problemas, y la disponibilidad de cada servicio en el periodo",
+          "en": "The incident and problem exports, and each service's availability in the period",
+          "patrones": [
+            "^incidentes",
+            "^incidents",
+            "^problemas",
+            "^problems",
+            "^disponibilidad",
+            "^availability"
+          ]
+        },
+        {
+          "carpeta": "30-activos",
+          "agentes": [
+            "domingo"
+          ],
+          "es": "El inventario de activos con su dueño, su ambiente y su fin de soporte; las licencias compradas y su uso, y las actas del comité de arquitectura con sus excepciones",
+          "en": "The asset inventory with its owner, environment and end of support; the purchased licences and their use, and the architecture board minutes with their exceptions",
+          "patrones": [
+            "^inventario",
+            "^inventory",
+            "^licencias",
+            "^licenses",
+            "^acta"
+          ]
+        },
+        {
+          "carpeta": "40-proveedores",
+          "agentes": [
+            "domingo"
+          ],
+          "es": "Los contratos de nivel de servicio de cada proveedor, el cumplimiento que reporta y sus facturas",
+          "en": "Each vendor's service level contracts, the compliance it reports and its invoices",
+          "patrones": [
+            "^contrato",
+            "^contract",
+            "^cumplimiento",
+            "^sla",
+            "^facturas",
+            "^invoices"
+          ]
+        },
+        {
+          "carpeta": "50-nube",
+          "agentes": [
+            "domingo"
+          ],
+          "es": "La factura de la nube por cuenta y el presupuesto de cada cuenta",
+          "en": "The cloud bill by account and each account's budget",
+          "patrones": [
+            "^factura",
+            "^bill",
+            "^presupuesto",
+            "^budget",
+            "^costos",
+            "^cost"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-tecnologia/",
+    "es": "Lo que escriben Fausto y Domingo: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Fausto and Domingo write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

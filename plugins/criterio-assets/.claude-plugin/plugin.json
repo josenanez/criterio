@@ -1,0 +1,20 @@
+{
+  "name": "criterio-assets",
+  "version": "0.1.0",
+  "description": "Domingo, los activos y los proveedores: cada activo contra su dueño y el soporte de su fabricante, cada licencia contra su uso, cada proveedor contra su nivel de servicio y la factura de la nube contra su presupuesto. Procesa exportaciones y documentos; nunca elige un proveedor ni se conecta a la nube.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "tecnologia",
+    "technology",
+    "cto",
+    "activos",
+    "licencias",
+    "it-asset-management",
+    "finops"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cto",
+  "license": "Apache-2.0"
+}

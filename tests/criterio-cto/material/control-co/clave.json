@@ -1,0 +1,130 @@
+{
+  "entidad": "Banco Control de Tecnología Sintético",
+  "industria": "banca",
+  "pais": "CO",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": false,
+  "config": {
+    "fausto": {
+      "version": "0.1",
+      "role": "cambios",
+      "entity": {
+        "id": "901333666",
+        "name": "Banco Control de Tecnología Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "tecnologia/901333666-banco-control-de-tecnologia-sintetico",
+        "state": "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "emergency_review_days": 5,
+        "problem_days": 10
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "domingo": {
+      "version": "0.1",
+      "role": "activos",
+      "entity": {
+        "id": "901333666",
+        "name": "Banco Control de Tecnología Sintético",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "tecnologia/901333666-banco-control-de-tecnologia-sintetico",
+        "state": "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "unused_license_pct": 15,
+        "cloud_tolerance_pct": 5
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "cambios": {
+      "approvals": [
+        {
+          "change": "CHG-100",
+          "date": "2026-10-01",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-01.pdf"
+        },
+        {
+          "change": "CHG-103",
+          "date": "2026-10-08",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-08.pdf"
+        },
+        {
+          "change": "CHG-104",
+          "date": "2026-10-08",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-08.pdf"
+        }
+      ],
+      "reviews": [
+        {
+          "change": "CHG-102",
+          "date": "2026-10-15",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-15.pdf"
+        },
+        {
+          "change": "CHG-104",
+          "date": "2026-10-15",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-15.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "activos": {
+      "exceptions": [
+        {
+          "asset": "A-101",
+          "until": "2027-03-31",
+          "source": "30-activos/acta_comite_de_arquitectura_2026-10.pdf"
+        }
+      ],
+      "service_levels": [
+        {
+          "vendor": "Centro de Datos Uno",
+          "metric": "Disponibilidad",
+          "target": 99.9,
+          "credit_pct": 10,
+          "source": "40-proveedores/contrato_centro_de_datos_uno.pdf"
+        },
+        {
+          "vendor": "Mesa de Ayuda Sintética",
+          "metric": "Casos resueltos a tiempo",
+          "target": 95,
+          "credit_pct": 5,
+          "source": "40-proveedores/contrato_mesa_de_ayuda_sintetica.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

@@ -1030,7 +1030,8 @@ AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "crite
         "criterio-audit-plan": "plan", "criterio-audit-work": "trabajos", "criterio-remediation": "seguimiento",
         "criterio-data-governance": "gobierno", "criterio-data-quality": "calidad",
         "criterio-risk-appetite": "apetito", "criterio-risk-events": "eventos",
-        "criterio-claims": "piezas", "criterio-campaigns": "campanas"}
+        "criterio-claims": "piezas", "criterio-campaigns": "campanas",
+        "criterio-changes": "cambios", "criterio-assets": "activos"}
 
 
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,

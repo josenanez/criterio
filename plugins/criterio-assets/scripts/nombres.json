@@ -1,0 +1,33 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cto/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "change_without_approval": "Un cambio normal se implementó sin la aprobación de su autoridad de cambio, o antes de ella",
+    "emergency_change_without_review": "Un cambio de emergencia no tiene su revisión posterior en el plazo de la política",
+    "deployment_without_change": "Un despliegue en producción no corresponde a ningún cambio registrado",
+    "failed_change_without_review": "Un cambio fallido o revertido no tiene su revisión posterior",
+    "major_incident_without_problem": "Un incidente mayor no tiene un registro de problema con su causa en el plazo de la política",
+    "service_below_level": "La disponibilidad de un servicio en el periodo quedó por debajo del nivel acordado en el catálogo",
+    "asset_without_owner": "Un activo del inventario no tiene dueño",
+    "asset_out_of_support": "Un activo en producción pasó la fecha de fin de soporte de su fabricante sin una excepción aprobada vigente",
+    "license_shortfall": "Las licencias en uso de un software superan las compradas",
+    "license_unused": "Las licencias pagadas sin uso de un software superan el umbral de la política",
+    "vendor_breach_without_credit": "Un proveedor quedó por debajo de su nivel de servicio y su factura del periodo no trae el crédito que pacta el contrato",
+    "cloud_over_budget": "La factura de la nube de una cuenta supera su presupuesto más la tolerancia de la política"
+  },
+  "comandos": {
+    "changes-setup": "Instalación",
+    "changes-scan": "Qué cambió en los cambios",
+    "change-check": "Cada cambio con su aprobación",
+    "incident-check": "Cada incidente mayor con su causa",
+    "service-check": "Cada servicio contra su nivel",
+    "changes-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
+    "assets-setup": "Instalación",
+    "assets-scan": "Qué cambió en los activos",
+    "asset-check": "Cada activo con su dueño y su soporte",
+    "license-check": "Cada licencia contra su uso",
+    "vendor-check": "Cada proveedor contra su nivel",
+    "cloud-check": "La nube contra su presupuesto",
+    "assets-wake": "Qué toca hoy"
+  }
+}

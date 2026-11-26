@@ -1,0 +1,713 @@
+{
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CTO: scripts/familias.py genera desde aquí las tablas de los README, el diseño, las fuentes, la estructura de carpetas y los comandos de cada agente; el portal los publica con scripts/criterio-familias.mjs.",
+  "sigla": "cto",
+  "orden": 120,
+  "categoria": "technology",
+  "adr": "0037-la-familia-cto.md",
+  "nombre": {
+    "es": "La tecnología",
+    "en": "Technology"
+  },
+  "estado": {
+    "es": "Construida",
+    "en": "Built"
+  },
+  "nivel_c": {
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "rol": "Chief Technology Officer",
+      "cifras": [
+        {
+          "id": "C-01",
+          "es": "de las organizaciones dice que gestionar el gasto en la nube es su mayor reto",
+          "en": "of organisations say managing cloud spend is their top challenge"
+        },
+        {
+          "id": "C-02",
+          "es": "dice que su última caída mayor costó más de 100.000 dólares",
+          "en": "say their last major outage cost over 100,000 dollars"
+        }
+      ],
+      "filas": [
+        {
+          "es": [
+            "Los cambios",
+            "Cada cambio en producción con su aprobación y su revisión",
+            "ITIL · ServiceNow o Jira en Excel o CSV"
+          ],
+          "en": [
+            "Changes",
+            "Each production change with its approval and review",
+            "ITIL · ServiceNow or Jira in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "El servicio",
+            "Cada incidente mayor con su causa; cada servicio contra su nivel",
+            "ISO/IEC 20000 · incidentes y disponibilidad en Excel"
+          ],
+          "en": [
+            "Service",
+            "Each major incident with its cause; each service against its level",
+            "ISO/IEC 20000 · incidents and availability in Excel"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        },
+        {
+          "es": [
+            "Los activos",
+            "Cada activo con su dueño, su soporte y su licencia",
+            "ISO/IEC 19770 · inventario y licencias en Excel"
+          ],
+          "en": [
+            "Assets",
+            "Each asset with its owner, support and licence",
+            "ISO/IEC 19770 · inventory and licences in Excel"
+          ],
+          "fuentes": [
+            "F-02"
+          ]
+        },
+        {
+          "es": [
+            "Los proveedores y la nube",
+            "Cada proveedor contra su nivel; la nube contra su presupuesto",
+            "Contratos en PDF; facturas en Excel o CSV"
+          ],
+          "en": [
+            "Vendors and cloud",
+            "Each vendor against its level; the cloud against its budget",
+            "Contracts in PDF; invoices in Excel or CSV"
+          ],
+          "fuentes": [
+            "F-02"
+          ]
+        }
+      ]
+    },
+    "alcance": [
+      {
+        "es": [
+          "Los cambios",
+          "Cambios sin aprobar, despliegues sin cambio y cambios sin revisión"
+        ],
+        "en": [
+          "Changes",
+          "Unapproved changes, deployments with no change and changes with no review"
+        ],
+        "senales": [
+          "change_without_approval",
+          "deployment_without_change",
+          "emergency_change_without_review",
+          "failed_change_without_review"
+        ]
+      },
+      {
+        "es": [
+          "Los incidentes",
+          "Incidentes mayores sin causa"
+        ],
+        "en": [
+          "Incidents",
+          "Major incidents with no cause"
+        ],
+        "senales": [
+          "major_incident_without_problem"
+        ]
+      },
+      {
+        "es": [
+          "El servicio",
+          "Servicios por debajo de su nivel"
+        ],
+        "en": [
+          "Service",
+          "Services below their level"
+        ],
+        "senales": [
+          "service_below_level"
+        ]
+      },
+      {
+        "es": [
+          "Los activos",
+          "Activos sin dueño o sin soporte"
+        ],
+        "en": [
+          "Assets",
+          "Assets with no owner or support"
+        ],
+        "senales": [
+          "asset_without_owner",
+          "asset_out_of_support"
+        ]
+      },
+      {
+        "es": [
+          "Las licencias",
+          "Licencias que faltan y licencias que sobran"
+        ],
+        "en": [
+          "Licences",
+          "Licence shortfalls and surpluses"
+        ],
+        "senales": [
+          "license_shortfall",
+          "license_unused"
+        ]
+      },
+      {
+        "es": [
+          "Los proveedores y la nube",
+          "Incumplimientos sin crédito y nube por encima del presupuesto"
+        ],
+        "en": [
+          "Vendors and cloud",
+          "Breaches with no credit and cloud above budget"
+        ],
+        "senales": [
+          "vendor_breach_without_credit",
+          "cloud_over_budget"
+        ]
+      }
+    ]
+  },
+  "generador": {
+    "cifras_en": "fausto",
+    "intake": {
+      "skill": "criterio-changes/technology-intake",
+      "texto": "La política tiene un solo lugar, `00-politica/`, y los dos agentes la usan: Fausto procesa cada cambio contra su aprobación y cada servicio contra su nivel, y Domingo cada activo, cada licencia, cada proveedor y la nube."
+    },
+    "estructuras": [
+      "criterio-changes",
+      "criterio-assets"
+    ],
+    "motor": "criterio-changes/scripts/tecnologia.py"
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "agentes": [
+    {
+      "id": "fausto",
+      "nombre": "Fausto",
+      "plugin": "criterio-changes",
+      "rol": {
+        "es": "Los cambios y el servicio",
+        "en": "Changes and service"
+      },
+      "titulo": "los cambios en producción y el nivel de servicio",
+      "origen": {
+        "es": "del latín *faustus*, el que trae buena fortuna: cada cambio que sale bien",
+        "en": "from the Latin *faustus*, the one who brings good fortune: each change that goes well"
+      },
+      "hace": {
+        "es": "Cada cambio en producción contra su aprobación y su revisión, cada despliegue contra su cambio, cada incidente mayor contra su problema y cada servicio contra el nivel acordado: el cambio sin aprobar o aprobado después, el de emergencia sin su revisión, el despliegue sin cambio, el cambio fallido sin revisión, el incidente mayor sin causa y el servicio por debajo de su nivel",
+        "en": "Each production change against its approval and review, each deployment against its change, each major incident against its problem and each service against its agreed level: a change not approved or approved afterwards, an emergency change with no review, a deployment with no change, a failed change with no review, a major incident with no cause and a service below its level"
+      },
+      "area": "cambios",
+      "ambitos": [
+        "cambios"
+      ],
+      "nunca": {
+        "es": "No aprueba un cambio, no decide una arquitectura, no califica un incidente y no se conecta a una herramienta de gestión del servicio ni a un servidor",
+        "en": "It does not approve a change, decide an architecture, rate an incident or connect to a service management tool or a server"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "changes-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo y los plazos de la política: los días para revisar un cambio de emergencia y para registrar el problema de un incidente mayor",
+            "proceso": "Inventario de lo que hay; procesa el catálogo de servicios de `00-politica/`, los cambios y los despliegues de `10-cambios/` y los incidentes, los problemas y la disponibilidad de `20-servicio/`, y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las tablas reconocidas; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las tablas reconocidas"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period and the policy's deadlines: the days to review an emergency change and to register a major incident's problem",
+            "proceso": "Inventory of what is there; processes the service catalogue in `00-politica/`, the changes and deployments in `10-cambios/` and the incidents, problems and availability in `20-servicio/`, and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised tables; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised tables"
+          }
+        },
+        {
+          "id": "changes-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en los cambios",
+            "entrada": "Las actas del comité de cambios de `10-cambios/`, las tablas de `10-cambios/` y `20-servicio/`, y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada aprobación de un cambio —su autoridad y su fecha— y cada revisión posterior que quedó en un acta, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in the changes",
+            "entrada": "The change board minutes in `10-cambios/`, the tables in `10-cambios/` and `20-servicio/`, and the period's record",
+            "proceso": "Brings into the record each change approval —its authority and date— and each post-implementation review recorded in the minutes, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "change-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Cada cambio con su aprobación",
+            "entrada": "La exportación de cambios y el registro de despliegues de `10-cambios/`, y la ficha —las aprobaciones y las revisiones—",
+            "proceso": "Cada cambio normal implementado contra su aprobación; cada cambio de emergencia y cada cambio fallido o revertido contra su revisión en el plazo de la política; cada despliegue en producción contra el cambio que lo autoriza",
+            "reporte": "Los cambios sin aprobación o aprobados después, los de emergencia y los fallidos sin revisión, y los despliegues sin cambio, con los días",
+            "entrega": "Qué llegó a producción sin el sí del comité"
+          },
+          "en": {
+            "etiqueta": "Each change with its approval",
+            "entrada": "The change export and the deployment log in `10-cambios/`, and the record —the approvals and reviews—",
+            "proceso": "Each normal change implemented against its approval; each emergency change and each failed or rolled-back change against its review within the policy's deadline; each production deployment against the change that authorises it",
+            "reporte": "The changes with no approval or approved afterwards, the emergency and failed ones with no review, and the deployments with no change, with the days",
+            "entrega": "What reached production without the board's yes"
+          }
+        },
+        {
+          "id": "incident-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "Cada incidente mayor con su causa",
+            "entrada": "Los incidentes y los problemas de `20-servicio/`",
+            "proceso": "Cada incidente mayor del periodo contra el registro de problema que lo cita y su causa, en el plazo de la política",
+            "reporte": "Los incidentes mayores sin problema o con el problema sin causa, con los días",
+            "entrega": "Qué falla grande no tiene todavía su porqué"
+          },
+          "en": {
+            "etiqueta": "Each major incident with its cause",
+            "entrada": "The incidents and problems in `20-servicio/`",
+            "proceso": "Each major incident in the period against the problem record that cites it and its cause, within the policy's deadline",
+            "reporte": "The major incidents with no problem or with a problem with no cause, with the days",
+            "entrega": "Which big failure still has no reason"
+          }
+        },
+        {
+          "id": "service-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "Cada servicio contra su nivel",
+            "entrada": "El catálogo de servicios de `00-politica/` y la disponibilidad del periodo de `20-servicio/`",
+            "proceso": "La disponibilidad de cada servicio en el periodo contra el nivel acordado en el catálogo",
+            "reporte": "Los servicios por debajo de su nivel, con la diferencia",
+            "entrega": "Qué servicio no cumplió lo que se le prometió al negocio"
+          },
+          "en": {
+            "etiqueta": "Each service against its level",
+            "entrada": "The service catalogue in `00-politica/` and the period's availability in `20-servicio/`",
+            "proceso": "Each service's availability in the period against the level agreed in the catalogue",
+            "reporte": "The services below their level, with the difference",
+            "entrega": "Which service did not deliver what the business was promised"
+          }
+        },
+        {
+          "id": "changes-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar los cambios —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "Los cambios al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the changes need processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The changes up to date without anyone having to remember"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 6,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only if the answer is yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "change_without_approval",
+          "es": "Un cambio normal se implementó sin la aprobación de su autoridad de cambio, o antes de ella",
+          "en": "A normal change was implemented without its change authority's approval, or before it"
+        },
+        {
+          "id": "emergency_change_without_review",
+          "es": "Un cambio de emergencia no tiene su revisión posterior en el plazo de la política",
+          "en": "An emergency change has no post-implementation review within the policy's deadline"
+        },
+        {
+          "id": "deployment_without_change",
+          "es": "Un despliegue en producción no corresponde a ningún cambio registrado",
+          "en": "A production deployment matches no registered change"
+        },
+        {
+          "id": "failed_change_without_review",
+          "es": "Un cambio fallido o revertido no tiene su revisión posterior",
+          "en": "A failed or rolled-back change has no post-implementation review"
+        },
+        {
+          "id": "major_incident_without_problem",
+          "es": "Un incidente mayor no tiene un registro de problema con su causa en el plazo de la política",
+          "en": "A major incident has no problem record with its cause within the policy's deadline"
+        },
+        {
+          "id": "service_below_level",
+          "es": "La disponibilidad de un servicio en el periodo quedó por debajo del nivel acordado en el catálogo",
+          "en": "A service's availability in the period fell below the level agreed in the catalogue"
+        }
+      ]
+    },
+    {
+      "id": "domingo",
+      "nombre": "Domingo",
+      "plugin": "criterio-assets",
+      "rol": {
+        "es": "Los activos y los proveedores",
+        "en": "Assets and vendors"
+      },
+      "titulo": "los activos, las licencias, los proveedores y la nube",
+      "origen": {
+        "es": "del latín *dominicus*, el del dueño: cada activo con quien responde por él",
+        "en": "from the Latin *dominicus*, the owner's: each asset with whoever answers for it"
+      },
+      "hace": {
+        "es": "El inventario de activos contra sus dueños y el soporte del fabricante, las licencias contra su uso, cada proveedor contra su nivel de servicio y la nube contra su presupuesto: el activo sin dueño, el que pasó su fin de soporte sin una excepción aprobada, la licencia que falta y la que sobra, el incumplimiento de un proveedor sin su crédito en la factura y la factura de la nube por encima de su presupuesto",
+        "en": "The asset inventory against its owners and the manufacturer's support, the licences against their use, each vendor against its service level and the cloud against its budget: an asset with no owner, one past its end of support with no approved exception, a licence shortfall and a surplus, a vendor breach with no credit on the invoice and a cloud bill above its budget"
+      },
+      "area": "activos",
+      "ambitos": [
+        "activos"
+      ],
+      "nunca": {
+        "es": "No elige un proveedor, no decide renovar o retirar un activo, no interpreta un contrato y no se conecta a la nube, a una herramienta de inventario ni a un servidor",
+        "en": "It does not choose a vendor, decide to renew or retire an asset, interpret a contract or connect to the cloud, an inventory tool or a server"
+      },
+      "marco": [
+        "F-02"
+      ],
+      "comandos": [
+        {
+          "id": "assets-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo y los umbrales de la política: el porcentaje de licencias sin uso que tolera y la tolerancia sobre el presupuesto de la nube",
+            "proceso": "Inventario de lo que hay; procesa el inventario y las licencias de `30-activos/`, el cumplimiento y las facturas de los proveedores de `40-proveedores/` y la factura y el presupuesto de `50-nube/`, y dice cuántas filas reconoce; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las tablas reconocidas; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las tablas reconocidas"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period and the policy's thresholds: the share of unused licences it tolerates and the tolerance over the cloud budget",
+            "proceso": "Inventory of what is there; processes the inventory and licences in `30-activos/`, the vendors' compliance and invoices in `40-proveedores/` and the bill and budget in `50-nube/`, and says how many rows it recognises; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the recognised tables; the period's first record",
+            "entrega": "The configuration, the inventory and the recognised tables"
+          }
+        },
+        {
+          "id": "assets-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en los activos",
+            "entrada": "Las actas del comité de arquitectura de `30-activos/`, los contratos de `40-proveedores/`, las tablas de `30-activos/`, `40-proveedores/` y `50-nube/`, y la ficha del periodo",
+            "proceso": "Lleva a la ficha cada excepción aprobada sobre un activo sin soporte y cada nivel de servicio de un contrato, con su crédito, con la cita; recalcula las señales",
+            "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día"
+          },
+          "en": {
+            "etiqueta": "What changed in the assets",
+            "entrada": "The architecture board minutes in `30-activos/`, the contracts in `40-proveedores/`, the tables in `30-activos/`, `40-proveedores/` and `50-nube/`, and the period's record",
+            "proceso": "Brings into the record each approved exception for an unsupported asset and each service level in a contract, with its credit, with its citation; recalculates the signals",
+            "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+            "entrega": "The period's record up to date"
+          }
+        },
+        {
+          "id": "asset-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Cada activo con su dueño y su soporte",
+            "entrada": "El inventario de activos de `30-activos/` y la ficha —las excepciones aprobadas—",
+            "proceso": "Cada activo contra su dueño, y cada activo en producción contra la fecha de fin de soporte de su fabricante y la excepción que lo cubre",
+            "reporte": "Los activos sin dueño y los que pasaron su fin de soporte sin excepción, con los días",
+            "entrega": "Qué corre en producción sin quién responda o sin quién lo soporte"
+          },
+          "en": {
+            "etiqueta": "Each asset with its owner and support",
+            "entrada": "The asset inventory in `30-activos/` and the record —the approved exceptions—",
+            "proceso": "Each asset against its owner, and each production asset against its manufacturer's end-of-support date and the exception that covers it",
+            "reporte": "The assets with no owner and those past their end of support with no exception, with the days",
+            "entrega": "What runs in production with no one to answer for it or support it"
+          }
+        },
+        {
+          "id": "license-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "Cada licencia contra su uso",
+            "entrada": "Las licencias de `30-activos/`",
+            "proceso": "Las licencias compradas de cada software contra las que están en uso, y las que sobran contra el umbral de la política",
+            "reporte": "El software con menos licencias que uso y el que tiene licencias pagadas sin uso por encima del umbral, con la diferencia",
+            "entrega": "Qué se usa sin licencia y qué se paga sin usar"
+          },
+          "en": {
+            "etiqueta": "Each licence against its use",
+            "entrada": "The licences in `30-activos/`",
+            "proceso": "Each software's purchased licences against those in use, and the surplus against the policy's threshold",
+            "reporte": "The software with fewer licences than use and the software with unused paid licences above the threshold, with the difference",
+            "entrega": "What is used without a licence and what is paid for and not used"
+          }
+        },
+        {
+          "id": "vendor-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "Cada proveedor contra su nivel",
+            "entrada": "La ficha —los niveles de servicio de cada contrato—, y el cumplimiento y las facturas de `40-proveedores/`",
+            "proceso": "El cumplimiento de cada proveedor en el periodo contra el nivel de su contrato; el incumplimiento, contra el crédito en su factura",
+            "reporte": "Los proveedores que incumplieron sin el crédito en la factura, con el nivel, lo medido y el valor",
+            "entrega": "Qué incumplimiento se pagó completo"
+          },
+          "en": {
+            "etiqueta": "Each vendor against its level",
+            "entrada": "The record —each contract's service levels—, and the compliance and invoices in `40-proveedores/`",
+            "proceso": "Each vendor's compliance in the period against its contract level; the breach, against the credit on its invoice",
+            "reporte": "The vendors that breached with no credit on the invoice, with the level, the measured value and the amount",
+            "entrega": "Which breach was paid in full"
+          }
+        },
+        {
+          "id": "cloud-check",
+          "n": 5,
+          "es": {
+            "etiqueta": "La nube contra su presupuesto",
+            "entrada": "La factura y el presupuesto de `50-nube/`",
+            "proceso": "La factura de la nube del periodo, por cuenta, contra su presupuesto y la tolerancia de la política",
+            "reporte": "Las cuentas de la nube por encima de su presupuesto, con la diferencia",
+            "entrega": "Qué cuenta de la nube se pasó"
+          },
+          "en": {
+            "etiqueta": "The cloud against its budget",
+            "entrada": "The bill and budget in `50-nube/`",
+            "proceso": "The period's cloud bill, by account, against its budget and the policy's tolerance",
+            "reporte": "The cloud accounts above their budget, with the difference",
+            "entrega": "Which cloud account overspent"
+          }
+        },
+        {
+          "id": "assets-wake",
+          "n": 6,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y el registro de corridas",
+            "proceso": "Decide si toca procesar los activos —documentos nuevos o la revisión semanal— o un reporte con señales abiertas, y lo corre; si no toca nada, se calla",
+            "reporte": "Lo que corrió y por qué, o nada",
+            "entrega": "Los activos al día sin que nadie se acuerde"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the run log",
+            "proceso": "Decides whether the assets need processing —new documents or the weekly review— or a report with open signals, and runs it; if nothing is due, it stays quiet",
+            "reporte": "What ran and why, or nothing",
+            "entrega": "The assets up to date without anyone having to remember"
+          }
+        },
+        {
+          "id": "share-findings",
+          "n": 7,
+          "es": {
+            "etiqueta": "Compartir hallazgos",
+            "entrada": "El rastro de las corridas de este agente en esta carpeta",
+            "proceso": "Arma un resumen sin datos —qué comandos corrieron, cuántas señales, qué no se pudo procesar— y pregunta si se comparte; nada se envía solo",
+            "reporte": "El resumen y la pregunta",
+            "entrega": "Un resumen sin datos, solo si se dice que sí"
+          },
+          "en": {
+            "etiqueta": "Share findings",
+            "entrada": "The trail of this agent's runs in this folder",
+            "proceso": "Builds a summary with no data —which commands ran, how many signals, what could not be processed— and asks whether to share it; nothing is sent on its own",
+            "reporte": "The summary and the question",
+            "entrega": "A summary with no data, only if the answer is yes"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "asset_without_owner",
+          "es": "Un activo del inventario no tiene dueño",
+          "en": "An asset in the inventory has no owner"
+        },
+        {
+          "id": "asset_out_of_support",
+          "es": "Un activo en producción pasó la fecha de fin de soporte de su fabricante sin una excepción aprobada vigente",
+          "en": "A production asset is past its manufacturer's end-of-support date with no current approved exception"
+        },
+        {
+          "id": "license_shortfall",
+          "es": "Las licencias en uso de un software superan las compradas",
+          "en": "A software's licences in use exceed those purchased"
+        },
+        {
+          "id": "license_unused",
+          "es": "Las licencias pagadas sin uso de un software superan el umbral de la política",
+          "en": "A software's unused paid licences exceed the policy's threshold"
+        },
+        {
+          "id": "vendor_breach_without_credit",
+          "es": "Un proveedor quedó por debajo de su nivel de servicio y su factura del periodo no trae el crédito que pacta el contrato",
+          "en": "A vendor fell below its service level and its invoice for the period does not carry the credit the contract sets"
+        },
+        {
+          "id": "cloud_over_budget",
+          "es": "La factura de la nube de una cuenta supera su presupuesto más la tolerancia de la política",
+          "en": "A cloud account's bill exceeds its budget plus the policy's tolerance"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "technology-intake": {
+      "es": "La estructura recomendada de la carpeta de tecnología, qué va en cada carpeta y qué agente la usa",
+      "en": "The recommended structure of the technology folder, what goes in each folder and which agent uses it"
+    },
+    "technology-policy": {
+      "es": "La política de cambios y de niveles de servicio en la configuración: los plazos, los umbrales y lo que nunca se decide",
+      "en": "The change and service level policy in the configuration: the deadlines, the thresholds and what is never decided"
+    },
+    "change-record": {
+      "es": "Cómo se lleva a la ficha cada aprobación de un cambio y cada revisión posterior que quedó en un acta, con la cita",
+      "en": "How each change approval and each post-implementation review recorded in the minutes go into the record, with their citation"
+    },
+    "vendor-record": {
+      "es": "Cómo se lleva a la ficha cada excepción aprobada sobre un activo y cada nivel de servicio de un contrato con su crédito, con la cita",
+      "en": "How each approved exception for an asset and each contract service level with its credit go into the record, with their citation"
+    }
+  },
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica tal cual.",
+    "bots": [
+      "fausto",
+      "domingo",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CTO",
+      "titulo": "Dos agentes para la tecnología",
+      "sub": "Procesan los cambios, los despliegues, los incidentes, el inventario, las licencias, los contratos de los proveedores y la factura de la nube, y dicen qué llegó a producción sin aprobación y qué se paga sin que cumpla.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "Fausto y Domingo comparten la carpeta y la política de tecnología; cada uno escribe solo su ficha.",
+      "roles": {
+        "fausto": "Los cambios y el servicio",
+        "domingo": "Los activos y los proveedores",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: construida, en laboratorio. El motor pasa su prueba determinista contra todo su material; la ronda con los dos agentes viene en la 0.2.0.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CTO"
+        },
+        {
+          "texto": "La tecnología con dos agentes, sobre ISO/IEC 20000 e ISO/IEC 19770. Cada uno extiende a una persona del área; ninguno la reemplaza."
+        },
+        {
+          "quien": "fausto",
+          "tag": "FAUSTO · LOS CAMBIOS Y EL SERVICIO",
+          "texto": "Pone cada cambio al lado de su aprobación y cada incidente mayor al lado de su causa, y dice qué servicio no cumplió su nivel. No aprueba un cambio."
+        },
+        {
+          "quien": "domingo",
+          "tag": "DOMINGO · LOS ACTIVOS Y LOS PROVEEDORES",
+          "texto": "Pone cada activo al lado de su dueño y su soporte, cada licencia al lado de su uso y cada proveedor al lado de su nivel. No elige un proveedor."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica el estado de los cambios, del servicio y de los activos para la dirección. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Procesa exportaciones y documentos: nunca se conecta a una herramienta, a la nube ni a un servidor. La seguridad es de la CISO. Los plazos y los niveles son de la política de la organización."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CTO family",
+      "titulo": "Two agents for technology",
+      "sub": "They process the changes, deployments, incidents, inventory, licences, vendor contracts and the cloud bill, and say what reached production without approval and what is paid for without being delivered.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "Fausto and Domingo share the folder and the technology policy; each writes only its own record.",
+      "roles": {
+        "fausto": "Changes and service",
+        "domingo": "Assets and vendors",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: built, in the lab. The engine passes its deterministic test against all its material; the round with the two agents comes in 0.2.0.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CTO FAMILY"
+        },
+        {
+          "texto": "Technology with two agents, on ISO/IEC 20000 and ISO/IEC 19770. Each extends a person in the area; neither replaces them."
+        },
+        {
+          "quien": "fausto",
+          "tag": "FAUSTO · CHANGES AND SERVICE",
+          "texto": "Puts each change beside its approval and each major incident beside its cause, and says which service missed its level. He does not approve a change."
+        },
+        {
+          "quien": "domingo",
+          "tag": "DOMINGO · ASSETS AND VENDORS",
+          "texto": "Puts each asset beside its owner and support, each licence beside its use and each vendor beside its level. He does not choose a vendor."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes the state of changes, service and assets for management. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "It processes exports and documents: it never connects to a tool, the cloud or a server. Security belongs to the CISO. The deadlines and levels belong to the organisation's policy."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINT."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.1",
+  "role": "cambios",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "tecnologia/900123456-entidad-de-ejemplo",
+    "state": "estado-tecnologia/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-10",
+  "publish_rostrum": true,
+  "methodology": {
+    "emergency_review_days": 5,
+    "problem_days": 10
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

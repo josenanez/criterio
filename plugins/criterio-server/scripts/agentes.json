@@ -168,6 +168,21 @@
         "piezas",
         "campanas"
       ]
+    },
+    {
+      "sigla": "cto",
+      "nombre": {
+        "es": "La tecnología",
+        "en": "Technology"
+      },
+      "estado": {
+        "es": "Construida",
+        "en": "Built"
+      },
+      "agentes": [
+        "cambios",
+        "activos"
+      ]
     }
   ],
   "agentes": [
@@ -2267,6 +2282,158 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fausto",
+      "nombre": "Fausto",
+      "plugin": "criterio-changes",
+      "area": "cambios",
+      "ambitos": [
+        "cambios"
+      ],
+      "familia": "cto",
+      "rol": {
+        "es": "Los cambios y el servicio",
+        "en": "Changes and service"
+      },
+      "titulo": "los cambios en producción y el nivel de servicio",
+      "origen": {
+        "es": "del latín *faustus*, el que trae buena fortuna: cada cambio que sale bien",
+        "en": "from the Latin *faustus*, the one who brings good fortune: each change that goes well"
+      },
+      "privados": {},
+      "setup": "/criterio-changes:changes-setup",
+      "marca": "_CRITERIO_TECNOLOGIA.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "changes-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "fausto",
+              "etiqueta": "Pídeselo a Fausto"
+            },
+            {
+              "id": "changes-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Los cambios y el servicio",
+          "linea": "Cada cambio en producción contra su aprobación y su revisión, cada despliegue contra su cambio, cada incidente mayor contra su problema y cada servicio contra el nivel acordado: el cambio sin aprobar o aprobado después, el de emergencia sin su revisión, el despliegue sin cambio, el cambio fallido sin revisión, el incidente mayor sin causa y el servicio por debajo de su nivel",
+          "comandos": [
+            {
+              "id": "changes-scan",
+              "etiqueta": "Qué cambió en los cambios"
+            },
+            {
+              "id": "change-check",
+              "etiqueta": "Cada cambio con su aprobación"
+            },
+            {
+              "id": "incident-check",
+              "etiqueta": "Cada incidente mayor con su causa"
+            },
+            {
+              "id": "service-check",
+              "etiqueta": "Cada servicio contra su nivel"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domingo",
+      "nombre": "Domingo",
+      "plugin": "criterio-assets",
+      "area": "activos",
+      "ambitos": [
+        "activos"
+      ],
+      "familia": "cto",
+      "rol": {
+        "es": "Los activos y los proveedores",
+        "en": "Assets and vendors"
+      },
+      "titulo": "los activos, las licencias, los proveedores y la nube",
+      "origen": {
+        "es": "del latín *dominicus*, el del dueño: cada activo con quien responde por él",
+        "en": "from the Latin *dominicus*, the owner's: each asset with whoever answers for it"
+      },
+      "privados": {},
+      "setup": "/criterio-assets:assets-setup",
+      "marca": "_CRITERIO_TECNOLOGIA.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "assets-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "domingo",
+              "etiqueta": "Pídeselo a Domingo"
+            },
+            {
+              "id": "assets-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Los activos y los proveedores",
+          "linea": "El inventario de activos contra sus dueños y el soporte del fabricante, las licencias contra su uso, cada proveedor contra su nivel de servicio y la nube contra su presupuesto: el activo sin dueño, el que pasó su fin de soporte sin una excepción aprobada, la licencia que falta y la que sobra, el incumplimiento de un proveedor sin su crédito en la factura y la factura de la nube por encima de su presupuesto",
+          "comandos": [
+            {
+              "id": "assets-scan",
+              "etiqueta": "Qué cambió en los activos"
+            },
+            {
+              "id": "asset-check",
+              "etiqueta": "Cada activo con su dueño y su soporte"
+            },
+            {
+              "id": "license-check",
+              "etiqueta": "Cada licencia contra su uso"
+            },
+            {
+              "id": "vendor-check",
+              "etiqueta": "Cada proveedor contra su nivel"
+            },
+            {
+              "id": "cloud-check",
+              "etiqueta": "La nube contra su presupuesto"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -2314,6 +2481,8 @@
     "appetite_statement_outdated": "La declaración de apetito no tiene la revisión de la junta en el plazo que fija el marco",
     "applicable_norm_not_in_matrix": "Una norma que aplica no tiene ninguna obligación en la matriz",
     "asset_not_scanned": "Un activo del inventario no aparece en ningún escaneo de la ventana configurada",
+    "asset_out_of_support": "Un activo en producción pasó la fecha de fin de soporte de su fabricante sin una excepción aprobada vigente",
+    "asset_without_owner": "Un activo del inventario no tiene dueño",
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
     "auditable_unit_overdue": "Una unidad del universo auditable pasó su ciclo de rotación sin un trabajo",
     "auditor_reviews_own_work": "Un auditor asignado a un trabajo de aseguramiento tuvo a su cargo la actividad auditada en los doce meses anteriores (norma 2.2)",
@@ -2325,12 +2494,14 @@
     "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
     "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
     "certification_expired": "Una certificación que el perfil exige venció antes de la postulación",
+    "change_without_approval": "Un cambio normal se implementó sin la aprobación de su autoridad de cambio, o antes de ella",
     "claim_without_substantiation": "Una afirmación de una pieza aprobada no tiene un soporte en la carpeta de soportes",
     "claim_without_support": "La hoja de vida afirma un título, una certificación o un empleo sin el documento que lo soporte",
     "close_date_slipped": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
     "closure_without_evidence": "Un plan se dio por cerrado sin la evidencia de su implementación o sin la validación de auditoría (norma 15.2)",
+    "cloud_over_budget": "La factura de la nube de una cuenta supera su presupuesto más la tolerancia de la política",
     "commission_differs_from_plan": "La comisión liquidada no es la que da el plan sobre lo cerrado y facturado",
     "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
     "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
@@ -2359,18 +2530,21 @@
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
+    "deployment_without_change": "Un despliegue en producción no corresponde a ningún cambio registrado",
     "discount_outside_policy": "Un descuento supera el tope de su nivel y no tiene la aprobación que pide la matriz, o ningún nivel lo cubre",
     "due_date_extended_repeatedly": "La fecha de un plan se corrió más veces de las que permite la metodología",
     "education_level_inconsistent": "El nivel de estudios que pide el perfil no corresponde al nivel de competencia de su ocupación",
     "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
     "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
     "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
+    "emergency_change_without_review": "Un cambio de emergencia no tiene su revisión posterior en el plazo de la política",
     "employment_dates_differ": "Las fechas de un empleo en la hoja de vida no son las de su certificado laboral",
     "engagement_behind_schedule": "Un trabajo del plan pasó su fecha de inicio o de cierre sin estar en curso o terminado",
     "essential_skill_missing": "Una destreza o un conocimiento de la ocupación en el estándar no está en el perfil, ni el perfil dice por qué no aplica",
     "exposure_report_late": "Un área reportó su exposición después del plazo que fija el marco",
     "external_assessment_overdue": "La última evaluación externa de calidad tiene más de cinco años (norma 8.4)",
     "external_finding_untracked": "Un hallazgo del revisor fiscal, del auditor externo o del supervisor no está en el registro con su plan",
+    "failed_change_without_review": "Un cambio fallido o revertido no tiene su revisión posterior",
     "figure_differs_from_source": "La cifra del informe no coincide con la de su fuente al mismo corte, más allá de la tolerancia que fija la organización",
     "figure_without_source": "Una cifra de un informe de dirección no tiene fuente en el linaje ni en las cifras de la fuente exportadas",
     "finding_element_missing": "Un hallazgo no tiene su criterio, su condición, su efecto o su prioridad, o no tiene su causa raíz ni la razón por la que no se pudo identificar (normas 14.2 y 14.3)",
@@ -2391,6 +2565,8 @@
     "kri_alert_without_action": "Un indicador clave está en su umbral de alerta o de límite y no tiene acción registrada",
     "kri_not_reported": "Un indicador clave no tiene valor en el periodo",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
+    "license_shortfall": "Las licencias en uso de un software superan las compradas",
+    "license_unused": "Las licencias pagadas sin uso de un software superan el umbral de la política",
     "limit_breached_without_plan": "Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso",
     "limit_review_overdue": "Un límite pasó su fecha de revisión",
     "limit_without_owner": "Un límite del marco no tiene dueño",
@@ -2399,6 +2575,7 @@
     "loss_event_registered_late": "Un evento se registró después del plazo de la política desde que se descubrió",
     "loss_event_repeated": "El mismo tipo de evento se repite en el mismo proceso dentro de la ventana de la política",
     "loss_event_risk_unmapped": "Un evento no corresponde a ningún riesgo de la matriz",
+    "major_incident_without_problem": "Un incidente mayor no tiene un registro de problema con su causa en el plazo de la política",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
     "media_invoice_unmatched": "Una factura de pauta no tiene campaña del plan ni orden de compra",
     "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
@@ -2451,6 +2628,7 @@
     "risk_accepted_not_escalated": "La gerencia aceptó un riesgo por encima del apetito y no hay constancia de que se discutiera con la alta dirección o, sin resolverse, de que llegara al consejo (norma 11.5)",
     "risk_assessment_outdated": "La evaluación de riesgos que sostiene el plan tiene más de un año (norma 9.4)",
     "risk_without_limit": "Un riesgo calificado alto o crítico en la matriz no tiene límite ni indicador clave",
+    "service_below_level": "La disponibilidad de un servicio en el periodo quedó por debajo del nivel acordado en el catálogo",
     "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
     "signed_without_invoice": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",
@@ -2469,6 +2647,7 @@
     "unsigned_contract": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
     "vacancy_past_target": "Una vacante sigue abierta después del plazo de cobertura de la política",
     "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado",
+    "vendor_breach_without_credit": "Un proveedor quedó por debajo de su nivel de servicio y su factura del periodo no trae el crédito que pacta el contrato",
     "vuln_closed_without_rescan": "Una vulnerabilidad figura cerrada y ningún escaneo posterior la da por corregida",
     "vuln_exception_expired": "Una excepción a la corrección pasó su vencimiento y la vulnerabilidad sigue abierta",
     "vuln_past_sla": "Una vulnerabilidad sigue abierta después del plazo de su severidad en la política, sin una excepción vigente",

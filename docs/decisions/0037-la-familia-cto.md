@@ -1,6 +1,6 @@
 # 0037 · La familia CTO: la tecnología, con dos agentes sobre los cambios y el servicio, y sobre los activos y los proveedores
 
-**Fecha:** 2026-11-26 · **Estado:** propuesta: los nombres y la estructura esperan la aprobación de José. Cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
+**Fecha:** 2026-11-26 · **Estado:** aceptada: los nombres y la estructura, por José el 2026-11-26. Cada fuente se verifica una a una (abajo, con la fecha de cada verificación).
 
 ## Contexto
 

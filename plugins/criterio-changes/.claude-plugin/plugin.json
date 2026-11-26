@@ -1,0 +1,20 @@
+{
+  "name": "criterio-changes",
+  "version": "0.1.0",
+  "description": "Fausto, los cambios y el servicio: cada cambio en producción contra su aprobación y su revisión, cada despliegue contra su cambio, cada incidente mayor contra su problema y su causa, y cada servicio contra el nivel acordado. Procesa exportaciones y documentos; nunca aprueba un cambio ni se conecta a una herramienta.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "tecnologia",
+    "technology",
+    "cto",
+    "cambios",
+    "change-management",
+    "itsm",
+    "iso-20000"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cto",
+  "license": "Apache-2.0"
+}
