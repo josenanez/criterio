@@ -19,6 +19,10 @@ queda escrita en `clave.json`, junto con lo que el agente tendría que extraer d
 informe— y la configuración que deja el setup. El motor no la ve; `evaluar.py` compara lo que el motor
 levanta contra ella, y una señal de más cuenta igual que una de menos.
 
+**Cuántas veces.** El retail y el banco traen cada defecto tres veces y la de consumo masivo, dos (`veces`),
+cada repetición en su propia pieza, promoción, base, campaña o factura. Así la familia pasa de 73 señales
+sembradas, la muestra que pide el piso del 95 % sin fallas (decisión 0020).
+
 **Las entidades de control no tienen ningún defecto**, y sí los casos que se parecen a uno: una pieza
 aprobada el mismo día en que se publicó, una pieza de un influenciador que no se le pagó, una base sin
 autorización que ninguna campaña usa, una campaña que pasa su presupuesto dentro de la tolerancia, una
@@ -48,16 +52,55 @@ TODAS = {"sin_soporte", "comparativa", "promocion", "patrocinada", "aprobacion",
 
 ENTIDADES = [
     {"carpeta": "retail-co", "industria": "retail", "pais": "CO", "id": "901333555", "nombre": "Almacenes del Valle Sintéticos", "moneda": "COP",
-     "siembra": set(TODAS)},
+     "siembra": set(TODAS), "veces": 3},
     {"carpeta": "banca-pe", "industria": "banca", "pais": "PE", "id": "20603335551", "nombre": "Banco Altiplano Sintético", "moneda": "PEN",
-     "siembra": {"sin_soporte", "promocion", "patrocinada", "presupuesto", "factura", "resultado"}},
+     "siembra": set(TODAS), "veces": 3},
     {"carpeta": "consumo-mx", "industria": "manufactura", "pais": "MX", "id": "CMS210415XY3", "nombre": "Consumo Maya Sintético", "moneda": "MXN",
-     "siembra": {"comparativa", "aprobacion", "base", "meta", "fin"}},
+     "siembra": set(TODAS), "veces": 2},
     {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "901444666", "nombre": "Almacenes Control de Mercadeo Sintéticos", "moneda": "COP",
-     "siembra": set()},
+     "siembra": set(), "veces": 1},
     {"carpeta": "control-mx", "industria": "manufactura", "pais": "MX", "id": "CCM220101ZZ9", "nombre": "Consumo Control de Mercadeo Sintético", "moneda": "MXN",
-     "siembra": set()},
+     "siembra": set(), "veces": 1},
 ]
+
+# Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia pieza,
+# promoción, base, campaña o factura.
+# Pieza: (código, nombre, canal, afirmación, soporte —archivo y texto—, publicada, aprobada).
+REP_PIEZAS = {
+    "sin_soporte": {2: ("P-12", "Atención rápida", "Radio", "Atención en menos de 5 minutos en todas las sucursales.", None, "2026-10-05", "2026-10-01"),
+                    3: ("P-13", "Cobertura", "Correo", "Más de 500 puntos de atención en el país.", None, "2026-10-09", "2026-10-06")},
+    "comparativa": {2: ("P-22", "Útiles escolares", "Prensa", "Más barato que cualquier otra cadena en útiles escolares.",
+                        ("comparativo_de_utiles_2026-10.pdf", "# Comparativo de precios de útiles escolares · octubre de 2026\n\nMedición propia sobre 25 productos en 4 cadenas.\n"),
+                        "2026-10-07", "2026-10-03"),
+                    3: ("P-23", "Envíos", "Televisión", "El envío más rápido del mercado.",
+                        ("comparativo_de_envios_2026-10.pdf", "# Comparativo de tiempos de envío · octubre de 2026\n\nMedición propia sobre 300 pedidos a 3 competidores.\n"),
+                        "2026-10-11", "2026-10-08")},
+    "patrocinada": {2: ("P-32", "Visita de un creador", "Instagram", "La tienda abre hasta las 10 de la noche.",
+                        ("horarios_de_atencion.pdf", "# Horarios de atención\n\nTodas las tiendas abren de 8 de la mañana a 10 de la noche.\n"),
+                        "2026-10-14", "2026-10-13"),
+                    3: ("P-33", "Reseña de cafés", "TikTok", "Tienen más de 200 referencias de café.",
+                        ("catalogo_de_cafes.pdf", "# Catálogo de cafés\n\n214 referencias de café en el surtido de octubre.\n"),
+                        "2026-10-16", "2026-10-15")},
+    "aprobacion": {2: ("P-42", "Devoluciones", "Redes sociales", "Devoluciones en 30 días.",
+                       ("politica_de_devoluciones.pdf", "# Política de devoluciones\n\nToda compra se puede devolver dentro de los 30 días siguientes.\n"),
+                       "2026-10-14", "2026-10-16"),
+                   3: ("P-43", "Garantía", "Exteriores", "Garantía de dos años en electrodomésticos.",
+                       ("terminos_de_garantia.pdf", "# Términos de la garantía\n\nLos electrodomésticos tienen una garantía de 24 meses.\n"),
+                       "2026-10-22", "2026-10-25")},
+}
+REP_PROMOS = {2: ("Cumpleaños", "bases_promocion_cumpleanos", "2026-10-01", "", True),
+              3: ("Regreso a clases", "bases_promocion_regreso_a_clases", "2026-10-15", "2026-11-15", False)}
+# Campaña: (código, nombre, presupuesto, inicio, fin, meta, indicador, base)
+REP_CAMP = {
+    "base": {2: ("C-12", "Reactivación", 15_000_000, "2026-10-01", "2026-11-30", "800 clientes reactivados", "Clientes reactivados", "B-12"),
+             3: ("C-13", "Referidos", 12_000_000, "2026-10-01", "2026-12-15", "500 referidos", "Referidos", "B-13")},
+    "meta": {2: ("C-22", "Aniversario", 25_000_000, "2026-10-01", "2026-11-15", "", "", ""),
+             3: ("C-23", "Gran venta de noviembre", 35_000_000, "2026-10-15", "2026-11-30", "", "", "")},
+    "presupuesto": {2: ("C-32", "Día de la familia", 20_000_000, "2026-09-01", "2026-10-31", "900 ventas", "Ventas atribuidas", ""),
+                    3: ("C-33", "Hogar", 50_000_000, "2026-09-01", "2026-10-31", "1500 ventas", "Ventas atribuidas", "")},
+    "fin": {2: ("C-42", "Verano", 18_000_000, "2026-08-01", "2026-09-30", "1000 visitas a la tienda", "Visitas a la tienda", ""),
+            3: ("C-43", "Feria escolar", 22_000_000, "2026-09-01", "2026-10-10", "1200 visitas a la tienda", "Visitas a la tienda", "")},
+}
 
 
 def _pdf(md: str, ruta: Path) -> None:
@@ -84,6 +127,11 @@ def _miles(x: float) -> str:
 def construir(e: dict) -> dict:
     """La carpeta de una entidad y su clave."""
     s = e["siembra"]
+
+    def veces(tipo: str) -> list[int]:
+        """Las repeticiones de un defecto sembrado, cada una en su propia fila."""
+        return list(range(2, e["veces"] + 1)) if tipo in s else []
+
     raiz = SALIDA / e["carpeta"]
     nombre_carpeta = f"{e['id'].lower()}-{_norm(e['nombre']).replace('_', '-')}"
     docs = raiz / "mercadeo" / nombre_carpeta
@@ -123,12 +171,30 @@ def construir(e: dict) -> dict:
         ("P-05", "Hecho en casa", "Exteriores", "Fabricado en el país.", soportes["origen"], False, ""),
         ("P-06", "La nueva colección", "TikTok", "La colección llega en tres colores.", soportes["coleccion"], False, ""),
     ]
+    # Las repeticiones: cada una, una pieza más, con su soporte si lo tiene.
+    reg_extra = []
+    for tipo in ("sin_soporte", "comparativa", "patrocinada", "aprobacion"):
+        for i in veces(tipo):
+            pid, nom, canal, texto, sop, pub, apr = REP_PIEZAS[tipo][i]
+            ruta = ""
+            if sop:
+                ruta = f"20-soportes/{sop[0]}"
+                _pdf(sop[1], docs / ruta)
+            piezas.append((pid, nom, canal, texto, ruta, tipo == "comparativa", ""))
+            pagada = tipo == "patrocinada"
+            reg_extra.append([pid, nom, canal, pub, apr, "Legal", "Sí" if pagada else "No", "No" if pagada else "",
+                              "@creador_invitado_sintetico" if pagada else ""])
+            esp({"sin_soporte": "claim_without_substantiation", "comparativa": "comparative_claim_without_source",
+                 "patrocinada": "sponsored_content_unidentified", "aprobacion": "piece_published_unapproved"}[tipo],
+                f"{ {'sin_soporte': 'soporte', 'comparativa': 'comparativa', 'patrocinada': 'patrocinada', 'aprobacion': 'aprobacion'}[tipo] }:{pid}")
     claims = []
     for pid, nom, canal, texto, sop, comp, fuente in piezas:
         f = f"10-piezas/pieza_{pid}.pdf"
         extra = ""
         if pid == "P-04":
             extra = "\n\n#Publicidad · Contenido pagado por la marca." if "patrocinada" not in s else "\n\n@creadora_sintetica"
+        elif pid.startswith("P-3"):
+            extra = "\n\n@creador_invitado_sintetico"
         _pdf(f"# {nom} · {e['nombre']}\n\nCanal: {canal}.\n\n«{texto}»" + (f"\n\n{fuente}" if fuente else "") + extra + "\n", docs / f)
         c = {"piece": pid, "claim": texto, "support": sop, "source": f}
         if comp:
@@ -153,7 +219,7 @@ def construir(e: dict) -> dict:
            ["P-03", "Recomendación", "Redes sociales", "2026-10-08", "2026-10-07", "Legal", "No", "", ""],
            ["P-04", "Reseña de una creadora", "Instagram", "2026-10-10", "2026-10-09", "Legal", "Sí", "No" if "patrocinada" in s else "Sí", "@creadora_sintetica"],
            ["P-05", "Hecho en casa", "Exteriores", "2026-10-12", apr_p05, "Legal", "No", "", ""],
-           ["P-06", "La nueva colección", "TikTok", "2026-10-20", "2026-10-18", "Legal", "No", "No", "@creador_sintetico"]],
+           ["P-06", "La nueva colección", "TikTok", "2026-10-20", "2026-10-18", "Legal", "No", "No", "@creador_sintetico"]] + reg_extra,
           docs / "10-piezas" / "registro_de_piezas.xlsx")
 
     # ------------------------------------------------------------ 30-promociones
@@ -168,6 +234,13 @@ def construir(e: dict) -> dict:
          docs / "30-promociones" / "bases_promocion_puntos_dobles.pdf")
     promos = [{"name": "Navidad", "start": "2026-12-01", "end": "2026-12-24", "conditions": True, "source": "30-promociones/bases_promocion_navidad.pdf"},
               {"name": "Puntos dobles", "start": "2026-11-01", "end": fin_puntos, "conditions": True, "source": "30-promociones/bases_promocion_puntos_dobles.pdf"}]
+    for i in veces("promocion"):                      # la segunda sin su fin; la tercera, sin el modo ni el lugar
+        nom, stem, ini, fin, cond = REP_PROMOS[i]
+        _pdf(f"# Bases de la promoción {nom} · {e['nombre']}\n\nVigencia: desde el {ini}" + (f" hasta el {fin}" if fin else "") + ".\n\n"
+             + ("Modo: un bono en el mes de cumpleaños del cliente. Lugar: todas las tiendas.\n" if cond else "Descuentos especiales en la temporada.\n"),
+             docs / "30-promociones" / f"{stem}.pdf")
+        promos.append({"name": nom, "start": ini, "end": fin, "conditions": cond, "source": f"30-promociones/{stem}.pdf"})
+        esp("promotion_terms_missing", f"promocion:{stem}")
 
     # ------------------------------------------------------------ 40-bases
     # B-02 la usa C-02: sin autorización donde se siembra. B-03 no tiene autorización y ninguna campaña la usa: no es una señal.
@@ -176,7 +249,11 @@ def construir(e: dict) -> dict:
     _xlsx([["Base", "Registros", "Autorización para mercadeo", "Fecha de autorización", "Finalidad"],
            ["B-01", 120000, "Sí", "2024-03-01", "Mercadeo y servicio"],
            ["B-02", 45000, "No" if "base" in s else "Sí", "" if "base" in s else "2025-06-15", "Servicio" if "base" in s else "Mercadeo"],
-           ["B-03", 8000, "No", "", "Servicio"]], docs / "40-bases" / "registro_de_bases_de_contactos.xlsx")
+           ["B-03", 8000, "No", "", "Servicio"]]
+          + [[f"B-1{i}", {2: 15000, 3: 6000}[i], "No", "", "Servicio"] for i in veces("base")],
+          docs / "40-bases" / "registro_de_bases_de_contactos.xlsx")
+    for i in veces("base"):
+        esp("contact_base_without_consent", f"base:B-1{i}")
 
     # ------------------------------------------------------------ 50-campanas
     if "meta" in s:
@@ -186,8 +263,28 @@ def construir(e: dict) -> dict:
            ["C-02", "Clientes recurrentes", 40_000_000, "2026-09-15", "2026-11-30", "" if "meta" in s else "1200 recompras",
             "" if "meta" in s else "Recompras", "B-02"],
            ["C-03", "Lanzamiento de la colección", 60_000_000, "2026-09-01", "2026-10-15", "3000 visitas a la tienda", "Visitas a la tienda", ""],
-           ["C-04", "Marca", 30_000_000, "2026-08-01", "2026-12-31", "2 millones de impresiones", "Impresiones", ""]],
+           ["C-04", "Marca", 30_000_000, "2026-08-01", "2026-12-31", "2 millones de impresiones", "Impresiones", ""]]
+          + [list(REP_CAMP[tipo][i]) for tipo in ("base", "meta", "presupuesto", "fin") for i in veces(tipo)],
           docs / "50-campanas" / "plan_de_mercadeo.xlsx")
+    for i in veces("meta"):
+        esp("campaign_without_goal", f"meta:{REP_CAMP['meta'][i][0]}")
+    for i in veces("presupuesto"):
+        esp("campaign_over_budget", f"presupuesto:{REP_CAMP['presupuesto'][i][0]}")
+    for i in veces("fin"):
+        esp("campaign_ran_past_end", f"fin:{REP_CAMP['fin'][i][0]}")
+    for i in veces("factura"):
+        esp("media_invoice_unmatched", f"factura:F-2{i}")
+    # Las facturas de las repeticiones: la pauta que pasa el presupuesto, la que sigue después del fin y la que no tiene campaña.
+    fac_extra = []
+    for i in veces("presupuesto"):
+        cid, _, pres = REP_CAMP["presupuesto"][i][:3]
+        fac_extra += [[f"F-3{i}1", "Digital Sintética", cid, f"OC-3{i}", "2026-09-30", "2026-09-30", round(pres * 0.6)],
+                      [f"F-3{i}2", "Digital Sintética", cid, f"OC-3{i}", "2026-10-31", "2026-10-31", round(pres * {2: 0.55, 3: 0.48}[i])]]
+    for i in veces("fin"):
+        cid, _, pres, _, fin_c = REP_CAMP["fin"][i][:5]
+        fac_extra.append([f"F-4{i}", "Exteriores Sintéticos", cid, f"OC-4{i}", "2026-10-31", {2: "2026-10-20", 3: "2026-10-25"}[i], round(pres * 0.5)])
+    for i in veces("factura"):
+        fac_extra.append([f"F-2{i}", {2: "Prensa Sintética", 3: "Vallas Sintéticas"}[i], "", "", "2026-10-31", "2026-10-31", {2: 4_000_000, 3: 9_000_000}[i]])
     if "presupuesto" in s:
         esp("campaign_over_budget", "presupuesto:C-01")
     if "fin" in s:
@@ -199,7 +296,7 @@ def construir(e: dict) -> dict:
            ["F-102", "Televisora Sintética", "C-01", "OC-301", "2026-10-31", "2026-10-31", 48_000_000 if "presupuesto" in s else 44_000_000],
            ["F-103", "Redes Sintéticas", "C-02", "OC-302", "2026-10-31", "2026-10-31", 18_000_000],
            ["F-104", "Exteriores Sintéticos", "C-03", "OC-303", "2026-10-31", "2026-10-31" if "fin" in s else "2026-10-15", 25_000_000],
-           ["F-105", "Radio Sintética", "" if "factura" in s else "C-04", "" if "factura" in s else "OC-304", "2026-10-31", "2026-10-31", 7_000_000]],
+           ["F-105", "Radio Sintética", "" if "factura" in s else "C-04", "" if "factura" in s else "OC-304", "2026-10-31", "2026-10-31", 7_000_000]] + fac_extra,
           docs / "50-campanas" / "facturas_de_pauta.xlsx")
     corte = "2026-10-31"
     plataforma = {("C-01", "Ventas atribuidas"): 4100, ("C-03", "Visitas a la tienda"): 2850, ("C-04", "Impresiones"): 1_840_000}
@@ -208,7 +305,12 @@ def construir(e: dict) -> dict:
     rep_c01 = 4600 if "resultado" in s else 4150                                  # 12 % por encima, o 1,2 % (control: dentro de la tolerancia)
     if "resultado" in s:
         esp("result_differs_from_platform", "resultado:C-01:ventas_atribuidas")
-    reportados = [("C-01", "Ventas atribuidas", rep_c01), ("C-03", "Visitas a la tienda", 2850), ("C-04", "Impresiones", 1_840_000)]
+    rep_c03 = 3100 if 2 in veces("resultado") else 2850                       # 8,8 % por encima, o igual
+    rep_c04 = 1_990_000 if 3 in veces("resultado") else 1_840_000             # 8,2 % por encima, o igual
+    for i, (c, ind) in ((2, ("C-03", "visitas_a_la_tienda")), (3, ("C-04", "impresiones"))):
+        if i in veces("resultado"):
+            esp("result_differs_from_platform", f"resultado:{c}:{ind}")
+    reportados = [("C-01", "Ventas atribuidas", rep_c01), ("C-03", "Visitas a la tienda", rep_c03), ("C-04", "Impresiones", rep_c04)]
     inf = "50-campanas/informe_de_resultados_2026-10.pdf"
     _pdf(f"# Informe de resultados de mercadeo · octubre de 2026\n\n{e['nombre']}. Resultados con corte al 31 de octubre de 2026.\n\n"
          "| Campaña | Indicador | Resultado |\n|---|---|---|\n" + "\n".join(f"| {c} | {i} | {_miles(v)} |" for c, i, v in reportados) + "\n", docs / inf)

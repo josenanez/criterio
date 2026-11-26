@@ -76,7 +76,7 @@
           "support": "20-soportes/comparativo_de_precios_2026-10.pdf",
           "source": "10-piezas/pieza_P-02.pdf",
           "comparative": true,
-          "comparative_source": "comparativo de precios de un tercero independiente, octubre de 2026"
+          "comparative_source": ""
         },
         {
           "piece": "P-03",
@@ -101,6 +101,58 @@
           "claim": "La colección llega en tres colores.",
           "support": "20-soportes/catalogo_de_la_coleccion.pdf",
           "source": "10-piezas/pieza_P-06.pdf"
+        },
+        {
+          "piece": "P-12",
+          "claim": "Atención en menos de 5 minutos en todas las sucursales.",
+          "support": "",
+          "source": "10-piezas/pieza_P-12.pdf"
+        },
+        {
+          "piece": "P-13",
+          "claim": "Más de 500 puntos de atención en el país.",
+          "support": "",
+          "source": "10-piezas/pieza_P-13.pdf"
+        },
+        {
+          "piece": "P-22",
+          "claim": "Más barato que cualquier otra cadena en útiles escolares.",
+          "support": "20-soportes/comparativo_de_utiles_2026-10.pdf",
+          "source": "10-piezas/pieza_P-22.pdf",
+          "comparative": true,
+          "comparative_source": ""
+        },
+        {
+          "piece": "P-23",
+          "claim": "El envío más rápido del mercado.",
+          "support": "20-soportes/comparativo_de_envios_2026-10.pdf",
+          "source": "10-piezas/pieza_P-23.pdf",
+          "comparative": true,
+          "comparative_source": ""
+        },
+        {
+          "piece": "P-32",
+          "claim": "La tienda abre hasta las 10 de la noche.",
+          "support": "20-soportes/horarios_de_atencion.pdf",
+          "source": "10-piezas/pieza_P-32.pdf"
+        },
+        {
+          "piece": "P-33",
+          "claim": "Tienen más de 200 referencias de café.",
+          "support": "20-soportes/catalogo_de_cafes.pdf",
+          "source": "10-piezas/pieza_P-33.pdf"
+        },
+        {
+          "piece": "P-42",
+          "claim": "Devoluciones en 30 días.",
+          "support": "20-soportes/politica_de_devoluciones.pdf",
+          "source": "10-piezas/pieza_P-42.pdf"
+        },
+        {
+          "piece": "P-43",
+          "claim": "Garantía de dos años en electrodomésticos.",
+          "support": "20-soportes/terminos_de_garantia.pdf",
+          "source": "10-piezas/pieza_P-43.pdf"
         }
       ],
       "promotions": [
@@ -117,6 +169,20 @@
           "end": "",
           "conditions": true,
           "source": "30-promociones/bases_promocion_puntos_dobles.pdf"
+        },
+        {
+          "name": "Cumpleaños",
+          "start": "2026-10-01",
+          "end": "",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_cumpleanos.pdf"
+        },
+        {
+          "name": "Regreso a clases",
+          "start": "2026-10-15",
+          "end": "2026-11-15",
+          "conditions": false,
+          "source": "30-promociones/bases_promocion_regreso_a_clases.pdf"
         }
       ],
       "reviewed": [],
@@ -135,14 +201,14 @@
           "campaign": "C-03",
           "indicator": "Visitas a la tienda",
           "cutoff": "2026-10-31",
-          "value": 2850,
+          "value": 3100,
           "source": "50-campanas/informe_de_resultados_2026-10.pdf"
         },
         {
           "campaign": "C-04",
           "indicator": "Impresiones",
           "cutoff": "2026-10-31",
-          "value": 1840000,
+          "value": 1990000,
           "source": "50-campanas/informe_de_resultados_2026-10.pdf"
         }
       ],
@@ -156,24 +222,132 @@
       "key": "presupuesto:C-01"
     },
     {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-32"
+    },
+    {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-33"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-03"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-42"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-43"
+    },
+    {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-02"
+    },
+    {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-22"
+    },
+    {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-23"
+    },
+    {
       "signal": "claim_without_substantiation",
       "key": "soporte:P-03"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-12"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-13"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-02"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-22"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-23"
+    },
+    {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-02"
+    },
+    {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-12"
+    },
+    {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-13"
     },
     {
       "signal": "media_invoice_unmatched",
       "key": "factura:F-105"
     },
     {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-22"
+    },
+    {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-23"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-05"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-42"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-43"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_cumpleanos"
+    },
+    {
       "signal": "promotion_terms_missing",
       "key": "promocion:bases_promocion_puntos_dobles"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_regreso_a_clases"
     },
     {
       "signal": "result_differs_from_platform",
       "key": "resultado:C-01:ventas_atribuidas"
     },
     {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-03:visitas_a_la_tienda"
+    },
+    {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-04:impresiones"
+    },
+    {
       "signal": "sponsored_content_unidentified",
       "key": "patrocinada:P-04"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-32"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-33"
     }
   ]
 }

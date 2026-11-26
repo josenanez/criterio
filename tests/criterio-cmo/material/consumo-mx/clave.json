@@ -81,7 +81,7 @@
         {
           "piece": "P-03",
           "claim": "9 de cada 10 clientes nos recomiendan.",
-          "support": "20-soportes/encuesta_de_satisfaccion_2026.pdf",
+          "support": "",
           "source": "10-piezas/pieza_P-03.pdf"
         },
         {
@@ -101,6 +101,32 @@
           "claim": "La colección llega en tres colores.",
           "support": "20-soportes/catalogo_de_la_coleccion.pdf",
           "source": "10-piezas/pieza_P-06.pdf"
+        },
+        {
+          "piece": "P-12",
+          "claim": "Atención en menos de 5 minutos en todas las sucursales.",
+          "support": "",
+          "source": "10-piezas/pieza_P-12.pdf"
+        },
+        {
+          "piece": "P-22",
+          "claim": "Más barato que cualquier otra cadena en útiles escolares.",
+          "support": "20-soportes/comparativo_de_utiles_2026-10.pdf",
+          "source": "10-piezas/pieza_P-22.pdf",
+          "comparative": true,
+          "comparative_source": ""
+        },
+        {
+          "piece": "P-32",
+          "claim": "La tienda abre hasta las 10 de la noche.",
+          "support": "20-soportes/horarios_de_atencion.pdf",
+          "source": "10-piezas/pieza_P-32.pdf"
+        },
+        {
+          "piece": "P-42",
+          "claim": "Devoluciones en 30 días.",
+          "support": "20-soportes/politica_de_devoluciones.pdf",
+          "source": "10-piezas/pieza_P-42.pdf"
         }
       ],
       "promotions": [
@@ -114,9 +140,16 @@
         {
           "name": "Puntos dobles",
           "start": "2026-11-01",
-          "end": "2026-11-30",
+          "end": "",
           "conditions": true,
           "source": "30-promociones/bases_promocion_puntos_dobles.pdf"
+        },
+        {
+          "name": "Cumpleaños",
+          "start": "2026-10-01",
+          "end": "",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_cumpleanos.pdf"
         }
       ],
       "reviewed": [],
@@ -128,14 +161,14 @@
           "campaign": "C-01",
           "indicator": "Ventas atribuidas",
           "cutoff": "2026-10-31",
-          "value": 4150,
+          "value": 4600,
           "source": "50-campanas/informe_de_resultados_2026-10.pdf"
         },
         {
           "campaign": "C-03",
           "indicator": "Visitas a la tienda",
           "cutoff": "2026-10-31",
-          "value": 2850,
+          "value": 3100,
           "source": "50-campanas/informe_de_resultados_2026-10.pdf"
         },
         {
@@ -152,24 +185,92 @@
   },
   "esperado": [
     {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-01"
+    },
+    {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-32"
+    },
+    {
       "signal": "campaign_ran_past_end",
       "key": "fin:C-03"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-42"
     },
     {
       "signal": "campaign_without_goal",
       "key": "meta:C-02"
     },
     {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-22"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-03"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-12"
+    },
+    {
       "signal": "comparative_claim_without_source",
       "key": "comparativa:P-02"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-22"
     },
     {
       "signal": "contact_base_without_consent",
       "key": "base:B-02"
     },
     {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-12"
+    },
+    {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-105"
+    },
+    {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-22"
+    },
+    {
       "signal": "piece_published_unapproved",
       "key": "aprobacion:P-05"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-42"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_cumpleanos"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_puntos_dobles"
+    },
+    {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-01:ventas_atribuidas"
+    },
+    {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-03:visitas_a_la_tienda"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-04"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-32"
     }
   ]
 }

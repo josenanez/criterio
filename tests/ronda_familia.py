@@ -79,7 +79,7 @@ FAMILIAS = {
             "resultados": {"severo": "apetito/{periodo}/resultados.json", "casandra": "eventos/{periodo}/resultados.json"},
             "fichas": {"apetito": ("severo", "apetito/{periodo}/ficha.json"), "eventos": ("casandra", "eventos/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
-    "cmo": {"registros": True,
+    "cmo": {"registros": {"claims": "piece", "promotions": "name", "reported": "campaign"},
             "resultados": {"lucia": "piezas/{periodo}/resultados.json", "prospero": "campanas/{periodo}/resultados.json"},
             "fichas": {"piezas": ("lucia", "piezas/{periodo}/ficha.json"), "campanas": ("prospero", "campanas/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},

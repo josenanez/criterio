@@ -10,9 +10,9 @@ y con qué autorización, y nada más.
 
 | Carpeta del material | País | Industria | Señales esperadas |
 |---|---|---|---:|
-| `retail-co` | Colombia | retail | 11 |
-| `banca-pe` | Perú | banca | 6 |
-| `consumo-mx` | México | manufactura de consumo masivo | 5 |
+| `retail-co` | Colombia | retail | 33 |
+| `banca-pe` | Perú | banca | 33 |
+| `consumo-mx` | México | manufactura de consumo masivo | 22 |
 | `control-co` | Colombia | retail | 0 |
 | `control-mx` | México | manufactura de consumo masivo | 0 |
 
@@ -24,8 +24,9 @@ Excel, con el informe de resultados de octubre en PDF.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
-La lista exacta está en la clave de cada entidad, en `esperado`. Las once señales se siembran al menos una
-vez.
+La lista exacta está en la clave de cada entidad, en `esperado`. Las tres entidades sembradas traen las once
+señales: el retail y el banco, cada una tres veces, y la de consumo masivo, dos. Cada repetición va en su
+propia pieza, promoción, base, campaña o factura, y la tabla dice la primera.
 
 | Agente | Lo que se siembra | Señal |
 |---|---|---|
@@ -41,6 +42,13 @@ vez.
 | Próspero | 4.600 ventas en el informe y 4.100 en la plataforma al mismo corte, con una tolerancia del 2 % | `result_differs_from_platform` |
 | Próspero | Pauta de exteriores facturada hasta el 31 de octubre en una campaña que terminaba el 15 | `campaign_ran_past_end` |
 
+Las repeticiones: «atención en menos de 5 minutos» y «más de 500 puntos de atención» sin soporte; «más barato
+que cualquier otra cadena» y «el envío más rápido del mercado» sin fuente; las promociones de cumpleaños, sin
+su fin, y de regreso a clases, sin el modo ni el lugar; dos piezas pagadas a un creador invitado sin
+identificarse; dos piezas publicadas antes de aprobarse; dos bases sin autorización que usa una campaña; dos
+campañas sin meta; dos que pasan su presupuesto; dos facturas sin campaña; las visitas y las impresiones del
+informe por encima de la plataforma; y dos campañas con pauta facturada después de su fin.
+
 ## Lo que se parece a un defecto y no lo es
 
 En las entidades de control: una pieza aprobada el mismo día en que se publicó, una pieza de un influenciador
@@ -54,6 +62,7 @@ fuente y su fecha. Ninguno puede levantar una señal.
 - **La extracción.** El evaluador escribe la ficha con la extracción correcta, de la clave. Que el agente
   procese las piezas, asocie cada afirmación con el soporte que trata de lo mismo, lea las bases de cada
   promoción y el informe de resultados, y los registre bien, lo prueba la ronda con los agentes, desde la 0.2.0: [las rondas](../evidencias/familias/cmo/RONDAS.md).
+  Desde la ronda 2, cada afirmación, cada promoción y cada resultado se califican por separado, campo por campo.
 - **Las exportaciones reales** de Google Ads, Meta o LinkedIn: el material usa tablas con columnas en
   español; el setup mapea las de cualquier exportación.
 - **La ley de publicidad de cada país** fuera de Colombia: está por verificar, y no sostiene ninguna señal.
