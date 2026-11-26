@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "3.9.0",
+  "version": "4.0.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -223,6 +223,24 @@
       "description": "La familia CMO completa —el mercadeo—: instala de una vez a Lucía y Próspero y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cmo:cmo-setup.",
       "source": "./plugins/criterio-cmo",
       "category": "marketing"
+    },
+    {
+      "name": "criterio-assets",
+      "description": "Domingo, los activos y los proveedores: cada activo contra su dueño y el soporte de su fabricante, cada licencia contra su uso, cada proveedor contra su nivel de servicio y la factura de la nube contra su presupuesto. Procesa exportaciones y documentos; nunca elige un proveedor ni se conecta a la nube.",
+      "source": "./plugins/criterio-assets",
+      "category": "technology"
+    },
+    {
+      "name": "criterio-changes",
+      "description": "Fausto, los cambios y el servicio: cada cambio en producción contra su aprobación y su revisión, cada despliegue contra su cambio, cada incidente mayor contra su problema y su causa, y cada servicio contra el nivel acordado. Procesa exportaciones y documentos; nunca aprueba un cambio ni se conecta a una herramienta.",
+      "source": "./plugins/criterio-changes",
+      "category": "technology"
+    },
+    {
+      "name": "criterio-cto",
+      "description": "La familia CTO completa —la tecnología—: instala de una vez a Fausto y Domingo y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cto:cto-setup.",
+      "source": "./plugins/criterio-cto",
+      "category": "technology"
     },
     {
       "name": "criterio-server",
