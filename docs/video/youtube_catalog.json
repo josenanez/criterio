@@ -785,7 +785,7 @@
    },
    "en": {
     "title": "Criterio CLO · AI agents for contracts and compliance",
-    "description": "On-screen text in Spanish.\nCriterio CLO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Contracts: expiries, notice periods and obligations. With Word and PDF, register in Excel.\n• Signatures: who had authority to sign. With authority matrix in Excel.\n• Payments and guarantees: payments and policies against the contract. With ERP in Excel or CSV, policies in PDF.\n• Public procurement: publication and guarantees under the law. With SECOP, ChileCompra.\n• Compliance: programme, new regulations and reporting channel. With ISO 37301, matrices in Excel.\n\nThe agents: Fidel, Contracts · Constanza, Compliance. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-clo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/rZSoJvgoAiQ\nIn English: https://youtu.be/9kJPN4TTUtY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CLO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nCriterio CLO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Contracts: expiries, notice periods and obligations. With Word and PDF, register in Excel.\n• Signatures: who had authority to sign. With authority matrix in Excel.\n• Payments and guarantees: payments and policies against the contract. With ERP in Excel or CSV, policies in PDF.\n• Public procurement: publication and guarantees under the law. With SECOP, ChileCompra.\n• Compliance: programme, new regulations and reporting channel. With ISO 37301, matrices in Excel.\n\nThe agents: Fidel, Contracts · Constanza, Compliance. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-clo/analisis\nHow it is used, from install to first result: https://youtu.be/HpzsuyXuPqc\nIn English: https://youtu.be/9kJPN4TTUtY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CLO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -858,7 +858,7 @@
    },
    "en": {
     "title": "Criterio CLO · AI agents for contracts and compliance",
-    "description": "Criterio CLO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Contracts: expiries, notice periods and obligations. With Word and PDF, register in Excel.\n• Signatures: who had authority to sign. With authority matrix in Excel.\n• Payments and guarantees: payments and policies against the contract. With ERP in Excel or CSV, policies in PDF.\n• Public procurement: publication and guarantees under the law. With SECOP, ChileCompra.\n• Compliance: programme, new regulations and reporting channel. With ISO 37301, matrices in Excel.\n\nThe agents: Fidel, Contracts · Constanza, Compliance. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-clo/analisis\nHow it is used, from install to first result (in Spanish): https://youtu.be/rZSoJvgoAiQ\nIn Spanish: https://youtu.be/feftu7T91zQ\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CLO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "Criterio CLO is an open-source (Apache 2.0) family of AI agents that works in Claude Code: it processes the area's documents and delivers every signal with a citation to the document it comes from.\n\nWhat it does, area by area:\n• Contracts: expiries, notice periods and obligations. With Word and PDF, register in Excel.\n• Signatures: who had authority to sign. With authority matrix in Excel.\n• Payments and guarantees: payments and policies against the contract. With ERP in Excel or CSV, policies in PDF.\n• Public procurement: publication and guarantees under the law. With SECOP, ChileCompra.\n• Compliance: programme, new regulations and reporting channel. With ISO 37301, matrices in Excel.\n\nThe agents: Fidel, Contracts · Constanza, Compliance. And Rostrum, the portal that publishes what they write.\nWhere it was tested: Colombia, Ecuador, Peru, Chile, Mexico, Brazil, Argentina, Panama, Guatemala, Costa Rica, Honduras and Paraguay.\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nThe analysis of the tests: https://www.josenanez.com/agents/criterio-clo/analisis\nHow it is used, from install to first result: https://youtu.be/HpzsuyXuPqc\nIn Spanish: https://youtu.be/feftu7T91zQ\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 What Criterio CLO does, area by area\n0:19 Where it was tested\n0:29 The agents and what they prepare\n0:44 The test evidence\n0:58 What each agent found\n1:17 How to install it\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -927,11 +927,77 @@
    ],
    "es": {
     "title": "Criterio CLO · Cómo se usa, de la instalación al primer resultado",
-    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CLO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-clo\nQué hace la familia, en noventa segundos: https://youtu.be/feftu7T91zQ\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Fidel, los contratos\n1:33 Constanza, el cumplimiento\n2:12 3 · El primer resultado, en una tabla\n2:24 4 · El reloj, solo con un sí\n2:34 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+    "description": "Una sesión real de Claude Code, acelerada y sin voz: Criterio CLO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-clo\nQué hace la familia, en noventa segundos: https://youtu.be/feftu7T91zQ\nEn inglés: https://youtu.be/HpzsuyXuPqc\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Fidel, los contratos\n1:33 Constanza, el cumplimiento\n2:12 3 · El primer resultado, en una tabla\n2:24 4 · El reloj, solo con un sí\n2:34 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
    },
    "en": {
     "title": "Criterio CLO · How to use it, from install to first result",
-    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CLO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nWhat the family does, in ninety seconds: https://youtu.be/9kJPN4TTUtY\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Fidel, Contracts\n1:33 Constanza, Compliance\n2:12 3 · The first result, in a table\n2:24 4 · The daily task, only with a yes\n2:34 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+    "description": "On-screen text in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CLO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nWhat the family does, in ninety seconds: https://youtu.be/9kJPN4TTUtY\nIn English: https://youtu.be/HpzsuyXuPqc\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Fidel, Contracts\n1:33 Constanza, Compliance\n2:12 3 · The first result, in a table\n2:24 4 · The daily task, only with a yes\n2:34 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
+   },
+   "tags": [
+    "Criterio",
+    "José Ñáñez",
+    "Jose Nanez",
+    "josenanez.com",
+    "agentes de IA",
+    "AI agents",
+    "Claude Code",
+    "código abierto",
+    "gobernanza de IA",
+    "AI governance",
+    "Criterio CLO",
+    "Chief Legal Officer",
+    "instalación",
+    "installation",
+    "tutorial",
+    "Fidel",
+    "Constanza"
+   ],
+   "chapters": [
+    {
+     "t": "0:00",
+     "es": "1 · Instalar la familia",
+     "en": "1 · Install the family"
+    },
+    {
+     "t": "0:27",
+     "es": "2 · Configurarla: Fidel, los contratos",
+     "en": "2 · Set it up: Fidel, Contracts"
+    },
+    {
+     "t": "1:33",
+     "es": "Constanza, el cumplimiento",
+     "en": "Constanza, Compliance"
+    },
+    {
+     "t": "2:12",
+     "es": "3 · El primer resultado, en una tabla",
+     "en": "3 · The first result, in a table"
+    },
+    {
+     "t": "2:24",
+     "es": "4 · El reloj, solo con un sí",
+     "en": "4 · The daily task, only with a yes"
+    },
+    {
+     "t": "2:34",
+     "es": "5 · El día a día, en tus palabras",
+     "en": "5 · Day to day, in your own words"
+    }
+   ]
+  },
+  "HpzsuyXuPqc": {
+   "video": "clo/uso/en",
+   "idioma": "en",
+   "localizaciones": [
+    "es"
+   ],
+   "es": {
+    "title": "Criterio CLO · Cómo se usa, de la instalación al primer resultado",
+    "description": "Los textos en pantalla están en inglés; la sesión de Claude Code, en español.\nUna sesión real de Claude Code, acelerada y sin voz: Criterio CLO se instala con dos comandos, se configura en una conversación y entrega su primer resultado.\n\nPara instalarla, en Claude Code o Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nLas pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.\n\nLa familia, su evidencia y la calculadora: https://www.josenanez.com/es/agents/criterio-clo\nQué hace la familia, en noventa segundos: https://youtu.be/feftu7T91zQ\nEn español: https://youtu.be/rZSoJvgoAiQ\nEl código: https://github.com/josenanez/criterio\n\nCapítulos\n0:00 1 · Instalar la familia\n0:27 2 · Configurarla: Fidel, los contratos\n1:33 Constanza, el cumplimiento\n2:12 3 · El primer resultado, en una tabla\n2:24 4 · El reloj, solo con un sí\n2:34 5 · El día a día, en tus palabras\n\nLo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.\n\n#Criterio #AgentesDeIA #ClaudeCode"
+   },
+   "en": {
+    "title": "Criterio CLO · How to use it, from install to first result",
+    "description": "The on-screen text is in English; the Claude Code session, in Spanish.\nA real Claude Code session, sped up and without voice: Criterio CLO installs with two commands, is set up in a conversation and delivers its first result.\n\nTo install it, in Claude Code or Cowork:\n/plugin marketplace add josenanez/criterio\n/plugin install criterio-clo@criterio\n/criterio-clo:clo-setup\n\nTests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.\n\nThe family, its evidence and the calculator: https://www.josenanez.com/agents/criterio-clo\nWhat the family does, in ninety seconds: https://youtu.be/9kJPN4TTUtY\nIn Spanish: https://youtu.be/rZSoJvgoAiQ\nThe code: https://github.com/josenanez/criterio\n\nChapters\n0:00 1 · Install the family\n0:27 2 · Set it up: Fidel, Contracts\n1:33 Constanza, Compliance\n2:12 3 · The first result, in a table\n2:24 4 · The daily task, only with a yes\n2:34 5 · Day to day, in your own words\n\nIt is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.\n\n#Criterio #AIAgents #ClaudeCode"
    },
    "tags": [
     "Criterio",
@@ -1857,6 +1923,7 @@
     "z7Gj1uS5TOU",
     "Y045HsCb0Qo",
     "9kJPN4TTUtY",
+    "HpzsuyXuPqc",
     "MVXBxgZ74VY",
     "1xSnCYvDicw",
     "HRqqTtYWYcE",
