@@ -1,0 +1,27 @@
+{
+  "n": 17,
+  "agente": "remedios",
+  "comando": "action-status",
+  "argumento": "",
+  "inicio": "2026-11-27T03:30:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 8,
+  "tokens": 406075,
+  "tokens_salida": 2704,
+  "costo_usd": 0.1393196,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-action-status-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-action-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

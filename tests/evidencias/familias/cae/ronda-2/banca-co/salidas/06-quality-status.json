@@ -1,0 +1,28 @@
+{
+  "n": 6,
+  "agente": "prudencia",
+  "comando": "quality-status",
+  "argumento": "",
+  "inicio": "2026-11-27T02:54:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 9,
+  "tokens": 402788,
+  "tokens_salida": 2592,
+  "costo_usd": 0.1494378,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-quality-status-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-quality-status.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/plan/2026-11/reporte-quality-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

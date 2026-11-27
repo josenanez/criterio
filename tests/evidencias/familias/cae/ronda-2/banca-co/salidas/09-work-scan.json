@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "justo",
+  "comando": "work-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T02:57:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 55,
+  "turnos": 13,
+  "tokens": 744672,
+  "tokens_salida": 4553,
+  "costo_usd": 0.5157394,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-work-scan-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-work-scan.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/trabajos/2026-11/reporte-work-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

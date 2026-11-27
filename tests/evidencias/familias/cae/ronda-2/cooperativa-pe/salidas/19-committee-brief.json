@@ -1,0 +1,27 @@
+{
+  "n": 19,
+  "agente": "remedios",
+  "comando": "committee-brief",
+  "argumento": "",
+  "inicio": "2026-11-27T03:16:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 405443,
+  "tokens_salida": 2592,
+  "costo_usd": 0.13662270000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-committee-brief-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-committee-brief.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/seguimiento/2026-11/reporte-committee-brief.md"
+    ],
+    "modificados": [
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

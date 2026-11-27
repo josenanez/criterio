@@ -1,0 +1,29 @@
+{
+  "n": 14,
+  "agente": "justo",
+  "comando": "work-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T02:59:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 58,
+  "turnos": 13,
+  "tokens": 681659,
+  "tokens_salida": 5077,
+  "costo_usd": 0.4793248,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-work-scan-2.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-work-wake-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-work-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-work-scan.md"
+    ],
+    "borrados": []
+  }
+}

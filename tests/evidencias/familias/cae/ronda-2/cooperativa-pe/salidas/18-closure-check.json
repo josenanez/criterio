@@ -1,0 +1,28 @@
+{
+  "n": 18,
+  "agente": "remedios",
+  "comando": "closure-check",
+  "argumento": "",
+  "inicio": "2026-11-27T03:16:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 8,
+  "tokens": 403321,
+  "tokens_salida": 2072,
+  "costo_usd": 0.13023289999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-closure-check-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-closure-check.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/seguimiento/2026-11/reporte-closure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

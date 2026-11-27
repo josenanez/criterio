@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "justo",
+  "comando": "work-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T03:10:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 14,
+  "tokens": 627547,
+  "tokens_salida": 4393,
+  "costo_usd": 0.4569014,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-work-scan-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-work-scan.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/trabajos/2026-11/reporte-work-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

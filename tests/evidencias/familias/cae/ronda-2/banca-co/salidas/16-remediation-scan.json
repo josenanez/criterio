@@ -1,0 +1,28 @@
+{
+  "n": 16,
+  "agente": "remedios",
+  "comando": "remediation-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T03:01:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 14,
+  "tokens": 710018,
+  "tokens_salida": 4293,
+  "costo_usd": 0.4563144,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-remediation-scan-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-remediation-scan.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/seguimiento/2026-11/reporte-remediation-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

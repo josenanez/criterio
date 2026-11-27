@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "justo",
+  "comando": "report-check",
+  "argumento": "",
+  "inicio": "2026-11-27T03:12:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 17,
+  "turnos": 7,
+  "tokens": 350148,
+  "tokens_salida": 1743,
+  "costo_usd": 0.1187999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-report-check-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-report-check.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/trabajos/2026-11/reporte-report-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

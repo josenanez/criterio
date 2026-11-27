@@ -1,0 +1,29 @@
+{
+  "n": 20,
+  "agente": "remedios",
+  "comando": "remediation-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T03:17:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 71,
+  "turnos": 14,
+  "tokens": 623027,
+  "tokens_salida": 7690,
+  "costo_usd": 0.489376,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-remediation-scan-2.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-remediation-wake-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-remediation-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-remediation-scan.md"
+    ],
+    "borrados": []
+  }
+}

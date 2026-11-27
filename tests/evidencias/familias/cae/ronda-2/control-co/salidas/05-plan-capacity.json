@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "prudencia",
+  "comando": "plan-capacity",
+  "argumento": "",
+  "inicio": "2026-11-27T03:35:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 8,
+  "tokens": 352403,
+  "tokens_salida": 1822,
+  "costo_usd": 0.12423010000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-plan-capacity-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-plan-capacity.md",
+      "estado-auditoria/901888432-banco-control-sintetico/plan/2026-11/reporte-plan-capacity.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

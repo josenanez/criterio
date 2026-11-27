@@ -1,0 +1,20 @@
+{
+  "entidad": "Cooperativa Control Sintética",
+  "agentes": [
+    "justo",
+    "prudencia",
+    "remedios"
+  ],
+  "tokens": 10574345,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 68,
+    "bien": 68,
+    "mal": []
+  }
+}

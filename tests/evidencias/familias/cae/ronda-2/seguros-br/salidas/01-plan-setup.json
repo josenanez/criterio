@@ -1,0 +1,40 @@
+{
+  "n": 1,
+  "agente": "prudencia",
+  "comando": "plan-setup",
+  "argumento": "auditoria/31452078000190-seguradora-atlantica-sintetica",
+  "inicio": "2026-11-27T03:18:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 91,
+  "turnos": 21,
+  "tokens": 906112,
+  "tokens_salida": 10813,
+  "costo_usd": 0.7415664,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/plan/31452078000190/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-0.2.2-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-0.2.2-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-0.2.2-2026-11-24.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "auditoria/31452078000190-seguradora-atlantica-sintetica/_CRITERIO_AUDITORIA.txt",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/10-plan/actas/acta-07-2026.pdf.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/10-plan/matriz_de_riesgos.xlsx.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/10-plan/plan_anual_2026.xlsx.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/10-plan/universo_auditable.xlsx.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/cache/manifest.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-plan-setup-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-plan-setup.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/ficha.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/reporte-plan-coverage.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/resultados.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

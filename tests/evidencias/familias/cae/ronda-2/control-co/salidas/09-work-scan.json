@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "justo",
+  "comando": "work-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T03:38:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 14,
+  "tokens": 688097,
+  "tokens_salida": 2956,
+  "costo_usd": 0.43820299999999995,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-work-scan-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-work-scan.md",
+      "estado-auditoria/901888432-banco-control-sintetico/trabajos/2026-11/reporte-work-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

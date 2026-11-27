@@ -1,0 +1,50 @@
+{
+  "n": 8,
+  "agente": "justo",
+  "comando": "work-setup",
+  "argumento": "auditoria/901888432-banco-control-sintetico",
+  "inicio": "2026-11-27T03:37:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 19,
+  "tokens": 915743,
+  "tokens_salida": 7871,
+  "costo_usd": 0.6881973999999998,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.2.2-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.2.2-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-audit-work-0.2.2-2026-11-24.sha256",
+      ".criterio/trabajos/901888432/config.json",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/PT-01.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/PT-02.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/PT-03.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/aprobacion-del-programa.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/indice_de_papeles.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/informe.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-01_credito-comercial/programa_de_trabajo.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/PT-01.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/PT-02.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/PT-03.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/aprobacion-del-programa.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/indice_de_papeles.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/informe.pdf.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/TR-02_ciberseguridad/programa_de_trabajo.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/20-trabajos/asignaciones.xlsx.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/2026-11-24-work-setup-1.md",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas/salida-work-setup.md",
+      "estado-auditoria/901888432-banco-control-sintetico/trabajos/2026-11/ficha.json",
+      "estado-auditoria/901888432-banco-control-sintetico/trabajos/2026-11/reporte-finding-check.md",
+      "estado-auditoria/901888432-banco-control-sintetico/trabajos/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/901888432-banco-control-sintetico/cache/manifest.json",
+      "estado-auditoria/901888432-banco-control-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 6,
+  "agente": "prudencia",
+  "comando": "quality-status",
+  "argumento": "",
+  "inicio": "2026-11-27T03:08:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 402861,
+  "tokens_salida": 2057,
+  "costo_usd": 0.13017099999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-quality-status-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-quality-status.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/plan/2026-11/reporte-quality-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

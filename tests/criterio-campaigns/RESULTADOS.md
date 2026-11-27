@@ -2,7 +2,7 @@
 
 **el agente de lo que se invierte de la familia CMO** · plugin `criterio-campaigns`
 
-Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cmo/evaluar.py` | Que Próspero levante cada señal sembrada en las campañas, la pauta y los resultados, y ninguna en los controles | 6 | 62 ms | verde |
+| `criterio-cmo/evaluar.py` | Que Próspero levante cada señal sembrada en las campañas, la pauta y los resultados, y ninguna en los controles | 6 | 53 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

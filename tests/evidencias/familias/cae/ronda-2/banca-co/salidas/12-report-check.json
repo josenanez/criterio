@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "justo",
+  "comando": "report-check",
+  "argumento": "",
+  "inicio": "2026-11-27T02:58:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 8,
+  "tokens": 402416,
+  "tokens_salida": 1934,
+  "costo_usd": 0.14213760000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-report-check-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-report-check.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/trabajos/2026-11/reporte-report-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

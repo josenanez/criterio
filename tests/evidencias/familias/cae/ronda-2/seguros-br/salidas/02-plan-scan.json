@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "prudencia",
+  "comando": "plan-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T03:19:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 17,
+  "tokens": 653872,
+  "tokens_salida": 6499,
+  "costo_usd": 0.47833559999999997,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/2026-11-24-plan-scan-1.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas/salida-plan-scan.md",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/indice.json",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/plan/2026-11/reporte-plan-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/31452078000190-seguradora-atlantica-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

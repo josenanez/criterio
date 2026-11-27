@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "prudencia",
+  "comando": "plan-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T03:08:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 13,
+  "tokens": 601536,
+  "tokens_salida": 4973,
+  "costo_usd": 0.4019298,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-plan-scan-2.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/2026-11-24-plan-wake-1.md",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-plan-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas.json",
+      "estado-auditoria/20601777321-cooperativa-de-ahorro-altiplano-sintetica/corridas/salida-plan-scan.md"
+    ],
+    "borrados": []
+  }
+}

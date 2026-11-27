@@ -1,0 +1,27 @@
+{
+  "n": 17,
+  "agente": "remedios",
+  "comando": "action-status",
+  "argumento": "",
+  "inicio": "2026-11-27T03:02:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 8,
+  "tokens": 405880,
+  "tokens_salida": 2551,
+  "costo_usd": 0.1506866,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/2026-11-24-action-status-1.md",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas/salida-action-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/901777321-banco-andino-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

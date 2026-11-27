@@ -2,7 +2,7 @@
 
 **la agente de los perfiles de cargo de la familia CHRO** · plugin `criterio-roles`
 
-Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 30 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol todavía sin confirmar. **2 puertas · 30 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-roles/talento.py selftest` | El motor de Norma y Cándido: los perfiles contra la CUOC, lo que no se puede pedir, las hojas de vida y la prueba de sesgo | 24 | 98 ms | verde |
-| `criterio-chro/evaluar.py` | Que Norma levante cada señal sembrada en los perfiles, y ninguna de más | 6 | 69 ms | verde |
+| `criterio-roles/talento.py selftest` | El motor de Norma y Cándido: los perfiles contra la CUOC, lo que no se puede pedir, las hojas de vida y la prueba de sesgo | 24 | 108 ms | verde |
+| `criterio-chro/evaluar.py` | Que Norma levante cada señal sembrada en los perfiles, y ninguna de más | 6 | 73 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

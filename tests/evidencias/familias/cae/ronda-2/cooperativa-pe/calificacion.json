@@ -1,0 +1,20 @@
+{
+  "entidad": "Cooperativa de Ahorro Altiplano Sintética",
+  "agentes": [
+    "justo",
+    "prudencia",
+    "remedios"
+  ],
+  "tokens": 10419069,
+  "senales": {
+    "esperadas": 26,
+    "acertadas": 26,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 72,
+    "bien": 72,
+    "mal": []
+  }
+}
