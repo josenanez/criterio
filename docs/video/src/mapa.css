@@ -4,7 +4,7 @@
 .mp-logo { position: absolute; left: 56px; top: 52px; zoom: 1.15; }
 .mp-titulo { position: absolute; left: 56px; top: 118px; }
 .mp-titulo .yt-eyebrow { font-size: 17px; margin-bottom: 8px; }
-.mp-titulo h1 { margin: 0; font: 500 44px/1.05 var(--font-inter-tight); letter-spacing: -.035em; color: #fff; }
+.mp-titulo h1 { margin: 0; font: 500 42px/1.05 var(--font-inter-tight); letter-spacing: -.035em; color: #fff; }
 
 .mp-col { position: absolute; font-size: 14px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #8a867e; }
 .mp-col.izq { left: 44px; }
@@ -15,6 +15,7 @@
 .mp-pais.probado { fill: #2b2b28; }
 .mp-pais.visto { fill: #5c4a22; }
 .mp-pais.activo { fill: #d5a84b; }
+.mp-pais.viene { fill: #d5a84b; stroke: #f5d98f; stroke-width: 3.2; stroke-dasharray: 7 5; }
 .mp-linea { fill: none; stroke: #d5a84b; stroke-width: 1.6; stroke-linecap: round; }
 .mp-linea.activa { stroke-width: 2.2; }
 .mp-punto { fill: #d5a84b; stroke: #111111; stroke-width: 2; }
@@ -39,7 +40,7 @@
 .mp-rotulo { position: absolute; left: 300px; width: 480px; top: 300px; text-align: center; }
 .mp-rotulo .n { font: 500 46px/1 var(--font-inter-tight); letter-spacing: -.035em; color: #fff; }
 .mp-rotulo .n.fin { font-size: 34px; line-height: 1.15; color: var(--oro-claro); }
-.mp-rotulo .s { margin-top: 12px; font-size: 17px; font-weight: 600; letter-spacing: .1em; color: var(--oro-claro); }
+.mp-rotulo .s { margin-top: 12px; font: 500 21px/1.35 var(--font-inter-tight); letter-spacing: -.005em; color: var(--oro-claro); }
 
 /* La franja de abajo. */
 .mp-franja { position: absolute; left: 56px; right: 56px; top: 1100px; padding-top: 26px; border-top: 1px solid #2b2b28; }
