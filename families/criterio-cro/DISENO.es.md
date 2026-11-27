@@ -2,9 +2,9 @@
 
 # criterio-cro · el diseño de la familia
 
-**Estado: construida y probada, en laboratorio (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
+**Estado: estable, lanzada en su versión 1.0.0.** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
-`tests/criterio-cro/`. En la 0.2.0, los dos agentes corrieron sobre todas las entidades del material, con una clave que no ven: [las rondas](../../tests/evidencias/familias/cro/RONDAS.md). Alcance en [ADR 0035](../../docs/decisions/0035-la-familia-cro.md).
+`tests/criterio-cro/`. En la 0.2.0, los dos agentes corrieron sobre todas las entidades del material, con una clave que no ven; en la 1.0.0, la ronda 2 en Colombia, Perú y Brasil: 80 señales y 91 datos, con un piso del 95,4 % en las señales y del 95,9 % en los datos, y ningún control con una señal: [las rondas](../../tests/evidencias/familias/cro/RONDAS.md). Alcance en [ADR 0035](../../docs/decisions/0035-la-familia-cro.md).
 
 **Esta es la hoja de diseño de la familia**: las señales que calcula el código, cada comando con su
 entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, la

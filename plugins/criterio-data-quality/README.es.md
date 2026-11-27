@@ -13,7 +13,7 @@ Tú respondes por la cifra que llega a la dirección. Ella llega con cada cifra 
 
 [English](README.md) · `criterio-data-quality` · Apache 2.0 · Una instancia por entidad
 
-**Estado: construida y probada, en laboratorio, con la familia CDO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que la agente no ve y entidades de control. En la 0.2.0, la agente corrió sobre todas las entidades del material, con una clave que no ve; no se ha probado sobre la documentación de una organización concreta.
+**Estado: lanzada y estable, con la familia CDO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que la agente no ve y entidades de control. En la 0.2.0, la agente corrió sobre todas las entidades del material, con una clave que no ve. En la 1.0.0, con la ronda 2, la familia es estable: un piso del 95 % o más en las señales y en los datos. No se ha probado sobre la documentación de una organización concreta.
 
 **Esta página se lee sola.** Ariadna funciona sin la otra agente de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-cdo](../../families/criterio-cdo/README.es.md).
 

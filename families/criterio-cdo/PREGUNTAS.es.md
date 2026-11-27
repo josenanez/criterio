@@ -34,4 +34,4 @@ La organización, en su política de datos y de conservación. El setup los prop
 
 ### ¿Está probada?
 
-El motor está probado contra todo su material sintético, con una clave que las agentes no ven y dos entidades de control sin ninguna señal. En la 0.2.0, las dos agentes corrieron sobre todas las entidades del material, con una clave que no ven. No se ha probado sobre la documentación de una organización concreta.
+El motor está probado contra todo su material sintético, con una clave que las agentes no ven y dos entidades de control sin ninguna señal. En la 0.2.0, las dos agentes corrieron sobre todas las entidades del material, con una clave que no ven; en la 1.0.0, la ronda 2 en Colombia, México y Perú: 94 señales y 348 datos, con un piso del 96,0 % en las señales y del 98,9 % en los datos, y ningún control con una señal. Es estable y está lanzada. No se ha probado sobre la documentación de una organización concreta.

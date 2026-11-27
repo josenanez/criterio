@@ -1,6 +1,7 @@
 {
   "nota": "Fuente única de los agentes, los comandos y las señales de la familia CRO: scripts/familias.py genera desde aquí las tablas de los README, el diseño, las fuentes, la estructura de carpetas y los comandos de cada agente; el portal los publica con scripts/criterio-familias.mjs.",
   "sigla": "cro",
+ "lanzamiento": "2026-11-23",
   "orden": 100,
   "categoria": "risk",
   "adr": "0035-la-familia-cro.md",
@@ -610,7 +611,7 @@
         "casandra": "Los eventos",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: probada, en laboratorio. El motor pasa su prueba determinista contra todo su material, y los dos agentes corrieron sobre todas sus entidades.",
+      "nota": "Estado de la familia: estable. El motor pasa su prueba determinista contra todo su material, y los dos agentes pasaron su ronda en Colombia, Perú y Brasil con una clave que no ven.",
       "guion": [
         {
           "cabeza": true,
@@ -656,7 +657,7 @@
         "casandra": "Events",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: tested, in the lab. The engine passes its deterministic test against all its material, and the two agents ran on every entity in it.",
+      "nota": "Where the family stands: stable. The engine passes its deterministic test against all its material, and the two agents passed their round in Colombia, Peru and Brazil with a key they never see.",
       "guion": [
         {
           "cabeza": true,

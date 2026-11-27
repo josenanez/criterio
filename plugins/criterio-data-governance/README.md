@@ -13,7 +13,7 @@ You are responsible for data governance. She comes with the catalog next to its 
 
 [Español](README.es.md) · `criterio-data-governance` · Apache 2.0 · One instance per entity
 
-**Status: built and tested, in the lab, with the CDO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. In 0.2.0, the agent ran on every entity in the material, with a key it never sees; it has not been tested on a specific organisation’s documentation.
+**Status: launched and stable, with the CDO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. In 0.2.0, the agent ran on every entity in the material, with a key it never sees. In 1.0.0, with round 2, the family is stable: a floor of 95% or more on signals and data. It has not been tested on a specific organisation’s documentation.
 
 **This page stands on its own.** Custodia works without the family’s other agent. The family —how they meet each other and Rostrum— is in the [criterio-cdo family](../../families/criterio-cdo/README.md).
 

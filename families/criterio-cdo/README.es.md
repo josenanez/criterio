@@ -16,7 +16,7 @@ carpeta y la política de datos de la entidad: cada una escribe solo su ficha.
 | **Objetivo** | Que cada dato tenga quien responda por él y que cada cifra que llega a la dirección se pueda seguir hasta su fuente |
 | **Compuesta por** | [Custodia](../../plugins/criterio-data-governance/README.es.md) · [Ariadna](../../plugins/criterio-data-quality/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | DAMA-DMBOK, los principios BCBS 239 del Comité de Basilea e ISO/IEC 25012, con su fuente y su estado: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida y probada, en laboratorio: el motor probado sobre todo su material, con su clave y sus entidades de control. En la 0.2.0, la ronda con las dos agentes sobre todas las entidades del material. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Estable, lanzada en su versión 1.0.0: el motor probado sobre todo su material, con su clave y sus entidades de control. En la 0.2.0, la ronda con las dos agentes sobre todas las entidades del material; en la 1.0.0, la ronda 2 en Colombia, México y Perú: 94 señales y 348 datos, con un piso del 96,0 % en las señales y del 98,9 % en los datos, y ningún control con una señal. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Exportaciones y metadatos, nunca sistemas: ninguna agente se conecta a una base ni procesa un dato personal |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al área de datos: no asigna dueños, no decide una clasificación, no borra nada, no corrige una cifra y no decide cuál de dos cifras es la correcta |
