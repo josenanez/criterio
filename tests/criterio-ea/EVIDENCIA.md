@@ -13,10 +13,21 @@ correos son sintéticos.
 | `cooperativas` | Ecuador | Google | La gerencia general de una cooperativa | 6 + 31 | 35 |
 | `control-co` | Colombia | Outlook | Una gerencia general | 0 | 0 |
 | `control-ec` | Ecuador | Google | Una presidencia | 0 | 0 |
+| `retail-mx` | México | Outlook | La dirección general de una cadena de retail | 9 + 25 + 5 | 39 |
+| `manufactura-pe` | Perú | Outlook | La gerencia general de una industria | 10 + 25 + 5 | 40 |
+| `tecnologia-cl` | Chile | Google | La gerencia general de una empresa de software | 10 + 25 + 4 | 39 |
+| `control-mx` | México | Google | Una dirección general | 0 | 0 |
 
-En total, **85 señales sembradas**: más de las 73 que pide un piso del 95 % sin fallas (decisión
-0020). Cada defecto sembrado es la siembra —la señal una vez— más el lote de la oficina y, en
-`banca`, los nueve de sus tres viajes.
+En total, **203 señales sembradas**: las 85 de las cuatro primeras oficinas, más de las 73 que pide un
+piso del 95 % sin fallas (decisión 0020), y 118 del grupo de México, Perú y Chile. Cada defecto
+sembrado es la siembra —la señal una vez— más el lote de la oficina y los de sus viajes.
+
+**El grupo de México, Perú y Chile.** Cada oficina nueva abre un país y una industria a la vez —retail
+en México, manufactura en Perú, tecnología en Chile—, y un solo control sirve al grupo. Cada una con
+su zona: México sin horario de verano desde 2022 y Chile con el suyo, por eso el cruce por el cambio
+de hora de Nueva York solo se siembra en Lima, donde existe. La oficina de Chile pone la sala en
+«Las Condes, Santiago» y el itinerario dice «Santiago de Chile»: la reunión presencial durante el viaje
+se reconoce con el nombre corto de la ciudad (lo agregó el motor con este grupo).
 
 **Cada oficina con su proveedor.** Lo que de verdad cambia de una oficina a otra no es el país sino
 de dónde exporta. Las de Outlook traen la agenda como la exporta Outlook —la zona con su nombre de

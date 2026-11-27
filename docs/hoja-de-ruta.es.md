@@ -16,7 +16,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.4.2 | Estable | Incremento 9 · Las reuniones de Claude Meetings |
 | Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.7.2 | Estable | Incremento 13 · Más exportaciones de ERP |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.9.1 | Estable | — |
-| Criterio EA · Dirección | Ofelia | 1.4.2 | Estable | Incremento 6 · Las juntas en Claude Meetings |
+| Criterio EA · Dirección | Ofelia | 1.4.2 | Laboratorio | Incremento 6 · Las juntas en Claude Meetings |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.4.2 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.5.1 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
 | Rostrum · el portal de todas las familias | — | 1.4.4 | — | — |

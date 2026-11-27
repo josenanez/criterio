@@ -448,6 +448,14 @@ def _momento(v):
 
 
 VIRTUAL = re.compile(r"https?://|teams|zoom|meet\.|webex|virtual|en l[ií]nea", re.I)
+# La ciudad como la escribe una dirección: el itinerario dice «Santiago de Chile» y la sala, «Las Condes,
+# Santiago»; dice «Ciudad de México» y la sala, «CDMX». Solo los nombres largos que se acortan así.
+CIUDAD_CORTA = {"santiago_de_chile": ("santiago",), "ciudad_de_mexico": ("cdmx",)}
+
+
+def _ciudad(casa):
+    c = norm(casa)
+    return (c,) + CIUDAD_CORTA.get(c, ())
 
 
 def fichas_viajes(estado: Path) -> tuple[list[dict], list[str]]:
@@ -551,7 +559,7 @@ def ofelia(cfg: dict, hoy: dt.date) -> dict:
         if fuera and ruta_ics and not agenda["vieja"]:
             for o in reuniones_ag:
                 lugar = o.get("lugar") or ""
-                presencial = lugar and not VIRTUAL.search(lugar) and norm(casa) in norm(lugar)
+                presencial = lugar and not VIRTUAL.search(lugar) and any(c in norm(lugar) for c in _ciudad(casa))
                 en_vuelo = any(o["inicio"] < v["llega"] and v["sale"] < o["fin"] for v in vuelos)
                 if presencial and not en_vuelo and o["inicio"] < fuera[1] and fuera[0] < o["fin"] and desde <= o["inicio"] < hasta:
                     al.append(alerta("meeting_while_away", f"«{o['resumen']}» ({hora_l(o['inicio'])}) es presencial en {casa} ({lugar}) y ese día el viaje a {vuelos[0].get('to')} sigue",
@@ -884,6 +892,11 @@ def selftest() -> int:
         else:
             fallas.append(nombre)
             print(f"  FALLA  {nombre}: {obtenido!r} en lugar de {esperado!r}")
+
+    # La ciudad corta: la sala dice «Santiago» o «CDMX» y el itinerario, el nombre largo.
+    ok("ciudad corta", [any(c in norm(x) for c in _ciudad(y)) for x, y in
+                        (("Las Condes, Santiago", "Santiago de Chile"), ("Polanco, CDMX", "Ciudad de México"),
+                         ("Sede principal, Bogotá", "Bogotá"), ("Club El Nogal, Bogotá", "Medellín"))], [True, True, True, False])
 
     bog = ZoneInfo("America/Bogota")
     hoy = dt.date(2026, 10, 26)

@@ -313,7 +313,7 @@ a real executive's office.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Ofelia** · Executive assistant | `criterio-assistant` · 11 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Executive assistant | `criterio-assistant` · 11 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

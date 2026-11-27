@@ -63,13 +63,16 @@ CABECERA = {
               "METHOD:PUBLISH\r\nX-WR-CALNAME:{nombre}\r\nX-WR-TIMEZONE:{tz}\r\n",
 }
 WINDOWS = {"America/Bogota": "SA Pacific Standard Time", "America/Guayaquil": "SA Pacific Standard Time",
-           "America/New_York": "Eastern Standard Time"}
+           "America/New_York": "Eastern Standard Time", "America/Lima": "SA Pacific Standard Time",
+           "America/Mexico_City": "Central Standard Time (Mexico)"}
+# El desfase que Outlook escribe en la zona; México no tiene horario de verano desde 2022.
+DESFASE = {"America/Mexico_City": "-0600"}
 PROVEEDOR = ["outlook"]
 
 
 def _zona_outlook(tz):
     return (f"BEGIN:VTIMEZONE\r\nTZID:{WINDOWS[tz]}\r\nBEGIN:STANDARD\r\nDTSTART:16010101T000000\r\n"
-            "TZOFFSETFROM:-0500\r\nTZOFFSETTO:-0500\r\nEND:STANDARD\r\nEND:VTIMEZONE\r\n")
+            f"TZOFFSETFROM:{DESFASE.get(tz, '-0500')}\r\nTZOFFSETTO:{DESFASE.get(tz, '-0500')}\r\nEND:STANDARD\r\nEND:VTIMEZONE\r\n")
 
 
 def vevent(uid, resumen, ini, fin, tz=None, extra="", lugar=None):
@@ -552,6 +555,69 @@ OFICINAS = [
      ],
      "organos": [("directorio", "Cinco directores", "último jueves de cada mes"), ("comite-ejecutivo", "Las gerencias", "lunes")],
      "personas": ("Fernanda Vaca", "Diego Herrera", "Paola Cevallos", "Iván Torres", "Mónica Ruiz"), "siembra": []},
+    # Grupo B (2.0.0): tres países y tres industrias nuevas, cada oficina un país y una industria a la vez,
+    # y un solo control para el grupo. México sin horario de verano y Chile con el suyo: el cruce por el
+    # cambio de hora solo se siembra donde existe, en Lima, que va con la hora de Nueva York como Bogotá.
+    {"carpeta": "retail-mx", "industria": "retail", "pais": "MX", "id": "CNA0103158K2", "nombre": "Cadena del Norte", "n": 5,
+     "ejecutivo": "Dirección general", "ejecutivo_slug": "direccion-general", "tz": "America/Mexico_City", "dominio": "cadenanorte.test", "proveedor": "outlook",
+     "viajes": [
+         {"slug": "monterrey", "destino": "Monterrey", "agencia": "Viajes Anáhuac", "reserva": "MT6R2D", "en_agenda": [False, True],
+          "vuelos": [("AM 902", "Ciudad de México", "MEX", "Monterrey", "MTY", "2026-11-03T07:00", "-06:00", "2026-11-03T08:30", "-06:00"),
+                     ("AM 919", "Monterrey", "MTY", "Ciudad de México", "MEX", "2026-11-04T18:00", "-06:00", "2026-11-04T19:30", "-06:00")],
+          "reuniones": [("operaciones", "Comité de operaciones", "20261103T100000", "20261103T110000", "Sala de consejo, corporativo, Ciudad de México", ("meeting_while_away", None)),
+                        ("cedis", "Visita al centro de distribución", "20261103T120000", "20261103T140000", "Centro de distribución, Apodaca, Monterrey", None),
+                        ("proveedores", "Cena con proveedores", "20261104T183000", "20261104T200000", "Polanco, Ciudad de México", ("meeting_during_flight", "AM919"))]},
+     ],
+     "organos": [("consejo-de-administracion", "Siete consejeros", "último miércoles de cada mes"), ("comite-de-direccion", "Las direcciones", "lunes")],
+     "personas": ("Alejandra Treviño", "Rodrigo Salinas", "Mariana Ibarra", "Héctor Garza", "Claudia Montes"),
+     "siembra": ["cruce_directo", "sin_material", "sin_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha",
+                 "compromiso_vencido", "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta"],
+     "lote": {"acuerdo_sin_responsable": 5, "acuerdo_sin_fecha": 5, "compromiso_vencido": 5, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 4, "cruce": 3}},
+    {"carpeta": "manufactura-pe", "industria": "manufactura", "pais": "PE", "id": "20512345678", "nombre": "Industrias del Rímac", "n": 6,
+     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Lima", "dominio": "rimac-ind.test", "proveedor": "outlook",
+     "viajes": [
+         {"slug": "arequipa", "destino": "Arequipa", "agencia": "Andes Travel", "reserva": "AQ3J7V", "en_agenda": [False, True],
+          "vuelos": [("LA 2111", "Lima", "LIM", "Arequipa", "AQP", "2026-11-03T06:00", "-05:00", "2026-11-03T07:30", "-05:00"),
+                     ("LA 2118", "Arequipa", "AQP", "Lima", "LIM", "2026-11-05T18:00", "-05:00", "2026-11-05T19:30", "-05:00")],
+          "reuniones": [("produccion", "Comité de producción", "20261104T100000", "20261104T110000", "Sala de directorio, planta de Ate, Lima", ("meeting_while_away", None)),
+                        ("planta", "Recorrido por la planta del sur", "20261104T120000", "20261104T140000", "Parque industrial, Arequipa", None),
+                        ("seguridad", "Comité de seguridad y salud", "20261104T080000", "20261104T090000", "Microsoft Teams", None),
+                        ("gremio", "Cena de la junta del gremio industrial", "20261105T183000", "20261105T200000", "San Isidro, Lima", ("meeting_during_flight", "LA2118"))]},
+     ],
+     "organos": [("directorio", "Siete directores", "último jueves de cada mes"), ("comite-de-gerencia", "Las gerencias", "lunes")],
+     "personas": ("Carmen Quispe", "Luis Huamán", "Rocío Salazar", "Martín Paredes", "Silvia Chávez"),
+     "siembra": ["cruce_directo", "cruce_cambio_de_hora", "sin_material", "borrador_en_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha",
+                 "compromiso_vencido", "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta"],
+     "lote": {"acuerdo_sin_responsable": 5, "acuerdo_sin_fecha": 5, "compromiso_vencido": 5, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 4, "cruce": 3}},
+    {"carpeta": "tecnologia-cl", "industria": "tecnologia", "pais": "CL", "id": "76123456-7", "nombre": "Software Austral", "n": 7,
+     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Santiago", "dominio": "austral-soft.test", "proveedor": "google",
+     "viajes": [
+         {"slug": "lima", "destino": "Lima", "agencia": "Pacífico Viajes", "reserva": "LM5C8Q", "en_agenda": [False, True],
+          "vuelos": [("LA 600", "Santiago de Chile", "SCL", "Lima", "LIM", "2026-11-03T07:00", "-03:00", "2026-11-03T09:40", "-05:00"),
+                     ("LA 601", "Lima", "LIM", "Santiago de Chile", "SCL", "2026-11-04T17:00", "-05:00", "2026-11-04T23:00", "-03:00")],
+          "reuniones": [("directorio-c", "Comité de directorio", "20261103T120000", "20261103T130000", "Oficinas centrales, Las Condes, Santiago", ("meeting_while_away", None)),
+                        ("cliente", "Reunión con el cliente", "20261103T150000", "20261103T163000", "San Isidro, Lima", None),
+                        ("inversionistas", "Llamada con los inversionistas", "20261104T200000", "20261104T210000", None, ("meeting_during_flight", "LA601"))]},
+     ],
+     "organos": [("directorio", "Cinco directores", "último martes de cada mes"), ("comite-ejecutivo", "Las gerencias", "lunes")],
+     "personas": ("Francisca Rojas", "Tomás Fuentes", "Javiera Soto", "Matías Contreras", "Catalina Vergara"),
+     "siembra": ["cruce_directo", "sin_material", "sin_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha", "compromiso_vencido",
+                 "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta", "carpeta_excluida"],
+     "lote": {"acuerdo_sin_responsable": 5, "acuerdo_sin_fecha": 5, "compromiso_vencido": 5, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 4, "cruce": 3}},
+    {"carpeta": "control-mx", "industria": "manufactura", "pais": "MX", "id": "PCO0204189T5", "nombre": "Plásticos Control", "n": 8,
+     "ejecutivo": "Dirección general", "ejecutivo_slug": "direccion-general", "tz": "America/Mexico_City", "dominio": "controlmx.test", "proveedor": "google",
+     "viajes": [
+         {"slug": "guadalajara", "destino": "Guadalajara", "agencia": "Viajes Anáhuac", "reserva": "GD1N6P", "en_agenda": [True, True],
+          "vuelos": [("Y4 3010", "Ciudad de México", "MEX", "Guadalajara", "GDL", "2026-11-05T07:00", "-06:00", "2026-11-05T08:20", "-06:00"),
+                     ("Y4 3017", "Guadalajara", "GDL", "Ciudad de México", "MEX", "2026-11-05T19:00", "-06:00", "2026-11-05T20:20", "-06:00")],
+          "reuniones": [("planta-g", "Visita a la planta", "20261105T100000", "20261105T120000", "Parque industrial El Salto, Guadalajara", None),
+                        ("compras", "Comité de compras", "20261105T150000", "20261105T160000", "https://meet.google.com/mxq-plco-tdf", None)]},
+     ],
+     "organos": [("consejo-de-administracion", "Cinco consejeros", "último jueves de cada mes"), ("comite-de-direccion", "Las direcciones", "lunes")],
+     "personas": ("Gabriela Ochoa", "Ernesto Villalobos", "Paulina Reyes", "Arturo Mendoza", "Lucía Cárdenas"), "siembra": []},
 ]
 
 

@@ -1,0 +1,180 @@
+{
+ "entidad": "Plásticos Control",
+ "industria": "manufactura",
+ "pais": "MX",
+ "hoy": "2026-10-26",
+ "siembra": [],
+ "config": {
+  "ofelia": {
+   "entity": {
+    "name": "Plásticos Control",
+    "country": "MX"
+   },
+   "executive": {
+    "name": "Dirección general"
+   },
+   "timezone": "America/Mexico_City",
+   "office_emails": [
+    "presidencia@controlmx.test"
+   ],
+   "excluded_folders": [],
+   "publish_rostrum": false,
+   "paths": {
+    "documents": "direccion/direccion-general",
+    "state": "estado-direccion/direccion-general"
+   }
+  }
+ },
+ "proveedor": "google",
+ "extraccion": {
+  "reuniones": {
+   "consejo-de-administracion-2026-09-24": {
+    "organ": "consejo-de-administracion",
+    "date": "2026-09-24",
+    "agreements": [
+     {
+      "id": "A-1",
+      "what": "Aprobar los estados financieros de agosto",
+      "who": "Ernesto Villalobos",
+      "due": "2026-10-15",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 9"
+     },
+     {
+      "id": "A-2",
+      "what": "Actualizar la política de viajes",
+      "who": "Paulina Reyes",
+      "due": "2026-11-30",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 10"
+     },
+     {
+      "id": "A-3",
+      "what": "Contratar la auditoría del sistema de pagos",
+      "who": "Ernesto Villalobos",
+      "due": "2026-12-15",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 11"
+     }
+    ],
+    "commitments": [
+     {
+      "id": "C-1",
+      "who": "Arturo Mendoza",
+      "what": "Presentar el informe de cartera vencida",
+      "due_date": "2026-10-15",
+      "original_due_date": "2026-10-15",
+      "reschedules": [],
+      "state": "met",
+      "evidence": "organos/consejo-de-administracion/2026-09-24/20-material/informe-de-gestion.md",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 14"
+     },
+     {
+      "id": "C-2",
+      "who": "Ernesto Villalobos",
+      "what": "Entregar el plan de continuidad del negocio",
+      "due_date": "2026-11-20",
+      "original_due_date": "2026-09-30",
+      "reschedules": [
+       {
+        "due_date": "2026-11-20",
+        "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 15"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 15"
+     }
+    ],
+    "decisions": [
+     {
+      "id": "D-1",
+      "decision": "Proveedor del centro de datos alterno",
+      "source": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md",
+      "options": [
+       {
+        "option": "Renovar con el proveedor actual",
+        "evidence": [
+         {
+          "archivo": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       },
+       {
+        "option": "Abrir una licitación",
+        "evidence": [
+         {
+          "archivo": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       }
+      ],
+      "missing": [
+       "La oferta económica de la licitación"
+      ],
+      "deadline": "2026-12-18",
+      "deadline_source": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md, línea 3",
+      "status": "pending"
+     }
+    ]
+   },
+   "comite-de-direccion-2026-09-21": {
+    "organ": "comite-de-direccion",
+    "date": "2026-09-21",
+    "agreements": [
+     {
+      "id": "A-1",
+      "what": "Publicar el calendario de comités de 2027",
+      "who": "Paulina Reyes",
+      "due": "2026-12-01",
+      "source": "organos/comite-de-direccion/2026-09-21/40-acta/acta-firmada.md, línea 7"
+     }
+    ],
+    "commitments": [],
+    "decisions": []
+   }
+  },
+  "correspondencia": {
+   "2026-10-08-supervisor": {
+    "file": "20-correspondencia/2026-10-08-supervisor.eml",
+    "asks_reply": true,
+    "due": "2026-10-20",
+    "routine": false
+   },
+   "2026-10-12-cliente": {
+    "file": "20-correspondencia/2026-10-12-cliente.eml",
+    "asks_reply": true,
+    "due": "2026-10-16",
+    "routine": false
+   },
+   "2026-10-21-boletin": {
+    "file": "20-correspondencia/2026-10-21-boletin.eml",
+    "asks_reply": false,
+    "due": null,
+    "routine": false
+   }
+  },
+  "viajes": {
+   "GDL-itinerario-guadalajara": {
+    "file": "30-viajes/GDL-itinerario-guadalajara.md",
+    "trip": "Guadalajara",
+    "flights": [
+     {
+      "flight": "Y4 3010",
+      "from": "Ciudad de México",
+      "to": "Guadalajara",
+      "depart": "2026-11-05T07:00-06:00",
+      "arrive": "2026-11-05T08:20-06:00",
+      "source": "30-viajes/GDL-itinerario-guadalajara.md, línea 8"
+     },
+     {
+      "flight": "Y4 3017",
+      "from": "Guadalajara",
+      "to": "Ciudad de México",
+      "depart": "2026-11-05T19:00-06:00",
+      "arrive": "2026-11-05T20:20-06:00",
+      "source": "30-viajes/GDL-itinerario-guadalajara.md, línea 9"
+     }
+    ]
+   }
+  }
+ },
+ "esperado": []
+}

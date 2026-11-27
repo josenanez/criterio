@@ -1,12 +1,12 @@
 # Análisis estadístico de las pruebas · familia EA
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ea/` · ronda completa más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ea/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 2, sobre las 4 entidades del material: 85 de 85 señales sembradas encontradas (margen del 95 %: 95,6–100 %) y 0 de más; 146 de 146 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 8 entidades del material: 50 de 50 señales sembradas encontradas (margen del 95 %: 92,8–100 %) y 0 de más; 51 de 51 datos extraídos bien (100 %, margen del 95 %: 92,9–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
 Sumando las rondas 1–3, 238 de 238 señales encontradas, 1 de más y 427 de 432 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
@@ -18,9 +18,9 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 3; la completa más reciente es la 2 |
-| Material | Banca · Colombia, Cooperativas · Ecuador |
-| Entidades de control | Control · Colombia, Control · Ecuador |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Banca · Colombia |
+| Entidades de control |  |
 | Corridas de una entidad | 14 |
 | Señales sembradas | 238 |
 | Datos calificados | 432 |
@@ -46,25 +46,20 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 2 | 6 | 100 % | 100 % | 99,2 % | 2 de 2 | 9,9 M | 1 |
 | 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 5,6 M | 0 |
 
-## La ronda completa más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 85 de 85 | 100 % | 95,6–100 % |
-| Señales · precisión | 85 de 85 | 100 % | 95,6–100 % |
-| Extracción · datos correctos | 146 de 146 | 100 % | 97,4–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 50 de 50 | 100 % | 92,8–100 % |
+| Señales · precisión | 50 de 50 | 100 % | 92,8–100 % |
+| Extracción · datos correctos | 51 de 51 | 100 % | 92,9–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Ofelia | 50 de 50 | 0 | 50 de 51 | 1,6 M |
-| Banca · Colombia | Ofelia | 50 de 50 | 0 | 51 de 51 | 1,6 M |
-| Cooperativas · Ecuador | Ofelia | 35 de 35 | 0 | 44 de 45 | 1,6 M |
-| Cooperativas · Ecuador | Ofelia | 35 de 35 | 0 | 45 de 45 | 1,9 M |
-| Control · Colombia | Ofelia | 0 de 0 | 0 | 25 de 25 | 1,9 M |
-| Control · Ecuador | Ofelia | 0 de 0 | 0 | 25 de 25 | 1,2 M |
+| Banca · Colombia | Ofelia | 50 de 50 | 0 | 51 de 51 | 5,6 M |
 
 ## Lo que falló, uno por uno · rondas 1–3
 
