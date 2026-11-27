@@ -1,6 +1,6 @@
 {
   "name": "criterio-cto",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "La familia CTO completa —la tecnología—: instala de una vez a Fausto y Domingo y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cto:cto-setup.",
   "author": {
     "name": "José Francisco Ñáñez",
