@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "domingo",
+  "comando": "cloud-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:44:24",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 7,
+  "tokens": 348830,
+  "tokens_salida": 2139,
+  "costo_usd": 0.1217695,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/activos/2026-11/reporte-cloud-check.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-cloud-check-1.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-cloud-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

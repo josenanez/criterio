@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "domingo",
+  "comando": "assets-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:51:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 56,
+  "turnos": 15,
+  "tokens": 646529,
+  "tokens_salida": 3625,
+  "costo_usd": 0.3925214000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/activos/2026-10/reporte-assets-scan.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-assets-scan-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-assets-scan.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fausto",
+  "comando": "changes-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:04:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 84,
+  "turnos": 14,
+  "tokens": 715704,
+  "tokens_salida": 5651,
+  "costo_usd": 0.49529900000000004,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/cambios/2026-10/reporte-changes-scan.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-changes-scan-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-changes-scan.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

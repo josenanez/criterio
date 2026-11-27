@@ -1,0 +1,41 @@
+{
+  "n": 1,
+  "agente": "fausto",
+  "comando": "changes-setup",
+  "argumento": "tecnologia/rgs180610qw4-retail-del-golfo-sintetico",
+  "inicio": "2026-11-27T16:14:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 88,
+  "turnos": 19,
+  "tokens": 831896,
+  "tokens_salida": 10394,
+  "costo_usd": 0.6996682000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/cambios/RGS180610QW4/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-01.pdf.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-08.pdf.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-15.pdf.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-22.pdf.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/cambios_2026-10.xlsx.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/10-cambios/despliegues_2026-10.xlsx.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cache/manifest.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cambios/2026-10/ficha.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cambios/2026-10/reporte-change-check.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cambios/2026-10/resultados.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-changes-setup-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-changes-setup.md",
+      "tecnologia/rgs180610qw4-retail-del-golfo-sintetico/_CRITERIO_TECNOLOGIA.txt"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

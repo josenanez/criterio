@@ -1,0 +1,29 @@
+{
+  "n": 5,
+  "agente": "fausto",
+  "comando": "service-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:48:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 9,
+  "tokens": 462066,
+  "tokens_salida": 2899,
+  "costo_usd": 0.15736740000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/cambios/2026-10/reporte-service-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/cambios/2026-11/reporte-service-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-service-check-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-service-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

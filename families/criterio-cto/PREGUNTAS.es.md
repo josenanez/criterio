@@ -34,4 +34,4 @@ La organización, en su política de cambios y de niveles de servicio y en su ca
 
 ### ¿Está probada?
 
-El motor está probado contra todo su material sintético, con una clave que los agentes no ven y dos entidades de control sin ninguna señal. La ronda con los dos agentes viene en la 0.2.0. No se ha probado sobre la documentación de una organización concreta.
+El motor está probado contra todo su material sintético, con una clave que los agentes no ven y dos entidades de control sin ninguna señal. Los dos agentes corrieron sobre todas las entidades del material, con una clave que no ven; en la 0.2.0, la ronda 1 en Colombia, México y Chile: 96 señales y 267 datos, con un piso del 96,1 % en las señales y del 98,5 % en los datos, y ningún control con una señal. Es estable, todavía sin lanzar. No se ha probado sobre la documentación de una organización concreta.

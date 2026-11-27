@@ -1,0 +1,18 @@
+{
+  "entidad": "Cadena del Norte",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 5772285,
+  "senales": {
+    "esperadas": 39,
+    "acertadas": 39,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 41,
+    "bien": 41,
+    "mal": []
+  }
+}

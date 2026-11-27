@@ -1,0 +1,43 @@
+{
+  "n": 7,
+  "agente": "domingo",
+  "comando": "assets-setup",
+  "argumento": "tecnologia/901333666-banco-control-de-tecnologia-sintetico",
+  "inicio": "2026-11-27T16:41:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 71,
+  "turnos": 25,
+  "tokens": 704713,
+  "tokens_salida": 8099,
+  "costo_usd": 0.6260144000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/activos/901333666/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-assets-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-assets-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-assets-0.1.0-2026-11-25.sha256",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/activos/2026-10/ficha.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/activos/2026-10/reporte-asset-check.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/activos/2026-10/resultados.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/30-activos/acta_comite_de_arquitectura_2026-10.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/30-activos/inventario_de_activos.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/30-activos/licencias.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/40-proveedores/contrato_centro_de_datos_uno.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/40-proveedores/contrato_mesa_de_ayuda_sintetica.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/40-proveedores/cumplimiento_sla_2026-10.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/40-proveedores/facturas_proveedores_2026-10.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-assets-setup-1.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-assets-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/manifest.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

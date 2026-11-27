@@ -2,7 +2,7 @@
 
 **la agente del plan de auditoría de la familia CAE** · plugin `criterio-audit-plan`
 
-Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol todavía sin confirmar. **2 puertas · 15 comprobaciones · todas en verde.**
+Corrida del 2026-11-27, sobre el commit `7c512b56`, con cambios en el árbol todavía sin confirmar. **2 puertas · 15 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-audit-plan/auditoria.py selftest` | El motor de Prudencia, Justo y Remedios: el plan contra los riesgos, cada hallazgo contra su criterio y cada plan de acción hasta su cierre | 9 | 62 ms | verde |
-| `criterio-cae/evaluar.py` | Que Prudencia levante cada señal sembrada en el plan, y ninguna en los controles | 6 | 61 ms | verde |
+| `criterio-audit-plan/auditoria.py selftest` | El motor de Prudencia, Justo y Remedios: el plan contra los riesgos, cada hallazgo contra su criterio y cada plan de acción hasta su cierre | 9 | 81 ms | verde |
+| `criterio-cae/evaluar.py` | Que Prudencia levante cada señal sembrada en el plan, y ninguna en los controles | 6 | 78 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -68,7 +68,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 25 | verde |
-| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
+| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | **0 EN ROJO** |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
 | `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |

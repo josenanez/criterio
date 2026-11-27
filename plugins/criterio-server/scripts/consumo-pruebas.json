@@ -1995,93 +1995,259 @@
     }
    }
   },
+  "domingo": {
+   "familia": "cto",
+   "comandos": {
+    "asset-check": {
+     "corridas": 5,
+     "mediana": 403859,
+     "maximo": 405896,
+     "mediana_salida": 2409,
+     "mediana_turnos": 8,
+     "mediana_segundos": 22,
+     "mediana_costo_usd": 0.1299,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "assets-scan": {
+     "corridas": 5,
+     "mediana": 735727,
+     "maximo": 801640,
+     "mediana_salida": 5620,
+     "mediana_turnos": 16,
+     "mediana_segundos": 70,
+     "mediana_costo_usd": 0.4842,
+     "modelo": "claude-opus-5-5"
+    },
+    "assets-setup": {
+     "corridas": 5,
+     "mediana": 767767,
+     "maximo": 981004,
+     "mediana_salida": 9916,
+     "mediana_turnos": 21,
+     "mediana_segundos": 83,
+     "mediana_costo_usd": 0.7027,
+     "modelo": "claude-opus-5-5"
+    },
+    "assets-wake": {
+     "corridas": 5,
+     "mediana": 696980,
+     "maximo": 858477,
+     "mediana_salida": 5528,
+     "mediana_turnos": 18,
+     "mediana_segundos": 69,
+     "mediana_costo_usd": 0.4652,
+     "modelo": "claude-opus-5-5"
+    },
+    "cloud-check": {
+     "corridas": 5,
+     "mediana": 403940,
+     "maximo": 404908,
+     "mediana_salida": 2428,
+     "mediana_turnos": 8,
+     "mediana_segundos": 22,
+     "mediana_costo_usd": 0.1331,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "license-check": {
+     "corridas": 5,
+     "mediana": 350256,
+     "maximo": 403400,
+     "mediana_salida": 2266,
+     "mediana_turnos": 7,
+     "mediana_segundos": 20,
+     "mediana_costo_usd": 0.1249,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "vendor-check": {
+     "corridas": 5,
+     "mediana": 398438,
+     "maximo": 399236,
+     "mediana_salida": 1697,
+     "mediana_turnos": 8,
+     "mediana_segundos": 20,
+     "mediana_costo_usd": 0.1227,
+     "modelo": "claude-sonnet-5-5"
+    }
+   },
+   "pasada": 3756967,
+   "indicador": {
+    "ronda": "ronda-1",
+    "carpeta": "banca-co",
+    "material": "banca-co",
+    "modelo_sesion": "claude-opus-5-5",
+    "comandos": 7,
+    "tokens": 3919547,
+    "costo_usd": 2.4276,
+    "segundos": 351,
+    "sin_pendientes": null,
+    "contra": null
+   }
+  },
+  "fausto": {
+   "familia": "cto",
+   "comandos": {
+    "change-check": {
+     "corridas": 5,
+     "mediana": 411626,
+     "maximo": 419237,
+     "mediana_salida": 2931,
+     "mediana_turnos": 8,
+     "mediana_segundos": 27,
+     "mediana_costo_usd": 0.1524,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "changes-scan": {
+     "corridas": 5,
+     "mediana": 654674,
+     "maximo": 715704,
+     "mediana_salida": 4871,
+     "mediana_turnos": 13,
+     "mediana_segundos": 64,
+     "mediana_costo_usd": 0.4357,
+     "modelo": "claude-opus-5-5"
+    },
+    "changes-setup": {
+     "corridas": 5,
+     "mediana": 725077,
+     "maximo": 1010784,
+     "mediana_salida": 10195,
+     "mediana_turnos": 19,
+     "mediana_segundos": 87,
+     "mediana_costo_usd": 0.6997,
+     "modelo": "claude-opus-5-5"
+    },
+    "changes-wake": {
+     "corridas": 5,
+     "mediana": 619191,
+     "maximo": 682826,
+     "mediana_salida": 5558,
+     "mediana_turnos": 15,
+     "mediana_segundos": 74,
+     "mediana_costo_usd": 0.4286,
+     "modelo": "claude-opus-5-5"
+    },
+    "incident-check": {
+     "corridas": 5,
+     "mediana": 349095,
+     "maximo": 352032,
+     "mediana_salida": 2152,
+     "mediana_turnos": 7,
+     "mediana_segundos": 20,
+     "mediana_costo_usd": 0.1237,
+     "modelo": "claude-sonnet-5-5"
+    },
+    "service-check": {
+     "corridas": 5,
+     "mediana": 351830,
+     "maximo": 462066,
+     "mediana_salida": 2629,
+     "mediana_turnos": 7,
+     "mediana_segundos": 24,
+     "mediana_costo_usd": 0.1453,
+     "modelo": "claude-sonnet-5-5"
+    }
+   },
+   "pasada": 3111493,
+   "indicador": {
+    "ronda": "ronda-1",
+    "carpeta": "banca-co",
+    "material": "banca-co",
+    "modelo_sesion": "claude-opus-5-5",
+    "comandos": 6,
+    "tokens": 3090043,
+    "costo_usd": 2.5241,
+    "segundos": 338,
+    "sin_pendientes": null,
+    "contra": null
+   }
+  },
   "ofelia": {
    "familia": "ea",
    "comandos": {
     "ea-agenda": {
-     "corridas": 1,
+     "corridas": 5,
      "mediana": 417182,
-     "maximo": 417182,
-     "mediana_salida": 3218,
-     "mediana_turnos": 9,
-     "mediana_segundos": 29,
-     "mediana_costo_usd": 0.1838,
+     "maximo": 460683,
+     "mediana_salida": 4179,
+     "mediana_turnos": 8,
+     "mediana_segundos": 31,
+     "mediana_costo_usd": 0.1757,
      "modelo": "claude-sonnet-5-5"
     },
     "ea-commitments": {
-     "corridas": 1,
+     "corridas": 5,
      "mediana": 408423,
-     "maximo": 408423,
-     "mediana_salida": 1820,
+     "maximo": 418276,
+     "mediana_salida": 2415,
      "mediana_turnos": 8,
-     "mediana_segundos": 22,
+     "mediana_segundos": 24,
      "mediana_costo_usd": 0.1582,
      "modelo": "claude-sonnet-5-5"
     },
     "ea-mail": {
-     "corridas": 1,
-     "mediana": 527079,
+     "corridas": 5,
+     "mediana": 477539,
      "maximo": 527079,
-     "mediana_salida": 5943,
-     "mediana_turnos": 14,
-     "mediana_segundos": 55,
-     "mediana_costo_usd": 0.469,
+     "mediana_salida": 3950,
+     "mediana_turnos": 11,
+     "mediana_segundos": 48,
+     "mediana_costo_usd": 0.3534,
      "modelo": "claude-opus-5-5"
     },
     "ea-minutes": {
-     "corridas": 1,
+     "corridas": 5,
      "mediana": 718079,
-     "maximo": 718079,
-     "mediana_salida": 7785,
+     "maximo": 828543,
+     "mediana_salida": 6815,
      "mediana_turnos": 17,
      "mediana_segundos": 74,
-     "mediana_costo_usd": 0.5351,
+     "mediana_costo_usd": 0.5126,
      "modelo": "claude-opus-5-5"
     },
     "ea-prep": {
-     "corridas": 1,
-     "mediana": 497443,
-     "maximo": 497443,
-     "mediana_salida": 4780,
+     "corridas": 5,
+     "mediana": 499268,
+     "maximo": 715782,
+     "mediana_salida": 4701,
      "mediana_turnos": 11,
-     "mediana_segundos": 49,
-     "mediana_costo_usd": 0.4517,
+     "mediana_segundos": 56,
+     "mediana_costo_usd": 0.4281,
      "modelo": "claude-opus-5-5"
     },
     "ea-scan": {
-     "corridas": 14,
-     "mediana": 837293,
-     "maximo": 1203177,
-     "mediana_salida": 9884,
+     "corridas": 18,
+     "mediana": 916816,
+     "maximo": 1362532,
+     "mediana_salida": 10480,
      "mediana_turnos": 21,
-     "mediana_segundos": 90.0,
-     "mediana_costo_usd": 0.3524,
+     "mediana_segundos": 91.5,
+     "mediana_costo_usd": 0.444,
      "modelo": "claude-opus-5-5"
     },
     "ea-setup": {
-     "corridas": 14,
-     "mediana": 698766,
+     "corridas": 18,
+     "mediana": 723679,
      "maximo": 1547664,
-     "mediana_salida": 7726,
+     "mediana_salida": 8403,
      "mediana_turnos": 18,
-     "mediana_segundos": 68.5,
-     "mediana_costo_usd": 0.2635,
+     "mediana_segundos": 78.0,
+     "mediana_costo_usd": 0.2791,
      "modelo": "claude-opus-5-5"
     },
     "ea-wake": {
-     "corridas": 1,
-     "mediana": 298571,
-     "maximo": 298571,
-     "mediana_salida": 1527,
+     "corridas": 5,
+     "mediana": 303740,
+     "maximo": 417352,
+     "mediana_salida": 1524,
      "mediana_turnos": 7,
-     "mediana_segundos": 22,
+     "mediana_segundos": 24,
      "mediana_costo_usd": 0.2516,
      "modelo": "claude-opus-5-5"
     },
     "ea-weekly": {
-     "corridas": 1,
-     "mediana": 361155,
-     "maximo": 361155,
+     "corridas": 5,
+     "mediana": 362898,
+     "maximo": 425130,
      "mediana_salida": 2299,
      "mediana_turnos": 8,
      "mediana_segundos": 27,
@@ -2089,16 +2255,16 @@
      "modelo": "claude-sonnet-5-5"
     }
    },
-   "pasada": 4763991,
+   "pasada": 4827624,
    "indicador": {
-    "ronda": "ronda-3",
-    "carpeta": "banca-eficiencia",
-    "material": "banca",
+    "ronda": "ronda-4",
+    "carpeta": "control-mx",
+    "material": "control-mx",
     "modelo_sesion": "claude-opus-5-5",
     "comandos": 9,
-    "tokens": 5618543,
-    "costo_usd": 4.2868,
-    "segundos": 544,
+    "tokens": 5291118,
+    "costo_usd": 3.4306,
+    "segundos": 457,
     "sin_pendientes": null,
     "contra": null
    }

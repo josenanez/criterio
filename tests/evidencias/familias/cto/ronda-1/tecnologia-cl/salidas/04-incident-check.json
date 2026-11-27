@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "fausto",
+  "comando": "incident-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:29:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 7,
+  "tokens": 350256,
+  "tokens_salida": 2611,
+  "costo_usd": 0.12944360000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/cambios/2026-11/reporte-incident-check.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-incident-check-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-incident-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

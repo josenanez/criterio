@@ -1,0 +1,18 @@
+{
+  "entidad": "Plásticos Control",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 5291118,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 25,
+    "bien": 25,
+    "mal": []
+  }
+}

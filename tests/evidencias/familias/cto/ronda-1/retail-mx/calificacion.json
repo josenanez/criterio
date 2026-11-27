@@ -1,0 +1,19 @@
+{
+  "entidad": "Retail del Golfo Sintético",
+  "agentes": [
+    "domingo",
+    "fausto"
+  ],
+  "tokens": 7326325,
+  "senales": {
+    "esperadas": 36,
+    "acertadas": 36,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 70,
+    "bien": 70,
+    "mal": []
+  }
+}

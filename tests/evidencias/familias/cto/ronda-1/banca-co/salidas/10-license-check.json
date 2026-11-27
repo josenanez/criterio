@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "domingo",
+  "comando": "license-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:12:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 7,
+  "tokens": 351551,
+  "tokens_salida": 2801,
+  "costo_usd": 0.1444489,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-11/reporte-license-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-license-check-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-license-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

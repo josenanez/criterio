@@ -1,0 +1,28 @@
+{
+  "n": 13,
+  "agente": "domingo",
+  "comando": "assets-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T16:24:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 83,
+  "turnos": 20,
+  "tokens": 858477,
+  "tokens_salida": 7653,
+  "costo_usd": 0.6061900000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-assets-scan-2.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-assets-wake-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-assets-wake.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-assets-scan.md"
+    ],
+    "borrados": []
+  }
+}

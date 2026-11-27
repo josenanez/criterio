@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "fausto",
+  "comando": "changes-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T16:30:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 76,
+  "turnos": 15,
+  "tokens": 653726,
+  "tokens_salida": 5558,
+  "costo_usd": 0.428576,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-changes-scan-2.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-changes-wake-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-changes-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-changes-scan.md"
+    ],
+    "borrados": []
+  }
+}

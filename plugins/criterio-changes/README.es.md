@@ -13,7 +13,7 @@ Tú respondes por lo que llega a producción. Él llega con cada cambio al lado 
 
 [English](README.md) · `criterio-changes` · Apache 2.0 · Una instancia por entidad
 
-**Estado: construido, en laboratorio, con la familia CTO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve y entidades de control. La ronda con el agente viene en la 0.2.0; no se ha probado sobre la documentación de una organización concreta.
+**Estado: estable, sin lanzar, con la familia CTO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve y entidades de control. En la 0.2.0, con la ronda 1, la familia es estable: un piso del 95 % o más en las señales y en los datos. No se ha probado sobre la documentación de una organización concreta.
 
 **Esta página se lee sola.** Fausto funciona sin el otro agente de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-cto](../../families/criterio-cto/README.es.md).
 

@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "domingo",
+  "comando": "asset-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:34:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 404421,
+  "tokens_salida": 2772,
+  "costo_usd": 0.13723390000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/activos/2026-11/reporte-asset-check.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/activos/2026-11/resultados.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-asset-check-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-asset-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

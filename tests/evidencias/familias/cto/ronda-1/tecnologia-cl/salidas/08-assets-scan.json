@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "domingo",
+  "comando": "assets-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:33:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 16,
+  "tokens": 735727,
+  "tokens_salida": 5620,
+  "costo_usd": 0.484213,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/activos/2026-10/reporte-assets-scan.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-assets-scan-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-assets-scan.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

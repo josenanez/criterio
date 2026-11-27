@@ -176,8 +176,8 @@
         "en": "Technology"
       },
       "estado": {
-        "es": "Construida",
-        "en": "Built"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "cambios",

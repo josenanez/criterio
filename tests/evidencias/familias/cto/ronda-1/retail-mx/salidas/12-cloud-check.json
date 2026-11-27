@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "domingo",
+  "comando": "cloud-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:23:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 9,
+  "tokens": 403940,
+  "tokens_salida": 3020,
+  "costo_usd": 0.1411464,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/activos/2026-10/reporte-cloud-check.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-cloud-check-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-cloud-check.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

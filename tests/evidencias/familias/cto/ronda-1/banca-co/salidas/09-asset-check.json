@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "domingo",
+  "comando": "asset-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:11:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 8,
+  "tokens": 405896,
+  "tokens_salida": 2801,
+  "costo_usd": 0.15331140000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-11/reporte-asset-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-11/resultados.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-asset-check-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-asset-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

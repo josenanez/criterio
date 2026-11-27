@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "domingo",
+  "comando": "cloud-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:13:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 9,
+  "tokens": 404907,
+  "tokens_salida": 3758,
+  "costo_usd": 0.16680910000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-10/reporte-cloud-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-11/reporte-cloud-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-cloud-check-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-cloud-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

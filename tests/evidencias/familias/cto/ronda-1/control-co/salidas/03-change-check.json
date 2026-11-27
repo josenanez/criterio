@@ -1,0 +1,28 @@
+{
+  "n": 3,
+  "agente": "fausto",
+  "comando": "change-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:39:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 405841,
+  "tokens_salida": 2931,
+  "costo_usd": 0.1404593,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cambios/2026-11/reporte-change-check.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cambios/2026-11/resultados.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-change-check-1.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-change-check.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

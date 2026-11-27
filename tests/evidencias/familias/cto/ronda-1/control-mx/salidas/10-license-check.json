@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "domingo",
+  "comando": "license-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:52:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 7,
+  "tokens": 348114,
+  "tokens_salida": 1730,
+  "costo_usd": 0.11658410000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/activos/2026-11/reporte-license-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-license-check-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-license-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

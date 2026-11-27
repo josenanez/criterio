@@ -1,0 +1,41 @@
+{
+  "n": 1,
+  "agente": "fausto",
+  "comando": "changes-setup",
+  "argumento": "tecnologia/901333666-banco-control-de-tecnologia-sintetico",
+  "inicio": "2026-11-27T16:36:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 74,
+  "turnos": 21,
+  "tokens": 725077,
+  "tokens_salida": 8116,
+  "costo_usd": 0.5972422000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/cambios/901333666/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-changes-0.1.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-01.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-08.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/10-cambios/acta_comite_de_cambios_2026-10-15.pdf.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/10-cambios/cambios_2026-10.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/10-cambios/despliegues_2026-10.xlsx.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cache/manifest.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cambios/2026-10/ficha.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cambios/2026-10/reporte-change-check.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/cambios/2026-10/resultados.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-changes-setup-1.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-changes-setup.md",
+      "tecnologia/901333666-banco-control-de-tecnologia-sintetico/_CRITERIO_TECNOLOGIA.txt"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

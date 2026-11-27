@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "fausto",
+  "comando": "service-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:06:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 7,
+  "tokens": 351830,
+  "tokens_salida": 2629,
+  "costo_usd": 0.1453363,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/cambios/2026-10/reporte-service-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-service-check-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-service-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 4,
+  "agente": "ofelia",
+  "comando": "ea-prep",
+  "argumento": "",
+  "inicio": "2026-11-27T17:00:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 11,
+  "tokens": 596534,
+  "tokens_salida": 4973,
+  "costo_usd": 0.52073,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/direccion-general/corridas/2026-10-26-ea-prep-1.md",
+      "estado-direccion/direccion-general/corridas/salida-ea-prep.md",
+      "estado-direccion/direccion-general/reporte-ea-prep.md"
+    ],
+    "modificados": [
+      "estado-direccion/direccion-general/corridas.json"
+    ],
+    "borrados": []
+  }
+}

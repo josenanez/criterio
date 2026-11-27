@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "fausto",
+  "comando": "service-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:18:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 347987,
+  "tokens_salida": 1993,
+  "costo_usd": 0.12027879999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cambios/2026-11/reporte-service-check.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-service-check-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-service-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

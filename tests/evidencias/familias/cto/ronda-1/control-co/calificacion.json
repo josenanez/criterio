@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Control de Tecnología Sintético",
+  "agentes": [
+    "domingo",
+    "fausto"
+  ],
+  "tokens": 6433638,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 33,
+    "bien": 33,
+    "mal": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "domingo",
+  "comando": "assets-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:10:31",
+  "estado": "success",
+  "error": false,
+  "segundos": 80,
+  "turnos": 16,
+  "tokens": 801640,
+  "tokens_salida": 6181,
+  "costo_usd": 0.5512238,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-10/reporte-assets-scan.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-assets-scan-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-assets-scan.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

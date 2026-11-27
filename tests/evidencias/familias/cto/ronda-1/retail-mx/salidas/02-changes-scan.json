@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fausto",
+  "comando": "changes-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:16:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 13,
+  "tokens": 668011,
+  "tokens_salida": 5637,
+  "costo_usd": 0.47107679999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/cambios/2026-10/reporte-changes-scan.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-changes-scan-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-changes-scan.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

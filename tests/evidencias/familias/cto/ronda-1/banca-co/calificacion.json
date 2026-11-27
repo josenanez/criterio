@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Meridiano Sintético",
+  "agentes": [
+    "domingo",
+    "fausto"
+  ],
+  "tokens": 7009590,
+  "senales": {
+    "esperadas": 36,
+    "acertadas": 36,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 70,
+    "bien": 70,
+    "mal": []
+  }
+}

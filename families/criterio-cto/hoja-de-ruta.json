@@ -50,8 +50,8 @@
   },
   {
    "incremento": 2,
-   "version": null,
-   "estado": "siguiente",
+   "version": "0.2.0",
+   "estado": "en curso",
    "industrias": [],
    "paises": [
     {
@@ -81,14 +81,14 @@
     "entra": [
      "Las rondas con Fausto y Domingo sobre todo el material, con una clave que no ven"
     ],
-    "prueba": "Cada agente contra la clave, con el piso de Wilson de la decisión 0020"
+    "prueba": "La ronda 1 en Colombia, México y Chile: 96 de 96 señales, 264 de 267 datos y ningún control con una señal; los tres datos que faltaron, corregidos y verificados (CTO-1)"
    },
    "en": {
     "titulo": "The round with the two agents",
     "entra": [
      "The rounds with Fausto and Domingo on all the material, with a key they never see"
     ],
-    "prueba": "Each agent against the key, with the Wilson floor of decision 0020"
+    "prueba": "Round 1 in Colombia, Mexico and Chile: 96 of 96 signals, 264 of 267 data items and no control with a signal; the three missing items, corrected and verified (CTO-1)"
    }
   },
   {

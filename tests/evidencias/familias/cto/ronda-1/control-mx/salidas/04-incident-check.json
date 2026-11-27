@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "fausto",
+  "comando": "incident-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:48:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 7,
+  "tokens": 348316,
+  "tokens_salida": 1955,
+  "costo_usd": 0.1202202,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/cambios/2026-11/reporte-incident-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-incident-check-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-incident-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "ofelia",
+  "comando": "ea-agenda",
+  "argumento": "",
+  "inicio": "2026-11-27T17:22:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 8,
+  "tokens": 416154,
+  "tokens_salida": 4179,
+  "costo_usd": 0.1680652,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/gerencia-general/corridas/2026-10-26-ea-agenda-1.md",
+      "estado-direccion/gerencia-general/corridas/salida-ea-agenda.md"
+    ],
+    "modificados": [
+      "estado-direccion/gerencia-general/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "domingo",
+  "comando": "vendor-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:34:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 18,
+  "turnos": 8,
+  "tokens": 398438,
+  "tokens_salida": 1589,
+  "costo_usd": 0.1208874,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/activos/2026-11/reporte-vendor-check.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-vendor-check-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-vendor-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

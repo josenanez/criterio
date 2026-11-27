@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "domingo",
+  "comando": "license-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:23:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 403400,
+  "tokens_salida": 2516,
+  "costo_usd": 0.1350342,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/activos/2026-11/reporte-license-check.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/2026-11-25-license-check-1.md",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas/salida-license-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rgs180610qw4-retail-del-golfo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

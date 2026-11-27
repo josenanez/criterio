@@ -1,0 +1,29 @@
+{
+  "n": 13,
+  "agente": "domingo",
+  "comando": "assets-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T16:44:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 18,
+  "tokens": 696980,
+  "tokens_salida": 3840,
+  "costo_usd": 0.44767000000000007,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-assets-scan-2.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/2026-11-25-assets-wake-1.md",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-assets-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas.json",
+      "estado-tecnologia/901333666-banco-control-de-tecnologia-sintetico/corridas/salida-assets-scan.md"
+    ],
+    "borrados": []
+  }
+}

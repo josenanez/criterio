@@ -2,7 +2,7 @@
 
 **el agente del gobierno y los controles de la familia CISO** · plugin `criterio-security`
 
-Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol todavía sin confirmar. **2 puertas · 41 comprobaciones · todas en verde.**
+Corrida del 2026-11-27, sobre el commit `7c512b56`, con cambios en el árbol todavía sin confirmar. **2 puertas · 41 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `d999d18f`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-security/seguridad.py selftest` | El motor de Alexis, Guillermo y Amparo: la escala del CVSS, el catálogo KEV, lo que nunca se abre y una entidad mínima con todo mal | 29 | 105 ms | verde |
-| `criterio-ciso/evaluar.py` | Que Alexis levante cada señal sembrada en los controles, los accesos, los terceros y los riesgos, y ninguna en los controles | 12 | 131 ms | verde |
+| `criterio-security/seguridad.py selftest` | El motor de Alexis, Guillermo y Amparo: la escala del CVSS, el catálogo KEV, lo que nunca se abre y una entidad mínima con todo mal | 29 | 124 ms | verde |
+| `criterio-ciso/evaluar.py` | Que Alexis levante cada señal sembrada en los controles, los accesos, los terceros y los riesgos, y ninguna en los controles | 12 | 146 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -69,7 +69,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 25 | verde |
-| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
+| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | **0 EN ROJO** |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
 | `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |

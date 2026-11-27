@@ -1,0 +1,43 @@
+{
+  "n": 1,
+  "agente": "ofelia",
+  "comando": "ea-setup",
+  "argumento": "direccion/direccion-general",
+  "inicio": "2026-11-27T17:27:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 142,
+  "turnos": 32,
+  "tokens": 1079718,
+  "tokens_salida": 15682,
+  "costo_usd": 0.9727056,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/direccion/2026-11-27-ea-setup-1.html",
+      ".criterio/corridas/direccion/2026-11-27-ea-setup-1.md",
+      ".criterio/corridas/direccion/corridas.json",
+      ".criterio/direccion/direccion-general/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-assistant-1.4.2-2026-10-26.md",
+      ".criterio/terminos/aceptacion-criterio-assistant-1.4.2-2026-10-26.pdf",
+      ".criterio/terminos/aceptacion-criterio-assistant-1.4.2-2026-10-26.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-direccion/direccion-general/correspondencia/2026-10-08-supervisor.json",
+      "estado-direccion/direccion-general/correspondencia/2026-10-12-cliente.json",
+      "estado-direccion/direccion-general/correspondencia/2026-10-21-boletin.json",
+      "estado-direccion/direccion-general/corridas.json",
+      "estado-direccion/direccion-general/corridas/2026-10-26-ea-setup-1.md",
+      "estado-direccion/direccion-general/corridas/salida-ea-setup.md",
+      "estado-direccion/direccion-general/reporte-ea-agenda.md",
+      "estado-direccion/direccion-general/resultados.json",
+      "estado-direccion/direccion-general/reuniones/comite-de-direccion-2026-09-21.json",
+      "estado-direccion/direccion-general/reuniones/comite-de-direccion-2026-10-19.json",
+      "estado-direccion/direccion-general/reuniones/consejo-de-administracion-2026-09-24.json",
+      "estado-direccion/direccion-general/reuniones/consejo-de-administracion-2026-10-29.json",
+      "estado-direccion/direccion-general/viajes/GDL-itinerario-guadalajara.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

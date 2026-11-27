@@ -34,4 +34,4 @@ The organisation, in its change and service level policy and its service catalog
 
 ### Has it been tested?
 
-The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal. The round with the two agents comes in 0.2.0. It has not been tested on a specific organisation's documentation.
+The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal. The two agents ran on every entity in the material, with a key they never see; in 0.2.0, round 1 in Colombia, Mexico and Chile: 96 signals and 267 data items, with a floor of 96.1% on signals and 98.5% on data, and no control with a signal. It is stable, not yet launched. It has not been tested on a specific organisation's documentation.

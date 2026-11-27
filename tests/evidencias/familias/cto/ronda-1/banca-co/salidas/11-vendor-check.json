@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "domingo",
+  "comando": "vendor-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:12:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 8,
+  "tokens": 348837,
+  "tokens_salida": 2047,
+  "costo_usd": 0.1341311,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/activos/2026-11/reporte-vendor-check.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/2026-11-25-vendor-check-1.md",
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas/salida-vendor-check.md"
+    ],
+    "modificados": [
+      "estado-tecnologia/901222444-banco-meridiano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "nota": "Los defectos que encontraron las rondas con los agentes de la familia CTO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+  "defectos": [
+    {
+      "id": "CTO-1",
+      "ronda": 1,
+      "carpeta": "control-co",
+      "agentes": [
+        "fausto"
+      ],
+      "origen": "instrucciones",
+      "commit": "7c512b56",
+      "estado": "verificado",
+      "es": {
+        "que": "El acta del comité de cambios decía «el comité lo aprueba», y change-record pedía la autoridad «en las palabras del acta»: Fausto la registró como «el comité» en tres aprobaciones, en lugar de «Comité de cambios».",
+        "correccion": "change-record pide la autoridad por su nombre: si el acta dice «el comité», es el comité del título del acta. El escaneo de cambios, corrido otra vez con la instrucción corregida, da los 33 datos bien."
+      },
+      "en": {
+        "que": "The change board minutes said «the board approves it», and change-record asked for the authority «in the minutes' words»: Fausto recorded it as «the board» in three approvals, instead of «Change board».",
+        "correccion": "change-record asks for the authority by its name: if the minutes say «the board», it is the board in the minutes' title. The change scan, run again with the corrected instruction, gets all 33 data right."
+      },
+      "fallas": [
+        [
+          1,
+          "control-co",
+          "cambios · approvals[CHG-100].authority"
+        ],
+        [
+          1,
+          "control-co",
+          "cambios · approvals[CHG-103].authority"
+        ],
+        [
+          1,
+          "control-co",
+          "cambios · approvals[CHG-104].authority"
+        ]
+      ]
+    }
+  ]
+}

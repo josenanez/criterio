@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "domingo",
+  "comando": "vendor-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:53:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 8,
+  "tokens": 399236,
+  "tokens_salida": 1697,
+  "costo_usd": 0.1230504,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/activos/2026-11/reporte-vendor-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-vendor-check-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-vendor-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

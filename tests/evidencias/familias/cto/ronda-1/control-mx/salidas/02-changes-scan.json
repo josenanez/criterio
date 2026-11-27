@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fausto",
+  "comando": "changes-scan",
+  "argumento": "",
+  "inicio": "2026-11-27T16:47:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 12,
+  "tokens": 595120,
+  "tokens_salida": 3395,
+  "costo_usd": 0.3748466000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/cambios/2026-10/reporte-changes-scan.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-changes-scan-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-changes-scan.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

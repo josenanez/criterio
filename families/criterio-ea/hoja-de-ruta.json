@@ -125,6 +125,51 @@
   },
   {
    "incremento": 6,
+   "version": "1.5.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "México, Perú y Chile",
+    "entra": [
+     "Tres oficinas nuevas, cada una con un país y una industria: retail en México, manufactura en Perú y tecnología en Chile, con un control para el grupo",
+     "La ciudad por su nombre corto: la sala en «Las Condes, Santiago» es presencial en Santiago de Chile"
+    ],
+    "prueba": "La ronda 4 en México, Perú y Chile: 118 de 118 señales, 148 de 148 datos y ningún control con una señal"
+   },
+   "en": {
+    "titulo": "Mexico, Peru and Chile",
+    "entra": [
+     "Three new offices, each with a country and an industry: retail in Mexico, manufacturing in Peru and technology in Chile, with one control for the group",
+     "The city by its short name: a room in «Las Condes, Santiago» is in person in Santiago de Chile"
+    ],
+    "prueba": "Round 4 in Mexico, Peru and Chile: 118 of 118 signals, 148 of 148 data items and no control with a signal"
+   }
+  },
+  {
+   "incremento": 7,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

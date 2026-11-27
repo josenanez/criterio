@@ -2,9 +2,9 @@
 
 # criterio-cto · el diseño de la familia
 
-**Estado: construida, en laboratorio (versión 0.1.0).** Los comandos, los skills y el motor de cálculo
+**Estado: estable, en su versión 0.2.0, sin lanzar.** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
-`tests/criterio-cto/`. La ronda con los dos agentes viene en la 0.2.0. Alcance en [ADR 0037](../../docs/decisions/0037-la-familia-cto.md).
+`tests/criterio-cto/`. El motor pasa su prueba determinista contra todo el material; en la 0.2.0, la ronda 1 en Colombia, México y Chile: 96 señales y 267 datos, con un piso del 96,1 % en las señales y del 98,5 % en los datos, y ningún control con una señal: [las rondas](../../tests/evidencias/familias/cto/RONDAS.md). Alcance en [ADR 0037](../../docs/decisions/0037-la-familia-cto.md).
 
 **Esta es la hoja de diseño de la familia**: las señales que calcula el código, cada comando con su
 entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, la

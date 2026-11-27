@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "ofelia",
+  "comando": "ea-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T17:34:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 7,
+  "tokens": 303468,
+  "tokens_salida": 1402,
+  "costo_usd": 0.22308000000000003,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/direccion/2026-11-27-ea-wake-1.html",
+      ".criterio/corridas/direccion/2026-11-27-ea-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/direccion-general/corridas/2026-10-26-ea-wake-1.md",
+      "estado-direccion/direccion-general/corridas/salida-ea-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/direccion/corridas.json",
+      "estado-direccion/direccion-general/corridas.json"
+    ],
+    "borrados": []
+  }
+}

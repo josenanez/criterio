@@ -1,0 +1,29 @@
+{
+  "n": 5,
+  "agente": "fausto",
+  "comando": "service-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:29:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 8,
+  "tokens": 403856,
+  "tokens_salida": 3371,
+  "costo_usd": 0.14841150000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/cambios/2026-10/reporte-service-check.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/cambios/2026-11/reporte-service-check.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/2026-11-25-service-check-1.md",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas/salida-service-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/76543210-k-software-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "domingo",
+  "comando": "asset-check",
+  "argumento": "",
+  "inicio": "2026-11-27T16:52:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 8,
+  "tokens": 400931,
+  "tokens_salida": 2193,
+  "costo_usd": 0.12905070000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/activos/2026-11/reporte-asset-check.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/activos/2026-11/resultados.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-asset-check-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-asset-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

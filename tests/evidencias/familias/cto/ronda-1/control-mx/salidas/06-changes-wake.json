@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "fausto",
+  "comando": "changes-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T16:49:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 12,
+  "tokens": 477773,
+  "tokens_salida": 2932,
+  "costo_usd": 0.31779620000000003,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-changes-scan-2.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/2026-11-25-changes-wake-1.md",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-changes-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas.json",
+      "estado-tecnologia/rct190101ab2-retail-control-de-tecnologia-sintetico/corridas/salida-changes-scan.md"
+    ],
+    "borrados": []
+  }
+}

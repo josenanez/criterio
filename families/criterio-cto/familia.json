@@ -9,8 +9,8 @@
     "en": "Technology"
   },
   "estado": {
-    "es": "Construida",
-    "en": "Built"
+    "es": "Construida · probada",
+    "en": "Built · tested"
   },
   "nivel_c": {
     "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
@@ -628,7 +628,7 @@
         "domingo": "Los activos y los proveedores",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida, en laboratorio. El motor pasa su prueba determinista contra todo su material; la ronda con los dos agentes viene en la 0.2.0.",
+      "nota": "Estado de la familia: estable. El motor pasa su prueba determinista contra todo su material, y los dos agentes pasaron su ronda en Colombia, México y Chile con una clave que no ven.",
       "guion": [
         {
           "cabeza": true,
@@ -674,7 +674,7 @@
         "domingo": "Assets and vendors",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built, in the lab. The engine passes its deterministic test against all its material; the round with the two agents comes in 0.2.0.",
+      "nota": "Where the family stands: stable. The engine passes its deterministic test against all its material, and the two agents passed their round in Colombia, Mexico and Chile with a key they never see.",
       "guion": [
         {
           "cabeza": true,

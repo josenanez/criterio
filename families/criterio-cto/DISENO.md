@@ -2,9 +2,9 @@
 
 # criterio-cto · the family design
 
-**Status: built, in the lab (version 0.1.0).** The commands, the skills and the calculation engine
+**Status: stable, at version 0.2.0, not yet launched.** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test against the material in
-`tests/criterio-cto/`. The round with the two agents comes in 0.2.0. Scope in [ADR 0037](../../docs/decisions/0037-la-familia-cto.md).
+`tests/criterio-cto/`. The engine passes its deterministic test against all the material; in 0.2.0, round 1 in Colombia, Mexico and Chile: 96 signals and 267 data items, with a floor of 96.1% on signals and 98.5% on data, and no control with a signal: [the rounds](../../tests/evidencias/familias/cto/RONDAS.md). Scope in [ADR 0037](../../docs/decisions/0037-la-familia-cto.md).
 
 **This is the family's design sheet**: the signals the code calculates, each command with its input,
 process and report, and the decisions taken. What the family does, how it is installed, the folder

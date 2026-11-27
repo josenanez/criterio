@@ -1,0 +1,18 @@
+{
+  "entidad": "Industrias del Rímac",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 5807289,
+  "senales": {
+    "esperadas": 40,
+    "acertadas": 40,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 41,
+    "bien": 41,
+    "mal": []
+  }
+}

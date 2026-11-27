@@ -13,7 +13,7 @@ You are responsible for what reaches production. He comes with each change next 
 
 [Español](README.es.md) · `criterio-changes` · Apache 2.0 · One instance per entity
 
-**Status: built, in the lab, with the CTO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. The round with the agent comes in 0.2.0; it has not been tested on a specific organisation’s documentation.
+**Status: stable, not yet launched, with the CTO family.** The calculation engine, tested against all the family’s synthetic material with a key the agent never sees and control entities. In 0.2.0, with round 1, the family is stable: a floor of 95% or more on signals and data. It has not been tested on a specific organisation’s documentation.
 
 **This page stands on its own.** Fausto works without the family’s other agent. The family —how they meet each other and Rostrum— is in the [criterio-cto family](../../families/criterio-cto/README.md).
 

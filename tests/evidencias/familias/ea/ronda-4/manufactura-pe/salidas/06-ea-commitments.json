@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "ofelia",
+  "comando": "ea-commitments",
+  "argumento": "",
+  "inicio": "2026-11-27T17:14:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 9,
+  "tokens": 414077,
+  "tokens_salida": 2010,
+  "costo_usd": 0.14770260000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/direccion/2026-11-27-ea-commitments-1.html",
+      ".criterio/corridas/direccion/2026-11-27-ea-commitments-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/gerencia-general/corridas/2026-10-26-ea-commitments-1.md",
+      "estado-direccion/gerencia-general/corridas/salida-ea-commitments.md",
+      "estado-direccion/gerencia-general/reporte-ea-commitments.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/direccion/corridas.json",
+      "estado-direccion/gerencia-general/corridas.json"
+    ],
+    "borrados": []
+  }
+}

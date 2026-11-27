@@ -20,6 +20,10 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [cooperativas](ronda-2/cooperativas/) | cooperativas · EC | ofelia | 35 de 35 · 0 de más | 44 de 45 | 1.62 M |
 | ronda-2 | [cooperativas-2](ronda-2/cooperativas-2/) | cooperativas · EC | ofelia | 35 de 35 · 0 de más | 45 de 45 | 1.87 M |
 | ronda-3 | [banca-eficiencia](ronda-3/banca-eficiencia/) | banca · CO | ofelia | 50 de 50 · 0 de más | 51 de 51 | 5.62 M |
+| ronda-4 | [control-mx](ronda-4/control-mx/) | control · MX | ofelia | 0 de 0 · 0 de más | 25 de 25 | 5.29 M |
+| ronda-4 | [manufactura-pe](ronda-4/manufactura-pe/) | manufactura · PE | ofelia | 40 de 40 · 0 de más | 41 de 41 | 5.81 M |
+| ronda-4 | [retail-mx](ronda-4/retail-mx/) | retail · MX | ofelia | 39 de 39 · 0 de más | 41 de 41 | 5.77 M |
+| ronda-4 | [tecnologia-cl](ronda-4/tecnologia-cl/) | tecnologia · CL | ofelia | 39 de 39 · 0 de más | 41 de 41 | 5.55 M |
 
 ## Los defectos que encontraron
 
