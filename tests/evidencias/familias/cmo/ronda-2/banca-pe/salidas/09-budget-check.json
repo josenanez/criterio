@@ -1,0 +1,28 @@
+{
+  "n": 9,
+  "agente": "prospero",
+  "comando": "budget-check",
+  "argumento": "",
+  "inicio": "2026-11-26T13:35:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 462326,
+  "tokens_salida": 3534,
+  "costo_usd": 0.1561841,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/campanas/2026-11/reporte-budget-check.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/campanas/2026-11/resultados.json",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/2026-11-25-budget-check-1.md",
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas/salida-budget-check.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/20603335551-banco-altiplano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

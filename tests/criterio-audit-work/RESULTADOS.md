@@ -2,7 +2,7 @@
 
 **el agente de los trabajos de auditoría de la familia CAE** · plugin `criterio-audit-work`
 
-Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cae/evaluar.py` | Que Justo levante cada señal sembrada en los trabajos, y ninguna en los controles | 6 | 61 ms | verde |
+| `criterio-cae/evaluar.py` | Que Justo levante cada señal sembrada en los trabajos, y ninguna en los controles | 6 | 62 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "prospero",
+  "comando": "campaigns-wake",
+  "argumento": "",
+  "inicio": "2026-11-27T02:33:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 14,
+  "tokens": 595105,
+  "tokens_salida": 4853,
+  "costo_usd": 0.4285004000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-campaigns-scan-2.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-campaigns-wake-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-campaigns-wake.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-campaigns-scan.md"
+    ],
+    "borrados": []
+  }
+}

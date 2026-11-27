@@ -2,7 +2,7 @@
 
 **la agente del seguimiento de los hallazgos de la familia CAE** · plugin `criterio-remediation`
 
-Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **1 puertas · 6 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 

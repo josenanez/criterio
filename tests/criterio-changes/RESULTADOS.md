@@ -2,7 +2,7 @@
 
 **el agente de los cambios y el servicio de la familia CTO** · plugin `criterio-changes`
 
-Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **2 puertas · 14 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 14 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-changes/tecnologia.py selftest` | El motor de Fausto y Domingo: cada cambio contra su aprobación y cada servicio contra su nivel, y cada activo, licencia, proveedor y cuenta de la nube contra lo que le corresponde | 8 | 52 ms | verde |
-| `criterio-cto/evaluar.py` | Que Fausto levante cada señal sembrada en los cambios, los incidentes y el servicio, y ninguna en los controles | 6 | 60 ms | verde |
+| `criterio-changes/tecnologia.py selftest` | El motor de Fausto y Domingo: cada cambio contra su aprobación y cada servicio contra su nivel, y cada activo, licencia, proveedor y cuenta de la nube contra lo que le corresponde | 8 | 58 ms | verde |
+| `criterio-cto/evaluar.py` | Que Fausto levante cada señal sembrada en los cambios, los incidentes y el servicio, y ninguna en los controles | 6 | 68 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

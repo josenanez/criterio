@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "prospero",
+  "comando": "campaigns-scan",
+  "argumento": "",
+  "inicio": "2026-11-26T13:26:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 46,
+  "turnos": 14,
+  "tokens": 712545,
+  "tokens_salida": 5256,
+  "costo_usd": 0.476519,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/campanas/2026-10/reporte-campaigns-scan.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/2026-11-25-campaigns-scan-1.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/salida-campaigns-scan.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "lucia",
+  "comando": "claims-wake",
+  "argumento": "",
+  "inicio": "2026-11-26T13:24:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 19,
+  "tokens": 737312,
+  "tokens_salida": 6461,
+  "costo_usd": 0.5823174,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/2026-11-25-claims-scan-2.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/2026-11-25-claims-wake-1.md",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/salida-claims-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas.json",
+      "estado-mercadeo/901333555-almacenes-del-valle-sinteticos/corridas/salida-claims-scan.md"
+    ],
+    "borrados": []
+  }
+}

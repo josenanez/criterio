@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes del Valle Sintéticos",
+  "agentes": [
+    "lucia",
+    "prospero"
+  ],
+  "tokens": 7176745,
+  "senales": {
+    "esperadas": 33,
+    "acertadas": 33,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 99,
+    "bien": 99,
+    "mal": []
+  }
+}

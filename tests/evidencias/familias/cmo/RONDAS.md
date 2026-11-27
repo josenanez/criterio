@@ -11,6 +11,11 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-1 | [control-co](ronda-1/control-co/) | control · CO | lucia, prospero | 0 de 0 · 0 de más | 5 de 5 | 6.72 M |
 | ronda-1 | [control-mx](ronda-1/control-mx/) | control · MX | lucia, prospero | 0 de 0 · 0 de más | 5 de 5 | 6.67 M + 7.01 M repetidos |
 | ronda-1 | [retail-co](ronda-1/retail-co/) | retail · CO | lucia, prospero | 11 de 11 · 0 de más | 5 de 5 | 6.81 M |
+| ronda-2 | [banca-pe](ronda-2/banca-pe/) | banca · PE | lucia, prospero | 33 de 33 · 0 de más | 99 de 99 | 6.68 M |
+| ronda-2 | [consumo-mx](ronda-2/consumo-mx/) | manufactura · MX | lucia, prospero | 22 de 22 · 0 de más | 76 de 76 | 6.97 M |
+| ronda-2 | [control-co](ronda-2/control-co/) | control · CO | lucia, prospero | 0 de 0 · 0 de más | 53 de 53 | 6.58 M |
+| ronda-2 | [control-mx](ronda-2/control-mx/) | control · MX | lucia, prospero | 0 de 0 · 0 de más | 53 de 53 | 7.18 M |
+| ronda-2 | [retail-co](ronda-2/retail-co/) | retail · CO | lucia, prospero | 33 de 33 · 0 de más | 99 de 99 | 7.18 M |
 
 ## Los defectos que encontraron
 

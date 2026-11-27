@@ -2,7 +2,7 @@
 
 **la agente de la respuesta y la recuperación de la familia CISO** · plugin `criterio-resilience`
 
-Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **1 puertas · 12 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **1 puertas · 12 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-ciso/evaluar.py` | Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles | 12 | 103 ms | verde |
+| `criterio-ciso/evaluar.py` | Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles | 12 | 104 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

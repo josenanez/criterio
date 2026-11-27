@@ -1,0 +1,40 @@
+{
+  "n": 7,
+  "agente": "prospero",
+  "comando": "campaigns-setup",
+  "argumento": "mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos",
+  "inicio": "2026-11-27T02:39:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 18,
+  "tokens": 681944,
+  "tokens_salida": 7875,
+  "costo_usd": 0.5911449999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/campanas/901444666/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.2.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.2.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-campaigns-0.2.0-2026-11-25.sha256",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/cache/50-campanas/facturas_de_pauta.xlsx.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/cache/50-campanas/informe_de_resultados_2026-10.pdf.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/cache/50-campanas/plan_de_mercadeo.xlsx.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/cache/50-campanas/resultados_plataforma.xlsx.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/campanas/2026-10/ficha.json",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/campanas/2026-10/reporte-budget-check.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/campanas/2026-10/resultados.json",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas/2026-11-25-campaigns-setup-1.md",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas/salida-campaigns-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/cache/manifest.json",
+      "estado-mercadeo/901444666-almacenes-control-de-mercadeo-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

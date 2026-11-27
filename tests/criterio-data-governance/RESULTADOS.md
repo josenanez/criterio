@@ -2,7 +2,7 @@
 
 **la agente del gobierno de los datos de la familia CDO** · plugin `criterio-data-governance`
 
-Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol todavía sin confirmar. **2 puertas · 16 comprobaciones · todas en verde.**
+Corrida del 2026-11-26, sobre el commit `b1117cf9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 16 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-26, sobre el commit `d7d0b284`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-data-governance/datos.py selftest` | El motor de Custodia y Ariadna: el catálogo contra sus dueños, sus políticas y su registro, y cada cifra contra su fuente, su corte y su linaje | 10 | 51 ms | verde |
-| `criterio-cdo/evaluar.py` | Que Custodia levante cada señal sembrada en el gobierno de los datos, y ninguna en los controles | 6 | 57 ms | verde |
+| `criterio-data-governance/datos.py selftest` | El motor de Custodia y Ariadna: el catálogo contra sus dueños, sus políticas y su registro, y cada cifra contra su fuente, su corte y su linaje | 10 | 50 ms | verde |
+| `criterio-cdo/evaluar.py` | Que Custodia levante cada señal sembrada en el gobierno de los datos, y ninguna en los controles | 6 | 58 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

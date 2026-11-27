@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "prospero",
+  "comando": "budget-check",
+  "argumento": "",
+  "inicio": "2026-11-27T02:32:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 8,
+  "tokens": 410921,
+  "tokens_salida": 5139,
+  "costo_usd": 0.1849161,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-11/reporte-budget-check.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/campanas/2026-11/resultados.json",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/2026-11-25-budget-check-1.md",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas/salida-budget-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/cms210415xy3-consumo-maya-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
