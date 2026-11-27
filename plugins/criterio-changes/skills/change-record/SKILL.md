@@ -20,7 +20,7 @@ Una ficha por periodo, en `<estado>/cambios/<AAAA-MM>/ficha.json`. La exportaci�
 
 ## Cómo se decide cada uno
 
-- **`approvals`**: cada cambio que el acta aprueba, con el código del cambio como lo escribe la exportación, la fecha en que se aprobó —la de la sesión, si el acta no dice otra— y la autoridad que lo aprobó, en las palabras del acta. Un cambio que el acta menciona sin aprobarlo —«se aplaza», «se pide más información»— no va aquí.
+- **`approvals`**: cada cambio que el acta aprueba, con el código del cambio como lo escribe la exportación, la fecha en que se aprobó —la de la sesión, si el acta no dice otra— y la autoridad que lo aprobó por su nombre: el órgano como lo nombra el acta. Si el acta dice «el comité lo aprueba», la autoridad es el comité del título del acta —«Comité de cambios»—, no «el comité». Un cambio que el acta menciona sin aprobarlo —«se aplaza», «se pide más información»— no va aquí.
 - **`reviews`**: cada revisión posterior de un cambio que quedó en un acta —la de un cambio de emergencia o la de uno fallido o revertido—, con el código del cambio y la fecha en que se revisó. Que el acta diga que el cambio «se revisará» no es una revisión.
 - **`reviewed`**: las actas que se procesaron y no traen ninguna aprobación ni revisión. Un acta citada en otro campo no va aquí.
 
