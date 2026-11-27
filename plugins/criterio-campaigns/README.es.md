@@ -13,7 +13,7 @@ Tú respondes por la inversión en las campañas. Él llega con cada campaña al
 
 [English](README.md) · `criterio-campaigns` · Apache 2.0 · Una instancia por entidad
 
-**Estado: construido y probado, en laboratorio, con la familia CMO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve y entidades de control. En la 0.2.0, el agente corrió sobre todas las entidades del material, con una clave que no ve; no se ha probado sobre la documentación de una organización concreta.
+**Estado: lanzado y estable, con la familia CMO.** El motor de cálculo, probado contra todo el material sintético de la familia con una clave que el agente no ve y entidades de control. En la 0.2.0, el agente corrió sobre todas las entidades del material, con una clave que no ve. En la 1.0.0, con la ronda 2, la familia es estable: un piso del 95 % o más en las señales y en los datos. No se ha probado sobre la documentación de una organización concreta.
 
 **Esta página se lee sola.** Próspero funciona sin la otra agente de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-cmo](../../families/criterio-cmo/README.es.md).
 

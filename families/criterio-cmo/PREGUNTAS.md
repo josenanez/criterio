@@ -34,4 +34,4 @@ The organisation, in its advertising policy. The setup proposes the tolerances f
 
 ### Has it been tested?
 
-The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal. In 0.2.0, the two agents ran on every entity in the material, with a key they never see. It has not been tested on a specific organisation's documentation.
+The engine is tested against all its synthetic material, with a key the agents never see and two control entities with no signal. In 0.2.0, the two agents ran on every entity in the material, with a key they never see; in 1.0.0, round 2 in Colombia, Peru and Mexico: 88 signals and 380 data items, with a floor of 95.8% on signals and 98.9% on data, and no control with a signal. It is stable and launched. It has not been tested on a specific organisation's documentation.

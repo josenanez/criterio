@@ -2,9 +2,9 @@
 
 # criterio-cmo · the family design
 
-**Status: built and tested, in the lab (version 0.2.0).** The commands, the skills and the calculation engine
+**Status: stable, launched at version 1.0.0.** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test against the material in
-`tests/criterio-cmo/`. In 0.2.0, the two agents ran on every entity in the material, with a key they never see: [the rounds](../../tests/evidencias/familias/cmo/RONDAS.md). Scope in [ADR 0036](../../docs/decisions/0036-la-familia-cmo.md).
+`tests/criterio-cmo/`. In 0.2.0, the two agents ran on every entity in the material, with a key they never see; in 1.0.0, round 2 in Colombia, Peru and Mexico: 88 signals and 380 data items, with a floor of 95.8% on signals and 98.9% on data, and no control with a signal: [the rounds](../../tests/evidencias/familias/cmo/RONDAS.md). Scope in [ADR 0036](../../docs/decisions/0036-la-familia-cmo.md).
 
 **This is the family's design sheet**: the signals the code calculates, each command with its input,
 process and report, and the decisions taken. What the family does, how it is installed, the folder

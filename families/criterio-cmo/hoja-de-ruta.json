@@ -93,6 +93,53 @@
   },
   {
    "incremento": 3,
+   "version": "1.0.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Estable, y el lanzamiento",
+    "entra": [
+     "La ronda 2 con los dos agentes sobre material ampliado: cada defecto sembrado más de una vez",
+     "La extracción, calificada registro por registro",
+     "El lanzamiento: estable con la ronda 2, abre su 1.0.0 (decisión 0021)"
+    ],
+    "prueba": "La ronda 2 en Colombia, Perú y México: 88 de 88 señales, 380 de 380 datos y ningún control con una señal"
+   },
+   "en": {
+    "titulo": "Stable, and the launch",
+    "entra": [
+     "Round 2 with both agents on expanded material: each seeded defect more than once",
+     "Extraction graded record by record",
+     "The launch: stable with round 2, it opens its 1.0.0 (decision 0021)"
+    ],
+    "prueba": "Round 2 in Colombia, Peru and Mexico: 88 of 88 signals, 380 of 380 data items and no control with a signal"
+   }
+  },
+  {
+   "incremento": 4,
    "version": null,
    "estado": "siguiente",
    "industrias": [],
