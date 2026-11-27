@@ -2,9 +2,9 @@
 
 # criterio-cae · el diseño de la familia
 
-**Estado: construida y probada, en laboratorio (versión 0.2.0).** Los comandos, los skills y el motor de cálculo
+**Estado: estable, lanzada en su versión 1.0.0.** Los comandos, los skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
-`tests/criterio-cae/`. En la 0.2.0, los tres agentes corrieron sobre todas las entidades del material, con una clave que no ven: [las rondas](../../tests/evidencias/familias/cae/RONDAS.md). Alcance en [ADR 0033](../../docs/decisions/0033-la-familia-cae.md).
+`tests/criterio-cae/`. En la 0.2.0, los tres agentes corrieron sobre todas las entidades del material, con una clave que no ven; en la 1.0.0, la ronda 2 en Colombia, Perú y Brasil: 76 señales y 352 datos, con un piso del 95,1 % en las señales y del 98,9 % en los datos, y ningún control con una señal: [las rondas](../../tests/evidencias/familias/cae/RONDAS.md). Alcance en [ADR 0033](../../docs/decisions/0033-la-familia-cae.md).
 
 **Esta es la hoja de diseño de la familia**: las señales que calcula el código, cada comando con su
 entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, la

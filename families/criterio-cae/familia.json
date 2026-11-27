@@ -901,7 +901,7 @@
         "remedios": "El seguimiento",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: probada, en laboratorio. El motor pasa su prueba determinista contra todo su material, y los tres agentes corrieron sobre todas sus entidades.",
+      "nota": "Estado de la familia: estable. El motor pasa su prueba determinista contra todo su material, y los tres agentes pasaron su ronda en Colombia, Perú y Brasil con una clave que no ven.",
       "guion": [
         {
           "cabeza": true,
@@ -953,7 +953,7 @@
         "remedios": "Follow-up",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: tested, in the lab. The engine passes its deterministic test against all its material, and the three agents ran on every entity in it.",
+      "nota": "Where the family stands: stable. The engine passes its deterministic test against all its material, and the three agents passed their round in Colombia, Peru and Brazil with a key they never see.",
       "guion": [
         {
           "cabeza": true,

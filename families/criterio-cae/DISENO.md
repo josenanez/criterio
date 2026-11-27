@@ -2,9 +2,9 @@
 
 # criterio-cae · the family design
 
-**Status: built and tested, in the lab (version 0.2.0).** The commands, the skills and the calculation engine
+**Status: stable, launched at version 1.0.0.** The commands, the skills and the calculation engine
 are built on the common core; the engine passes its deterministic test against the material in
-`tests/criterio-cae/`. In 0.2.0, the three agents ran on every entity in the material, with a key they never see: [the rounds](../../tests/evidencias/familias/cae/RONDAS.md). Scope in [ADR 0033](../../docs/decisions/0033-la-familia-cae.md).
+`tests/criterio-cae/`. In 0.2.0, the three agents ran on every entity in the material, with a key they never see; in 1.0.0, round 2 in Colombia, Peru and Brazil: 76 signals and 352 data items, with a floor of 95.1% on signals and 98.9% on data, and no control with a signal: [the rounds](../../tests/evidencias/familias/cae/RONDAS.md). Scope in [ADR 0033](../../docs/decisions/0033-la-familia-cae.md).
 
 **This is the family's design sheet**: the signals the code calculates, each command with its input,
 process and report, and the decisions taken. What the family does, how it installs, the folder structure
