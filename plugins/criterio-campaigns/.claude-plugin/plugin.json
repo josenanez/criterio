@@ -1,6 +1,6 @@
 {
   "name": "criterio-campaigns",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Próspero, lo que se invierte: cada campaña contra su presupuesto, su meta y su fecha de fin, cada factura de pauta contra su campaña y su orden, y cada resultado reportado contra la exportación de la plataforma. Procesa exportaciones; nunca aprueba un presupuesto ni se conecta a una plataforma.",
   "author": {
     "name": "José Francisco Ñáñez",

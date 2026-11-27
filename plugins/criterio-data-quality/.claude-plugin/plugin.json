@@ -1,6 +1,6 @@
 {
   "name": "criterio-data-quality",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Ariadna, la calidad y el linaje: cada cifra de un informe de dirección contra su fuente, su corte y su linaje, y cada regla de calidad contra su umbral y su corrida, sobre BCBS 239 e ISO/IEC 25012. Procesa exportaciones; nunca se conecta a una base ni corrige una cifra.",
   "author": {
     "name": "José Francisco Ñáñez",

@@ -1,6 +1,6 @@
 {
   "name": "criterio-cdo",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "La familia CDO completa —los datos—: instala de una vez a Custodia y Ariadna y a Rostrum, el portal de todas las familias, y las configura en una sola conversación con /criterio-cdo:cdo-setup.",
   "author": {
     "name": "José Francisco Ñáñez",
