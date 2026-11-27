@@ -1,0 +1,49 @@
+/* «Dónde se probó Criterio»: vertical 4:5, 1080×1350. Usa el reloj y las piezas de youtube.css y el formato
+   vertical de hoja.css; aquí va el lienzo del mapa, que se posiciona a mano, al píxel, como el SVG. */
+.mp { position: absolute; inset: 0; }
+.mp-logo { position: absolute; left: 56px; top: 52px; zoom: 1.15; }
+.mp-titulo { position: absolute; left: 56px; top: 118px; }
+.mp-titulo .yt-eyebrow { font-size: 17px; margin-bottom: 8px; }
+.mp-titulo h1 { margin: 0; font: 500 44px/1.05 var(--font-inter-tight); letter-spacing: -.035em; color: #fff; }
+
+.mp-col { position: absolute; font-size: 14px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #8a867e; }
+.mp-col.izq { left: 44px; }
+.mp-col.der { left: 800px; }
+
+.mp-svg { position: absolute; left: 0; top: 0; }
+.mp-pais { fill: #1d1d1b; stroke: #111111; stroke-width: 1.4; stroke-linejoin: round; }
+.mp-pais.probado { fill: #2b2b28; }
+.mp-pais.visto { fill: #5c4a22; }
+.mp-pais.activo { fill: #d5a84b; }
+.mp-linea { fill: none; stroke: #d5a84b; stroke-width: 1.6; stroke-linecap: round; }
+.mp-linea.activa { stroke-width: 2.2; }
+.mp-punto { fill: #d5a84b; stroke: #111111; stroke-width: 2; }
+.mp-punto.activo { fill: #fff; stroke: #d5a84b; stroke-width: 3; }
+
+/* Las industrias y las familias: apagadas, vistas o encendidas. */
+.mp-ind, .mp-fam { position: absolute; display: flex; align-items: center; height: 44px; color: #4a4740; transition: none; }
+.mp-ind { left: 44px; width: 242px; gap: 12px; }
+.mp-ind svg { width: 26px; height: 26px; flex: none; }
+.mp-ind svg path { fill: none; stroke: currentColor; stroke-width: 2.8; stroke-linejoin: round; stroke-linecap: round; }
+.mp-ind span { font: 500 20px/1.05 var(--font-inter-tight); letter-spacing: -.01em; max-width: 200px; }
+.mp-fam { left: 800px; width: 240px; height: 54px; gap: 12px; }
+.mp-fam b { width: 76px; flex: none; font: 600 27px/1 var(--font-inter-tight); letter-spacing: -.03em; }
+.mp-fam span { font-size: 14.5px; line-height: 1.2; }
+.mp-fam em { display: block; font-style: normal; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #8a6327; margin-top: 3px; }
+.mp-ind.visto, .mp-fam.visto { color: #c9c6bd; }
+.mp-ind.activo, .mp-fam.activo { color: #d5a84b; }
+.mp-fam.activo b, .mp-ind.activo span { color: #d5a84b; }
+.mp-fam.sin { color: #3a3a36; }
+
+/* El rótulo del país encendido, sobre el mapa. */
+.mp-rotulo { position: absolute; left: 300px; width: 480px; top: 300px; text-align: center; }
+.mp-rotulo .n { font: 500 46px/1 var(--font-inter-tight); letter-spacing: -.035em; color: #fff; }
+.mp-rotulo .n.fin { font-size: 34px; line-height: 1.15; color: var(--oro-claro); }
+.mp-rotulo .s { margin-top: 12px; font-size: 17px; font-weight: 600; letter-spacing: .1em; color: var(--oro-claro); }
+
+/* La franja de abajo. */
+.mp-franja { position: absolute; left: 56px; right: 56px; top: 1100px; padding-top: 26px; border-top: 1px solid #2b2b28; }
+.mp-franja .k { font-size: 15px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--oro-claro); }
+.mp-franja .v { margin-top: 12px; font: 400 29px/1.32 var(--font-inter-tight); letter-spacing: -.01em; color: #f5f4ef; min-height: 116px; }
+/* El rótulo va sobre las líneas, con su fondo: nunca se cruzan. */
+.mp-rotulo > div { display: inline-block; padding: 12px 22px 14px; border-radius: 12px; background: rgba(17, 17, 17, .86); }

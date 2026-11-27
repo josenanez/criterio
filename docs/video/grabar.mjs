@@ -64,7 +64,7 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // El video es de la PMO y de la CFO: su tarjeta final lleva las cifras de sus rondas. Las familias
 // CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
 const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea,cco,ciso,chro,cae,cdo,cro,cmo,criterio').split(',');
-const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube,criterio,hoja,equipos').split(',');
+const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube,criterio,hoja,equipos,mapa').split(',');
 const IDIOMAS = (process.env.IDIOMAS || 'es,en').split(',');
 // Las familias con video, cada una con su tarjeta final en src/main.jsx.
 const VIDEOS = ['pmo', 'cfo'];
@@ -86,6 +86,8 @@ const TOMAS = [
   ...IDIOMAS.map((idioma) => (process.env.EQUIPOS
     ? { familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos-nuevos', equipos: process.env.EQUIPOS }
     : { familia: 'criterio', idioma, tipo: 'equipos', pagina: 'equipos.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-equipos' })),
+  // Dónde se probó: el mapa, las industrias y las familias, con una línea por cada entidad de las rondas.
+  ...IDIOMAS.map((idioma) => ({ familia: 'criterio', idioma, tipo: 'mapa', pagina: 'mapa.html', ancho: 1080, alto: 1350, carpeta: 'linkedin', nombre: 'criterio-mapa' })),
 ].filter((t) => FAMILIAS.includes(t.familia) && PIEZAS.includes(t.tipo));
 
 // Las descargas que citan el video de Criterio y la hoja, con la regla de scripts/descargas.py: el CSV de la rama
@@ -318,7 +320,7 @@ try {
       }
       continue;
     }
-    if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'hoja' || toma.tipo === 'equipos') {
+    if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'hoja' || toma.tipo === 'equipos' || toma.tipo === 'mapa') {
       const r = await youtube(navegador, url, toma);
       console.log(`${path.relative(RAIZ, r.salida)}  ${r.cuadros} cuadros, ${r.segundos} s, ${Math.round(fs.statSync(r.salida).size / 1024)} KB`);
       continue;
