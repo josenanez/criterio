@@ -1,6 +1,6 @@
 {
   "name": "criterio-cro",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "La familia CRO completa —los riesgos—: instala de una vez a Severo y Casandra y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cro:cro-setup.",
   "author": {
     "name": "José Francisco Ñáñez",

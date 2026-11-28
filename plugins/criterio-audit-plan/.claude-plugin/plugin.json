@@ -1,6 +1,6 @@
 {
   "name": "criterio-audit-plan",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Prudencia, el plan de auditoría: el plan contra la matriz de riesgos y el universo auditable, los riesgos altos sin un trabajo, las unidades fuera de su ciclo, los cambios sin acta, los trabajos atrasados, las horas contra la capacidad, el requisito temático vigente y la evaluación externa de calidad, sobre las Normas Globales de Auditoría Interna. Nunca decide qué se audita ni aprueba el plan.",
   "author": {
     "name": "José Francisco Ñáñez",

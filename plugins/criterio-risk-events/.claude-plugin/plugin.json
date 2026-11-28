@@ -1,6 +1,6 @@
 {
   "name": "criterio-risk-events",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Casandra, los indicadores y los eventos: cada indicador clave contra sus umbrales y su acción, y cada evento de pérdida contra su causa, su monto, su proceso, su plazo de registro, su repetición y la matriz de riesgos. Procesa exportaciones; nunca califica un riesgo, cierra un evento ni calcula una pérdida esperada.",
   "author": {
     "name": "José Francisco Ñáñez",

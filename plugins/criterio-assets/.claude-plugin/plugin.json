@@ -1,6 +1,6 @@
 {
   "name": "criterio-assets",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Domingo, los activos y los proveedores: cada activo contra su dueño y el soporte de su fabricante, cada licencia contra su uso, cada proveedor contra su nivel de servicio y la factura de la nube contra su presupuesto. Procesa exportaciones y documentos; nunca elige un proveedor ni se conecta a la nube.",
   "author": {
     "name": "José Francisco Ñáñez",

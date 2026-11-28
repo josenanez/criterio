@@ -1,6 +1,6 @@
 {
   "name": "criterio-cmo",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "La familia CMO completa —el mercadeo—: instala de una vez a Lucía y Próspero y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cmo:cmo-setup.",
   "author": {
     "name": "José Francisco Ñáñez",

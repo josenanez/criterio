@@ -16,10 +16,10 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.4.2 | Estable | Incremento 9 · Las reuniones de Claude Meetings |
 | Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.7.2 | Estable | Incremento 13 · Más exportaciones de ERP |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.9.1 | Estable | — |
-| Criterio EA · Dirección | Ofelia | 1.5.0 | Estable | 1.6.0 · Panamá |
-| Criterio CCO · El área comercial | Augusto, Valeria | 1.4.2 | Estable | 1.5.0 · Panamá |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.5.1 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
-| Rostrum · el portal de todas las familias | — | 1.4.4 | — | — |
+| Criterio EA · Dirección | Ofelia | 1.6.0 | Estable | Incremento 8 · Las juntas en Claude Meetings |
+| Criterio CCO · El área comercial | Augusto, Valeria | 1.5.0 | Estable | — |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.6.0 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
+| Rostrum · el portal de todas las familias | — | 1.5.0 | — | — |
 
 ## Cada familia, incremento por incremento
 
@@ -83,7 +83,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final de su setup, una tarea programada que corre lo que toca hoy, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 | 1.3.0 | Liberada | **Más rápida y más liviana**<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 3 con Ofelia y todos sus comandos sobre banca: 50 de 50 señales y 51 de 51 datos, ninguna de más |
 | 1.5.0 | Liberada | **México, Perú y Chile**<br>· Tres oficinas nuevas, cada una con un país y una industria: retail en México, manufactura en Perú y tecnología en Chile, con un control para el grupo<br>· La ciudad por su nombre corto: la sala en «Las Condes, Santiago» es presencial en Santiago de Chile | La ronda 4 en México, Perú y Chile: 118 de 118 señales, 148 de 148 datos y ningún control con una señal |
-| 1.6.0 | En curso | **Panamá**<br>· Una entidad de la banca en Panamá, con todas las señales sembradas, corrida por Ofelia | La ronda 5 en Panamá: 40 de 40 señales y 41 de 41 datos |
+| 1.6.0 | Liberada | **Panamá**<br>· Una entidad de la banca en Panamá, con todas las señales sembradas, corrida por Ofelia | La ronda 5 en Panamá: 40 de 40 señales y 41 de 41 datos |
 | Incremento 8 | Siguiente | **Las juntas en Claude Meetings**<br>· La transcripción y las notas de una junta en Claude Meetings, como un documento más de la sesión: Ofelia saca cada acuerdo con su responsable y su fecha, y lo sigue hasta su cierre<br>· Se construye cuando Claude Meetings —en beta desde el 12 de noviembre de 2026, para Google Meet y en los planes Team y Enterprise— permita exportar la transcripción, y se prueba con una exportación real | Una ronda con Ofelia sobre sesiones con su transcripción de Claude Meetings |
 
 ### Criterio CCO · El área comercial
@@ -97,7 +97,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cco, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 | 1.3.0 | Liberada | **Más rápida y más liviana**<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 3 con Augusto y Valeria y todos sus comandos sobre manufactura de México: 20 de 20 señales y 5 de 5 datos, ninguna de más |
-| 1.5.0 | En curso | **Panamá**<br>· Una entidad de el retail en Panamá, con todas las señales sembradas, corrida por Augusto y Valeria | La ronda 4 en Panamá: 18 de 18 señales y 5 de 5 datos |
+| 1.5.0 | Liberada | **Panamá**<br>· Una entidad de el retail en Panamá, con todas las señales sembradas, corrida por Augusto y Valeria | La ronda 4 en Panamá: 18 de 18 señales y 5 de 5 datos |
 
 ### Criterio CISO · La seguridad de la información
 
@@ -112,7 +112,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.3.0 | Liberada | **Más rápida y más liviana**<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 3 con Alexis, Guillermo y Amparo y todos sus comandos sobre banca de Colombia: 25 de 25 señales y 8 de 8 datos, ninguna de más |
 | Incremento 8 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
 | 1.5.0 | Liberada | **Brasil**<br>· La matriz de notificaciones con plazos en días hábiles: la ANPD y los titulares en tres días úteis, desde su fuente verificada (F-10, Resolução CD/ANPD nº 15/2024, arts. 6º y 9º)<br>· El Banco Central do Brasil como destinatario, con la comunicación tempestiva de la Resolução CMN nº 4.893/2021 (F-11, art. 20, III) en las horas que fija la política de la entidad<br>· Una entidad financiera de prueba de Brasil, con una notificación tardía a la ANPD sembrada: el motor levanta cada señal, ninguna de más | La ronda 4 con Alexis, Guillermo y Amparo sobre la entidad de Brasil: 26 de 26 señales, ninguna de más, y 8 de 8 datos |
-| 1.6.0 | En curso | **Ecuador**<br>· Una entidad de la banca en Ecuador, con todas las señales sembradas, corrida por Alexis, Guillermo y Amparo | La ronda 5 en Ecuador: 25 de 25 señales y 8 de 8 datos |
+| 1.6.0 | Liberada | **Ecuador**<br>· Una entidad de la banca en Ecuador, con todas las señales sembradas, corrida por Alexis, Guillermo y Amparo | La ronda 5 en Ecuador: 25 de 25 señales y 8 de 8 datos |
 
 ## Las familias que vienen
 

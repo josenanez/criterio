@@ -1,6 +1,6 @@
 {
   "name": "criterio-changes",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Fausto, los cambios y el servicio: cada cambio en producción contra su aprobación y su revisión, cada despliegue contra su cambio, cada incidente mayor contra su problema y su causa, y cada servicio contra el nivel acordado. Procesa exportaciones y documentos; nunca aprueba un cambio ni se conecta a una herramienta.",
   "author": {
     "name": "José Francisco Ñáñez",

@@ -1,6 +1,6 @@
 {
   "name": "criterio-roles",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Norma, los perfiles de cargo: cada perfil contra la ocupación de su estándar —la CUOC del DANE u O*NET—, los requisitos sin tarea, lo que la ley del país y la política no permiten pedir, el nivel de estudios contra el nivel de competencia y los perfiles que se solapan. Procesa los documentos de la organización; nunca aprueba un perfil ni evalúa a una persona.",
   "author": {
     "name": "José Francisco Ñáñez",
