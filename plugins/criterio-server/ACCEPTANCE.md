@@ -23,6 +23,9 @@ Verified by `scripts/servidor.py --selftest` and `scripts/mapa.py --selftest`, o
 - [ ] The landing page leads to every agent of every family on the map, and the menu, the run history and the case pages include them.
 - [ ] The agents come from `agentes.json`, written from the families by `scripts/familias.py`; the server names no agent by hand.
 - [ ] `/direccion` puts every area on the map in one row —its agents, open signals, items past their date, what falls due next and when it was calculated— and lists what falls due first in each area, on one printable page, without recalculating anything.
+- [ ] `/direccion?l=en` serves the same page in English, and `/direccion?entidad=` keeps one entity; an entity not on the map is a 404.
+- [ ] `/entidades` lists each entity with its country, from its configuration, and the open signals each area left on it.
+- [ ] `/cruces` lists only the cases that agents of two or more families wrote with the same code; it infers nothing by resemblance.
 
 ## 5. Access
 

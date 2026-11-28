@@ -234,7 +234,15 @@ reescribe ni los resume: los convierte a página.
 ya pasó su fecha, lo próximo que vence y cuándo calculó. Debajo, lo primero que vence en cada área.
 Es la página del comité de dirección —el nivel C abajo, sostenido por sus familias— y se imprime
 en una hoja. No calcula nada nuevo: cuenta lo que ya dejó el motor de cada agente, y cada área lleva
-a su resumen ejecutivo.
+a su resumen ejecutivo. Con `?l=en` se lee en inglés, para la junta, y con `?entidad=` se queda con una
+entidad del grupo.
+
+`/entidades` pone cada entidad del mapa con su país y las señales que dejó cada área sobre ella: una
+holding con bancos y comercios en varios países ve en una tabla qué áreas tiene cada entidad, y cada
+entidad lleva a su vista de la dirección. `/cruces` lista cada caso que miraron agentes de dos o más
+familias —el contrato que la CLO vigila y la CFO paga, el proyecto que la PMO sigue y la CFO
+presupuesta—: un caso cruza cuando dos familias escriben el mismo código, y el portal no adivina por
+parecido.
 
 ### 6 · Lo que vence
 
@@ -356,7 +364,9 @@ De aquí para abajo es para quien lo va a publicar.
 | `/producto/<nombre>` | El informe de un producto | Quien responde por un producto |
 | `/familia/<sigla>` | Una familia: cada agente con lo último que escribió y sus reportes | Quien responde por esa función |
 | `/reporte/<área>/<instancia>/<archivo>` | Un reporte tal como lo escribió el motor | Quien responde por él |
-| `/direccion` | Cada área de la dirección en una fila, en una página que se imprime | El comité de dirección |
+| `/direccion` | Cada área de la dirección en una fila, en una página que se imprime; `?l=en`, `?entidad=` | El comité de dirección y la junta |
+| `/entidades` | Las entidades y los países del mapa, con las señales de cada área | La holding |
+| `/cruces` | Los casos que miran dos o más familias | El comité de dirección |
 | `/vence` | Lo pendiente con fecha, de todas las familias | La gerencia |
 | `/consumo` | Los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas | Quien paga el uso |
 | `/resumen/<familia>` | El resumen ejecutivo de una familia, en una página que se imprime | La presidencia y el comité |

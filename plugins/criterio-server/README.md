@@ -236,7 +236,15 @@ signals it left open and when it wrote them. Below, its reports, each one as the
 past its date, what falls due next and when it was calculated. Below, what falls due first in each
 area. It is the executive committee's page —the C-level at the base, held up by its families— and it
 prints on one sheet. It calculates nothing new: it counts what each agent's engine already left, and
-each area leads to its executive summary.
+each area leads to its executive summary. With `?l=en` it reads in English, for the board, and with
+`?entidad=` it keeps one entity of the group.
+
+`/entidades` lists each entity on the map with its country and the signals each area left on it: a
+holding with banks and retailers in several countries sees in one table which areas each entity has,
+and each entity leads to its executive view. `/cruces` lists every case that agents of two or more
+families looked at —the contract the CLO watches and the CFO pays, the project the PMO follows and the
+CFO budgets—: a case crosses when two families write the same code, and the portal does not guess by
+resemblance.
 
 ### 6 · What falls due
 
@@ -359,7 +367,9 @@ From here down is for whoever is going to publish it.
 | `/producto/<name>` | A product's report | Whoever answers for a product |
 | `/familia/<code>` | A family: each agent with the latest it wrote and its reports | Whoever answers for that function |
 | `/reporte/<area>/<instance>/<file>` | A report as the engine wrote it | Whoever answers for it |
-| `/direccion` | Each area of the C-level in one row, on one printable page | The executive committee |
+| `/direccion` | Each area of the C-level in one row, on one printable page; `?l=en`, `?entidad=` | The executive committee and the board |
+| `/entidades` | The entities and countries on the map, with each area's signals | The holding |
+| `/cruces` | The cases two or more families looked at | The executive committee |
 | `/vence` | Everything pending with a date, across every family | Management |
 | `/consumo` | The tokens of each family and each agent: this organisation's, with a yes, and the tests' | Whoever pays for the usage |
 | `/resumen/<familia>` | A family's executive summary, on one printable page | The president and the committee |

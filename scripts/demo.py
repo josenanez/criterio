@@ -40,9 +40,11 @@ RAIZ = Path(__file__).resolve().parent.parent
 P = RAIZ / "plugins"
 ZIP = P / "criterio-server" / "demo" / "criterio-demo.zip"
 ORGANIZACION = "Organización de demostración"
-# Una entidad por familia: la de su primera ronda, con defectos sembrados.
-DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-co"), ("ea", "banca"), ("chro", "banca-co"),
-        ("cae", "banca-co"), ("cdo", "banca-co"), ("cro", "banca-co"), ("cmo", "retail-co"), ("cto", "banca-co"))
+# Una entidad por familia, con defectos sembrados.
+# Un grupo regional: cada familia sobre una entidad de un país, para que Rostrum muestre las entidades y los
+# países del grupo (/entidades) como los vería una holding con bancos y comercios en varios países.
+DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-ec"), ("ea", "banca-pa"), ("chro", "retail-ec"),
+        ("cae", "cooperativa-ec"), ("cdo", "banca-pa"), ("cro", "banca-mx"), ("cmo", "retail-pa"), ("cto", "tecnologia-cl"))
 FECHA_ZIP = (2026, 1, 1, 0, 0, 0)
 
 sys.path.insert(0, str(P / "criterio-finance" / "scripts"))
@@ -120,7 +122,7 @@ def pmo(destino: Path) -> str:
     (estado / "records").mkdir(parents=True, exist_ok=True)
     for f in sorted((prueba / "expected" / "fichas").glob("*.json")):
         shutil.copyfile(f, estado / "records" / f.name)
-    cfg = {"version": "0.1", "role": "pmo", "organization": {"name": ORGANIZACION},
+    cfg = {"version": "0.1", "role": "pmo", "organization": {"name": ORGANIZACION, "country": "CO"},
            "paths": {"documents": "proyectos", "state": "estado-portafolio", "reports": "reportes-portafolio"},
            "cycle": {"committee": "biweekly", "report_lead_days": 2, "daily_sweep": True},
            "report": {"format": "html", "language": "es"}}

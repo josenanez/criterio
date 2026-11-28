@@ -77,7 +77,9 @@ RUTAS = {
     '/caso/<codigo>': 'todo lo que los agentes han hecho sobre un caso: un proyecto, un producto, un contrato',
     '/familia/<sigla>': 'una familia: cada agente con lo último que escribió y sus reportes',
     '/reporte/<area>/<instancia>/<archivo>': 'un reporte tal como lo escribió el motor del agente',
-    '/direccion': 'la dirección: cada área con lo que dejaron sus agentes, en una página que se imprime',
+    '/direccion': 'la dirección: cada área con lo que dejaron sus agentes, en una página que se imprime · ?entidad= y ?l=en',
+    '/entidades': 'las entidades y los países del mapa, con las señales de cada área sobre cada una',
+    '/cruces': 'lo que cruza: cada caso que miraron agentes de dos o más familias',
     '/vence': 'lo que vence: lo que cada motor dejó con fecha y pendiente, de todas las familias',
     '/consumo': 'los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas',
     '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
@@ -894,6 +896,8 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None, hoy: s
            '<nav class="arbol" aria-label="Menú del portal"><ul class="hoy">',
            li('/', 'Inicio', 'lo que pide atención hoy'),
            li('/direccion', 'La dirección', 'cada área, en una página'),
+           li('/entidades', 'Entidades y países', 'qué áreas tiene cada una'),
+           li('/cruces', 'Lo que cruza', 'casos de dos o más familias'),
            li('/vence', 'Lo que vence', 'con fecha, de todas las familias',
               at['pasadas'], alerta=True),
            '</ul><p class="g">Las familias</p>']
@@ -1677,11 +1681,59 @@ def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str)
                        f'/familia/{sigla}' if sigla and sigla != 'pmo' else f'/agente/{area}')
 
 
-def vista_direccion(entradas: list, hoy: str) -> tuple:
+def pais_de(x: dict) -> str:
+    """El país de la entidad de una entrada, como lo dice su configuración (entity.country)."""
+    f = x.get('_config')
+    try:
+        cfg = json.loads(f.read_text(encoding='utf-8')) if f and f.is_file() else {}
+    except (OSError, json.JSONDecodeError):
+        cfg = {}
+    return ((cfg.get('entity') or {}).get('country') or (cfg.get('organization') or {}).get('country') or '').upper()
+
+
+NOMBRE_PAIS = {p['codigo']: p['nombre'] for p in json.loads((Path(__file__).resolve().parent / 'paises.json').read_text(encoding='utf-8'))['paises']}
+
+# Los textos de la página de la dirección en los dos idiomas: la junta puede leerla en inglés. Lo que
+# escribió cada motor —lo que vence, por ejemplo— va como lo escribió.
+TD = {
+    'es': {'titulo': 'La dirección', 'al': 'Al', 'de': 'de',
+           'intro': 'Cada área de la dirección con lo que dejaron sus agentes: las señales abiertas, lo que ya pasó su fecha, '
+                    'lo próximo que vence y cuándo calculó; cada área lleva a su resumen ejecutivo. Aquí no se recalcula nada: '
+                    'cada cifra es la que escribió el motor de su agente.',
+           'areas': 'áreas en el mapa', 'senales': 'señales abiertas', 'pasadas': 'con la fecha ya pasada', 'pronto': 'vencen en 30 días',
+           'cab': ('Área', 'Agentes', 'Señales', 'Vencidas', 'Lo próximo que vence', 'Calculado'),
+           'otras': 'y otras no publicadas', 'nopub': 'no se publican', 'primero': 'Lo primero que vence en cada área', 'paso': 'ya pasó',
+           'pie': 'Para la decisión de quien la firma: cada cifra sale de los documentos que procesó su agente, y su detalle está en el '
+                  'resumen de cada área y en lo que vence.', 'privadas': ' Hay señales que la configuración no publica en este portal.',
+           'imprimir': 'Para llevarla al comité de dirección: imprime esta página o guárdala como PDF. El detalle: ',
+           'vence': 'lo que vence', 'otro': 'English', 'todas': 'Todas las entidades', 'entidad': 'Entidad'},
+    'en': {'titulo': 'The executive view', 'al': 'As of', 'de': 'of',
+           'intro': 'Each area of the C-level with what its agents left: the open signals, what is past its date, what falls due next '
+                    'and when it was calculated; each area leads to its executive summary. Nothing is recalculated here: every figure '
+                    'is the one its agent\'s engine wrote.',
+           'areas': 'areas on the map', 'senales': 'open signals', 'pasadas': 'past their date', 'pronto': 'due in 30 days',
+           'cab': ('Area', 'Agents', 'Signals', 'Overdue', 'What falls due next', 'Calculated'),
+           'otras': 'and others not published', 'nopub': 'not published', 'primero': 'What falls due first in each area', 'paso': 'past',
+           'pie': 'For the decision of whoever signs it: every figure comes from the documents its agent processed, and the detail is '
+                  'in each area\'s summary and in what falls due.', 'privadas': ' Some signals are not published on this portal by configuration.',
+           'imprimir': 'To take it to the executive committee: print this page or save it as PDF. The detail: ',
+           'vence': 'what falls due', 'otro': 'Español', 'todas': 'All entities', 'entidad': 'Entity'},
+}
+
+
+def vista_direccion(entradas: list, hoy: str, entidad: str = '', lengua: str = 'es') -> tuple:
     """La dirección: cada área del mapa en una fila —sus agentes, sus señales, lo que tiene vencido y
-    lo próximo que vence, y cuándo calculó—, y lo primero que vence de todas. Es la vista del comité de
-    dirección: el nivel C abajo, sostenido por sus familias. No recalcula nada: cuenta lo que ya dejó el
-    motor de cada agente, como la portada y el resumen de cada familia."""
+    lo próximo que vence, y cuándo calculó—, y lo primero que vence en cada área. Es la vista del comité
+    de dirección: el nivel C abajo, sostenido por sus familias. No recalcula nada: cuenta lo que ya dejó
+    el motor de cada agente, como la portada y el resumen de cada familia. Con ?entidad= se queda con una
+    entidad del grupo, y con ?l=en se lee en inglés."""
+    l = 'en' if lengua == 'en' else 'es'
+    T = TD[l]
+    nombres = sorted({x.get('nombre') for x in entradas if x.get('nombre')})
+    if entidad:
+        if entidad not in nombres:
+            return 404, error(404, f'No hay entidad {entidad} en el mapa', hoy)
+        entradas = [x for x in entradas if x.get('nombre') == entidad]
     hoy_d = hoy[:10]
     try:
         en30 = (dt.date.fromisoformat(hoy_d) + dt.timedelta(days=30)).isoformat()
@@ -1702,10 +1754,10 @@ def vista_direccion(entradas: list, hoy: str) -> tuple:
             ult = next((ultima_pmo(x) for x in suyas if x['area'] == 'portafolio'), None) or {}
             fechas.append(ult.get('fecha') or '')
         n = at['senales'].get(s_, 0)
-        senales_ = (f'{n}' + (' <span class="cita">y otras no publicadas</span>' if s_ in at['privadas'] else '')) if n else (
-            '<span class="cita">no se publican</span>' if s_ in at['privadas'] else '0')
+        senales_ = (f'{n}' + (f' <span class="cita">{T["otras"]}</span>' if s_ in at['privadas'] else '')) if n else (
+            f'<span class="cita">{T["nopub"]}</span>' if s_ in at['privadas'] else '0')
         lineas.append(
-            f'<tr><td><a href="/resumen/{e(s_)}"><b>{e(s_.upper())}</b></a><br><span class="cita">{e(FAMILIAS[s_]["nombre"]["es"])}</span></td>'
+            f'<tr><td><a href="/resumen/{e(s_)}"><b>{e(s_.upper())}</b></a><br><span class="cita">{e(FAMILIAS[s_]["nombre"][l])}</span></td>'
             f'<td>{e(", ".join(NOMBRE[a] for a in suyos))}</td>'
             f'<td class="n">{senales_}</td>'
             f'<td class="n{" mal" if pas else ""}">{pas}</td>'
@@ -1713,18 +1765,24 @@ def vista_direccion(entradas: list, hoy: str) -> tuple:
             f'<td class="n">{e(max((f for f in fechas if f), default="—"))}</td></tr>')
     pasadas = [f for f in filas if f[0] and f[0] < hoy_d]
     pronto = [f for f in filas if f[0] and hoy_d <= f[0] <= en30]
-    cuerpo = [RESUMEN_CSS, '<h1>La dirección</h1>',
-              f'<p class="entrada"><b>Al {e(hoy_d)}</b>. Cada área de la dirección con lo que dejaron sus agentes: '
-              'las señales abiertas, lo que ya pasó su fecha, lo próximo que vence y cuándo calculó; cada área lleva a su '
-              'resumen ejecutivo. Aquí no se '
-              'recalcula nada: cada cifra es la que escribió el motor de su agente.</p>',
+    def url(ent='', lg=l):
+        qs = '&'.join(x for x in (f'entidad={urllib.parse.quote(ent)}' if ent else '', 'l=en' if lg == 'en' else '') if x)
+        return '/direccion' + (f'?{qs}' if qs else '')
+    selector = ''
+    if len(nombres) > 1 or entidad:
+        selector = (f'<p class="entrada">{T["entidad"]}: ' + ' · '.join(
+            [f'<b>{T["todas"]}</b>' if not entidad else f'<a href="{e(url())}">{T["todas"]}</a>'] +
+            [f'<b>{e(n_)}</b>' if n_ == entidad else f'<a href="{e(url(n_))}">{e(n_)}</a>' for n_ in nombres]) + '</p>')
+    cuerpo = [RESUMEN_CSS, f'<h1>{T["titulo"]}' + (f' · {e(entidad)}' if entidad else '') + '</h1>',
+              f'<p class="entrada"><a href="{e(url(entidad, "es" if l == "en" else "en"))}" lang="{"es" if l == "en" else "en"}">{T["otro"]}</a></p>',
+              selector,
+              f'<p class="entrada"><b>{T["al"]} {e(hoy_d)}</b>. {T["intro"]}</p>',
               '<div class="ej-cifras">'
-              f'<div class="cifra"><span class="n">{len(familias_de(entradas))}</span><span class="q">áreas en el mapa</span></div>'
-              f'<div class="cifra"><span class="n">{sum(at["senales"].values())}</span><span class="q">señales abiertas</span></div>'
-              f'<div class="cifra{" mala" if pasadas else ""}"><span class="n">{len(pasadas)}</span><span class="q">con la fecha ya pasada</span></div>'
-              f'<div class="cifra"><span class="n">{len(pronto)}</span><span class="q">vencen en 30 días</span></div></div>',
-              '<table class="ej-ag"><thead><tr><th>Área</th><th>Agentes</th><th>Señales</th><th>Vencidas</th>'
-              '<th>Lo próximo que vence</th><th>Calculado</th></tr></thead><tbody>', *lineas, '</tbody></table>']
+              f'<div class="cifra"><span class="n">{len(familias_de(entradas))}</span><span class="q">{T["areas"]}</span></div>'
+              f'<div class="cifra"><span class="n">{sum(at["senales"].values())}</span><span class="q">{T["senales"]}</span></div>'
+              f'<div class="cifra{" mala" if pasadas else ""}"><span class="n">{len(pasadas)}</span><span class="q">{T["pasadas"]}</span></div>'
+              f'<div class="cifra"><span class="n">{len(pronto)}</span><span class="q">{T["pronto"]}</span></div></div>',
+              '<table class="ej-ag"><thead><tr>' + ''.join(f'<th>{c}</th>' for c in T['cab']) + '</tr></thead><tbody>', *lineas, '</tbody></table>']
     # Lo primero de cada área, no las primeras de una sola: la dirección ve todas sus áreas a la vez.
     primero, vistas = [], set()
     for f in pasadas + pronto:
@@ -1734,18 +1792,91 @@ def vista_direccion(entradas: list, hoy: str) -> tuple:
             primero.append(f)
     primero.sort(key=lambda f: f[0])
     if primero:
-        cuerpo.append('<h2>Lo primero que vence en cada área</h2><table class="ej-ag"><tbody>')
+        cuerpo.append(f'<h2>{T["primero"]}</h2><table class="ej-ag"><tbody>')
         for fecha_, x, v, _ in primero:
-            cuerpo.append(f'<tr><td class="n">{e(fecha_)}{"<br><span class=" + chr(34) + "cita" + chr(34) + ">ya pasó</span>" if fecha_ < hoy_d else ""}</td>'
+            cuerpo.append(f'<tr><td class="n">{e(fecha_)}{"<br><span class=" + chr(34) + "cita" + chr(34) + ">" + T["paso"] + "</span>" if fecha_ < hoy_d else ""}</td>'
                           f'<td><b>{e((FAMILIA_DE.get(x["area"]) or "").upper())}</b> · {e(NOMBRE.get(x["area"], x["area"]))}</td>'
                           f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') and str(v['caso']) not in str(v.get('que')) else '') + '</td></tr>')
         cuerpo.append('</tbody></table>')
-    cuerpo.append('<p class="ej-pie">Para la decisión de quien la firma: cada cifra sale de los documentos que procesó su agente, '
-                  'y su detalle está en el resumen de cada área y en lo que vence.'
-                  + (' Hay señales que la configuración no publica en este portal.' if at['privadas'] else '') + '</p>'
-                  '<p class="ej-imprimir aviso">Para llevarla al comité de dirección: imprime esta página o guárdala como PDF. '
-                  'El detalle: <a href="/vence">lo que vence</a>.</p>')
-    return 200, pagina('La dirección', "".join(cuerpo), hoy, nav(('', 'La dirección')), '/direccion')
+    cuerpo.append(f'<p class="ej-pie">{T["pie"]}' + (T['privadas'] if at['privadas'] else '') + '</p>'
+                  f'<p class="ej-imprimir aviso">{T["imprimir"]}<a href="/vence">{T["vence"]}</a>.</p>')
+    html = pagina(T['titulo'], "".join(cuerpo), hoy, nav(('', T['titulo'])), '/direccion')
+    if l == 'en':
+        html = html.replace('<html lang="es"', '<html lang="en"', 1)
+    return 200, html
+
+
+def vista_entidades(entradas: list, hoy: str) -> tuple:
+    """Las entidades y los países del mapa: una holding con bancos en varios países ve en una tabla qué
+    áreas tiene cada entidad y cuántas señales dejó cada una. Cuenta lo que ya escribieron los motores."""
+    nombres = sorted({x.get('nombre') for x in entradas if x.get('nombre')})
+    fams = familias_de(entradas)
+    filas = []
+    for n_ in nombres:
+        suyas = [x for x in entradas if x.get('nombre') == n_]
+        paises = sorted({pais_de(x) for x in suyas} - {''})
+        celdas = []
+        for s_ in fams:
+            mias = [x for x in suyas if FAMILIA_DE.get(x['area']) == s_]
+            if not mias:
+                celdas.append('<td class="n">·</td>')
+                continue
+            k = sum(_senales(r) for x in mias for r in resultados_de(x))
+            if s_ == 'pmo':
+                k += sum((ultima_pmo(x) or {}).get('hallazgos') or 0 for x in mias if x['area'] == 'portafolio')
+            celdas.append(f'<td class="n nw"><a href="/familia/{e(s_)}">{k}</a></td>')
+        pais_txt = ', '.join(NOMBRE_PAIS.get(c, {}).get('es', c) for c in paises) or '—'
+        filas.append(f'<tr><td><a href="/direccion?entidad={e(urllib.parse.quote(n_))}"><b>{e(n_)}</b></a></td>'
+                     f'<td class="nw">{e(pais_txt)}</td>{"".join(celdas)}</tr>')
+    por_pais = {}
+    for x in entradas:
+        por_pais.setdefault(pais_de(x) or '—', set()).add(x.get('nombre'))
+    cuerpo = ['<p class="entrada">Cada entidad del mapa con su país, y las señales abiertas que dejó cada área sobre ella. '
+              'Una entidad lleva a su vista de la dirección. Aquí no se recalcula nada: cada número es la suma de lo que '
+              'escribieron los motores de sus agentes.</p>',
+              '<div class="resumen">'
+              f'<div class="cifra"><span class="n">{len(nombres)}</span><span class="q">entidades</span></div>'
+              f'<div class="cifra"><span class="n">{len([c for c in por_pais if c != "—"])}</span><span class="q">países</span></div>'
+              f'<div class="cifra"><span class="n">{len(fams)}</span><span class="q">áreas</span></div></div>',
+              '<div class="bloque"><table><thead><tr><th>Entidad</th><th>País</th>'
+              + ''.join(f'<th class="n">{e(s_.upper())}</th>' for s_ in fams) + '</tr></thead><tbody>', *filas, '</tbody></table></div>']
+    return 200, pagina('Entidades y países', "".join(cuerpo), hoy, nav(('', 'Entidades y países')), '/entidades')
+
+
+def vista_cruces(entradas: list, hoy: str) -> tuple:
+    """Lo que cruza: cada caso —un proyecto, un contrato, un proveedor, un periodo— que miraron agentes
+    de dos o más familias. Sale de la historia de cada agente y de lo que vence; nada se infiere por
+    parecido: un caso cruza cuando dos familias escriben el mismo código."""
+    h = historia(entradas)
+    por_caso = {}
+    for codigo, senales in h['casos'].items():
+        for sig, v in senales.items():
+            if v.get('agente') and not v.get('resuelta_en'):
+                por_caso.setdefault(codigo, {}).setdefault(FAMILIA_DE.get(v['agente']), set()).add(v['agente'])
+    for c in h['corridas']:
+        if c.get('sobre') and c.get('caso'):
+            por_caso.setdefault(c['sobre'], {}).setdefault(FAMILIA_DE.get(c['agente']), set()).add(c['agente'])
+    for fecha_, x, v, _ in pendientes_con_fecha(entradas):
+        if v.get('caso'):
+            por_caso.setdefault(v['caso'], {}).setdefault(FAMILIA_DE.get(x['area']), set()).add(x['area'])
+    cruces = sorted(((k, v) for k, v in por_caso.items() if len([f for f in v if f]) >= 2),
+                    key=lambda kv: (-len(kv[1]), kv[0]))
+    cuerpo = ['<p class="entrada">Cada caso que miraron agentes de <b>dos o más familias</b>: el contrato que la CLO vigila y '
+              'la CFO paga, el proyecto que la PMO sigue y la CFO presupuesta. Un caso cruza cuando dos familias escriben '
+              'el mismo código; el portal no adivina por parecido. Cada caso lleva a todo lo que se ha hecho sobre él.</p>']
+    if not cruces:
+        cuerpo.append('<div class="bloque"><p>Todavía ningún caso aparece en dos familias. Cruza cuando los agentes de dos áreas '
+                      'nombran el mismo proyecto, contrato o proveedor con el mismo código.</p></div>')
+    else:
+        cuerpo += ['<div class="bloque"><table><thead><tr><th>Caso</th><th>Familias</th><th>Agentes</th></tr></thead><tbody>']
+        for k, v in cruces[:300]:
+            fams = [s_ for s_ in FAMILIAS if s_ in v]
+            ags = sorted({a for s_ in fams for a in v[s_]}, key=lambda a: list(AGENTES).index(a) if a in AGENTES else 99)
+            cuerpo.append(f'<tr><td class="nw"><a href="/caso/{e(seg(k))}">{e(k)}</a></td>'
+                          f'<td>{e(" · ".join(s_.upper() for s_ in fams))}</td>'
+                          f'<td>{e(", ".join(NOMBRE.get(a, a) for a in ags))}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
+    return 200, pagina('Lo que cruza', "".join(cuerpo), hoy, nav(('', 'Lo que cruza')), '/cruces')
 
 
 def vista_vence(entradas: list, hoy: str) -> tuple:
@@ -2067,7 +2198,12 @@ class Manejador(BaseHTTPRequestHandler):
         elif ruta.startswith('/familia/'):
             self.html(*vista_familia(self.entradas, ruta[len('/familia/'):], self.hoy()))
         elif ruta == '/direccion':
-            self.html(*vista_direccion(self.entradas, self.hoy()))
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+            self.html(*vista_direccion(self.entradas, self.hoy(), (q.get('entidad') or [''])[0], (q.get('l') or ['es'])[0]))
+        elif ruta == '/entidades':
+            self.html(*vista_entidades(self.entradas, self.hoy()))
+        elif ruta == '/cruces':
+            self.html(*vista_cruces(self.entradas, self.hoy()))
         elif ruta == '/vence':
             self.html(*vista_vence(self.entradas, self.hoy()))
         elif ruta == '/consumo':
@@ -2611,6 +2747,15 @@ def selftest() -> int:
         ok('el resumen ejecutivo de una familia: una página que se imprime, con sus cifras y su fecha',
            (cod_r, 'Resumen ejecutivo al' in res_, '@page' in res_, 'señales abiertas' in res_,
             '/resumen/cfo' in fam, pedir('/resumen/nadie')[0]), (200, True, True, True, True, 404))
+        cod_en, dir_en = pedir('/direccion?l=en')
+        ok('la dirección también en inglés, para la junta, y con un enlace de vuelta al español',
+           (cod_en, 'The executive view' in dir_en, 'lang="en"' in dir_en, 'Español' in dir_en), (200, True, True, True))
+        cod_ent, ent_ = pedir('/entidades')
+        ok('las entidades y los países del mapa, cada una con su vista de la dirección',
+           (cod_ent, 'Entidades y países' in ent_, '/direccion?entidad=' in ent_, pedir('/direccion?entidad=nadie')[0]), (200, True, True, 404))
+        cod_cr, cr_ = pedir('/cruces')
+        ok('lo que cruza: los casos que miran dos o más familias, o el aviso de que todavía no hay',
+           (cod_cr, 'Lo que cruza' in cr_, '/caso/' in cr_ or 'Todavía ningún caso' in cr_), (200, True, True))
         cod_d, dir_ = pedir('/direccion')
         ok('la dirección: cada área del mapa en una fila, con su resumen, y lo primero que vence en cada una',
            (cod_d, 'La dirección' in dir_, '/resumen/cfo' in dir_, '/resumen/clo' in dir_, '@page' in dir_,
