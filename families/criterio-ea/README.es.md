@@ -312,7 +312,7 @@ sintético, no sobre la oficina de un ejecutivo real.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 11 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 4 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 11 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

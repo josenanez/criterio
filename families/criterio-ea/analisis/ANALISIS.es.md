@@ -6,7 +6,7 @@ No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera c
 
 ## En una mirada
 
-La ronda más reciente, la 4, parcial, sobre 4 de las 8 entidades del material: 118 de 118 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 148 de 148 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 4, parcial, sobre 4 de las 9 entidades del material: 118 de 118 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 148 de 148 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
 Sumando las rondas 1–4, 356 de 356 señales encontradas, 1 de más y 575 de 580 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 

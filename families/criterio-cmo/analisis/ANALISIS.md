@@ -6,7 +6,7 @@ Not edited by hand: every figure comes from the evidence and the analysis is reg
 
 ## At a glance
 
-The most recent round, round 3, partial, on 1 of the material's 6 entities: 22 of 22 seeded signals found (95% margin: 85.1–100%) and 0 extra; 76 of 76 data items extracted right (100%, 95% margin: 95.1–100%); and 0 of 0 control entities with no signal at all.
+The most recent round, round 3, partial, on 1 of the material's 7 entities: 22 of 22 seeded signals found (95% margin: 85.1–100%) and 0 extra; 76 of 76 data items extracted right (100%, 95% margin: 95.1–100%); and 0 of 0 control entities with no signal at all.
 
 Across rounds 1–3, 132 of 132 signals found, 0 extra and 481 of 481 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
 

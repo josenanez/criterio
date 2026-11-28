@@ -304,8 +304,8 @@ Laboratorio o estable lo dice la evidencia (decisión 0020).
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

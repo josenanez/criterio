@@ -311,9 +311,9 @@ signals and 95.4 % in the data. Laboratory or stable is said by the evidence (de
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Alexis** · Governance and controls | `criterio-security` · 10 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 4 · [results](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 4 · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · Response and recovery | `criterio-resilience` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 4 · [results](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · Governance and controls | `criterio-security` · 10 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 8 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · Response and recovery | `criterio-resilience` · 8 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

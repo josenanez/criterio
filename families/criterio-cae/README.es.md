@@ -161,9 +161,9 @@ Cinco skills distintos entre los tres agentes. **Los que comparten son copias li
 <!-- cae:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Prudencia** · El plan de auditoría | `criterio-audit-plan` · 9 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 3 · [resultados](../../tests/criterio-audit-plan/RESULTADOS.md) |
-| **Justo** · Los trabajos de auditoría | `criterio-audit-work` · 9 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 3 · [resultados](../../tests/criterio-audit-work/RESULTADOS.md) |
-| **Remedios** · El seguimiento de los hallazgos | `criterio-remediation` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 3 · [resultados](../../tests/criterio-remediation/RESULTADOS.md) |
+| **Prudencia** · El plan de auditoría | `criterio-audit-plan` · 9 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-audit-plan/RESULTADOS.md) |
+| **Justo** · Los trabajos de auditoría | `criterio-audit-work` · 9 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-audit-work/RESULTADOS.md) |
+| **Remedios** · El seguimiento de los hallazgos | `criterio-remediation` · 8 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-remediation/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

@@ -304,8 +304,8 @@ the material, and the two rounds with the agents on the same material, with a ke
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Augusto** · The forecast | `criterio-sales` · 8 commands, 4 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · From sale to invoice | `criterio-revenue` · 8 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · The forecast | `criterio-sales` · 8 commands, 4 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · From sale to invoice | `criterio-revenue` · 8 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

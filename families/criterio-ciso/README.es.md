@@ -315,9 +315,9 @@ material, con una clave que no ven: 148 señales y 80 datos, con un piso del 97,
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Alexis** · El gobierno y los controles | `criterio-security` · 10 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 8 comandos, 3 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · El gobierno y los controles | `criterio-security` · 10 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 8 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 8 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.
