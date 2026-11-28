@@ -16,9 +16,9 @@ anything, the name would stop being true.
 
 [Español](README.es.md) · `criterio-server` · Apache 2.0 · One per organisation
 
-**Status: built and tested.** The PMO family's
+**Status: built and tested, with all twelve families.** The PMO family's
 portal has existed since 0.2 and has been tested end to end in every round since 0.3.9; the map
-that adds the CFO and CLO families is tested by its selftest across the three families at once —and that Ofelia's office stays out unless its configuration says otherwise—, and the accessibility audit ran on the round outputs of all three.
+is tested by its selftest across several families at once —and that Ofelia's office and internal audit stay out unless their configuration says otherwise—, and the demo brings it up with all twelve families and their 27 agents.
 The decision is in [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md) (Spanish).
 
 ---
@@ -223,14 +223,22 @@ And what the page does **not** say, declared on the page itself: for this produc
 is no adoption, revenue, production incident or satisfaction data. None of that is in
 the project folder — it is operational data and it lives in another system.
 
-### 4 · The CFO and CLO families
+### 4 · Each family
 
-`/familia/cfo` and `/familia/clo` show each agent in the family with **the latest its engine
+`/familia/<code>` —from `/familia/pmo` to `/familia/cto`— shows each agent in the family with **the latest its engine
 wrote**: the scope —a month's close, a year's budget, the contracts, a compliance period—, how many
 signals it left open and when it wrote them. Below, its reports, each one as the engine left it in
 `reporte-<command>.md`. The portal does not rewrite or summarise them: it turns them into a page.
 
-### 5 · What falls due
+### 5 · The executive view
+
+`/direccion` puts each area of the C-level in one row: its agents, its open signals, what is already
+past its date, what falls due next and when it was calculated. Below, what falls due first in each
+area. It is the executive committee's page —the C-level at the base, held up by its families— and it
+prints on one sheet. It calculates nothing new: it counts what each agent's engine already left, and
+each area leads to its executive summary.
+
+### 6 · What falls due
 
 `/vence` brings together in a single list everything pending that has a date, across every
 family: the notice deadline of an auto-renewing contract, the compliance obligation due on the
@@ -351,6 +359,7 @@ From here down is for whoever is going to publish it.
 | `/producto/<name>` | A product's report | Whoever answers for a product |
 | `/familia/<code>` | A family: each agent with the latest it wrote and its reports | Whoever answers for that function |
 | `/reporte/<area>/<instance>/<file>` | A report as the engine wrote it | Whoever answers for it |
+| `/direccion` | Each area of the C-level in one row, on one printable page | The executive committee |
 | `/vence` | Everything pending with a date, across every family | Management |
 | `/consumo` | The tokens of each family and each agent: this organisation's, with a yes, and the tests' | Whoever pays for the usage |
 | `/resumen/<familia>` | A family's executive summary, on one printable page | The president and the committee |

@@ -41,7 +41,8 @@ P = RAIZ / "plugins"
 ZIP = P / "criterio-server" / "demo" / "criterio-demo.zip"
 ORGANIZACION = "Organización de demostración"
 # Una entidad por familia: la de su primera ronda, con defectos sembrados.
-DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-co"), ("ea", "banca"), ("chro", "banca-co"))
+DEMO = (("cfo", "banca"), ("clo", "banca"), ("cco", "retail-co"), ("ciso", "banca-co"), ("ea", "banca"), ("chro", "banca-co"),
+        ("cae", "banca-co"), ("cdo", "banca-co"), ("cro", "banca-co"), ("cmo", "retail-co"), ("cto", "banca-co"))
 FECHA_ZIP = (2026, 1, 1, 0, 0, 0)
 
 sys.path.insert(0, str(P / "criterio-finance" / "scripts"))
@@ -57,7 +58,8 @@ def _modulo(ruta: Path, nombre: str):
 
 def _motor(plugin: str) -> Path:
     return next(f for f in (P / plugin / "scripts").glob("*.py")
-                if f.name in ("finanzas.py", "legal.py", "ventas.py", "seguridad.py", "asistente.py", "talento.py"))
+                if f.name in ("finanzas.py", "legal.py", "ventas.py", "seguridad.py", "asistente.py", "talento.py",
+                              "auditoria.py", "datos.py", "riesgos.py", "mercadeo.py", "tecnologia.py"))
 
 
 def _correr(motor: Path, *args: str) -> str:
@@ -84,6 +86,11 @@ def armar(destino: Path) -> list[str]:
             instancia = Path(cfg["paths"]["documents"]).name
             ruta = destino / ".criterio" / AREA[plugin] / instancia / "config.json"
             ruta.parent.mkdir(parents=True, exist_ok=True)
+            # La auditoría interna y la oficina del presidente no se publican en Rostrum por omisión
+            # (decisiones 0012 y 0033): quien las instala lo decide. La demostración las publica, para
+            # que se vean las doce familias; el setup de una organización real sigue preguntando.
+            if cfg.get("publish_rostrum") is False:
+                cfg = {**cfg, "publish_rostrum": True}
             ruta.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             motor = _motor(plugin)
             salida = json.loads(_correr(motor, "compute", "--config", str(ruta), "--today", clave["hoy"]))

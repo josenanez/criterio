@@ -1,6 +1,6 @@
 # Acceptance criteria — criterio-server
 
-Verified by `scripts/servidor.py --selftest` and `scripts/mapa.py --selftest`, on the PMO family alone and on the three families in one map.
+Verified by `scripts/servidor.py --selftest` and `scripts/mapa.py --selftest`, on the PMO family alone and on several families in one map; `scripts/demo.py` brings it up with all twelve families.
 
 ## 1. The map
 
@@ -22,6 +22,7 @@ Verified by `scripts/servidor.py --selftest` and `scripts/mapa.py --selftest`, o
 
 - [ ] The landing page leads to every agent of every family on the map, and the menu, the run history and the case pages include them.
 - [ ] The agents come from `agentes.json`, written from the families by `scripts/familias.py`; the server names no agent by hand.
+- [ ] `/direccion` puts every area on the map in one row —its agents, open signals, items past their date, what falls due next and when it was calculated— and lists what falls due first in each area, on one printable page, without recalculating anything.
 
 ## 5. Access
 

@@ -16,9 +16,9 @@ dejaría de ser cierto.
 
 [English](README.md) · `criterio-server` · Apache 2.0 · Uno por organización
 
-**Estado: construido y probado.** El portal de la
-familia PMO existe desde la 0.2 y se probó de punta a punta en cada ronda desde la 0.3.9; el mapa que suma las familias CFO y CLO lo
-prueba su selftest sobre las tres familias a la vez —y que la oficina de Ofelia no entre si su configuración no lo dice—, y la auditoría de accesibilidad corrió sobre las salidas de las rondas de las tres. La decisión, en el
+**Estado: construido y probado, con las doce familias.** El portal de la
+familia PMO existe desde la 0.2 y se probó de punta a punta en cada ronda desde la 0.3.9; el mapa lo
+prueba su selftest sobre varias familias a la vez —y que la oficina de Ofelia y la auditoría interna no entren si su configuración no lo dice—, y la demostración lo levanta con las doce familias y sus 27 agentes. La decisión, en el
 [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md).
 
 ---
@@ -220,15 +220,23 @@ Y lo que la página **no** dice, declarado en la propia página: de este product
 adopción, ingreso, incidencias en producción ni satisfacción. Nada de eso está en la
 carpeta de proyectos — son datos de operación y viven en otro sistema.
 
-### 4 · Las familias CFO y CLO
+### 4 · Cada familia
 
-`/familia/cfo` y `/familia/clo` muestran a cada agente de la familia con **lo último que escribió
+`/familia/<sigla>` —de `/familia/pmo` a `/familia/cto`— muestra a cada agente de la familia con **lo último que escribió
 su motor**: el ámbito —el cierre de un mes, el presupuesto de un año, los contratos, el
 cumplimiento de un periodo—, cuántas señales dejó abiertas y cuándo lo escribió. Debajo, sus
 reportes, cada uno tal como el motor lo dejó en `reporte-<comando>.md`. El portal no los
 reescribe ni los resume: los convierte a página.
 
-### 5 · Lo que vence
+### 5 · La dirección
+
+`/direccion` pone cada área de la dirección en una fila: sus agentes, sus señales abiertas, lo que
+ya pasó su fecha, lo próximo que vence y cuándo calculó. Debajo, lo primero que vence en cada área.
+Es la página del comité de dirección —el nivel C abajo, sostenido por sus familias— y se imprime
+en una hoja. No calcula nada nuevo: cuenta lo que ya dejó el motor de cada agente, y cada área lleva
+a su resumen ejecutivo.
+
+### 6 · Lo que vence
 
 `/vence` junta en una sola lista lo pendiente que tiene fecha, de todas las familias: el preaviso
 de un contrato con renovación automática, la obligación de cumplimiento que vence el 5, la tarea
@@ -348,6 +356,7 @@ De aquí para abajo es para quien lo va a publicar.
 | `/producto/<nombre>` | El informe de un producto | Quien responde por un producto |
 | `/familia/<sigla>` | Una familia: cada agente con lo último que escribió y sus reportes | Quien responde por esa función |
 | `/reporte/<área>/<instancia>/<archivo>` | Un reporte tal como lo escribió el motor | Quien responde por él |
+| `/direccion` | Cada área de la dirección en una fila, en una página que se imprime | El comité de dirección |
 | `/vence` | Lo pendiente con fecha, de todas las familias | La gerencia |
 | `/consumo` | Los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas | Quien paga el uso |
 | `/resumen/<familia>` | El resumen ejecutivo de una familia, en una página que se imprime | La presidencia y el comité |

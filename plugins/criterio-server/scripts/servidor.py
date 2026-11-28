@@ -77,6 +77,7 @@ RUTAS = {
     '/caso/<codigo>': 'todo lo que los agentes han hecho sobre un caso: un proyecto, un producto, un contrato',
     '/familia/<sigla>': 'una familia: cada agente con lo último que escribió y sus reportes',
     '/reporte/<area>/<instancia>/<archivo>': 'un reporte tal como lo escribió el motor del agente',
+    '/direccion': 'la dirección: cada área con lo que dejaron sus agentes, en una página que se imprime',
     '/vence': 'lo que vence: lo que cada motor dejó con fecha y pendiente, de todas las familias',
     '/consumo': 'los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas',
     '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
@@ -892,6 +893,7 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None, hoy: s
            '<label for="menu" class="menu-boton">Menú</label>',
            '<nav class="arbol" aria-label="Menú del portal"><ul class="hoy">',
            li('/', 'Inicio', 'lo que pide atención hoy'),
+           li('/direccion', 'La dirección', 'cada área, en una página'),
            li('/vence', 'Lo que vence', 'con fecha, de todas las familias',
               at['pasadas'], alerta=True),
            '</ul><p class="g">Las familias</p>']
@@ -1675,6 +1677,77 @@ def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str)
                        f'/familia/{sigla}' if sigla and sigla != 'pmo' else f'/agente/{area}')
 
 
+def vista_direccion(entradas: list, hoy: str) -> tuple:
+    """La dirección: cada área del mapa en una fila —sus agentes, sus señales, lo que tiene vencido y
+    lo próximo que vence, y cuándo calculó—, y lo primero que vence de todas. Es la vista del comité de
+    dirección: el nivel C abajo, sostenido por sus familias. No recalcula nada: cuenta lo que ya dejó el
+    motor de cada agente, como la portada y el resumen de cada familia."""
+    hoy_d = hoy[:10]
+    try:
+        en30 = (dt.date.fromisoformat(hoy_d) + dt.timedelta(days=30)).isoformat()
+    except ValueError:
+        en30 = ''
+    at = atencion(entradas, hoy)
+    filas = pendientes_con_fecha(entradas)
+    areas = areas_de(entradas)
+    lineas = []
+    for s_ in familias_de(entradas):
+        suyas = [x for x in entradas if FAMILIA_DE.get(x['area']) == s_]
+        suyos = [a for a in FAMILIAS[s_]['agentes'] if a in areas]
+        mias = [f for f in filas if FAMILIA_DE.get(f[1]['area']) == s_]
+        pas = sum(1 for f in mias if f[0] and f[0] < hoy_d)
+        prox = next((f for f in mias if f[0] and f[0] >= hoy_d), None)
+        fechas = [r['datos'].get('hoy') or r['escrito'][:10] for x in suyas for r in resultados_de(x)]
+        if s_ == 'pmo':
+            ult = next((ultima_pmo(x) for x in suyas if x['area'] == 'portafolio'), None) or {}
+            fechas.append(ult.get('fecha') or '')
+        n = at['senales'].get(s_, 0)
+        senales_ = (f'{n}' + (' <span class="cita">y otras no publicadas</span>' if s_ in at['privadas'] else '')) if n else (
+            '<span class="cita">no se publican</span>' if s_ in at['privadas'] else '0')
+        lineas.append(
+            f'<tr><td><a href="/resumen/{e(s_)}"><b>{e(s_.upper())}</b></a><br><span class="cita">{e(FAMILIAS[s_]["nombre"]["es"])}</span></td>'
+            f'<td>{e(", ".join(NOMBRE[a] for a in suyos))}</td>'
+            f'<td class="n">{senales_}</td>'
+            f'<td class="n{" mal" if pas else ""}">{pas}</td>'
+            f'<td>' + (f'{e(prox[0])} · {e(prox[2].get("que"))}' if prox else '—') + '</td>'
+            f'<td class="n">{e(max((f for f in fechas if f), default="—"))}</td></tr>')
+    pasadas = [f for f in filas if f[0] and f[0] < hoy_d]
+    pronto = [f for f in filas if f[0] and hoy_d <= f[0] <= en30]
+    cuerpo = [RESUMEN_CSS, '<h1>La dirección</h1>',
+              f'<p class="entrada"><b>Al {e(hoy_d)}</b>. Cada área de la dirección con lo que dejaron sus agentes: '
+              'las señales abiertas, lo que ya pasó su fecha, lo próximo que vence y cuándo calculó; cada área lleva a su '
+              'resumen ejecutivo. Aquí no se '
+              'recalcula nada: cada cifra es la que escribió el motor de su agente.</p>',
+              '<div class="ej-cifras">'
+              f'<div class="cifra"><span class="n">{len(familias_de(entradas))}</span><span class="q">áreas en el mapa</span></div>'
+              f'<div class="cifra"><span class="n">{sum(at["senales"].values())}</span><span class="q">señales abiertas</span></div>'
+              f'<div class="cifra{" mala" if pasadas else ""}"><span class="n">{len(pasadas)}</span><span class="q">con la fecha ya pasada</span></div>'
+              f'<div class="cifra"><span class="n">{len(pronto)}</span><span class="q">vencen en 30 días</span></div></div>',
+              '<table class="ej-ag"><thead><tr><th>Área</th><th>Agentes</th><th>Señales</th><th>Vencidas</th>'
+              '<th>Lo próximo que vence</th><th>Calculado</th></tr></thead><tbody>', *lineas, '</tbody></table>']
+    # Lo primero de cada área, no las primeras de una sola: la dirección ve todas sus áreas a la vez.
+    primero, vistas = [], set()
+    for f in pasadas + pronto:
+        s_ = FAMILIA_DE.get(f[1]['area'])
+        if s_ not in vistas:
+            vistas.add(s_)
+            primero.append(f)
+    primero.sort(key=lambda f: f[0])
+    if primero:
+        cuerpo.append('<h2>Lo primero que vence en cada área</h2><table class="ej-ag"><tbody>')
+        for fecha_, x, v, _ in primero:
+            cuerpo.append(f'<tr><td class="n">{e(fecha_)}{"<br><span class=" + chr(34) + "cita" + chr(34) + ">ya pasó</span>" if fecha_ < hoy_d else ""}</td>'
+                          f'<td><b>{e((FAMILIA_DE.get(x["area"]) or "").upper())}</b> · {e(NOMBRE.get(x["area"], x["area"]))}</td>'
+                          f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') and str(v['caso']) not in str(v.get('que')) else '') + '</td></tr>')
+        cuerpo.append('</tbody></table>')
+    cuerpo.append('<p class="ej-pie">Para la decisión de quien la firma: cada cifra sale de los documentos que procesó su agente, '
+                  'y su detalle está en el resumen de cada área y en lo que vence.'
+                  + (' Hay señales que la configuración no publica en este portal.' if at['privadas'] else '') + '</p>'
+                  '<p class="ej-imprimir aviso">Para llevarla al comité de dirección: imprime esta página o guárdala como PDF. '
+                  'El detalle: <a href="/vence">lo que vence</a>.</p>')
+    return 200, pagina('La dirección', "".join(cuerpo), hoy, nav(('', 'La dirección')), '/direccion')
+
+
 def vista_vence(entradas: list, hoy: str) -> tuple:
     """Lo que vence: lo que cada motor dejó con fecha y sin cumplir, de todas las familias. El
     portal solo junta las listas y las ordena por fecha; quién las calculó y cuándo va en cada fila."""
@@ -1993,6 +2066,8 @@ class Manejador(BaseHTTPRequestHandler):
             self.html(*vista_agente(self.todas(), ruta[len('/agente/'):], self.hoy(), self.entradas))
         elif ruta.startswith('/familia/'):
             self.html(*vista_familia(self.entradas, ruta[len('/familia/'):], self.hoy()))
+        elif ruta == '/direccion':
+            self.html(*vista_direccion(self.entradas, self.hoy()))
         elif ruta == '/vence':
             self.html(*vista_vence(self.entradas, self.hoy()))
         elif ruta == '/consumo':
@@ -2536,6 +2611,10 @@ def selftest() -> int:
         ok('el resumen ejecutivo de una familia: una página que se imprime, con sus cifras y su fecha',
            (cod_r, 'Resumen ejecutivo al' in res_, '@page' in res_, 'señales abiertas' in res_,
             '/resumen/cfo' in fam, pedir('/resumen/nadie')[0]), (200, True, True, True, True, 404))
+        cod_d, dir_ = pedir('/direccion')
+        ok('la dirección: cada área del mapa en una fila, con su resumen, y lo primero que vence en cada una',
+           (cod_d, 'La dirección' in dir_, '/resumen/cfo' in dir_, '/resumen/clo' in dir_, '@page' in dir_,
+            'href="/direccion"' in pedir('/')[1]), (200, True, True, True, True, True))
         cod_pmo, pmo_ = pedir('/familia/pmo')
         ok('una familia que no existe es 404; la PMO tiene su página de familia con sus cuatro vistas',
            (pedir('/familia/cxo')[0], cod_pmo, all(r in pmo_ for r in ('href="/pmo"', 'href="/decisiones"',
