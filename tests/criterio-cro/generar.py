@@ -61,6 +61,9 @@ ENTIDADES = [
      "lengua": "es", "siembra": set(), "veces": 1},
     {"carpeta": "control-br", "industria": "cooperativa", "pais": "BR", "id": "98765432000110", "nombre": "Cooperativa Controle Sintética", "moneda": "BRL",
      "lengua": "pt", "siembra": set(), "veces": 1},
+    # Grupo C: México, con la banca.
+    {"carpeta": "banca-mx", "industria": "banca", "pais": "MX", "id": "BMS0907153R2", "nombre": "Banco Mesoamericano Sintético", "moneda": "MXN",
+     "lengua": "es", "siembra": set(TODAS), "veces": 2},
 ]
 
 # Lo que cambia entre el español y el portugués: los nombres de los archivos, las columnas y los valores.

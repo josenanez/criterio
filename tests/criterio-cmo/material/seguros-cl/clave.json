@@ -1,0 +1,276 @@
+{
+  "entidad": "Seguros Cordillera Sintéticos",
+  "industria": "seguros",
+  "pais": "CL",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": true,
+  "config": {
+    "lucia": {
+      "version": "0.1",
+      "role": "piezas",
+      "entity": {
+        "id": "96789012-3",
+        "name": "Seguros Cordillera Sintéticos",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "mercadeo/96789012-3-seguros-cordillera-sinteticos",
+        "state": "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "budget_tolerance_pct": 5,
+        "result_tolerance_pct": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "prospero": {
+      "version": "0.1",
+      "role": "campanas",
+      "entity": {
+        "id": "96789012-3",
+        "name": "Seguros Cordillera Sintéticos",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "mercadeo/96789012-3-seguros-cordillera-sinteticos",
+        "state": "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "budget_tolerance_pct": 5,
+        "result_tolerance_pct": 2
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "piezas": {
+      "claims": [
+        {
+          "piece": "P-01",
+          "claim": "Entrega en 24 horas en las ciudades principales.",
+          "support": "20-soportes/tiempos_de_entrega.xlsx",
+          "source": "10-piezas/pieza_P-01.pdf"
+        },
+        {
+          "piece": "P-02",
+          "claim": "El precio más bajo del mercado en la canasta básica.",
+          "support": "20-soportes/comparativo_de_precios_2026-10.pdf",
+          "source": "10-piezas/pieza_P-02.pdf",
+          "comparative": true,
+          "comparative_source": ""
+        },
+        {
+          "piece": "P-03",
+          "claim": "9 de cada 10 clientes nos recomiendan.",
+          "support": "",
+          "source": "10-piezas/pieza_P-03.pdf"
+        },
+        {
+          "piece": "P-04",
+          "claim": "Mi pedido llegó al día siguiente.",
+          "support": "20-soportes/tiempos_de_entrega.xlsx",
+          "source": "10-piezas/pieza_P-04.pdf"
+        },
+        {
+          "piece": "P-05",
+          "claim": "Fabricado en el país.",
+          "support": "20-soportes/certificado_de_origen.pdf",
+          "source": "10-piezas/pieza_P-05.pdf"
+        },
+        {
+          "piece": "P-06",
+          "claim": "La colección llega en tres colores.",
+          "support": "20-soportes/catalogo_de_la_coleccion.pdf",
+          "source": "10-piezas/pieza_P-06.pdf"
+        },
+        {
+          "piece": "P-12",
+          "claim": "Atención en menos de 5 minutos en todas las sucursales.",
+          "support": "",
+          "source": "10-piezas/pieza_P-12.pdf"
+        },
+        {
+          "piece": "P-22",
+          "claim": "Más barato que cualquier otra cadena en útiles escolares.",
+          "support": "20-soportes/comparativo_de_utiles_2026-10.pdf",
+          "source": "10-piezas/pieza_P-22.pdf",
+          "comparative": true,
+          "comparative_source": ""
+        },
+        {
+          "piece": "P-32",
+          "claim": "La tienda abre hasta las 10 de la noche.",
+          "support": "20-soportes/horarios_de_atencion.pdf",
+          "source": "10-piezas/pieza_P-32.pdf"
+        },
+        {
+          "piece": "P-42",
+          "claim": "Devoluciones en 30 días.",
+          "support": "20-soportes/politica_de_devoluciones.pdf",
+          "source": "10-piezas/pieza_P-42.pdf"
+        }
+      ],
+      "promotions": [
+        {
+          "name": "Navidad",
+          "start": "2026-12-01",
+          "end": "2026-12-24",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_navidad.pdf"
+        },
+        {
+          "name": "Puntos dobles",
+          "start": "2026-11-01",
+          "end": "",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_puntos_dobles.pdf"
+        },
+        {
+          "name": "Cumpleaños",
+          "start": "2026-10-01",
+          "end": "",
+          "conditions": true,
+          "source": "30-promociones/bases_promocion_cumpleanos.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "campanas": {
+      "reported": [
+        {
+          "campaign": "C-01",
+          "indicator": "Ventas atribuidas",
+          "cutoff": "2026-10-31",
+          "value": 4600,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        },
+        {
+          "campaign": "C-03",
+          "indicator": "Visitas a la tienda",
+          "cutoff": "2026-10-31",
+          "value": 3100,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        },
+        {
+          "campaign": "C-04",
+          "indicator": "Impresiones",
+          "cutoff": "2026-10-31",
+          "value": 1840000,
+          "source": "50-campanas/informe_de_resultados_2026-10.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-01"
+    },
+    {
+      "signal": "campaign_over_budget",
+      "key": "presupuesto:C-32"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-03"
+    },
+    {
+      "signal": "campaign_ran_past_end",
+      "key": "fin:C-42"
+    },
+    {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-02"
+    },
+    {
+      "signal": "campaign_without_goal",
+      "key": "meta:C-22"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-03"
+    },
+    {
+      "signal": "claim_without_substantiation",
+      "key": "soporte:P-12"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-02"
+    },
+    {
+      "signal": "comparative_claim_without_source",
+      "key": "comparativa:P-22"
+    },
+    {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-02"
+    },
+    {
+      "signal": "contact_base_without_consent",
+      "key": "base:B-12"
+    },
+    {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-105"
+    },
+    {
+      "signal": "media_invoice_unmatched",
+      "key": "factura:F-22"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-05"
+    },
+    {
+      "signal": "piece_published_unapproved",
+      "key": "aprobacion:P-42"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_cumpleanos"
+    },
+    {
+      "signal": "promotion_terms_missing",
+      "key": "promocion:bases_promocion_puntos_dobles"
+    },
+    {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-01:ventas_atribuidas"
+    },
+    {
+      "signal": "result_differs_from_platform",
+      "key": "resultado:C-03:visitas_a_la_tienda"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-04"
+    },
+    {
+      "signal": "sponsored_content_unidentified",
+      "key": "patrocinada:P-32"
+    }
+  ]
+}

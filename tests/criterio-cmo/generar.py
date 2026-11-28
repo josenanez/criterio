@@ -61,6 +61,9 @@ ENTIDADES = [
      "siembra": set(), "veces": 1},
     {"carpeta": "control-mx", "industria": "manufactura", "pais": "MX", "id": "CCM220101ZZ9", "nombre": "Consumo Control de Mercadeo Sintético", "moneda": "MXN",
      "siembra": set(), "veces": 1},
+    # Grupo C: Chile, con los seguros.
+    {"carpeta": "seguros-cl", "industria": "seguros", "pais": "CL", "id": "96789012-3", "nombre": "Seguros Cordillera Sintéticos", "moneda": "CLP",
+     "siembra": set(TODAS), "veces": 2},
 ]
 
 # Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia pieza,

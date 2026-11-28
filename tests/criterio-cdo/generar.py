@@ -59,6 +59,9 @@ ENTIDADES = [
      "siembra": set(), "veces": 1},
     {"carpeta": "control-mx", "industria": "retail", "pais": "MX", "id": "RCC200101CD2", "nombre": "Retail Control de Datos Sintético", "moneda": "MXN",
      "siembra": set(), "veces": 1},
+    # Grupo C: Chile, con la banca.
+    {"carpeta": "banca-cl", "industria": "banca", "pais": "CL", "id": "97123456-K", "nombre": "Banco Austral Sintético", "moneda": "CLP",
+     "siembra": set(TODAS), "veces": 2},
 ]
 
 # Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia fila.

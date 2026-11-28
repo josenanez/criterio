@@ -60,6 +60,11 @@ ENTIDADES = [
                  "sin_plan", "vencido", "reprogramado", "cierre", "repetido", "aceptado", "externo"}},
     {"carpeta": "control-co", "industria": "banca", "pais": "CO", "id": "901888432", "nombre": "Banco Control Sintético", "moneda": "COP", "siembra": set()},
     {"carpeta": "control-pe", "industria": "cooperativas", "pais": "PE", "id": "20602888432", "nombre": "Cooperativa Control Sintética", "moneda": "PEN", "siembra": set()},
+    # Grupo C: México, con la banca.
+    {"carpeta": "banca-mx", "industria": "banca", "pais": "MX", "id": "BAS0811207K3", "nombre": "Banco del Anáhuac Sintético", "moneda": "MXN",
+     "siembra": {"riesgo", "unidad", "evaluacion", "area:fraude", "area:cumplimiento", "cambio", "atraso", "horas", "tematico", "externa",
+                 "programa", "elementos", "papel", "paso", "revision", "informe", "prioridad", "objetividad",
+                 "sin_plan", "vencido", "reprogramado", "cierre", "repetido", "aceptado", "externo"}},
 ]
 
 METODOLOGIA = """# Metodología de auditoría interna · {nombre}
