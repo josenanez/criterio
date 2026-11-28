@@ -19,7 +19,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio EA · Dirección | Ofelia | 1.6.0 | Estable | Incremento 8 · Las juntas en Claude Meetings |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.5.0 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.6.0 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
-| Rostrum · el portal de todas las familias | — | 1.5.0 | — | — |
+| Rostrum · el portal de todas las familias | — | 1.6.0 | — | — |
 
 ## Cada familia, incremento por incremento
 
