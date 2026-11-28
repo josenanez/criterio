@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "severo",
+  "comando": "coverage-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:27:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 354306,
+  "tokens_salida": 3025,
+  "costo_usd": 0.1505378,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/apetito/2026-11/reporte-coverage-check.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/2026-11-25-coverage-check-1.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/salida-coverage-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

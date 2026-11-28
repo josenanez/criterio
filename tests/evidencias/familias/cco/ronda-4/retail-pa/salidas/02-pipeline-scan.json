@@ -1,0 +1,30 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T12:03:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 15,
+  "tokens": 700873,
+  "tokens_salida": 5810,
+  "costo_usd": 0.5658762,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-pipeline-scan.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/manifest.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

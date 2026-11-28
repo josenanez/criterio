@@ -1,0 +1,28 @@
+{
+  "n": 8,
+  "agente": "casandra",
+  "comando": "events-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:30:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 14,
+  "tokens": 646487,
+  "tokens_salida": 4947,
+  "costo_usd": 0.4473848,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/2026-11-25-events-scan-1.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/salida-events-scan.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/eventos/2026-10/reporte-events-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

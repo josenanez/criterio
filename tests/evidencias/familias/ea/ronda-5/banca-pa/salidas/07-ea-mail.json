@@ -1,0 +1,27 @@
+{
+  "n": 7,
+  "agente": "ofelia",
+  "comando": "ea-mail",
+  "argumento": "",
+  "inicio": "2026-11-28T12:21:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 11,
+  "tokens": 476032,
+  "tokens_salida": 3762,
+  "costo_usd": 0.38265560000000004,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/presidencia-ejecutiva/corridas/2026-10-26-ea-mail-1.md",
+      "estado-direccion/presidencia-ejecutiva/corridas/salida-ea-mail.md",
+      "estado-direccion/presidencia-ejecutiva/reporte-ea-mail.md"
+    ],
+    "modificados": [
+      "estado-direccion/presidencia-ejecutiva/corridas.json"
+    ],
+    "borrados": []
+  }
+}

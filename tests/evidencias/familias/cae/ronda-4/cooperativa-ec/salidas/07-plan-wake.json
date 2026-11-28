@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "prudencia",
+  "comando": "plan-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T11:02:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 14,
+  "tokens": 550152,
+  "tokens_salida": 7061,
+  "costo_usd": 0.4781732000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-plan-scan-2.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-plan-wake-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-plan-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-plan-scan.md"
+    ],
+    "borrados": []
+  }
+}

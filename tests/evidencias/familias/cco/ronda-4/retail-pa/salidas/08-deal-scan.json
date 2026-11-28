@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T12:09:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 12,
+  "tokens": 539416,
+  "tokens_salida": 4438,
+  "costo_usd": 0.42887220000000004,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-deal-scan.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

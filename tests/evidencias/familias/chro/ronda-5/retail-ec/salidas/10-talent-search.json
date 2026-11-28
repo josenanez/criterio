@@ -1,0 +1,27 @@
+{
+  "n": 10,
+  "agente": "candido",
+  "comando": "talent-search",
+  "argumento": "",
+  "inicio": "2026-11-28T10:55:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 12,
+  "tokens": 615504,
+  "tokens_salida": 3341,
+  "costo_usd": 0.464762,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-talent-search-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-talent-search.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

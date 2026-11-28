@@ -1,0 +1,36 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/155698765-2-2018-banco-canal-sintetico",
+  "inicio": "2026-11-28T11:19:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 92,
+  "turnos": 18,
+  "tokens": 802481,
+  "tokens_salida": 10188,
+  "costo_usd": 0.6619932,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/155698765-2-2018/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.1.0-2026-11-25.sha256",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/calidad/2026-11/ficha.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/calidad/2026-11/resultados.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/2026-11-25-lineage-setup-2.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

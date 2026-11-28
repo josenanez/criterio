@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:27:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 9,
+  "tokens": 407772,
+  "tokens_salida": 2694,
+  "costo_usd": 0.15553240000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/apetito/2026-11/reporte-framework-check.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/apetito/2026-11/resultados.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Canal Sintético",
+  "agentes": [
+    "ariadna",
+    "custodia"
+  ],
+  "tokens": 6889993,
+  "senales": {
+    "esperadas": 27,
+    "acertadas": 27,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 76,
+    "bien": 76,
+    "mal": []
+  }
+}

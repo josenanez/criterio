@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CRO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cro/` · ronda más reciente: 3 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cro/` · ronda más reciente: 4 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 3, parcial, sobre 1 de las 7 entidades del material: 23 de 23 señales sembradas encontradas (margen del 95 %: 85,6–100 %) y 0 de más; 17 de 17 datos extraídos bien (100 %, margen del 95 %: 81,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 4, parcial, sobre 1 de las 7 entidades del material: 23 de 23 señales sembradas encontradas (margen del 95 %: 85,6–100 %) y 0 de más; 17 de 17 datos extraídos bien (100 %, margen del 95 %: 81,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–3, 127 de 127 señales encontradas, 0 de más y 143 de 143 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–4, 150 de 150 señales encontradas, 0 de más y 160 de 160 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 3; la más reciente, la 3, es parcial |
-| Material | Banca · México |
+| Rondas | 4; la más reciente, la 4, es parcial |
+| Material | Banca · Ecuador |
 | Entidades de control |  |
-| Corridas de una entidad | 11 |
-| Señales sembradas | 127 |
-| Datos calificados | 143 |
+| Corridas de una entidad | 12 |
+| Señales sembradas | 150 |
+| Datos calificados | 160 |
 
-## Resultados acumulados · rondas 1–3
+## Resultados acumulados · rondas 1–4
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 127 de 127 | 100 % | 97–100 % |
-| Señales · precisión | 127 de 127 | 100 % | 97–100 % |
-| Extracción · datos correctos | 143 de 143 | 100 % | 97,3–100 % |
+| Señales · cobertura | 150 de 150 | 100 % | 97,5–100 % |
+| Señales · precisión | 150 de 150 | 100 % | 97,5–100 % |
+| Extracción · datos correctos | 160 de 160 | 100 % | 97,6–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
@@ -45,8 +45,9 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 32,7 M | 0 |
 | 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 33,3 M | 0 |
 | 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,8 M | 0 |
+| 4 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,8 M | 0 |
 
-## La ronda más reciente · ronda 3
+## La ronda más reciente · ronda 4
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
@@ -55,13 +56,13 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Extracción · datos correctos | 17 de 17 | 100 % | 81,5–100 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 3
+## Por industria y país · ronda 4
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · México | Casandra, Severo | 23 de 23 | 0 | 17 de 17 | 6,8 M |
+| Banca · Ecuador | Casandra, Severo | 23 de 23 | 0 | 17 de 17 | 6,8 M |
 
-## Lo que falló, uno por uno · rondas 1–3
+## Lo que falló, uno por uno · rondas 1–4
 
 Ninguna falla.
 
@@ -82,7 +83,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 3 rondas usaron 72,8 millones de tokens: 72,8 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.
+Las 4 rondas usaron 79,6 millones de tokens: 79,6 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

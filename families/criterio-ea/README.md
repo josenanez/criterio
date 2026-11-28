@@ -285,7 +285,8 @@ The family grows in increments. Each one is a version with its full test and its
 | 1.2.0 | Released | **The clock, with a yes**<br>· At the end of its setup, a scheduled task that runs what is due today, on weekdays at 7:00 as a proposal (decision 0028)<br>· In Cowork, an app task; in Claude Code, the computer's scheduler; in both, only with an explicit yes<br>· The task only processes and writes to the state; it sends nothing<br>· Each agent's clock command, correctly named on the family page: it said share-findings | The full verification; the clock, in the version test |
 | 1.3.0 | Released | **Faster and lighter**<br>· The clock by the short path: if nothing is due, the engine records the run in a single call (decision 0032)<br>· The reports that present what the engine already calculated run on a smaller model<br>· Rostrum says how many tokens each agent uses, command by command: this organisation's, only with a yes, and the tests' | Round 3 with Ofelia and all her commands on banking: 50 of 50 signals and 51 of 51 data points, none extra |
 | 1.5.0 | Released | **Mexico, Peru and Chile**<br>· Three new offices, each with a country and an industry: retail in Mexico, manufacturing in Peru and technology in Chile, with one control for the group<br>· The city by its short name: a room in «Las Condes, Santiago» is in person in Santiago de Chile | Round 4 in Mexico, Peru and Chile: 118 of 118 signals, 148 of 148 data items and no control with a signal |
-| Increment 7 | Next | **Board meetings in Claude Meetings**<br>· The transcript and notes of a meeting in Claude Meetings, as one more document of the session: Ofelia takes each agreement with its owner and date, and follows it until it closes<br>· It is built once Claude Meetings —in beta since 12 November 2026, for Google Meet and on the Team and Enterprise plans— can export the transcript, and it is tested on a real export | A round with Ofelia on sessions with their Claude Meetings transcript |
+| 1.6.0 | In progress | **Panama**<br>· An entity in banking in Panama, with every signal seeded, run by Ofelia | Round 5 in Panama: 40 of 40 signals and 41 of 41 data items |
+| Increment 8 | Next | **Board meetings in Claude Meetings**<br>· The transcript and notes of a meeting in Claude Meetings, as one more document of the session: Ofelia takes each agreement with its owner and date, and follows it until it closes<br>· It is built once Claude Meetings —in beta since 12 November 2026, for Google Meet and on the Team and Enterprise plans— can export the transcript, and it is tested on a real export | A round with Ofelia on sessions with their Claude Meetings transcript |
 
 <!-- /hoja de ruta -->
 
@@ -314,7 +315,7 @@ a real executive's office.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Ofelia** · Executive assistant | `criterio-assistant` · 11 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Executive assistant | `criterio-assistant` · 11 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 5 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

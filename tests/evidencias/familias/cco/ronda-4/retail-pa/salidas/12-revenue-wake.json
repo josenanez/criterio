@@ -1,0 +1,32 @@
+{
+  "n": 12,
+  "agente": "valeria",
+  "comando": "revenue-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T12:11:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 11,
+  "tokens": 431350,
+  "tokens_salida": 3897,
+  "costo_usd": 0.37044079999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/ingresos/2026-11-28-revenue-wake-1.html",
+      ".criterio/corridas/ingresos/2026-11-28-revenue-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-commission-check-2.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-deal-scan-2.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-revenue-wake-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-revenue-wake.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-10/reporte-commission-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/ingresos/corridas.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -274,6 +274,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 1.1.0 | Released | **The family at once, and each agent in words**<br>· The family installs with a single plugin, criterio-cco, which brings its agents and Rostrum (decision 0026)<br>· Its setup configures them all in one conversation, without asking again what was already answered<br>· Each agent is asked in words, by name, and runs the command that does it (decision 0027) | The full verification; the choice of command, in the entry test |
 | 1.2.0 | Released | **The clock, with a yes**<br>· At the end of the family setup, a single scheduled task that runs what is due today for each agent, on weekdays at 7:00 as a proposal (decision 0028)<br>· In Cowork, an app task; in Claude Code, the computer's scheduler; in both, only with an explicit yes<br>· The task only processes and writes to the state; it sends nothing<br>· Each agent's clock command, correctly named on the family page: it said share-findings | The full verification; the clock, in the version test |
 | 1.3.0 | Released | **Faster and lighter**<br>· The clock by the short path: if nothing is due, the engine records the run in a single call (decision 0032)<br>· The reports that present what the engine already calculated run on a smaller model<br>· Rostrum says how many tokens each agent uses, command by command: this organisation's, only with a yes, and the tests' | Round 3 with Augusto and Valeria and all their commands on Mexican manufacturing: 20 of 20 signals and 5 of 5 data points, none extra |
+| 1.5.0 | In progress | **Panama**<br>· An entity in retail in Panama, with every signal seeded, run by Augusto and Valeria | Round 4 in Panama: 18 of 18 signals and 5 of 5 data items |
 
 <!-- /hoja de ruta -->
 
@@ -304,8 +305,8 @@ the material, and the two rounds with the agents on the same material, with a ke
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Augusto** · The forecast | `criterio-sales` · 8 commands, 4 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · From sale to invoice | `criterio-revenue` · 8 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · The forecast | `criterio-sales` · 8 commands, 4 skills | The engine, tested; with the agent, every entitie in the material, up to round 4 · [results](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · From sale to invoice | `criterio-revenue` · 8 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 4 · [results](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

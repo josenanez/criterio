@@ -162,8 +162,8 @@ Cinco skills distintos entre los dos agentes. **Los que comparten son copias lit
 <!-- chro:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Norma** · Los perfiles de cargo | `criterio-roles` · 9 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-roles/RESULTADOS.md) |
-| **Cándido** · La selección | `criterio-talent` · 10 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-talent/RESULTADOS.md) |
+| **Norma** · Los perfiles de cargo | `criterio-roles` · 9 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-roles/RESULTADOS.md) |
+| **Cándido** · La selección | `criterio-talent` · 10 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-talent/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

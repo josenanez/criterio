@@ -133,6 +133,35 @@
   },
   {
    "incremento": 4,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "EC",
+     "nombre": {
+      "es": "Ecuador",
+      "en": "Ecuador"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Ecuador",
+    "entra": [
+     "Una entidad de el retail en Ecuador, con todas las señales sembradas, corrida por Norma y Cándido"
+    ],
+    "prueba": "La ronda 5 en Ecuador: 22 de 22 señales y 305 de 305 datos"
+   },
+   "en": {
+    "titulo": "Ecuador",
+    "entra": [
+     "An entity in retail in Ecuador, with every signal seeded, run by Norma and Cándido"
+    ],
+    "prueba": "Round 5 in Ecuador: 22 of 22 signals and 305 of 305 data items"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

@@ -16,6 +16,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-3 | [tecnologia-cl](ronda-3/tecnologia-cl/) | tecnologia · CL | candido, norma | 20 de 20 · 0 de más | 323 de 323 | 5.55 M |
 | ronda-4 | [banca-co](ronda-4/banca-co/) | banca · CO | candido, norma | 29 de 29 · 0 de más | 481 de 481 | 6.37 M |
 | ronda-4 | [control-co](ronda-4/control-co/) | control · CO | candido, norma | 1 de 1 · 0 de más | 364 de 364 | 4.99 M |
+| ronda-5 | [retail-ec](ronda-5/retail-ec/) | retail · EC | candido, norma | 22 de 22 · 0 de más | 305 de 305 | 8.98 M |
 
 ## Los defectos que encontraron
 

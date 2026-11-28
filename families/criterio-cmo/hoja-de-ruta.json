@@ -169,6 +169,35 @@
   },
   {
    "incremento": 5,
+   "version": "1.2.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Una entidad de el retail en Panamá, con todas las señales sembradas, corrida por Lucía y Próspero"
+    ],
+    "prueba": "La ronda 4 en Panamá: 22 de 22 señales y 76 de 76 datos"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "An entity in retail in Panama, with every signal seeded, run by Lucía and Próspero"
+    ],
+    "prueba": "Round 4 in Panama: 22 of 22 signals and 76 of 76 data items"
+   }
+  },
+  {
+   "incremento": 6,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

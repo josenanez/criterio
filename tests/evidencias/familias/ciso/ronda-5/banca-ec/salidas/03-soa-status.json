@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "alexis",
+  "comando": "soa-status",
+  "argumento": "",
+  "inicio": "2026-11-28T11:47:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 357388,
+  "tokens_salida": 3573,
+  "costo_usd": 0.1626594,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-28-soa-status-1.html",
+      ".criterio/corridas/seguridad/2026-11-28-soa-status-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-soa-status-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-soa-status.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/seguridad/2026-10/reporte-soa-status.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

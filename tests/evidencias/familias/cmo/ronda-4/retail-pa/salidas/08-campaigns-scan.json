@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "prospero",
+  "comando": "campaigns-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:40:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 14,
+  "tokens": 649412,
+  "tokens_salida": 4400,
+  "costo_usd": 0.43714699999999995,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/campanas/2026-10/reporte-campaigns-scan.md",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas/2026-11-25-campaigns-scan-1.md",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas/salida-campaigns-scan.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

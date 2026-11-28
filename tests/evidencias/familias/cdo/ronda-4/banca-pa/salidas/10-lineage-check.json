@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "ariadna",
+  "comando": "lineage-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:22:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 7,
+  "tokens": 348551,
+  "tokens_salida": 2241,
+  "costo_usd": 0.1370254,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/calidad/2026-11/reporte-lineage-check.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/2026-11-25-lineage-check-1.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/salida-lineage-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

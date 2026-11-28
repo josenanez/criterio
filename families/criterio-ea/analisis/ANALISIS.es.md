@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia EA
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ea/` · ronda más reciente: 4 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ea/` · ronda más reciente: 5 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 4, parcial, sobre 4 de las 9 entidades del material: 118 de 118 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 148 de 148 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 5, parcial, sobre 1 de las 9 entidades del material: 40 de 40 señales sembradas encontradas (margen del 95 %: 91,2–100 %) y 0 de más; 41 de 41 datos extraídos bien (100 %, margen del 95 %: 91,4–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–4, 356 de 356 señales encontradas, 1 de más y 575 de 580 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–5, 396 de 396 señales encontradas, 1 de más y 616 de 621 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 4; la más reciente, la 4, es parcial |
-| Material | Manufactura · Perú, Retail · México, Tecnología · Chile |
-| Entidades de control | Control · México |
-| Corridas de una entidad | 18 |
-| Señales sembradas | 356 |
-| Datos calificados | 580 |
+| Rondas | 5; la más reciente, la 5, es parcial |
+| Material | Banca · Panamá |
+| Entidades de control |  |
+| Corridas de una entidad | 19 |
+| Señales sembradas | 396 |
+| Datos calificados | 621 |
 
-## Resultados acumulados · rondas 1–4
+## Resultados acumulados · rondas 1–5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 356 de 356 | 100 % | 98,9–100 % |
-| Señales · precisión | 356 de 357 | 99,7 % | 98,4–100 % |
-| Extracción · datos correctos | 575 de 580 | 99,1 % | 97,9–99,7 % |
+| Señales · cobertura | 396 de 396 | 100 % | 99–100 % |
+| Señales · precisión | 396 de 397 | 99,7 % | 98,5–100 % |
+| Extracción · datos correctos | 616 de 621 | 99,2 % | 98,1–99,7 % |
 | Control · sin ninguna señal | 6 de 7 | 85,7 % | 48,6–97,5 % |
 
 ## Evolución por ronda
@@ -46,28 +46,26 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 2 | 6 | 100 % | 100 % | 99,2 % | 2 de 2 | 9,9 M | 1 |
 | 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 5,6 M | 0 |
 | 4 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 22,4 M | 0 |
+| 5 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 5,6 M | 0 |
 
-## La ronda más reciente · ronda 4
+## La ronda más reciente · ronda 5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 118 de 118 | 100 % | 96,8–100 % |
-| Señales · precisión | 118 de 118 | 100 % | 96,8–100 % |
-| Extracción · datos correctos | 148 de 148 | 100 % | 97,4–100 % |
-| Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
+| Señales · cobertura | 40 de 40 | 100 % | 91,2–100 % |
+| Señales · precisión | 40 de 40 | 100 % | 91,2–100 % |
+| Extracción · datos correctos | 41 de 41 | 100 % | 91,4–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 4
+## Por industria y país · ronda 5
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Manufactura · Perú | Ofelia | 40 de 40 | 0 | 41 de 41 | 5,8 M |
-| Retail · México | Ofelia | 39 de 39 | 0 | 41 de 41 | 5,8 M |
-| Tecnología · Chile | Ofelia | 39 de 39 | 0 | 41 de 41 | 5,5 M |
-| Control · México | Ofelia | 0 de 0 | 0 | 25 de 25 | 5,3 M |
+| Banca · Panamá | Ofelia | 40 de 40 | 0 | 41 de 41 | 5,6 M |
 
-## Lo que falló, uno por uno · rondas 1–4
+## Lo que falló, uno por uno · rondas 1–5
 
-6 fallas en 18 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 2 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+6 fallas en 19 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 2 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -98,7 +96,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 4 rondas usaron 50,4 millones de tokens: 49,2 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 2,7 millones por entidad.
+Las 5 rondas usaron 56 millones de tokens: 54,7 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 2,9 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

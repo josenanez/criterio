@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "alexis",
+  "comando": "security-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:45:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 16,
+  "tokens": 679602,
+  "tokens_salida": 8198,
+  "costo_usd": 0.6433806,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-28-security-scan-1.html",
+      ".criterio/corridas/seguridad/2026-11-28-security-scan-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-security-scan-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-security-scan.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/indice.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/seguridad/2026-10/reporte-security-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "domingo",
+  "comando": "cloud-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:44:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 7,
+  "tokens": 348510,
+  "tokens_salida": 2144,
+  "costo_usd": 0.13521080000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/activos/2026-11/reporte-cloud-check.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/2026-11-25-cloud-check-1.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/salida-cloud-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

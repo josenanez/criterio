@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fausto",
+  "comando": "changes-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T10:37:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 14,
+  "tokens": 613503,
+  "tokens_salida": 7007,
+  "costo_usd": 0.5237976,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/cambios/2026-10/reporte-changes-scan.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/2026-11-25-changes-scan-1.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/salida-changes-scan.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

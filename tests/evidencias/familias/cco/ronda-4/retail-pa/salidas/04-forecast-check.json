@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "augusto",
+  "comando": "forecast-check",
+  "argumento": "",
+  "inicio": "2026-11-28T12:05:29",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 7,
+  "tokens": 350364,
+  "tokens_salida": 1987,
+  "costo_usd": 0.1356788,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/comercial/2026-11-28-forecast-check-1.html",
+      ".criterio/corridas/comercial/2026-11-28-forecast-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/comercial/2026-11/reporte-forecast-check.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-forecast-check-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-forecast-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/comercial/corridas.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

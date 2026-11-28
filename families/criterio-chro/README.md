@@ -162,8 +162,8 @@ Five distinct skills across the two agents. **The ones they share are literal co
 <!-- chro:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Norma** · Job profiles | `criterio-roles` · 9 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-roles/RESULTADOS.md) |
-| **Cándido** · Selection | `criterio-talent` · 10 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-talent/RESULTADOS.md) |
+| **Norma** · Job profiles | `criterio-roles` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 5 · [results](../../tests/criterio-roles/RESULTADOS.md) |
+| **Cándido** · Selection | `criterio-talent` · 10 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 5 · [results](../../tests/criterio-talent/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

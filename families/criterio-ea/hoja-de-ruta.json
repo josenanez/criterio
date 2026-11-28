@@ -170,6 +170,35 @@
   },
   {
    "incremento": 7,
+   "version": "1.6.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Una entidad de la banca en Panamá, con todas las señales sembradas, corrida por Ofelia"
+    ],
+    "prueba": "La ronda 5 en Panamá: 40 de 40 señales y 41 de 41 datos"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "An entity in banking in Panama, with every signal seeded, run by Ofelia"
+    ],
+    "prueba": "Round 5 in Panama: 40 of 40 signals and 41 of 41 data items"
+   }
+  },
+  {
+   "incremento": 8,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

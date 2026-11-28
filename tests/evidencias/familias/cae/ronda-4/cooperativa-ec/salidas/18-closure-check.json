@@ -1,0 +1,27 @@
+{
+  "n": 18,
+  "agente": "remedios",
+  "comando": "closure-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:12:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 10,
+  "tokens": 508074,
+  "tokens_salida": 2508,
+  "costo_usd": 0.160094,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-closure-check-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-closure-check.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/seguimiento/2026-11/reporte-closure-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

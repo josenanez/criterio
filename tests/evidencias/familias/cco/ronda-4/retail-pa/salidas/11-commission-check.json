@@ -1,0 +1,30 @@
+{
+  "n": 11,
+  "agente": "valeria",
+  "comando": "commission-check",
+  "argumento": "",
+  "inicio": "2026-11-28T12:11:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 351196,
+  "tokens_salida": 2152,
+  "costo_usd": 0.1374306,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/ingresos/2026-11-28-commission-check-1.html",
+      ".criterio/corridas/ingresos/2026-11-28-commission-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-commission-check-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-commission-check.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-11/reporte-commission-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/ingresos/corridas.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

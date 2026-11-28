@@ -1,0 +1,30 @@
+{
+  "n": 13,
+  "agente": "guillermo",
+  "comando": "scan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-28T11:54:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 407569,
+  "tokens_salida": 3061,
+  "costo_usd": 0.15559250000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-28-scan-coverage-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-28-scan-coverage-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-scan-coverage-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-scan-coverage.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/vulnerabilidades/2026-10/reporte-scan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

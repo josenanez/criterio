@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "candido",
+  "comando": "cv-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:56:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 9,
+  "tokens": 408170,
+  "tokens_salida": 2940,
+  "costo_usd": 0.1581519,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-cv-check-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-cv-check.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/seleccion/2026-11/reporte-cv-check.md"
+    ],
+    "modificados": [
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

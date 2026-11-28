@@ -1,0 +1,27 @@
+{
+  "n": 4,
+  "agente": "norma",
+  "comando": "profile-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:49:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 10,
+  "tokens": 460958,
+  "tokens_salida": 4565,
+  "costo_usd": 0.18346099999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-profile-check-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-profile-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

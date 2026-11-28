@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "alexis",
+  "comando": "access-reviews",
+  "argumento": "",
+  "inicio": "2026-11-28T11:48:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 360765,
+  "tokens_salida": 4189,
+  "costo_usd": 0.17182150000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-28-access-reviews-1.html",
+      ".criterio/corridas/seguridad/2026-11-28-access-reviews-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-access-reviews-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-access-reviews.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/seguridad/2026-10/reporte-access-reviews.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

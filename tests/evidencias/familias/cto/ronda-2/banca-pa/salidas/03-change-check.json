@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "fausto",
+  "comando": "change-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:38:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 8,
+  "tokens": 359006,
+  "tokens_salida": 3570,
+  "costo_usd": 0.28211980000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/cambios/2026-11/reporte-change-check.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/cambios/2026-11/resultados.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/2026-11-25-change-check-1.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/salida-change-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

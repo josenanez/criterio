@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "candido",
+  "comando": "candidate-fit",
+  "argumento": "",
+  "inicio": "2026-11-28T10:56:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 7,
+  "tokens": 360178,
+  "tokens_salida": 3480,
+  "costo_usd": 0.1623453,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-candidate-fit-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-candidate-fit.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/seleccion/2026-11/reporte-candidate-fit.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

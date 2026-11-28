@@ -1,0 +1,28 @@
+{
+  "n": 3,
+  "agente": "augusto",
+  "comando": "pipeline-check",
+  "argumento": "",
+  "inicio": "2026-11-28T12:05:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 9,
+  "tokens": 466233,
+  "tokens_salida": 2515,
+  "costo_usd": 0.1654758,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/comercial/2026-11/reporte-pipeline-check.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/comercial/2026-11/resultados.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-pipeline-check-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-pipeline-check.md"
+    ],
+    "modificados": [
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

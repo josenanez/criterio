@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "justo",
+  "comando": "work-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:05:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 10,
+  "tokens": 567022,
+  "tokens_salida": 4675,
+  "costo_usd": 0.4788426,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-work-scan-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-work-scan.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/trabajos/2026-11/reporte-work-scan.md"
+    ],
+    "modificados": [
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -274,6 +274,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cco, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 | 1.3.0 | Liberada | **Más rápida y más liviana**<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 3 con Augusto y Valeria y todos sus comandos sobre manufactura de México: 20 de 20 señales y 5 de 5 datos, ninguna de más |
+| 1.5.0 | En curso | **Panamá**<br>· Una entidad de el retail en Panamá, con todas las señales sembradas, corrida por Augusto y Valeria | La ronda 4 en Panamá: 18 de 18 señales y 5 de 5 datos |
 
 <!-- /hoja de ruta -->
 
@@ -304,8 +305,8 @@ Laboratorio o estable lo dice la evidencia (decisión 0020).
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

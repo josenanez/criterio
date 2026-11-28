@@ -1,0 +1,27 @@
+{
+  "n": 14,
+  "agente": "candido",
+  "comando": "vacancy-status",
+  "argumento": "",
+  "inicio": "2026-11-28T10:57:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 9,
+  "tokens": 403266,
+  "tokens_salida": 2610,
+  "costo_usd": 0.1476241,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-vacancy-status-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-vacancy-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

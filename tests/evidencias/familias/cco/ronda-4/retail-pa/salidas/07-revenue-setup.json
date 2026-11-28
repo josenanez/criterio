@@ -1,0 +1,40 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/155622222-2-2017-almacenes-del-istmo",
+  "inicio": "2026-11-28T12:07:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 110,
+  "turnos": 19,
+  "tokens": 864439,
+  "tokens_salida": 10095,
+  "costo_usd": 0.7169800000000002,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/ingresos/155622222-2-2017-almacenes-del-istmo/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-1.4.2-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-1.4.2-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-1.4.2-2026-11-05.sha256",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/40-cotizaciones/COT-2601_cotizacion.pdf.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/40-cotizaciones/COT-2602_cotizacion.pdf.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/40-cotizaciones/COT-2603_cotizacion.pdf.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/40-cotizaciones/COT-2604_cotizacion.pdf.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/40-cotizaciones/COT-2605_cotizacion.pdf.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-revenue-setup.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-10/ficha.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/cache/manifest.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

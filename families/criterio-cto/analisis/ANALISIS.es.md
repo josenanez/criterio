@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CTO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cto/` · ronda más reciente: 1 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cto/` · ronda más reciente: 2 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 1, parcial, sobre 5 de las 6 entidades del material: 96 de 96 señales sembradas encontradas (margen del 95 %: 96,1–100 %) y 0 de más; 267 de 267 datos extraídos bien (100 %, margen del 95 %: 98,5–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 2, parcial, sobre 1 de las 6 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 61 de 61 datos extraídos bien (100 %, margen del 95 %: 94–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 96 de 96 señales encontradas, 0 de más y 267 de 267 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–2, 120 de 120 señales encontradas, 0 de más y 328 de 328 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 1; la más reciente, la 1, es parcial |
-| Material | Banca · Colombia, Retail · México, Tecnología · Chile |
-| Entidades de control | Control · Colombia, Control · México |
-| Corridas de una entidad | 5 |
-| Señales sembradas | 96 |
-| Datos calificados | 267 |
+| Rondas | 2; la más reciente, la 2, es parcial |
+| Material | Banca · Panamá |
+| Entidades de control |  |
+| Corridas de una entidad | 6 |
+| Señales sembradas | 120 |
+| Datos calificados | 328 |
 
-## Resultados acumulados · rondas 1–1
+## Resultados acumulados · rondas 1–2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 96 de 96 | 100 % | 96,1–100 % |
-| Señales · precisión | 96 de 96 | 100 % | 96,1–100 % |
-| Extracción · datos correctos | 267 de 267 | 100 % | 98,5–100 % |
+| Señales · cobertura | 120 de 120 | 100 % | 96,8–100 % |
+| Señales · precisión | 120 de 120 | 100 % | 96,8–100 % |
+| Extracción · datos correctos | 328 de 328 | 100 % | 98,8–100 % |
 | Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
 
 ## Evolución por ronda
@@ -43,27 +43,24 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 34,5 M | 1 |
+| 2 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,6 M | 0 |
 
-## La ronda más reciente · ronda 1
+## La ronda más reciente · ronda 2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 96 de 96 | 100 % | 96,1–100 % |
-| Señales · precisión | 96 de 96 | 100 % | 96,1–100 % |
-| Extracción · datos correctos | 267 de 267 | 100 % | 98,5–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 24 de 24 | 100 % | 86,2–100 % |
+| Señales · precisión | 24 de 24 | 100 % | 86,2–100 % |
+| Extracción · datos correctos | 61 de 61 | 100 % | 94–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 1
+## Por industria y país · ronda 2
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Domingo, Fausto | 36 de 36 | 0 | 70 de 70 | 7 M |
-| Retail · México | Domingo, Fausto | 36 de 36 | 0 | 70 de 70 | 7,3 M |
-| Tecnología · Chile | Domingo, Fausto | 24 de 24 | 0 | 61 de 61 | 7,2 M |
-| Control · Colombia | Domingo, Fausto | 0 de 0 | 0 | 33 de 33 | 6,4 M |
-| Control · México | Domingo, Fausto | 0 de 0 | 0 | 33 de 33 | 6,5 M |
+| Banca · Panamá | Domingo, Fausto | 24 de 24 | 0 | 61 de 61 | 6,6 M |
 
-## Lo que falló, uno por uno · rondas 1–1
+## Lo que falló, uno por uno · rondas 1–2
 
 Ninguna falla.
 
@@ -86,7 +83,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 34,5 millones de tokens: 34,5 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,9 millones por entidad.
+Las 2 rondas usaron 41,2 millones de tokens: 41,2 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,9 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

@@ -1,0 +1,30 @@
+{
+  "n": 10,
+  "agente": "valeria",
+  "comando": "won-to-invoice",
+  "argumento": "",
+  "inicio": "2026-11-28T12:11:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 7,
+  "tokens": 356424,
+  "tokens_salida": 3192,
+  "costo_usd": 0.15291770000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/ingresos/2026-11-28-won-to-invoice-1.html",
+      ".criterio/corridas/ingresos/2026-11-28-won-to-invoice-1.md",
+      ".criterio/corridas/ingresos/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-won-to-invoice-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-won-to-invoice.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/ingresos/2026-11/reporte-won-to-invoice.md"
+    ],
+    "modificados": [
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

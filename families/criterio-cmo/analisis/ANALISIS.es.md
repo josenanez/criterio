@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CMO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cmo/` · ronda más reciente: 3 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cmo/` · ronda más reciente: 4 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 3, parcial, sobre 1 de las 7 entidades del material: 22 de 22 señales sembradas encontradas (margen del 95 %: 85,1–100 %) y 0 de más; 76 de 76 datos extraídos bien (100 %, margen del 95 %: 95,1–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 4, parcial, sobre 1 de las 7 entidades del material: 22 de 22 señales sembradas encontradas (margen del 95 %: 85,1–100 %) y 0 de más; 76 de 76 datos extraídos bien (100 %, margen del 95 %: 95,1–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–3, 132 de 132 señales encontradas, 0 de más y 481 de 481 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–4, 154 de 154 señales encontradas, 0 de más y 557 de 557 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 3; la más reciente, la 3, es parcial |
-| Material | Seguros · Chile |
+| Rondas | 4; la más reciente, la 4, es parcial |
+| Material | Retail · Panamá |
 | Entidades de control |  |
-| Corridas de una entidad | 11 |
-| Señales sembradas | 132 |
-| Datos calificados | 481 |
+| Corridas de una entidad | 12 |
+| Señales sembradas | 154 |
+| Datos calificados | 557 |
 
-## Resultados acumulados · rondas 1–3
+## Resultados acumulados · rondas 1–4
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 132 de 132 | 100 % | 97,1–100 % |
-| Señales · precisión | 132 de 132 | 100 % | 97,1–100 % |
-| Extracción · datos correctos | 481 de 481 | 100 % | 99,2–100 % |
+| Señales · cobertura | 154 de 154 | 100 % | 97,5–100 % |
+| Señales · precisión | 154 de 154 | 100 % | 97,5–100 % |
+| Extracción · datos correctos | 557 de 557 | 100 % | 99,3–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
@@ -45,8 +45,9 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 32,9 M | 2 |
 | 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 34,6 M | 0 |
 | 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,3 M | 0 |
+| 4 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,6 M | 0 |
 
-## La ronda más reciente · ronda 3
+## La ronda más reciente · ronda 4
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
@@ -55,13 +56,13 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Extracción · datos correctos | 76 de 76 | 100 % | 95,1–100 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 3
+## Por industria y país · ronda 4
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Seguros · Chile | Lucía, Próspero | 22 de 22 | 0 | 76 de 76 | 6,3 M |
+| Retail · Panamá | Lucía, Próspero | 22 de 22 | 0 | 76 de 76 | 6,6 M |
 
-## Lo que falló, uno por uno · rondas 1–3
+## Lo que falló, uno por uno · rondas 1–4
 
 Ninguna falla.
 
@@ -85,7 +86,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 3 rondas usaron 80,8 millones de tokens: 73,8 millones en las corridas calificadas y 7 en las que se repitieron después de corregir un defecto. En promedio, 6,7 millones por entidad.
+Las 4 rondas usaron 87,3 millones de tokens: 80,3 millones en las corridas calificadas y 7 en las que se repitieron después de corregir un defecto. En promedio, 6,7 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

@@ -27,6 +27,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [tecnologia-cl](ronda-2/tecnologia-cl/) | tecnologia · CL | augusto, valeria | 20 de 20 · 0 de más | 5 de 5 | 3.01 M |
 | ronda-2 | [tecnologia-ec](ronda-2/tecnologia-ec/) | tecnologia · EC | augusto, valeria | 20 de 20 · 0 de más | 5 de 5 | 3.14 M |
 | ronda-3 | [manufactura-mx-eficiencia](ronda-3/manufactura-mx-eficiencia/) | manufactura · MX | augusto, valeria | 20 de 20 · 0 de más | 5 de 5 | 6.97 M |
+| ronda-4 | [retail-pa](ronda-4/retail-pa/) | retail · PA | augusto, valeria | 18 de 18 · 0 de más | 5 de 5 | 6.42 M |
 
 ## Los defectos que encontraron
 

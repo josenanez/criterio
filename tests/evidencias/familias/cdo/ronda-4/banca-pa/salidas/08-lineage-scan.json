@@ -1,0 +1,28 @@
+{
+  "n": 8,
+  "agente": "ariadna",
+  "comando": "lineage-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:20:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 63,
+  "turnos": 18,
+  "tokens": 678250,
+  "tokens_salida": 5766,
+  "costo_usd": 0.49485120000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/calidad/2026-11/reporte-lineage-scan.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/2026-11-25-lineage-scan-1.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

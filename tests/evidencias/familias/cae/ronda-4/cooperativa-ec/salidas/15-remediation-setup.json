@@ -1,0 +1,40 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica",
+  "inicio": "2026-11-28T11:09:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 87,
+  "turnos": 19,
+  "tokens": 891212,
+  "tokens_salida": 9144,
+  "costo_usd": 0.6856348,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/1791234567001/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.1.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.1.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.1.0-2026-11-24.sha256",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-remediation-setup.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/cache/manifest.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

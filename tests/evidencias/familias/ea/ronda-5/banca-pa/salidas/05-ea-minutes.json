@@ -1,0 +1,29 @@
+{
+  "n": 5,
+  "agente": "ofelia",
+  "comando": "ea-minutes",
+  "argumento": "",
+  "inicio": "2026-11-28T12:19:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 85,
+  "turnos": 16,
+  "tokens": 672733,
+  "tokens_salida": 6917,
+  "costo_usd": 0.5185658000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "direccion/presidencia-ejecutiva/90-borradores/BORRADOR-acta-comite-ejecutivo-2026-09-21.md",
+      "estado-direccion/presidencia-ejecutiva/corridas/2026-10-26-ea-minutes-1.md",
+      "estado-direccion/presidencia-ejecutiva/corridas/salida-ea-minutes.md",
+      "estado-direccion/presidencia-ejecutiva/reporte-ea-minutes.md"
+    ],
+    "modificados": [
+      "estado-direccion/presidencia-ejecutiva/corridas.json",
+      "estado-direccion/presidencia-ejecutiva/resultados.json"
+    ],
+    "borrados": []
+  }
+}

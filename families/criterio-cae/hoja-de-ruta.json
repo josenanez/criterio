@@ -171,6 +171,35 @@
   },
   {
    "incremento": 5,
+   "version": "1.2.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "EC",
+     "nombre": {
+      "es": "Ecuador",
+      "en": "Ecuador"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Ecuador",
+    "entra": [
+     "Una entidad de las cooperativas en Ecuador, con todas las señales sembradas, corrida por Prudencia, Justo y Remedios"
+    ],
+    "prueba": "La ronda 4 en Ecuador: 26 de 26 señales y 72 de 72 datos"
+   },
+   "en": {
+    "titulo": "Ecuador",
+    "entra": [
+     "An entity in credit unions in Ecuador, with every signal seeded, run by Prudencia, Justo and Remedios"
+    ],
+    "prueba": "Round 4 in Ecuador: 26 of 26 signals and 72 of 72 data items"
+   }
+  },
+  {
+   "incremento": 6,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

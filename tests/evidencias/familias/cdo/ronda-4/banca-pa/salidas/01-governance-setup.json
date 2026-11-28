@@ -1,0 +1,39 @@
+{
+  "n": 1,
+  "agente": "custodia",
+  "comando": "governance-setup",
+  "argumento": "datos/155698765-2-2018-banco-canal-sintetico",
+  "inicio": "2026-11-28T11:14:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 74,
+  "turnos": 20,
+  "tokens": 729590,
+  "tokens_salida": 8607,
+  "costo_usd": 0.605948,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/gobierno/155698765-2-2018/config.json",
+      ".criterio/terminos/aceptacion-criterio-data-governance-1.1.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-governance-1.1.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-governance-1.1.0-2026-11-25.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "datos/155698765-2-2018-banco-canal-sintetico/_CRITERIO_DATOS.txt",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/cache/00-referencia/glosario.xlsx.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/cache/00-referencia/politica_de_conservacion.pdf.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/cache/00-referencia/politica_de_datos.pdf.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/cache/20-informes/informe_junta_2026-10.pdf.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/cache/manifest.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/2026-11-25-governance-setup-1.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/corridas/salida-governance-setup.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/gobierno/2026-11/ficha.json",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/gobierno/2026-11/reporte-catalog-check.md",
+      "estado-datos/155698765-2-2018-banco-canal-sintetico/gobierno/2026-11/resultados.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

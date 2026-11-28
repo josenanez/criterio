@@ -17,3 +17,4 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [cooperativa-br](ronda-2/cooperativa-br/) | cooperativa · BR | casandra, severo | 23 de 23 · 0 de más | 17 de 17 | 6.77 M |
 | ronda-2 | [seguros-pe](ronda-2/seguros-pe/) | seguros · PE | casandra, severo | 23 de 23 · 0 de más | 17 de 17 | 6.50 M |
 | ronda-3 | [banca-mx](ronda-3/banca-mx/) | banca · MX | casandra, severo | 23 de 23 · 0 de más | 17 de 17 | 6.79 M |
+| ronda-4 | [banca-ec](ronda-4/banca-ec/) | banca · EC | casandra, severo | 23 de 23 · 0 de más | 17 de 17 | 6.81 M |

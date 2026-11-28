@@ -11,6 +11,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-1 | [control-mx](ronda-1/control-mx/) | control · MX | domingo, fausto | 0 de 0 · 0 de más | 33 de 33 | 6.51 M |
 | ronda-1 | [retail-mx](ronda-1/retail-mx/) | retail · MX | domingo, fausto | 36 de 36 · 0 de más | 70 de 70 | 7.33 M |
 | ronda-1 | [tecnologia-cl](ronda-1/tecnologia-cl/) | tecnologia · CL | domingo, fausto | 24 de 24 · 0 de más | 61 de 61 | 7.23 M |
+| ronda-2 | [banca-pa](ronda-2/banca-pa/) | banca · PA | domingo, fausto | 24 de 24 · 0 de más | 61 de 61 | 6.65 M |
 
 ## Los defectos que encontraron
 

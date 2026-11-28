@@ -2,7 +2,7 @@
 
 **el portal de todas las familias** · plugin `criterio-server`
 
-Corrida del 2026-11-27, sobre el commit `c3fae4ed`, con cambios en el árbol todavía sin confirmar. **8 puertas · 146 comprobaciones · todas en verde.**
+Corrida del 2026-11-28, sobre el commit `250816c0`, con cambios en el árbol todavía sin confirmar. **8 puertas · 147 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,14 +10,14 @@ Corrida del 2026-11-27, sobre el commit `c3fae4ed`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 1175 ms | verde |
-| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 106 | 1331 ms | verde |
-| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 39 ms | verde |
-| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 239 ms | verde |
-| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 32 ms | verde |
-| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 55 ms | verde |
-| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 36 ms | verde |
-| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 7304 ms | verde |
+| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 385 ms | verde |
+| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 107 | 1519 ms | verde |
+| `criterio-server/consumo.py` | El consumo: cada respuesta una vez, a su comando y su agente, sin el texto de la conversación | 7 | 59 ms | verde |
+| `scripts/consumo_pruebas.py` | Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada | — | 267 ms | verde |
+| `img/robots_datos.py` | Que el trazo de cada robot que publican el portal y los README salga de robots.py | — | 30 ms | verde |
+| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 18 | 72 ms | verde |
+| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 40 ms | verde |
+| `scripts/demo.py` | La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores | — | 10685 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -76,10 +76,10 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
 | `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
 | `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | verde |
-| `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | **0 EN ROJO** |
+| `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 25 | verde |
-| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
+| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | **0 EN ROJO** |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
 | `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |

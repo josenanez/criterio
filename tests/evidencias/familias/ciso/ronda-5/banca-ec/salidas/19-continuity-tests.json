@@ -1,0 +1,30 @@
+{
+  "n": 19,
+  "agente": "amparo",
+  "comando": "continuity-tests",
+  "argumento": "",
+  "inicio": "2026-11-28T12:00:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 46,
+  "turnos": 8,
+  "tokens": 405650,
+  "tokens_salida": 2733,
+  "costo_usd": 0.1510419,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-28-continuity-tests-1.html",
+      ".criterio/corridas/resiliencia/2026-11-28-continuity-tests-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-continuity-tests-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-continuity-tests.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/resiliencia/2026-10/reporte-continuity-tests.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/resiliencia/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

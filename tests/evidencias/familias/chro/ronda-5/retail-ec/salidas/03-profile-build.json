@@ -1,0 +1,28 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-28T10:48:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 17,
+  "tokens": 661820,
+  "tokens_salida": 6933,
+  "costo_usd": 0.5642877999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-profile-build-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-profile-build.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/perfiles/borradores/43-5081.00-2026-11-16.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco del Istmo Sintético",
+  "agentes": [
+    "domingo",
+    "fausto"
+  ],
+  "tokens": 6647757,
+  "senales": {
+    "esperadas": 24,
+    "acertadas": 24,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 61,
+    "bien": 61,
+    "mal": []
+  }
+}

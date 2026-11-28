@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "prudencia",
+  "comando": "plan-status",
+  "argumento": "",
+  "inicio": "2026-11-28T11:01:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 353698,
+  "tokens_salida": 3278,
+  "costo_usd": 0.1530441,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-plan-status-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-plan-status.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/plan/2026-11/reporte-plan-status.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

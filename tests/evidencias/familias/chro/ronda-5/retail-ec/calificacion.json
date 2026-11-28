@@ -1,0 +1,23 @@
+{
+  "entidad": "Almacenes del Pacífico Sintéticos",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 8976817,
+  "senales": {
+    "esperadas": 22,
+    "acertadas": 22,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 305,
+    "bien": 305,
+    "mal": []
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

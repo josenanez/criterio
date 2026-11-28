@@ -93,6 +93,35 @@
   },
   {
    "incremento": 3,
+   "version": "0.3.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Una entidad de la banca en Panamá, con todas las señales sembradas, corrida por Fausto y Domingo"
+    ],
+    "prueba": "La ronda 2 en Panamá: 24 de 24 señales y 61 de 61 datos"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "An entity in banking in Panama, with every signal seeded, run by Fausto and Domingo"
+    ],
+    "prueba": "Round 2 in Panama: 24 of 24 signals and 61 of 61 data items"
+   }
+  },
+  {
+   "incremento": 4,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

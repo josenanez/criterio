@@ -1,0 +1,29 @@
+{
+  "n": 4,
+  "agente": "alexis",
+  "comando": "control-evidence",
+  "argumento": "",
+  "inicio": "2026-11-28T11:47:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 9,
+  "tokens": 412970,
+  "tokens_salida": 5105,
+  "costo_usd": 0.1902561,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-28-control-evidence-1.html",
+      ".criterio/corridas/seguridad/2026-11-28-control-evidence-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/2026-10-15-control-evidence-1.md",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas/salida-control-evidence.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/1790987654001-banco-del-guayas-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

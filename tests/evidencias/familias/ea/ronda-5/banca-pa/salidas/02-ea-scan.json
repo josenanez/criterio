@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "ofelia",
+  "comando": "ea-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T12:15:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 125,
+  "turnos": 16,
+  "tokens": 1149604,
+  "tokens_salida": 12287,
+  "costo_usd": 1.010004,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/presidencia-ejecutiva/corridas/2026-10-26-ea-scan-1.md",
+      "estado-direccion/presidencia-ejecutiva/corridas/salida-ea-scan.md",
+      "estado-direccion/presidencia-ejecutiva/indice.json",
+      "estado-direccion/presidencia-ejecutiva/reporte-ea-scan.md"
+    ],
+    "modificados": [
+      "estado-direccion/presidencia-ejecutiva/corridas.json"
+    ],
+    "borrados": []
+  }
+}

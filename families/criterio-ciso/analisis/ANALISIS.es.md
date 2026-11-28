@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CISO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 4 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 5 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 4, parcial, sobre 1 de las 12 entidades del material: 26 de 26 señales sembradas encontradas (margen del 95 %: 87,1–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 5, parcial, sobre 1 de las 12 entidades del material: 25 de 25 señales sembradas encontradas (margen del 95 %: 86,6–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–4, 199 de 199 señales encontradas, 0 de más y 96 de 96 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–5, 224 de 224 señales encontradas, 0 de más y 104 de 104 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 4; la más reciente, la 4, es parcial |
-| Material | Banca · Brasil |
+| Rondas | 5; la más reciente, la 5, es parcial |
+| Material | Banca · Ecuador |
 | Entidades de control |  |
-| Corridas de una entidad | 12 |
-| Señales sembradas | 199 |
-| Datos calificados | 96 |
+| Corridas de una entidad | 13 |
+| Señales sembradas | 224 |
+| Datos calificados | 104 |
 
-## Resultados acumulados · rondas 1–4
+## Resultados acumulados · rondas 1–5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 199 de 199 | 100 % | 98,1–100 % |
-| Señales · precisión | 199 de 199 | 100 % | 98,1–100 % |
-| Extracción · datos correctos | 96 de 96 | 100 % | 96,1–100 % |
+| Señales · cobertura | 224 de 224 | 100 % | 98,3–100 % |
+| Señales · precisión | 224 de 224 | 100 % | 98,3–100 % |
+| Extracción · datos correctos | 104 de 104 | 100 % | 96,4–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
@@ -46,23 +46,24 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 2 | 4 | 100 % | 100 % | 100 % | 2 de 2 | 20,1 M | 0 |
 | 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 11,4 M | 0 |
 | 4 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 11,2 M | 0 |
+| 5 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 11,3 M | 0 |
 
-## La ronda más reciente · ronda 4
+## La ronda más reciente · ronda 5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 26 de 26 | 100 % | 87,1–100 % |
-| Señales · precisión | 26 de 26 | 100 % | 87,1–100 % |
+| Señales · cobertura | 25 de 25 | 100 % | 86,6–100 % |
+| Señales · precisión | 25 de 25 | 100 % | 86,6–100 % |
 | Extracción · datos correctos | 8 de 8 | 100 % | 67,5–100 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 4
+## Por industria y país · ronda 5
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Brasil | Alexis, Amparo, Guillermo | 26 de 26 | 0 | 8 de 8 | 11,2 M |
+| Banca · Ecuador | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 11,3 M |
 
-## Lo que falló, uno por uno · rondas 1–4
+## Lo que falló, uno por uno · rondas 1–5
 
 Ninguna falla.
 
@@ -89,7 +90,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 4 rondas usaron 74,7 millones de tokens: 74,7 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,2 millones por entidad.
+Las 5 rondas usaron 85,9 millones de tokens: 85,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

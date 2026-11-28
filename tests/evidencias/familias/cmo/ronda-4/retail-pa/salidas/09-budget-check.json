@@ -1,0 +1,28 @@
+{
+  "n": 9,
+  "agente": "prospero",
+  "comando": "budget-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:41:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 7,
+  "tokens": 354170,
+  "tokens_salida": 2835,
+  "costo_usd": 0.1480699,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/campanas/2026-11/reporte-budget-check.md",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/campanas/2026-11/resultados.json",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas/2026-11-25-budget-check-1.md",
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas/salida-budget-check.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/155634567-2-2020-almacenes-del-canal-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

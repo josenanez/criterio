@@ -1,0 +1,28 @@
+{
+  "n": 15,
+  "agente": "candido",
+  "comando": "talent-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T10:57:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 62,
+  "turnos": 15,
+  "tokens": 638091,
+  "tokens_salida": 6249,
+  "costo_usd": 0.5191592,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-talent-scan-2.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/2026-11-16-talent-wake-1.md",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-talent-wake.md"
+    ],
+    "modificados": [
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas.json",
+      "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos/corridas/salida-talent-scan.md"
+    ],
+    "borrados": []
+  }
+}

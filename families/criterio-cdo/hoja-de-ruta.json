@@ -169,6 +169,35 @@
   },
   {
    "incremento": 5,
+   "version": "1.2.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Una entidad de la banca en Panamá, con todas las señales sembradas, corrida por Custodia y Ariadna"
+    ],
+    "prueba": "La ronda 4 en Panamá: 27 de 27 señales y 76 de 76 datos"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "An entity in banking in Panama, with every signal seeded, run by Custodia and Ariadna"
+    ],
+    "prueba": "Round 4 in Panama: 27 of 27 signals and 76 of 76 data items"
+   }
+  },
+  {
+   "incremento": 6,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

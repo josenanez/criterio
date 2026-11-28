@@ -1,13 +1,14 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/ea",
-  "ultima_ronda": 4,
+  "ultima_ronda": 5,
   "completa": false,
   "rondas": [
    1,
    2,
    3,
-   4
+   4,
+   5
   ]
  },
  "secciones": [
@@ -19,12 +20,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 4, parcial, sobre 4 de las 9 entidades del material: 118 de 118 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 148 de 148 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–4, 356 de 356 señales encontradas, 1 de más y 575 de 580 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 5, parcial, sobre 1 de las 9 entidades del material: 40 de 40 señales sembradas encontradas (margen del 95 %: 91,2–100 %) y 0 de más; 41 de 41 datos extraídos bien (100 %, margen del 95 %: 91,4–100 %); y 0 de 0 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–5, 396 de 396 señales encontradas, 1 de más y 616 de 621 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 4, partial, on 4 of the material's 9 entities: 118 of 118 seeded signals found (95% margin: 96.8–100%) and 0 extra; 148 of 148 data items extracted right (100%, 95% margin: 97.4–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–4, 356 of 356 signals found, 1 extra and 575 of 580 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 5, partial, on 1 of the material's 9 entities: 40 of 40 seeded signals found (95% margin: 91.2–100%) and 0 extra; 41 of 41 data items extracted right (100%, 95% margin: 91.4–100%); and 0 of 0 control entities with no signal at all.",
+     "Across rounds 1–5, 396 of 396 signals found, 1 extra and 616 of 621 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -49,53 +50,53 @@
      "es": [
       [
        "Rondas",
-       "4; la más reciente, la 4, es parcial"
+       "5; la más reciente, la 5, es parcial"
       ],
       [
        "Material",
-       "Manufactura · Perú, Retail · México, Tecnología · Chile"
+       "Banca · Panamá"
       ],
       [
        "Entidades de control",
-       "Control · México"
+       ""
       ],
       [
        "Corridas de una entidad",
-       "18"
+       "19"
       ],
       [
        "Señales sembradas",
-       "356"
+       "396"
       ],
       [
        "Datos calificados",
-       "580"
+       "621"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "4; the most recent, round 4, is partial"
+       "5; the most recent, round 5, is partial"
       ],
       [
        "Material",
-       "Manufacturing · Peru, Retail · Mexico, Technology · Chile"
+       "Banking · Panama"
       ],
       [
        "Control entities",
-       "Control · Mexico"
+       ""
       ],
       [
        "Entity runs",
-       "18"
+       "19"
       ],
       [
        "Seeded signals",
-       "356"
+       "396"
       ],
       [
        "Data items graded",
-       "580"
+       "621"
       ]
      ]
     }
@@ -114,8 +115,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–4",
-    "en": "Cumulative results · rounds 1–4"
+    "es": "Resultados acumulados · rondas 1–5",
+    "en": "Cumulative results · rounds 1–5"
    },
    "tabla": {
     "cab": {
@@ -136,21 +137,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "356 de 356",
+       "396 de 396",
        "100 %",
-       "98,9–100 %"
+       "99–100 %"
       ],
       [
        "Señales · precisión",
-       "356 de 357",
+       "396 de 397",
        "99,7 %",
-       "98,4–100 %"
+       "98,5–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "575 de 580",
-       "99,1 %",
-       "97,9–99,7 %"
+       "616 de 621",
+       "99,2 %",
+       "98,1–99,7 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -162,21 +163,21 @@
      "en": [
       [
        "Signals · coverage",
-       "356 of 356",
+       "396 of 396",
        "100%",
-       "98.9–100%"
+       "99–100%"
       ],
       [
        "Signals · precision",
-       "356 of 357",
+       "396 of 397",
        "99.7%",
-       "98.4–100%"
+       "98.5–100%"
       ],
       [
        "Extraction · data right",
-       "575 of 580",
-       "99.1%",
-       "97.9–99.7%"
+       "616 of 621",
+       "99.2%",
+       "98.1–99.7%"
       ],
       [
        "Control · with no signal",
@@ -262,6 +263,16 @@
        "1 de 1",
        "22,4 M",
        "0"
+      ],
+      [
+       "5",
+       "1",
+       "100 %",
+       "100 %",
+       "100 %",
+       "0 de 0",
+       "5,6 M",
+       "0"
       ]
      ],
      "en": [
@@ -304,6 +315,16 @@
        "1 of 1",
        "22.4 M",
        "0"
+      ],
+      [
+       "5",
+       "1",
+       "100%",
+       "100%",
+       "100%",
+       "0 of 0",
+       "5.6 M",
+       "0"
       ]
      ]
     }
@@ -320,8 +341,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 4",
-    "en": "The most recent round · round 4"
+    "es": "La ronda más reciente · ronda 5",
+    "en": "The most recent round · round 5"
    },
    "tabla": {
     "cab": {
@@ -342,53 +363,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "118 de 118",
+       "40 de 40",
        "100 %",
-       "96,8–100 %"
+       "91,2–100 %"
       ],
       [
        "Señales · precisión",
-       "118 de 118",
+       "40 de 40",
        "100 %",
-       "96,8–100 %"
+       "91,2–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "148 de 148",
+       "41 de 41",
        "100 %",
-       "97,4–100 %"
+       "91,4–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "1 de 1",
-       "100 %",
-       "20,6–100 %"
+       "0 de 0",
+       "—",
+       "—"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "118 of 118",
+       "40 of 40",
        "100%",
-       "96.8–100%"
+       "91.2–100%"
       ],
       [
        "Signals · precision",
-       "118 of 118",
+       "40 of 40",
        "100%",
-       "96.8–100%"
+       "91.2–100%"
       ],
       [
        "Extraction · data right",
-       "148 of 148",
+       "41 of 41",
        "100%",
-       "97.4–100%"
+       "91.4–100%"
       ],
       [
        "Control · with no signal",
-       "1 of 1",
-       "100%",
-       "20.6–100%"
+       "0 of 0",
+       "—",
+       "—"
       ]
      ]
     }
@@ -397,8 +418,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 4",
-    "en": "By industry and country · round 4"
+    "es": "Por industria y país · ronda 5",
+    "en": "By industry and country · round 5"
    },
    "tabla": {
     "cab": {
@@ -422,70 +443,22 @@
     "filas": {
      "es": [
       [
-       "Manufactura · Perú",
+       "Banca · Panamá",
        "Ofelia",
        "40 de 40",
        "0",
        "41 de 41",
-       "5,8 M"
-      ],
-      [
-       "Retail · México",
-       "Ofelia",
-       "39 de 39",
-       "0",
-       "41 de 41",
-       "5,8 M"
-      ],
-      [
-       "Tecnología · Chile",
-       "Ofelia",
-       "39 de 39",
-       "0",
-       "41 de 41",
-       "5,5 M"
-      ],
-      [
-       "Control · México",
-       "Ofelia",
-       "0 de 0",
-       "0",
-       "25 de 25",
-       "5,3 M"
+       "5,6 M"
       ]
      ],
      "en": [
       [
-       "Manufacturing · Peru",
+       "Banking · Panama",
        "Ofelia",
        "40 of 40",
        "0",
        "41 of 41",
-       "5.8 M"
-      ],
-      [
-       "Retail · Mexico",
-       "Ofelia",
-       "39 of 39",
-       "0",
-       "41 of 41",
-       "5.8 M"
-      ],
-      [
-       "Technology · Chile",
-       "Ofelia",
-       "39 of 39",
-       "0",
-       "41 of 41",
-       "5.5 M"
-      ],
-      [
-       "Control · Mexico",
-       "Ofelia",
-       "0 of 0",
-       "0",
-       "25 of 25",
-       "5.3 M"
+       "5.6 M"
       ]
      ]
     }
@@ -494,15 +467,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–4",
-    "en": "What failed, one by one · rounds 1–4"
+    "es": "Lo que falló, uno por uno · rondas 1–5",
+    "en": "What failed, one by one · rounds 1–5"
    },
    "parrafos": {
     "es": [
-     "6 fallas en 18 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 2 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "6 fallas en 19 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 2 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "6 failures in 18 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 2 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "6 failures in 19 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 2 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -739,11 +712,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 4 rondas usaron 50,4 millones de tokens: 49,2 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 2,7 millones por entidad.",
+     "Las 5 rondas usaron 56 millones de tokens: 54,7 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 2,9 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 4 rounds used 50.4 million tokens: 49.2 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 2.7 million per entity.",
+     "The 5 rounds used 56 million tokens: 54.7 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 2.9 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

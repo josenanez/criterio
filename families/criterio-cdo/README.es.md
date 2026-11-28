@@ -158,8 +158,8 @@ Cuatro skills distintos entre los dos agentes. **Los que comparten son copias li
 <!-- cdo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Custodia** · El gobierno de los datos | `criterio-data-governance` · 8 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-data-governance/RESULTADOS.md) |
-| **Ariadna** · La calidad y el linaje | `criterio-data-quality` · 8 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-data-quality/RESULTADOS.md) |
+| **Custodia** · El gobierno de los datos | `criterio-data-governance` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-data-governance/RESULTADOS.md) |
+| **Ariadna** · La calidad y el linaje | `criterio-data-quality` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 4 · [resultados](../../tests/criterio-data-quality/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

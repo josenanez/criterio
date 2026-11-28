@@ -1,0 +1,28 @@
+{
+  "n": 20,
+  "agente": "remedios",
+  "comando": "remediation-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T11:12:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 72,
+  "turnos": 17,
+  "tokens": 800581,
+  "tokens_salida": 5265,
+  "costo_usd": 0.5171272000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-remediation-scan-2.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/2026-11-24-remediation-wake-1.md",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-remediation-wake.md"
+    ],
+    "modificados": [
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas.json",
+      "estado-auditoria/1791234567001-cooperativa-de-ahorro-chimborazo-sintetica/corridas/salida-remediation-scan.md"
+    ],
+    "borrados": []
+  }
+}

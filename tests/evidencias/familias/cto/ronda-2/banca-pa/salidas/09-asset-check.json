@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "domingo",
+  "comando": "asset-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:43:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 7,
+  "tokens": 352670,
+  "tokens_salida": 2600,
+  "costo_usd": 0.1436473,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/activos/2026-11/reporte-asset-check.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/activos/2026-11/resultados.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/2026-11-25-asset-check-1.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/salida-asset-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

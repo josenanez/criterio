@@ -1,0 +1,33 @@
+{
+  "n": 6,
+  "agente": "augusto",
+  "comando": "sales-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T12:06:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 91,
+  "turnos": 14,
+  "tokens": 575822,
+  "tokens_salida": 9231,
+  "costo_usd": 0.5637913999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/comercial/2026-11-28-sales-wake-1.html",
+      ".criterio/corridas/comercial/2026-11-28-sales-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-pipeline-check-2.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-pipeline-scan-2.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/2026-11-05-sales-wake-1.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-sales-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/comercial/corridas.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas.json",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-pipeline-check.md",
+      "estado-comercial/155622222-2-2017-almacenes-del-istmo/corridas/salida-pipeline-scan.md"
+    ],
+    "borrados": []
+  }
+}

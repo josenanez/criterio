@@ -1,0 +1,18 @@
+{
+  "entidad": "Banco del Istmo",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 5589967,
+  "senales": {
+    "esperadas": 40,
+    "acertadas": 40,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 41,
+    "bien": 41,
+    "mal": []
+  }
+}

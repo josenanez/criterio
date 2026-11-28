@@ -206,6 +206,35 @@
     ],
     "prueba": "Round 3 with Augusto and Valeria and all their commands on Mexican manufacturing: 20 of 20 signals and 5 of 5 data points, none extra"
    }
+  },
+  {
+   "incremento": 8,
+   "version": "1.5.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Una entidad de el retail en Panamá, con todas las señales sembradas, corrida por Augusto y Valeria"
+    ],
+    "prueba": "La ronda 4 en Panamá: 18 de 18 señales y 5 de 5 datos"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "An entity in retail in Panama, with every signal seeded, run by Augusto and Valeria"
+    ],
+    "prueba": "Round 4 in Panama: 18 of 18 signals and 5 of 5 data items"
+   }
   }
  ]
 }

@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "severo",
+  "comando": "appetite-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T11:25:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 62,
+  "turnos": 16,
+  "tokens": 767389,
+  "tokens_salida": 5229,
+  "costo_usd": 0.4957358,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/apetito/2026-10/reporte-appetite-scan.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/2026-11-25-appetite-scan-1.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/salida-appetite-scan.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -197,6 +197,35 @@
   },
   {
    "incremento": 8,
+   "version": "1.6.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "EC",
+     "nombre": {
+      "es": "Ecuador",
+      "en": "Ecuador"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Ecuador",
+    "entra": [
+     "Una entidad de la banca en Ecuador, con todas las señales sembradas, corrida por Alexis, Guillermo y Amparo"
+    ],
+    "prueba": "La ronda 5 en Ecuador: 25 de 25 señales y 8 de 8 datos"
+   },
+   "en": {
+    "titulo": "Ecuador",
+    "entra": [
+     "An entity in banking in Ecuador, with every signal seeded, run by Alexis, Guillermo and Amparo"
+    ],
+    "prueba": "Round 5 in Ecuador: 25 of 25 signals and 8 of 8 data items"
+   }
+  },
+  {
+   "incremento": 9,
    "version": null,
    "estado": "siguiente",
    "industrias": [],
@@ -216,7 +245,7 @@
    }
   },
   {
-   "incremento": 9,
+   "incremento": 10,
    "version": "1.5.0",
    "estado": "liberada",
    "industrias": [],

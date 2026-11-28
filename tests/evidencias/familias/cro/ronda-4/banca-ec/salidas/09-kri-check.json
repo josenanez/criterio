@@ -1,0 +1,26 @@
+{
+  "n": 9,
+  "agente": "casandra",
+  "comando": "kri-check",
+  "argumento": "",
+  "inicio": "2026-11-28T11:31:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 403618,
+  "tokens_salida": 2970,
+  "costo_usd": 0.154043,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/2026-11-25-kri-check-1.md",
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas/salida-kri-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/1790123456001-banco-del-pichincha-sur-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 10,
+  "agente": "domingo",
+  "comando": "license-check",
+  "argumento": "",
+  "inicio": "2026-11-28T10:43:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 350528,
+  "tokens_salida": 2330,
+  "costo_usd": 0.1386424,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/activos/2026-11/reporte-license-check.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/2026-11-25-license-check-1.md",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas/salida-license-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

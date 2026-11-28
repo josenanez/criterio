@@ -169,6 +169,35 @@
   },
   {
    "incremento": 5,
+   "version": "1.2.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "EC",
+     "nombre": {
+      "es": "Ecuador",
+      "en": "Ecuador"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Ecuador",
+    "entra": [
+     "Una entidad de la banca en Ecuador, con todas las señales sembradas, corrida por Severo y Casandra"
+    ],
+    "prueba": "La ronda 4 en Ecuador: 23 de 23 señales y 17 de 17 datos"
+   },
+   "en": {
+    "titulo": "Ecuador",
+    "entra": [
+     "An entity in banking in Ecuador, with every signal seeded, run by Severo and Casandra"
+    ],
+    "prueba": "Round 4 in Ecuador: 23 of 23 signals and 17 of 17 data items"
+   }
+  },
+  {
+   "incremento": 6,
    "version": null,
    "estado": "siguiente",
    "industrias": [],
