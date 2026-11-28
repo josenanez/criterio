@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "justo",
+  "comando": "report-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:20:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 8,
+  "tokens": 408273,
+  "tokens_salida": 2743,
+  "costo_usd": 0.1559272,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-report-check-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-report-check.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/trabajos/2026-11/reporte-report-check.md"
+    ],
+    "modificados": [
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 4,
+  "agente": "severo",
+  "comando": "framework-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:29:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 10,
+  "tokens": 412320,
+  "tokens_salida": 2033,
+  "costo_usd": 0.14988010000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/apetito/2026-10/reporte-framework-check.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-framework-check-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-framework-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

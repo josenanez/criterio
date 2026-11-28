@@ -160,9 +160,9 @@ Five distinct skills across the three agents. **The ones they share are literal 
 <!-- cae:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Prudencia** · The audit plan | `criterio-audit-plan` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-audit-plan/RESULTADOS.md) |
-| **Justo** · Audit engagements | `criterio-audit-work` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-audit-work/RESULTADOS.md) |
-| **Remedios** · Finding follow-up | `criterio-remediation` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-remediation/RESULTADOS.md) |
+| **Prudencia** · The audit plan | `criterio-audit-plan` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 3 · [results](../../tests/criterio-audit-plan/RESULTADOS.md) |
+| **Justo** · Audit engagements | `criterio-audit-work` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 3 · [results](../../tests/criterio-audit-work/RESULTADOS.md) |
+| **Remedios** · Finding follow-up | `criterio-remediation` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 3 · [results](../../tests/criterio-remediation/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

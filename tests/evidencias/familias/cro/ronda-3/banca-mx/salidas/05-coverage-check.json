@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "severo",
+  "comando": "coverage-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:29:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 8,
+  "tokens": 405858,
+  "tokens_salida": 2733,
+  "costo_usd": 0.15279430000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/apetito/2026-11/reporte-coverage-check.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/apetito/2026-11/resultados.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-coverage-check-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-coverage-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

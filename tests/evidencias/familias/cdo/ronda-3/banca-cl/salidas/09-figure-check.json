@@ -1,0 +1,27 @@
+{
+  "n": 9,
+  "agente": "ariadna",
+  "comando": "figure-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:42:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 8,
+  "tokens": 356273,
+  "tokens_salida": 2975,
+  "costo_usd": 0.15613240000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-figure-check-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-figure-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

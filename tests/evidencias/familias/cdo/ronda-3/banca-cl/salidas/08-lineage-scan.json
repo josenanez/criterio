@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "ariadna",
+  "comando": "lineage-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T01:41:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 13,
+  "tokens": 649026,
+  "tokens_salida": 5521,
+  "costo_usd": 0.46017040000000003,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/reporte-lineage-scan.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-lineage-scan-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "modificados": [
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

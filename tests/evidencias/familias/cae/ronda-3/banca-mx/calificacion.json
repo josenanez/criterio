@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco del Anáhuac Sintético",
+  "agentes": [
+    "justo",
+    "prudencia",
+    "remedios"
+  ],
+  "tokens": 10980756,
+  "senales": {
+    "esperadas": 26,
+    "acertadas": 26,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 72,
+    "bien": 72,
+    "mal": []
+  }
+}

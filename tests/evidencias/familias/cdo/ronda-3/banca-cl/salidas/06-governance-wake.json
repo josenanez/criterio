@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "custodia",
+  "comando": "governance-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:38:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 14,
+  "tokens": 544744,
+  "tokens_salida": 5521,
+  "costo_usd": 0.4338232,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-governance-scan-2.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-governance-wake-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-governance-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-governance-scan.md"
+    ],
+    "borrados": []
+  }
+}

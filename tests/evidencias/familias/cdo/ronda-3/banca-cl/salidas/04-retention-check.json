@@ -1,0 +1,28 @@
+{
+  "n": 4,
+  "agente": "custodia",
+  "comando": "retention-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:38:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 9,
+  "tokens": 456621,
+  "tokens_salida": 2971,
+  "costo_usd": 0.1607298,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-retention-check-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-retention-check.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/gobierno/2026-11/reporte-retention-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

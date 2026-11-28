@@ -16,3 +16,4 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [control-mx](ronda-2/control-mx/) | control · MX | ariadna, custodia | 0 de 0 · 0 de más | 46 de 46 | 7.00 M |
 | ronda-2 | [retail-mx](ronda-2/retail-mx/) | retail · MX | ariadna, custodia | 27 de 27 · 0 de más | 76 de 76 | 6.39 M |
 | ronda-2 | [seguros-pe](ronda-2/seguros-pe/) | seguros · PE | ariadna, custodia | 27 de 27 · 0 de más | 76 de 76 | 6.82 M |
+| ronda-3 | [banca-cl](ronda-3/banca-cl/) | banca · CL | ariadna, custodia | 27 de 27 · 0 de más | 76 de 76 | 6.53 M |

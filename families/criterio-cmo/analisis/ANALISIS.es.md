@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CMO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cmo/` · ronda completa más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cmo/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 2, sobre las 5 entidades del material: 88 de 88 señales sembradas encontradas (margen del 95 %: 95,8–100 %) y 0 de más; 380 de 380 datos extraídos bien (100 %, margen del 95 %: 98,9–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 6 entidades del material: 22 de 22 señales sembradas encontradas (margen del 95 %: 85,1–100 %) y 0 de más; 76 de 76 datos extraídos bien (100 %, margen del 95 %: 95,1–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–2, 110 de 110 señales encontradas, 0 de más y 405 de 405 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–3, 132 de 132 señales encontradas, 0 de más y 481 de 481 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,51 +18,50 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 2; la completa más reciente es la 2 |
-| Material | Banca · Perú, Manufactura · México, Retail · Colombia |
-| Entidades de control | Control · Colombia, Control · México |
-| Corridas de una entidad | 10 |
-| Señales sembradas | 110 |
-| Datos calificados | 405 |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Seguros · Chile |
+| Entidades de control |  |
+| Corridas de una entidad | 11 |
+| Señales sembradas | 132 |
+| Datos calificados | 481 |
 
-## Resultados acumulados · rondas 1–2
+## Resultados acumulados · rondas 1–3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 110 de 110 | 100 % | 96,6–100 % |
-| Señales · precisión | 110 de 110 | 100 % | 96,6–100 % |
-| Extracción · datos correctos | 405 de 405 | 100 % | 99–100 % |
+| Señales · cobertura | 132 de 132 | 100 % | 97,1–100 % |
+| Señales · precisión | 132 de 132 | 100 % | 97,1–100 % |
+| Extracción · datos correctos | 481 de 481 | 100 % | 99,2–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
 
 ![Evolución por ronda](evolucion-es.svg)
 
+Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes.
+
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 32,9 M | 2 |
 | 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 34,6 M | 0 |
+| 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,3 M | 0 |
 
-## La ronda completa más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 88 de 88 | 100 % | 95,8–100 % |
-| Señales · precisión | 88 de 88 | 100 % | 95,8–100 % |
-| Extracción · datos correctos | 380 de 380 | 100 % | 98,9–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 22 de 22 | 100 % | 85,1–100 % |
+| Señales · precisión | 22 de 22 | 100 % | 85,1–100 % |
+| Extracción · datos correctos | 76 de 76 | 100 % | 95,1–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Perú | Lucía, Próspero | 33 de 33 | 0 | 99 de 99 | 6,7 M |
-| Manufactura · México | Lucía, Próspero | 22 de 22 | 0 | 76 de 76 | 7 M |
-| Retail · Colombia | Lucía, Próspero | 33 de 33 | 0 | 99 de 99 | 7,2 M |
-| Control · Colombia | Lucía, Próspero | 0 de 0 | 0 | 53 de 53 | 6,6 M |
-| Control · México | Lucía, Próspero | 0 de 0 | 0 | 53 de 53 | 7,2 M |
+| Seguros · Chile | Lucía, Próspero | 22 de 22 | 0 | 76 de 76 | 6,3 M |
 
-## Lo que falló, uno por uno · rondas 1–2
+## Lo que falló, uno por uno · rondas 1–3
 
 Ninguna falla.
 
@@ -86,7 +85,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 2 rondas usaron 74,5 millones de tokens: 67,5 millones en las corridas calificadas y 7 en las que se repitieron después de corregir un defecto. En promedio, 6,8 millones por entidad.
+Las 3 rondas usaron 80,8 millones de tokens: 73,8 millones en las corridas calificadas y 7 en las que se repitieron después de corregir un defecto. En promedio, 6,7 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

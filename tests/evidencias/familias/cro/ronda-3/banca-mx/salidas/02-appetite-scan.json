@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "severo",
+  "comando": "appetite-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T01:27:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 19,
+  "tokens": 784664,
+  "tokens_salida": 5287,
+  "costo_usd": 0.5180450000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/apetito/2026-10/reporte-appetite-scan.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-appetite-scan-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-appetite-scan.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

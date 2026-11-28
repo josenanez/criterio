@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "prospero",
+  "comando": "campaigns-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:53:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 10,
+  "tokens": 568048,
+  "tokens_salida": 4505,
+  "costo_usd": 0.4560726,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/2026-11-25-campaigns-scan-2.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/2026-11-25-campaigns-wake-1.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/salida-campaigns-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas.json",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/salida-campaigns-scan.md"
+    ],
+    "borrados": []
+  }
+}

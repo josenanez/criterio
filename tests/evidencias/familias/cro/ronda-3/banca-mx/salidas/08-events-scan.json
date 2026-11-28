@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "casandra",
+  "comando": "events-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T01:32:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 55,
+  "turnos": 14,
+  "tokens": 711410,
+  "tokens_salida": 5168,
+  "costo_usd": 0.4762422,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-events-scan-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-events-scan.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/eventos/2026-10/reporte-events-scan.md"
+    ],
+    "modificados": [
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "custodia",
+  "comando": "governance-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T01:36:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 14,
+  "tokens": 653599,
+  "tokens_salida": 5169,
+  "costo_usd": 0.4598796,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-governance-scan-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-governance-scan.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/gobierno/2026-11/reporte-governance-scan.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/indice.json"
+    ],
+    "modificados": [
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

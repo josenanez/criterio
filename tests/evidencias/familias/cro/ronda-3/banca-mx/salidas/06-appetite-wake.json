@@ -1,0 +1,29 @@
+{
+  "n": 6,
+  "agente": "severo",
+  "comando": "appetite-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:30:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 63,
+  "turnos": 18,
+  "tokens": 679423,
+  "tokens_salida": 5514,
+  "costo_usd": 0.4857906000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-appetite-scan-2.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-appetite-wake-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-appetite-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-appetite-scan.md"
+    ],
+    "borrados": []
+  }
+}

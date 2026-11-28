@@ -1,0 +1,35 @@
+{
+  "n": 7,
+  "agente": "ariadna",
+  "comando": "lineage-setup",
+  "argumento": "datos/97123456-k-banco-austral-sintetico",
+  "inicio": "2026-11-28T01:39:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 112,
+  "turnos": 21,
+  "tokens": 745940,
+  "tokens_salida": 13021,
+  "costo_usd": 0.7472449999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/calidad/97123456-k/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.0.0-2026-11-25.md",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.0.0-2026-11-25.pdf",
+      ".criterio/terminos/aceptacion-criterio-data-quality-1.0.0-2026-11-25.sha256",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/ficha.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/reporte-figure-check.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/resultados.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-lineage-setup-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-lineage-setup.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

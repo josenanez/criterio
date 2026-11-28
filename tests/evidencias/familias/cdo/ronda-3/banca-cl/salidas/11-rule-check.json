@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "ariadna",
+  "comando": "rule-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:43:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 355802,
+  "tokens_salida": 3223,
+  "costo_usd": 0.15761619999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/reporte-rule-check.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-rule-check-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-rule-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

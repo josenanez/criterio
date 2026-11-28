@@ -1,0 +1,27 @@
+{
+  "n": 19,
+  "agente": "remedios",
+  "comando": "committee-brief",
+  "argumento": "",
+  "inicio": "2026-11-28T01:24:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 409283,
+  "tokens_salida": 3904,
+  "costo_usd": 0.1699791,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-committee-brief-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-committee-brief.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/seguimiento/2026-11/reporte-committee-brief.md"
+    ],
+    "modificados": [
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

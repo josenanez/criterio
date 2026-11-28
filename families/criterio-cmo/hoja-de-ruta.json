@@ -140,6 +140,35 @@
   },
   {
    "incremento": 4,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Chile",
+    "entra": [
+     "Una entidad de los seguros en Chile, con todas las señales sembradas, corrida por Lucía y Próspero"
+    ],
+    "prueba": "La ronda 3 en Chile: 22 de 22 señales y 76 de 76 datos"
+   },
+   "en": {
+    "titulo": "Chile",
+    "entra": [
+     "An entity in insurance in Chile, with every signal seeded, run by Lucía and Próspero"
+    ],
+    "prueba": "Round 3 in Chile: 22 of 22 signals and 76 of 76 data items"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

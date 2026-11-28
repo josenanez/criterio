@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CAE
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cae/` · ronda completa más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cae/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 2, sobre las 5 entidades del material: 76 de 76 señales sembradas encontradas (margen del 95 %: 95,1–100 %) y 0 de más; 352 de 352 datos extraídos bien (100 %, margen del 95 %: 98,9–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 6 entidades del material: 26 de 26 señales sembradas encontradas (margen del 95 %: 87,1–100 %) y 0 de más; 72 de 72 datos extraídos bien (100 %, margen del 95 %: 94,9–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–2, 124 de 127 señales encontradas, 2 de más y 662 de 700 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–3, 150 de 153 señales encontradas, 2 de más y 734 de 772 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,53 +18,52 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 2; la completa más reciente es la 2 |
-| Material | Banca · Colombia, Cooperativas · Perú, Seguros · Brasil |
-| Entidades de control | Control · Colombia, Control · Perú |
-| Corridas de una entidad | 10 |
-| Señales sembradas | 127 |
-| Datos calificados | 700 |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Banca · México |
+| Entidades de control |  |
+| Corridas de una entidad | 11 |
+| Señales sembradas | 153 |
+| Datos calificados | 772 |
 
-## Resultados acumulados · rondas 1–2
+## Resultados acumulados · rondas 1–3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 124 de 127 | 97,6 % | 93,2–99,2 % |
-| Señales · precisión | 124 de 126 | 98,4 % | 94,3–99,6 % |
-| Extracción · datos correctos | 662 de 700 | 94,6 % | 92,6–96,1 % |
+| Señales · cobertura | 150 de 153 | 98 % | 94,3–99,4 % |
+| Señales · precisión | 150 de 152 | 98,7 % | 95,3–99,7 % |
+| Extracción · datos correctos | 734 de 772 | 95,1 % | 93,3–96,4 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
 
 ![Evolución por ronda](evolucion-es.svg)
 
+Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes.
+
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 94,1 % | 96 % | 89,1 % | 2 de 2 | 55,2 M | 5 |
 | 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 53,6 M | 0 |
+| 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 11 M | 0 |
 
-## La ronda completa más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 76 de 76 | 100 % | 95,1–100 % |
-| Señales · precisión | 76 de 76 | 100 % | 95,1–100 % |
-| Extracción · datos correctos | 352 de 352 | 100 % | 98,9–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 26 de 26 | 100 % | 87,1–100 % |
+| Señales · precisión | 26 de 26 | 100 % | 87,1–100 % |
+| Extracción · datos correctos | 72 de 72 | 100 % | 94,9–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Justo, Prudencia, Remedios | 25 de 25 | 0 | 72 de 72 | 10,7 M |
-| Cooperativas · Perú | Justo, Prudencia, Remedios | 26 de 26 | 0 | 72 de 72 | 10,4 M |
-| Seguros · Brasil | Justo, Prudencia, Remedios | 25 de 25 | 0 | 72 de 72 | 10,8 M |
-| Control · Colombia | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 11,1 M |
-| Control · Perú | Justo, Prudencia, Remedios | 0 de 0 | 0 | 68 de 68 | 10,6 M |
+| Banca · México | Justo, Prudencia, Remedios | 26 de 26 | 0 | 72 de 72 | 11 M |
 
-## Lo que falló, uno por uno · rondas 1–2
+## Lo que falló, uno por uno · rondas 1–3
 
-43 fallas en 10 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+43 fallas en 11 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -132,7 +131,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 ## Consumo y próximo paso
 
-Las 2 rondas usaron 108,8 millones de tokens: 108,8 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 10,9 millones por entidad.
+Las 3 rondas usaron 119,7 millones de tokens: 119,7 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 10,9 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

@@ -1,0 +1,27 @@
+{
+  "n": 4,
+  "agente": "lucia",
+  "comando": "promo-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:48:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 10,
+  "tokens": 406125,
+  "tokens_salida": 3559,
+  "costo_usd": 0.16455519999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/2026-11-25-promo-check-1.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/salida-promo-check.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/piezas/2026-10/reporte-promo-check.md"
+    ],
+    "modificados": [
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

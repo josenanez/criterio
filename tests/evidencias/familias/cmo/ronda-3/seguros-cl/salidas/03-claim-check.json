@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "lucia",
+  "comando": "claim-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:47:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 21,
+  "turnos": 7,
+  "tokens": 349048,
+  "tokens_salida": 1988,
+  "costo_usd": 0.13453530000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/2026-11-25-claim-check-1.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/salida-claim-check.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/piezas/2026-11/reporte-claim-check.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/piezas/2026-11/resultados.json"
+    ],
+    "modificados": [
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

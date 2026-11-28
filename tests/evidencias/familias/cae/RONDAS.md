@@ -16,6 +16,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [control-pe](ronda-2/control-pe/) | control · PE | justo, prudencia, remedios | 0 de 0 · 0 de más | 68 de 68 | 10.57 M |
 | ronda-2 | [cooperativa-pe](ronda-2/cooperativa-pe/) | cooperativas · PE | justo, prudencia, remedios | 26 de 26 · 0 de más | 72 de 72 | 10.42 M |
 | ronda-2 | [seguros-br](ronda-2/seguros-br/) | seguros · BR | justo, prudencia, remedios | 25 de 25 · 0 de más | 72 de 72 | 10.77 M |
+| ronda-3 | [banca-mx](ronda-3/banca-mx/) | banca · MX | justo, prudencia, remedios | 26 de 26 · 0 de más | 72 de 72 | 10.98 M |
 
 ## Los defectos que encontraron
 

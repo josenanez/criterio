@@ -1,0 +1,27 @@
+{
+  "n": 10,
+  "agente": "ariadna",
+  "comando": "lineage-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:43:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 8,
+  "tokens": 351831,
+  "tokens_salida": 3023,
+  "costo_usd": 0.15011449999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/calidad/2026-11/reporte-lineage-check.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-lineage-check-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-lineage-check.md"
+    ],
+    "modificados": [
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

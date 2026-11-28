@@ -1,0 +1,40 @@
+{
+  "n": 15,
+  "agente": "remedios",
+  "comando": "remediation-setup",
+  "argumento": "auditoria/BAS0811207K3-banco-del-anahuac-sintetico",
+  "inicio": "2026-11-28T01:21:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 80,
+  "turnos": 20,
+  "tokens": 982187,
+  "tokens_salida": 9077,
+  "costo_usd": 0.7189685999999998,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/seguimiento/BAS0811207K3/config.json",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.0.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.0.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-remediation-1.0.0-2026-11-24.sha256",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/30-seguimiento/H-20/evidencia.pdf.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/30-seguimiento/informe_revisor_fiscal_2026.pdf.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/30-seguimiento/registro_hallazgos.xlsx.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/30-seguimiento/riesgos_aceptados.xlsx.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-remediation-setup-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-remediation-setup.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/seguimiento/2026-11/ficha.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/seguimiento/2026-11/reporte-action-status.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/seguimiento/2026-11/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/manifest.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

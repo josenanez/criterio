@@ -1,0 +1,28 @@
+{
+  "n": 16,
+  "agente": "remedios",
+  "comando": "remediation-scan",
+  "argumento": "",
+  "inicio": "2026-11-28T01:23:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 17,
+  "tokens": 630734,
+  "tokens_salida": 5903,
+  "costo_usd": 0.5063437999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-remediation-scan-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-remediation-scan.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/seguimiento/2026-11/reporte-remediation-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

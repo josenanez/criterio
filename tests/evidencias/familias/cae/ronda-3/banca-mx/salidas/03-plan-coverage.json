@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "prudencia",
+  "comando": "plan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-28T01:13:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 410591,
+  "tokens_salida": 3555,
+  "costo_usd": 0.28510170000000007,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-plan-coverage-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-plan-coverage.md"
+    ],
+    "modificados": [
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

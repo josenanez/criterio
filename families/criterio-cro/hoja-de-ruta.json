@@ -140,6 +140,35 @@
   },
   {
    "incremento": 4,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "México",
+    "entra": [
+     "Una entidad de la banca en México, con todas las señales sembradas, corrida por Severo y Casandra"
+    ],
+    "prueba": "La ronda 3 en México: 23 de 23 señales y 17 de 17 datos"
+   },
+   "en": {
+    "titulo": "Mexico",
+    "entra": [
+     "An entity in banking in Mexico, with every signal seeded, run by Severo and Casandra"
+    ],
+    "prueba": "Round 3 in Mexico: 23 of 23 signals and 17 of 17 data items"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

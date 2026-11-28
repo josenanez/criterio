@@ -1,0 +1,74 @@
+# /criterio-risk-appetite:appetite-setup riesgos/bms0907153r2-banco-mesoamericano-sintetico
+
+Soy Severo. Pongo cada exposición al lado de su límite y cada límite al lado de su dueño y su revisión; no apruebo excesos ni cambio límites.
+
+Severo quedó instalado sobre el Banco Mesoamericano Sintético y corrió el primer chequeo de límites del periodo 2026-10. En octubre hay dos excesos sin plan ni aprobación, los dos de la Vicepresidencia de crédito: L-12 y L-01. Además, Tesorería entregó tarde dos reportes de exposición, los de L-02 y L-42.
+
+Como nadie respondía en esta prueba, tomé las respuestas de los documentos:
+- **Carpeta:** `riesgos/bms0907153r2-banco-mesoamericano-sintetico`, la única que se encontró. Tiene `00-marco/`, `10-exposicion/`, `20-indicadores/`, `30-eventos/` y `40-actas/`.
+- **Entidad:** Banco Mesoamericano Sintético, BMS0907153R2, México (MXN).
+- **Último periodo cerrado:** 2026-10.
+- **Plazos:** la declaración da 10 días para reportar la exposición y una revisión de la junta cada 12 meses. Para Casandra, la política de riesgo operacional da 30 días para registrar un evento y una ventana de 12 meses para los eventos repetidos.
+- **Rostrum:** se publica.
+- **Estado:** `estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico`.
+- **Términos v1.6:** José Francisco Ñáñez los aceptó el 2026-11-25. El comprobante quedó en `.criterio/terminos/aceptacion-criterio-risk-appetite-1.0.0-2026-11-25.md` y en `.pdf`.
+- **Marca:** dejé `_CRITERIO_RIESGOS.txt` en la carpeta de la entidad.
+
+La configuración quedó en `.criterio/apetito/BMS0907153R2/config.json`. La ficha de 2026-10 lleva la declaración, que la junta revisó por última vez el 2025-08-28, y los excesos aprobados de L-04, L-06 y L-07, del acta del comité de la sesión del 2026-11-12. Sobre L-03, el acta solo toma nota del plan y no aprueba el exceso. El cálculo del periodo trae además otras 7 señales: riesgos sin límite, límites sin dueño o con la revisión vencida y la declaración vencida. Esas las muestran `/criterio-risk-appetite:coverage-check` y `/criterio-risk-appetite:framework-check`.
+
+---
+
+# Cada exposición contra su límite · Banco Mesoamericano Sintético · periodo 2026-10
+
+**Entidad:** Banco Mesoamericano Sintético (BMS0907153R2) · **Fecha de corte:** 2026-11-25 · **Procesado:** 2026-11-25 · **Agente:** Severo, versión 1.0.0 · **Comando:** `limit-check`
+
+## Lo que hay que atender
+
+| # | Señal | Qué | Monto | Responsable | Días | Cita |
+|---|---|---|---|---|---|---|
+| 1 | Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso (`limit_breached_without_plan`) | L-12 · Cartera vencida de vivienda: la exposición de 2026-10 es 4.6 % y el límite máximo es 4; no hay plan de acción ni aprobación del exceso | 0.60 | Vicepresidencia de crédito | — | `00-marco/limites.xlsx` fila 9 · `10-exposicion/exposicion_2026-10.xlsx` fila 9 |
+| 2 | Una exposición supera su límite y no tiene plan de acción ni aprobación del exceso (`limit_breached_without_plan`) | L-01 · Cartera vencida de consumo: la exposición de 2026-10 es 6.4 % y el límite máximo es 6; no hay plan de acción ni aprobación del exceso | 0.40 | Vicepresidencia de crédito | — | `00-marco/limites.xlsx` fila 2 · `10-exposicion/exposicion_2026-10.xlsx` fila 2 |
+| 3 | Un área reportó su exposición después del plazo que fija el marco (`exposure_report_late`) | L-02 · Indicador de cobertura de liquidez: Tesorería reportó su exposición de 2026-10 el 2026-11-18, y el marco da 10 días después del cierre: hasta el 2026-11-10 | — | Tesorería | 8 | `10-exposicion/exposicion_2026-10.xlsx` fila 3 |
+| 4 | Un área reportó su exposición después del plazo que fija el marco (`exposure_report_late`) | L-42 · Cupos de contraparte utilizados: Tesorería reportó su exposición de 2026-10 el 2026-11-16, y el marco da 10 días después del cierre: hasta el 2026-11-10 | — | Tesorería | 6 | `10-exposicion/exposicion_2026-10.xlsx` fila 12 |
+
+## El resultado
+
+**Plazo del marco para reportar:** 10 días después del cierre, hasta el 2026-11-10.
+
+| Límite | Métrica | Límite | Exposición | Excedido | Plan o aprobación | Área | Reportó |
+|---|---|---|---|---|---|---|---|
+| L-01 | Cartera vencida de consumo | máximo 6 % | 6.4 | sí | — | Crédito | 2026-11-06 |
+| L-02 | Indicador de cobertura de liquidez | mínimo 120 % | 131 | no | — | Tesorería | 2026-11-18 |
+| L-03 | Concentración en el mayor deudor | máximo 10 % | 11.2 | sí | plan | Crédito | 2026-11-05 |
+| L-04 | Pérdidas por fraude externo sobre ingresos | máximo 0.5 % | 0.62 | sí | aprobado | Operaciones | 2026-11-07 |
+| L-05 | Exposición a contrapartes sin calificación | máximo 15 % | 12 | no | — | Tesorería | 2026-11-09 |
+| L-06 | Pérdidas operacionales sobre el patrimonio | máximo 1 % | 1.1 | sí | aprobado | Operaciones | 2026-11-08 |
+| L-07 | Exposición al mayor banco corresponsal | máximo 20 % | 23 | sí | aprobado | Tesorería | 2026-11-09 |
+| L-12 | Cartera vencida de vivienda | máximo 4 % | 4.6 | sí | — | Vicepresidencia de crédito | 2026-11-06 |
+| L-22 | Concentración sectorial de la cartera | máximo 25 % | 21 | no | — | Vicepresidencia de crédito | 2026-11-05 |
+| L-32 | Exposición en moneda extranjera | máximo 20 % | 14 | no | — | Tesorería | 2026-11-04 |
+| L-42 | Cupos de contraparte utilizados | máximo 80 % | 62 | no | — | Tesorería | 2026-11-16 |
+
+Qué se hace con un exceso lo deciden el comité y la junta: aquí se dice cuál no tiene plan ni aprobación.
+
+## Lo que no se pudo procesar
+
+Todo lo que llegó se procesó.
+
+## Las preguntas que hizo
+
+Ninguna en esta corrida.
+
+## Fuentes
+
+- `00-marco/limites.xlsx`
+- `10-exposicion/exposicion_2026-10.xlsx`
+- Fuentes técnicas: F-01 (families/criterio-cro/FUENTES.es.md)
+
+---
+
+**Cuándo vuelvo:** sin reloj. La tarea programada solo se crea con un sí explícito y en esta prueba nadie lo dio. Para correrlo a mano: `/criterio-risk-appetite:appetite-wake`.
+
+La corrida quedó registrada como `2026-11-25-appetite-setup-1`, con la salida en `estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-appetite-setup.md`.
+
+Si Criterio te sirve, dale una estrella en https://github.com/josenanez/criterio: así lo encuentran otros que lo necesitan.

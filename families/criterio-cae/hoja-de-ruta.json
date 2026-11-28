@@ -142,6 +142,35 @@
   },
   {
    "incremento": 4,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "México",
+    "entra": [
+     "Una entidad de la banca en México, con todas las señales sembradas, corrida por Prudencia, Justo y Remedios"
+    ],
+    "prueba": "La ronda 3 en México: 26 de 26 señales y 72 de 72 datos"
+   },
+   "en": {
+    "titulo": "Mexico",
+    "entra": [
+     "An entity in banking in Mexico, with every signal seeded, run by Prudencia, Justo and Remedios"
+    ],
+    "prueba": "Round 3 in Mexico: 26 of 26 signals and 72 of 72 data items"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

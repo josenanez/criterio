@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "ariadna",
+  "comando": "lineage-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:43:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 79,
+  "turnos": 22,
+  "tokens": 864489,
+  "tokens_salida": 7162,
+  "costo_usd": 0.5885368,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-lineage-scan-2.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/2026-11-25-lineage-wake-1.md",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-lineage-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas.json",
+      "estado-datos/97123456-k-banco-austral-sintetico/corridas/salida-lineage-scan.md"
+    ],
+    "borrados": []
+  }
+}

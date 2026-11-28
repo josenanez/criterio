@@ -1,0 +1,26 @@
+{
+  "n": 3,
+  "agente": "severo",
+  "comando": "limit-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:28:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 8,
+  "tokens": 405427,
+  "tokens_salida": 3139,
+  "costo_usd": 0.1571216,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-limit-check-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-limit-check.md"
+    ],
+    "modificados": [
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

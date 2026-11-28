@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Mesoamericano Sintético",
+  "agentes": [
+    "casandra",
+    "severo"
+  ],
+  "tokens": 6789996,
+  "senales": {
+    "esperadas": 23,
+    "acertadas": 23,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 17,
+    "bien": 17,
+    "mal": []
+  }
+}

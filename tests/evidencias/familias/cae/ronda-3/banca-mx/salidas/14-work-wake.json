@@ -1,0 +1,29 @@
+{
+  "n": 14,
+  "agente": "justo",
+  "comando": "work-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:20:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 73,
+  "turnos": 18,
+  "tokens": 660377,
+  "tokens_salida": 7157,
+  "costo_usd": 0.5782856000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-work-scan-2.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-work-wake-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-work-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-work-scan.md"
+    ],
+    "borrados": []
+  }
+}

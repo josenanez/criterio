@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CRO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cro/` · ronda completa más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cro/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 2, sobre las 5 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 91 de 91 datos extraídos bien (100 %, margen del 95 %: 95,9–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 6 entidades del material: 23 de 23 señales sembradas encontradas (margen del 95 %: 85,6–100 %) y 0 de más; 17 de 17 datos extraídos bien (100 %, margen del 95 %: 81,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–2, 104 de 104 señales encontradas, 0 de más y 126 de 126 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–3, 127 de 127 señales encontradas, 0 de más y 143 de 143 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,51 +18,50 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 2; la completa más reciente es la 2 |
-| Material | Banca · Colombia, Cooperativas · Brasil, Seguros · Perú |
-| Entidades de control | Control · Brasil, Control · Colombia |
-| Corridas de una entidad | 10 |
-| Señales sembradas | 104 |
-| Datos calificados | 126 |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Banca · México |
+| Entidades de control |  |
+| Corridas de una entidad | 11 |
+| Señales sembradas | 127 |
+| Datos calificados | 143 |
 
-## Resultados acumulados · rondas 1–2
+## Resultados acumulados · rondas 1–3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 104 de 104 | 100 % | 96,4–100 % |
-| Señales · precisión | 104 de 104 | 100 % | 96,4–100 % |
-| Extracción · datos correctos | 126 de 126 | 100 % | 97–100 % |
+| Señales · cobertura | 127 de 127 | 100 % | 97–100 % |
+| Señales · precisión | 127 de 127 | 100 % | 97–100 % |
+| Extracción · datos correctos | 143 de 143 | 100 % | 97,3–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
 
 ![Evolución por ronda](evolucion-es.svg)
 
+Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes.
+
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 32,7 M | 0 |
 | 2 | 5 | 100 % | 100 % | 100 % | 2 de 2 | 33,3 M | 0 |
+| 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,8 M | 0 |
 
-## La ronda completa más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 80 de 80 | 100 % | 95,4–100 % |
-| Señales · precisión | 80 de 80 | 100 % | 95,4–100 % |
-| Extracción · datos correctos | 91 de 91 | 100 % | 95,9–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 23 de 23 | 100 % | 85,6–100 % |
+| Señales · precisión | 23 de 23 | 100 % | 85,6–100 % |
+| Extracción · datos correctos | 17 de 17 | 100 % | 81,5–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Casandra, Severo | 34 de 34 | 0 | 17 de 17 | 6,7 M |
-| Cooperativas · Brasil | Casandra, Severo | 23 de 23 | 0 | 17 de 17 | 6,8 M |
-| Seguros · Perú | Casandra, Severo | 23 de 23 | 0 | 17 de 17 | 6,5 M |
-| Control · Brasil | Casandra, Severo | 0 de 0 | 0 | 20 de 20 | 6,7 M |
-| Control · Colombia | Casandra, Severo | 0 de 0 | 0 | 20 de 20 | 6,7 M |
+| Banca · México | Casandra, Severo | 23 de 23 | 0 | 17 de 17 | 6,8 M |
 
-## Lo que falló, uno por uno · rondas 1–2
+## Lo que falló, uno por uno · rondas 1–3
 
 Ninguna falla.
 
@@ -83,7 +82,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 2 rondas usaron 66 millones de tokens: 66 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.
+Las 3 rondas usaron 72,8 millones de tokens: 72,8 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 6,6 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

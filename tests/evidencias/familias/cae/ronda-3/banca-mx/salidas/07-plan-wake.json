@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "prudencia",
+  "comando": "plan-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:16:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 13,
+  "tokens": 604390,
+  "tokens_salida": 5139,
+  "costo_usd": 0.439694,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-plan-scan-2.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-plan-wake-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-plan-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-plan-scan.md"
+    ],
+    "borrados": []
+  }
+}

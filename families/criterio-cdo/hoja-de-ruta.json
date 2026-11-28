@@ -140,6 +140,35 @@
   },
   {
    "incremento": 4,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Chile",
+    "entra": [
+     "Una entidad de la banca en Chile, con todas las señales sembradas, corrida por Custodia y Ariadna"
+    ],
+    "prueba": "La ronda 3 en Chile: 27 de 27 señales y 76 de 76 datos"
+   },
+   "en": {
+    "titulo": "Chile",
+    "entra": [
+     "An entity in banking in Chile, with every signal seeded, run by Custodia and Ariadna"
+    ],
+    "prueba": "Round 3 in Chile: 27 of 27 signals and 76 of 76 data items"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

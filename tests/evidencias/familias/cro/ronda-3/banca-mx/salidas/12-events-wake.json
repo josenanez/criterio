@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "casandra",
+  "comando": "events-wake",
+  "argumento": "",
+  "inicio": "2026-11-28T01:34:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 51,
+  "turnos": 13,
+  "tokens": 603669,
+  "tokens_salida": 4884,
+  "costo_usd": 0.4434084,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-events-scan-2.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/2026-11-25-events-wake-1.md",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-events-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas.json",
+      "estado-riesgos/bms0907153r2-banco-mesoamericano-sintetico/corridas/salida-events-scan.md"
+    ],
+    "borrados": []
+  }
+}

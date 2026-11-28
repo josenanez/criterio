@@ -1,0 +1,40 @@
+{
+  "n": 1,
+  "agente": "prudencia",
+  "comando": "plan-setup",
+  "argumento": "auditoria/BAS0811207K3-banco-del-anahuac-sintetico",
+  "inicio": "2026-11-28T01:11:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 90,
+  "turnos": 22,
+  "tokens": 796513,
+  "tokens_salida": 11177,
+  "costo_usd": 0.9848080000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/plan/BAS0811207K3/config.json",
+      ".criterio/rastro-errores.log",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-1.0.0-2026-11-24.md",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-1.0.0-2026-11-24.pdf",
+      ".criterio/terminos/aceptacion-criterio-audit-plan-1.0.0-2026-11-24.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "auditoria/BAS0811207K3-banco-del-anahuac-sintetico/_CRITERIO_AUDITORIA.txt",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/10-plan/actas/acta-07-2026.pdf.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/10-plan/matriz_de_riesgos.xlsx.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/10-plan/plan_anual_2026.xlsx.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/10-plan/universo_auditable.xlsx.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/cache/manifest.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/2026-11-24-plan-setup-1.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/corridas/salida-plan-setup.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/plan/2026-11/ficha.json",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/plan/2026-11/reporte-plan-coverage.md",
+      "estado-auditoria/BAS0811207K3-banco-del-anahuac-sintetico/plan/2026-11/resultados.json"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

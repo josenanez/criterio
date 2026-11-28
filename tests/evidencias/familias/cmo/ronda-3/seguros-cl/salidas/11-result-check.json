@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "prospero",
+  "comando": "result-check",
+  "argumento": "",
+  "inicio": "2026-11-28T01:53:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 19,
+  "turnos": 7,
+  "tokens": 347965,
+  "tokens_salida": 1749,
+  "costo_usd": 0.13067250000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/campanas/2026-11/reporte-result-check.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/2026-11-25-result-check-1.md",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas/salida-result-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-mercadeo/96789012-3-seguros-cordillera-sinteticos/corridas.json"
+    ],
+    "borrados": []
+  }
+}
