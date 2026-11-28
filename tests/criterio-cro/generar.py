@@ -64,6 +64,9 @@ ENTIDADES = [
     # Grupo C: México, con la banca.
     {"carpeta": "banca-mx", "industria": "banca", "pais": "MX", "id": "BMS0907153R2", "nombre": "Banco Mesoamericano Sintético", "moneda": "MXN",
      "lengua": "es", "siembra": set(TODAS), "veces": 2},
+    # Grupo D: Ecuador, con la banca.
+    {"carpeta": "banca-ec", "industria": "banca", "pais": "EC", "id": "1790123456001", "nombre": "Banco del Pichincha Sur Sintético", "moneda": "USD",
+     "lengua": "es", "siembra": set(TODAS), "veces": 2},
 ]
 
 # Lo que cambia entre el español y el portugués: los nombres de los archivos, las columnas y los valores.

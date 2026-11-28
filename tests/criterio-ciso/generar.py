@@ -153,6 +153,11 @@ ENTIDADES = [
      "sla": {"critica": 15, "alta": 30, "media": 60, "baja": 120}, "contencion": {"critica": 4, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
      "escaner": "ingles-csv", "excel": False, "pref": "bps", "sistema": "Core bancário",
      "supervisor": "Banco Central do Brasil", "datos": "ANPD", "siembra": True, "brasil": True},
+    # Grupo D: Ecuador, con la banca.
+    {"carpeta": "banca-ec", "industria": "banca", "pais": "EC", "id": "1790987654001", "nombre": "Banco del Guayas Sintético", "moneda": "USD",
+     "sla": {"critica": 15, "alta": 30, "media": 60, "baja": 120}, "contencion": {"critica": 4, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
+     "escaner": "tenable-csv", "excel": True, "pref": "bgs", "sistema": "Core bancario",
+     "supervisor": "Superintendencia de Bancos", "datos": "Autoridad de protección de datos", "siembra": True},
 ]
 
 # ================================================================ Alexis

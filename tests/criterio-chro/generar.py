@@ -360,6 +360,20 @@ ENTIDADES = [
  },
 ]
 
+# Grupo D: Ecuador, con el retail. La misma tienda que la de México —sus perfiles, sus requisitos y lo que
+# se siembra—, con su país, su moneda, su reclutadora y sus vacantes: lo que se prueba es que Norma y
+# Cándido lean la ley de datos de Ecuador (datos_sensibles.json) sobre los mismos documentos.
+def _retail_ec():
+    import copy
+    e = copy.deepcopy(next(x for x in ENTIDADES if x["carpeta"] == "retail-mx"))
+    e.update(carpeta="retail-ec", pais="EC", id="1792345678001", nombre="Almacenes del Pacífico Sintéticos", moneda="USD")
+    e["vacantes"] = [(v.replace("VAC-1", "VAC-5"), pf, a, b, c, "Gabriela Andrade") for v, pf, a, b, c, _ in e["vacantes"]]
+    e["vac_siembra"] = [(t, k.replace("vac_1", "vac_5")) for t, k in e["vac_siembra"]]
+    return e
+
+
+ENTIDADES.insert(3, _retail_ec())
+
 # Los candidatos de cada entidad: su vacante, lo que afirma, sus soportes y lo que siembra. `par` marca la
 # prueba de sesgo: el segundo miembro es el primero con un dato protegido de más, nada más.
 def candidatos(e: dict) -> list[dict]:
@@ -370,7 +384,7 @@ def candidatos(e: dict) -> list[dict]:
     p1 = perf[v[abierta][1]]
     cert = next((r for r in p1["reqs"] if r.get("type") == "certificacion"), None)
     ess = [r for r in p1["reqs"] if r.get("essential") and r.get("type") != "certificacion"]
-    pref = {"banca-co": "1", "retail-mx": "2", "tecnologia-cl": "3", "control-co": "4", "control-pe": "5"}[e["carpeta"]]
+    pref = {"banca-co": "1", "retail-mx": "2", "tecnologia-cl": "3", "control-co": "4", "control-pe": "5", "retail-ec": "6"}[e["carpeta"]]
     C = lambda n: f"CAN-{pref}{n:02d}"  # noqa: E731
     base_emp = {"empresa": "Comercial Andina Sintética", "desde": "2019-03", "hasta": "2022-08", "cert_desde": "2019-03-01", "cert_hasta": "2022-08-31"}
 
@@ -442,7 +456,7 @@ def una(e: dict) -> dict:
     base = f"{T.norm(e['id']).replace('_', '')}-{slug(e['nombre'])}"
     docs_rel, estado_rel = f"talento/{base}", f"estado-talento/{base}"
     docs = raiz / docs_rel
-    e["titulo_ej"] = {"banca-co": "Contador público", "retail-mx": "Licenciatura en administración", "tecnologia-cl": "Ingeniería en informática",
+    e["titulo_ej"] = {"banca-co": "Contador público", "retail-mx": "Licenciatura en administración", "retail-ec": "Licenciatura en administración de empresas", "tecnologia-cl": "Ingeniería en informática",
                       "control-co": "Contador público", "control-pe": "Técnico en computación"}[e["carpeta"]]
     # La referencia: la política de selección y el estándar. Con O*NET, la política dice desde qué
     # importancia una destreza o un conocimiento es exigible: O*NET no marca ninguno como esencial, y el

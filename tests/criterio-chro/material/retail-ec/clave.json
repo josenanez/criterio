@@ -1,0 +1,740 @@
+{
+ "entidad": "Almacenes del Pacífico Sintéticos",
+ "industria": "retail",
+ "pais": "EC",
+ "estandar": "onet",
+ "ocupaciones": 3,
+ "hoy": "2026-11-16",
+ "periodo": "2026-11",
+ "siembra": true,
+ "config": {
+  "norma": {
+   "entity": {
+    "id": "1792345678001",
+    "name": "Almacenes del Pacífico Sintéticos",
+    "country": "EC",
+    "currency": "USD"
+   },
+   "paths": {
+    "documents": "talento/1792345678001-almacenes-del-pacifico-sinteticos",
+    "state": "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "education": {
+    "levels": {}
+   },
+   "profiles": {
+    "review_months": 12
+   },
+   "overlap": {
+    "share": 0.5
+   },
+   "selection": {
+    "prohibited_requirements": [
+     "edad",
+     "sexo",
+     "estado civil",
+     "fotografía",
+     "apariencia"
+    ]
+   }
+  },
+  "candido": {
+   "entity": {
+    "id": "1792345678001",
+    "name": "Almacenes del Pacífico Sintéticos",
+    "country": "EC",
+    "currency": "USD"
+   },
+   "paths": {
+    "documents": "talento/1792345678001-almacenes-del-pacifico-sinteticos",
+    "state": "estado-talento/1792345678001-almacenes-del-pacifico-sinteticos"
+   },
+   "period": "2026-11",
+   "standard": {
+    "name": "onet",
+    "file": "00-referencia/onet-31-0-sintetico",
+    "importance_threshold": 3.5
+   },
+   "selection": {
+    "vacancy": {
+     "target_days": 30
+    },
+    "data": {
+     "retention_days": 120
+    },
+    "publish": false
+   }
+  }
+ },
+ "extraccion": {
+  "perfiles": {
+   "profiles": [
+    {
+     "id": "PT-01",
+     "title": "Cajero de tienda",
+     "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "41-2011.00"
+     },
+     "education": {
+      "label": "Secundaria",
+      "source": "10-perfiles/PT-01_cajero-de-tienda.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Cobrar a los clientes en caja"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Escucha activa con el cliente",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.b",
+       "essential": true,
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R2",
+       "text": "Matemáticas para el arqueo de caja",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.e",
+       "essential": true,
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R3",
+       "text": "Buena presencia",
+       "tasks": [],
+       "source": "10-perfiles/PT-01_cajero-de-tienda.docx",
+       "type": "otro"
+      }
+     ],
+     "last_review": "2025-01-10"
+    },
+    {
+     "id": "PT-02",
+     "title": "Cajero de autoservicio",
+     "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "41-2011.00"
+     },
+     "education": {
+      "label": "Secundaria",
+      "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Cobrar a los clientes en caja"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Escucha activa con el cliente",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.b",
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R2",
+       "text": "Matemáticas para el arqueo de caja",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.A.1.e",
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R3",
+       "text": "Servicio al cliente",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.1.e",
+       "source": "10-perfiles/PT-02_cajero-de-autoservicio.docx",
+       "type": "conocimiento"
+      }
+     ],
+     "next_review": "2027-02-01"
+    },
+    {
+     "id": "PT-03",
+     "title": "Supervisor de tienda",
+     "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": "41-1011.00"
+     },
+     "education": {
+      "label": "Licenciatura",
+      "source": "10-perfiles/PT-03_supervisor-de-tienda.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Dirigir y supervisar a los vendedores"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Coordinación del equipo de ventas",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.3.a",
+       "essential": true,
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R2",
+       "text": "Percepción social",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.B.1.a",
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "destreza"
+      },
+      {
+       "id": "R3",
+       "text": "Ventas y mercadeo",
+       "tasks": [
+        "T1"
+       ],
+       "element": "2.C.1.c",
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "conocimiento"
+      },
+      {
+       "id": "R4",
+       "text": "Profesar la religión católica",
+       "tasks": [
+        "T1"
+       ],
+       "source": "10-perfiles/PT-03_supervisor-de-tienda.docx",
+       "type": "otro"
+      }
+     ],
+     "next_review": "2027-02-01"
+    },
+    {
+     "id": "PT-04",
+     "title": "Almacenista",
+     "source": "10-perfiles/PT-04_almacenista.docx",
+     "occupation": {
+      "standard": "onet",
+      "code": ""
+     },
+     "education": {
+      "label": "Secundaria",
+      "source": "10-perfiles/PT-04_almacenista.docx"
+     },
+     "experience_alternative": false,
+     "tasks": [
+      {
+       "id": "T1",
+       "text": "Recibir y acomodar la mercancía"
+      }
+     ],
+     "requirements": [
+      {
+       "id": "R1",
+       "text": "Manejo de inventario",
+       "tasks": [
+        "T1"
+       ],
+       "essential": true,
+       "source": "10-perfiles/PT-04_almacenista.docx",
+       "type": "otro"
+      },
+      {
+       "id": "R2",
+       "text": "Mujer entre 20 y 30 años",
+       "tasks": [
+        "T1"
+       ],
+       "source": "10-perfiles/PT-04_almacenista.docx",
+       "type": "otro"
+      }
+     ],
+     "next_review": "2027-02-01"
+    }
+   ]
+  },
+  "seleccion": {
+   "candidates": [
+    {
+     "id": "CAN-601",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-601/",
+     "cv": "30-candidatos/VAC-51/CAN-601/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-601/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-601/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-601/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-601/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-601/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-602",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-602/",
+     "cv": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf",
+       "support": null
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-602/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-51/CAN-602/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-51/CAN-602/foto.jpg"
+      }
+     ]
+    },
+    {
+     "id": "CAN-603",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-603/",
+     "cv": "30-candidatos/VAC-51/CAN-603/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-603/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-603/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-603/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-603/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2021-12-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-603/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-603/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-604",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-604/",
+     "cv": "30-candidatos/VAC-51/CAN-604/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-604/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-604/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-604/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-604/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-604/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-604/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-605",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-605/",
+     "cv": "30-candidatos/VAC-51/CAN-605/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-605/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-605/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-605/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-605/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-605/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-605/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-606",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-606/",
+     "cv": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-606/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-606/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf, p. 1"
+      }
+     ],
+     "protected": [
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fecha_de_nacimiento",
+       "source": "30-candidatos/VAC-51/CAN-606/hoja-de-vida.pdf"
+      },
+      {
+       "type": "fotografia",
+       "source": "30-candidatos/VAC-51/CAN-606/foto.jpg"
+      }
+     ]
+    },
+    {
+     "id": "CAN-607",
+     "vacancy": "VAC-52",
+     "folder": "30-candidatos/VAC-52/CAN-607/",
+     "cv": "30-candidatos/VAC-52/CAN-607/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-52/CAN-607/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-52/CAN-607/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-52/CAN-607/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-52/CAN-607/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-52/CAN-607/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    },
+    {
+     "id": "CAN-608",
+     "vacancy": "VAC-52",
+     "folder": "30-candidatos/VAC-52/CAN-608/",
+     "cv": "30-candidatos/VAC-52/CAN-608/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [],
+     "evidence": []
+    },
+    {
+     "id": "CAN-609",
+     "vacancy": "VAC-53",
+     "folder": "30-candidatos/VAC-53/CAN-609/",
+     "cv": "30-candidatos/VAC-53/CAN-609/hoja-de-vida.pdf",
+     "received": "2026-03-01",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-53/CAN-609/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-53/CAN-609/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-53/CAN-609/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-53/CAN-609/certificado-laboral.pdf",
+       "from": "2019-03",
+       "to": "2022-08",
+       "support_from": "2019-03-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": []
+    },
+    {
+     "id": "CAN-610",
+     "vacancy": "VAC-51",
+     "folder": "30-candidatos/VAC-51/CAN-610/",
+     "cv": "30-candidatos/VAC-51/CAN-610/hoja-de-vida.pdf",
+     "received": "2026-09-05",
+     "claims": [
+      {
+       "id": "K1",
+       "type": "titulo",
+       "text": "Licenciatura en administración de empresas",
+       "cv_source": "30-candidatos/VAC-51/CAN-610/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-610/diploma.pdf"
+      },
+      {
+       "id": "K2",
+       "type": "empleo",
+       "text": "Analista en Comercial Andina Sintética",
+       "cv_source": "30-candidatos/VAC-51/CAN-610/hoja-de-vida.pdf",
+       "support": "30-candidatos/VAC-51/CAN-610/certificado-laboral.pdf",
+       "from": "2018-01",
+       "to": "2022-08",
+       "support_from": "2018-06-01",
+       "support_to": "2022-08-31"
+      }
+     ],
+     "evidence": [
+      {
+       "requirement": "R1",
+       "source": "30-candidatos/VAC-51/CAN-610/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R2",
+       "source": "30-candidatos/VAC-51/CAN-610/hoja-de-vida.pdf, p. 1"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "pares": [
+  [
+   "CAN-605",
+   "CAN-606"
+  ]
+ ],
+ "esperado": [
+  {
+   "signal": "essential_skill_missing",
+   "key": "elemento:PT-01:2_c_1_e"
+  },
+  {
+   "signal": "profile_review_overdue",
+   "key": "revision:PT-01"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:PT-01:R3:apariencia"
+  },
+  {
+   "signal": "requirement_without_task",
+   "key": "tarea:PT-01:R3"
+  },
+  {
+   "signal": "profiles_overlap",
+   "key": "solape:PT-01:PT-02"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:PT-03:R4:religion"
+  },
+  {
+   "signal": "profile_without_occupation",
+   "key": "ocupacion:PT-04"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:PT-04:R2:edad"
+  },
+  {
+   "signal": "requirement_not_allowed",
+   "key": "prohibido:PT-04:R2:sexo"
+  },
+  {
+   "signal": "vacancy_past_target",
+   "key": "vacante:vac_51"
+  },
+  {
+   "signal": "vacancy_past_target",
+   "key": "vacante:vac_54"
+  },
+  {
+   "signal": "requirement_not_evidenced",
+   "key": "requisito:CAN-601:R1"
+  },
+  {
+   "signal": "claim_without_support",
+   "key": "soporte:CAN-602:K1"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-602:fotografia"
+  },
+  {
+   "signal": "employment_dates_differ",
+   "key": "fechas:CAN-603:K2"
+  },
+  {
+   "signal": "consent_missing",
+   "key": "autorizacion:CAN-604"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-606:fotografia"
+  },
+  {
+   "signal": "protected_data_received",
+   "key": "protegido:CAN-606:fecha_de_nacimiento"
+  },
+  {
+   "signal": "consent_missing",
+   "key": "autorizacion:CAN-607"
+  },
+  {
+   "signal": "requirement_not_evidenced",
+   "key": "requisito:CAN-608:R1"
+  },
+  {
+   "signal": "retention_exceeded",
+   "key": "conservacion:CAN-609"
+  },
+  {
+   "signal": "employment_dates_differ",
+   "key": "fechas:CAN-610:K2"
+  }
+ ]
+}

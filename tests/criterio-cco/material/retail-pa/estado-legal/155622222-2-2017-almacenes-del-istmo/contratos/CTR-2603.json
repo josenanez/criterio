@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2603",
+  "counterparty": {
+    "name": "Clínica San Fernando Sintética S.A.",
+    "id": "830026004"
+  },
+  "value": 75000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2603/10-contrato/contrato.pdf"
+}

@@ -618,6 +618,24 @@ OFICINAS = [
      ],
      "organos": [("consejo-de-administracion", "Cinco consejeros", "último jueves de cada mes"), ("comite-de-direccion", "Las direcciones", "lunes")],
      "personas": ("Gabriela Ochoa", "Ernesto Villalobos", "Paulina Reyes", "Arturo Mendoza", "Lucía Cárdenas"), "siembra": []},
+    # Grupo D: Panamá, con la banca. Con Google, y con la hora de Nueva York como Bogotá: el cruce por el
+    # cambio de hora existe.
+    {"carpeta": "banca-pa", "industria": "banca", "pais": "PA", "id": "155677777-2-2016", "nombre": "Banco del Istmo", "n": 9,
+     "ejecutivo": "Presidencia ejecutiva", "ejecutivo_slug": "presidencia-ejecutiva", "tz": "America/Panama", "dominio": "bancoistmo.test", "proveedor": "google",
+     "viajes": [
+         {"slug": "bogota", "destino": "Bogotá", "agencia": "Viajes del Canal", "reserva": "PB4H9K", "en_agenda": [False, True],
+          "vuelos": [("CM 201", "Ciudad de Panamá", "PTY", "Bogotá", "BOG", "2026-11-03T07:00", "-05:00", "2026-11-03T08:40", "-05:00"),
+                     ("CM 204", "Bogotá", "BOG", "Ciudad de Panamá", "PTY", "2026-11-04T18:00", "-05:00", "2026-11-04T19:40", "-05:00")],
+          "reuniones": [("riesgos-p", "Comité de riesgos", "20261103T100000", "20261103T110000", "Sala de directores, Torre del banco, Ciudad de Panamá", ("meeting_while_away", None)),
+                        ("corresponsal-p", "Reunión con el banco corresponsal", "20261103T150000", "20261103T160000", "Calle 93, Bogotá", None),
+                        ("asociacion", "Cena de la asociación bancaria", "20261104T183000", "20261104T200000", "Calle 50, Ciudad de Panamá", ("meeting_during_flight", "CM204"))]},
+     ],
+     "organos": [("junta-directiva", "Nueve directores", "último jueves de cada mes"), ("comite-ejecutivo", "Las vicepresidencias", "lunes")],
+     "personas": ("Carolina Arias", "Eduardo Motta", "Gisela Barrios", "Fernando Arosemena", "Yariela Castillo"),
+     "siembra": ["cruce_directo", "cruce_cambio_de_hora", "sin_material", "sin_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha",
+                 "compromiso_vencido", "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta"],
+     "lote": {"acuerdo_sin_responsable": 5, "acuerdo_sin_fecha": 5, "compromiso_vencido": 5, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 4, "cruce": 3}},
 ]
 
 

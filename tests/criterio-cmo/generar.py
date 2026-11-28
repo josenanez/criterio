@@ -64,6 +64,9 @@ ENTIDADES = [
     # Grupo C: Chile, con los seguros.
     {"carpeta": "seguros-cl", "industria": "seguros", "pais": "CL", "id": "96789012-3", "nombre": "Seguros Cordillera Sintéticos", "moneda": "CLP",
      "siembra": set(TODAS), "veces": 2},
+    # Grupo D: Panamá, con el retail.
+    {"carpeta": "retail-pa", "industria": "retail", "pais": "PA", "id": "155634567-2-2020", "nombre": "Almacenes del Canal Sintéticos", "moneda": "USD",
+     "siembra": set(TODAS), "veces": 2},
 ]
 
 # Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia pieza,

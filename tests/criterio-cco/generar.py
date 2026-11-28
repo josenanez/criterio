@@ -71,8 +71,8 @@ TASA = 3.0
 
 # Lo que cambia de un país a otro en el material: la forma de la sociedad de un cliente nuevo, el
 # prefijo de un teléfono y cómo se escribe una cifra. El IVA de cada factura sale del registro de países.
-FORMA = {"CO": "S.A.S.", "MX": "S.A. de C.V.", "EC": "S.A.", "PE": "S.A.C.", "CL": "SpA"}
-PREFIJO = {"CO": "+57 601", "MX": "+57 601", "EC": "+593 2", "PE": "+51 1", "CL": "+56 2"}
+FORMA = {"CO": "S.A.S.", "MX": "S.A. de C.V.", "EC": "S.A.", "PE": "S.A.C.", "CL": "SpA", "PA": "S.A."}
+PREFIJO = {"CO": "+57 601", "MX": "+57 601", "EC": "+593 2", "PE": "+51 1", "CL": "+56 2", "PA": "+507"}
 SIMBOLO = {"PE": "S/"}
 
 
@@ -198,6 +198,13 @@ ENTIDADES = [
      "clientes": ["Cliente Control Santiago SpA", "Cliente Control Valparaíso SpA", "Cliente Control Concepción SpA", "Cliente Control Temuco SpA",
                   "Cliente Control La Serena SpA", "Cliente Control Iquique SpA", "Cliente Control Puerto Montt SpA"],
      "siembra": []},
+    # Grupo D: Panamá, con el retail.
+    {"carpeta": "retail-pa", "industria": "retail", "pais": "PA", "id": "155622222-2-2017", "nombre": "Almacenes del Istmo", "moneda": "USD",
+     "u": 15_000, "n0": 2600, "crm": "hubspot-csv", "personas": ("Ana Arosemena", "Ricardo Chiari", "Itzel Pinzón"),
+     "clientes": ["Supermercados Bahía S.A.", "Distribuidora Colón S.A.", "Farmacias Chiriquí S.A.", "Hoteles Pacífico Panamá S.A.",
+                  "Clínica San Fernando Sintética S.A.", "Colegio del Istmo S.A.", "Constructora Azuero S.A."],
+     "siembra": ["etapa_sin_evidencia", "detenida", "pronostico_sin_respaldo", "descuento_sin_aprobacion", "ganado_sin_contrato"],
+     "lote": {"etapa_sin_evidencia": 4, "detenida": 3, "descuento_sin_aprobacion": 2, "ganado_sin_contrato": 2, "firmado_sin_factura": 2}},
 ]
 
 
@@ -217,7 +224,7 @@ def tid(e: dict, i: int) -> str:
 
 def id_proveedor(e: dict) -> str:
     return {"CO": f"{870000000 + e['n0']}", "MX": f"PRV{e['n0']}0101AB1", "EC": ruc_ec(9, e["n0"]),
-            "PE": ruc_pe(20, e["n0"] // 100, 900), "CL": rut(79000000 + e["n0"])}[e["pais"]]
+            "PE": ruc_pe(20, e["n0"] // 100, 900), "CL": rut(79000000 + e["n0"]), "PA": f"1557{e['n0']:05d}-2-2021"}[e["pais"]]
 
 
 def responsable(e: dict, nombre: str) -> str:

@@ -62,6 +62,9 @@ ENTIDADES = [
      "siembra": set(), "veces": 1, "escala": 1_000_000},
     {"carpeta": "control-mx", "industria": "retail", "pais": "MX", "id": "RCT190101AB2", "nombre": "Retail Control de Tecnología Sintético", "moneda": "MXN",
      "siembra": set(), "veces": 1, "escala": 5_000},
+    # Grupo D: Panamá, con la banca.
+    {"carpeta": "banca-pa", "industria": "banca", "pais": "PA", "id": "155612345-2-2019", "nombre": "Banco del Istmo Sintético", "moneda": "USD",
+     "siembra": set(TODAS), "veces": 2, "escala": 500},
 ]
 
 # Las repeticiones de cada defecto: la primera vez (1), la segunda (2) y la tercera (3), cada una en su fila.

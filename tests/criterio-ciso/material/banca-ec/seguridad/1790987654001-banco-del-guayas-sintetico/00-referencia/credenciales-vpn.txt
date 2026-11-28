@@ -1,0 +1,2 @@
+usuario: sintetico
+clave: no-es-una-clave

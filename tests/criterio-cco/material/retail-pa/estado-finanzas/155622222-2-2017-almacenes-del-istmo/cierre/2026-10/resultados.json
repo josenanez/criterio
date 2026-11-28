@@ -1,0 +1,31 @@
+{
+  "agente": "clara",
+  "periodo": "2026-10",
+  "partes": {
+    "einvoice-check": {
+      "periodo": "2026-10",
+      "emitidas": [
+        {
+          "numero": "FE-2601",
+          "id": "cufe-2600-1",
+          "fecha": "2026-10-20",
+          "receptor": "830026000",
+          "base": 180000,
+          "total": 192600,
+          "tipo": "factura",
+          "archivo": "2026-10/30-facturacion/emitidas/fe-2601.xml"
+        },
+        {
+          "numero": "FE-2602",
+          "id": "cufe-2600-2",
+          "fecha": "2026-10-30",
+          "receptor": "830026001",
+          "base": 270000,
+          "total": 288900,
+          "tipo": "factura",
+          "archivo": "2026-10/30-facturacion/emitidas/fe-2602.xml"
+        }
+      ]
+    }
+  }
+}

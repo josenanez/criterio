@@ -62,6 +62,9 @@ ENTIDADES = [
     # Grupo C: Chile, con la banca.
     {"carpeta": "banca-cl", "industria": "banca", "pais": "CL", "id": "97123456-K", "nombre": "Banco Austral Sintético", "moneda": "CLP",
      "siembra": set(TODAS), "veces": 2},
+    # Grupo D: Panamá, con la banca.
+    {"carpeta": "banca-pa", "industria": "banca", "pais": "PA", "id": "155698765-2-2018", "nombre": "Banco Canal Sintético", "moneda": "USD",
+     "siembra": set(TODAS), "veces": 2},
 ]
 
 # Las repeticiones de cada defecto: la segunda vez (2) y la tercera (3), cada una en su propia fila.

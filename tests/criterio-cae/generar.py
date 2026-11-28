@@ -65,6 +65,11 @@ ENTIDADES = [
      "siembra": {"riesgo", "unidad", "evaluacion", "area:fraude", "area:cumplimiento", "cambio", "atraso", "horas", "tematico", "externa",
                  "programa", "elementos", "papel", "paso", "revision", "informe", "prioridad", "objetividad",
                  "sin_plan", "vencido", "reprogramado", "cierre", "repetido", "aceptado", "externo"}},
+    # Grupo D: Ecuador, con las cooperativas.
+    {"carpeta": "cooperativa-ec", "industria": "cooperativas", "pais": "EC", "id": "1791234567001", "nombre": "Cooperativa de Ahorro Chimborazo Sintética", "moneda": "USD",
+     "siembra": {"riesgo", "unidad", "evaluacion", "area:fraude", "area:cumplimiento", "cambio", "atraso", "horas", "tematico", "externa",
+                 "programa", "elementos", "papel", "paso", "revision", "informe", "prioridad", "objetividad",
+                 "sin_plan", "vencido", "reprogramado", "cierre", "repetido", "aceptado", "externo"}},
 ]
 
 METODOLOGIA = """# Metodología de auditoría interna · {nombre}

@@ -1,0 +1,269 @@
+{
+  "entidad": "Banco del Istmo Sintético",
+  "industria": "banca",
+  "pais": "PA",
+  "hoy": "2026-11-25",
+  "periodo": "2026-10",
+  "siembra": true,
+  "config": {
+    "fausto": {
+      "version": "0.1",
+      "role": "cambios",
+      "entity": {
+        "id": "155612345-2-2019",
+        "name": "Banco del Istmo Sintético",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "tecnologia/155612345-2-2019-banco-del-istmo-sintetico",
+        "state": "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "emergency_review_days": 5,
+        "problem_days": 10
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    },
+    "domingo": {
+      "version": "0.1",
+      "role": "activos",
+      "entity": {
+        "id": "155612345-2-2019",
+        "name": "Banco del Istmo Sintético",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "tecnologia/155612345-2-2019-banco-del-istmo-sintetico",
+        "state": "estado-tecnologia/155612345-2-2019-banco-del-istmo-sintetico"
+      },
+      "period": "2026-10",
+      "publish_rostrum": true,
+      "methodology": {
+        "unused_license_pct": 15,
+        "cloud_tolerance_pct": 5
+      },
+      "columns": {},
+      "report": {
+        "language": "es"
+      },
+      "execution": {
+        "workers": 1
+      }
+    }
+  },
+  "extraccion": {
+    "cambios": {
+      "approvals": [
+        {
+          "change": "CHG-100",
+          "date": "2026-10-01",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-01.pdf"
+        },
+        {
+          "change": "CHG-410",
+          "date": "2026-10-01",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-01.pdf"
+        },
+        {
+          "change": "CHG-103",
+          "date": "2026-10-08",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-08.pdf"
+        },
+        {
+          "change": "CHG-104",
+          "date": "2026-10-08",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-08.pdf"
+        },
+        {
+          "change": "CHG-420",
+          "date": "2026-10-08",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-08.pdf"
+        },
+        {
+          "change": "CHG-220",
+          "date": "2026-10-22",
+          "authority": "Comité de cambios",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-22.pdf"
+        }
+      ],
+      "reviews": [
+        {
+          "change": "CHG-102",
+          "date": "2026-10-15",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-15.pdf"
+        },
+        {
+          "change": "CHG-104",
+          "date": "2026-10-15",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-15.pdf"
+        },
+        {
+          "change": "CHG-320",
+          "date": "2026-10-22",
+          "source": "10-cambios/acta_comite_de_cambios_2026-10-22.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    },
+    "activos": {
+      "exceptions": [
+        {
+          "asset": "A-101",
+          "until": "2027-03-31",
+          "source": "30-activos/acta_comite_de_arquitectura_2026-10.pdf"
+        },
+        {
+          "asset": "A-320",
+          "until": "2026-09-30",
+          "source": "30-activos/acta_comite_de_arquitectura_2026-03.pdf"
+        }
+      ],
+      "service_levels": [
+        {
+          "vendor": "Centro de Datos Uno",
+          "metric": "Disponibilidad",
+          "target": 99.9,
+          "credit_pct": 10,
+          "source": "40-proveedores/contrato_centro_de_datos_uno.pdf"
+        },
+        {
+          "vendor": "Mesa de Ayuda Sintética",
+          "metric": "Casos resueltos a tiempo",
+          "target": 95,
+          "credit_pct": 5,
+          "source": "40-proveedores/contrato_mesa_de_ayuda_sintetica.pdf"
+        },
+        {
+          "vendor": "Nube Andina",
+          "metric": "Disponibilidad",
+          "target": 99.95,
+          "credit_pct": 10,
+          "source": "40-proveedores/contrato_nube_andina.pdf"
+        },
+        {
+          "vendor": "Enlaces del Pacífico",
+          "metric": "Disponibilidad",
+          "target": 99.8,
+          "credit_pct": 8,
+          "source": "40-proveedores/contrato_enlaces_del_pacifico.pdf"
+        }
+      ],
+      "reviewed": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "asset_out_of_support",
+      "key": "soporte:A-310"
+    },
+    {
+      "signal": "asset_out_of_support",
+      "key": "soporte:A-320"
+    },
+    {
+      "signal": "asset_without_owner",
+      "key": "dueno:A-210"
+    },
+    {
+      "signal": "asset_without_owner",
+      "key": "dueno:A-220"
+    },
+    {
+      "signal": "change_without_approval",
+      "key": "aprobacion:CHG-210"
+    },
+    {
+      "signal": "change_without_approval",
+      "key": "aprobacion:CHG-220"
+    },
+    {
+      "signal": "cloud_over_budget",
+      "key": "nube:Analítica"
+    },
+    {
+      "signal": "cloud_over_budget",
+      "key": "nube:Canales digitales"
+    },
+    {
+      "signal": "deployment_without_change",
+      "key": "despliegue:D-510"
+    },
+    {
+      "signal": "deployment_without_change",
+      "key": "despliegue:D-520"
+    },
+    {
+      "signal": "emergency_change_without_review",
+      "key": "emergencia:CHG-310"
+    },
+    {
+      "signal": "emergency_change_without_review",
+      "key": "emergencia:CHG-320"
+    },
+    {
+      "signal": "failed_change_without_review",
+      "key": "fallido:CHG-410"
+    },
+    {
+      "signal": "failed_change_without_review",
+      "key": "fallido:CHG-420"
+    },
+    {
+      "signal": "license_shortfall",
+      "key": "faltante:diseno_grafico"
+    },
+    {
+      "signal": "license_shortfall",
+      "key": "faltante:herramienta_de_analitica"
+    },
+    {
+      "signal": "license_unused",
+      "key": "sobrante:firma_electronica"
+    },
+    {
+      "signal": "license_unused",
+      "key": "sobrante:videoconferencia"
+    },
+    {
+      "signal": "major_incident_without_problem",
+      "key": "problema:INC-610"
+    },
+    {
+      "signal": "major_incident_without_problem",
+      "key": "problema:INC-620"
+    },
+    {
+      "signal": "service_below_level",
+      "key": "nivel:S-11"
+    },
+    {
+      "signal": "service_below_level",
+      "key": "nivel:S-12"
+    },
+    {
+      "signal": "vendor_breach_without_credit",
+      "key": "credito:enlaces_del_pacifico"
+    },
+    {
+      "signal": "vendor_breach_without_credit",
+      "key": "credito:nube_andina"
+    }
+  ]
+}
